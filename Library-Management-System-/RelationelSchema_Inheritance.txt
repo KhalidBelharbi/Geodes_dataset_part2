@@ -1,0 +1,15 @@
+
+author(author_id:int [PK], name:String);
+
+fine(fineid:int [PK], GeneratedName:BookLoan #FK to(bookloan), fineamount:String, paid:boolean);
+
+bookloan(loanid:int [PK], GeneratedName:Book #FK to(book), GeneratedName:Borrower #FK to(borrower), out:Date, in:Date, due:Date, GeneratedName:Fine #FK to(fine));
+
+book(isbn:String [PK], title:String, available:boolean);
+
+bookauthor(/***/serialversionuid:long, GeneratedName:Author [PK] #FK to(author), GeneratedName:Book [PK] #FK to(book));
+
+borrower(cardid:int [PK], ssn:String, bname:String, address:String, phone:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

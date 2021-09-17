@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="post" >
+      <xs:complexContent>
+       <xs:extension base="abstractpersistable<long>">
+         <xs:sequence>
+          <xs:element name="content" type="xs:string" />
+          <xs:element name="" type="xs:dateTime" />
+          <xs:element name="poster" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="likes" type="like" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="comments" type="comment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="endorsement" >
+      <xs:complexContent>
+       <xs:extension base="abstractpersistable<long>">
+         <xs:sequence>
+          <xs:element name="endorser" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="" type="skill" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="like" >
+      <xs:complexContent>
+       <xs:extension base="abstractpersistable<long>">
+         <xs:sequence>
+          <xs:element name="liker" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="" type="post" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="comment" >
+      <xs:complexContent>
+       <xs:extension base="abstractpersistable<long>">
+         <xs:sequence>
+          <xs:element name="content" type="xs:string" />
+          <xs:element name="creator" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="" type="post" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="skill" >
+      <xs:complexContent>
+       <xs:extension base="abstractpersistable<long>">
+         <xs:sequence>
+          <xs:element name="skill" type="xs:string" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="endorsements" type="endorsement" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="abstractpersistable<long>">
+         <xs:sequence>
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="fullname" type="xs:string" />
+          <xs:element name="profilename" type="xs:string" />
+          <xs:element name="photo" type="xs:anyType" />
+          <xs:element name="photocontenttype" type="xs:string" />
+          <xs:element name="posts" type="post" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="connections" type="connection" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="connectionrequests" type="connection" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="likes" type="like" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="endorsements" type="endorsement" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="skills" type="skill" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="connection" >
+      <xs:complexContent>
+       <xs:extension base="abstractpersistable<long>">
+         <xs:sequence>
+          <xs:element name="sender" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="receiver" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="accepted" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="springbootminimalwebappapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="personquerycontrollertest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="personserviceimpl" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="personserviceimpltest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="personrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="personserviceimpl" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="personrepositorytest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="personrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="springbootminimalwebappapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpaconfiguration" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="modelmapperconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resourcenotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="resourcename" type="xs:string" />
+          <xs:element name="fieldname" type="xs:string" />
+          <xs:element name="transientfieldvalue" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="moviecreaterequest" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="moviedetails" type="xs:string" />
+        <xs:element name="GeneratedName" type="person" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="personupdaterequest" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="mobilenumber" type="xs:string" />
+        <xs:element name="GeneratedName" type="address" nillable="true" minOccurs="0" />
+        <xs:element name="books" type="books" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="movies" type="movie" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="personcreaterequest" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="mobilenumber" type="xs:string" />
+        <xs:element name="gender" type="genderenum" nillable="true" minOccurs="0" />
+        <xs:element name="age" type="xs:long" />
+        <xs:element name="dob" type="xs:dateTime" />
+        <xs:element name="isadult" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="address" nillable="true" minOccurs="0" />
+        <xs:element name="books" type="books" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="movies" type="movie" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="person" >
+      <xs:complexContent>
+       <xs:extension base="auditentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="mobilenumber" type="xs:string" />
+          <xs:element name="gender" type="genderenum" nillable="true" minOccurs="0" />
+          <xs:element name="age" type="xs:long" />
+          <xs:element name="dob" type="xs:dateTime" />
+          <xs:element name="isadult" type="xs:anyType" />
+          <xs:element name="" type="address" nillable="true" minOccurs="0" />
+          <xs:element name="books" type="books" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="movies" type="movie" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="movie" >
+      <xs:complexContent>
+       <xs:extension base="auditentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="moviedetails" type="xs:string" />
+          <xs:element name="//bi-directionalrelationship" type="person" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="genderenum" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="books" >
+      <xs:complexContent>
+       <xs:extension base="auditentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="title" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="address" >
+      <xs:complexContent>
+       <xs:extension base="auditentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="city" type="xs:string" />
+          <xs:element name="zipcode" type="xs:string" />
+          <xs:element name="" type="person" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseentity" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="auditentity" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="created" type="xs:dateTime" />
+          <xs:element name="lastmodified" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pagingresponse" >
+      <xs:sequence>
+        <xs:element name="/***entitycount*/count" type="xs:long" />
+        <xs:element name="/***pagenumber,0indicatethefirstpage.*/pagenumber" type="xs:long" />
+        <xs:element name="/***sizeofpage,0indicateinfinite-sized.*/pagesize" type="xs:long" />
+        <xs:element name="/***offsetfromtheofpagination.*/pageoffset" type="xs:long" />
+        <xs:element name="/***thenumbertotalofpages.*/pagetotal" type="xs:long" />
+        <xs:element name="/***elementsofpage.*/elements" type="person" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pagingheaders" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="addressservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="personservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="personserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="personrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="addressrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="movierepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="booksrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="addressserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="addressrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="personrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="movieserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="personrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="movierepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="booksrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="movieservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="addressrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<address,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="booksrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<books,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="movierepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<movie,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="personrepository" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<person,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bookquerycontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="bookserviceimpl" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="booksrepresentationmodelassembler" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="moviequerycontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="personrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="movieserviceimpl" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="movierepresentationmodelassembler" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="personrepresentationmodelassembler" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="moviecommandcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="movieserviceimpl" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="addressquerycontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="addressserviceimpl" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="personrepresentationmodelassembler" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="addressrepresentationmodelassembler" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="personcommandcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="personserviceimpl" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="personrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="personquerycontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="personserviceimpl" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="personrepresentationmodelassembler" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="addressrepresentationmodelassembler" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="booksrepresentationmodelassembler" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="movierepresentationmodelassembler" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="booksrepresentationmodelassembler" >
+      <xs:complexContent>
+       <xs:extension base="simpleidentifiablerepresentationmodelassembler<books>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rootcontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="movierepresentationmodelassembler" >
+      <xs:complexContent>
+       <xs:extension base="simpleidentifiablerepresentationmodelassembler<movie>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="personrepresentationmodelassembler" >
+      <xs:complexContent>
+       <xs:extension base="simpleidentifiablerepresentationmodelassembler<person>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="simpleidentifiablerepresentationmodelassembler" >
+      <xs:complexContent>
+       <xs:extension base="identifiable<?>",">
+         <xs:sequence>
+          <xs:element name="/***thespringmvcclassfortheobjectfromwhichlinkswillbebuilt.*/controllerclass" type="xs:anyType" />
+          <xs:element name="/***a{@link}tolookupnamesoflinksasoptionsforresourcepaths.*/relprovider" type="xs:anyType" />
+          <xs:element name="/***a{@linkclass}depictingtheobject'stype.*/resourcetype" type="xs:anyType" />
+          <xs:element name="/***defaultbasepathasempty.*/basepath" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="addressrepresentationmodelassembler" >
+      <xs:complexContent>
+       <xs:extension base="simpleidentifiablerepresentationmodelassembler<address>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="controller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="styles" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

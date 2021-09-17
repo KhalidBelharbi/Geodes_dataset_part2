@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="dataidentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="version" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="idversionpk" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="version" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="normalpointentity" >
+      <xs:complexContent>
+       <xs:extension base="pointentity">
+         <xs:sequence>
+          <xs:element name="place" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pointentity" >
+      <xs:complexContent>
+       <xs:extension base="dataidentity">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="nativeexampleresourceit" >
+      <xs:complexContent>
+       <xs:extension base="exampleresourcetest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="exampleresourcetest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

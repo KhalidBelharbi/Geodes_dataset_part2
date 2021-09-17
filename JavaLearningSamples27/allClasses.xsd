@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="applicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="webmvcconfig" >
+      <xs:sequence>
+        <xs:element name="max_age_secs" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="securityconfig" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+          <xs:element name="" type="customuserdetailsservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="customoauth2userservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="oauth2authenticationsuccesshandler" nillable="true" minOccurs="0" />
+          <xs:element name="" type="oauth2authenticationfailurehandler" nillable="true" minOccurs="0" />
+          <xs:element name="" type="httpcookieoauth2authorizationrequestrepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="appproperties" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="myrunner" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="appproperties" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cookieutils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="badrequestexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="oauth2authenticationprocessingexception" >
+      <xs:complexContent>
+       <xs:extension base="authenticationexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="resourcenotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="resourcename" type="xs:string" />
+          <xs:element name="fieldname" type="xs:string" />
+          <xs:element name="fieldvalue" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="tokenprovider" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authprovider" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="imageurl" type="xs:string" />
+        <xs:element name="emailverified" type="xs:anyType" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="provider" type="authprovider" nillable="true" minOccurs="0" />
+        <xs:element name="providerid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="loginrequest" >
+      <xs:sequence>
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authresponse" >
+      <xs:sequence>
+        <xs:element name="accesstoken" type="xs:string" />
+        <xs:element name="tokentype" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="apiresponse" >
+      <xs:sequence>
+        <xs:element name="success" type="xs:anyType" />
+        <xs:element name="message" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="signuprequest" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tokenauthenticationfilter" >
+      <xs:complexContent>
+       <xs:extension base="onceperrequestfilter">
+         <xs:sequence>
+          <xs:element name="" type="tokenprovider" nillable="true" minOccurs="0" />
+          <xs:element name="" type="customuserdetailsservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userprincipal" >
+      <xs:complexContent>
+       <xs:extension base="grantedauthority>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="authorities" type="xs:anyType" />
+          <xs:element name="attributes" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customuserdetailsservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customoauth2userservice" >
+      <xs:complexContent>
+       <xs:extension base="defaultoauth2userservice">
+         <xs:sequence>
+          <xs:element name="" type="userrepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="oauth2authenticationfailurehandler" >
+      <xs:complexContent>
+       <xs:extension base="simpleurlauthenticationfailurehandler">
+         <xs:sequence>
+          <xs:element name="" type="httpcookieoauth2authorizationrequestrepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="httpcookieoauth2authorizationrequestrepository" >
+      <xs:sequence>
+        <xs:element name="oauth2_authorization_request_cookie_name" type="xs:string" />
+        <xs:element name="redirect_uri_param_cookie_name" type="xs:string" />
+        <xs:element name="cookieexpireseconds" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="oauth2authenticationsuccesshandler" >
+      <xs:complexContent>
+       <xs:extension base="simpleurlauthenticationsuccesshandler">
+         <xs:sequence>
+          <xs:element name="" type="tokenprovider" nillable="true" minOccurs="0" />
+          <xs:element name="" type="appproperties" nillable="true" minOccurs="0" />
+          <xs:element name="" type="httpcookieoauth2authorizationrequestrepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="currentuser" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tokenprovider" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="appproperties" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="googleoauth2userinfo" >
+      <xs:complexContent>
+       <xs:extension base="oauth2userinfo">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="facebookoauth2userinfo" >
+      <xs:complexContent>
+       <xs:extension base="oauth2userinfo">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="githuboauth2userinfo" >
+      <xs:complexContent>
+       <xs:extension base="oauth2userinfo">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="oauth2userinfo" >
+      <xs:sequence>
+        <xs:element name="attributes" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="oauth2userinfofactory" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="restauthenticationentrypoint" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,784 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="referencedata" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="assignedbanknumber" type="xs:long" />
+        <xs:element name="GeneratedName" type="account" nillable="true" minOccurs="0" />
+        <xs:element name="amount" type="xs:anyType" />
+        <xs:element name="checknumber" type="xs:string" />
+        <xs:element name="tracenumber" type="xs:string" />
+        <xs:element name="paid" type="xs:dateTime" />
+        <xs:element name="stop" type="xs:dateTime" />
+        <xs:element name="digest" type="xs:string" />
+        <xs:element name="checkhistoryset" type="checkhistory" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="status" nillable="true" minOccurs="0" />
+        <xs:element name="itemtype" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="filemetadata" nillable="true" minOccurs="0" />
+        <xs:element name="linenumber" type="xs:string" />
+        <xs:element name="stoppresented" type="xs:dateTime" />
+        <xs:element name="stoppresentedreason" type="xs:string" />
+        <xs:element name="exceptionalreferencedatas" type="exceptionalreferencedata" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="workflow" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="version" type="xs:anyType" />
+        <xs:element name="checks" type="check" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="xml" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="checklinkage" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="linkagetype" nillable="true" minOccurs="0" />
+        <xs:element name="linked" type="check" nillable="true" minOccurs="0" />
+        <xs:element name="actual" type="check" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdetailfiltersearchvalue" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="paramsequence" type="xs:long" />
+        <xs:element name="parametervalue" type="xs:string" />
+        <xs:element name="relationaloperator" type="xs:string" />
+        <xs:element name="GeneratedName" type="userdetaildefinedfilter" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="searchparameter" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filemetadata" >
+      <xs:sequence>
+        <xs:element name="exceptional_reference_data_file_name" type="xs:string" />
+        <xs:element name="exceptional_reference_data_original_file_name" type="xs:string" />
+        <xs:element name="exceptional_reference_data_upload_directory" type="xs:string" />
+        <xs:element name="manual_entry_file_name" type="xs:string" />
+        <xs:element name="manual_entry_original_file_name" type="xs:string" />
+        <xs:element name="migrated_file_name" type="xs:string" />
+        <xs:element name="migrated_original_file_name" type="xs:string" />
+        <xs:element name="manual_entry_upload_directory" type="xs:string" />
+        <xs:element name="manual_entry_checksum" type="xs:string" />
+        <xs:element name="exceptional_reference_data_checksum" type="xs:string" />
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="filename" type="xs:string" />
+        <xs:element name="uploaddirectory" type="xs:string" />
+        <xs:element name="filesize" type="xs:long" />
+        <xs:element name="originalfilename" type="xs:string" />
+        <xs:element name="itemsreceived" type="xs:long" />
+        <xs:element name="GeneratedName" type="status" nillable="true" minOccurs="0" />
+        <xs:element name="checksum" type="xs:string" />
+        <xs:element name="checks" type="check" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="referencedatas" type="referencedata" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="exceptionalchecks" type="exceptionalcheck" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="filemapping" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="filetype" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdetaildefinedfilter" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="GeneratedName" type="userdetail" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="/***thisisusedtoidentifytheroleprogramatically.thenameshouldbelike"admin","local_user"*/name" type="xs:string" />
+        <xs:element name="/***thiswillbeusedtoshowtotheuserthismaylooklike"admin","localuserdetail"*/description" type="xs:string" />
+        <xs:element name="isactive" type="xs:anyType" />
+        <xs:element name="label" type="xs:string" />
+        <xs:element name="permissions" type="permission" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="exceptionstatus" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="isactive" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="checkdetailcomment" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="comment" type="xs:string" />
+        <xs:element name="GeneratedName" type="check" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userhistory" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="//considerthisforactionon(if"a"hasinactivted"b"then"b"willbeputintothiscolumn" type="userdetail" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="useractivity" nillable="true" minOccurs="0" />
+        <xs:element name="usercomment" type="xs:string" />
+        <xs:element name="systemcomment" type="xs:string" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="company" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="federaltaxid" type="xs:string" />
+        <xs:element name="branchname" type="xs:string" />
+        <xs:element name="accountforanalysis" type="xs:string" />
+        <xs:element name="timezone" type="xs:string" />
+        <xs:element name="isactive" type="xs:anyType" />
+        <xs:element name="accounts" type="account" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="contacts" type="contact" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="bank" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="decisionwindow" nillable="true" minOccurs="0" />
+        <xs:element name="filemappings" type="filemapping" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="searchparameter" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reporttemplate" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="templatefilename" type="xs:string" />
+        <xs:element name="isinternal" type="xs:anyType" />
+        <xs:element name="isexternal" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="reporttemplatetype" nillable="true" minOccurs="0" />
+        <xs:element name="accountserviceoption" type="xs:string" />
+        <xs:element name="reportparameteroptions" type="reportparameteroption" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobstep" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="GeneratedName" type="jobactiontype" nillable="true" minOccurs="0" />
+        <xs:element name="sequence" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="job" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="jobtype" nillable="true" minOccurs="0" />
+        <xs:element name="jobcriteriadata" type="jobcriteriadata" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="jobstephistory" type="jobstephistory" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="check" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="checkstatus" nillable="true" minOccurs="0" />
+        <xs:element name="routingnumber" type="xs:string" />
+        <xs:element name="checknumber" type="xs:string" />
+        <xs:element name="issue" type="xs:dateTime" />
+        <xs:element name="void" type="xs:dateTime" />
+        <xs:element name="issuedamount" type="xs:anyType" />
+        <xs:element name="voidamount" type="xs:anyType" />
+        <xs:element name="payee" type="xs:string" />
+        <xs:element name="digest" type="xs:string" />
+        <xs:element name="matchstatus" type="xs:string" />
+        <xs:element name="stale" type="xs:dateTime" />
+        <xs:element name="checkhistoryset" type="checkhistory" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="workflow" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="action" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="account" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="filemetadata" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="referencedata" nillable="true" minOccurs="0" />
+        <xs:element name="parent" type="check" nillable="true" minOccurs="0" />
+        <xs:element name="childchecks" type="check" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="comments" type="checkdetailcomment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="linkagetype" nillable="true" minOccurs="0" />
+        <xs:element name="linenumber" type="xs:string" />
+        <xs:element name="GeneratedName" type="itemtype" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="exceptiontype" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="exceptionstatus" nillable="true" minOccurs="0" />
+        <xs:element name="adjustmentchecks" type="adjustmentcheck" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="paymentstatus" type="xs:string" />
+        <xs:element name="exceptioncreation" type="xs:dateTime" />
+        <xs:element name="exceptionresolved" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="action" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="actiontype" type="xs:anyType" />
+        <xs:element name="version" type="xs:anyType" />
+        <xs:element name="isanadminaction" type="xs:anyType" />
+        <xs:element name="checkhistories" type="checkhistory" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="checks" type="check" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobhistory" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="job" nillable="true" minOccurs="0" />
+        <xs:element name="actualstarttime" type="xs:dateTime" />
+        <xs:element name="actualendtime" type="xs:dateTime" />
+        <xs:element name="scheduledstart" type="xs:dateTime" />
+        <xs:element name="executingonmachine" type="xs:string" />
+        <xs:element name="GeneratedName" type="jobstatustype" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobstephistory" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="executingonmachine" type="xs:string" />
+        <xs:element name="actualstarttime" type="xs:dateTime" />
+        <xs:element name="actualendtime" type="xs:dateTime" />
+        <xs:element name="numberitemsprocessed" type="xs:long" />
+        <xs:element name="numberoferrors" type="xs:long" />
+        <xs:element name="comments" type="xs:string" />
+        <xs:element name="GeneratedName" type="job" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="jobstatustype" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="jobstep" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="job" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="frequency" type="xs:string" />
+        <xs:element name="start" type="xs:dateTime" />
+        <xs:element name="starttime" type="xs:string" />
+        <xs:element name="end" type="xs:dateTime" />
+        <xs:element name="endtime" type="xs:string" />
+        <xs:element name="nextrun" type="xs:dateTime" />
+        <xs:element name="lastrun" type="xs:dateTime" />
+        <xs:element name="isindefinite" type="xs:anyType" />
+        <xs:element name="isweekly" type="xs:anyType" />
+        <xs:element name="isactive" type="xs:anyType" />
+        <xs:element name="runday" type="xs:string" />
+        <xs:element name="timezone" type="xs:string" />
+        <xs:element name="intervaltime" type="xs:string" />
+        <xs:element name="cronexpression" type="xs:string" />
+        <xs:element name="jobhistory" type="jobhistory" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="jobstep" type="jobstep" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="jobstephistory" type="jobstephistory" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accounttype" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="isactive" type="xs:anyType" />
+        <xs:element name="account" type="account" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bank" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="routingnumber" type="xs:string" />
+        <xs:element name="assignedbanknumber" type="xs:long" />
+        <xs:element name="companies" type="company" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="parent" type="bank" nillable="true" minOccurs="0" />
+        <xs:element name="//todoremoveit.accountshouldbereferencefromcompanyaccounts" type="account" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="address" nillable="true" minOccurs="0" />
+        <xs:element name="contactphone" type="xs:string" />
+        <xs:element name="websiteurl" type="xs:string" />
+        <xs:element name="logopathfilename" type="xs:string" />
+        <xs:element name="active" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="account" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="number" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="GeneratedName" type="company" nillable="true" minOccurs="0" />
+        <xs:element name="staledays" type="xs:long" />
+        <xs:element name="GeneratedName" type="accounttype" nillable="true" minOccurs="0" />
+        <xs:element name="open" type="xs:dateTime" />
+        <xs:element name="fileinputmethod" type="xs:string" />
+        <xs:element name="reportoutputmethod" type="xs:string" />
+        <xs:element name="dataoutputmethod" type="xs:string" />
+        <xs:element name="defaultppdecision" type="xs:string" />
+        <xs:element name="GeneratedName" type="paymenttype" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="accountcyclecutoff" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="accountserviceoption" nillable="true" minOccurs="0" />
+        <xs:element name="isactive" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="bank" nillable="true" minOccurs="0" />
+        <xs:element name="check" type="check" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="referencedataset" type="referencedata" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="userdetails" type="userdetail" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adjustmentcheck" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="check" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="linkagetype" nillable="true" minOccurs="0" />
+        <xs:element name="amount" type="xs:anyType" />
+        <xs:element name="digest" type="xs:string" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="exceptionalreferencedata" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="assignedbanknumber" type="xs:long" />
+        <xs:element name="amount" type="xs:string" />
+        <xs:element name="checknumber" type="xs:string" />
+        <xs:element name="tracenumber" type="xs:string" />
+        <xs:element name="paiddate" type="xs:string" />
+        <xs:element name="stopdate" type="xs:string" />
+        <xs:element name="itemtype" type="xs:anyType" />
+        <xs:element name="linenumber" type="xs:string" />
+        <xs:element name="exceptionstatus" type="xs:anyType" />
+        <xs:element name="accountnumber" type="xs:string" />
+        <xs:element name="stoppresenteddate" type="xs:string" />
+        <xs:element name="stoppresentedreason" type="xs:string" />
+        <xs:element name="GeneratedName" type="filemetadata" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="exceptiontype" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="referencedata" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="checkhistory" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="routingnumber" type="xs:string" />
+        <xs:element name="checknumber" type="xs:string" />
+        <xs:element name="issue" type="xs:dateTime" />
+        <xs:element name="checkamount" type="xs:anyType" />
+        <xs:element name="issuedamount" type="xs:anyType" />
+        <xs:element name="payee" type="xs:string" />
+        <xs:element name="systemcomment" type="xs:string" />
+        <xs:element name="usercomment" type="xs:string" />
+        <xs:element name="matchstatus" type="xs:string" />
+        <xs:element name="stale" type="xs:dateTime" />
+        <xs:element name="void" type="xs:dateTime" />
+        <xs:element name="voidamount" type="xs:anyType" />
+        <xs:element name="source" type="xs:string" />
+        <xs:element name="GeneratedName" type="checkstatus" nillable="true" minOccurs="0" />
+        <xs:element name="former" type="checkstatus" nillable="true" minOccurs="0" />
+        <xs:element name="target" type="checkstatus" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="check" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="action" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="referencedata" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="linkagetype" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="account" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="itemtype" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="exceptiontype" nillable="true" minOccurs="0" />
+        <xs:element name="paymentstatus" type="xs:string" />
+        <xs:element name="exceptioncreation" type="xs:dateTime" />
+        <xs:element name="exceptionresolved" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="adjustmentcheck" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ssoattribute" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="sso" nillable="true" minOccurs="0" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sso" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="uid" type="xs:string" />
+        <xs:element name="GeneratedName" type="status" nillable="true" minOccurs="0" />
+        <xs:element name="ssoattributes" type="ssoattribute" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="createtimeinmillis" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="paymenttype" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="isactive" type="xs:anyType" />
+        <xs:element name="account" type="account" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="checkstatus" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="start_status_name" type="xs:string" />
+        <xs:element name="issued_status_name" type="xs:string" />
+        <xs:element name="paid_status_name" type="xs:string" />
+        <xs:element name="stop_status_name" type="xs:string" />
+        <xs:element name="stale_status_name" type="xs:string" />
+        <xs:element name="void_status_name" type="xs:string" />
+        <xs:element name="void_paid_status_name" type="xs:string" />
+        <xs:element name="void_not_issued" type="xs:string" />
+        <xs:element name="duplicate_paid_status_name" type="xs:string" />
+        <xs:element name="duplicate_stop_status_name" type="xs:string" />
+        <xs:element name="paid_not_issued" type="xs:string" />
+        <xs:element name="stop_after_void" type="xs:string" />
+        <xs:element name="stale_paid" type="xs:string" />
+        <xs:element name="stale_stop" type="xs:string" />
+        <xs:element name="invalid_amount_paid" type="xs:string" />
+        <xs:element name="invalid_amount_stop" type="xs:string" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="version" type="xs:anyType" />
+        <xs:element name="checks" type="check" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="isexceptionalstatus" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobactiontype" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="springbeanname" type="xs:string" />
+        <xs:element name="GeneratedName" type="jobtype" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="itemtype" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="debitcreditsign" type="xs:string" />
+        <xs:element name="itemcode" type="xs:string" />
+        <xs:element name="isactive" type="xs:anyType" />
+        <xs:element name="checks" type="check" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filemapping" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="routingnumberposition" type="xs:string" />
+        <xs:element name="accountnumberposition" type="xs:string" />
+        <xs:element name="checknumberposition" type="xs:string" />
+        <xs:element name="issuecodeposition" type="xs:string" />
+        <xs:element name="issuedateposition" type="xs:string" />
+        <xs:element name="checkamountposition" type="xs:string" />
+        <xs:element name="payeeposition" type="xs:string" />
+        <xs:element name="filetype" type="xs:string" />
+        <xs:element name="filemappingname" type="xs:string" />
+        <xs:element name="GeneratedName" type="company" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="delimiter" nillable="true" minOccurs="0" />
+        <xs:element name="filemetadatas" type="filemetadata" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contact" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="company" nillable="true" minOccurs="0" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="fax" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="address1" type="xs:string" />
+        <xs:element name="address2" type="xs:string" />
+        <xs:element name="zip" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="state" type="xs:string" />
+        <xs:element name="isprimarycontact" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accountserviceoption" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="isactive" type="xs:anyType" />
+        <xs:element name="account" type="account" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobexecutionlocker" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="job" nillable="true" minOccurs="0" />
+        <xs:element name="scheduledstarttime" type="xs:dateTime" />
+        <xs:element name="actualstarttime" type="xs:dateTime" />
+        <xs:element name="endtime" type="xs:dateTime" />
+        <xs:element name="isrunning" type="xs:anyType" />
+        <xs:element name="executingonmachine" type="xs:string" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reason" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="isactive" type="xs:anyType" />
+        <xs:element name="ispay" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobcriteriadata" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="jobstep" nillable="true" minOccurs="0" />
+        <xs:element name="criterianame" type="xs:anyType" />
+        <xs:element name="value" type="xs:string" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="permission" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="label" type="xs:string" />
+        <xs:element name="userdetails" type="userdetail" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="roles" type="role" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="useractivity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="userhistoryset" type="userhistory" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="linkagetype" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="checks" type="check" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="adjustmentchecks" type="adjustmentcheck" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="exceptiontype" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="exceptiontype" type="xs:anyType" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="label" type="xs:string" />
+        <xs:element name="isactive" type="xs:anyType" />
+        <xs:element name="checks" type="check" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="checkhistoryset" type="checkhistory" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="report" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="asof" type="xs:dateTime" />
+        <xs:element name="asofdateissymbolic" type="xs:anyType" />
+        <xs:element name="asofdatesymbolicvalue" type="xs:string" />
+        <xs:element name="outputformat" type="xs:string" />
+        <xs:element name="GeneratedName" type="reporttemplate" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userdetail" nillable="true" minOccurs="0" />
+        <xs:element name="reportbankcompanyaccountparameters" type="reportbankcompanyaccountparameter" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="reportparameteroptionvalues" type="reportparameteroptionvalue" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accountcyclecutoff" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="isactive" type="xs:anyType" />
+        <xs:element name="account" type="account" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reportparameteroptionvalue" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="operator" type="xs:string" />
+        <xs:element name="valuechar" type="xs:string" />
+        <xs:element name="valuestart" type="xs:dateTime" />
+        <xs:element name="valueend" type="xs:dateTime" />
+        <xs:element name="valuedateissymbolic" type="xs:anyType" />
+        <xs:element name="valuedatestartsymbolicvalue" type="xs:string" />
+        <xs:element name="valuedateendsymbolicvalue" type="xs:string" />
+        <xs:element name="GeneratedName" type="report" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="reportparameteroption" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdetail" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="corporateusername" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="isactive" type="xs:anyType" />
+        <xs:element name="locked" type="xs:anyType" />
+        <xs:element name="institutionid" type="xs:string" />
+        <xs:element name="accounts" type="account" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="permissions" type="permission" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="base" type="role" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filetype" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="name" type="xs:anyType" />
+        <xs:element name="filemetadataset" type="filemetadata" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="exceptionalcheck" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="accountnumber" type="xs:string" />
+        <xs:element name="routingnumber" type="xs:string" />
+        <xs:element name="checknumber" type="xs:string" />
+        <xs:element name="issuecode" type="xs:string" />
+        <xs:element name="issuedate" type="xs:string" />
+        <xs:element name="issuedamount" type="xs:string" />
+        <xs:element name="payee" type="xs:string" />
+        <xs:element name="linenumber" type="xs:string" />
+        <xs:element name="GeneratedName" type="exceptionstatus" nillable="true" minOccurs="0" />
+        <xs:element name="checkstatus" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="filemetadata" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="exceptiontype" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reporttemplatetype" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobstatustype" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="isactive" type="xs:anyType" />
+        <xs:element name="statuscode" type="xs:string" />
+        <xs:element name="jobhistory" type="jobhistory" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="jobstephistory" type="jobstephistory" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="delimiter" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="comma" type="xs:string" />
+        <xs:element name="single_space" type="xs:string" />
+        <xs:element name="double_space" type="xs:string" />
+        <xs:element name="pipe" type="xs:string" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="value" type="xs:string" />
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="systemmessage" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="starttime" type="xs:dateTime" />
+        <xs:element name="endtime" type="xs:dateTime" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobtype" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="isactive" type="xs:anyType" />
+        <xs:element name="jobactiontypes" type="jobactiontype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reportparameteroption" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="displayname" type="xs:string" />
+        <xs:element name="datatype" type="xs:string" />
+        <xs:element name="reporttemplates" type="reporttemplate" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="decisionwindow" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="startwindow" type="xs:dateTime" />
+        <xs:element name="endwindow" type="xs:dateTime" />
+        <xs:element name="timezone" type="xs:string" />
+        <xs:element name="decisionwindow" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reportbankcompanyaccountparameter" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="bank" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="company" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="account" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="report" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="auditinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

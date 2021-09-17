@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="custom-description-tracer-test" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="initdb" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mockhttpservletrequest" >
+      <xs:complexContent>
+       <xs:extension base="httpupgradehandler>">
+         <xs:sequence>
+          <xs:element name="requesturi" type="xs:string" />
+          <xs:element name="requestmethod" type="xs:string" />
+          <xs:element name="headers" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mockhttpservletresponse" >
+      <xs:sequence>
+        <xs:element name="headers" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tracingtest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="httpclient4tracertest" >
+      <xs:sequence>
+        <xs:element name="server" type="xs:anyType" />
+        <xs:element name="port" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="servlettracertest" >
+      <xs:complexContent>
+       <xs:extension base="httpservlet">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="httpclient3tracertest" >
+      <xs:sequence>
+        <xs:element name="server" type="xs:anyType" />
+        <xs:element name="port" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="namedentity" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpatracertest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vet" >
+      <xs:complexContent>
+       <xs:extension base="person">
+         <xs:sequence>
+          <xs:element name="specialties" type="specialty" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="owner" >
+      <xs:complexContent>
+       <xs:extension base="person">
+         <xs:sequence>
+          <xs:element name="address" type="xs:string" />
+          <xs:element name="city" type="xs:string" />
+          <xs:element name="telephone" type="xs:string" />
+          <xs:element name="pets" type="pet" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="age" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pet" >
+      <xs:complexContent>
+       <xs:extension base="namedentity">
+         <xs:sequence>
+          <xs:element name="birth" type="xs:dateTime" />
+          <xs:element name="type" type="pettype" nillable="true" minOccurs="0" />
+          <xs:element name="" type="owner" nillable="true" minOccurs="0" />
+          <xs:element name="visits" type="visit" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="person" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="lastname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pettype" >
+      <xs:complexContent>
+       <xs:extension base="namedentity">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="visit" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="/***holdsvalueofproperty.*/" type="xs:dateTime" />
+          <xs:element name="/***holdsvalueofpropertydescription.*/description" type="xs:string" />
+          <xs:element name="/***holdsvalueofproperty.*/" type="pet" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="specialty" >
+      <xs:complexContent>
+       <xs:extension base="namedentity">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="vets" >
+      <xs:sequence>
+        <xs:element name="vets" type="vet" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tracemethodstracertest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customdescriptiontracertest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="threadtracingtest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="solrj53tracerintegrationtest" >
+      <xs:sequence>
+        <xs:element name="xml_doc" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jdbctracertest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlquerymasktest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlquerymetadatatest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="httpclienturltest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="transactionaccesstest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="disruptorthrifteventsinktest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="httpheaderstest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="asynccontexttest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jdbcurltest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="binarysequentiallogtest" >
+      <xs:sequence>
+        <xs:element name="tracing_log_filter" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="callstacktest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="callarraytest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mocktransactionsink" >
+      <xs:sequence>
+        <xs:element name="transactions" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mocksink" >
+      <xs:sequence>
+        <xs:element name="events" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tracingtesting" >
+      <xs:complexContent>
+       <xs:extension base="partialtransaction>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tracingcontext" >
+      <xs:complexContent>
+       <xs:extension base="tracer>[]">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tracingjunit4classrunner" >
+      <xs:complexContent>
+       <xs:extension base="blockjunit4classrunner">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testserviceconfigurer" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="transactionsampler" type="xs:anyType" />
+        <xs:element name="tracingerrorsampler" type="xs:anyType" />
+        <xs:element name="sinks" type="xs:anyType" />
+        <xs:element name="errorsinks" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="calldebug" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testingunlogger" >
+      <xs:sequence>
+        <xs:element name="weaver" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="transforms" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="trace" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

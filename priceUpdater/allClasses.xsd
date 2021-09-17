@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="priceupdaterapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="playersgw1" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="club" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="players" type="player" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="matchday" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="deadline" type="xs:anyType" />
+        <xs:element name="players2matchdays" type="players2matchdays" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="players2matchdaysid" >
+      <xs:sequence>
+        <xs:element name="player" type="xs:long" />
+        <xs:element name="matchday" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="players2matchdays" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="player" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="matchday" nillable="true" minOccurs="0" />
+        <xs:element name="valuethen" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="player" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="value" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="club" nillable="true" minOccurs="0" />
+        <xs:element name="players2matchdays" type="players2matchdays" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="databasepreparation" >
+      <xs:sequence>
+        <xs:element name="main_json_file" type="xs:anyType" />
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="playerrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="clubrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="timeutil" >
+      <xs:sequence>
+        <xs:element name="format_date_time" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="uefagaming" >
+      <xs:sequence>
+        <xs:element name="main_url" type="xs:string" />
+        <xs:element name="default_language" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="priceupdaterapplication" >
+      <xs:sequence>
+        <xs:element name="matchday_id" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="playerrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<player,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="matchdayrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<matchday,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="players2matchdaysrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<players2matchdays,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clubrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<club,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mainview" >
+      <xs:complexContent>
+       <xs:extension base="verticallayout">
+         <xs:sequence>
+          <xs:element name="" type="clubrepo" nillable="true" minOccurs="0" />
+          <xs:element name="grid" type="club" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="redditpostgenerator" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

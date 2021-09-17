@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="paymentrequested" >
+      <xs:complexContent>
+       <xs:extension base="abstractevent{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ordercontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="policyhandler" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="orderrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kafkaprocessor" >
+      <xs:sequence>
+        <xs:element name="input" type="xs:string" />
+        <xs:element name="output" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderapplication" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractevent" >
+      <xs:sequence>
+        <xs:element name="eventtype" type="xs:string" />
+        <xs:element name="timestamp" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cancellation" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="orderid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cancellationservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="paymentservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="payment" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="status" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ordered" >
+      <xs:complexContent>
+       <xs:extension base="abstractevent">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="productid" type="xs:long" />
+          <xs:element name="qty" type="xs:long" />
+          <xs:element name="orderstatus" type="xs:string" />
+          <xs:element name="orderid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ordercanceled" >
+      <xs:complexContent>
+       <xs:extension base="abstractevent">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="productid" type="xs:long" />
+          <xs:element name="qty" type="xs:long" />
+          <xs:element name="orderstatus" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="order" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="productid" type="xs:long" />
+        <xs:element name="qty" type="xs:long" />
+        <xs:element name="orderstatus" type="xs:string" />
+        <xs:element name="orderid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderrepository" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<order,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

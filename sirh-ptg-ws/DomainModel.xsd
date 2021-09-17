@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="spperm" >
+      <xs:sequence>
+        <xs:element name="id" type="sppermid" nillable="true" minOccurs="0" />
+        <xs:element name="tauxsalarial" type="xs:double" />
+        <xs:element name="tauxpatronal" type="xs:double" />
+        <xs:element name="montantforfait" type="xs:double" />
+        <xs:element name="montantplafond" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sprubr" >
+      <xs:sequence>
+        <xs:element name="norubr" type="xs:anyType" />
+        <xs:element name="lirubr" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sppprm" >
+      <xs:sequence>
+        <xs:element name="id" type="sppprmid" nillable="true" minOccurs="0" />
+        <xs:element name="nbprime" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spphre" >
+      <xs:sequence>
+        <xs:element name="id" type="spphreid" nillable="true" minOccurs="0" />
+        <xs:element name="spphrerecup" type="spphrerecupenum" nillable="true" minOccurs="0" />
+        <xs:element name="nbh25" type="xs:double" />
+        <xs:element name="nbh50" type="xs:double" />
+        <xs:element name="nbhdim" type="xs:double" />
+        <xs:element name="nbhmai" type="xs:double" />
+        <xs:element name="nbhnuit" type="xs:double" />
+        <xs:element name="nbhssimple" type="xs:double" />
+        <xs:element name="nbhscomposees" type="xs:double" />
+        <xs:element name="nbhcomplementaires" type="xs:double" />
+        <xs:element name="nbhrecuperees" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spcarr" >
+      <xs:sequence>
+        <xs:element name="id" type="spcarrid" nillable="true" minOccurs="0" />
+        <xs:element name="datefin" type="xs:anyType" />
+        <xs:element name="cdcate" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="spbhor" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="spbarem" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spmatr" >
+      <xs:sequence>
+        <xs:element name="nomatr" type="xs:anyType" />
+        <xs:element name="perpre" type="xs:anyType" />
+        <xs:element name="perrap" type="xs:anyType" />
+        <xs:element name="cdvali" type="xs:string" />
+        <xs:element name="typechainepaie" type="typechainepaieenum" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spwfpaie" >
+      <xs:sequence>
+        <xs:element name="codechaine" type="typechainepaieenum" nillable="true" minOccurs="0" />
+        <xs:element name="etat" type="spwfetat" nillable="true" minOccurs="0" />
+        <xs:element name="maj" type="xs:dateTime" />
+        <xs:element name="periodepaie" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spprim" >
+      <xs:sequence>
+        <xs:element name="id" type="spprimid" nillable="true" minOccurs="0" />
+        <xs:element name="datefin" type="xs:anyType" />
+        <xs:element name="montantprime" type="xs:anyType" />
+        <xs:element name="refarr" type="xs:anyType" />
+        <xs:element name="datarr" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spchge" >
+      <xs:sequence>
+        <xs:element name="id" type="spchgeid" nillable="true" minOccurs="0" />
+        <xs:element name="datefin" type="xs:anyType" />
+        <xs:element name="codecreancier" type="xs:anyType" />
+        <xs:element name="matriculechargeemploye" type="xs:string" />
+        <xs:element name="codecharge" type="xs:anyType" />
+        <xs:element name="tauxpartsalariale" type="xs:double" />
+        <xs:element name="montanttotalreglement" type="xs:double" />
+        <xs:element name="numeroordre" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spwfetat" >
+      <xs:sequence>
+        <xs:element name="codeetat" type="spwfetatenum" nillable="true" minOccurs="0" />
+        <xs:element name="libelleetat" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spbhor" >
+      <xs:sequence>
+        <xs:element name="cdthor" type="xs:anyType" />
+        <xs:element name="taux" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spbarem" >
+      <xs:sequence>
+        <xs:element name="iban" type="xs:string" />
+        <xs:element name="ina" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spacti" >
+      <xs:sequence>
+        <xs:element name="code_activite_abs_non_concertee" type="xs:string" />
+        <xs:element name="code_activite_abs_concertee" type="xs:string" />
+        <xs:element name="code_activite_abs_immediate" type="xs:string" />
+        <xs:element name="code_activite_abs_greve" type="xs:string" />
+        <xs:element name="codeactvite" type="xs:string" />
+        <xs:element name="libelleactivite" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spadmn" >
+      <xs:sequence>
+        <xs:element name="id" type="spadmnid" nillable="true" minOccurs="0" />
+        <xs:element name="datfin" type="xs:anyType" />
+        <xs:element name="cdpadm" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sppact" >
+      <xs:sequence>
+        <xs:element name="id" type="sppactid" nillable="true" minOccurs="0" />
+        <xs:element name="nbheures" type="xs:double" />
+        <xs:element name="service" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="motifheuresup" >
+      <xs:sequence>
+        <xs:element name="idmotifhsup" type="xs:anyType" />
+        <xs:element name="text" type="xs:string" />
+        <xs:element name="version" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reftypepointage" >
+      <xs:sequence>
+        <xs:element name="idreftypepointage" type="xs:anyType" />
+        <xs:element name="label" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dpmindemannee" >
+      <xs:sequence>
+        <xs:element name="iddpmindemannee" type="xs:anyType" />
+        <xs:element name="annee" type="xs:anyType" />
+        <xs:element name="debut" type="xs:dateTime" />
+        <xs:element name="fin" type="xs:dateTime" />
+        <xs:element name="setdpmindemchoixagent" type="dpmindemchoixagent" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="version" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="refetat" >
+      <xs:sequence>
+        <xs:element name="idrefetat" type="xs:anyType" />
+        <xs:element name="label" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pointage" >
+      <xs:sequence>
+        <xs:element name="idpointage" type="xs:anyType" />
+        <xs:element name="idagent" type="xs:anyType" />
+        <xs:element name="type" type="reftypepointage" nillable="true" minOccurs="0" />
+        <xs:element name="etats" type="etatpointage" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="lundi" type="xs:dateTime" />
+        <xs:element name="debut" type="xs:dateTime" />
+        <xs:element name="fin" type="xs:dateTime" />
+        <xs:element name="quantite" type="xs:anyType" />
+        <xs:element name="parent" type="pointage" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="refprime" nillable="true" minOccurs="0" />
+        <xs:element name="heuresuprecuperee" type="xs:anyType" />
+        <xs:element name="heuresuprappelservice" type="xs:anyType" />
+        <xs:element name="primeforfaitdpmrecup" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="reftypeabsence" nillable="true" minOccurs="0" />
+        <xs:element name="motif" type="ptgcomment" nillable="true" minOccurs="0" />
+        <xs:element name="motifhsup" type="motifheuresup" nillable="true" minOccurs="0" />
+        <xs:element name="commentaire" type="ptgcomment" nillable="true" minOccurs="0" />
+        <xs:element name="ventilations" type="ventildate" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="idagentmodification" type="xs:anyType" />
+        <xs:element name="version" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ventilprime" >
+      <xs:sequence>
+        <xs:element name="idventilprime" type="xs:anyType" />
+        <xs:element name="idagent" type="xs:anyType" />
+        <xs:element name="debutmois" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="refprime" nillable="true" minOccurs="0" />
+        <xs:element name="etat" type="etatpointageenum" nillable="true" minOccurs="0" />
+        <xs:element name="quantite" type="xs:double" />
+        <xs:element name="GeneratedName" type="ventildate" nillable="true" minOccurs="0" />
+        <xs:element name="prime" type="xs:dateTime" />
+        <xs:element name="version" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="titrerepasexportetatpayeurtask" >
+      <xs:sequence>
+        <xs:element name="idtitrerepasexportetatspayeurtask" type="xs:anyType" />
+        <xs:element name="idagent" type="xs:anyType" />
+        <xs:element name="month" type="xs:dateTime" />
+        <xs:element name="creation" type="xs:dateTime" />
+        <xs:element name="export" type="xs:dateTime" />
+        <xs:element name="taskstatus" type="xs:string" />
+        <xs:element name="version" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="titrerepasexportetatpayeurdata" >
+      <xs:sequence>
+        <xs:element name="idtitrerepasexportetatspayeurdata" type="xs:anyType" />
+        <xs:element name="titrerepasexportetatspayeurtask" type="titrerepasexportetatpayeurtask" nillable="true" minOccurs="0" />
+        <xs:element name="idagent" type="xs:anyType" />
+        <xs:element name="idtitrerepas" type="xs:anyType" />
+        <xs:element name="civilitetitrerepas" type="xs:string" />
+        <xs:element name="nomtitrerepas" type="xs:string" />
+        <xs:element name="prenomtitrerepas" type="xs:string" />
+        <xs:element name="naissancetitrerepas" type="xs:dateTime" />
+        <xs:element name="version" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="droitsagent" >
+      <xs:sequence>
+        <xs:element name="iddroitsagent" type="xs:anyType" />
+        <xs:element name="idagent" type="xs:anyType" />
+        <xs:element name="modification" type="xs:dateTime" />
+        <xs:element name="droits" type="droit" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="version" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="revinfo" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="rev" type="xs:long" />
+        <xs:element name="timestamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="titrerepasetatprestataire" >
+      <xs:sequence>
+        <xs:element name="idtretatprestataire" type="xs:anyType" />
+        <xs:element name="etatprestataire" type="xs:dateTime" />
+        <xs:element name="idagent" type="xs:anyType" />
+        <xs:element name="edition" type="xs:dateTime" />
+        <xs:element name="label" type="xs:string" />
+        <xs:element name="fichier" type="xs:string" />
+        <xs:element name="noderefalfresco" type="xs:string" />
+        <xs:element name="version" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pointagecalcule" >
+      <xs:sequence>
+        <xs:element name="idpointagecalcule" type="xs:anyType" />
+        <xs:element name="idagent" type="xs:anyType" />
+        <xs:element name="type" type="reftypepointage" nillable="true" minOccurs="0" />
+        <xs:element name="etat" type="etatpointageenum" nillable="true" minOccurs="0" />
+        <xs:element name="lundi" type="xs:dateTime" />
+        <xs:element name="debut" type="xs:dateTime" />
+        <xs:element name="fin" type="xs:dateTime" />
+        <xs:element name="quantite" type="xs:double" />
+        <xs:element name="GeneratedName" type="refprime" nillable="true" minOccurs="0" />
+        <xs:element name="last" type="ventildate" nillable="true" minOccurs="0" />
+        <xs:element name="version" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ventiltask" >
+      <xs:sequence>
+        <xs:element name="idventiltask" type="xs:anyType" />
+        <xs:element name="idagent" type="xs:anyType" />
+        <xs:element name="idagentcreation" type="xs:anyType" />
+        <xs:element name="creation" type="xs:dateTime" />
+        <xs:element name="typechainepaie" type="typechainepaieenum" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="reftypepointage" nillable="true" minOccurs="0" />
+        <xs:element name="from" type="ventildate" nillable="true" minOccurs="0" />
+        <xs:element name="to" type="ventildate" nillable="true" minOccurs="0" />
+        <xs:element name="ventilation" type="xs:dateTime" />
+        <xs:element name="taskstatus" type="xs:string" />
+        <xs:element name="version" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dpmindemchoixagent" >
+      <xs:sequence>
+        <xs:element name="iddpmindemchoixagent" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="dpmindemannee" nillable="true" minOccurs="0" />
+        <xs:element name="idagent" type="xs:anyType" />
+        <xs:element name="idagentcreation" type="xs:anyType" />
+        <xs:element name="maj" type="xs:dateTime" />
+        <xs:element name="ischoixrecuperation" type="xs:anyType" />
+        <xs:element name="ischoixindemnite" type="xs:anyType" />
+        <xs:element name="version" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="titrerepasetatpayeur" >
+      <xs:sequence>
+        <xs:element name="idtretatpayeur" type="xs:anyType" />
+        <xs:element name="etatpayeur" type="xs:dateTime" />
+        <xs:element name="idagent" type="xs:anyType" />
+        <xs:element name="edition" type="xs:dateTime" />
+        <xs:element name="label" type="xs:string" />
+        <xs:element name="fichier" type="xs:string" />
+        <xs:element name="noderefalfresco" type="xs:string" />
+        <xs:element name="version" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ventildate" >
+      <xs:sequence>
+        <xs:element name="idventildate" type="xs:anyType" />
+        <xs:element name="ventilation" type="xs:dateTime" />
+        <xs:element name="typechainepaie" type="typechainepaieenum" nillable="true" minOccurs="0" />
+        <xs:element name="paye" type="xs:anyType" />
+        <xs:element name="pointages" type="pointage" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="pointagescalcules" type="pointagecalcule" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="version" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reposcomptask" >
+      <xs:sequence>
+        <xs:element name="idrctask" type="xs:anyType" />
+        <xs:element name="idagent" type="xs:anyType" />
+        <xs:element name="idagentcreation" type="xs:anyType" />
+        <xs:element name="creation" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="ventildate" nillable="true" minOccurs="0" />
+        <xs:element name="calcul" type="xs:dateTime" />
+        <xs:element name="taskstatus" type="xs:string" />
+        <xs:element name="version" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="etatpointage" >
+      <xs:sequence>
+        <xs:element name="idetatpointage" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="pointage" nillable="true" minOccurs="0" />
+        <xs:element name="etat" type="xs:dateTime" />
+        <xs:element name="maj" type="xs:dateTime" />
+        <xs:element name="etat" type="etatpointageenum" nillable="true" minOccurs="0" />
+        <xs:element name="idagent" type="xs:anyType" />
+        <xs:element name="version" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reftypeabsence" >
+      <xs:sequence>
+        <xs:element name="idreftypeabsence" type="xs:anyType" />
+        <xs:element name="label" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="exportetatspayeurtask" >
+      <xs:sequence>
+        <xs:element name="idexportetatspayeurtask" type="xs:anyType" />
+        <xs:element name="idagent" type="xs:anyType" />
+        <xs:element name="creation" type="xs:dateTime" />
+        <xs:element name="export" type="xs:dateTime" />
+        <xs:element name="typechainepaie" type="typechainepaieenum" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="ventildate" nillable="true" minOccurs="0" />
+        <xs:element name="taskstatus" type="xs:string" />
+        <xs:element name="version" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="refprime" >
+      <xs:sequence>
+        <xs:element name="idrefprime" type="xs:anyType" />
+        <xs:element name="norubr" type="xs:anyType" />
+        <xs:element name="libelle" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="typesaisie" type="typesaisieenum" nillable="true" minOccurs="0" />
+        <xs:element name="calculee" type="xs:anyType" />
+        <xs:element name="statut" type="agentstatutenum" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="mairieprimetableenum" nillable="true" minOccurs="0" />
+        <xs:element name="aide" type="xs:string" />
+        <xs:element name="affichagekiosque" type="xs:anyType" />
+        <xs:element name="version" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="etatpayeur" >
+      <xs:sequence>
+        <xs:element name="idetatpayeur" type="xs:anyType" />
+        <xs:element name="statut" type="agentstatutenum" nillable="true" minOccurs="0" />
+        <xs:element name="etatpayeur" type="xs:dateTime" />
+        <xs:element name="idagent" type="xs:anyType" />
+        <xs:element name="edition" type="xs:dateTime" />
+        <xs:element name="label" type="xs:string" />
+        <xs:element name="fichier" type="xs:string" />
+        <xs:element name="noderefalfresco" type="xs:string" />
+        <xs:element name="version" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ventilabsence" >
+      <xs:sequence>
+        <xs:element name="idventilabsence" type="xs:anyType" />
+        <xs:element name="idagent" type="xs:anyType" />
+        <xs:element name="lundi" type="xs:dateTime" />
+        <xs:element name="minutesconcertee" type="xs:long" />
+        <xs:element name="minutesnonconcertee" type="xs:long" />
+        <xs:element name="minutesimmediat" type="xs:long" />
+        <xs:element name="minutesgreve" type="xs:long" />
+        <xs:element name="etat" type="etatpointageenum" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="ventildate" nillable="true" minOccurs="0" />
+        <xs:element name="version" type="xs:anyType" />
+        <xs:element name="nombreabsenceinferieur1" type="xs:long" />
+        <xs:element name="nombreabsenceentre1et4" type="xs:long" />
+        <xs:element name="nombreabsencesuperieur1" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reposcomphisto" >
+      <xs:sequence>
+        <xs:element name="idrchisto" type="xs:anyType" />
+        <xs:element name="idagent" type="xs:anyType" />
+        <xs:element name="lundi" type="xs:dateTime" />
+        <xs:element name="msup" type="xs:anyType" />
+        <xs:element name="mbasehoraire" type="xs:anyType" />
+        <xs:element name="version" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="titrerepasetatdemande" >
+      <xs:sequence>
+        <xs:element name="idtretatdemande" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="titrerepasdemande" nillable="true" minOccurs="0" />
+        <xs:element name="maj" type="xs:dateTime" />
+        <xs:element name="etat" type="etatpointageenum" nillable="true" minOccurs="0" />
+        <xs:element name="commentaire" type="xs:string" />
+        <xs:element name="idagent" type="xs:anyType" />
+        <xs:element name="commande" type="xs:anyType" />
+        <xs:element name="version" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="droit" >
+      <xs:sequence>
+        <xs:element name="iddroit" type="xs:anyType" />
+        <xs:element name="idagent" type="xs:anyType" />
+        <xs:element name="modification" type="xs:dateTime" />
+        <xs:element name="approbateur" type="xs:anyType" />
+        <xs:element name="operateur" type="xs:anyType" />
+        <xs:element name="idagentdelegataire" type="xs:anyType" />
+        <xs:element name="approbateur" type="droit" nillable="true" minOccurs="0" />
+        <xs:element name="operateurs" type="droit" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="agents" type="droitsagent" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="version" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="titrerepasdemande" >
+      <xs:sequence>
+        <xs:element name="idtrdemande" type="xs:anyType" />
+        <xs:element name="idagent" type="xs:anyType" />
+        <xs:element name="month" type="xs:dateTime" />
+        <xs:element name="commande" type="xs:anyType" />
+        <xs:element name="etats" type="titrerepasetatdemande" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="version" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="exportpaietask" >
+      <xs:sequence>
+        <xs:element name="idexportpaietask" type="xs:anyType" />
+        <xs:element name="idagent" type="xs:anyType" />
+        <xs:element name="idagentcreation" type="xs:anyType" />
+        <xs:element name="creation" type="xs:dateTime" />
+        <xs:element name="typechainepaie" type="typechainepaieenum" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="ventildate" nillable="true" minOccurs="0" />
+        <xs:element name="export" type="xs:dateTime" />
+        <xs:element name="taskstatus" type="xs:string" />
+        <xs:element name="version" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ventilhsup" >
+      <xs:sequence>
+        <xs:element name="idventilhsup" type="xs:anyType" />
+        <xs:element name="idagent" type="xs:anyType" />
+        <xs:element name="lundi" type="xs:dateTime" />
+        <xs:element name="mabsences" type="xs:long" />
+        <xs:element name="mabsencesas400" type="xs:long" />
+        <xs:element name="mhorscontrat" type="xs:long" />
+        <xs:element name="msup" type="xs:long" />
+        <xs:element name="msup25" type="xs:long" />
+        <xs:element name="msup25recup" type="xs:long" />
+        <xs:element name="msup50" type="xs:long" />
+        <xs:element name="msup50recup" type="xs:long" />
+        <xs:element name="msdjf" type="xs:long" />
+        <xs:element name="msdjfrecup" type="xs:long" />
+        <xs:element name="mmai" type="xs:long" />
+        <xs:element name="mmairecup" type="xs:long" />
+        <xs:element name="msnuit" type="xs:long" />
+        <xs:element name="msnuitrecup" type="xs:long" />
+        <xs:element name="mnormales" type="xs:long" />
+        <xs:element name="mnormalesrecup" type="xs:long" />
+        <xs:element name="msimple" type="xs:long" />
+        <xs:element name="msimplerecup" type="xs:long" />
+        <xs:element name="mcomposees" type="xs:long" />
+        <xs:element name="mcomposeesrecup" type="xs:long" />
+        <xs:element name="mrecuperees" type="xs:long" />
+        <xs:element name="mrappelservice" type="xs:long" />
+        <xs:element name="mprimeforfaitdpm" type="xs:long" />
+        <xs:element name="etat" type="etatpointageenum" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="ventildate" nillable="true" minOccurs="0" />
+        <xs:element name="version" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ptgcomment" >
+      <xs:sequence>
+        <xs:element name="idptgcomment" type="xs:anyType" />
+        <xs:element name="text" type="xs:string" />
+        <xs:element name="version" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

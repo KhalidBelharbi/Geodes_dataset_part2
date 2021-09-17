@@ -1,0 +1,49 @@
+cacheentity(uri:String [PK], GeneratedName:UID #FK to(uid), content:String);
+
+topic(name:String, lang:Language, createdat:Date);
+
+item(ns:String, number:String, content:String, taggedcontent:String, //@column(columndefinition:String, //fieldforoptimizationorderoperationondatabaseorderindex:Float, upsat:Date);
+
+record(code:String, name:String, previousname:String, recorderat:Date, createdat:Date, audiourl:String, altaudiogid:String, text:String, duration:Integer, description:String);
+
+term(name:String, shortdescription:String, taggedshortdescription:String, description:String, taggeddescription:String, //googledocisdescriptiongid:String, //googledocetagdescriptiongversion:Long);
+
+uid(uri:String [PK]);
+
+itemsrangeseq(seq:Integer [PK]);
+
+user(id:Integer [PK], email:String, accesstoken:String, firstname:String, lastname:String, name:String, picture:String, timezone:String, thumbnail:String, GeneratedName:OAuthProvider, role:UserRole, createdat:Date, lastvisitat:Date, providerid:Long, hiddenactioneventid:Integer);
+
+articleseq(seq:Integer [PK]);
+
+category(//paragraph_name:String, paragraph_sign:String, //todorenametocodename:String, description:String, parent:String, next:String, start:String, end:String);
+
+pendingaction(id:Integer [PK], message:String, initiatedby:Integer, command:String, createdat:Date, GeneratedName:Action, confirmedat:Date, confirmedby:Integer);
+
+actionevent(id:Integer [PK], createdat:Date, message:String, createdby:Integer, GeneratedName:Action);
+
+videoresource(id:String, title:String, lang:Language, code:String, publishedat:Date, createdat:Date, createdby:Integer, official:Boolean);
+
+article(sequence:Class, id:Integer, name:String, content:String, taggedcontent:String);
+
+termmorph(name:String [PK], termuri:String);
+
+translation(origin:String [PK], translated:String, lang:Language, GeneratedName:Context);
+
+lightlink(linkid:Integer [PK], type:LinkType, source:String, quote:String, taggedquote:String, comment:String, rate:Float, createdat:Date, createdby:Integer, uid1:String, uid2:String);
+
+itemsrange(name_space:String, sequence:Class, //from:5.0001//to:5.0002(определилпоследующейстроке)//code:5.17.1.1(том.раздел.глава.параграф)//description:"ииссиидиологиянепризнаётсянаукой,котораявсвоюочередьнеможетответитьнавопросыоструктуресамосознания.поэтомупредставлениялюдейо"своейдуше"туманныинадуманы."//uri:ии:пункты:5.17.1.1from:String, to:String, code:String, description:String, //uriofparentcategorycategory:String, createdat:Date);
+
+link(linkid:Integer [PK], type:LinkType, source:String, quote:String, taggedquote:String, comment:String, rate:Float, createdat:Date, createdby:Integer, 1:UID #FK to(uid), 2:UID #FK to(uid));
+
+termparagraph(term:String [PK], paragraph:String [PK]);
+
+document(*/id:String, name:String, annotation:String, author:String, thumbnail:String, mimetype:String, icon:String, downloadurl:String, createdat:Date);
+
+resource(title:String, type:ResourceType, comments:String, createdat:Date);
+
+image(id:String, name:String, mimetype:String, downloadurl:String, thumbnail:String, createdat:Date, comment:String);
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

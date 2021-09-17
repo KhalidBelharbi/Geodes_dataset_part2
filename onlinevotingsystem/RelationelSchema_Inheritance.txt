@@ -1,0 +1,17 @@
+
+electionofficer(id:int [PK], voters:RegisteredSocietyVoters #FK to(registeredsocietyvoters), firstname:String, lastname:String, //@pattern(regexp:String, gender:String, mobileno:long, //@pattern(regexp:String, address1:String, //@column(name:String, pincode:int);
+
+votedlist(//serialno.id:int [PK], time:Date, //@column(name:RegisteredSocietyVoters #FK to(registeredsocietyvoters), society:CooperativeSociety #FK to(cooperativesociety), candidates:NominatedCandidate #FK to(nominatedcandidate));
+
+nominatedcandidate(//@onetoone(targetentity:int [PK], //@pattern(regexp:String);
+
+registeredsocietyvoters(voterid:Integer [PK], voteridcardno:String, firstname:String, lastname:String, gender:String, password:String, reservationcategory:String, mobileno:String, emailid:String, address1:String, address2:String, mandal:String, district:String, //@size(min:Integer, castedvote:boolean);
+
+electionresult(id:int [PK], //@size(min:String, //@size(min:String, societyname:String, address:String, totalsocietyvotes:Integer, totalpolledvotes:Integer, totalpollingpercentage:float, totalcandidatesvotes:Integer, candidatevotespercentage:float, result:String);
+
+cooperativesociety(id:int [PK], societyname:String, headofsociety:String, village:String, mandal:String, district:String, pincode:String);
+
+user(userid:Integer [PK], password:String, firstname:String, lastname:String, email:String, contactno:String, GeneratedName:NominatedCandidate #FK to(nominatedcandidate), GeneratedName:ElectionResult #FK to(electionresult));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

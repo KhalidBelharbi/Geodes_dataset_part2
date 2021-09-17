@@ -1,0 +1,13 @@
+
+sshgroupentity(serialversionuid:long, /***主键id*/id:String [PK], /***名称*/name:String, /***创建时间*/createtime:Date, /***状态*/status:short, /***描述*/description:String);
+
+sshtypeentity(serialversionuid:long, /***主键id*/id:String [PK], /***类型*/name:String, /***创建时间*/createtime:Date, /***状态*/status:short, /***描述*/description:String, /***版本*/version:String);
+
+sshregionentity(serialversionuid:long, /***主键id*/id:String [PK], /***名称*/name:String, /***创建时间*/createtime:Date, /***状态*/status:short, /***描述*/description:String);
+
+sshserverentity(serialversionuid:long, /***主键id*/id:String [PK], /***组id*/groupid:String, /***组关联*/groupentity:SshGroupEntity #FK to(en), typeid:String, typeentity:SshTypeEntity #FK to(en), accountid:String, accountentity:SshAccountEntity #FK to(en), /***区域关联*/regionentity:SshRegionEntity #FK to(en), /***区域id*/regionid:String, /***名称*/name:String, /***创建时间*/createtime:Date, /***状态*/status:short, /***主机地址，ip地址或域名*/hostname:String, port:int, remotedirectory:String, timeout:int, channeltimeout:int, /***描述*/description:String);
+
+sshaccountentity(serialversionuid:long, /***主键id*/id:String [PK], /***名称*/name:String, password:String, /***创建时间*/createtime:Date, /***状态*/status:short, root:boolean, /***描述*/description:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

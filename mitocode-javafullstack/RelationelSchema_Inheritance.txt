@@ -1,0 +1,29 @@
+
+menu(idmenu:Integer [PK], icono:String, nomber:String, url:String);
+
+menu_rol(id_menu:Menu [PK] #FK to Menu,id_rol:list<rol> [PK] #FK to list<rol>);
+
+paciente(idpaciente:Integer [PK], nombres:String, apellidos:String, dni:String, direccion:String, telefono:String, email:String);
+
+detalleconsulta(iddetalle:Integer [PK], GeneratedName:Consulta #FK to(consulta), diagnostico:String, tratamiento:String);
+
+rol(idrol:Integer [PK], nomber:String, descripcion:String);
+
+examen(idexamen:Integer [PK], nombre:String, descripcion:String);
+
+medico(idmedico:Integer [PK], nombres:String, apellidos:String, cmp:String, fotourl:String);
+
+consultaexamen(pk:Consulta [PK], GeneratedName:Examen [PK]);
+
+usuario(idusuario:Integer [PK], username:String, password:String, enabled:String);
+
+usuario_rol(id_usuario:Usuario [PK] #FK to Usuario,id_rol:list<rol> [PK] #FK to list<rol>);
+
+especialidad(idespecialidad:Integer [PK], nombre:String, descripcion:String);
+
+archivo(idarchivo:Integer [PK], filename:String, filetype:String, value:byte);
+
+consulta(idconsulta:Integer [PK], GeneratedName:Paciente #FK to(paciente), GeneratedName:Medico #FK to(medico), GeneratedName:Especialidad #FK to(especialidad), numconsultorio:String, //jsonisodateyyyy-mmddthh:mm:ssfecha:LocalDateTime);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

@@ -1,0 +1,137 @@
+
+tracklocations(tracklocationid:UUID [PK], //@joincolumn(name:UUID, location:String, timepoint:Date, createdstamp:Date, lastupdstamp:Date);
+
+facility(facilityid:String [PK], facilityname:String, GeneratedName:PostalAddress #FK to(postaladdress), createdstamp:Date, lastupdstamp:Date);
+
+uomtype(uomtypeid:String [PK]);
+
+product(productid:String [PK], productname:String, //quantity:Double, uom_id:Uom #FK to(Uom), product_type_id:ProductType #FK to(Product), //kho,lanh,dongproducttransportcategoryid:String, createdstamp:Date, lastupdstamp:Date, hsthu:Integer, hspal:Integer);
+
+producttype(producttypeid:String [PK], description:String, createdstamp:Date);
+
+inventoryitem(inventoryitemid:UUID [PK], GeneratedName:Product #FK to(Product), GeneratedName:Facility #FK to(Facility), lotid:String, uomid:String, quantityonhandtotal:int, createdstamp:Date, lastupdstamp:Date);
+
+uom(uomid:String [PK], uom_type_id:UomType #FK to(UomType), abbreviation:String, description:String);
+
+inventoryitemdetail(inventoryitemdetailid:UUID [PK], inventory_item_id:InventoryItem #FK to(InventoryItem), effective:Date, quantityonhanddiff:int, orderid:String, orderitemseqid:String);
+
+productfacility(productid:String [PK], facilityid:String [PK], lastinventorycount:BigDecimal, atpinventorycount:BigDecimal);
+
+productprice(productpriceid:UUID [PK], product_id:Product #FK to(Product), uom_id:Uom #FK to(Uom), price:BigDecimal, taxinprice:String, from:Date, thru:Date, user_login_id:UserLogin #FK to(userlogin));
+
+subject(id:String [PK], name:String, day:String, instituteid:String);
+
+institute(id:String [PK], name:String);
+
+english(englishid:UUID [PK], englishname:String, pronounce:String, vietnamname:String);
+
+salesmancheckinhistory(salesmancheckinhistoryid:UUID [PK], //@joincolumn(name:String, party_id:PartyCustomer #FK to(partycustomer), //y(check-in)orn(check-out)checkinaction:String, location:String, timepoint:Date);
+
+salesrouteconfig(salesrouteconfigid:UUID [PK], days:String, repeatweek:int, statusid:String, description:String);
+
+salesroutedetail(salesroutedetailid:UUID [PK], party_id:PartySalesman #FK to(partysalesman), party_id:PartyCustomer #FK to(partycustomer), sequence:int, //formatyyyy-mm-ddexecutedate:String, sales_route_config_customer_id:SalesRouteConfigCustomer #FK to(salesrouteconfigcustomer), sales_route_planning_period_id:SalesRoutePlanningPeriod #FK to(salesrouteplanningperiod));
+
+salesrouteplanningperiod(salesrouteplanningperiodid:UUID [PK], from:Date, to:Date, description:String, user_login_id:UserLogin #FK to(userlogin));
+
+salesrouteconfigcustomer(salesrouteconfigcustomerid:UUID [PK], sales_route_config_id:SalesRouteConfig #FK to(salesrouteconfig), party_id:PartyCustomer #FK to(partycustomer), party_id:PartySalesman #FK to(partysalesman), from:Date, thru:Date, startexecutedate:String);
+
+partycontactmechpurpose(partyid:UUID [PK], contactmechid:UUID [PK], contactmechpurposetypeid:String [PK], from:Date [PK], thru:Date);
+
+partydistributor(partyid:UUID [PK], party_type_id:PartyType #FK to(partytype), distributorcode:String, distributorname:String);
+
+partycustomer(partyid:UUID [PK], party_type_id:PartyType #FK to(partytype), customercode:String, customername:String);
+
+ordertype(ordertypeid:String [PK], description:String, createdstamp:Date, lastupdstamp:Date);
+
+saleschannel(saleschannelid:String [PK], saleschannelname:String, createdstamp:Date, lastupdstamp:Date);
+
+orderitemtype(orderitemtypeid:String [PK]);
+
+orderheader(orderid:String [PK], order_type_id:OrderType #FK to(ordertype), sales_channel_id:SalesChannel #FK to(saleschannel), order:Date, grandtotal:BigDecimal, contact_mech_id:PostalAddress #FK to(postaladdress), createdstamp:Date, lastupdstamp:Date);
+
+orderitem(orderid:String [PK], orderitemseqid:String [PK], facility_id:Facility #FK to(Facility), product_id:Product #FK to(Product), unitprice:BigDecimal, quantity:int);
+
+orderrole(orderid:String [PK], partyid:UUID [PK], roletypeid:String [PK]);
+
+orderstatus(orderstatusid:String [PK], order_id:OrderHeader #FK to(orderheader), //@joincolumn(name:String);
+
+department(departmentid:String [PK], departmentname:String);
+
+partydepartment(partydepartmentid:UUID [PK], department_id:Department #FK to(department), party_id:Party #FK to(party), from:Date, thru:Date);
+
+student(studentid:UUID [PK], studentname:String, birthdate:String, email:String, gender:String, address:String);
+
+province(id:String [PK], name:String);
+
+district(id:String [PK], name:String, provinceid:String);
+
+shippingorder(shippingorderid:UUID [PK], sendername:String, senderphonenumber:String, senderaddress:String, sendercommuneid:String, receivername:String, receiverphonenumber:String, receiveraddress:String, receivercommuneid:String, weight:int, packagename:String);
+
+commune(id:String [PK], name:String, districtid:String);
+
+partydriver(partyid:UUID [PK], GeneratedName:Person #FK to(person));
+
+deliverytrip(deliverytripid:UUID [PK], delivery_plan_id:DeliveryPlan #FK to(deliveryplan), deliveryplansolutionseqid:String, vehicle_id:Vehicle #FK to(vehicle), party_id:PartyDriver #FK to(partydriver), execute:Date, distance:Double, totalweight:Double, totalpallet:Double, vehicle_type_id:VehicleType #FK to(vehicletype));
+
+vehicletype(vehicletypeid:String [PK]);
+
+vehicledeliveryplan(vehicleid:String [PK], deliveryplanid:UUID [PK]);
+
+deliveryplan(deliveryplanid:UUID [PK], description:String, createdbyuserloginid:String, delivery:Date);
+
+shipmentitemdeliveryplan(shipmentitemid:UUID [PK], deliveryplanid:UUID [PK]);
+
+shipmentitem(shipmentitemid:UUID [PK], shipment_id:Shipment #FK to(shipment), //@id//@column(name:int, pallet:double, GeneratedName:OrderItem #FK to(orderitem), party_id:PartyCustomer #FK to(partycustomer), contact_mech_id:PostalAddress #FK to(postaladdress));
+
+vehiclemaintenancehistory(vehiclemaintenancehistoryid:UUID [PK], vehicle_id:Vehicle #FK to(vehicle), maintenance:Date, thru:Date, description:String);
+
+shipment(shipmentid:UUID [PK], shipmenttypeid:String);
+
+deliverytripdetail(deliverytripdetailid:UUID [PK], deliverytripid:UUID, sequence:Integer, shipment_item_id:ShipmentItem #FK to(shipmentitem), deliveryquantity:int, status_id:StatusItem #FK to(statusitem));
+
+vehiclelocationpriority(vehiclelocationpriorityid:UUID [PK], vehicle_id:Vehicle #FK to(vehicle), contact_mech_id:PostalAddress #FK to(postaladdress), priority:Integer, from:Date, thru:Date);
+
+vehicledriver(vehicledriverid:UUID [PK], vehicle_id:Vehicle #FK to(vehicle), party_id:PartyDriver #FK to(partydriver), from:Date, thru:Date);
+
+vehicle(vehicleid:String [PK], capacity:Double, length:Integer, width:Integer, height:Integer, pallet:Double, statusid:String, description:String, //kho,lanh,dongproducttransportcategoryid:String, priority:Integer);
+
+distancetraveltimegeopoint(fromgeopointid:UUID [PK], togeopointid:UUID [PK], distance:double, traveltime:double, fromgeopointid:UUID, togeopointid:UUID);
+
+partysalesman(partyid:UUID [PK], GeneratedName:Person #FK to(person));
+
+customersalesman(customersalesmanid:UUID [PK], partycustomerid:UUID, partysalesmanid:UUID, from:Date, thru:Date);
+
+geopoint(geopointid:UUID [PK], latitude:String, longitude:String);
+
+postaladdress(contactmechid:UUID [PK], locationcode:String, address:String, geo_point_id:GeoPoint #FK to(geopoint), maxloadweight:Double);
+
+dperson(password_encoder:PasswordEncoder, partyid:UUID [PK], partycode:String, party_type_id:PartyType #FK to(partytype), GeneratedName:Person #FK to(person), description:String, status_id:Status #FK to(status), userlogin:DPersonUserLogin #FK to(dpersonuserlogin), isunread:boolean, createdby:String, modifiedby:String, created:Date, createdstamp:Date, lastupdstamp:Date);
+
+dusercombineentity(password_encoder:PasswordEncoder, userloginid:String, partyid:UUID [PK], firstname:String, middlename:String, lastname:String, gender:String, birth:Date);
+
+dpersonuserlogin(userloginid:String [PK], issystem:boolean, enabled:boolean, GeneratedName:Party #FK to(party), disabledtime:Date, createdstamp:Date, lastupdstamp:Date);
+
+statusitem(statusid:String [PK], status_type_id:StatusType #FK to(statustype), statuscode:String, description:String);
+
+applicationtype(applicationtypeid:String [PK], description:String, createdstamp:Date, lastupdstamp:Date);
+
+status(id:String [PK], status_type_id:StatusType #FK to(statustype), statuscode:String, sequenceid:String, //@column(name:String, createdstamp:Date, lastupdstamp:Date);
+
+person(partyid:UUID [PK], //@column(name:String, //@column(name:String, //@column(name:String, //@column(name:String, //@column(name:Date);
+
+statustype(id:String [PK], status_type_id:StatusType #FK to(statustype), description:String, createdstamp:Date, lastupdstamp:Date);
+
+securitypermission(permissionid:String [PK], description:String, createdstamp:Date, lastupdstamp:Date);
+
+application(applicationid:String [PK], application_type_id:ApplicationType #FK to(applicationtype), application_id:Application #FK to(application), permission_id:SecurityPermission #FK to(securitypermission), createdstamp:Date, lastupdstamp:Date);
+
+party(partyid:UUID [PK], partycode:String, party_type_id:PartyType #FK to(partytype), description:String, status_id:Status #FK to(status), created:Date, lastmodified:Date, GeneratedName:UserLogin #FK to(userlogin), isunread:boolean, createdby:String, modifiedby:String);
+
+partytype(//idpartytypeid:String [PK], party_type_id:PartyType #FK to(partytype), hastable:boolean, description:String, createdstamp:Date, lastupdstamp:Date);
+
+userlogin(password_encoder:PasswordEncoder, userloginid:String [PK], password:String, passwordhint:String, otpsecret:String, issystem:boolean, enabled:boolean, hasloggedout:boolean, requirepasswordchange:boolean, successivefailedlogins:Integer, clienttoken:String, otpresendnumber:int, GeneratedName:Party #FK to(party), disabledtime:Date);
+
+securitygroup(groupid:String [PK], description:String, createdstamp:Date, lastupdstamp:Date);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

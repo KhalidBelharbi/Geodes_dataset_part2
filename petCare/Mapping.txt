@@ -1,0 +1,17 @@
+ClassDiagram.Class>> Address =>=>=> RelationalSchema.Table>> address;
+ClassDiagram.Class>> User =>=>=> RelationalSchema.Table>> user;
+ClassDiagram.Class>> Role =>=>=> RelationalSchema.Table>> role;
+ClassDiagram.Attribut>> Address.id:Long =>=>=> RelationalSchema.Column>> address.id PRIMARY KEY;
+ClassDiagram.Attribut>> User.id:Long =>=>=> RelationalSchema.Column>> user.id PRIMARY KEY;
+ClassDiagram.Attribut>> User.emailid:String =>=>=> RelationalSchema.Column>> user.emailid;
+ClassDiagram.Attribut>> User.firstname:String =>=>=> RelationalSchema.Column>> user.firstname;
+ClassDiagram.Attribut>> User.lastname:String =>=>=> RelationalSchema.Column>> user.lastname;
+ClassDiagram.Attribut>> User.password:String =>=>=> RelationalSchema.Column>> user.password;
+ClassDiagram.Attribut>> User.age:Integer =>=>=> RelationalSchema.Column>> user.age;
+ClassDiagram.Attribut>> User.sex:String =>=>=> RelationalSchema.Column>> user.sex;
+ClassDiagram.Attribut>> User.birth:Date =>=>=> RelationalSchema.Column>> user.birth;
+ClassDiagram.Attribut>> Role.id:Long =>=>=> RelationalSchema.Column>> role.id PRIMARY KEY;
+ClassDiagram.Attribut>> Role.rolename:String =>=>=> RelationalSchema.Column>> role.rolename;
+One-To-One relationship between ClassDiagram.Class>>Address  to ClassDiagram.Class>>user represented by ClassDiagram.Atrribute>>GeneratedName;
+One-To-One relationship between ClassDiagram.Class>>User  to ClassDiagram.Class>>address represented by ClassDiagram.Atrribute>>GeneratedName;
+Many-To-Many relationship between ClassDiagram.Class>>User  and ClassDiagram.Class>>collection<role>: users_roles(user_id:User [PK] #FK to User,role_id:collection<role> [PK] #FK to collection<role>);

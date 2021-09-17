@@ -1,0 +1,19 @@
+
+valormetrica(id:int [PK], name:String, source:String, pack:String, valor:Float, GeneratedName:Metrica #FK to(metrica));
+
+projeto(id:int [PK], nome:String, descricao:String, gerente:Usuario #FK to(usuario));
+
+usuario_projeto(id:Projeto [PK] #FK to Projeto,id:list<usuario> [PK] #FK to list<usuario>);
+
+metrica(id:int [PK], tipo:TipoMetrica, GeneratedName:Atualizacao #FK to(atualizacao));
+
+atualizacao(id:int [PK], data:Date, GeneratedName:Projeto #FK to(Projeto));
+
+usuario(serialversionuid:long, login:String [PK], nome:String, email:String, senha:String, habilitado:boolean);
+
+usuarioautorizacao(log:Usuario [PK] #FK to Usuario,nom:list<autorizacao> [PK] #FK to list<autorizacao>);
+
+autorizacao(serialversionuid:long, nome:String [PK]);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

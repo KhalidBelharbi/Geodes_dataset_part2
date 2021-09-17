@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="resumeentity" >
+      <xs:sequence>
+        <xs:element name="resumeid" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="lastmodified" type="xs:dateTime" />
+        <xs:element name="contentdata" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="roleentity" >
+      <xs:sequence>
+        <xs:element name="roleid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userentity" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="role" type="xs:anyType" />
+        <xs:element name="login" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iwsbusineslogic" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="wsbusineslogic" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="in" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="resumedao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="roledao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resumedaoimpl" >
+      <xs:complexContent>
+       <xs:extension base="genericdaoimpl<resumeentity,integer>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userdaoimpl" >
+      <xs:complexContent>
+       <xs:extension base="genericdaoimpl<userentity,serializable>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="roledaoimpl" >
+      <xs:complexContent>
+       <xs:extension base="genericdaoimpl<roleentity,serializable>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="resumedao" >
+      <xs:complexContent>
+       <xs:extension base="genericdao">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userdao" >
+      <xs:complexContent>
+       <xs:extension base="genericdao">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="roledao" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="genericdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="genericdaoimpl" >
+      <xs:complexContent>
+       <xs:extension base="serializable>">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="entityclass" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

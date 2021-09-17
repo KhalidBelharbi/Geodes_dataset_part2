@@ -1,0 +1,19 @@
+
+consultapaciente(nome:String [PK], descricao:String [PK], especialidade:String [PK]);
+
+sintoma(sintomasid:Integer [PK], descricao:String);
+
+pessoa(pessoaid:Integer [PK], cpf:String, rg:String, sexo:String, nome:String, datanascimento:Date, tiposanguineo:String);
+
+relatorio(clinica:String [PK], especialidade:String [PK]);
+
+especialidades(serialversionuid:long, especialidadeid:Integer [PK], descricao:String);
+
+planosaude(planoid:Integer [PK], descricao:String, statusplan:Integer);
+
+paciente(serialversionuid:long, pacienteid:Integer [PK], GeneratedName:Pessoa #FK to(pessoa), statuspaciente:Integer);
+
+profissional(serialversionuid:long, credencial:String [PK], GeneratedName:Pessoa #FK to(pessoa), statusautonomo:Integer, atendeclinica:Integer, statusprofissional:Integer);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

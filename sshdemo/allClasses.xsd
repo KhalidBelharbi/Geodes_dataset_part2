@@ -1,0 +1,787 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="logdao" >
+      <xs:complexContent>
+       <xs:extension base="utildao">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="utildao" >
+      <xs:sequence>
+        <xs:element name="sf" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="roledao" >
+      <xs:complexContent>
+       <xs:extension base="utildao">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="role_authdao" >
+      <xs:complexContent>
+       <xs:extension base="utildao">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="authoritydao" >
+      <xs:complexContent>
+       <xs:extension base="utildao">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="departmentdao" >
+      <xs:complexContent>
+       <xs:extension base="utildao">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="user_roledao" >
+      <xs:complexContent>
+       <xs:extension base="utildao">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userdao" >
+      <xs:complexContent>
+       <xs:extension base="utildao">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testpassword" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="typecomparator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="namecomparator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sizecomparator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jsonvalue" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="page" >
+      <xs:sequence>
+        <xs:element name="//总数countnums" type="xs:long" />
+        <xs:element name="//页数pagenums" type="xs:long" />
+        <xs:element name="//当前页码page" type="xs:long" />
+        <xs:element name="//每页条数num" type="xs:long" />
+        <xs:element name="//当前页第一条编号firstnum" type="xs:long" />
+        <xs:element name="//当前页最后一条编号lastnum" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userpage" >
+      <xs:complexContent>
+       <xs:extension base="page">
+         <xs:sequence>
+          <xs:element name="dpmid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="account" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="logpage" >
+      <xs:complexContent>
+       <xs:extension base="page">
+         <xs:sequence>
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="content" type="xs:string" />
+          <xs:element name="begindate" type="xs:string" />
+          <xs:element name="enddate" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rsacodertest" >
+      <xs:sequence>
+        <xs:element name="publickey" type="xs:anyType" />
+        <xs:element name="rsakeykey" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rsacoder" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="staticmethod" >
+      <xs:sequence>
+        <xs:element name="loginerror" type="xs:string" />
+        <xs:element name="inputerror" type="xs:string" />
+        <xs:element name="addsucc" type="xs:string" />
+        <xs:element name="changesucc" type="xs:string" />
+        <xs:element name="removesucc" type="xs:string" />
+        <xs:element name="autherror" type="xs:string" />
+        <xs:element name="time" type="xs:anyType" />
+        <xs:element name="date" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filemanager" >
+      <xs:sequence>
+        <xs:element name="rootpath" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logmanager" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="logdao" nillable="true" minOccurs="0" />
+        <xs:element name="em" type="excelmanager" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usermanager" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="user_roledao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="roledao" nillable="true" minOccurs="0" />
+        <xs:element name="rm" type="rolemanager" nillable="true" minOccurs="0" />
+        <xs:element name="ddao" type="departmentdao" nillable="true" minOccurs="0" />
+        <xs:element name="sdata" type="staticdata" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="logdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="sessionregistry" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="departmentmanager" >
+      <xs:sequence>
+        <xs:element name="ddao" type="departmentdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userdao" nillable="true" minOccurs="0" />
+        <xs:element name="sdata" type="staticdata" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authoritymanager" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="authoritydao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="role_authdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="roledao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="rolemanager" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rolemanager" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="roledao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="role_authdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="user_roledao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="secumanager" >
+      <xs:complexContent>
+       <xs:extension base="grantedauthority>">
+         <xs:sequence>
+          <xs:element name="" type="authoritydao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="userdao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="user_roledao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="role_authdao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="initdata" >
+      <xs:sequence>
+        <xs:element name="/***所有允许上传的扩展名*/extset" type="xs:anyType" />
+        <xs:element name="imageset" type="xs:anyType" />
+        <xs:element name="upload" type="xs:string" />
+        <xs:element name="pms" type="xs:long" />
+        <xs:element name="dutyname" type="xs:string" />
+        <xs:element name="dutyorder" type="xs:long" />
+        <xs:element name="/***0" type="xs:anyType" />
+        <xs:element name="//tomcat编码tomcatencode" type="xs:string" />
+        <xs:element name="/***是否使用cas，在org.jasig.cas.client.validation.cas20serviceticketvalidator设置*如果加载security-cas.xml，这个值将自动变为true*/usecas" type="xs:anyType" />
+        <xs:element name="logindata" type="xs:anyType" />
+        <xs:element name="logtype" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="staticdata" >
+      <xs:sequence>
+        <xs:element name="depts" type="xs:anyType" />
+        <xs:element name="/***部门顺序*/dpmindex" type="xs:anyType" />
+        <xs:element name="dchildren" type="xs:anyType" />
+        <xs:element name="/***用来获取springbean*使用方法：springutil.context.getbean("beanname")*或者使用aware去实现*/context" type="xs:anyType" />
+        <xs:element name="//dao" type="departmentdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="excelmanager" >
+      <xs:sequence>
+        <xs:element name="//表头head" type="xs:long" />
+        <xs:element name="//内容cell" type="xs:long" />
+        <xs:element name="right" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="useronlockexception" >
+      <xs:complexContent>
+       <xs:extension base="usernamenotfoundexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="securityfilterimpl" >
+      <xs:complexContent>
+       <xs:extension base="abstractsecurityinterceptor">
+         <xs:sequence>
+          <xs:element name="//与applicationcontext-security.xml里的myfilter的属性securitymetadatasource对应，//其他的两个组件，已经在基类abstractsecurityinterceptor定义securitymetadatasource" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="securitymetadatasourceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="secumanager" nillable="true" minOccurs="0" />
+        <xs:element name="authoritymap" type="xs:anyType" />
+        <xs:element name="/***菜单(权限)列表*/menulist" type="authority" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="/***无权限菜单*/defaultmenu" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accessdecisionmanagerimpl" >
+      <xs:complexContent>
+       <xs:extension base="grantedauthority>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userdetailsserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="usermanager" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usernotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="usernamenotfoundexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rsadecodeerrorexception" >
+      <xs:complexContent>
+       <xs:extension base="usernamenotfoundexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="iptokenbasedremembermeservices" >
+      <xs:complexContent>
+       <xs:extension base="		tokenbasedremembermeservices">
+         <xs:sequence>
+          <xs:element name="//设置和获取threadlocalhttpservletrequestrequestholder" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="logintooofenexception" >
+      <xs:complexContent>
+       <xs:extension base="usernamenotfoundexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="logaction" >
+      <xs:complexContent>
+       <xs:extension base="commonaction">
+         <xs:sequence>
+          <xs:element name="lm" type="logmanager" nillable="true" minOccurs="0" />
+          <xs:element name="page" type="logpage" nillable="true" minOccurs="0" />
+          <xs:element name="downloadfilename" type="xs:string" />
+          <xs:element name="excelstream" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="authorityaction" >
+      <xs:complexContent>
+       <xs:extension base="commonaction">
+         <xs:sequence>
+          <xs:element name="//依赖注入" type="authoritymanager" nillable="true" minOccurs="0" />
+          <xs:element name="auths" type="xs:string" />
+          <xs:element name="" type="authority" nillable="true" minOccurs="0" />
+          <xs:element name="authorities" type="authority" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="roleaction" >
+      <xs:complexContent>
+       <xs:extension base="commonaction">
+         <xs:sequence>
+          <xs:element name="//依赖注入" type="rolemanager" nillable="true" minOccurs="0" />
+          <xs:element name="" type="authoritymanager" nillable="true" minOccurs="0" />
+          <xs:element name="//页面属性" type="role" nillable="true" minOccurs="0" />
+          <xs:element name="roles" type="xs:string" />
+          <xs:element name="ids" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="useraction" >
+      <xs:complexContent>
+       <xs:extension base="commonaction">
+         <xs:sequence>
+          <xs:element name="//依赖注入" type="usermanager" nillable="true" minOccurs="0" />
+          <xs:element name="//页面属性" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="page" type="userpage" nillable="true" minOccurs="0" />
+          <xs:element name="depmid" type="xs:long" />
+          <xs:element name="date" type="xs:string" />
+          <xs:element name="session" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fileaction" >
+      <xs:complexContent>
+       <xs:extension base="actionsupport">
+         <xs:sequence>
+          <xs:element name="//文件img" type="xs:anyType" />
+          <xs:element name="//imgfilecontenttype//文件的类型//文件的名称imgfilefilename" type="xs:string" />
+          <xs:element name="//保存目录dir" type="xs:string" />
+          <xs:element name="path" type="xs:string" />
+          <xs:element name="order" type="xs:string" />
+          <xs:element name="json" type="xs:string" />
+          <xs:element name="//专门为异步加载目录使用id" type="xs:string" />
+          <xs:element name="paths" type="xs:string" />
+          <xs:element name="" type="usermanager" nillable="true" minOccurs="0" />
+          <xs:element name="" type="filemanager" nillable="true" minOccurs="0" />
+          <xs:element name="servletresponse" type="xs:anyType" />
+          <xs:element name="servletrequest" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="departmentaction" >
+      <xs:complexContent>
+       <xs:extension base="commonaction">
+         <xs:sequence>
+          <xs:element name="//依赖注入dm" type="departmentmanager" nillable="true" minOccurs="0" />
+          <xs:element name="//页面属性" type="department" nillable="true" minOccurs="0" />
+          <xs:element name="dpms" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="commonaction" >
+      <xs:complexContent>
+       <xs:extension base="actionsupport">
+         <xs:sequence>
+          <xs:element name="json" type="xs:string" />
+          <xs:element name="json" type="xs:string" />
+          <xs:element name="excel" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="utilaction" >
+      <xs:complexContent>
+       <xs:extension base="commonaction">
+         <xs:sequence>
+          <xs:element name="//依赖注入" type="secumanager" nillable="true" minOccurs="0" />
+          <xs:element name="sdata" type="staticdata" nillable="true" minOccurs="0" />
+          <xs:element name="idata" type="initdata" nillable="true" minOccurs="0" />
+          <xs:element name="session" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="log" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role_authpk" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="authority" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="role" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authority" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="sort" type="xs:long" />
+        <xs:element name="parent" type="authority" nillable="true" minOccurs="0" />
+        <xs:element name="children" type="authority" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="display" type="xs:long" />
+        <xs:element name="role_auths" type="role_auth" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role_auth" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="authority" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="role" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="sort" type="xs:long" />
+        <xs:element name="parent" type="role" nillable="true" minOccurs="0" />
+        <xs:element name="defaultset" type="xs:long" />
+        <xs:element name="role_authorities" type="role_auth" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user_rolepk" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="role" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="account" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="dpm" type="department" nillable="true" minOccurs="0" />
+        <xs:element name="user_roles" type="user_role" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//注册时间" type="xs:dateTime" />
+        <xs:element name="//头像himage" type="xs:string" />
+        <xs:element name="//状态status" type="xs:long" />
+        <xs:element name="//cas服务端状态casstatus" type="xs:long" />
+        <xs:element name="//在此时间后才能登陆allowlogintime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user_loginpk" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="department" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="sort" type="xs:long" />
+        <xs:element name="parent" type="department" nillable="true" minOccurs="0" />
+        <xs:element name="children" type="department" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="users" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user_login" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistentlogin" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="series" type="xs:string" />
+        <xs:element name="token" type="xs:string" />
+        <xs:element name="last_used" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user_role" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="role" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cas20serviceticketvalidator" >
+      <xs:complexContent>
+       <xs:extension base="abstractcasprotocolurlbasedticketvalidator">
+         <xs:sequence>
+          <xs:element name="/***thecas2.0protocolproxycallbackurl.*/proxycallbackurl" type="xs:string" />
+          <xs:element name="/***thestoragelocationoftheproxygrantingtickets.*/" type="xs:anyType" />
+          <xs:element name="/***implementationoftheproxyretriever.*/" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="casauthenticationprovider" >
+      <xs:sequence>
+        <xs:element name="//~fields/initializers" type="log" nillable="true" minOccurs="0" />
+        <xs:element name="//~instancefields" type="casassertionauthenticationtoken" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="messages" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="key" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="authoritiesmapper" type="xs:anyType" />
+        <xs:element name="user" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="casassertionauthenticationtoken" >
+      <xs:complexContent>
+       <xs:extension base="abstractauthenticationtoken">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="ticket" type="xs:string" />
+          <xs:element name="//用户注册信息@update" type="user" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="casauthenticationfilter" >
+      <xs:complexContent>
+       <xs:extension base="abstractauthenticationprocessingfilter">
+         <xs:sequence>
+          <xs:element name="//~fields/initializers" type="xs:string" />
+          <xs:element name="willresultinanewauthenticationattemptoneveryrequest.*/cas_stateless_identifier" type="xs:string" />
+          <xs:element name="/***thelastportionofthereceptorurl,i.e./proxy/receptor*/proxyreceptorurl" type="xs:string" />
+          <xs:element name="/***thebackingstoragetostoreproxygrantingticketrequests.*/" type="xs:anyType" />
+          <xs:element name="artifactparameter" type="xs:string" />
+          <xs:element name="authenticateallartifacts" type="xs:anyType" />
+          <xs:element name="proxyfailurehandler" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="casauthenticationentrypoint" >
+      <xs:sequence>
+        <xs:element name="//~instancefields" type="xs:anyType" />
+        <xs:element name="loginurl" type="xs:string" />
+        <xs:element name="/***determineswhethertheserviceurlshouldincludethesessionidforthespecificuser.asofcas3.0.5,the*sessionidwillautomaticallybestripped.however,olderversionsofcas(i.e.cas2),donotautomatically*stripthesessionidentifier(thisisabugonthepartoftheolderserverimplementations),soanoptionto*disablethesessionencodingisprovidedforbackwardscompatibility.**bydefault,encodingisenabled.*since3.0.0becausecasiscurrentlyon3.3.5.*/encodeserviceurlwithsessionid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdetailsbynameservicewrapper" >
+      <xs:complexContent>
+       <xs:extension base="authentication>">
+         <xs:sequence>
+          <xs:element name="" type="userdetailsservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="grantedauthority>">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="//~instancefields" type="xs:long" />
+          <xs:element name="str" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="authorities" type="xs:anyType" />
+          <xs:element name="usermenu" type="xs:anyType" />
+          <xs:element name="accountnonexpired" type="xs:anyType" />
+          <xs:element name="accountnonlocked" type="xs:anyType" />
+          <xs:element name="credentialsnonexpired" type="xs:anyType" />
+          <xs:element name="enabled" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userdetailsservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sessionregistry" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sessionregistryimpl" >
+      <xs:sequence>
+        <xs:element name="//~instancefields" type="log" nillable="true" minOccurs="0" />
+        <xs:element name="principals" type="xs:anyType" />
+        <xs:element name="sessionids" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sessioninformation" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="//~instancefields" type="xs:dateTime" />
+        <xs:element name="principal" type="xs:anyType" />
+        <xs:element name="sessionid" type="xs:string" />
+        <xs:element name="remoteip" type="xs:string" />
+        <xs:element name="browser" type="xs:string" />
+        <xs:element name="expired" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accessdeniedhandlerimpl" >
+      <xs:sequence>
+        <xs:element name="//~fields/initializers" type="log" nillable="true" minOccurs="0" />
+        <xs:element name="//~instancefields" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="exceptiontranslationfilter" >
+      <xs:complexContent>
+       <xs:extension base="genericfilterbean">
+         <xs:sequence>
+          <xs:element name="//~instancefields" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="simpleurlauthenticationfailurehandler" >
+      <xs:sequence>
+        <xs:element name="ger" type="log" nillable="true" minOccurs="0" />
+        <xs:element name="//登录失败defaultfailureurl" type="xs:string" />
+        <xs:element name="jsonfailureurl" type="xs:string" />
+        <xs:element name="//未注册nouserfailureurl" type="xs:string" />
+        <xs:element name="jsonnouserfailureurl" type="xs:string" />
+        <xs:element name="//账号被锁定lockfailureurl" type="xs:string" />
+        <xs:element name="jsonlockfailureurl" type="xs:string" />
+        <xs:element name="//rsa解码失败rsafailureurl" type="xs:string" />
+        <xs:element name="jsonrsafailureurl" type="xs:string" />
+        <xs:element name="//登录太频繁，不允许登录logintooofenurl" type="xs:string" />
+        <xs:element name="jsonlogintooofenurl" type="xs:string" />
+        <xs:element name="forwardtodestination" type="xs:anyType" />
+        <xs:element name="allowsessioncreation" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="simpleurlauthenticationsuccesshandler" >
+      <xs:complexContent>
+       <xs:extension base="abstractauthenticationtargeturlrequesthandler">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="loginurlauthenticationentrypoint" >
+      <xs:sequence>
+        <xs:element name="//~fields/initializers" type="log" nillable="true" minOccurs="0" />
+        <xs:element name="//~instancefields" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="loginformurl" type="xs:string" />
+        <xs:element name="forcehttps" type="xs:anyType" />
+        <xs:element name="useforward" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="webauthenticationdetails" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="//~instancefields" type="xs:string" />
+        <xs:element name="remoteaddress" type="xs:string" />
+        <xs:element name="broswer" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="savedrequestawareauthenticationsuccesshandler" >
+      <xs:complexContent>
+       <xs:extension base="simpleurlauthenticationsuccesshandler">
+         <xs:sequence>
+          <xs:element name="ger" type="log" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="persistenttokenbasedremembermeservices" >
+      <xs:complexContent>
+       <xs:extension base="		abstractremembermeservices">
+         <xs:sequence>
+          <xs:element name="tokenrepository" type="xs:anyType" />
+          <xs:element name="random" type="xs:anyType" />
+          <xs:element name="default_series_length" type="xs:long" />
+          <xs:element name="default_token_length" type="xs:long" />
+          <xs:element name="serieslength" type="xs:long" />
+          <xs:element name="tokenlength" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="concurrentsessioncontrolstrategy" >
+      <xs:complexContent>
+       <xs:extension base="sessionfixationprotectionstrategy">
+         <xs:sequence>
+          <xs:element name="messages" type="xs:anyType" />
+          <xs:element name="" type="sessionregistry" nillable="true" minOccurs="0" />
+          <xs:element name="exceptionifmaximumexceeded" type="xs:anyType" />
+          <xs:element name="maximumsessions" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usernamepasswordauthenticationfilter" >
+      <xs:complexContent>
+       <xs:extension base="abstractauthenticationprocessingfilter">
+         <xs:sequence>
+          <xs:element name="//~fields/initializers" type="xs:string" />
+          <xs:element name="spring_security_form_password_key" type="xs:string" />
+          <xs:element name="/***ifyouwanttoretaintheusername,cacheitinacustomized{@codeauthenticationfailurehandler}*/spring_security_last_username_key" type="xs:string" />
+          <xs:element name="usernameparameter" type="xs:string" />
+          <xs:element name="passwordparameter" type="xs:string" />
+          <xs:element name="postonly" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="concurrentsessionfilter" >
+      <xs:complexContent>
+       <xs:extension base="genericfilterbean">
+         <xs:sequence>
+          <xs:element name="//~instancefields" type="sessionregistry" nillable="true" minOccurs="0" />
+          <xs:element name="expiredurl" type="xs:string" />
+          <xs:element name="handlers" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="simpleredirectinvalidsessionstrategy" >
+      <xs:sequence>
+        <xs:element name="ger" type="log" nillable="true" minOccurs="0" />
+        <xs:element name="destinationurl" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="createnewsession" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usernamepasswordauthenticationtoken" >
+      <xs:complexContent>
+       <xs:extension base="abstractauthenticationtoken">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="//~instancefields" type="xs:anyType" />
+          <xs:element name="credentials" type="xs:anyType" />
+          <xs:element name="//用户注册信息@update" type="user" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractuserdetailsauthenticationprovider" >
+      <xs:sequence>
+        <xs:element name="ger" type="log" nillable="true" minOccurs="0" />
+        <xs:element name="//~instancefields" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="forceprincipalasstring" type="xs:anyType" />
+        <xs:element name="//@update不隐藏exceptionhideusernotfoundexceptions" type="xs:anyType" />
+        <xs:element name="preauthenticationchecks" type="xs:anyType" />
+        <xs:element name="postauthenticationchecks" type="xs:anyType" />
+        <xs:element name="authoritiesmapper" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="struts" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="manifest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,23 @@
+
+user(id:Integer [PK], name:String, surname:String, birthday:Date, email:String, activestatus:Boolean, GeneratedName:Credentials #FK to(Credentials), GeneratedName:Wall #FK to(Wall));
+
+user_has_role(user_id:User [PK] #FK to User,role_id:Role [PK] #FK to Role);community_has_user(user_id:User [PK] #FK to User,community_id:set<community> [PK] #FK to set<community>);
+
+credentials(id:Integer [PK], login:String, password:String, //deletebecauseemailcannotbenull//@joincolumn(name:User #FK to(User));
+
+message(id:Integer [PK], receiver:User #FK to(User), sender:User #FK to(User), GeneratedName:Date, text:String);
+
+wall(id:Integer [PK], //@onetoone(fetch:User #FK to(User));
+
+userrelationship(GeneratedName:UserRelationshipKey, id:User #FK to(User), friendid:User #FK to(User), status:UserStatus);
+
+post(id:Integer [PK], header:String, text:String, GeneratedName:Date, GeneratedName:Wall #FK to(Wall), //@manytoone(fetch:User #FK to(User));
+
+role(id:Integer [PK], name:String);
+
+communitymessage(id:Integer [PK], GeneratedName:Date, text:String, GeneratedName:User #FK to(User), GeneratedName:Community #FK to(community));
+
+community(id:Integer [PK], name:String, topic:String, moderator:User #FK to(User));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

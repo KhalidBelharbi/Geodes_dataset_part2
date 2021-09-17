@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="userservicetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="permissionmapper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rolemapper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usermapper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="permissionbean" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="url" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="syslog" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="operation" type="xs:string" />
+        <xs:element name="time" type="xs:long" />
+        <xs:element name="method" type="xs:string" />
+        <xs:element name="params" type="xs:string" />
+        <xs:element name="ip" type="xs:string" />
+        <xs:element name="createtime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rolebean" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="memo" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userbean" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="age" type="xs:anyType" />
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="flag" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="responsebo" >
+      <xs:complexContent>
+       <xs:extension base="hashmap<string,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usermapper1" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="aopaspect" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="logservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="log" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logservice" >
+      <xs:sequence>
+        <xs:element name="logrepository" type="syslogrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="aopservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userconfig" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="age" type="xs:anyType" />
+        <xs:element name="to" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="quickcontroller" >
+      <xs:sequence>
+        <xs:element name="//@value("${projectname}")//stringprojectname//@value("${student.one.name}")//stringstudentname//@value("${student.one.age}")//integerstudentage//stringname//integerage//stringtostring////publicvoidsetname(stringname){//this.name" type="userconfig" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="usermapper" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="redistemplate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shiroservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="usermapper" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="rolemapper" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="permissionmapper" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shirocontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="md5utils" >
+      <xs:sequence>
+        <xs:element name="salt" type="xs:string" />
+        <xs:element name="algorith_name" type="xs:string" />
+        <xs:element name="hash_iterations" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shiroconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shirorealm" >
+      <xs:complexContent>
+       <xs:extension base="authorizingrealm">
+         <xs:sequence>
+          <xs:element name="" type="shiroservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="globalexceptionhandler" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<userbean,string>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="syslogrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<syslog,string>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="myspringbootapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="system" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usermapper1" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

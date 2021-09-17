@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="swingsaveradminapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="groupservice" >
+      <xs:sequence>
+        <xs:element name="repository" type="grouprepository" nillable="true" minOccurs="0" />
+        <xs:element name="memberrepository" type="groupmemberrepository" nillable="true" minOccurs="0" />
+        <xs:element name="support" type="grouplistrepositorysupport" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="loginservice" >
+      <xs:sequence>
+        <xs:element name="repository" type="tokenrepository" nillable="true" minOccurs="0" />
+        <xs:element name="ttl" type="xs:long" />
+        <xs:element name="redis_prefix" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="marketproservice" >
+      <xs:sequence>
+        <xs:element name="location" type="xs:string" />
+        <xs:element name="filelocation" type="xs:anyType" />
+        <xs:element name="repository" type="marketprorepository" nillable="true" minOccurs="0" />
+        <xs:element name="supportrepository" type="marketprolistrepositorysupport" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fileservice" >
+      <xs:sequence>
+        <xs:element name="location" type="xs:string" />
+        <xs:element name="filelocation" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:sequence>
+        <xs:element name="repository" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authdetailsservice" >
+      <xs:sequence>
+        <xs:element name="repository" type="tokenrepository" nillable="true" minOccurs="0" />
+        <xs:element name="repoadmin" type="adminrepository" nillable="true" minOccurs="0" />
+        <xs:element name="ttl" type="xs:long" />
+        <xs:element name="redis_prefix" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="swingsaveradminapplication" >
+      <xs:complexContent>
+       <xs:extension base="springbootservletinitializer">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="constant" >
+      <xs:sequence>
+        <xs:element name="permission_authenticated" type="xs:string" />
+        <xs:element name="root_prefix" type="xs:string" />
+        <xs:element name="upload_prefix" type="xs:string" />
+        <xs:element name="admin_prefix" type="xs:string" />
+        <xs:element name="mediamap" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commonutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="responsecode" >
+      <xs:sequence>
+        <xs:element name="status" type="xs:long" />
+        <xs:element name="message" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="marketpropk" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="userid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="groupmemberpk" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="groupid" type="xs:string" />
+        <xs:element name="memberid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="roletype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authresponse" >
+      <xs:sequence>
+        <xs:element name="status" type="xs:long" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="timestamp" type="xs:string" />
+        <xs:element name="response" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="groupresponse" >
+      <xs:complexContent>
+       <xs:extension base="groupdto">
+         <xs:sequence>
+          <xs:element name="list" type="groupentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="grouplist" type="grouplistdto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="groupadminlist" type="grouplistdto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="marketproresponse" >
+      <xs:sequence>
+        <xs:element name="list" type="marketproentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fileuploadresponse" >
+      <xs:sequence>
+        <xs:element name="file_name" type="xs:string" />
+        <xs:element name="stre_file_name" type="xs:string" />
+        <xs:element name="filedownloaduri" type="xs:string" />
+        <xs:element name="file_ty" type="xs:string" />
+        <xs:element name="file_sz" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="marketprolistresponse" >
+      <xs:sequence>
+        <xs:element name="t" type="xs:string" />
+        <xs:element name="list" type="marketprolistdto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="marketprocontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="marketproservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="groupcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="groupservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="admincontroller" >
+      <xs:sequence>
+        <xs:element name="uploadpath" type="xs:string" />
+        <xs:element name="service" type="loginservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filecontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="fileservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="jwttokenutil" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="loginservice" nillable="true" minOccurs="0" />
+        <xs:element name="authservice" type="authdetailsservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="groupdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="region" type="xs:string" />
+        <xs:element name="groupname" type="xs:string" />
+        <xs:element name="grouptype" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="quota" type="xs:long" />
+        <xs:element name="storagespace" type="xs:long" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="start" type="xs:dateTime" />
+        <xs:element name="end" type="xs:dateTime" />
+        <xs:element name="groupadminid" type="xs:anyType" />
+        <xs:element name="register" type="xs:dateTime" />
+        <xs:element name="del_yn" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="marketprolistdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="userid" type="xs:anyType" />
+        <xs:element name="region" type="xs:string" />
+        <xs:element name="lessonprice" type="xs:anyType" />
+        <xs:element name="rating" type="xs:double" />
+        <xs:element name="prolevel" type="xs:anyType" />
+        <xs:element name="profile" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="profile_img" type="xs:string" />
+        <xs:element name="use_yn" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="grouplistdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="region" type="xs:string" />
+        <xs:element name="groupname" type="xs:string" />
+        <xs:element name="grouptype" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="quota" type="xs:long" />
+        <xs:element name="membercount" type="xs:long" />
+        <xs:element name="storagespace" type="xs:long" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="start" type="xs:dateTime" />
+        <xs:element name="end" type="xs:dateTime" />
+        <xs:element name="groupadminid" type="xs:anyType" />
+        <xs:element name="groupadminname" type="xs:string" />
+        <xs:element name="register" type="xs:dateTime" />
+        <xs:element name="del_yn" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="loginrequest" >
+      <xs:sequence>
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="proinforequest" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="userid" type="xs:anyType" />
+        <xs:element name="region" type="xs:string" />
+        <xs:element name="lessonprice" type="xs:anyType" />
+        <xs:element name="rating" type="xs:double" />
+        <xs:element name="prolevel" type="xs:anyType" />
+        <xs:element name="profile" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="profile_img" type="xs:string" />
+        <xs:element name="org_profile_file" type="xs:string" />
+        <xs:element name="use_yn" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="groupdelrequest" >
+      <xs:complexContent>
+       <xs:extension base="grouplistdto">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="authrequest" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="grouprequest" >
+      <xs:complexContent>
+       <xs:extension base="groupdto{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="dob" type="xs:dateTime" />
+        <xs:element name="gender" type="xs:dateTime" />
+        <xs:element name="photo" type="xs:anyType" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="groupmember" type="xs:string" />
+        <xs:element name="availablepoints" type="xs:anyType" />
+        <xs:element name="userspace" type="xs:anyType" />
+        <xs:element name="create" type="xs:dateTime" />
+        <xs:element name="phototype" type="xs:string" />
+        <xs:element name="average" type="xs:anyType" />
+        <xs:element name="handicap" type="xs:anyType" />
+        <xs:element name="distance" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="marketproentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="userid" type="xs:anyType" />
+        <xs:element name="region" type="xs:string" />
+        <xs:element name="lessonprice" type="xs:anyType" />
+        <xs:element name="rating" type="xs:double" />
+        <xs:element name="prolevel" type="xs:anyType" />
+        <xs:element name="profile" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="profile_img" type="xs:string" />
+        <xs:element name="use_yn" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iuserinfo" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="groupmemberentity" >
+      <xs:sequence>
+        <xs:element name="groupid" type="xs:string" />
+        <xs:element name="memberid" type="xs:anyType" />
+        <xs:element name="membertype" type="xs:string" />
+        <xs:element name="status" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adminentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="createdate" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tokenentity" >
+      <xs:sequence>
+        <xs:element name="memberid" type="xs:string" />
+        <xs:element name="accesstoken" type="xs:string" />
+        <xs:element name="expiredate" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="groupentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="region" type="xs:string" />
+        <xs:element name="groupname" type="xs:string" />
+        <xs:element name="grouptype" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="quota" type="xs:long" />
+        <xs:element name="storagespace" type="xs:long" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="start" type="xs:dateTime" />
+        <xs:element name="end" type="xs:dateTime" />
+        <xs:element name="groupadminid" type="xs:anyType" />
+        <xs:element name="register" type="xs:dateTime" />
+        <xs:element name="del_yn" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwttokenutil" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="secret" type="xs:string" />
+        <xs:element name="issuer" type="xs:string" />
+        <xs:element name="jwt_access_token_validity" type="xs:long" />
+        <xs:element name="algorithm" type="xs:anyType" />
+        <xs:element name="signing" type="xs:anyType" />
+        <xs:element name="ok" type="xs:long" />
+        <xs:element name="exception_signature" type="xs:long" />
+        <xs:element name="exception_malformed" type="xs:long" />
+        <xs:element name="exception_expired" type="xs:long" />
+        <xs:element name="exception_unsupported" type="xs:long" />
+        <xs:element name="exception_illegal" type="xs:long" />
+        <xs:element name="GeneratedName" type="loginservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwtrequestfilter" >
+      <xs:complexContent>
+       <xs:extension base="onceperrequestfilter">
+         <xs:sequence>
+          <xs:element name="jwtuserdetailsservice" type="authdetailsservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="jwttokenutil" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jwtauthenticationentrypoint" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authuserdetails" >
+      <xs:complexContent>
+       <xs:extension base="grantedauthority>">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="//원래관리자keyno" type="xs:long" />
+          <xs:element name="authority" type="xs:anyType" />
+          <xs:element name="enabled" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="marketprolistrepositorysupport" >
+      <xs:sequence>
+        <xs:element name="factory" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="groupmemberrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<groupmemberentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tokenrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<tokenentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="marketprorepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<marketproentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="grouprepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<groupentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="grouplistrepositorysupport" >
+      <xs:sequence>
+        <xs:element name="queryfactory" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adminrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<adminentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<userentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="webmvcconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="querydslconfig" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="openapiconfig" >
+      <xs:sequence>
+        <xs:element name="mobilepaths" type="xs:string" />
+        <xs:element name="loginpaths" type="xs:string" />
+        <xs:element name="allpaths" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="oracleconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jasyptconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="websecurityconfig" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter{">
+         <xs:sequence>
+          <xs:element name="auth_whitelist" type="xs:string" />
+          <xs:element name="" type="jwtauthenticationentrypoint" nillable="true" minOccurs="0" />
+          <xs:element name="jwtuserdetailsservice" type="authdetailsservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="jwtrequestfilter" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="logback" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

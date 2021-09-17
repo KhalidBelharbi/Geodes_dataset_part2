@@ -1,0 +1,17 @@
+
+post(content:String, GeneratedName:Date, poster:User #FK to(user));
+
+endorsement(endorser:User #FK to(user), GeneratedName:Skill #FK to(skill));
+
+like(liker:User #FK to(user), GeneratedName:Post #FK to(post));
+
+comment(content:String, creator:User #FK to(user), GeneratedName:Post #FK to(post), GeneratedName:Date);
+
+skill(skill:String, GeneratedName:User #FK to(user));
+
+user(username:String, password:String, fullname:String, profilename:String, photo:byte, photocontenttype:String);
+
+connection(sender:User #FK to(user), receiver:User #FK to(user), accepted:boolean);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

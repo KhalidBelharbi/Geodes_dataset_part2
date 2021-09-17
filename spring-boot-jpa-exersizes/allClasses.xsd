@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="scripts" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testchild" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="details" type="xs:string" />
+        <xs:element name="parents" type="testparent" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testchildrepositoty" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<testchild,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testparent" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="details" type="xs:string" />
+        <xs:element name="childs" type="testchild" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testparentrepositoty" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<testparent,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testparentservice" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="testparentrepositoty" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="testchildrepositoty" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

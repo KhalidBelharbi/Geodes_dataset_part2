@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="ownermapservicetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="ownermapservice" nillable="true" minOccurs="0" />
+        <xs:element name="ownerid" type="xs:long" />
+        <xs:element name="lastname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ownersdjpaservicetest" >
+      <xs:sequence>
+        <xs:element name="last_name" type="xs:string" />
+        <xs:element name="GeneratedName" type="ownerrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="petrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="pettyperepository" nillable="true" minOccurs="0" />
+        <xs:element name="service" type="ownersdjpaservice" nillable="true" minOccurs="0" />
+        <xs:element name="return" type="owner" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="specialtyservice" >
+      <xs:complexContent>
+       <xs:extension base="crudservice<speciality,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="crudservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractmapservice" >
+      <xs:complexContent>
+       <xs:extension base="baseentity,">
+         <xs:sequence>
+          <xs:element name="map" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pettypemapservice" >
+      <xs:complexContent>
+       <xs:extension base="abstractmapservice<pettype,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="visitmapservice" >
+      <xs:complexContent>
+       <xs:extension base="abstractmapservice<visit,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="specialitymapservice" >
+      <xs:complexContent>
+       <xs:extension base="abstractmapservice<speciality,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="petmapservice" >
+      <xs:complexContent>
+       <xs:extension base="abstractmapservice<pet,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ownermapservice" >
+      <xs:complexContent>
+       <xs:extension base="abstractmapservice<owner,">
+         <xs:sequence>
+          <xs:element name="" type="pettypeservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="petservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="vetmapservice" >
+      <xs:complexContent>
+       <xs:extension base="abstractmapservice<vet,">
+         <xs:sequence>
+          <xs:element name="" type="specialtyservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="visitservice" >
+      <xs:complexContent>
+       <xs:extension base="crudservice<visit,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pettypesdjpaservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="pettyperepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="petsdjpaservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="petrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ownersdjpaservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="ownerrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="petrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="pettyperepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="specialitysdjpaservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="specialtyrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="visitsdjpaservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="visitrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vetsdjpaservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="vetrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="petservice" >
+      <xs:complexContent>
+       <xs:extension base="crudservice<pet,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ownerservice" >
+      <xs:complexContent>
+       <xs:extension base="crudservice<owner,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pettypeservice" >
+      <xs:complexContent>
+       <xs:extension base="crudservice<pettype,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="vetservice" >
+      <xs:complexContent>
+       <xs:extension base="crudservice<vet,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="specialtyrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<speciality,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pettyperepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<pettype,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ownerrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<owner,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="vetrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<vet,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="petrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<pet,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="visitrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<visit,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="owner" >
+      <xs:complexContent>
+       <xs:extension base="person">
+         <xs:sequence>
+          <xs:element name="address" type="xs:string" />
+          <xs:element name="city" type="xs:string" />
+          <xs:element name="telephone" type="xs:string" />
+          <xs:element name="pets" type="pet" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="person" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="lastname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="vet" >
+      <xs:complexContent>
+       <xs:extension base="person">
+         <xs:sequence>
+          <xs:element name="specialities" type="speciality" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="visit" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="date" type="xs:anyType" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="" type="pet" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pettype" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pet" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="" type="pettype" nillable="true" minOccurs="0" />
+          <xs:element name="" type="owner" nillable="true" minOccurs="0" />
+          <xs:element name="birthdate" type="xs:anyType" />
+          <xs:element name="visits" type="visit" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="speciality" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="description" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

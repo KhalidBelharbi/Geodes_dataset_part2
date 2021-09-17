@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="swap" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="web" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="applicationcontext" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="footer" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="empedit" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="uncaughtexception" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="emplist" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="includes" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="header" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="empconfirm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="struts-logic" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="struts-layout" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="struts-html" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="struts-nested" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="struts-bean" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="struts-config" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messages" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="emplistform" >
+      <xs:complexContent>
+       <xs:extension base="actionform">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="empitems" type="empform" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="emplistaction" >
+      <xs:complexContent>
+       <xs:extension base="abstractempaction">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="empform" >
+      <xs:complexContent>
+       <xs:extension base="validatorform">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="crudtype" type="xs:string" />
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="empno" type="xs:string" />
+          <xs:element name="empname" type="xs:string" />
+          <xs:element name="mgrid" type="xs:string" />
+          <xs:element name="hiredate" type="xs:string" />
+          <xs:element name="sal" type="xs:string" />
+          <xs:element name="deptid" type="xs:string" />
+          <xs:element name="versionno" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractempaction" >
+      <xs:complexContent>
+       <xs:extension base="action">
+         <xs:sequence>
+          <xs:element name="service" type="empservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="empeditbackaction" >
+      <xs:complexContent>
+       <xs:extension base="abstractempaction">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="empconfirmaction" >
+      <xs:complexContent>
+       <xs:extension base="abstractempaction">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="empeditaction" >
+      <xs:complexContent>
+       <xs:extension base="abstractempaction">
+         <xs:sequence>
+          <xs:element name="not_create" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="empfinishaction" >
+      <xs:complexContent>
+       <xs:extension base="abstractempaction">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="crudtype" >
+      <xs:sequence>
+        <xs:element name="create" type="xs:string" />
+        <xs:element name="read" type="xs:string" />
+        <xs:element name="update" type="xs:string" />
+        <xs:element name="delete" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="empserviceimpl" >
+      <xs:sequence>
+        <xs:element name="dao" type="empdao" nillable="true" minOccurs="0" />
+        <xs:element name="format" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="empservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="emp" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="empno" type="xs:anyType" />
+        <xs:element name="empname" type="xs:string" />
+        <xs:element name="mgrid" type="xs:anyType" />
+        <xs:element name="hire" type="xs:dateTime" />
+        <xs:element name="sal" type="xs:anyType" />
+        <xs:element name="deptid" type="xs:anyType" />
+        <xs:element name="versionno" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="empdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="empdaoimpl" >
+      <xs:complexContent>
+       <xs:extension base="jpadaosupport">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

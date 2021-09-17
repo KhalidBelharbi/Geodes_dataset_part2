@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="bulktask" >
+      <xs:complexContent>
+       <xs:extension base="task{">
+         <xs:sequence>
+          <xs:element name="operations" type="operation" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="task" >
+      <xs:sequence>
+        <xs:element name="uuid" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="status" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="status" >
+      <xs:sequence>
+        <xs:element name="message" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="operation" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="goal" type="xs:long" />
+        <xs:element name="step" type="xs:long" />
+        <xs:element name="nums" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="unittask" >
+      <xs:complexContent>
+       <xs:extension base="task{">
+         <xs:sequence>
+          <xs:element name="" type="operation" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="invalidrequestexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="resourcenotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="errorresponse" >
+      <xs:sequence>
+        <xs:element name="timestamp" type="xs:dateTime" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="details" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="globalexceptionhandler" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="taskservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="unittaskrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="operationrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="bulktaskrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="numbergeneratarapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bulktaskcontroller" >
+      <xs:sequence>
+        <xs:element name="taskrepository" type="bulktaskrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="taskservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="inputvalidator" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="taskcontroller" >
+      <xs:sequence>
+        <xs:element name="taskrepository" type="unittaskrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="taskservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="inputvalidator" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="taskresponse" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resultmessage" >
+      <xs:sequence>
+        <xs:element name="result" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="numbergenerator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inputvalidator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bulktaskrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<bulktask,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="unittaskrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<unittask,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="operationrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<operation,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="numbergeneratarapplicationtests" >
+      <xs:sequence>
+        <xs:element name="resttemplate" type="xs:anyType" />
+        <xs:element name="port" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

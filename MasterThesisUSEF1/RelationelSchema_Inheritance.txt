@@ -1,0 +1,17 @@
+
+balanceresponsibleparty(domain:String [PK]);
+
+aggregator(domain:String [PK]);
+
+commonreferencequerystate(id:Long [PK], period:Date, GeneratedName:Message #FK to(message), status:CommonReferenceQueryStatus);
+
+distributionsystemoperator(domain:String [PK]);
+
+aggregatorconnection(id:Long [PK], GeneratedName:Connection #FK to(connection), GeneratedName:Aggregator #FK to(aggregator), GeneratedName:CommonReferenceOperator #FK to(commonreferenceoperator), validfrom:Date, validuntil:Date);
+
+connection(entityaddress:String [PK]);
+
+commonreferenceoperator(domain:String [PK]);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

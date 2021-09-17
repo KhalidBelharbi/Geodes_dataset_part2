@@ -1,0 +1,15 @@
+
+muroproduct(code:String [PK], price:BigDecimal, //amountofresourcestoaccessamount:int);
+
+accessedresource(userid:String [PK], GeneratedName:URI [PK], ip:InetAddress, accessedtime:LocalDateTime, bought:boolean);
+
+muropayment(receiver:String [PK], checkout:MuroCheckout #FK to(murocheckout), txid:String, datetime:LocalDateTime);
+
+murosettings(muro_title:String, muro_list:String, muro_paging:String, id:Boolean [PK], daysfree:int, freepages:int, rowsperpage:int, freerows:int);
+
+deletedmuroproduct();
+
+murocheckout(receiver:String [PK], sender:String, product:MuroProduct #FK to(muroproduct));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

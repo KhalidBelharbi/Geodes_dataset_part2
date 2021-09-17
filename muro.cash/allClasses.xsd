@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="spring-configuration-metadata" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="muro-history" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="muro-checkout" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="muro-product-form" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="muro-payments" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="muro-fragments" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="muro-admin" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="403" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="muro" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="check-payment-ajax" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="muroproductrepository" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<muroproduct,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="accessedresourcerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<accessedresource,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="murosettingsrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<murosettings,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="deletedmuroproductrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<deletedmuroproduct,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="murocheckoutrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<murocheckout,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="muropaymentrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<muropayment,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="murorequest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="muroproduct" >
+      <xs:sequence>
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="price" type="xs:anyType" />
+        <xs:element name="//amountofresourcestoaccessamount" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accessedresource" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="ip" type="xs:anyType" />
+        <xs:element name="accessedtime" type="xs:anyType" />
+        <xs:element name="bought" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="muropayment" >
+      <xs:sequence>
+        <xs:element name="receiver" type="xs:string" />
+        <xs:element name="checkout" type="murocheckout" nillable="true" minOccurs="0" />
+        <xs:element name="txid" type="xs:string" />
+        <xs:element name="datetime" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="murosettings" >
+      <xs:sequence>
+        <xs:element name="muro_title" type="xs:string" />
+        <xs:element name="muro_list" type="xs:string" />
+        <xs:element name="muro_paging" type="xs:string" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="daysfree" type="xs:long" />
+        <xs:element name="freepages" type="xs:long" />
+        <xs:element name="rowsperpage" type="xs:long" />
+        <xs:element name="freerows" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accessedresourceid" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deletedentity" >
+      <xs:complexContent>
+       <xs:extension base="object>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="ntity" type="xs:anyType" />
+          <xs:element name="when" type="xs:anyType" />
+          <xs:element name="isdeleted" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="deletedmuroproduct" >
+      <xs:complexContent>
+       <xs:extension base="deletedentity<muroproduct>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="murocheckout" >
+      <xs:sequence>
+        <xs:element name="receiver" type="xs:string" />
+        <xs:element name="sender" type="xs:string" />
+        <xs:element name="product" type="muroproduct" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inetaddress2bytesconverter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="uri2stringconverter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="muropaging" >
+      <xs:sequence>
+        <xs:element name="sep" type="xs:string" />
+        <xs:element name="currentpage" type="xs:long" />
+        <xs:element name="rowsperpage" type="xs:long" />
+        <xs:element name="totalrows" type="xs:long" />
+        <xs:element name="basepath" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bchservice" >
+      <xs:sequence>
+        <xs:element name="minconfirmations" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="muroproductserviceimpl" >
+      <xs:sequence>
+        <xs:element name="productrepository" type="muroproductrepository" nillable="true" minOccurs="0" />
+        <xs:element name="deletedproductrepository" type="deletedmuroproductrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bchmurocheckoutservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="bchservice" nillable="true" minOccurs="0" />
+        <xs:element name="productrepository" type="muroproductrepository" nillable="true" minOccurs="0" />
+        <xs:element name="checkoutrepository" type="murocheckoutrepository" nillable="true" minOccurs="0" />
+        <xs:element name="paymentrepository" type="muropaymentrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="muroproductservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accessedresourceservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="murocheckoutservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jsonrpcbchnservice" >
+      <xs:sequence>
+        <xs:element name="bchclient" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accessedresourceserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="murosettings" nillable="true" minOccurs="0" />
+        <xs:element name="resourcerepository" type="accessedresourcerepository" nillable="true" minOccurs="0" />
+        <xs:element name="settingsrepository" type="murosettingsrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="muroauthenticationtoken" >
+      <xs:complexContent>
+       <xs:extension base="cashidauthenticationtoken">
+         <xs:sequence>
+          <xs:element name="freebalance" type="xs:long" />
+          <xs:element name="boughtbalance" type="xs:long" />
+          <xs:element name="hadbalance" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="muroauthenticationprovider" >
+      <xs:complexContent>
+       <xs:extension base="cashidauthenticationprovider">
+         <xs:sequence>
+          <xs:element name="resourceservice" type="accessedresourceservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="murodemoauthoritiesservice" >
+      <xs:sequence>
+        <xs:element name="admins" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="murovoter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="murorole" >
+      <xs:sequence>
+        <xs:element name="admin" type="xs:string" />
+        <xs:element name="demo" type="xs:string" />
+        <xs:element name="user" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="muroaspect" >
+      <xs:sequence>
+        <xs:element name="msg" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="murosettings" nillable="true" minOccurs="0" />
+        <xs:element name="resourceservice" type="accessedresourceservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="muropaymentcontroller" >
+      <xs:sequence>
+        <xs:element name="path" type="xs:string" />
+        <xs:element name="GeneratedName" type="murosettings" nillable="true" minOccurs="0" />
+        <xs:element name="paymentrepository" type="muropaymentrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="muroajaxmessagecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bchmurocheckoutcontroller" >
+      <xs:sequence>
+        <xs:element name="bdzero" type="xs:anyType" />
+        <xs:element name="checkoutservice" type="murocheckoutservice" nillable="true" minOccurs="0" />
+        <xs:element name="resourceservice" type="accessedresourceservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="muroaccessedresourcecontroller" >
+      <xs:sequence>
+        <xs:element name="path" type="xs:string" />
+        <xs:element name="GeneratedName" type="murosettings" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="accessedresourcerepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="muroproductcontroller" >
+      <xs:sequence>
+        <xs:element name="products" type="xs:string" />
+        <xs:element name="product_form" type="xs:string" />
+        <xs:element name="productservice" type="muroproductservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="murosettingstest" >
+      <xs:sequence>
+        <xs:element name="settings" type="murosettings" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

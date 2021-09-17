@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="criteriainfo" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tagcriteriainfo" >
+      <xs:complexContent>
+       <xs:extension base="criteriainfo">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ordercriteriainfo" >
+      <xs:complexContent>
+       <xs:extension base="criteriainfo">
+         <xs:sequence>
+          <xs:element name="iduser" type="xs:long" />
+          <xs:element name="totalsum" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usercriteriainfo" >
+      <xs:complexContent>
+       <xs:extension base="criteriainfo">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="surname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="certificatecriteriainfo" >
+      <xs:complexContent>
+       <xs:extension base="criteriainfo">
+         <xs:sequence>
+          <xs:element name="list<@pattern(regexp" type="xs:anyType" />
+          <xs:element name="partofnameordescription" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="certificateupdatedto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:anyType" />
+        <xs:element name="description" type="xs:anyType" />
+        <xs:element name="duration" type="xs:anyType" />
+        <xs:element name="price" type="xs:anyType" />
+        <xs:element name="jsonnullable<set<@pattern(regexp" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="certificatedto" >
+      <xs:complexContent>
+       <xs:extension base="entitydto<long,">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="price" type="xs:anyType" />
+          <xs:element name="duration" type="xs:anyType" />
+          <xs:element name="createdate" type="xs:anyType" />
+          <xs:element name="updatelastdate" type="xs:anyType" />
+          <xs:element name="tags" type="tagdto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitydto" >
+      <xs:complexContent>
+       <xs:extension base="entitydto<id,">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderdto" >
+      <xs:complexContent>
+       <xs:extension base="entitydto<long,">
+         <xs:sequence>
+          <xs:element name="orderitemdto" type="orderitemdto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="totalsum" type="xs:anyType" />
+          <xs:element name="count" type="xs:long" />
+          <xs:element name="userid" type="xs:long" />
+          <xs:element name="createdate" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cart" >
+      <xs:sequence>
+        <xs:element name="cartitems" type="cartitem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="userid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tagdto" >
+      <xs:complexContent>
+       <xs:extension base="entitydto<long,">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userdto" >
+      <xs:complexContent>
+       <xs:extension base="entitydto<long,">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="surname" type="xs:string" />
+          <xs:element name="createdate" type="xs:anyType" />
+          <xs:element name="lastupdatedate" type="xs:anyType" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="" type="role" nillable="true" minOccurs="0" />
+          <xs:element name="" type="status" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cartitem" >
+      <xs:sequence>
+        <xs:element name="idcertificate" type="xs:long" />
+        <xs:element name="count" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="registrationuserdto" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="surname" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderitemdto" >
+      <xs:complexContent>
+       <xs:extension base="entitydto<long,">
+         <xs:sequence>
+          <xs:element name="idcertificate" type="xs:long" />
+          <xs:element name="count" type="xs:long" />
+          <xs:element name="priceofcertificate" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="generalentitylistener" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderconst" >
+      <xs:sequence>
+        <xs:element name="min_count" type="xs:long" />
+        <xs:element name="max_count_item" type="xs:long" />
+        <xs:element name="max_count" type="xs:long" />
+        <xs:element name="price_eger" type="xs:long" />
+        <xs:element name="price_fraction" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="regex" >
+      <xs:sequence>
+        <xs:element name="user_name" type="xs:string" />
+        <xs:element name="user_surname" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="tag_name" type="xs:string" />
+        <xs:element name="certificate_name" type="xs:string" />
+        <xs:element name="certificate_description" type="xs:string" />
+        <xs:element name="min_id" type="xs:long" />
+        <xs:element name="min_certificate_duration" type="xs:long" />
+        <xs:element name="certificate_price_eger" type="xs:long" />
+        <xs:element name="certificate_price_fraction" type="xs:long" />
+        <xs:element name="certificate_date" type="xs:string" />
+        <xs:element name="timezone" type="xs:string" />
+        <xs:element name="max_certificate_duration" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="message" >
+      <xs:sequence>
+        <xs:element name="not_be_blank" type="xs:string" />
+        <xs:element name="user_name" type="xs:string" />
+        <xs:element name="user_surname" type="xs:string" />
+        <xs:element name="date_cannot_define" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="must_be_filled" type="xs:string" />
+        <xs:element name="user_username" type="xs:string" />
+        <xs:element name="tag_name" type="xs:string" />
+        <xs:element name="enter_price" type="xs:string" />
+        <xs:element name="enter_count" type="xs:string" />
+        <xs:element name="certificate_name" type="xs:string" />
+        <xs:element name="certificate_description" type="xs:string" />
+        <xs:element name="certificate_description_or_name" type="xs:string" />
+        <xs:element name="order_item_max_count" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="securityuser" >
+      <xs:complexContent>
+       <xs:extension base="grantedauthority>">
+         <xs:sequence>
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="authorities" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="permission" >
+      <xs:sequence>
+        <xs:element name="permission" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tag" >
+      <xs:complexContent>
+       <xs:extension base="com.epam.esm.entity.entity<long>">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="certificates" type="certificate" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="certificate" >
+      <xs:complexContent>
+       <xs:extension base="com.epam.esm.entity.entity<long>">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="price" type="xs:anyType" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="duration" type="xs:anyType" />
+          <xs:element name="createdate" type="xs:anyType" />
+          <xs:element name="updatelastdate" type="xs:anyType" />
+          <xs:element name="tags" type="tag" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="com.epam.esm.entity.entity<long>">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="surname" type="xs:string" />
+          <xs:element name="createdate" type="xs:anyType" />
+          <xs:element name="lastupdatedate" type="xs:anyType" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="" type="role" nillable="true" minOccurs="0" />
+          <xs:element name="" type="status" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="order_" >
+      <xs:sequence>
+        <xs:element name="user" type="xs:anyType" />
+        <xs:element name="totalsum" type="xs:anyType" />
+        <xs:element name="count" type="xs:anyType" />
+        <xs:element name="createdate" type="xs:anyType" />
+        <xs:element name="orderitems" type="xs:anyType" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="user" type="xs:string" />
+        <xs:element name="total_sum" type="xs:string" />
+        <xs:element name="count" type="xs:string" />
+        <xs:element name="create_date" type="xs:string" />
+        <xs:element name="order_items" type="xs:string" />
+        <xs:element name="id" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="certificate_" >
+      <xs:sequence>
+        <xs:element name="description" type="xs:anyType" />
+        <xs:element name="name" type="xs:anyType" />
+        <xs:element name="price" type="xs:anyType" />
+        <xs:element name="duration" type="xs:anyType" />
+        <xs:element name="updatelastdate" type="xs:anyType" />
+        <xs:element name="createdate" type="xs:anyType" />
+        <xs:element name="tags" type="xs:anyType" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="price" type="xs:string" />
+        <xs:element name="duration" type="xs:string" />
+        <xs:element name="create_date" type="xs:string" />
+        <xs:element name="update_date" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="tags" type="xs:string" />
+        <xs:element name="id" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user_" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:anyType" />
+        <xs:element name="surname" type="xs:anyType" />
+        <xs:element name="createdate" type="xs:anyType" />
+        <xs:element name="lastupdatedate" type="xs:anyType" />
+        <xs:element name="email" type="xs:anyType" />
+        <xs:element name="password" type="xs:anyType" />
+        <xs:element name="role" type="xs:anyType" />
+        <xs:element name="status" type="xs:anyType" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="surname" type="xs:string" />
+        <xs:element name="create_date" type="xs:string" />
+        <xs:element name="last_update_date" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="role" type="xs:string" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="id" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tag_" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:anyType" />
+        <xs:element name="certificates" type="xs:anyType" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="certificates" type="xs:string" />
+        <xs:element name="id" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="order" >
+      <xs:complexContent>
+       <xs:extension base="com.epam.esm.entity.entity<long>">
+         <xs:sequence>
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="totalsum" type="xs:anyType" />
+          <xs:element name="count" type="xs:anyType" />
+          <xs:element name="createdate" type="xs:anyType" />
+          <xs:element name="orderitems" type="orderitem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderitem" >
+      <xs:complexContent>
+       <xs:extension base="com.epam.esm.entity.entity<long>">
+         <xs:sequence>
+          <xs:element name="" type="certificate" nillable="true" minOccurs="0" />
+          <xs:element name="count" type="xs:long" />
+          <xs:element name="" type="order" nillable="true" minOccurs="0" />
+          <xs:element name="priceofcertificate" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entity" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="status" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="permissions" type="permission" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

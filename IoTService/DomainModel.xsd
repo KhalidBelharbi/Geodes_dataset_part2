@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="//id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="//@column(nullable" type="xs:string" />
+        <xs:element name="/***创建时间*/createtime" type="xs:dateTime" />
+        <xs:element name="///**//*创建人//*///@column(name" type="xs:dateTime" />
+        <xs:element name="///**//*修改人//*///@column(name" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="order" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="//@column(nullable" type="xs:string" />
+        <xs:element name="//@column(nullable" type="xs:string" />
+        <xs:element name="goodsnumber" type="xs:anyType" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="complete" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datastream" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="////@generatedvalue//auto_id//@generatedvalueid" type="xs:string" />
+        <xs:element name="tags" type="xs:string" />
+        <xs:element name="unit" type="xs:string" />
+        <xs:element name="unit_symbol" type="xs:string" />
+        <xs:element name="current_value" type="xs:string" />
+        <xs:element name="uuid" type="xs:string" />
+        <xs:element name="//@column(nullable" type="xs:dateTime" />
+        <xs:element name="/***修改时间*/up_at" type="xs:dateTime" />
+        <xs:element name="//@onetomany(cascade" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="car" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="//@column(nullable" type="xs:string" />
+        <xs:element name="//@column(nullable" type="xs:string" />
+        <xs:element name="carnumber" type="xs:string" />
+        <xs:element name="userid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="device" >
+      <xs:sequence>
+        <xs:element name="//@generatedvalueid" type="xs:long" />
+        <xs:element name="tags" type="xs:string" />
+        <xs:element name="online" type="xs:anyType" />
+        <xs:element name="protocol" type="xs:string" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="////////locationauthinfo" type="xs:string" />
+        <xs:element name="//@column(nullable" type="xs:dateTime" />
+        <xs:element name="/***修改时间*/lastmodifiedtime" type="xs:dateTime" />
+        <xs:element name="//@onetomany(cascade" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datastreampoint" >
+      <xs:sequence>
+        <xs:element name="device_id" type="xs:long" />
+        <xs:element name="at" type="xs:string" />
+        <xs:element name="obliquity" type="xs:string" />
+        <xs:element name="temperature" type="xs:string" />
+        <xs:element name="humidity" type="xs:string" />
+        <xs:element name="location" type="xs:string" />
+        <xs:element name="position" type="xs:string" />
+        <xs:element name="pressure" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderitem" >
+      <xs:sequence>
+        <xs:element name="//@id//@generatedvalue//longid//@column(nullable" type="xs:string" />
+        <xs:element name="//@column(nullable" type="xs:string" />
+        <xs:element name="carid" type="xs:long" />
+        <xs:element name="orderid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="product" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="apikey" type="xs:string" />
+        <xs:element name="/***创建时间*/createtime" type="xs:dateTime" />
+        <xs:element name="/***修改时间*/lastmodifiedtime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="manager" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="/***创建时间*/createtime" type="xs:dateTime" />
+        <xs:element name="/***修改时间*/lastmodifiedtime" type="xs:dateTime" />
+        <xs:element name="//@onetomany(cascade" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datapointhistory" >
+      <xs:sequence>
+        <xs:element name="//@generatedvalueat" type="xs:string" />
+        <xs:element name="datastream_id" type="xs:string" />
+        <xs:element name="datastream_device_id" type="xs:long" />
+        <xs:element name="value" type="xs:string" />
+        <xs:element name="/***创建时间*/createtime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

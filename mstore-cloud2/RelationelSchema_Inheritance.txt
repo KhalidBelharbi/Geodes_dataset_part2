@@ -1,0 +1,13 @@
+
+user(username:String [PK], password:String, email:String, firstname:String, lastname:String, activated:boolean, activationkey:String, resetkey:String, reset:Date);
+
+user_authorities(username:User [PK] #FK to User,authority_name:set<authority> [PK] #FK to set<authority>);
+
+client(id:String [PK], secretkey:String, redirecturi:String);
+
+client_authorities(client_id:Client [PK] #FK to Client,authority_name:set<authority> [PK] #FK to set<authority>);
+
+authority(name:String [PK]);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

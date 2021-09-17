@@ -1,0 +1,19 @@
+transaction(serialversionuid:long, findall:String, GeneratedName:Date, GeneratedName:Account #FK to(account), transactiontype:String, amount:Double, sender:String, details:String, status:String);
+
+beneficiary(findall:String, iban:String, name:String, details:String, accountholder:String);
+
+device(name:String, deviceid:long, GeneratedName:Customer #FK to(customer));
+
+baseentity(serialversionuid:long, findall:String, id:Long [PK], version:Integer, deleted:int, //@notnullcreation:Date);
+
+account(serialversionuid:long, findall:String, iban:String, amount:Double, GeneratedName:Customer #FK to(customer), GeneratedName:Currency #FK to(currency));
+
+role(findallroles:String, name:String);
+
+customer(serialversionuid:long, findall:String, firstname:String, lastname:String, login:String, password:String, GeneratedName:Role #FK to(role));
+
+currency(findallcurrency:String, symbol:String, exchangerate:Double);
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

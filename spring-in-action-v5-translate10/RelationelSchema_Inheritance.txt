@@ -1,0 +1,17 @@
+
+ingredient(id:String [PK], name:String, GeneratedName:Type);
+
+taco(id:Long [PK], name:String, createdat:Date);
+
+taco_Ingredient(tacoID:taco [PK] #FK to taco,IngredientID:Ingredient [PK] #FK to Ingredient);
+
+user(serialversionuid:long, id:Long [PK], username:String, password:String, fullname:String, street:String, city:String, state:String, zip:String, phonenumber:String, email:String);
+
+order(serialversionuid:long, id:Long [PK], placedat:Date, GeneratedName:User #FK to(User), deliveryname:String, deliverystreet:String, deliverycity:String, deliverystate:String, deliveryzip:String, ccnumber:String, ccexpiration:String, cccvv:String);
+
+order_Taco(orderID:order [PK] #FK to order,TacoID:Taco [PK] #FK to Taco);
+
+paymentmethod(id:long [PK], GeneratedName:User #FK to(User), ccnumber:String, cccvv:String, ccexpiration:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

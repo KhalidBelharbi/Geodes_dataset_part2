@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="angajat" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nume" type="xs:string" />
+        <xs:element name="//angajatmanytoone" type="departament" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persoana" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nume" type="xs:string" />
+        <xs:element name="GeneratedName" type="buletin" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="departament" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nume" type="xs:string" />
+        <xs:element name="angajati" type="angajat" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="profesor" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="studenti" type="student" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="student" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="profesori" type="profesor" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="magazin" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="telefoane" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="buletin" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="cod" type="xs:string" />
+        <xs:element name="//spunemcanubuletinesteowner-ulrelatieici//valoarealuimappedbyestenumeleatributuluidinclasacaremapeazarelatia" type="persoana" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

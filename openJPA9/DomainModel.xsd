@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="accountdatabean" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="/*accessormethodsforpersistentfields*/accountid" type="xs:anyType" />
+        <xs:element name="/*accountid*/logincount" type="xs:long" />
+        <xs:element name="/*logincount*/logoutcount" type="xs:long" />
+        <xs:element name="/*logoutcount*/lastlogin" type="xs:dateTime" />
+        <xs:element name="/*lastlogin*/creation" type="xs:dateTime" />
+        <xs:element name="/*creationdate*/balance" type="xs:anyType" />
+        <xs:element name="/*balance*/openbalance" type="xs:anyType" />
+        <xs:element name="/*openbalance*/orders" type="orderdatabean" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="holdings" type="holdingdatabean" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="profile" type="accountprofiledatabean" nillable="true" minOccurs="0" />
+        <xs:element name="//@version//integeroptlock/*accessormethodsforrelationshipfieldsareonlyincludedfortheaccountprofileprofileid*/profileid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accountprofiledatabean" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="/*accessormethodsforpersistentfields*/userid" type="xs:string" />
+        <xs:element name="/*userid*/passwd" type="xs:string" />
+        <xs:element name="/*password*/fullname" type="xs:string" />
+        <xs:element name="/*fullname*/address" type="xs:string" />
+        <xs:element name="/*address*/email" type="xs:string" />
+        <xs:element name="/*email*/creditcard" type="xs:string" />
+        <xs:element name="/*creditcard*/account" type="accountdatabean" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="holdingdatabean" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="/*persistent/relationshipfields*/holdingid" type="xs:anyType" />
+        <xs:element name="/*holdingid*/quantity" type="xs:double" />
+        <xs:element name="/*quantity*/purchaseprice" type="xs:anyType" />
+        <xs:element name="/*purchaseprice*/purchase" type="xs:dateTime" />
+        <xs:element name="/*purchasedate*/quoteid" type="xs:string" />
+        <xs:element name="quote(1)*/account" type="accountdatabean" nillable="true" minOccurs="0" />
+        <xs:element name="quote" type="quotedatabean" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="quotedatabean" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="/*accessormethodsforpersistentfields*/symbol" type="xs:string" />
+        <xs:element name="/*symbol*/companyname" type="xs:string" />
+        <xs:element name="/*companyname*/volume" type="xs:double" />
+        <xs:element name="/*volume*/price" type="xs:anyType" />
+        <xs:element name="/*price*/open1" type="xs:anyType" />
+        <xs:element name="/*open1price*/low" type="xs:anyType" />
+        <xs:element name="/*lowprice*/high" type="xs:anyType" />
+        <xs:element name="/*highprice*/change1" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderdatabean" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="orderid" type="xs:anyType" />
+        <xs:element name="/*orderid*/ordertype" type="xs:string" />
+        <xs:element name="/*ordertype(buy,sell,etc.)*/orderstatus" type="xs:string" />
+        <xs:element name="/*orderstatus(open,processing,completed,closed,cancelled)*/open" type="xs:dateTime" />
+        <xs:element name="/*open(whentheorderwasentered)*/completion" type="xs:dateTime" />
+        <xs:element name="/*completiondate*/quantity" type="xs:double" />
+        <xs:element name="/*quantity*/price" type="xs:anyType" />
+        <xs:element name="/*price*/orderfee" type="xs:anyType" />
+        <xs:element name="/*price*/account" type="accountdatabean" nillable="true" minOccurs="0" />
+        <xs:element name="quote" type="quotedatabean" nillable="true" minOccurs="0" />
+        <xs:element name="//causeselloperationfailed,seejiradaytrader-63fordetails.//@transientholding" type="holdingdatabean" nillable="true" minOccurs="0" />
+        <xs:element name="//@version//integeroptlock/*fieldsforrelationshipfieldsarenotkeptinthedatabean*/symbol" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

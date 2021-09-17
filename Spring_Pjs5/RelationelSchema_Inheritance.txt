@@ -1,0 +1,23 @@
+member(id:Long [PK], name:String, GeneratedName:Address);
+
+delivery(id:Long [PK], GeneratedName:Order #FK to(order), GeneratedName:Address, GeneratedName:DeliveryStatus);
+
+category(id:Long [PK], name:String, parent:Category #FK to(category));
+
+category_item(category_id:Category [PK] #FK to Category,item_id:Item [PK] #FK to Item);
+
+orderitem(id:Long [PK], GeneratedName:Item #FK to(Item), GeneratedName:Order #FK to(order), orderprice:int, count:int);
+
+order(id:Long [PK], GeneratedName:Member #FK to(Member), GeneratedName:Delivery #FK to(delivery), orderdate:LocalDateTime, status:Orderstatus);
+
+movie(director:String, actor:String);
+
+album(artist:String, etc:String);
+
+book(author:String, isbn:String);
+
+item(id:Long [PK], name:String, price:int, stockquantity:int, dtype: String);
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

@@ -1,0 +1,17 @@
+user(/***锁定用户对应的状态值*/user_lock:int, /***用户解锁对应的状态值*/user_unlock:int, /***管理员类型*/forum_admin:int, /***普通用户类型*/normal_user:int, userid:int [PK], username:String, usertype:int, lastip:String, lastvisit:Date, password:String, locked:int, credit:int);
+
+t_board_manager(user_id:User [PK] #FK to User,board_id:set<board> [PK] #FK to set<board>);
+
+topic(/***精华主题帖子*/digest_topic:int, /***普通的主题帖子*/not_digest_topic:int, topicid:int [PK], topictitle:String, GeneratedName:User #FK to(user), boardid:int, lastpost:Date, createtime:Date, views:int, replies:int, digest:int);
+
+loginlog(loginlogid:int [PK], login:Date, GeneratedName:User #FK to(user), ip:String);
+
+mainpost();
+
+board(boardid:int [PK], boardname:String, boarddesc:String, topicnum:int);
+
+post(postid:int [PK], posttitle:String, posttext:String, boardid:int, createtime:Date, GeneratedName:User #FK to(user), GeneratedName:Topic #FK to(topic), post_type: String);
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

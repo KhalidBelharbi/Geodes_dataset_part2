@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="email" >
+      <xs:complexContent>
+       <xs:extension base="payload>[]">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="statustype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="calendarutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="person" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="middlename" type="xs:string" />
+        <xs:element name="nickname" type="xs:string" />
+        <xs:element name="suffix" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="homephone" type="xs:string" />
+        <xs:element name="mobilephone" type="xs:string" />
+        <xs:element name="addresses" type="address" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="details" type="persondetails" nillable="true" minOccurs="0" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="administrator" >
+      <xs:complexContent>
+       <xs:extension base="person">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="student" >
+      <xs:complexContent>
+       <xs:extension base="person">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="sessions" type="tutoringsession" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="school" type="xs:string" />
+          <xs:element name="grade" type="xs:long" />
+          <xs:element name="guardians" type="guardian" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="status" type="statustype" nillable="true" minOccurs="0" />
+          <xs:element name="statusentries" type="statusentry" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="active" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tutoringsession" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="students" type="student" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="statusentries" type="statusentry" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="sessiondate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="address" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="street1" type="xs:string" />
+        <xs:element name="street2" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="province" type="xs:string" />
+        <xs:element name="country" type="xs:string" />
+        <xs:element name="postalcode" type="xs:string" />
+        <xs:element name="isprimary" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="person" nillable="true" minOccurs="0" />
+        <xs:element name="active" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persondetails" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="person" nillable="true" minOccurs="0" />
+        <xs:element name="photo" type="xs:anyType" />
+        <xs:element name="birthday" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="guardian" >
+      <xs:complexContent>
+       <xs:extension base="person">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="students" type="student" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="active" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="statusentry" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="currentstatus" type="statustype" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="student" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="tutoringsession" nillable="true" minOccurs="0" />
+        <xs:element name="statusdate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

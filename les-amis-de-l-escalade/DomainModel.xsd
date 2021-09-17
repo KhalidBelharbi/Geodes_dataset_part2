@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="address" >
+      <xs:sequence>
+        <xs:element name="idaddress" type="xs:anyType" />
+        <xs:element name="streetnumber" type="xs:string" />
+        <xs:element name="streetname" type="xs:string" />
+        <xs:element name="postcode" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="region" type="xs:string" />
+        <xs:element name="country" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reservationinquiry" >
+      <xs:sequence>
+        <xs:element name="idinquiry" type="xs:long" />
+        <xs:element name="statut" type="xs:string" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="lend" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="topo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sector" >
+      <xs:sequence>
+        <xs:element name="idsector" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="numberofpath" type="xs:anyType" />
+        <xs:element name="paths" type="path" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="spot" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spot" >
+      <xs:sequence>
+        <xs:element name="idspot" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="numberofpath" type="xs:anyType" />
+        <xs:element name="difficultlevel" type="xs:string" />
+        <xs:element name="GeneratedName" type="address" nillable="true" minOccurs="0" />
+        <xs:element name="tag" type="xs:anyType" />
+        <xs:element name="sectors" type="sector" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="comments" type="comment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="topo" >
+      <xs:sequence>
+        <xs:element name="idtopo" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="available" type="xs:anyType" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="location" type="xs:string" />
+        <xs:element name="publication" type="xs:dateTime" />
+        <xs:element name="reservationinquiries" type="reservationinquiry" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="iduser" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="login" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="GeneratedName" type="role" nillable="true" minOccurs="0" />
+        <xs:element name="topos" type="topo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="reservationinquiries" type="reservationinquiry" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="comments" type="comment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="path" >
+      <xs:sequence>
+        <xs:element name="idpath" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="height" type="xs:double" />
+        <xs:element name="cotation" type="xs:string" />
+        <xs:element name="pointnumber" type="xs:anyType" />
+        <xs:element name="numberoflengh" type="xs:anyType" />
+        <xs:element name="lenghts" type="lenght" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="sector" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lenght" >
+      <xs:sequence>
+        <xs:element name="idlenght" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="height" type="xs:double" />
+        <xs:element name="cotation" type="xs:string" />
+        <xs:element name="GeneratedName" type="path" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="code" type="xs:anyType" />
+        <xs:element name="label" type="xs:string" />
+        <xs:element name="users" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="comment" >
+      <xs:sequence>
+        <xs:element name="idcomment" type="xs:long" />
+        <xs:element name="comment" type="xs:string" />
+        <xs:element name="publication" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="spot" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

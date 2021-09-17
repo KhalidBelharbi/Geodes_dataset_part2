@@ -1,0 +1,23 @@
+
+client(idcli:int [PK], nomcli:String, prenomcli:String, emailcli:String, telcli:String, pointcli:String);
+
+fournisseur(id:long [PK], nom:String, tel:int);
+
+magasin(idmag:int [PK], nommag:String, adressemag:String, villemag:String, cpmagasin:String, telmag:String);
+
+categorie(//proprietesidcat:int [PK], libellecat:String, cat:Rayon #FK to(rayon));
+
+produit(idp:int [PK], libellep:String, prixunitairep:float, prixkgp:float, nutriscorep:String, photop:Blob, labelp:String, formatp:String, conditionnementp:String, p:Categorie #FK to(Categorie));
+
+commande(idcmd:int [PK], cmd:Date, cmd:Client #FK to(Client), cmd:Magasin #FK to(Magasin));
+
+rayon(//proprietesidray:int [PK], libelleray:String);
+
+fournir(codef:FournirId, qtefp:int, f:Date, s:Produit #FK to(Produit), s:Magasin #FK to(Magasin), s:Fournisseur #FK to(Fournisseur));
+
+stocker(//proprietes:StockerId, qtesp:int, s:Produit #FK to(Produit), s:Magasin #FK to(Magasin));
+
+lignecommande(ligneid:LigneCommandeId, qtecp:int, //relations:Commande #FK to(Commande), s:Produit #FK to(Produit));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

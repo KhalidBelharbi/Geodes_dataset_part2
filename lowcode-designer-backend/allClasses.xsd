@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="flowwebapplicationtests" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="entityservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="modelbuilder" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="model" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="entityservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="namestrategy" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inmemorymodelloaderservice" >
+      <xs:sequence>
+        <xs:element name="models" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="entityservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jdbcentityservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="parser" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entityqueryservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="querycriteria" >
+      <xs:sequence>
+        <xs:element name="field" type="modelfield" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="operator" nillable="true" minOccurs="0" />
+        <xs:element name="value" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fieldtype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="defaultnamestrategy" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="model" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="type" type="modeltype" nillable="true" minOccurs="0" />
+        <xs:element name="fields" type="modelfield" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="operator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitycrudservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="modelfield" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="type" type="fieldtype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="namestrategy" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="modeltype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entity" >
+      <xs:sequence>
+        <xs:element name="values" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="model" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="query" >
+      <xs:sequence>
+        <xs:element name="criterias" type="querycriteria" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="queries" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="model" nillable="true" minOccurs="0" />
+        <xs:element name="queries" type="query" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entityid" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="model" nillable="true" minOccurs="0" />
+        <xs:element name="id" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entityservice" >
+      <xs:complexContent>
+       <xs:extension base="entitycrudservice,entityqueryservice{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="modelloaderservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="flowdef" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="module" type="xs:string" />
+        <xs:element name="path" type="xs:string" />
+        <xs:element name="up" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="flowvo" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="path" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="module" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="responsevo" >
+      <xs:sequence>
+        <xs:element name="status" type="xs:long" />
+        <xs:element name="daa" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="requestvo" >
+      <xs:sequence>
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="params" type="xs:anyType" />
+        <xs:element name="body" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="curl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bindingobject" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="json" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="modelapi" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="modelloaderservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="random" >
+      <xs:sequence>
+        <xs:element name="random" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="flowdefdao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<flowdef,string>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="flowengine" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="flowdefdao" nillable="true" minOccurs="0" />
+        <xs:element name="bindingobjects" type="bindingobject" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="factory" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="flowservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="flowdefdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="flowruncontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="flowengine" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="flowdefcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="flowservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="flowengine" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="flowwebapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,47 @@
+
+team04(id:Long [PK], name:String);
+
+member04(id:Long [PK], username:String, team:Team04 #FK to(Team04));
+
+member03(id:Long [PK]);
+
+team03(id:Long [PK], name:String);
+
+member05(id:Long [PK], username:String, //일대일관계에서주테이블(member05)에외래키(locker01_id)를사용locker:Locker05 #FK to(Locker05));
+
+locker05(id:Long [PK], name:String, //양방향설정member:Member05 #FK to(Member05));
+
+team01(id:Long [PK], name:String);
+
+member01(id:Long [PK], username:String, team:Team01 #FK to(T));
+
+member02(id:Long [PK], username:String, team:Team02 #FK to(T));
+
+team02(id:Long [PK], name:String);
+
+member07(id:String [PK], username:String);
+
+member07_product07(member07_id:Member07 [PK] #FK to Member07,product07_id:T [PK] #FK to T);
+
+product07(id:String [PK], name:String);
+
+member06(id:String [PK], username:String);
+
+member06_product06(member06_id:Member06 [PK] #FK to Member06,product06_id:T [PK] #FK to T);
+
+product06(id:String [PK], name:String);
+
+member09(id:String [PK], username:String);
+
+order09(id:Long [PK], member:Member09 #FK to(member09), product:Product09 #FK to(T), orderamount:int);
+
+product09(id:String [PK], name:String);
+
+member08product08(//product08id.member와연결member:Member08 [PK] #FK to(member08), //member08id.product와연결product:Product08 [PK] #FK to(T), orderamount:int);
+
+product08(id:String [PK], name:String);
+
+member08(id:String [PK], username:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

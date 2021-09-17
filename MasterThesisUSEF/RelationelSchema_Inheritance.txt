@@ -1,0 +1,15 @@
+
+distributionsystemoperator(id:Long [PK], domain:String);
+
+congestionpoint(id:Long [PK], entityaddress:String, GeneratedName:DistributionSystemOperator #FK to(distributionsystemoperator));
+
+connection(id:Long [PK], entityaddress:String, GeneratedName:CongestionPoint #FK to(congestionpoint), GeneratedName:Aggregator #FK to(aggregator), GeneratedName:BalanceResponsibleParty #FK to(balanceresponsibleparty));
+
+aggregator(id:Long [PK], domain:String);
+
+meterdatacompany(id:Long [PK], domain:String);
+
+balanceresponsibleparty(id:Long [PK], domain:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

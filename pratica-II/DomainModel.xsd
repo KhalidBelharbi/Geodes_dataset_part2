@@ -1,0 +1,935 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="curso" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="cur_codigo" type="xs:long" />
+        <xs:element name="cur_nome" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="solicitacao" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="sol_codigo" type="xs:long" />
+        <xs:element name="sol_descricao" type="xs:string" />
+        <xs:element name="sol_data" type="xs:dateTime" />
+        <xs:element name="sol_prioridade" type="xs:long" />
+        <xs:element name="GeneratedName" type="pessoa" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="turma" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="tur_codigo" type="xs:long" />
+        <xs:element name="tur_data_inicio" type="xs:dateTime" />
+        <xs:element name="tur_data_fim" type="xs:dateTime" />
+        <xs:element name="tur_limite_alunos" type="xs:long" />
+        <xs:element name="tur_status_turma" type="xs:long" />
+        <xs:element name="tur_cargahoraria_secao" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="treinamento" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="treinamento" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="tre_codigo" type="xs:long" />
+        <xs:element name="tre_descricao" type="xs:string" />
+        <xs:element name="tre_cargahoraria" type="xs:dateTime" />
+        <xs:element name="tre_custototal" type="xs:double" />
+        <xs:element name="tre_status" type="xs:long" />
+        <xs:element name="GeneratedName" type="local" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="curso" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="alunosturma" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="pst_pestur" type="xs:long" />
+        <xs:element name="pst_aprovado" type="xs:long" />
+        <xs:element name="pst_frequencia" type="xs:double" />
+        <xs:element name="pst_observacao" type="xs:string" />
+        <xs:element name="GeneratedName" type="turma" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="pessoa" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pessoasrecebertreinamento" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="pessoa" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="solicitacao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cursospessoa" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="crp_curpes" type="xs:long" />
+        <xs:element name="crp_descricao" type="xs:string" />
+        <xs:element name="crp_carga_horaria" type="xs:long" />
+        <xs:element name="crp_data_inicio" type="xs:dateTime" />
+        <xs:element name="crp_data_fim" type="xs:dateTime" />
+        <xs:element name="crp_data_validade" type="xs:dateTime" />
+        <xs:element name="crp_status_validade" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="pessoa" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="curso" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="empresa" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="competenciassolicitacao" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="competencia" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="solicitacao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="local" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="loc_codigo" type="xs:long" />
+        <xs:element name="loc_descricao" type="xs:string" />
+        <xs:element name="loc_infraestrutura" type="xs:string" />
+        <xs:element name="GeneratedName" type="empresa" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="cidade" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="instrutorestreinamento" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="pessoa" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="treinamento" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="competenciastreinamento" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="competencia" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="treinamento" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pessoaexperiencia" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="exp_codigo" type="xs:long" />
+        <xs:element name="GeneratedName" type="pessoa" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="empresa" nillable="true" minOccurs="0" />
+        <xs:element name="exp_cargo" type="xs:string" />
+        <xs:element name="exp_descricao" type="xs:string" />
+        <xs:element name="exp_datainicio" type="xs:dateTime" />
+        <xs:element name="exp_datafim" type="xs:dateTime" />
+        <xs:element name="exp_local" type="xs:string" />
+        <xs:element name="exp_referencia" type="xs:string" />
+        <xs:element name="exp_anotacao" type="xs:string" />
+        <xs:element name="exp_voluntario" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="areainteresse" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="ari_codigo" type="xs:long" />
+        <xs:element name="ari_descricao" type="xs:string" />
+        <xs:element name="pessoas" type="pessoa" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pergunta" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="GeneratedName" type="questionario" nillable="true" minOccurs="0" />
+        <xs:element name="//@entitypublicclassemployee{//...//@tablegenerator(//name" type="xs:long" />
+        <xs:element name="GeneratedName" type="competencia" nillable="true" minOccurs="0" />
+        <xs:element name="prg_pergunta" type="xs:string" />
+        <xs:element name="prg_ordem" type="xs:long" />
+        <xs:element name="/***1" type="xs:long" />
+        <xs:element name="prg_opcaooutros" type="xs:anyType" />
+        <xs:element name="prg_exibircandidato" type="xs:anyType" />
+        <xs:element name="prg_obrigatoria" type="xs:anyType" />
+        <xs:element name="perguntaopcoes" type="perguntaopcao" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="certificacao" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="cer_codigo" type="xs:long" />
+        <xs:element name="GeneratedName" type="empresa" nillable="true" minOccurs="0" />
+        <xs:element name="cer_nome" type="xs:string" />
+        <xs:element name="cer_datainicial" type="xs:dateTime" />
+        <xs:element name="cer_data" type="xs:dateTime" />
+        <xs:element name="cer_url" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pessoaidioma" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="pes_idi_codigo" type="xs:long" />
+        <xs:element name="GeneratedName" type="pessoa" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="idioma" nillable="true" minOccurs="0" />
+        <xs:element name="/***1-básico*2-básicoaermediário*3-ermediário*4-avançado*5-fluente*/pes_idi_nivelfala" type="xs:long" />
+        <xs:element name="pes_idi_nivelescrita" type="xs:long" />
+        <xs:element name="niveis" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entrevistaquestionarioresposta" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="GeneratedName" type="entrevistaquestionario" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="pergunta" nillable="true" minOccurs="0" />
+        <xs:element name="rsp_pergunta" type="xs:string" />
+        <xs:element name="rsp_resposta" type="xs:string" />
+        <xs:element name="rsp_ordem" type="xs:long" />
+        <xs:element name="rsp_pontuacao" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pessoacertificacao" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="pcr_codigo" type="xs:long" />
+        <xs:element name="GeneratedName" type="pessoa" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="certificacao" nillable="true" minOccurs="0" />
+        <xs:element name="pcr_datainicial" type="xs:dateTime" />
+        <xs:element name="pcr_data" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="recrutamento" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="rec_codigo" type="xs:long" />
+        <xs:element name="rec_titulo" type="xs:string" />
+        <xs:element name="rec_tipo" type="xs:long" />
+        <xs:element name="rec_inicio" type="xs:dateTime" />
+        <xs:element name="rec_fim" type="xs:dateTime" />
+        <xs:element name="/***1-aguardandoinício*2-buscandocandidatos*3-avaliandocandidatos*4-candidatosselecionados*5-treinamento*6-concluído*7-cancelado*/rec_status" type="xs:long" />
+        <xs:element name="rec_car_quantidade" type="xs:long" />
+        <xs:element name="rec_car_expectativasalario" type="xs:double" />
+        <xs:element name="rec_car_descricao" type="xs:string" />
+        <xs:element name="GeneratedName" type="cargo" nillable="true" minOccurs="0" />
+        <xs:element name="recrutamentopessoa" type="recrutamentopessoa" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entrevistapessoa" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="GeneratedName" type="entrevista" nillable="true" minOccurs="0" />
+        <xs:element name="funcionario" type="pessoa" nillable="true" minOccurs="0" />
+        <xs:element name="ent_pes_anotacao" type="xs:string" />
+        <xs:element name="ent_pes_nota" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="recrutamentopessoa" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="GeneratedName" type="recrutamento" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="pessoa" nillable="true" minOccurs="0" />
+        <xs:element name="//@embeddedid//recrutamentopessoapkrecrutamentopessoapk/***1-aguardandoavaliação*2-emavaliação*3-eliminado*4-selecionado*/rec_pes_status" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entrevista" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="GeneratedName" type="recrutamentopessoa" nillable="true" minOccurs="0" />
+        <xs:element name="ent_codigo" type="xs:long" />
+        <xs:element name="ent_datahora" type="xs:dateTime" />
+        <xs:element name="ent_resumo_entrevista" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entrevistaquestionario" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="GeneratedName" type="entrevista" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="questionario" nillable="true" minOccurs="0" />
+        <xs:element name="ent_qst_titulo" type="xs:string" />
+        <xs:element name="ent_qst_status" type="xs:long" />
+        <xs:element name="ent_qst_respondida" type="xs:anyType" />
+        <xs:element name="ent_qst_temporesposta" type="xs:long" />
+        <xs:element name="ent_qst_pontuacaototal" type="xs:long" />
+        <xs:element name="ent_qst_pontuacaomax" type="xs:long" />
+        <xs:element name="ent_qst_tipo" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pessoacompetencia" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="pes_cmp_codigo" type="xs:long" />
+        <xs:element name="GeneratedName" type="pessoa" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="competencia" nillable="true" minOccurs="0" />
+        <xs:element name="/***1-básico*2-básicoaermediário*3-ermediário*4-ermediárioaavançado*5-avançado*/pes_cmp_nivel" type="xs:long" />
+        <xs:element name="niveis" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pessoaredesocial" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="pes_rsc_codigo" type="xs:long" />
+        <xs:element name="GeneratedName" type="pessoa" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="redesocial" nillable="true" minOccurs="0" />
+        <xs:element name="pes_rsc_usuario" type="xs:string" />
+        <xs:element name="pes_rsc_descricao" type="xs:string" />
+        <xs:element name="pes_rsc_url" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="questionario" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="qst_codigo" type="xs:long" />
+        <xs:element name="qst_titulo" type="xs:string" />
+        <xs:element name="/***pontuaçãomáximaquepoderáseratingidapelocandidato.paraasquestões*dissertativassomaovalordeqst_pontuacaomax.*/qst_pontuacaototal" type="xs:long" />
+        <xs:element name="/***pontuaçãomáximaparacadaquestão.porpadrão,*parametro.par_qst_pontuacaomax_padrao*/qst_pontuacaomax" type="xs:long" />
+        <xs:element name="/***1" type="xs:long" />
+        <xs:element name="perguntas" type="pergunta" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pessoaligacaoexterna" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="lex_codigo" type="xs:long" />
+        <xs:element name="GeneratedName" type="pessoa" nillable="true" minOccurs="0" />
+        <xs:element name="lex_titulo" type="xs:string" />
+        <xs:element name="lex_descricao" type="xs:string" />
+        <xs:element name="lex_url" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pessoaformacao" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="frm_codigo" type="xs:long" />
+        <xs:element name="GeneratedName" type="pessoa" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="empresa" nillable="true" minOccurs="0" />
+        <xs:element name="frm_curso" type="xs:string" />
+        <xs:element name="frm_datainicio" type="xs:dateTime" />
+        <xs:element name="frm_datafim" type="xs:dateTime" />
+        <xs:element name="frm_referencia" type="xs:string" />
+        <xs:element name="frm_anotacao" type="xs:string" />
+        <xs:element name="/***1-graduação*2-cursotécnico*3-curso*4-ensinofundamental*5-ensinomédio*6-outros*/frm_tipo" type="xs:long" />
+        <xs:element name="/***1-concluído*2-emandamento*3-abandonado*/frm_status" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="perguntaopcao" >
+      <xs:sequence>
+        <xs:element name="//eutenhoqueteressasopção,oueupossoteraminhaprópriaopção?stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="GeneratedName" type="pergunta" nillable="true" minOccurs="0" />
+        <xs:element name="opc_codigo" type="xs:long" />
+        <xs:element name="opc_nome" type="xs:string" />
+        <xs:element name="opc_descricao" type="xs:string" />
+        <xs:element name="opc_pontuacao" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="advertencia" >
+      <xs:sequence>
+        <xs:element name="adv_codigo" type="xs:long" />
+        <xs:element name="aplicador" type="pessoa" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="pessoa" nillable="true" minOccurs="0" />
+        <xs:element name="adv_descricao" type="xs:string" />
+        <xs:element name="adv_data" type="xs:dateTime" />
+        <xs:element name="adv_observacao" type="xs:string" />
+        <xs:element name="adv_motivo" type="xs:string" />
+        <xs:element name="adv_advertencia" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="falta" >
+      <xs:sequence>
+        <xs:element name="flt_codigo" type="xs:long" />
+        <xs:element name="GeneratedName" type="pessoa" nillable="true" minOccurs="0" />
+        <xs:element name="adv_codigo" type="advertencia" nillable="true" minOccurs="0" />
+        <xs:element name="flt_data" type="xs:dateTime" />
+        <xs:element name="flt_qtd_horas" type="xs:double" />
+        <xs:element name="observacao" type="xs:string" />
+        <xs:element name="flt_justificativa" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ferias" >
+      <xs:sequence>
+        <xs:element name="fer_codigo" type="xs:long" />
+        <xs:element name="GeneratedName" type="pessoa" nillable="true" minOccurs="0" />
+        <xs:element name="fer_data_inicio" type="xs:dateTime" />
+        <xs:element name="fer_data_fim" type="xs:dateTime" />
+        <xs:element name="fer_observacao" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="faixainss" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="fai_codigo" type="xs:long" />
+        <xs:element name="fai_sal_ini" type="xs:double" />
+        <xs:element name="fai_sal_fin" type="xs:double" />
+        <xs:element name="fai_aliquota" type="xs:double" />
+        <xs:element name="fai_ab_imp_renda" type="xs:double" />
+        <xs:element name="GeneratedName" type="tabelainss" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="eventopadrao" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="evp_codigo" type="xs:long" />
+        <xs:element name="eve_codigo" type="evento" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="pessoa" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tabelairrf" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="tif_codigo" type="xs:long" />
+        <xs:element name="tif_nome" type="xs:string" />
+        <xs:element name="tif_dataincial" type="xs:dateTime" />
+        <xs:element name="tif_data" type="xs:dateTime" />
+        <xs:element name="tif_valor_deducao" type="xs:double" />
+        <xs:element name="tif_valor_min_darf" type="xs:double" />
+        <xs:element name="tif_por_pis_pasep" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tabelainss" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="tbs_codigo" type="xs:long" />
+        <xs:element name="tbs_data_inicial" type="xs:dateTime" />
+        <xs:element name="tbs_data_" type="xs:dateTime" />
+        <xs:element name="tbs_sal_fami_ini" type="xs:double" />
+        <xs:element name="tbs_sal_fami_fin" type="xs:double" />
+        <xs:element name="tbs_ab_imp_ini_fin" type="xs:double" />
+        <xs:element name="tbs_ab_imp_uni" type="xs:double" />
+        <xs:element name="tbs_sal_fami_uni" type="xs:double" />
+        <xs:element name="tbs_ali_normal" type="xs:double" />
+        <xs:element name="tbs_ali_lei1" type="xs:double" />
+        <xs:element name="tbs_ali_lei2" type="xs:double" />
+        <xs:element name="tbs_nome" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="eventofolha" >
+      <xs:sequence>
+        <xs:element name="eve_" type="evento" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="historicofolha" nillable="true" minOccurs="0" />
+        <xs:element name="evf_valor" type="xs:double" />
+        <xs:element name="evf_indice" type="xs:string" />
+        <xs:element name="evf_imprimir" type="xs:anyType" />
+        <xs:element name="evf_descricao" type="xs:string" />
+        <xs:element name="evf_serv_codigo" type="xs:long" />
+        <xs:element name="evf_tpe_codigo" type="xs:long" />
+        <xs:element name="evf_ben_codigo" type="xs:long" />
+        <xs:element name="evf_for_godigo" type="xs:long" />
+        <xs:element name="evf_tif_codigo" type="xs:long" />
+        <xs:element name="evs_tbs_codigo" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="serieevento" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="sev_codigo" type="xs:long" />
+        <xs:element name="sev_descricao" type="xs:string" />
+        <xs:element name="sev_nome" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="historicofolha" >
+      <xs:sequence>
+        <xs:element name="hif_codigo" type="xs:long" />
+        <xs:element name="GeneratedName" type="pessoa" nillable="true" minOccurs="0" />
+        <xs:element name="hif_valor_acre" type="xs:double" />
+        <xs:element name="hif_valor_desc" type="xs:double" />
+        <xs:element name="hif_salario_base" type="xs:double" />
+        <xs:element name="hif_data" type="xs:dateTime" />
+        <xs:element name="hif_valor_liquido" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="faixairrf" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="frf_codigo" type="xs:long" />
+        <xs:element name="frf_salario_inicial" type="xs:double" />
+        <xs:element name="frf_salario_" type="xs:double" />
+        <xs:element name="frf_aliquota" type="xs:double" />
+        <xs:element name="frf_deducao" type="xs:double" />
+        <xs:element name="GeneratedName" type="tabelairrf" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="formula" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="for_codigo" type="xs:long" />
+        <xs:element name="for_nome" type="xs:string" />
+        <xs:element name="for_taxa" type="xs:double" />
+        <xs:element name="for_horas" type="xs:long" />
+        <xs:element name="for_horasmais" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="evento" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="eve_codigo" type="xs:long" />
+        <xs:element name="eve_descricao" type="xs:string" />
+        <xs:element name="eve_indice" type="xs:double" />
+        <xs:element name="eve_imprimir" type="xs:anyType" />
+        <xs:element name="eve_tributar_irrf" type="xs:anyType" />
+        <xs:element name="eve_tributar_inss" type="xs:anyType" />
+        <xs:element name="eve_tributar_fgts" type="xs:anyType" />
+        <xs:element name="eve_calcular_media_agregada13" type="xs:anyType" />
+        <xs:element name="//booleaneve_acumular_horas_n//booleaneve_acumular_rais_base//booleaneve_acumular_rais_horas//booleaneve_horas_dias" type="tabelainss" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="tabelairrf" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="tipoevento" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="serieevento" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="formula" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="beneficio" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tipoevento" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="tpe_codigo" type="xs:long" />
+        <xs:element name="tpe_tipo_de_entrada" type="xs:string" />
+        <xs:element name="tpe_nome" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="competencia" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="cmp_codigo" type="xs:long" />
+        <xs:element name="cmp_descricao" type="xs:string" />
+        <xs:element name="cmp_status" type="xs:long" />
+        <xs:element name="GeneratedName" type="tipocompetencia" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pessoasavaliacao" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="stitledetails" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="colaboradoravaliado" type="pessoa" nillable="true" minOccurs="0" />
+        <xs:element name="avaliador" type="pessoa" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="avaliacao" nillable="true" minOccurs="0" />
+        <xs:element name="pea_media" type="xs:long" />
+        <xs:element name="pea_observacao" type="xs:string" />
+        <xs:element name="pea_datahora_resposta" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="avaliacao" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="ava_codigo" type="xs:long" />
+        <xs:element name="GeneratedName" type="turma" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="questionario" nillable="true" minOccurs="0" />
+        <xs:element name="ava_status" type="xs:long" />
+        <xs:element name="ava_nome" type="xs:string" />
+        <xs:element name="ava_observacao" type="xs:string" />
+        <xs:element name="ava_datainicial" type="xs:dateTime" />
+        <xs:element name="ava_data" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="avaliacaopessoacargo" >
+      <xs:sequence>
+        <xs:element name="//achoqnauprecisadostitleaki,poisaquin'aovaiternenhumatelaapc_codigo" type="xs:long" />
+        <xs:element name="apc_status" type="xs:long" />
+        <xs:element name="GeneratedName" type="avaliacao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="cargo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="pessoa" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="perguntapessoaavaliacao" >
+      <xs:sequence>
+        <xs:element name="colaboradoravaliado" type="pessoa" nillable="true" minOccurs="0" />
+        <xs:element name="avaliador" type="pessoa" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="avaliacao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="pergunta" nillable="true" minOccurs="0" />
+        <xs:element name="ppa_resposta" type="xs:string" />
+        <xs:element name="ppa_pergunta" type="xs:string" />
+        <xs:element name="ppa_pontuacao" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tipocompetencia" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="tcp_codigo" type="xs:long" />
+        <xs:element name="tcp_descricao" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="graduacao" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="grd_codigo" type="xs:long" />
+        <xs:element name="grd_descricao" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="graduacoespessoa" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="GeneratedName" type="graduacao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="pessoa" nillable="true" minOccurs="0" />
+        <xs:element name="grd_status" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="setor" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="set_codigo" type="xs:long" />
+        <xs:element name="set_descricao" type="xs:string" />
+        <xs:element name="epis" type="epi" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tipoexame" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="eme_codigo" type="xs:long" />
+        <xs:element name="eme_descricao" type="xs:string" />
+        <xs:element name="eme_tipo" type="xs:anyType" />
+        <xs:element name="eme_periodico" type="xs:anyType" />
+        <xs:element name="eme_validade" type="xs:long" />
+        <xs:element name="eme_obrigatorio" type="xs:anyType" />
+        <xs:element name="eme_ervalorepeticao" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="examepessoa" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="exa_codigo" type="xs:long" />
+        <xs:element name="GeneratedName" type="tipoexame" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="pessoa" nillable="true" minOccurs="0" />
+        <xs:element name="eps_dataexame" type="xs:dateTime" />
+        <xs:element name="eps_datavalidade" type="xs:dateTime" />
+        <xs:element name="eps_situacao" type="xs:anyType" />
+        <xs:element name="eps_observacao" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="epi" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="epi_codigo" type="xs:long" />
+        <xs:element name="epi_descricao" type="xs:string" />
+        <xs:element name="//individual,coletivoepi_tipo" type="xs:anyType" />
+        <xs:element name="//epi_situacao" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="motivoalteracaosalarial" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="mas_codigo" type="xs:long" />
+        <xs:element name="mas_descricao" type="xs:string" />
+        <xs:element name="mas_situacao" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cargo" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="car_codigo" type="xs:long" />
+        <xs:element name="car_descricao" type="xs:string" />
+        <xs:element name="car_ativo" type="xs:anyType" />
+        <xs:element name="car_cbo" type="xs:string" />
+        <xs:element name="car_tetosalarial" type="xs:double" />
+        <xs:element name="car_pisosalarial" type="xs:double" />
+        <xs:element name="car_pai" type="cargo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="setor" nillable="true" minOccurs="0" />
+        <xs:element name="competencias" type="competencia" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="graduacoes" type="graduacao" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="epis" type="epi" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="beneficios" type="beneficio" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="pessoas" type="pessoa" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="beneficiospessoa" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="bnp_codigo" type="xs:long" />
+        <xs:element name="GeneratedName" type="beneficio" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="pessoa" nillable="true" minOccurs="0" />
+        <xs:element name="ben_ativo" type="xs:anyType" />
+        <xs:element name="ben_datainicio" type="xs:dateTime" />
+        <xs:element name="ben_datafim" type="xs:dateTime" />
+        <xs:element name="ben_valor" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="equipamentospessoa" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="eqp_codigo" type="xs:long" />
+        <xs:element name="GeneratedName" type="epi" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="pessoa" nillable="true" minOccurs="0" />
+        <xs:element name="epe_datainicio" type="xs:dateTime" />
+        <xs:element name="epe_datavencimento" type="xs:dateTime" />
+        <xs:element name="epe_situacao" type="xs:anyType" />
+        <xs:element name="epe_valor" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="salario" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="sal_codigo" type="xs:long" />
+        <xs:element name="GeneratedName" type="cargo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="motivoalteracaosalarial" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="pessoa" nillable="true" minOccurs="0" />
+        <xs:element name="planejamentocargo" type="planejamentocargos" nillable="true" minOccurs="0" />
+        <xs:element name="sal_datainicio" type="xs:dateTime" />
+        <xs:element name="sal_datafim" type="xs:dateTime" />
+        <xs:element name="sal_situacao" type="xs:anyType" />
+        <xs:element name="sal_valorbruto" type="xs:double" />
+        <xs:element name="sal_valorbrutonovo" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="beneficio" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="ben_codigo" type="xs:long" />
+        <xs:element name="ben_descricao" type="xs:string" />
+        <xs:element name="ben_valor" type="xs:double" />
+        <xs:element name="ben_datainicio" type="xs:dateTime" />
+        <xs:element name="ben_datafim" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cargospessoa" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="GeneratedName" type="cargo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="pessoa" nillable="true" minOccurs="0" />
+        <xs:element name="car_data_inicio" type="xs:dateTime" />
+        <xs:element name="car_data_fim" type="xs:dateTime" />
+        <xs:element name="car_status" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="planejamentocargos" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="pln_codigo" type="xs:long" />
+        <xs:element name="planejamento" type="planejamentocarreira" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="cargo" nillable="true" minOccurs="0" />
+        <xs:element name="car_ordem" type="xs:long" />
+        <xs:element name="car_tempominimo" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="planejamentocarreira" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="pla_codigo" type="xs:long" />
+        <xs:element name="pla_descricao" type="xs:string" />
+        <xs:element name="pla_status" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="log" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="log_codigo" type="xs:long" />
+        <xs:element name="GeneratedName" type="usuario" nillable="true" minOccurs="0" />
+        <xs:element name="log_tabela" type="xs:string" />
+        <xs:element name="log_operacao" type="xs:string" />
+        <xs:element name="log_datahora" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cidade" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="cid_codigo" type="xs:long" />
+        <xs:element name="cid_nome" type="xs:string" />
+        <xs:element name="cid_uf" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuario" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="usu_login" type="xs:string" />
+        <xs:element name="usu_senha" type="xs:string" />
+        <xs:element name="usu_status" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="pessoa" nillable="true" minOccurs="0" />
+        <xs:element name="grupos" type="grupo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="conversa" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="cnv_codigo" type="xs:long" />
+        <xs:element name="_criador" type="pessoa" nillable="true" minOccurs="0" />
+        <xs:element name="cnv_assunto" type="xs:string" />
+        <xs:element name="pessoas" type="pessoa" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="apelido" type="apelido" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="parametro" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="par_codigo" type="xs:long" />
+        <xs:element name="par_qst_pontuacaomax_padrao" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="redesocial" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="rsc_codigo" type="xs:long" />
+        <xs:element name="rsc_nome" type="xs:string" />
+        <xs:element name="rsc_url" type="xs:string" />
+        <xs:element name="rsc_urlperfil" type="xs:string" />
+        <xs:element name="GeneratedName" type="repositorio" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pessoa" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="pes_codigo" type="xs:long" />
+        <xs:element name="GeneratedName" type="repositorio" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="bairro" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="cidade" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="endereco" nillable="true" minOccurs="0" />
+        <xs:element name="nasc" type="cidade" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="empresa" nillable="true" minOccurs="0" />
+        <xs:element name="cargos" type="cargo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="usuario" nillable="true" minOccurs="0" />
+        <xs:element name="pes_nome" type="xs:string" />
+        <xs:element name="pes_cpf" type="xs:string" />
+        <xs:element name="pes_rg" type="xs:string" />
+        <xs:element name="pes_datanasc" type="xs:dateTime" />
+        <xs:element name="pes_numeroend" type="xs:string" />
+        <xs:element name="pes_complementoend" type="xs:string" />
+        <xs:element name="pes_telefone" type="xs:string" />
+        <xs:element name="pes_email" type="xs:string" />
+        <xs:element name="pes_pai" type="xs:string" />
+        <xs:element name="pes_mae" type="xs:string" />
+        <xs:element name="/***1-funcionário*2-exfuncionário*3-pessoadefora(candidatos)*4-instrutores*/pes_tipo" type="xs:long" />
+        <xs:element name="/***1-solteiro(a)*2-casado(a)*3-separado(a)*4-outros*/pes_estadocivil" type="xs:long" />
+        <xs:element name="pes_observacoes" type="xs:string" />
+        <xs:element name="pes_necessidadeespecial" type="xs:anyType" />
+        <xs:element name="pes_necessidadeespecialdsc" type="xs:string" />
+        <xs:element name="pes_datacadastro" type="xs:dateTime" />
+        <xs:element name="pes_cur_resumo" type="xs:string" />
+        <xs:element name="pes_cur_dataatualizado" type="xs:dateTime" />
+        <xs:element name="pes_cur_pretensaosalarial" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mensagempessoa" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="GeneratedName" type="pessoa" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="mensagem" nillable="true" minOccurs="0" />
+        <xs:element name="msg_lida" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mensagem" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="GeneratedName" type="conversa" nillable="true" minOccurs="0" />
+        <xs:element name="msg_codigo" type="xs:long" />
+        <xs:element name="GeneratedName" type="pessoa" nillable="true" minOccurs="0" />
+        <xs:element name="msg_texto" type="xs:string" />
+        <xs:element name="msg_datahora" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bairro" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="bai_codigo" type="xs:long" />
+        <xs:element name="bai_descricao" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="grupo" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="usuario" nillable="true" minOccurs="0" />
+        <xs:element name="grp_nome" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="empresa" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="emp_codigo" type="xs:long" />
+        <xs:element name="emp_nome" type="xs:string" />
+        <xs:element name="GeneratedName" type="repositorio" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="cidade" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="bairro" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="endereco" nillable="true" minOccurs="0" />
+        <xs:element name="/***1-empresaprivada*2-empresapública*3-escolaprivada*4-escolapública*/emp_tipo" type="xs:long" />
+        <xs:element name="/***1-familiar*2-pequena*3-média*4-grande*5-global*/emp_tamanho" type="xs:long" />
+        <xs:element name="emp_descricao" type="xs:string" />
+        <xs:element name="emp_website" type="xs:string" />
+        <xs:element name="emp_numeroendereco" type="xs:string" />
+        <xs:element name="emp_sede" type="xs:long" />
+        <xs:element name="emp_empresa_sistema" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="endereco" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="end_codigo" type="xs:long" />
+        <xs:element name="end_descricao" type="xs:string" />
+        <xs:element name="end_cep" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="repositorio" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="rep_codigo" type="xs:long" />
+        <xs:element name="rep_tipo" type="xs:long" />
+        <xs:element name="rep_data" type="xs:dateTime" />
+        <xs:element name="rep_nome" type="xs:string" />
+        <xs:element name="rep_nomearquivo" type="xs:string" />
+        <xs:element name="rep_extensao" type="xs:string" />
+        <xs:element name="rep_arquivo" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="idioma" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="idi_codigo" type="xs:long" />
+        <xs:element name="idi_descricao" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="apelido" >
+      <xs:sequence>
+        <xs:element name="stitle" type="xs:string" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="als_codigo" type="xs:long" />
+        <xs:element name="als_nome" type="xs:string" />
+        <xs:element name="als_status" type="xs:long" />
+        <xs:element name="//revisaraschavesdestesjoin,temqueespecificarcomjoincolumnpessoas" type="pessoa" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="conversas" type="conversa" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="mensagens" type="mensagem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

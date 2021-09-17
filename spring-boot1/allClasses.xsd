@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="one2manytest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="one2onetest" >
+      <xs:sequence>
+        <xs:element name="addressrepo" type="addressrepository" nillable="true" minOccurs="0" />
+        <xs:element name="userrepo" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="many2manytest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logback" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basicrepository" >
+      <xs:complexContent>
+       <xs:extension base="serializable>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="addressrepository" >
+      <xs:complexContent>
+       <xs:extension base="basicrepository<address,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="basicrepository<user,long>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="departmentrepository" >
+      <xs:complexContent>
+       <xs:extension base="basicrepository<department,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="employeerepository" >
+      <xs:complexContent>
+       <xs:extension base="basicrepository<employee,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="detailinforepository" >
+      <xs:complexContent>
+       <xs:extension base="basicrepository<detailinfo,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="companyrepository" >
+      <xs:complexContent>
+       <xs:extension base="basicrepository<company,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="positionrepository" >
+      <xs:complexContent>
+       <xs:extension base="basicrepository<position,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="address" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="addressid" type="xs:anyType" />
+        <xs:element name="street" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="/***:指定表的主键*@generatedvalue:定义了标识字段生成方式*/userid" type="xs:anyType" />
+        <xs:element name="/***@column:定义了将成员属性映射到关系表中的字段名称*/username" type="xs:string" />
+        <xs:element name="GeneratedName" type="address" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="test" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="teid" type="xs:long" />
+        <xs:element name="stid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commodity" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="category" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="position" >
+      <xs:sequence>
+        <xs:element name="posid" type="xs:long" />
+        <xs:element name="posname" type="xs:string" />
+        <xs:element name="employee" type="employee" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="company" >
+      <xs:sequence>
+        <xs:element name="comid" type="xs:long" />
+        <xs:element name="comname" type="xs:string" />
+        <xs:element name="department" type="department" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="detailinfo" >
+      <xs:sequence>
+        <xs:element name="detid" type="xs:long" />
+        <xs:element name="detname" type="xs:string" />
+        <xs:element name="GeneratedName" type="employee" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="department" >
+      <xs:sequence>
+        <xs:element name="depid" type="xs:long" />
+        <xs:element name="depname" type="xs:string" />
+        <xs:element name="GeneratedName" type="company" nillable="true" minOccurs="0" />
+        <xs:element name="employee" type="employee" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="employee" >
+      <xs:sequence>
+        <xs:element name="empid" type="xs:long" />
+        <xs:element name="empname" type="xs:string" />
+        <xs:element name="//mappedby" type="detailinfo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="department" nillable="true" minOccurs="0" />
+        <xs:element name="//joincolumns" type="position" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="app" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

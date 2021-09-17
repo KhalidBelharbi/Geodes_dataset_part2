@@ -1,0 +1,15 @@
+
+project(id:int [PK], name:String);
+
+project_Employee(projectID:project [PK] #FK to project,EmployeeID:Employee [PK] #FK to Employee);
+
+department(id:int [PK], name:String);
+
+employee(id:int [PK], name:String, salary:long, start:Date, GeneratedName:Address #FK to(Address), dept:Department #FK to(Department), manager:Employee #FK to(Employee));
+
+address(id:int [PK], street:String, city:String, state:String, zip:String);
+
+phone(id:long [PK], number:String, type:String, GeneratedName:Employee #FK to(Employee));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

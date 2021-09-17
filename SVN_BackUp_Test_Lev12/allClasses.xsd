@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="messagedrivenbeanstatsprovider" >
+      <xs:complexContent>
+       <xs:extension base="ejbmonitoringstatsprovider">
+         <xs:sequence>
+          <xs:element name="messagecount" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="messagebeanlistenerimpl" >
+      <xs:sequence>
+        <xs:element name="container_" type="messagebeancontainer" nillable="true" minOccurs="0" />
+        <xs:element name="_" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messagebeancontainerfactory" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="messagedrivenhandler" >
+      <xs:complexContent>
+       <xs:extension base="abstractejbhandler">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="messagebeaninterfacegenerator" >
+      <xs:complexContent>
+       <xs:extension base="ejboptionalintfgenerator">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="messagebeancontainer" >
+      <xs:complexContent>
+       <xs:extension base="basecontainer">
+         <xs:sequence>
+          <xs:element name="_" type="xs:anyType" />
+          <xs:element name="appejbname_" type="xs:string" />
+          <xs:element name="localstrings" type="xs:anyType" />
+          <xs:element name="//message-beaninstancestatespooled" type="xs:long" />
+          <xs:element name="_" type="xs:anyType" />
+          <xs:element name="messagebeanpool_" type="xs:anyType" />
+          <xs:element name="beanpooldesc_" type="xs:anyType" />
+          <xs:element name="maxmessagebeanlisteners_" type="xs:long" />
+          <xs:element name="nummessagebeanlisteners_" type="xs:long" />
+          <xs:element name="messagebeaninterface_" type="xs:anyType" />
+          <xs:element name="messagebeansub_" type="xs:anyType" />
+          <xs:element name="//propertyusedtobootstrapmessagebeanclientfactoryforinbound//messagedelivery.message_bean_client_factory_prop" type="xs:string" />
+          <xs:element name="default_message_bean_client_factory" type="xs:string" />
+          <xs:element name="default_resize_quantity" type="xs:long" />
+          <xs:element name="default_steady_size" type="xs:long" />
+          <xs:element name="default_max_pool_size" type="xs:long" />
+          <xs:element name="default_idle_timeout" type="xs:long" />
+          <xs:element name="//issue4629.0meansabeancanremainidleindefinitely.min_idle_timeout" type="xs:long" />
+          <xs:element name="//todo:removestatmessagecount" type="xs:long" />
+          <xs:element name="poolmgr" type="xs:anyType" />
+          <xs:element name="messagelistenertype_" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="messagebeancontextimpl" >
+      <xs:complexContent>
+       <xs:extension base="ejbcontextimpl">
+         <xs:sequence>
+          <xs:element name="aftersetcontext" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="timerstate" >
+      <xs:sequence>
+        <xs:element name="////persistencefieldsandaccessmethods//timerid" type="xs:string" />
+        <xs:element name="creationtimeraw" type="xs:long" />
+        <xs:element name="initialexpirationraw" type="xs:long" />
+        <xs:element name="lastexpirationraw" type="xs:long" />
+        <xs:element name="intervalduration" type="xs:long" />
+        <xs:element name="state" type="xs:long" />
+        <xs:element name="containerid" type="xs:long" />
+        <xs:element name="applicationid" type="xs:long" />
+        <xs:element name="pkhashcode" type="xs:long" />
+        <xs:element name="ownerid" type="xs:string" />
+        <xs:element name="schedule" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="////thesedatamemberscontainderivedstatefor//someimmutablefields.////deserializedstatefromblobblobloaded_" type="xs:anyType" />
+        <xs:element name="timedprimarykey_" type="xs:anyType" />
+        <xs:element name="info_" type="xs:anyType" />
+        <xs:element name="//screationtime_" type="xs:dateTime" />
+        <xs:element name="initialexpiration_" type="xs:dateTime" />
+        <xs:element name="lastexpiration_" type="xs:dateTime" />
+        <xs:element name="timerschedule_" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="timerbean" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="context_" type="xs:anyType" />
+        <xs:element name="em" type="xs:anyType" />
+        <xs:element name="////thesedatamemberscontainderivedstatefor//someimmutablefields.////deserializedstatefromblobblobloaded_" type="xs:anyType" />
+        <xs:element name="timedprimarykey_" type="xs:anyType" />
+        <xs:element name="transientinfo_" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistentejbtimerservice" >
+      <xs:complexContent>
+       <xs:extension base="ejbtimerservice">
+         <xs:sequence>
+          <xs:element name="_" type="timerlocal" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="//thisvaluewouldbesetinpetobeadefaultvalueoffalse.//incaseofeethedefaultvaluewouldbetrue.whensettotruethe//timerservicewouldhavemaximimconsistencywithperformancedegration.performdbreadbeforetimeout" type="xs:anyType" />
+          <xs:element name="removeoldtimers" type="xs:anyType" />
+          <xs:element name="strdbreadbeforetimeout" type="xs:string" />
+          <xs:element name="foundsyspropdbreadbeforetimeout" type="xs:anyType" />
+          <xs:element name="ejbt" type="xs:anyType" />
+          <xs:element name="timer" type="xs:anyType" />
+          <xs:element name="timer_resource_jndi" type="xs:string" />
+          <xs:element name="timer_service_app_name" type="xs:string" />
+          <xs:element name="timer_service_bean_name" type="xs:string" />
+          <xs:element name="//determineswhatneedstobedoneonconnectionfailureon_conection_failure" type="xs:string" />
+          <xs:element name="op_redeliver" type="xs:string" />
+          <xs:element name="op_stop" type="xs:string" />
+          <xs:element name="//possiblevalues"redeliver"and"stop"operationonconnectionfailure" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="timerlocal" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="distributedejbtimerservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,13 @@
+
+pythonversionentity(serialversionuid:long, /***主键id*/id:String [PK], /***脚本版本*一般为python脚本的指定版本号*/name:String, /***创建时间*/createtime:Date);
+
+golangversionentity(serialversionuid:long, /***主键id*/id:String [PK], /***脚本版本*一般为python脚本的指定版本号*/name:String, /***创建时间*/createtime:Date);
+
+scriptentity(serialversionuid:long, /***主键id*/id:String [PK], /***名称*/name:String, /***脚本内容*/content:String, /***创建时间*/createtime:Date, /***描述*/description:String, /***状态*/status:short, /***脚本类型*0：shell*1：python*2：golang*3：java*/type:short, golangversionid:String, GeneratedName:GoLangVersionEntity #FK to(en), /***脚本版本*一般为python脚本的指定版本号*///@length(max:String, GeneratedName:PythonVersionEntity #FK to(en), javaversionid:String, GeneratedName:JavaVersionEntity #FK to(en));
+
+javaversionentity(serialversionuid:long, /***主键id*/id:String [PK], /***脚本版本*一般为java脚本的指定版本号*/name:String, /***创建时间*/createtime:Date, /***jdk类型*true为jdk*false为openjdk*/type:boolean);
+
+commandentity(serialversionuid:long, /***主键id*/id:String [PK], /***状态*/status:short, /***脚本版本*一般为python脚本的指定版本号*/name:String, /***创建时间*/createtime:Date, /***脚本内容*/content:String, /***描述*/description:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

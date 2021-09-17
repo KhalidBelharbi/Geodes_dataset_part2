@@ -1,0 +1,15 @@
+
+sysuser(//登录用户名,所属表字段为water_user.usernameusername:String, //登录密码,所属表字段为water_user.passwordpassword:String, //姓名,所属表字段为water_user.namename:String, //性别：1男0女,所属表字段为water_user.gendergender:Boolean, //是否管理员：1是0否,所属表字段为water_user.is_adminisadmin:Boolean, //外键，所属部门id,所属表字段为water_user.department_iddepartmentid:Long, //是否锁定：1是0否,所属表字段为water_user.is_lockislock:Boolean, //是否删除：1是0否,所属表字段为water_user.delete_flagdeleteflag:Boolean, serialversionuid:long);
+
+sysuser_set<sysrole>(sysuserID:sysuser [PK] #FK to sysuser,set<sysrole>ID:set<sysrole> [PK] #FK to set<sysrole>);
+
+sysdepartment(name:String, //图标iconcls:String, //排序号sort:Integer, /*@manytoone(cascade:Long);
+
+syspermission(//名称name:String, //code:String, //菜单路径url:String, //图标iconcls:String, //资源类型,0菜单1功能type:Integer, //排序号sort:Integer, /*@manytoone(cascade:Long);
+
+sysrole(name:String, code:String);
+
+sysrole_set<syspermission>(sysroleID:sysrole [PK] #FK to sysrole,set<syspermission>ID:set<syspermission> [PK] #FK to set<syspermission>);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

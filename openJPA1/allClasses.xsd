@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="openjpaenhancermojo" >
+      <xs:complexContent>
+       <xs:extension base="abstractopenjpaenhancermojo">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractopenjpamojo" >
+      <xs:complexContent>
+       <xs:extension base="abstractmojo">
+         <xs:sequence>
+          <xs:element name="/***theworkingdirectoryforputtingpersistence.xmland*otherstuffintoifweneedto.*/workdir" type="xs:anyType" />
+          <xs:element name="classesarelocated.*/classes" type="xs:anyType" />
+          <xs:element name="/***commaseparatedlistofincludestoscansearchdirtopasstothejobs.*thismaybeusedtorestricttheopenjpataskstoe.g.asinglepackagewhich*containsalltheentities.*/includes" type="xs:string" />
+          <xs:element name="/***commaseparatedlistofexcludestoscansearchdirtopasstothejobs.*thisoptionmaybeusedtostopopenjpatasksfromscanningnon-jpaclasses*(whichusuallyleadstowarningssuchas"typexxxhasnometadata")*/excludes" type="xs:string" />
+          <xs:element name="/***additionalpassedtotheopenjpatools.*/tool" type="xs:anyType" />
+          <xs:element name="/***usedifanon-defaultfilelocationforthepersistence.xmlshouldbeused*ifnotspecified,thedefaultoneinmeta-inf/persistence.xmlwillbeused.*sinceopenjpa-2.3.0thiscanalsobearesourcelocation.inpriorreleases*itwasonlypossibletospecifyafilelocation.*/persistencexmlfile" type="xs:string" />
+          <xs:element name="/***anoptionalpersistenceunitname.*ifnotspecifiedthenopenjpawillrunagainst'allanchors'.*meansitwilluseallpersistenceunitsofallpersistence.xmlfilesitfinds.*/persistenceunitname" type="xs:string" />
+          <xs:element name="**thisismosttimesusedinconjunctionwith{@link#connectionproperties}.*/connectiondrivername" type="xs:string" />
+          <xs:element name="/***theusedforpassinginformationabouttheconnectiondrivername*/option_connection_driver_name" type="xs:string" />
+          <xs:element name="*&ltconnectionproperties&gt*driverclass" type="xs:string" />
+          <xs:element name="/***theusedforpassinginformationabouttheconnectionproperties*/option_connection_properties" type="xs:string" />
+          <xs:element name="classesandresourcesexpectedby*pcenhancer.*/compileclasspathelements" type="xs:anyType" />
+          <xs:element name="willforce*theexecutionofthismojo,evenifitwouldgetskippedusually.*/forcemojoexecution" type="xs:anyType" />
+          <xs:element name="/***themavenprojectobject*/project" type="xs:anyType" />
+          <xs:element name="/***thepropertiesoptionisusedforpassinginformationaboutthepersistence.xmlfilelocation*/option_properties_file" type="xs:string" />
+          <xs:element name="/***thepropertiesoptionisusedforpassinginformationaboutthepersistence.xml*classpathresourceandthedefaultunit*/option_properties" type="xs:string" />
+          <xs:element name=",skiptheexecution.*@since1.0*/skip" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="openjpasqlmojo" >
+      <xs:complexContent>
+       <xs:extension base="abstractopenjpamappingtoolmojo">
+         <xs:sequence>
+          <xs:element name="*technicallythisisthesamelikethe{@codeschemaaction},butwehaveto*splititfortheplugintoallowdifferentactionsforgeneratingthemapping*andgeneratingthesqlfiles.*/sqlaction" type="xs:string" />
+          <xs:element name="/***internallytheoptionsisnamed'schemaaction'!*/option_sql_action" type="xs:string" />
+          <xs:element name="/***usethisoptiontowritetheplannedschemamodificationstoasql*script.combinethiswithaschemaaction*of"build"togenerateascriptthatrecreatestheschemaforthe*currentmappings,eveniftheschemaalreadyexists.*/sql" type="xs:anyType" />
+          <xs:element name="/***usedforpassingthesqlfileparametertothemappingtool*/option_sql_file" type="xs:string" />
+          <xs:element name="/***usethisoptiontowritetheplannedschemamodificationsto*thedatabase.ifthisisset,thesqlfilesetting(ifany)will*beignored.*/modifydatabase" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="openjpatestenhancermojo" >
+      <xs:complexContent>
+       <xs:extension base="abstractopenjpaenhancermojo">
+         <xs:sequence>
+          <xs:element name="classesandresourcesexpectedby*pcenhancer.*/testclasspathelements" type="xs:anyType" />
+          <xs:element name="/***thisiswherecompiledtestclassesgo.*/testclasses" type="xs:anyType" />
+          <xs:element name="/***usethisflagtoskiptestenhancement.itwillautomaticallybe*setifmavengotinvokedwiththe-dmaven.test.skip" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractopenjpaenhancermojo" >
+      <xs:complexContent>
+       <xs:extension base="abstractopenjpamojo">
+         <xs:sequence>
+          <xs:element name="/***thejpaspecrequiresthatallpersistentclassesdefineano-argconstructor.*thisflagtellstheenhancerwhethertoaddano-argconstructor*toanypersistentclassesthatdon'talreadyhaveone.*/adddefaultconstructor" type="xs:anyType" />
+          <xs:element name="/***usedforpassingtheadddefaultconstructorparametertotheenhnacertool*/option_add_default_constructor" type="xs:string" />
+          <xs:element name="/***whethertothrowanexceptionwhenitappearsthatapropertyaccessentity*isnotobeyingtherestrictionsplacedonpropertyaccess.*/enforcepropertyrestrictions" type="xs:anyType" />
+          <xs:element name="/***usedforpassingtheenforcepropertyrestrictionsparametertotheenhnacertool*/option_enforce_property_restriction" type="xs:string" />
+          <xs:element name="/***tellthepcenhancertouseatemporaryclassloaderforenhancement.*ifyouenablethisfeature,thennodependingartifactsfromtheclasspathwillbeused!*pleasenotethatyouhavetodisablethetmpclassloaderforsomecasesinopenjpa-1.2.1*duetoanextendedparsingstrategy.*/tmpclassloader" type="xs:anyType" />
+          <xs:element name="/***usedforpassingthetmpclassloaderparametertotheenhnacertool*/option_use_temp_classloader" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractopenjpamappingtoolmojo" >
+      <xs:complexContent>
+       <xs:extension base="abstractopenjpamojo">
+         <xs:sequence>
+          <xs:element name="/***argumenttospecifytheactiontotakeoneachclass.theavailableactionsare:*buildschema,validate*/action" type="xs:string" />
+          <xs:element name="/***usedforpassingtheactionparametertothemappingtool*/option_action" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="openjpaschemamojo" >
+      <xs:complexContent>
+       <xs:extension base="abstractopenjpamappingtoolmojo">
+         <xs:sequence>
+          <xs:element name="*/schemaaction" type="xs:string" />
+          <xs:element name="/***usedforpassingtheschemaactionparametertothemappingtool*/option_schema_action" type="xs:string" />
+          <xs:element name="/***usethisoptiontowritetheplannedschematoanxmldocument*ratherthanmodifythedatabase.thedocumentcanthenbemanipulatedand*committedtothedatabasewiththeschematool*/schema" type="xs:anyType" />
+          <xs:element name="/***usedforpassingtheschemafileparametertothemappingtool*/option_schema_file" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="openjpaenhancermojotest" >
+      <xs:complexContent>
+       <xs:extension base="abstractmojotestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sampleentity" >
+      <xs:sequence>
+        <xs:element name="x1" type="xs:long" />
+        <xs:element name="1" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="person" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="age" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="plugin-config" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="openjpa" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pom" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pom" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="myentityinterface" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="myentityimpl" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pom" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="settings" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testentityc" >
+      <xs:sequence>
+        <xs:element name="x1" type="xs:long" />
+        <xs:element name="1" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testentityb" >
+      <xs:sequence>
+        <xs:element name="x1" type="xs:long" />
+        <xs:element name="1" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testentitya" >
+      <xs:sequence>
+        <xs:element name="x1" type="xs:long" />
+        <xs:element name="1" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="verifytest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="verify" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pom" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="itrefreshschematest" >
+      <xs:sequence>
+        <xs:element name="/***containsthedirectorywhereallgeneratedresultsareplaced*/target_dir" type="xs:string" />
+        <xs:element name="/***thefilecontainingthegeneratedsqlsyntax*/sql_file" type="xs:string" />
+        <xs:element name="/***ifthesqlgenerationhasbeensuccessful,thefollowingresultshouldbeinthesqlfile*/valid_sql" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testentity" >
+      <xs:sequence>
+        <xs:element name="x1" type="xs:long" />
+        <xs:element name="1" type="xs:string" />
+        <xs:element name="val2" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="database" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="myentityinterface" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pom" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pom" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pom" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="myentityimpl" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pom" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dropschematestentity" >
+      <xs:sequence>
+        <xs:element name="x1" type="xs:long" />
+        <xs:element name="1" type="xs:string" />
+        <xs:element name="myenum" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="itdropschematest" >
+      <xs:sequence>
+        <xs:element name="/***containsthedirectorywhereallgeneratedresultsareplaced*/target_dir" type="xs:string" />
+        <xs:element name="/***thefilecontainingthegeneratedsqlsyntax*/sql_file" type="xs:string" />
+        <xs:element name="/***ifthesqlgenerationhasbeensuccessful,thefollowingresultshouldbeinthesqlfile*/valid_sql" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pom" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="anotherpersistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testentity" >
+      <xs:sequence>
+        <xs:element name="x1" type="xs:long" />
+        <xs:element name="1" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="itnondefaultxmltest" >
+      <xs:complexContent>
+       <xs:extension base="testcase">
+         <xs:sequence>
+          <xs:element name="/***containsthedirectorywhereallgeneratedresultsareplaced*/target_dir" type="xs:string" />
+          <xs:element name="/***thefilecontainingthegeneratedsqlsyntax*/sql_file" type="xs:string" />
+          <xs:element name="/***ifthesqlgenerationhasbeensuccessful,thefollowingresultshouldbeinthesqlfile*/valid_sql" type="xs:string" />
+          <xs:element name="test_entity_class" type="xs:string" />
+          <xs:element name="/***thefilecontainingthegeneratedschemaxml*/schema_file" type="xs:string" />
+          <xs:element name="/***thenameoftheschemaxmlfilewhichshouldbetakenastestreference*/reference_schema_xml" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="reference_schema" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testentity" >
+      <xs:sequence>
+        <xs:element name="x1" type="xs:long" />
+        <xs:element name="1" type="xs:string" />
+        <xs:element name="myenum" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reference_schema" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="itdefaultsettingstest" >
+      <xs:complexContent>
+       <xs:extension base="testcase">
+         <xs:sequence>
+          <xs:element name="/***containsthedirectorywhereallgeneratedresultsareplaced*/target_dir" type="xs:string" />
+          <xs:element name="/***thefilecontainingthegeneratedsqlsyntax*/sql_file" type="xs:string" />
+          <xs:element name="/***ifthesqlgenerationhasbeensuccessful,thefollowingresultshouldbeinthesqlfile*/valid_sql" type="xs:string" />
+          <xs:element name="test_entity_class" type="xs:string" />
+          <xs:element name="/***thefilecontainingthegeneratedschemaxml*/schema_file" type="xs:string" />
+          <xs:element name="/***thenameoftheschemaxmlfilewhichshouldbetakenastestreference*/reference_schema_xml" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pom" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="site" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="index" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testenhance" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="enhance" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schema" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sql" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

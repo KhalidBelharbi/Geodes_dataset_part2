@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="gullsightingcontrollertest" >
+      <xs:sequence>
+        <xs:element name="waco" type="xs:anyType" />
+        <xs:element name="controllermock" type="xs:anyType" />
+        <xs:element name="mapper" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sightingrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<gullsighting,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="gullsighting" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="location" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gullsightingcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="gullsightingservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpasightingservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="sightingrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gullsightingservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

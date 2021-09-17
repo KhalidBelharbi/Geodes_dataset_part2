@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="logout" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reset_password" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deleteduser" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="welcome" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="updateuser" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="addnewsletter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gestionnewsletter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="privilegerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<privilege,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="typeuserrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<type_user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="profilrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<profil,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fonction_userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<fonction_user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="genre_userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<genre_user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="newsletterrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<newsletter,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usernotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pfeprojectapplication" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="privilegerepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="profilrepository" nillable="true" minOccurs="0" />
+        <xs:element name="genrerepository" type="genre_userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="newsletterrepo" type="newsletterrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:sequence>
+        <xs:element name="//instacierunobjetdetypeenappelantlesdependances" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="profilerepo" type="profilrepository" nillable="true" minOccurs="0" />
+        <xs:element name="genderrepo" type="genre_userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userservices" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="profilservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="profilrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="typeservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="newsletterservice" >
+      <xs:sequence>
+        <xs:element name="//onajoutel'annotationpourinstancierunobjetonappelantlesdépendances" type="newsletterrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="genreservice" >
+      <xs:sequence>
+        <xs:element name="genderrepository" type="genre_userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="homecontroller" >
+      <xs:sequence>
+        <xs:element name="//onajoutel'annotationpourinstancierunobjetdetypeenappelantlesdependances" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="genderservice" type="genreservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="profilservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="newsletterservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userregistrationcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="genderservice" type="genreservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="newsletterservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gestionnewslettercontroller" >
+      <xs:sequence>
+        <xs:element name="//onajoutel'annotationpourinstancierlaclasseserviceenappelantcesdependances" type="newsletterservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="forgotpasswordcontroller" >
+      <xs:sequence>
+        <xs:element name="//onajoutel'annotationpourinstancierunobjetdetypeenappelantlesdependances" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="//estuneinterfacedespringquifournitdesfonctionspourenvoyeruncourriersimplemailsender" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="myuserdetails" >
+      <xs:complexContent>
+       <xs:extension base="grantedauthority>">
+         <xs:sequence>
+          <xs:element name="//onvacréerunobjetdetypequ'onvatravailleravec" type="user" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="appsecurityconfig" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+          <xs:element name="//onvainjecterunobjetdetypeenappelantcesdependances//c'estuneinterfaceofferteparspringsecurityquinouspermetderécupérerlesdonnéesliéesàl’utilisateur//etfairel'authentificationautomatiquement" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="myuserdetailsservice" >
+      <xs:sequence>
+        <xs:element name="//créationd'unobjetenappelantlesdependancesavecl'annotation" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userregistration" >
+      <xs:sequence>
+        <xs:element name="//ondeclarelesattributsdelaclasseuserregistrationnom_user_fr" type="xs:string" />
+        <xs:element name="prenom_user_fr" type="xs:string" />
+        <xs:element name="email1_user" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="pwd_user" type="xs:string" />
+        <xs:element name="tel1_user" type="xs:string" />
+        <xs:element name="date_naiss_user" type="xs:string" />
+        <xs:element name="adr_user" type="xs:string" />
+        <xs:element name="GeneratedName" type="profil" nillable="true" minOccurs="0" />
+        <xs:element name="gender" type="genre_user" nillable="true" minOccurs="0" />
+        <xs:element name="newsletters" type="newsletter" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clenewsletter_user" >
+      <xs:sequence>
+        <xs:element name="//ondeclarelesdeuxobjetsuseretcommeattributsdecetteclasse//puisquelacleseracomposéesentrelesdeuxclesdestablesuseret" type="newsletter" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cleprofil_privilege" >
+      <xs:sequence>
+        <xs:element name="//ondeclarelesdeuxobjetsetprivilegecommeattributsdecetteclasse//puisquelacleseracomposéesentrelesdeuxclesdestablesetprivilege" type="profil" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="privilege" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="type_user" >
+      <xs:sequence>
+        <xs:element name="//ondeclarelesattributsdelaclassetype_user//onajoutel'annotationjusteaudessusdel'attributid_type_userpourdirequecetattribut//corresspondaunecleprimaiedanslatabletype_userid_type_user" type="xs:long" />
+        <xs:element name="lib_type_user_ar" type="xs:string" />
+        <xs:element name="lib_type_user_fr" type="xs:string" />
+        <xs:element name="lib_type_user_en" type="xs:string" />
+        <xs:element name="descr_type_user_ar" type="xs:string" />
+        <xs:element name="descr_type_user_fr" type="xs:string" />
+        <xs:element name="descr_type_user_en" type="xs:string" />
+        <xs:element name="//ondeclarelesassociations://1.onaunerelation1,naveclatableuser_tabledonconvaajouterl'annotation//untypepeutetreaffecteraplusieursusers//ondeclareunelistedesutilisateursusers" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="utility" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fonction_user" >
+      <xs:sequence>
+        <xs:element name="//ondeclarelesattributsdelaclassefonction_user//onajoutel'annotationjusteaudessusdel'attributid_fonct_userpourdirequecetattribut//corresspondaunecleprimaiedanslatablefonction_userid_fonct_user" type="xs:long" />
+        <xs:element name="lib_fonct_user_ar" type="xs:string" />
+        <xs:element name="lib_fonct_user_fr" type="xs:string" />
+        <xs:element name="lib_fonct_user_en" type="xs:string" />
+        <xs:element name="//1.onaunerelation1,naveclatableuser_tabledonconvaajouterl'annotation//unefonctionpeutetreaffecteraplusieursusers//ondeclareunelistedesutilisateursusers" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="//ondeclarelesattributsdelaclasseuser//onajoutel'annotationjusteaudessusdel'attributid_userpourdirequecetattribut//corresspondaunecleprimaiedanslatableuser_tableid_user" type="xs:long" />
+        <xs:element name="//onajoutel'annotation@columnpourspecifierlatailleduchamps,//pourempechercettecolonnedeporterdesvaleursnullesnom_user_ar" type="xs:string" />
+        <xs:element name="nom_user_fr" type="xs:string" />
+        <xs:element name="nom_user_en" type="xs:string" />
+        <xs:element name="prenom_user_ar" type="xs:string" />
+        <xs:element name="prenom_user_fr" type="xs:string" />
+        <xs:element name="prenom_user_en" type="xs:string" />
+        <xs:element name="pwd_user" type="xs:string" />
+        <xs:element name="resetpassword" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="tel1_user" type="xs:string" />
+        <xs:element name="tel2_user" type="xs:string" />
+        <xs:element name="_creat_user" type="xs:dateTime" />
+        <xs:element name="//@temporal(temporaltype.date)//onajoutelannotation@temporalpourenregistrerlesdatesentantquejour/mois/annéedate_naiss_user" type="xs:string" />
+        <xs:element name="email1_user" type="xs:string" />
+        <xs:element name="email2_user" type="xs:string" />
+        <xs:element name="adr_user" type="xs:string" />
+        <xs:element name="//ondeclarelesassociations://1.onaunerelation1,1aveclatabledonconvaajouterl'annotation//unutilisateurpeutavoirunetunseultypetypeuser" type="type_user" nillable="true" minOccurs="0" />
+        <xs:element name="//2.onaunerelation1,1aveclatabledonconvaajouterl'annotation//unutilisateurpeutavoirunetunseulgenresoithommeoufemmegender" type="genre_user" nillable="true" minOccurs="0" />
+        <xs:element name="//3.onaunerelation1,1aveclatabledonconvaajouterl'annotation//unutilisateurpeutavoiruneetuneseulefonctionfonctionuser" type="fonction_user" nillable="true" minOccurs="0" />
+        <xs:element name="//4.onaunerelation1,1aveclatabledonconvaajouterl'annotation@onetoone//unutilisateurpeutavoirunetunseul" type="profil" nillable="true" minOccurs="0" />
+        <xs:element name="list_newsletters			*//*onaunerelationn,nentrelatableuseretaction			*cequifaitlacreationd'unenouvelleclasse(tabled'effet)action_user			*larelationdevientcotéuseret@manytoonecotelatabled'effet			*cetetablecontientcommeattributslesdeuxclésprimairesdes2tablesavecl'annotation@idpourchaqueattribut			*l'annotation@manytoonepourchaqueattributs			*etl'annotation@joincolumnpourchaqu'undescles			*/list_actions" type="journalisation" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="newsletters" type="newsletter" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="genre_user" >
+      <xs:sequence>
+        <xs:element name="//ondeclarelesattributsdelaclasseuser//onajoutel'annotationjusteaudessusdel'attributid_genre_userpourdirequecetattribut//corresspondaunecleprimaiedanslatablegenre_userid_genre_user" type="xs:long" />
+        <xs:element name="lib_genre_user_ar" type="xs:string" />
+        <xs:element name="lib_genre_user_fr" type="xs:string" />
+        <xs:element name="lib_genre_user_en" type="xs:string" />
+        <xs:element name="//ondeclarelesassociations://1.onaunerelation1,naveclatableuser_tabledonconvaajouterl'annotation//lememegenrepeutetreaffecteraplusieursusers(plusieurshommesetfemmes)//ondeclareunelistedesutilisateursusers" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cleaction_user" >
+      <xs:sequence>
+        <xs:element name="//ondeclarelesdeuxobjetsetactioncommeattributsdecetteclasse//puisquelacleseracomposéesentrelesdeuxclesdestablesetaction" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="action" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="newsletter" >
+      <xs:sequence>
+        <xs:element name="//ondeclarelesattributsdelaclassenewsletter//onajoutel'annotationjusteaudessusdel'attributid_newsletterpourdirequecetattribut//corresspondaunecleprimaiedanslatablenewsletterid_newsletter" type="xs:long" />
+        <xs:element name="sujet_newsletter" type="xs:string" />
+        <xs:element name="//@column(name" type="xs:dateTime" />
+        <xs:element name="liste_users	*/users" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="profil" >
+      <xs:sequence>
+        <xs:element name="//ondeclarelesattributsdelaclasseprofil//onajoutel'annotationjusteaudessusdel'attributid_profilpourdirequecetattribut//corresspondaunecleprimaiedanslatableprofilid_profil" type="xs:long" />
+        <xs:element name="lib_profil" type="xs:string" />
+        <xs:element name="descr_profil" type="xs:string" />
+        <xs:element name="//ondeclarelesassociations://1.onaunerelation1,naveclatableuser_tabledonconvaajouterl'annotation@onetomany//lememeprofilpeutetreaffecteraplusieursusers//ondeclareunelistedesutilisateursusers" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="/*onaunerelationn,nentrelatableprofiletprivilege			*cequifaitlacreationd'unenouvelleclasse(tabled'effet)profil_privilege			*larelationdevientcotéprofilet@manytoonecotelatabled'effet			*cetetablecontientcommeattributslesdeuxclésprimairesdes2tablesavecl'annotation@idpourchaqueattribut			*l'annotation@manytoonepourchaqueattributs			*etl'annotation@joincolumnpourchaqu'undescles			*/liste_privileges" type="profil_privilege" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="journalisation" >
+      <xs:sequence>
+        <xs:element name="//leestdelaclassecleaction_quicorresspondaunidparl'annotation" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="action" nillable="true" minOccurs="0" />
+        <xs:element name="_journalisation" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="action" >
+      <xs:sequence>
+        <xs:element name="//ondeclarelesattributsdelaclasseactionid_action" type="xs:long" />
+        <xs:element name="lib_action" type="xs:string" />
+        <xs:element name="descr_action" type="xs:string" />
+        <xs:element name="/*onaunerelationn,nentrelatableuseretaction	*cequifaitlacreationd'unenouvelleclasse(tabled'effet)action_user	*larelationdevientcotéactionet@manytoonecotelatabled'effet	*cetetablecontientcommeattributslesdeuxclésprimairesdes2tablesavecl'annotation@idpourchaqueattribut	*l'annotation@manytoonepourchaqueattributs	*etl'annotation@joincolumnpourchaqu'undescles	*/list_users" type="journalisation" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="profil_privilege" >
+      <xs:sequence>
+        <xs:element name="//onajoutelesdeuxattributsdetypeprofiletaveclesannotationset@jpoincolumn" type="privilege" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="profil" nillable="true" minOccurs="0" />
+        <xs:element name="descr_profil_priv" type="xs:string" />
+        <xs:element name="_affect_profil_priv" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="privilege" >
+      <xs:sequence>
+        <xs:element name="//ondeclarelesattributsdelaclasseprivilege//onajoutel'annotationjusteaudessusdel'attributid_privilegepourdirequecetattribut//corresspondaunecleprimaiedanslatableprivilegeid_privilege" type="xs:long" />
+        <xs:element name="lib_privilege" type="xs:string" />
+        <xs:element name="descr_privilege" type="xs:string" />
+        <xs:element name="/*onaunerelationn,nentrelatableprofiletprivilege	*cequifaitlacreationd'unenouvelleclasse(tabled'effet)action_user	*larelationdevientcotéprivilegeet@manytoonecotelatabled'effet	*cetetablecontientcommeattributslesdeuxclésprimairesdes2tablesavecl'annotation@idpourchaqueattribut	*l'annotation@manytoonepourchaqueattributs	*etl'annotation@joincolumnpourchaqu'undescles	*/liste_profils" type="profil_privilege" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pfeprojectapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

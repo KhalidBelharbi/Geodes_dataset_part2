@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="userdto" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="/***id*/id" type="xs:long" />
+        <xs:element name="/***授权类型，1：用户名密码，2：手机号，3：邮箱，4：微信，5：qq*/identitytype" type="xs:anyType" />
+        <xs:element name="/***唯一标识，如用户名、手机号*/identifier" type="xs:string" />
+        <xs:element name="/***密码凭证，跟授权类型有关，如密码、第三方系统的token等*/credential" type="xs:string" />
+        <xs:element name="/***旧密码*/oldpassword" type="xs:string" />
+        <xs:element name="/***新密码*/newpassword" type="xs:string" />
+        <xs:element name="/***姓名*/name" type="xs:string" />
+        <xs:element name="/***电话*/phone" type="xs:string" />
+        <xs:element name="/***头像id*/avatarid" type="xs:long" />
+        <xs:element name="/***头像url*/avatarurl" type="xs:string" />
+        <xs:element name="/***邮箱*/email" type="xs:string" />
+        <xs:element name="/***性别*/sex" type="xs:anyType" />
+        <xs:element name="/***出生日期*/born" type="xs:dateTime" />
+        <xs:element name="/***描述*/userdesc" type="xs:string" />
+        <xs:element name="/***状态*/status" type="xs:anyType" />
+        <xs:element name="/***角色列表*/rolelist" type="role" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="/***系统编号*/applicationcode" type="xs:string" />
+        <xs:element name="/***最近登录时间*/logintime" type="xs:dateTime" />
+        <xs:element name="/***用户归档时间*/locktime" type="xs:dateTime" />
+        <xs:element name="/***微信*/wechat" type="xs:string" />
+        <xs:element name="/***个性签名*/signature" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userinfodto" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="/***授权类型，1：用户名密码，2：手机号，3：邮箱，4：微信，5：qq*/identitytype" type="xs:anyType" />
+        <xs:element name="/***唯一标识，如用户名、手机号*/identifier" type="xs:string" />
+        <xs:element name="/***密码*/credential" type="xs:string" />
+        <xs:element name="/***姓名*/name" type="xs:string" />
+        <xs:element name="/***电话号码*/phone" type="xs:string" />
+        <xs:element name="/***头像对应的附件id*/avatarid" type="xs:long" />
+        <xs:element name="/***头像地址*/avatarurl" type="xs:string" />
+        <xs:element name="/***邮箱*/email" type="xs:string" />
+        <xs:element name="/***性别*/sex" type="xs:anyType" />
+        <xs:element name="/***生日*/born" type="xs:dateTime" />
+        <xs:element name="/***备注*/remark" type="xs:string" />
+        <xs:element name="/***状态，0-启用，1-禁用*/status" type="xs:anyType" />
+        <xs:element name="permissions" type="xs:string" />
+        <xs:element name="roles" type="xs:string" />
+        <xs:element name="/***系统编号*/applicationcode" type="xs:string" />
+        <xs:element name="/***最近登录时间*/logintime" type="xs:dateTime" />
+        <xs:element name="/***用户归档时间*/locktime" type="xs:dateTime" />
+        <xs:element name="/***微信*/wechat" type="xs:string" />
+        <xs:element name="/***个性签名*/signature" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="menudto" >
+      <xs:complexContent>
+       <xs:extension base="treeentity<menudto>">
+         <xs:sequence>
+          <xs:element name="/***父菜单id*/parentid" type="xs:long" />
+          <xs:element name="icon" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="url" type="xs:string" />
+          <xs:element name="redirect" type="xs:string" />
+          <xs:element name="spread" type="xs:anyType" />
+          <xs:element name="path" type="xs:string" />
+          <xs:element name="component" type="xs:string" />
+          <xs:element name="authority" type="xs:string" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="type" type="xs:anyType" />
+          <xs:element name="label" type="xs:string" />
+          <xs:element name="roles" type="xs:string" />
+          <xs:element name="remark" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rolemenu" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="roleid" type="xs:anyType" />
+        <xs:element name="menuid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrole" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="userid" type="xs:anyType" />
+        <xs:element name="roleid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="rolename" type="xs:string" />
+          <xs:element name="rolecode" type="xs:string" />
+          <xs:element name="roledesc" type="xs:string" />
+          <xs:element name="status" type="xs:anyType" />
+          <xs:element name="deptname" type="xs:string" />
+          <xs:element name="menus/***是否默认0-否，1-是*/isdefault" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="menu" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="/***菜单名称*/name" type="xs:string" />
+          <xs:element name="/***菜单权限标识*/permission" type="xs:string" />
+          <xs:element name="/***url*/url" type="xs:string" />
+          <xs:element name="/***重定向url*/redirect" type="xs:string" />
+          <xs:element name="/***父菜单id*/parentid" type="xs:long" />
+          <xs:element name="/***图标*/icon" type="xs:string" />
+          <xs:element name="/***排序号*/sort" type="xs:string" />
+          <xs:element name="/***类型*/type" type="xs:anyType" />
+          <xs:element name="/***模块*/component" type="xs:string" />
+          <xs:element name="/***路径*/path" type="xs:string" />
+          <xs:element name="/***备注*/remark" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="/***@id//id字段*	@column(columndefinition" type="xs:string" />
+          <xs:element name="/***电话*/phone" type="xs:string" />
+          <xs:element name="/***头像id*/avatarid" type="xs:long" />
+          <xs:element name="/***邮箱*/email" type="xs:string" />
+          <xs:element name="/***性别*/sex" type="xs:anyType" />
+          <xs:element name="/***出生日期*/born" type="xs:dateTime" />
+          <xs:element name="/***描述*/userdesc" type="xs:string" />
+          <xs:element name="/***状态*/status" type="xs:anyType" />
+          <xs:element name="rolelist/***最近登录时间*/logintime" type="xs:dateTime" />
+          <xs:element name="/***用户归档时间*/locktime" type="xs:dateTime" />
+          <xs:element name="/***微信*/wechat" type="xs:string" />
+          <xs:element name="/***个性签名*/signature" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usercontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

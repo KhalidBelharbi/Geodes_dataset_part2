@@ -1,0 +1,13 @@
+
+userconnection(/***/serialversionuid:long, userid:String [PK], providerid:String [PK], provideruserid:String [PK], rank:int, displayname:String, profileurl:String, imageurl:String, accesstoken:String, secret:String, refreshtoken:String, expiretime:Long);
+
+appuser(userid:Long [PK], username:String, email:String, firstname:String, lastname:String, encryptedpassword:String, enabled:boolean);
+
+userrole(id:Long [PK], GeneratedName:AppUser #FK to(appuser), GeneratedName:AppRole #FK to(approle));
+
+approle(role_user:String, role_admin:String, roleid:Long [PK], rolename:String);
+
+persitentlogin(series:String [PK], username:String, token:String, lastused:Date);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

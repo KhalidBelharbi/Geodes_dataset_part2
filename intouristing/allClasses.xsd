@@ -1,0 +1,823 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="requestnotacceptableexception" >
+      <xs:complexContent>
+       <xs:extension base="rootexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tokenparseexception" >
+      <xs:complexContent>
+       <xs:extension base="rootexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="chatalreadyexistsexception" >
+      <xs:complexContent>
+       <xs:extension base="rootexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="notfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="rootexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="notsupposedtoreadmessageexception" >
+      <xs:complexContent>
+       <xs:extension base="rootexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rootexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="custommessage" type="xs:string" />
+          <xs:element name="params" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="requestalreadysentexception" >
+      <xs:complexContent>
+       <xs:extension base="rootexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tokennotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="rootexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jwtauthenticationfilter" >
+      <xs:complexContent>
+       <xs:extension base="usernamepasswordauthenticationfilter">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="userrepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="securityconstants" >
+      <xs:sequence>
+        <xs:element name="secret" type="xs:string" />
+        <xs:element name="//10daysexpiration_time" type="xs:long" />
+        <xs:element name="token_prefix" type="xs:string" />
+        <xs:element name="auth_header_" type="xs:string" />
+        <xs:element name="sign_up_url" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwtauthorizationfilter" >
+      <xs:complexContent>
+       <xs:extension base="basicauthenticationfilter">
+         <xs:sequence>
+          <xs:element name="" type="accountservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="websecurity" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+          <xs:element name="userdetailsservice" type="userdetailsserviceimpl" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="userrepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userpositionrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<userposition,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="privatechatrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<privatechat,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="chatgrouprepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<chatgroup,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="requestrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<request,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="messagerepository" >
+      <xs:complexContent>
+       <xs:extension base="mongorepository<message,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="relationshiprepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<relationship,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rootwscontroller" >
+      <xs:sequence>
+        <xs:element name="messagingtemplate" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="searchwscontroller" >
+      <xs:complexContent>
+       <xs:extension base="rootwscontroller">
+         <xs:sequence>
+          <xs:element name="" type="searchwsservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="accountwsservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="userpositionrepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="requestwscontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="requestwsservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="apivalidatorwsexceptionhandler" >
+      <xs:sequence>
+        <xs:element name="lookup_destination" type="xs:string" />
+        <xs:element name="stomp_command" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="chatwscontroller" >
+      <xs:complexContent>
+       <xs:extension base="rootwscontroller">
+         <xs:sequence>
+          <xs:element name="" type="chatwsservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="messagemappings" >
+      <xs:sequence>
+        <xs:element name="queue" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rootwsservice" >
+      <xs:sequence>
+        <xs:element name="messagingtemplate" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="accountwsservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="requestwsservice" >
+      <xs:complexContent>
+       <xs:extension base="rootwsservice">
+         <xs:sequence>
+          <xs:element name="" type="userrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="requestrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="relationshipservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="searchwsservice" >
+      <xs:complexContent>
+       <xs:extension base="rootwsservice">
+         <xs:sequence>
+          <xs:element name="" type="userpositionrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="userrepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="chatwsservice" >
+      <xs:complexContent>
+       <xs:extension base="rootwsservice">
+         <xs:sequence>
+          <xs:element name="" type="accountwsservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="messageservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="chatgrouprepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="userrepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="friendmapper" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="messageservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="accountservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="chatservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="chatgroupdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="createdat" type="xs:anyType" />
+        <xs:element name="updatedat" type="xs:anyType" />
+        <xs:element name="excludedat" type="xs:anyType" />
+        <xs:element name="createdby" type="userdto" nillable="true" minOccurs="0" />
+        <xs:element name="users" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="errorwsdto" >
+      <xs:sequence>
+        <xs:element name="timestamp" type="xs:anyType" />
+        <xs:element name="lookupdestination" type="xs:string" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="stompcommand" type="xs:string" />
+        <xs:element name="exception" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sendmessagedto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="hash" type="xs:string" />
+        <xs:element name="chatgroup" type="xs:long" />
+        <xs:element name="text" type="xs:string" />
+        <xs:element name="sendto" type="xs:long" />
+        <xs:element name="isgroup" type="xs:anyType" />
+        <xs:element name="issent" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messageuserdto" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="readmessagedto" >
+      <xs:sequence>
+        <xs:element name="messageid" type="xs:string" />
+        <xs:element name="readmessageuserdtos" type="readmessageuserdto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="readbydto" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="userlastname" type="xs:string" />
+        <xs:element name="readat" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messagedto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="chatgroup" type="xs:long" />
+        <xs:element name="text" type="xs:string" />
+        <xs:element name="sentby" type="messageuserdto" nillable="true" minOccurs="0" />
+        <xs:element name="sentto" type="messageuserdto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="readby" type="readbydto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="readbyall" type="xs:anyType" />
+        <xs:element name="isgroup" type="xs:anyType" />
+        <xs:element name="sentat" type="xs:anyType" />
+        <xs:element name="updatedat" type="xs:anyType" />
+        <xs:element name="excludedat" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messagesdto" >
+      <xs:sequence>
+        <xs:element name="messages" type="messagedto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="limit" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="readmessageuserdto" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="userlastname" type="xs:string" />
+        <xs:element name="readat" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="userposition" type="userpositiondto" nillable="true" minOccurs="0" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="distance" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="errordto" >
+      <xs:sequence>
+        <xs:element name="timestamp" type="xs:anyType" />
+        <xs:element name="path" type="xs:string" />
+        <xs:element name="status" type="xs:anyType" />
+        <xs:element name="error" type="xs:string" />
+        <xs:element name="message" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="searchdto" >
+      <xs:sequence>
+        <xs:element name="users" type="userdto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="requestdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="sender" type="userdto" nillable="true" minOccurs="0" />
+        <xs:element name="destination" type="userdto" nillable="true" minOccurs="0" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="createdat" type="xs:anyType" />
+        <xs:element name="acceptedat" type="xs:anyType" />
+        <xs:element name="declinedat" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="frienddto" >
+      <xs:sequence>
+        <xs:element name="user" type="userdto" nillable="true" minOccurs="0" />
+        <xs:element name="lastmessage" type="messagedto" nillable="true" minOccurs="0" />
+        <xs:element name="unreadmessages" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userpositiondto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="latitude" type="xs:double" />
+        <xs:element name="longitude" type="xs:double" />
+        <xs:element name="accuracy" type="xs:double" />
+        <xs:element name="speed" type="xs:double" />
+        <xs:element name="heading" type="xs:double" />
+        <xs:element name="user" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="relationshiptype" >
+      <xs:sequence>
+        <xs:element name="param" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="chatgrouptype" >
+      <xs:sequence>
+        <xs:element name="param" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="privatechatid" >
+      <xs:sequence>
+        <xs:element name="firstuser" type="xs:long" />
+        <xs:element name="seconduser" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="relationshipid" >
+      <xs:sequence>
+        <xs:element name="firstuser" type="xs:long" />
+        <xs:element name="seconduser" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="request" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="sender" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="destination" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="type" type="relationshiptype" nillable="true" minOccurs="0" />
+        <xs:element name="createdat" type="xs:anyType" />
+        <xs:element name="acceptedat" type="xs:anyType" />
+        <xs:element name="declinedat" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="privatechat" >
+      <xs:sequence>
+        <xs:element name="firstuser" type="xs:long" />
+        <xs:element name="seconduser" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="account" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userposition" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="latitude" type="xs:double" />
+        <xs:element name="longitude" type="xs:double" />
+        <xs:element name="accuracy" type="xs:double" />
+        <xs:element name="speed" type="xs:double" />
+        <xs:element name="heading" type="xs:double" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="relationship" >
+      <xs:sequence>
+        <xs:element name="firstuser" type="xs:long" />
+        <xs:element name="seconduser" type="xs:long" />
+        <xs:element name="type" type="relationshiptype" nillable="true" minOccurs="0" />
+        <xs:element name="createdat" type="xs:anyType" />
+        <xs:element name="updatedat" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="chatgroup" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="type" type="chatgrouptype" nillable="true" minOccurs="0" />
+        <xs:element name="createdat" type="xs:anyType" />
+        <xs:element name="updatedat" type="xs:anyType" />
+        <xs:element name="excludedat" type="xs:anyType" />
+        <xs:element name="createdby" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="users" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="createdat" type="xs:anyType" />
+        <xs:element name="updatedat" type="xs:anyType" />
+        <xs:element name="lastlogin" type="xs:anyType" />
+        <xs:element name="avatarimage" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="userposition" nillable="true" minOccurs="0" />
+        <xs:element name="chatgroups" type="chatgroup" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="requestsasdestination" type="request" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="requestsassender" type="request" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="message" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="chatgroup" type="xs:long" />
+        <xs:element name="text" type="xs:string" />
+        <xs:element name="sentby" type="messageuser" nillable="true" minOccurs="0" />
+        <xs:element name="sentto" type="messageuser" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="readby" type="readby" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="readbyall" type="xs:anyType" />
+        <xs:element name="isgroup" type="xs:anyType" />
+        <xs:element name="sentat" type="xs:anyType" />
+        <xs:element name="updatedat" type="xs:anyType" />
+        <xs:element name="excludedat" type="xs:anyType" />
+        <xs:element name="chatchat" type="privatechat" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messageuser" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="readby" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="userlastname" type="xs:string" />
+        <xs:element name="readat" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rootservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="accountservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accountwsservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accountservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accountserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="account" nillable="true" minOccurs="0" />
+        <xs:element name="searchcancelled" type="xs:anyType" />
+        <xs:element name="searchfinished" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:complexContent>
+       <xs:extension base="rootservice">
+         <xs:sequence>
+          <xs:element name="" type="userrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="userpositionrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="accountservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="relationshipservice" >
+      <xs:complexContent>
+       <xs:extension base="rootservice">
+         <xs:sequence>
+          <xs:element name="" type="relationshiprepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="chatservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="messageservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="accountservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="userservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="friendmapper" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="messageservice" >
+      <xs:complexContent>
+       <xs:extension base="rootservice">
+         <xs:sequence>
+          <xs:element name="" type="chatgrouprepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="chatservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="messagerepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="userservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="accountservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="requestservice" >
+      <xs:complexContent>
+       <xs:extension base="rootservice">
+         <xs:sequence>
+          <xs:element name="" type="requestrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="accountservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tokenservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdetailsserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pingservice" >
+      <xs:complexContent>
+       <xs:extension base="rootservice">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="chatservice" >
+      <xs:complexContent>
+       <xs:extension base="rootservice">
+         <xs:sequence>
+          <xs:element name="" type="chatgrouprepository" nillable="true" minOccurs="0" />
+          <xs:element name="chatrepositorychatrepository" type="privatechatrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="userrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="messagerepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="accountservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="positionutils" >
+      <xs:sequence>
+        <xs:element name="average_radius_of_earth_meters" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpaconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="websocketconfig" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="accountwsservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messagesourceconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="corsconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pingcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="pingservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="apivalidatorexceptionhandler" >
+      <xs:sequence>
+        <xs:element name="unexpected_error" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="chatcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="accountservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="chatservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="messageservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="accountservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="verificationcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="relationshipcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="relationshipservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="requestcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="requestservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application-dev" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application-prd" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messages_pt_br" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="internationalizationtest" >
+      <xs:sequence>
+        <xs:element name="ptbr" type="xs:string" />
+        <xs:element name="exceptionhandler" type="apivalidatorexceptionhandler" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="applicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pingservicetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="pingservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userservicetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="utilservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="utilservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="chatservicetest" >
+      <xs:sequence>
+        <xs:element name="user_id" type="xs:long" />
+        <xs:element name="another_user_id" type="xs:long" />
+        <xs:element name="group_chat_title" type="xs:string" />
+        <xs:element name="GeneratedName" type="chatservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="messageservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="utilservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="chatgrouprepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messageservicetest" >
+      <xs:sequence>
+        <xs:element name="message_text" type="xs:string" />
+        <xs:element name="user_id" type="xs:long" />
+        <xs:element name="another_user_id" type="xs:long" />
+        <xs:element name="group_id" type="xs:long" />
+        <xs:element name="GeneratedName" type="messageservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="messagerepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="chatgrouprepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="chatservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="relationshipservicetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="utilservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="relationshipservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="searchwsservicetest" >
+      <xs:complexContent>
+       <xs:extension base="websockettest">
+         <xs:sequence>
+          <xs:element name="" type="userrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="userpositionrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="requestwsservicetest" >
+      <xs:complexContent>
+       <xs:extension base="websockettest">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="userrepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="websockettest" >
+      <xs:sequence>
+        <xs:element name="websocket_uri" type="xs:string" />
+        <xs:element name="websocket_topic" type="xs:string" />
+        <xs:element name="websocket_queue" type="xs:string" />
+        <xs:element name="ws" type="xs:string" />
+        <xs:element name="user" type="xs:string" />
+        <xs:element name="queue_error" type="xs:string" />
+        <xs:element name="stompclient,anotherstompclient" type="xs:anyType" />
+        <xs:element name="randomserverport" type="xs:long" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="utilservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="chatwsservicetest" >
+      <xs:complexContent>
+       <xs:extension base="websockettest">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="chatservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jwtauthtests" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="utilservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

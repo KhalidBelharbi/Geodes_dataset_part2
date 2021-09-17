@@ -1,0 +1,797 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="contactpointdaoservice" >
+      <xs:sequence>
+        <xs:element name="repository" type="contactpointrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tenderdaoservice" >
+      <xs:sequence>
+        <xs:element name="repository" type="tenderrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="indicatordaoservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="tenderindicatorrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="variablesdaoservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="tendercpvlistrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="releasedaoservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="releaserepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="awarddaoservice" >
+      <xs:sequence>
+        <xs:element name="repository" type="awardrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bidlotdaoservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partydaoservice" >
+      <xs:sequence>
+        <xs:element name="repository" type="partyrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tenderentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="buyerid" type="xs:anyType" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="currentstage" type="xs:string" />
+        <xs:element name="date" type="xs:anyType" />
+        <xs:element name="datepublished" type="xs:anyType" />
+        <xs:element name="periodstartdate" type="xs:anyType" />
+        <xs:element name="periodenddate" type="xs:anyType" />
+        <xs:element name="procurementmethodrationale" type="xs:string" />
+        <xs:element name="procurementmethoddetails" type="xs:string" />
+        <xs:element name="amount" type="xs:double" />
+        <xs:element name="currency" type="xs:string" />
+        <xs:element name="guaranteeamount" type="xs:double" />
+        <xs:element name="number" type="xs:string" />
+        <xs:element name="badquality" type="xs:anyType" />
+        <xs:element name="hasdocuments" type="xs:anyType" />
+        <xs:element name="release" type="releaseentity" nillable="true" minOccurs="0" />
+        <xs:element name="lots" type="lotentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="items" type="itementity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="awards" type="awardentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="qualificationrequirements" type="qualificationrequiremententity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="enquiries" type="enquiryentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="relatedprocesses" type="relatedprocessentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="bids" type="bidentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="complaints" type="complaintentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="contracts" type="contractentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="suppliers" type="partyentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="releaseentity" >
+      <xs:sequence>
+        <xs:element name="ocid" type="xs:string" />
+        <xs:element name="date" type="xs:anyType" />
+        <xs:element name="tender" type="tenderentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="complaintentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="tender" type="tenderentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bidentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="bidderid" type="xs:string" />
+        <xs:element name="datedisclosed" type="xs:anyType" />
+        <xs:element name="bidlots" type="bidlotentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="tender" type="tenderentity" nillable="true" minOccurs="0" />
+        <xs:element name="priceproposal" type="priceproposalentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reportonetime" >
+      <xs:sequence>
+        <xs:element name="buyerid" type="xs:anyType" />
+        <xs:element name="cpv" type="xs:string" />
+        <xs:element name="date" type="xs:anyType" />
+        <xs:element name="publishedyear" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reportcpv" >
+      <xs:sequence>
+        <xs:element name="buyerid" type="xs:anyType" />
+        <xs:element name="cpv" type="xs:string" />
+        <xs:element name="date" type="xs:anyType" />
+        <xs:element name="publishedyear" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tendercpvlistidentity" >
+      <xs:sequence>
+        <xs:element name="tenderid" type="xs:anyType" />
+        <xs:element name="cpv" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tendercpvlist" >
+      <xs:sequence>
+        <xs:element name="identity" type="tendercpvlistidentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="activecpv" >
+      <xs:sequence>
+        <xs:element name="buyerid" type="xs:anyType" />
+        <xs:element name="cpv" type="xs:string" />
+        <xs:element name="date" type="xs:anyType" />
+        <xs:element name="publishedyear" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="awardentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="date" type="xs:anyType" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="valueamount" type="xs:double" />
+        <xs:element name="valuecurrency" type="xs:string" />
+        <xs:element name="bid" type="bidentity" nillable="true" minOccurs="0" />
+        <xs:element name="lot" type="lotentity" nillable="true" minOccurs="0" />
+        <xs:element name="tender" type="tenderentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contactpointentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="partyid" type="xs:anyType" />
+        <xs:element name="tenderid" type="xs:anyType" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partyentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="outerid" type="xs:string" />
+        <xs:element name="identifierid" type="xs:string" />
+        <xs:element name="identifierscheme" type="xs:string" />
+        <xs:element name="identifierlegalname" type="xs:string" />
+        <xs:element name="identifierlegalnameru" type="xs:string" />
+        <xs:element name="identifierlegalnamekg" type="xs:string" />
+        <xs:element name="district" type="xs:string" />
+        <xs:element name="locality" type="xs:string" />
+        <xs:element name="streetaddress" type="xs:string" />
+        <xs:element name="region" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="enquiryentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="date" type="xs:anyType" />
+        <xs:element name="dateanswered" type="xs:anyType" />
+        <xs:element name="tender" type="tenderentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="priceproposalentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="unitid" type="xs:anyType" />
+        <xs:element name="unitname" type="xs:string" />
+        <xs:element name="unitvalueamount" type="xs:double" />
+        <xs:element name="unitvaluecurrency" type="xs:string" />
+        <xs:element name="item" type="itementity" nillable="true" minOccurs="0" />
+        <xs:element name="lot" type="lotentity" nillable="true" minOccurs="0" />
+        <xs:element name="bid" type="bidentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="itementity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="classificationid" type="xs:string" />
+        <xs:element name="quantity" type="xs:double" />
+        <xs:element name="unitid" type="xs:anyType" />
+        <xs:element name="unitname" type="xs:string" />
+        <xs:element name="unitvalueamount" type="xs:double" />
+        <xs:element name="unitvaluecurrency" type="xs:string" />
+        <xs:element name="lot" type="lotentity" nillable="true" minOccurs="0" />
+        <xs:element name="tender" type="tenderentity" nillable="true" minOccurs="0" />
+        <xs:element name="priceproposal" type="priceproposalentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bidlotid" >
+      <xs:sequence>
+        <xs:element name="bidid" type="xs:anyType" />
+        <xs:element name="lotid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tenderindicatorentity" >
+      <xs:sequence>
+        <xs:element name="tenderid" type="xs:anyType" />
+        <xs:element name="indicatorid" type="xs:anyType" />
+        <xs:element name="indicatorvalue" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="indicatorentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="impact" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tenderindicatorid" >
+      <xs:sequence>
+        <xs:element name="tenderid" type="xs:anyType" />
+        <xs:element name="indicatorid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contactpointid" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="tenderid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contractentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="datesigned" type="xs:anyType" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="valueamount" type="xs:double" />
+        <xs:element name="tender" type="tenderentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="qualificationrequiremententity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="tender" type="tenderentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="relatedprocessentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="identifier" type="xs:anyType" />
+        <xs:element name="relationship" type="xs:string" />
+        <xs:element name="tender" type="tenderentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bidlotentity" >
+      <xs:sequence>
+        <xs:element name="bidid" type="xs:anyType" />
+        <xs:element name="lotid" type="xs:anyType" />
+        <xs:element name="amount" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lotentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="valueamount" type="xs:double" />
+        <xs:element name="valuecurrency" type="xs:string" />
+        <xs:element name="number" type="xs:string" />
+        <xs:element name="tender" type="tenderentity" nillable="true" minOccurs="0" />
+        <xs:element name="items" type="itementity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="awards" type="awardentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="priceproposal" type="priceproposalentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tenderrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<tenderentity,">
+         <xs:sequence>
+          <xs:element name="krai5_acceptable_tenders" type="xs:string" />
+          <xs:element name="krai8_acceptable_tenders" type="xs:string" />
+          <xs:element name="krai12_acceptable_tenders" type="xs:string" />
+          <xs:element name="krai13_acceptable_tenders" type="xs:string" />
+          <xs:element name="krai19_acceptable_tenders" type="xs:string" />
+          <xs:element name="krai21_acceptable_tenders" type="xs:string" />
+          <xs:element name="krai22_acceptable_tenders" type="xs:string" />
+          <xs:element name="krai29_acceptable_tenders" type="xs:string" />
+          <xs:element name="krai30_acceptable_tenders" type="xs:string" />
+          <xs:element name="krai31_acceptable_tenders" type="xs:string" />
+          <xs:element name="krai32_acceptable_tenders" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tenderindicatorrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<tenderindicatorentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="partyrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<partyentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="itemrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<itementity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="indicatorrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<indicatorentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="contactpointrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<contactpointentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bidrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<bidentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tendercpvlistrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<tendercpvlist,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="awardrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<awardentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="lotrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<lotentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="releaserepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<releaseentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="datamapper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="converter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="constants" >
+      <xs:sequence>
+        <xs:element name="complete" type="xs:string" />
+        <xs:element name="active" type="xs:string" />
+        <xs:element name="pending" type="xs:string" />
+        <xs:element name="one_stage" type="xs:string" />
+        <xs:element name="simplicated" type="xs:string" />
+        <xs:element name="downgrade" type="xs:string" />
+        <xs:element name="disqualified" type="xs:string" />
+        <xs:element name="bids_opened" type="xs:string" />
+        <xs:element name="evaluation_results_pending" type="xs:string" />
+        <xs:element name="single_source" type="xs:string" />
+        <xs:element name="annual_procurement" type="xs:string" />
+        <xs:element name="evaluation_complete" type="xs:string" />
+        <xs:element name="additional_procurement_10" type="xs:string" />
+        <xs:element name="additional_procurement_25" type="xs:string" />
+        <xs:element name="prior" type="xs:string" />
+        <xs:element name="valid" type="xs:string" />
+        <xs:element name="contract_signed" type="xs:string" />
+        <xs:element name="resolved" type="xs:string" />
+        <xs:element name="passed" type="xs:long" />
+        <xs:element name="failed" type="xs:long" />
+        <xs:element name="incorrect" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="converterimpl" >
+      <xs:sequence>
+        <xs:element name="mapper" type="datamapper" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="indicator" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="releaseloader" >
+      <xs:sequence>
+        <xs:element name="bishkek_zone" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="releasedaoservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="restmanager" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="releasehandler" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="restmanager" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="isresident" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="indicatorprocessor" >
+      <xs:sequence>
+        <xs:element name="entityhandlers" type="kraihandler" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="loaderrisksapplication" >
+      <xs:sequence>
+        <xs:element name="loader" type="releaseloader" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="indicatorprocessor" nillable="true" minOccurs="0" />
+        <xs:element name="analyticdatahandler" type="indicatordatahandler" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="unitdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="value" type="valuedto" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="perioddto" >
+      <xs:sequence>
+        <xs:element name="startdate" type="xs:string" />
+        <xs:element name="enddate" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="identifierdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="scheme" type="xs:string" />
+        <xs:element name="legalname" type="xs:string" />
+        <xs:element name="legalname_ru" type="xs:string" />
+        <xs:element name="legalname_kg" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="valuedto" >
+      <xs:sequence>
+        <xs:element name="amount" type="xs:double" />
+        <xs:element name="currency" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contractdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="datesigned" type="xs:string" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="awardids" type="xs:anyType" />
+        <xs:element name="value" type="valuedto" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tendererdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="guaranteedto" >
+      <xs:sequence>
+        <xs:element name="amount" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lotdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="value" type="valuedto" nillable="true" minOccurs="0" />
+        <xs:element name="number" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="relatedprocessdto" >
+      <xs:sequence>
+        <xs:element name="identifier" type="xs:anyType" />
+        <xs:element name="relationship" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="qualificationrequirementdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="type" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="biddetaildto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="relatedlots" type="lotdto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="priceproposals" type="priceproposaldto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="tenderers" type="tendererdto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="datedisclosed" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tenderdocumentdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contactpointdto" >
+      <xs:sequence>
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="awarddto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="datepublished" type="xs:string" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="relatedbid" type="xs:anyType" />
+        <xs:element name="relatedlots" type="xs:anyType" />
+        <xs:element name="value" type="valuedto" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="complaintdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="status" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="enquirydto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="dateanswered" type="xs:string" />
+        <xs:element name="date" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="addressdto" >
+      <xs:sequence>
+        <xs:element name="region" type="xs:string" />
+        <xs:element name="district" type="xs:string" />
+        <xs:element name="locality" type="xs:string" />
+        <xs:element name="streetaddress" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="priceproposaldto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="relateditem" type="xs:anyType" />
+        <xs:element name="relatedlot" type="xs:anyType" />
+        <xs:element name="unit" type="unitdto" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="itemdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="classification" type="classificationdto" nillable="true" minOccurs="0" />
+        <xs:element name="relatedlot" type="xs:anyType" />
+        <xs:element name="quantity" type="xs:double" />
+        <xs:element name="unit" type="unitdto" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="releasedto" >
+      <xs:sequence>
+        <xs:element name="ocid" type="xs:string" />
+        <xs:element name="date" type="xs:string" />
+        <xs:element name="tag" type="xs:anyType" />
+        <xs:element name="parties" type="partydto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="tender" type="tenderdto" nillable="true" minOccurs="0" />
+        <xs:element name="awards" type="awarddto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="relatedprocesses" type="relatedprocessdto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="bids" type="bidsdto" nillable="true" minOccurs="0" />
+        <xs:element name="complaints" type="complaintdto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="contracts" type="contractdto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partydto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="identifier" type="identifierdto" nillable="true" minOccurs="0" />
+        <xs:element name="roles" type="xs:anyType" />
+        <xs:element name="address" type="addressdto" nillable="true" minOccurs="0" />
+        <xs:element name="additionalcontactpoints" type="contactpointdto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tenderdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="currentstage" type="xs:string" />
+        <xs:element name="date" type="xs:string" />
+        <xs:element name="datepublished" type="xs:string" />
+        <xs:element name="procurementmethodrationale" type="xs:string" />
+        <xs:element name="procurementmethoddetails" type="xs:string" />
+        <xs:element name="value" type="valuedto" nillable="true" minOccurs="0" />
+        <xs:element name="guarantee" type="guaranteedto" nillable="true" minOccurs="0" />
+        <xs:element name="lots" type="lotdto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="items" type="itemdto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="qualificationrequirements" type="qualificationrequirementdto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="enquiries" type="enquirydto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="documents" type="tenderdocumentdto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="number" type="xs:string" />
+        <xs:element name="tenderperiod" type="perioddto" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bidsdto" >
+      <xs:sequence>
+        <xs:element name="details" type="biddetaildto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="classificationdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="releasespage" >
+      <xs:sequence>
+        <xs:element name="content" type="releasedto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="last" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="krai5handler" >
+      <xs:complexContent>
+       <xs:extension base="kraibasehandler">
+         <xs:sequence>
+          <xs:element name="method_details" type="xs:anyType" />
+          <xs:element name="service" type="tenderdaoservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="releasepersisthandler" >
+      <xs:sequence>
+        <xs:element name="buyer" type="xs:string" />
+        <xs:element name="supplier" type="xs:string" />
+        <xs:element name="GeneratedName" type="partydaoservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="releaserepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="contactpointdaoservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="converter" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="krai8handler" >
+      <xs:complexContent>
+       <xs:extension base="kraibasehandler">
+         <xs:sequence>
+          <xs:element name="method_details" type="xs:anyType" />
+          <xs:element name="service" type="tenderdaoservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="kraibasehandler" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="indicatordaoservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="variablesdaoservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="krai13handler" >
+      <xs:complexContent>
+       <xs:extension base="kraibasehandler">
+         <xs:sequence>
+          <xs:element name="threshold_amount" type="xs:double" />
+          <xs:element name="dao" type="tenderdaoservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="krai21handler" >
+      <xs:complexContent>
+       <xs:extension base="kraibasehandler">
+         <xs:sequence>
+          <xs:element name="dao" type="tenderdaoservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="indicatordatahandler" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="krai31handler" >
+      <xs:complexContent>
+       <xs:extension base="kraibasehandler">
+         <xs:sequence>
+          <xs:element name="dao" type="tenderdaoservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="krai12handler" >
+      <xs:complexContent>
+       <xs:extension base="kraibasehandler">
+         <xs:sequence>
+          <xs:element name="dao" type="tenderdaoservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="krai22handler" >
+      <xs:complexContent>
+       <xs:extension base="kraibasehandler">
+         <xs:sequence>
+          <xs:element name="qr_types" type="xs:anyType" />
+          <xs:element name="dao" type="tenderdaoservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="krai32handler" >
+      <xs:complexContent>
+       <xs:extension base="kraibasehandler">
+         <xs:sequence>
+          <xs:element name="dao" type="tenderdaoservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="krai30handler" >
+      <xs:complexContent>
+       <xs:extension base="kraibasehandler">
+         <xs:sequence>
+          <xs:element name="dao" type="tenderdaoservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="releasehandler" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="releasepersisthandler" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="krai29handler" >
+      <xs:complexContent>
+       <xs:extension base="kraibasehandler">
+         <xs:sequence>
+          <xs:element name="tenderdao" type="tenderdaoservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="krai19handler" >
+      <xs:complexContent>
+       <xs:extension base="kraibasehandler">
+         <xs:sequence>
+          <xs:element name="dao" type="tenderdaoservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="kraihandler" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="localdatetimemapper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="buyer_checklist_score" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="indicator_risk_level" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application-prod" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

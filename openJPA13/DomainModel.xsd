@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="lineitem" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="/***<aname" type="purchaseorder" nillable="true" minOccurs="0" />
+        <xs:element name="index" type="xs:long" />
+        <xs:element name="GeneratedName" type="book" nillable="true" minOccurs="0" />
+        <xs:element name="quantity" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inventory" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="GeneratedName" type="book" nillable="true" minOccurs="0" />
+        <xs:element name="supplied" type="xs:long" />
+        <xs:element name="sold" type="xs:long" />
+        <xs:element name="version" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="author" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="books" type="book" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="version" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="purchaseorder" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="/***<aname" type="xs:long" />
+        <xs:element name="GeneratedName" type="customer" nillable="true" minOccurs="0" />
+        <xs:element name="/***<aname" type="lineitem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="total" type="xs:long" />
+        <xs:element name="placedon" type="xs:anyType" />
+        <xs:element name="deliveredon" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customer" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="version" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="book" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="isbn" type="xs:string" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="price" type="xs:double" />
+        <xs:element name="GeneratedName" type="inventory" nillable="true" minOccurs="0" />
+        <xs:element name="/***<aname" type="author" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="version" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

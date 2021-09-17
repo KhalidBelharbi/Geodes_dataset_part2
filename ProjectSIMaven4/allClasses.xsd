@@ -1,0 +1,1342 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="businesslogicserver" >
+      <xs:complexContent>
+       <xs:extension base="jdialog">
+         <xs:sequence>
+          <xs:element name="contentpanel" type="xs:anyType" />
+          <xs:element name="textarea" type="xs:anyType" />
+          <xs:element name="server" type="blfacade" nillable="true" minOccurs="0" />
+          <xs:element name="service" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="blfacadeimplementation" >
+      <xs:sequence>
+        <xs:element name="dbmanager" type="dataaccess" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="businesslogicserveraws" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="blfacade" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="configxml" >
+      <xs:sequence>
+        <xs:element name="configfile" type="xs:string" />
+        <xs:element name="businesslogicnode" type="xs:string" />
+        <xs:element name="businesslogicport" type="xs:string" />
+        <xs:element name="businesslogicname" type="xs:string" />
+        <xs:element name="dbfilename" type="xs:string" />
+        <xs:element name="//twopossiblevalues:"open"or"initialize"databaseopenmode" type="xs:string" />
+        <xs:element name="//twopossiblevalues:true(noinstanceofremoteserverneedstobelaunched)orfalse(remoteserverneedstoberunfirst)businesslogiclocal" type="xs:anyType" />
+        <xs:element name="//twopossiblevalues:true(ifthedatabaseisinsamenodeasbusinesslogic)orfalse(inothercase)databaselocal" type="xs:anyType" />
+        <xs:element name="databasenode" type="xs:string" />
+        <xs:element name="databaseport" type="xs:long" />
+        <xs:element name="user" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="locale" type="xs:string" />
+        <xs:element name="theinstance" type="configxml" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="utildate" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="password" >
+      <xs:sequence>
+        <xs:element name="//definethebcryptworkloadtousewhengeneratingpasswordhashes.10-31isavalidvalue.workload" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getpredictionsdb" >
+      <xs:sequence>
+        <xs:element name="sut" type="dataaccessimplementation" nillable="true" minOccurs="0" />
+        <xs:element name="testbl" type="testfacadeimplementation" nillable="true" minOccurs="0" />
+        <xs:element name="ev" type="event" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getpredictionsmock" >
+      <xs:complexContent>
+       <xs:extension base="testcase">
+         <xs:sequence>
+          <xs:element name="" type="dataaccess" nillable="true" minOccurs="0" />
+          <xs:element name="sut" type="blfacade" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testfacadeimplementation" >
+      <xs:sequence>
+        <xs:element name="dbmanagertest" type="testdataaccess" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testdataaccess" >
+      <xs:sequence>
+        <xs:element name="db" type="xs:anyType" />
+        <xs:element name="emf" type="xs:anyType" />
+        <xs:element name="c" type="configxml" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="invalidid" >
+      <xs:complexContent>
+       <xs:extension base="exception{">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="questionalreadyexist" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="insufficientcash" >
+      <xs:complexContent>
+       <xs:extension base="exception{">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="eventfinished" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="questionnotfound" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="eventalreadycreated" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="invalidpw" >
+      <xs:complexContent>
+       <xs:extension base="exception{">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="noanswers" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="objectdbmanagerserveraws" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dataaccess" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dataaccessimplementation" >
+      <xs:sequence>
+        <xs:element name="emf" type="xs:anyType" />
+        <xs:element name="db" type="xs:anyType" />
+        <xs:element name="rand" type="xs:anyType" />
+        <xs:element name="c" type="configxml" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="objectdbmanagerserver" >
+      <xs:complexContent>
+       <xs:extension base="jdialog">
+         <xs:sequence>
+          <xs:element name="contentpanel" type="xs:anyType" />
+          <xs:element name="textarea" type="xs:anyType" />
+          <xs:element name="c" type="configxml" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="feedbackrecordcontainer" >
+      <xs:sequence>
+        <xs:element name="fbrecord" type="feedbackrecord" nillable="true" minOccurs="0" />
+        <xs:element name="administrator" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="feedback" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userproduct" nillable="true" minOccurs="0" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="cash" type="xs:double" />
+        <xs:element name="defaultcard" type="creditcard" nillable="true" minOccurs="0" />
+        <xs:element name="registration" type="xs:dateTime" />
+        <xs:element name="lastlogin" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="profile" nillable="true" minOccurs="0" />
+        <xs:element name="bets" type="bet" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="creditcards" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bettype" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="predictioncount" type="xs:long" />
+        <xs:element name="betcount" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="competition" >
+      <xs:sequence>
+        <xs:element name="competitionnumber" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="GeneratedName" type="country" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="sport" nillable="true" minOccurs="0" />
+        <xs:element name="starting" type="xs:dateTime" />
+        <xs:element name="ending" type="xs:dateTime" />
+        <xs:element name="events" type="event" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="country" >
+      <xs:sequence>
+        <xs:element name="as" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="feedback" >
+      <xs:sequence>
+        <xs:element name="fbnumber" type="xs:anyType" />
+        <xs:element name="fbtype" type="xs:anyType" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="summary" type="xs:string" />
+        <xs:element name="details" type="xs:string" />
+        <xs:element name="submission" type="xs:dateTime" />
+        <xs:element name="filename" type="xs:string" />
+        <xs:element name="extension" type="xs:string" />
+        <xs:element name="filesize" type="xs:long" />
+        <xs:element name="filedata" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="profile" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="surname" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="phonenumber" type="xs:string" />
+        <xs:element name="nationality" type="country" nillable="true" minOccurs="0" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="birth" type="xs:dateTime" />
+        <xs:element name="profilepic" type="xs:string" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="eventcontainer" >
+      <xs:sequence>
+        <xs:element name="c" type="event" nillable="true" minOccurs="0" />
+        <xs:element name="c" type="competition" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cardtype" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="questioncontainer" >
+      <xs:sequence>
+        <xs:element name="c" type="question" nillable="true" minOccurs="0" />
+        <xs:element name="c" type="event" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="event" >
+      <xs:sequence>
+        <xs:element name="eventnumber" type="xs:anyType" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="event" type="xs:dateTime" />
+        <xs:element name="ending" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="sport" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="competition" nillable="true" minOccurs="0" />
+        <xs:element name="questions" type="question" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="predictioncontainer" >
+      <xs:sequence>
+        <xs:element name="c" type="prediction" nillable="true" minOccurs="0" />
+        <xs:element name="c" type="question" nillable="true" minOccurs="0" />
+        <xs:element name="c" type="event" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="integeradapter" >
+      <xs:complexContent>
+       <xs:extension base="xmladapter<string,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sport" >
+      <xs:sequence>
+        <xs:element name="as" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="feedbackrecord" >
+      <xs:sequence>
+        <xs:element name="fbrecordnumber" type="xs:anyType" />
+        <xs:element name="administrator" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="feedback" nillable="true" minOccurs="0" />
+        <xs:element name="read" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="betcontainer" >
+      <xs:sequence>
+        <xs:element name="cowner" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="cpredictions" type="predictioncontainer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="c" type="bet" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="prediction" >
+      <xs:sequence>
+        <xs:element name="predictionnumber" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="question" nillable="true" minOccurs="0" />
+        <xs:element name="answer" type="xs:string" />
+        <xs:element name="odds" type="xs:double" />
+        <xs:element name="outcome" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="creditcard" >
+      <xs:sequence>
+        <xs:element name="cardnumber" type="xs:string" />
+        <xs:element name="due" type="xs:dateTime" />
+        <xs:element name="balance" type="xs:double" />
+        <xs:element name="limit" type="xs:double" />
+        <xs:element name="GeneratedName" type="cardtype" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="owner" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="default_balance" type="xs:double" />
+        <xs:element name="default_limit" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userproduct" >
+      <xs:sequence>
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="isadmin" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="question" >
+      <xs:sequence>
+        <xs:element name="questionnumber" type="xs:anyType" />
+        <xs:element name="question" type="xs:string" />
+        <xs:element name="betminimum" type="xs:double" />
+        <xs:element name="result" type="xs:long" />
+        <xs:element name="predictions" type="prediction" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="event" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bet" >
+      <xs:sequence>
+        <xs:element name="betnumber" type="xs:anyType" />
+        <xs:element name="bettor" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="type" type="bettype" nillable="true" minOccurs="0" />
+        <xs:element name="status" type="xs:anyType" />
+        <xs:element name="stake" type="xs:double" />
+        <xs:element name="placement" type="xs:dateTime" />
+        <xs:element name="starting" type="xs:dateTime" />
+        <xs:element name="resolving" type="xs:dateTime" />
+        <xs:element name="winnings" type="xs:double" />
+        <xs:element name="predictions" type="prediction" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="maingui" >
+      <xs:complexContent>
+       <xs:extension base="jframe">
+         <xs:sequence>
+          <xs:element name="admin" type="xs:anyType" />
+          <xs:element name="logged" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="appfacadeinterface" type="blfacade" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="maininstance" type="maingui" nillable="true" minOccurs="0" />
+          <xs:element name="layeredpane" type="xs:anyType" />
+          <xs:element name="//contentpane" type="xs:anyType" />
+          <xs:element name="containerpanel" type="xs:anyType" />
+          <xs:element name="currentpanel" type="xs:anyType" />
+          <xs:element name="menupanel" type="xs:anyType" />
+          <xs:element name="//profilepicpanelminiprofilepanel" type="xs:anyType" />
+          <xs:element name="loggedpanel" type="xs:anyType" />
+          <xs:element name="toppanel" type="xs:anyType" />
+          <xs:element name="unloggedpanel" type="xs:anyType" />
+          <xs:element name="//homepanelhmpanel//browsepanelbrwpanel//usermanagementpanelumpanel//profilepanelpfpanel//createquestionpanelcqpanel//settingspanelstgpanel//feedbackpanelfbpanel//usermanagementbutton" type="xs:anyType" />
+          <xs:element name="createquestionbutton" type="xs:anyType" />
+          <xs:element name="mybetsbutton" type="xs:anyType" />
+          <xs:element name="profilebutton" type="xs:anyType" />
+          <xs:element name="browsebutton" type="xs:anyType" />
+          <xs:element name="homebutton" type="xs:anyType" />
+          <xs:element name="registerbutton" type="xs:anyType" />
+          <xs:element name="loginbutton" type="xs:anyType" />
+          <xs:element name="logoutbutton" type="xs:anyType" />
+          <xs:element name="addcashbutton" type="xs:anyType" />
+          <xs:element name="dashboardbutton" type="xs:anyType" />
+          <xs:element name="feedbackbutton" type="xs:anyType" />
+          <xs:element name="menubuttons" type="xs:anyType" />
+          <xs:element name="//idtitlelabel" type="xs:anyType" />
+          <xs:element name="cashtitlelabel" type="xs:anyType" />
+          <xs:element name="profilepiclabel" type="xs:anyType" />
+          <xs:element name="usernamelabel" type="xs:anyType" />
+          <xs:element name="cashlabel" type="xs:anyType" />
+          <xs:element name="bottomimglabel" type="xs:anyType" />
+          <xs:element name="menuhidden" type="xs:anyType" />
+          <xs:element name="menu" type="xs:anyType" />
+          <xs:element name="menubuttonspanel" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usermanagementpanel" >
+      <xs:complexContent>
+       <xs:extension base="jpanel">
+         <xs:sequence>
+          <xs:element name="pagesize" type="xs:long" />
+          <xs:element name="currentpage" type="xs:long" />
+          <xs:element name="usertable" type="xs:anyType" />
+          <xs:element name="usertablemodel" type="noneditabletablemodel" nillable="true" minOccurs="0" />
+          <xs:element name="scrollpane" type="xs:anyType" />
+          <xs:element name="chckbxcasessensitive" type="xs:anyType" />
+          <xs:element name="lblsearchby" type="xs:anyType" />
+          <xs:element name="lblsearch" type="xs:anyType" />
+          <xs:element name="lbltitle" type="xs:anyType" />
+          <xs:element name="showingcountlabel" type="xs:anyType" />
+          <xs:element name="searchfield" type="xs:anyType" />
+          <xs:element name="searchinput" type="xs:string" />
+          <xs:element name="searchfilter" type="xs:string" />
+          <xs:element name="searchresult" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="btnsearch" type="xs:anyType" />
+          <xs:element name="btnnextpage" type="xs:anyType" />
+          <xs:element name="btnprevpage" type="xs:anyType" />
+          <xs:element name="btnaddauser" type="xs:anyType" />
+          <xs:element name="filters" type="xs:string" />
+          <xs:element name="filtercombobox" type="xs:anyType" />
+          <xs:element name="match" type="xs:string" />
+          <xs:element name="matchcombobox" type="xs:anyType" />
+          <xs:element name="columnnamesusers" type="xs:string" />
+          <xs:element name="facade" type="blfacade" nillable="true" minOccurs="0" />
+          <xs:element name="search" type="xs:anyType" />
+          <xs:element name="//sfortheeditanddeletebuttonsonthetabledelete" type="xs:anyType" />
+          <xs:element name="edit" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="feedbackresponsepanel" >
+      <xs:complexContent>
+       <xs:extension base="jpanel">
+         <xs:sequence>
+          <xs:element name="feedbacktable" type="xs:anyType" />
+          <xs:element name="feedbacktablemodel" type="noneditabletablemodel" nillable="true" minOccurs="0" />
+          <xs:element name="selectedfbr" type="feedbackrecord" nillable="true" minOccurs="0" />
+          <xs:element name="markasreadbutton" type="fancybutton" nillable="true" minOccurs="0" />
+          <xs:element name="responsebutton" type="fancybutton" nillable="true" minOccurs="0" />
+          <xs:element name="senderlabel" type="xs:anyType" />
+          <xs:element name="emaillabel" type="xs:anyType" />
+          <xs:element name="issuedescriptionlabel" type="xs:anyType" />
+          <xs:element name="detailstextpane" type="xs:anyType" />
+          <xs:element name="filelabel" type="xs:anyType" />
+          <xs:element name="typecombobox" type="xs:anyType" />
+          <xs:element name="readcombobox" type="xs:anyType" />
+          <xs:element name="datechooser" type="xs:anyType" />
+          <xs:element name="selected" type="xs:dateTime" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="columnnames" type="xs:string" />
+          <xs:element name="//privatedefaulttablecellrendererwhiterenderer" type="blfacade" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="createpanel" >
+      <xs:complexContent>
+       <xs:extension base="jpanel">
+         <xs:sequence>
+          <xs:element name="createevent" type="fancybutton" nillable="true" minOccurs="0" />
+          <xs:element name="createquestion" type="fancybutton" nillable="true" minOccurs="0" />
+          <xs:element name="createcompetition" type="fancybutton" nillable="true" minOccurs="0" />
+          <xs:element name="contentpanel" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mybetspanel" >
+      <xs:complexContent>
+       <xs:extension base="jpanel">
+         <xs:sequence>
+          <xs:element name="historybetbutton" type="fancybutton" nillable="true" minOccurs="0" />
+          <xs:element name="openbetsbutton" type="fancybutton" nillable="true" minOccurs="0" />
+          <xs:element name="contentpanel" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="browsepanel" >
+      <xs:complexContent>
+       <xs:extension base="jpanel">
+         <xs:sequence>
+          <xs:element name="//1" type="xs:anyType" />
+          <xs:element name="answercombobox" type="xs:anyType" />
+          <xs:element name="btnbet" type="xs:anyType" />
+          <xs:element name="multibetbutton" type="xs:anyType" />
+          <xs:element name="//$non-nls-1$//$non-nls-2$addtocouponbutton" type="fancybutton" nillable="true" minOccurs="0" />
+          <xs:element name="footballbutton" type="xs:anyType" />
+          <xs:element name="basketbutton" type="xs:anyType" />
+          <xs:element name="tennisbutton" type="xs:anyType" />
+          <xs:element name="boxingbutton" type="xs:anyType" />
+          <xs:element name="horsebutton" type="xs:anyType" />
+          <xs:element name="golfbutton" type="xs:anyType" />
+          <xs:element name="sportbuttons" type="xs:anyType" />
+          <xs:element name="totwinlabel" type="xs:anyType" />
+          <xs:element name="chosencompetitionlabel" type="xs:anyType" />
+          <xs:element name="couponlabel" type="xs:anyType" />
+          <xs:element name="competitionslabel" type="xs:anyType" />
+          <xs:element name="sportslabel" type="xs:anyType" />
+          <xs:element name="stakelabel" type="xs:anyType" />
+          <xs:element name="totwintitlelabel" type="xs:anyType" />
+          <xs:element name="queries" type="xs:anyType" />
+          <xs:element name="//$non-nls-1$//$non-nls-2$events" type="xs:anyType" />
+          <xs:element name="errorlabel" type="xs:anyType" />
+          <xs:element name="lblchooseyourprediction" type="xs:anyType" />
+          <xs:element name="selectionpanel" type="xs:anyType" />
+          <xs:element name="competitionscrollpane" type="xs:anyType" />
+          <xs:element name="" type="competitionpanel" nillable="true" minOccurs="0" />
+          <xs:element name="betscrollpane" type="xs:anyType" />
+          <xs:element name="scrollpaneevents" type="xs:anyType" />
+          <xs:element name="scrollpanequeries" type="xs:anyType" />
+          <xs:element name="betpane" type="xs:anyType" />
+          <xs:element name="sportspanel" type="xs:anyType" />
+          <xs:element name="couponpanel" type="xs:anyType" />
+          <xs:element name="tableevents" type="xs:anyType" />
+          <xs:element name="tablequeries" type="xs:anyType" />
+          <xs:element name="tablemodelevents" type="noneditabletablemodel" nillable="true" minOccurs="0" />
+          <xs:element name="tablemodelqueries" type="noneditabletablemodel" nillable="true" minOccurs="0" />
+          <xs:element name="columnnamesevents" type="xs:string" />
+          <xs:element name="columnnamesqueries" type="xs:string" />
+          <xs:element name="globalstaketextfield" type="jnumericfield" nillable="true" minOccurs="0" />
+          <xs:element name="allstakelistener" type="xs:anyType" />
+          <xs:element name="logopanel" type="xs:anyType" />
+          <xs:element name="bettingpanel" type="xs:anyType" />
+          <xs:element name="multibetscrollpanel" type="xs:anyType" />
+          <xs:element name="multibetpanel" type="xs:anyType" />
+          <xs:element name="selectedquestions" type="question" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="selectedevents" type="xs:anyType" />
+          <xs:element name="selectedpredictions" type="prediction" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="whiterenderer" type="xs:anyType" />
+          <xs:element name="activeeventrenderer" type="xs:anyType" />
+          <xs:element name="activequestionrenderer" type="xs:anyType" />
+          <xs:element name="fullquestionrenderer" type="xs:anyType" />
+          <xs:element name="facade" type="blfacade" nillable="true" minOccurs="0" />
+          <xs:element name="/***/bet" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="feedbackpanel" >
+      <xs:complexContent>
+       <xs:extension base="jpanel">
+         <xs:sequence>
+          <xs:element name="maxsummary" type="xs:long" />
+          <xs:element name="maxdetails" type="xs:long" />
+          <xs:element name="selected" type="xs:anyType" />
+          <xs:element name="lblfeedback" type="xs:anyType" />
+          <xs:element name="whatkindoflabel" type="xs:anyType" />
+          <xs:element name="telluslabel" type="xs:anyType" />
+          <xs:element name="sumtitlelabel" type="xs:anyType" />
+          <xs:element name="sumwclabel" type="xs:anyType" />
+          <xs:element name="lblgiveusmore" type="xs:anyType" />
+          <xs:element name="pinfopanel" type="xs:anyType" />
+          <xs:element name="namelabel" type="xs:anyType" />
+          <xs:element name="lblyouremailaddress" type="xs:anyType" />
+          <xs:element name="detwclabel" type="xs:anyType" />
+          <xs:element name="atfilelabel" type="xs:anyType" />
+          <xs:element name="identityerrorlabel" type="xs:anyType" />
+          <xs:element name="namefield" type="hinttextfield" nillable="true" minOccurs="0" />
+          <xs:element name="emailfield" type="hinttextfield" nillable="true" minOccurs="0" />
+          <xs:element name="summaryfield" type="xs:anyType" />
+          <xs:element name="detailarea" type="xs:anyType" />
+          <xs:element name="rdbtnsuggestion" type="xs:anyType" />
+          <xs:element name="rdbtnproblem" type="xs:anyType" />
+          <xs:element name="rdbtnquestion" type="xs:anyType" />
+          <xs:element name="choosefilebutton" type="xs:anyType" />
+          <xs:element name="filechosenlabel" type="xs:anyType" />
+          <xs:element name="submitbutton" type="xs:anyType" />
+          <xs:element name="fkindgroup" type="xs:anyType" />
+          <xs:element name="fileerrlabel" type="xs:anyType" />
+          <xs:element name="optionerrorlabel" type="xs:anyType" />
+          <xs:element name="sumerrorlabel" type="xs:anyType" />
+          <xs:element name="facade" type="blfacade" nillable="true" minOccurs="0" />
+          <xs:element name="separator" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bettinghistorypanel" >
+      <xs:complexContent>
+       <xs:extension base="jpanel">
+         <xs:sequence>
+          <xs:element name="selected" type="bet" nillable="true" minOccurs="0" />
+          <xs:element name="predictionslabel" type="xs:anyType" />
+          <xs:element name="betslabel" type="xs:anyType" />
+          <xs:element name="bettable" type="xs:anyType" />
+          <xs:element name="bettablemodel" type="noneditabletablemodel" nillable="true" minOccurs="0" />
+          <xs:element name="selectedbetrenderer" type="xs:anyType" />
+          <xs:element name="wonpredictionrendered" type="xs:anyType" />
+          <xs:element name="lostpredictionrendered" type="xs:anyType" />
+          <xs:element name="whiterenderer" type="xs:anyType" />
+          <xs:element name="showingcountlabel" type="xs:anyType" />
+          <xs:element name="pagesize" type="xs:long" />
+          <xs:element name="currentpage" type="xs:long" />
+          <xs:element name="searchresult" type="bet" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="betspredictions" type="predictioncontainer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="btnnextpage" type="xs:anyType" />
+          <xs:element name="btnprevpage" type="xs:anyType" />
+          <xs:element name="todatechooser" type="xs:anyType" />
+          <xs:element name="fromdatechooser" type="xs:anyType" />
+          <xs:element name="columnnameshistory" type="xs:string" />
+          <xs:element name="columnnamesprediction" type="xs:string" />
+          <xs:element name="facade" type="blfacade" nillable="true" minOccurs="0" />
+          <xs:element name="predictionsscrollpane" type="xs:anyType" />
+          <xs:element name="predictiontable" type="xs:anyType" />
+          <xs:element name="predictiontablemodel" type="noneditabletablemodel" nillable="true" minOccurs="0" />
+          <xs:element name="search" type="xs:anyType" />
+          <xs:element name="fromlabel" type="xs:anyType" />
+          <xs:element name="tolabel" type="xs:anyType" />
+          <xs:element name="dateperiodlabel" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="createquestionpanel" >
+      <xs:complexContent>
+       <xs:extension base="jpanel">
+         <xs:sequence>
+          <xs:element name="answers" type="xs:anyType" />
+          <xs:element name="sportcombobox" type="sport" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="jcomboboxevents" type="event" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="modelevents" type="event" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="listofeventslabel" type="xs:anyType" />
+          <xs:element name="//$non-nls-1$//$non-nls-2$questionlabel" type="xs:anyType" />
+          <xs:element name="//$non-nls-1$//$non-nls-2$minbet" type="xs:anyType" />
+          <xs:element name="eventdatelabel" type="xs:anyType" />
+          <xs:element name="createquestionerrorlabel" type="xs:anyType" />
+          <xs:element name="answererrorlabel" type="xs:anyType" />
+          <xs:element name="//$non-nls-1$//$non-nls-2$//$non-nls-1$//$non-nls-2$oddlabel" type="xs:anyType" />
+          <xs:element name="//$non-nls-1$//$non-nls-2$answerlabel" type="xs:anyType" />
+          <xs:element name="jhintfieldquery" type="hinttextfield" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="mio" type="xs:anyType" />
+          <xs:element name="create" type="xs:anyType" />
+          <xs:element name="answerbutton" type="xs:anyType" />
+          <xs:element name="answertextfield" type="xs:anyType" />
+          <xs:element name="oddtextfield" type="jnumericfield" nillable="true" minOccurs="0" />
+          <xs:element name="minpricetextfield" type="jnumericfield" nillable="true" minOccurs="0" />
+          <xs:element name="answertable" type="xs:anyType" />
+          <xs:element name="questiontable" type="xs:anyType" />
+          <xs:element name="answertablemodel" type="xs:anyType" />
+          <xs:element name="questiontablemodel" type="xs:anyType" />
+          <xs:element name="columnameanswers" type="xs:string" />
+          <xs:element name="columnamequestions" type="xs:string" />
+          <xs:element name="answerscrollpane" type="xs:anyType" />
+          <xs:element name="questionscrollpanel" type="xs:anyType" />
+          <xs:element name="currentquestionslabel" type="xs:anyType" />
+          <xs:element name="//$non-nls-1$//$non-nls-2$sportlabel" type="xs:anyType" />
+          <xs:element name="" type="competitionpanel" nillable="true" minOccurs="0" />
+          <xs:element name="competitionscrollpane" type="xs:anyType" />
+          <xs:element name="facade" type="blfacade" nillable="true" minOccurs="0" />
+          <xs:element name="delete" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="openbetspanel" >
+      <xs:complexContent>
+       <xs:extension base="jpanel">
+         <xs:sequence>
+          <xs:element name="editmode" type="xs:anyType" />
+          <xs:element name="selectedbet" type="betcontainer" nillable="true" minOccurs="0" />
+          <xs:element name="selected" type="bettype" nillable="true" minOccurs="0" />
+          <xs:element name="poswinnings" type="xs:double" />
+          <xs:element name="stakefield" type="jnumericfield" nillable="true" minOccurs="0" />
+          <xs:element name="bettypecombobox" type="bettype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="bettypecomboboxmodel" type="bettype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="predictionslabel" type="xs:anyType" />
+          <xs:element name="betslabel" type="xs:anyType" />
+          <xs:element name="poswintitlelabel" type="xs:anyType" />
+          <xs:element name="poswinlabel" type="xs:anyType" />
+          <xs:element name="settledtitlelabel" type="xs:anyType" />
+          <xs:element name="settledlabel" type="xs:anyType" />
+          <xs:element name="stakelabel" type="xs:anyType" />
+          <xs:element name="bettypelabel" type="xs:anyType" />
+          <xs:element name="minbettitlelabel" type="xs:anyType" />
+          <xs:element name="minbetlabel" type="xs:anyType" />
+          <xs:element name="editmodelabel" type="xs:anyType" />
+          <xs:element name="bettable" type="xs:anyType" />
+          <xs:element name="bettablemodel" type="xs:anyType" />
+          <xs:element name="selectedbetrenderer" type="xs:anyType" />
+          <xs:element name="wonpredictionrendered" type="xs:anyType" />
+          <xs:element name="lostpredictionrendered" type="xs:anyType" />
+          <xs:element name="noneditablebetrenderer" type="xs:anyType" />
+          <xs:element name="whiterenderer" type="xs:anyType" />
+          <xs:element name="redrenderer" type="xs:anyType" />
+          <xs:element name="cancelbetbutton" type="fancybutton" nillable="true" minOccurs="0" />
+          <xs:element name="editbetbutton" type="fancybutton" nillable="true" minOccurs="0" />
+          <xs:element name="savechangesbutton" type="fancybutton" nillable="true" minOccurs="0" />
+          <xs:element name="addpredictionsbutton" type="fancybutton" nillable="true" minOccurs="0" />
+          <xs:element name="cancelbutton" type="fancybutton" nillable="true" minOccurs="0" />
+          <xs:element name="bets" type="betcontainer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="predictions" type="predictioncontainer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="predictionmap" type="xs:anyType" />
+          <xs:element name="columnnamesopen" type="xs:string" />
+          <xs:element name="columnnamesprediction" type="xs:string" />
+          <xs:element name="facade" type="blfacade" nillable="true" minOccurs="0" />
+          <xs:element name="predictionsscrollpane" type="xs:anyType" />
+          <xs:element name="predictiontable" type="jtablex" nillable="true" minOccurs="0" />
+          <xs:element name="predictiontablemodel" type="noneditabletablemodel" nillable="true" minOccurs="0" />
+          <xs:element name="comboxedit" type="xs:anyType" />
+          <xs:element name="delete" type="xs:anyType" />
+          <xs:element name="/***forthecomboboxthatallowsselectionofbettypeinbeteditingmode*/bettypecombobox" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="personalinfopanel" >
+      <xs:complexContent>
+       <xs:extension base="jpanel{">
+         <xs:sequence>
+          <xs:element name="savechangeserrorlabel" type="xs:anyType" />
+          <xs:element name="usernametextfield" type="xs:anyType" />
+          <xs:element name="nametextfield" type="xs:anyType" />
+          <xs:element name="surnametextfield" type="xs:anyType" />
+          <xs:element name="emailtextfield" type="xs:anyType" />
+          <xs:element name="prefixtextfield" type="xs:anyType" />
+          <xs:element name="phnumbertextfield" type="xs:anyType" />
+          <xs:element name="citytextfield" type="xs:anyType" />
+          <xs:element name="addresstextfield" type="xs:anyType" />
+          <xs:element name="idnumbertextfield" type="xs:anyType" />
+          <xs:element name="birthdatetextfield" type="xs:anyType" />
+          <xs:element name="saveprofilebutton" type="fancybutton" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="createcompetitionpanel" >
+      <xs:complexContent>
+       <xs:extension base="jpanel">
+         <xs:sequence>
+          <xs:element name="sportcombobox" type="sport" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="addedcompetitionscrollpane" type="xs:anyType" />
+          <xs:element name="addedcompetitions" type="xs:anyType" />
+          <xs:element name="currentcompetitions" type="xs:anyType" />
+          <xs:element name="countriestable" type="xs:anyType" />
+          <xs:element name="currentcompetitionsscrollpane" type="xs:anyType" />
+          <xs:element name="countries" type="xs:anyType" />
+          <xs:element name="currentcompetitionstablemodel" type="xs:anyType" />
+          <xs:element name="countrytablemodel" type="xs:anyType" />
+          <xs:element name="addedcompetitiontablemodel" type="xs:anyType" />
+          <xs:element name="currentcompetitionlabel" type="xs:anyType" />
+          <xs:element name="countrieslabel" type="xs:anyType" />
+          <xs:element name="entercompetitionlabel" type="xs:anyType" />
+          <xs:element name="errorlabel" type="xs:anyType" />
+          <xs:element name="jhintfieldcompname" type="hinttextfield" nillable="true" minOccurs="0" />
+          <xs:element name="create" type="xs:anyType" />
+          <xs:element name="add" type="xs:anyType" />
+          <xs:element name="columnamecurrentcompetitions" type="xs:string" />
+          <xs:element name="columnameaddedcompetitions" type="xs:string" />
+          <xs:element name="columcountries" type="xs:string" />
+          <xs:element name="selectedcountry" type="xs:string" />
+          <xs:element name="compmap" type="xs:anyType" />
+          <xs:element name="delete" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="createeventpanel" >
+      <xs:complexContent>
+       <xs:extension base="jpanel">
+         <xs:sequence>
+          <xs:element name="events" type="xs:anyType" />
+          <xs:element name="startinghours" type="xs:anyType" />
+          <xs:element name="endinghours" type="xs:anyType" />
+          <xs:element name="sportcombobox" type="sport" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="//$non-nls-1$//$non-nls-2$minbet" type="xs:anyType" />
+          <xs:element name="eventdatelabel" type="xs:anyType" />
+          <xs:element name="createquestionerrorlabel" type="xs:anyType" />
+          <xs:element name="teamserrorlabel" type="xs:anyType" />
+          <xs:element name="//$non-nls-1$//$non-nls-2$//$non-nls-1$//$non-nls-2$team2label" type="xs:anyType" />
+          <xs:element name="//$non-nls-1$//$non-nls-2$team1label" type="xs:anyType" />
+          <xs:element name="durationlabel" type="xs:anyType" />
+          <xs:element name="starthourlabel" type="xs:anyType" />
+          <xs:element name="jhintfieldendhour" type="hinttextfield" nillable="true" minOccurs="0" />
+          <xs:element name="jhintfieldduration" type="hinttextfield" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="mio" type="xs:anyType" />
+          <xs:element name="create" type="xs:anyType" />
+          <xs:element name="addteamsbutton" type="xs:anyType" />
+          <xs:element name="team1textfield" type="xs:anyType" />
+          <xs:element name="team2textfield" type="xs:anyType" />
+          <xs:element name="createdeventtable" type="xs:anyType" />
+          <xs:element name="currenteventtable" type="xs:anyType" />
+          <xs:element name="createdeventstablemodel" type="xs:anyType" />
+          <xs:element name="eventtablemodel" type="xs:anyType" />
+          <xs:element name="columnameaddedevents" type="xs:string" />
+          <xs:element name="columnameevents" type="xs:string" />
+          <xs:element name="createdeventsscrollpane" type="xs:anyType" />
+          <xs:element name="eventscrollpanel" type="xs:anyType" />
+          <xs:element name="currentevents" type="xs:anyType" />
+          <xs:element name="//$non-nls-1$//$non-nls-2$sportlabel" type="xs:anyType" />
+          <xs:element name="" type="competitionpanel" nillable="true" minOccurs="0" />
+          <xs:element name="competitionscrollpane" type="xs:anyType" />
+          <xs:element name="facade" type="blfacade" nillable="true" minOccurs="0" />
+          <xs:element name="delete" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="creditcardspanel" >
+      <xs:complexContent>
+       <xs:extension base="jpanel">
+         <xs:sequence>
+          <xs:element name="defaultlabel" type="xs:anyType" />
+          <xs:element name="defaultpaymentlabel" type="xs:anyType" />
+          <xs:element name="creditcardslabel" type="xs:anyType" />
+          <xs:element name="default" type="switch" nillable="true" minOccurs="0" />
+          <xs:element name="creditcardtable" type="xs:anyType" />
+          <xs:element name="creditcardtablemodel" type="noneditabletablemodel" nillable="true" minOccurs="0" />
+          <xs:element name="defaultcardrenderer" type="xs:anyType" />
+          <xs:element name="whiterenderer" type="xs:anyType" />
+          <xs:element name="addcreditcardbutton" type="fancybutton" nillable="true" minOccurs="0" />
+          <xs:element name="savedefaultcardbutton" type="fancybutton" nillable="true" minOccurs="0" />
+          <xs:element name="defaultcardpanel" type="defaultcreditcard" nillable="true" minOccurs="0" />
+          <xs:element name="creditcardmap" type="xs:anyType" />
+          <xs:element name="columnnamescards" type="xs:string" />
+          <xs:element name="facade" type="blfacade" nillable="true" minOccurs="0" />
+          <xs:element name="delete" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="profilepanel" >
+      <xs:complexContent>
+       <xs:extension base="jpanel">
+         <xs:sequence>
+          <xs:element name="titlelabel" type="xs:anyType" />
+          <xs:element name="imagefeedbacklabel" type="xs:anyType" />
+          <xs:element name="profilepiclabel" type="xs:anyType" />
+          <xs:element name="" type="personalinfopanel" nillable="true" minOccurs="0" />
+          <xs:element name="" type="creditcardspanel" nillable="true" minOccurs="0" />
+          <xs:element name="chooseimagebutton" type="fancybutton" nillable="true" minOccurs="0" />
+          <xs:element name="saveimagebutton" type="fancybutton" nillable="true" minOccurs="0" />
+          <xs:element name="changepasswordbutton" type="fancybutton" nillable="true" minOccurs="0" />
+          <xs:element name="selected" type="xs:anyType" />
+          <xs:element name="separator" type="xs:anyType" />
+          <xs:element name="deleteaccountbutton" type="fancybutton" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="settingspanel" >
+      <xs:complexContent>
+       <xs:extension base="jpanel">
+         <xs:sequence>
+          <xs:element name="langcombobox" type="xs:anyType" />
+          <xs:element name="languages" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="homepanel" >
+      <xs:complexContent>
+       <xs:extension base="jpanel">
+         <xs:sequence>
+          <xs:element name="livetable" type="xs:anyType" />
+          <xs:element name="livecolnames" type="xs:string" />
+          <xs:element name="livetablemodel" type="noneditabletablemodel" nillable="true" minOccurs="0" />
+          <xs:element name="upcomingtable" type="xs:anyType" />
+          <xs:element name="upcomingcolnames" type="xs:string" />
+          <xs:element name="upcomingtablemodel" type="noneditabletablemodel" nillable="true" minOccurs="0" />
+          <xs:element name="resultstable" type="xs:anyType" />
+          <xs:element name="newsimagelabel" type="xs:anyType" />
+          <xs:element name="facade" type="blfacade" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="registergui" >
+      <xs:complexContent>
+       <xs:extension base="jdialog">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="adminview" type="xs:anyType" />
+          <xs:element name="registered" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="usernametextfield" type="hinttextfield" nillable="true" minOccurs="0" />
+          <xs:element name="emailtextfield" type="hinttextfield" nillable="true" minOccurs="0" />
+          <xs:element name="nametextfield" type="hinttextfield" nillable="true" minOccurs="0" />
+          <xs:element name="surnametextfield" type="hinttextfield" nillable="true" minOccurs="0" />
+          <xs:element name="passwordfield" type="hintpassfield" nillable="true" minOccurs="0" />
+          <xs:element name="passwordconfirmfield" type="hintpassfield" nillable="true" minOccurs="0" />
+          <xs:element name="citytextfield" type="hinttextfield" nillable="true" minOccurs="0" />
+          <xs:element name="addresstextfield" type="hinttextfield" nillable="true" minOccurs="0" />
+          <xs:element name="phonetextfield" type="hinttextfield" nillable="true" minOccurs="0" />
+          <xs:element name="phonepreftextfield" type="hinttextfield" nillable="true" minOccurs="0" />
+          <xs:element name="pcodetextfield" type="hinttextfield" nillable="true" minOccurs="0" />
+          <xs:element name="lblpostalcode" type="xs:anyType" />
+          <xs:element name="lblphonenumber" type="xs:anyType" />
+          <xs:element name="lbladdress" type="xs:anyType" />
+          <xs:element name="lblcity" type="xs:anyType" />
+          <xs:element name="lblnationality" type="xs:anyType" />
+          <xs:element name="lblsurname" type="xs:anyType" />
+          <xs:element name="lblname" type="xs:anyType" />
+          <xs:element name="lblbithdate" type="xs:anyType" />
+          <xs:element name="lblrights" type="xs:anyType" />
+          <xs:element name="lblconfirmpassword" type="xs:anyType" />
+          <xs:element name="lblpassword" type="xs:anyType" />
+          <xs:element name="lblusername" type="xs:anyType" />
+          <xs:element name="lblemail" type="xs:anyType" />
+          <xs:element name="usernameerrorlabel" type="xs:anyType" />
+          <xs:element name="pwerrorlabel" type="xs:anyType" />
+          <xs:element name="confirmpwerrorlabel" type="xs:anyType" />
+          <xs:element name="emailerrorlabel" type="xs:anyType" />
+          <xs:element name="termserrorlabel" type="xs:anyType" />
+          <xs:element name="gendererrorlabel" type="xs:anyType" />
+          <xs:element name="bdateerrorlabel" type="xs:anyType" />
+          <xs:element name="naterrorlabel" type="xs:anyType" />
+          <xs:element name="phoneerrorlabel" type="xs:anyType" />
+          <xs:element name="status" type="xs:anyType" />
+          <xs:element name="rdbtnadmin" type="xs:anyType" />
+          <xs:element name="rdbtnuser" type="xs:anyType" />
+          <xs:element name="chckbxterms" type="xs:anyType" />
+          <xs:element name="scrollpaneterms" type="xs:anyType" />
+          <xs:element name="comboboxnat" type="xs:anyType" />
+          <xs:element name="comboboxyear" type="xs:anyType" />
+          <xs:element name="comboboxmonth" type="xs:anyType" />
+          <xs:element name="comboboxday" type="xs:anyType" />
+          <xs:element name="registerbutton" type="xs:anyType" />
+          <xs:element name="passvisibletoggle" type="passvisiblelabel" nillable="true" minOccurs="0" />
+          <xs:element name="passconfirmvisibletoggle" type="passvisiblelabel" nillable="true" minOccurs="0" />
+          <xs:element name="_" type="cancellabel" nillable="true" minOccurs="0" />
+          <xs:element name="idcardtextfield" type="hinttextfield" nillable="true" minOccurs="0" />
+          <xs:element name="idcardlabel" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="logingui" >
+      <xs:complexContent>
+       <xs:extension base="jdialog">
+         <xs:sequence>
+          <xs:element name="//statusoftheloggedlogged" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="contentpane" type="xs:anyType" />
+          <xs:element name="usernametextfield" type="hinttextfield" nillable="true" minOccurs="0" />
+          <xs:element name="passwordfield" type="hintpassfield" nillable="true" minOccurs="0" />
+          <xs:element name="loginbutton" type="xs:anyType" />
+          <xs:element name="titlelabel" type="xs:anyType" />
+          <xs:element name="usernameiconlabel_1" type="xs:anyType" />
+          <xs:element name="passiconlabel_1" type="xs:anyType" />
+          <xs:element name="panel_1" type="xs:anyType" />
+          <xs:element name="panel_2" type="xs:anyType" />
+          <xs:element name="usernameerrorlabel" type="xs:anyType" />
+          <xs:element name="passerrorlabel" type="xs:anyType" />
+          <xs:element name="registerlabel" type="xs:anyType" />
+          <xs:element name="createaccountlabel" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="changepassgui" >
+      <xs:complexContent>
+       <xs:extension base="jdialog">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="iconpanel" type="xs:anyType" />
+          <xs:element name="contentpane" type="xs:anyType" />
+          <xs:element name="newpassfield" type="hintpassfield" nillable="true" minOccurs="0" />
+          <xs:element name="confirmpassfield" type="hintpassfield" nillable="true" minOccurs="0" />
+          <xs:element name="currentpassfield" type="hintpassfield" nillable="true" minOccurs="0" />
+          <xs:element name="savenewpassbutton" type="xs:anyType" />
+          <xs:element name="titlelabel" type="xs:anyType" />
+          <xs:element name="passiconlabel" type="xs:anyType" />
+          <xs:element name="currentpasslabel" type="xs:anyType" />
+          <xs:element name="newpasslabel" type="xs:anyType" />
+          <xs:element name="confirmpasslabel" type="xs:anyType" />
+          <xs:element name="currentpasserrorlabel" type="xs:anyType" />
+          <xs:element name="newpasserrorlabel" type="xs:anyType" />
+          <xs:element name="facade" type="blfacade" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="editusergui" >
+      <xs:complexContent>
+       <xs:extension base="jdialog">
+         <xs:sequence>
+          <xs:element name="contentpane" type="xs:anyType" />
+          <xs:element name="lblcountry" type="xs:anyType" />
+          <xs:element name="//$non-nls-1$//$non-nls-2$lblphonenumber" type="xs:anyType" />
+          <xs:element name="//$non-nls-1$//$non-nls-2$lblbirthdate" type="xs:anyType" />
+          <xs:element name="//$non-nls-1$//$non-nls-2$lblcity" type="xs:anyType" />
+          <xs:element name="usernamefield" type="xs:anyType" />
+          <xs:element name="namefield" type="xs:anyType" />
+          <xs:element name="surnamefield" type="xs:anyType" />
+          <xs:element name="emailfield" type="xs:anyType" />
+          <xs:element name="rdbtnuser" type="xs:anyType" />
+          <xs:element name="rdbtnadmin" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="phntextfield" type="xs:anyType" />
+          <xs:element name="phnprefixtextfield" type="xs:anyType" />
+          <xs:element name="citytextfield" type="xs:anyType" />
+          <xs:element name="comboboxnat" type="xs:anyType" />
+          <xs:element name="comboboxday" type="xs:anyType" />
+          <xs:element name="comboboxmonth" type="xs:anyType" />
+          <xs:element name="comboboxyear" type="xs:anyType" />
+          <xs:element name="addresstextfield" type="xs:anyType" />
+          <xs:element name="idfield" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="socialmediapanel" >
+      <xs:complexContent>
+       <xs:extension base="jpanel{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="betpanel" >
+      <xs:complexContent>
+       <xs:extension base="jpanel{">
+         <xs:sequence>
+          <xs:element name="" type="event" nillable="true" minOccurs="0" />
+          <xs:element name="" type="question" nillable="true" minOccurs="0" />
+          <xs:element name="answer" type="xs:string" />
+          <xs:element name="odds" type="xs:double" />
+          <xs:element name="stake" type="xs:anyType" />
+          <xs:element name="minbet" type="xs:anyType" />
+          <xs:element name="winningslabel" type="xs:anyType" />
+          <xs:element name="poswinlabel" type="xs:anyType" />
+          <xs:element name="stakefield" type="jnumericfield" nillable="true" minOccurs="0" />
+          <xs:element name="stakelistener" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hintpassfield" >
+      <xs:complexContent>
+       <xs:extension base="jpasswordfield">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="hint" type="xs:string" />
+          <xs:element name="showinghint" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jnumericfield" >
+      <xs:complexContent>
+       <xs:extension base="jtextfield">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="dot" type="xs:anyType" />
+          <xs:element name="negative" type="xs:anyType" />
+          <xs:element name="blank" type="xs:string" />
+          <xs:element name="def_precision" type="xs:long" />
+          <xs:element name="numeric" type="xs:long" />
+          <xs:element name="decimal" type="xs:long" />
+          <xs:element name="fm_numeric" type="xs:string" />
+          <xs:element name="fm_decimal" type="xs:string" />
+          <xs:element name="maxlength" type="xs:long" />
+          <xs:element name="format" type="xs:long" />
+          <xs:element name="negativechars" type="xs:string" />
+          <xs:element name="allowedchars" type="xs:string" />
+          <xs:element name="allownegative" type="xs:anyType" />
+          <xs:element name="precision" type="xs:long" />
+          <xs:element name="numberfieldfilter" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clock" >
+      <xs:complexContent>
+       <xs:extension base="jpanel">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="datelabel" type="xs:anyType" />
+          <xs:element name="timerlabel" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jtablex" >
+      <xs:complexContent>
+       <xs:extension base="jtable">
+         <xs:sequence>
+          <xs:element name="rm" type="celleditormodel" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="buttoncolumn" >
+      <xs:complexContent>
+       <xs:extension base="abstractcelleditor">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="table" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="mnemonic" type="xs:long" />
+          <xs:element name="original" type="xs:anyType" />
+          <xs:element name="focus" type="xs:anyType" />
+          <xs:element name="renderbutton" type="xs:anyType" />
+          <xs:element name="editbutton" type="xs:anyType" />
+          <xs:element name="editorvalue" type="xs:anyType" />
+          <xs:element name="isbuttoncolumneditor" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="competitionpanel" >
+      <xs:complexContent>
+       <xs:extension base="jpanel{">
+         <xs:sequence>
+          <xs:element name="selected" type="competition" nillable="true" minOccurs="0" />
+          <xs:element name="pcs" type="xs:anyType" />
+          <xs:element name="btngroup" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="betdetails" >
+      <xs:complexContent>
+       <xs:extension base="jpanel">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hinttextfield" >
+      <xs:complexContent>
+       <xs:extension base="jtextfield">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="hint" type="xs:string" />
+          <xs:element name="showinghint" type="xs:anyType" />
+          <xs:element name="text" type="xs:anyType" />
+          <xs:element name="hint" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="noneditabletablemodel" >
+      <xs:complexContent>
+       <xs:extension base="defaulttablemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="celleditormodel" >
+      <xs:sequence>
+        <xs:element name="matrix" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="switch" >
+      <xs:complexContent>
+       <xs:extension base="jcomponent">
+         <xs:sequence>
+          <xs:element name="/***capturesthestateoftheswitch*/onoff" type="xs:anyType" />
+          <xs:element name="/***marginbetweentheborderofthecomponentandtheswitch*/margin" type="xs:long" />
+          <xs:element name="/***marginbetweenthecircularbuttonandtheswitch*/border" type="xs:long" />
+          <xs:element name="/***backgroundoftheswitch(notthecomponent)*/background" type="xs:anyType" />
+          <xs:element name="/***ofthecircularbuttonoftheswitch*/button" type="xs:anyType" />
+          <xs:element name="/***delinterruporcuandoestadesabilitado*/disabled_component_" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="defaultcreditcard" >
+      <xs:complexContent>
+       <xs:extension base="jpanel">
+         <xs:sequence>
+          <xs:element name="defaultcard" type="creditcard" nillable="true" minOccurs="0" />
+          <xs:element name="duedatetitlelabel" type="xs:anyType" />
+          <xs:element name="duedatelabel" type="xs:anyType" />
+          <xs:element name="balancetitlelabel" type="xs:anyType" />
+          <xs:element name="lbllimit" type="xs:anyType" />
+          <xs:element name="balancelabel" type="xs:anyType" />
+          <xs:element name="limitlabel" type="xs:anyType" />
+          <xs:element name="cardtypetitlelabel" type="xs:anyType" />
+          <xs:element name="cardtypelabel" type="xs:anyType" />
+          <xs:element name="lblcardnumber" type="xs:anyType" />
+          <xs:element name="number1textfield" type="xs:anyType" />
+          <xs:element name="number2textfield" type="xs:anyType" />
+          <xs:element name="number3textfield" type="xs:anyType" />
+          <xs:element name="number4textfield" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="toggleswitch" >
+      <xs:complexContent>
+       <xs:extension base="jpanel">
+         <xs:sequence>
+          <xs:element name="activated" type="xs:anyType" />
+          <xs:element name="switch" type="xs:anyType" />
+          <xs:element name="activeswitch" type="xs:anyType" />
+          <xs:element name="puffer" type="xs:anyType" />
+          <xs:element name="borderradius" type="xs:long" />
+          <xs:element name="g" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="selectiveeditabletablemodel" >
+      <xs:complexContent>
+       <xs:extension base="defaulttablemodel">
+         <xs:sequence>
+          <xs:element name="editable_cells" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="multibetoption" >
+      <xs:complexContent>
+       <xs:extension base="jpanel">
+         <xs:sequence>
+          <xs:element name="stakefield" type="jnumericfield" nillable="true" minOccurs="0" />
+          <xs:element name="stake" type="xs:double" />
+          <xs:element name="combinations" type="xs:long" />
+          <xs:element name="type" type="bettype" nillable="true" minOccurs="0" />
+          <xs:element name="winnings" type="xs:double" />
+          <xs:element name="pricelabel" type="xs:anyType" />
+          <xs:element name="poswinlabel" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cancellabel" >
+      <xs:complexContent>
+       <xs:extension base="jlabel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpanelwithbackground" >
+      <xs:complexContent>
+       <xs:extension base="jpanel">
+         <xs:sequence>
+          <xs:element name="background" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="countrybutton" >
+      <xs:complexContent>
+       <xs:extension base="jbutton{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="compoundicon" >
+      <xs:sequence>
+        <xs:element name="top" type="xs:double" />
+        <xs:element name="left" type="xs:double" />
+        <xs:element name="center" type="xs:double" />
+        <xs:element name="bottom" type="xs:double" />
+        <xs:element name="right" type="xs:double" />
+        <xs:element name="s" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="gap" type="xs:long" />
+        <xs:element name="alignmentx" type="xs:double" />
+        <xs:element name="alignmenty" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="passvisiblelabel" >
+      <xs:complexContent>
+       <xs:extension base="jlabel{">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="visible" type="xs:anyType" />
+          <xs:element name="pwfield" type="hintpassfield" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fancybutton" >
+      <xs:complexContent>
+       <xs:extension base="jbutton{">
+         <xs:sequence>
+          <xs:element name="background" type="xs:anyType" />
+          <xs:element name="hover" type="xs:anyType" />
+          <xs:element name="selected" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="feedbackresponsegui" >
+      <xs:complexContent>
+       <xs:extension base="jdialog">
+         <xs:sequence>
+          <xs:element name="contentpane" type="xs:anyType" />
+          <xs:element name="sendingstatuslabel" type="xs:anyType" />
+          <xs:element name="topicfield" type="xs:anyType" />
+          <xs:element name="receivertextfield" type="xs:anyType" />
+          <xs:element name="textarea" type="xs:anyType" />
+          <xs:element name="selected" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="addcreditcardgui" >
+      <xs:complexContent>
+       <xs:extension base="jdialog">
+         <xs:sequence>
+          <xs:element name="contentpane" type="xs:anyType" />
+          <xs:element name="number1textfield" type="jnumericfield" nillable="true" minOccurs="0" />
+          <xs:element name="number2textfield" type="jnumericfield" nillable="true" minOccurs="0" />
+          <xs:element name="number3textfield" type="jnumericfield" nillable="true" minOccurs="0" />
+          <xs:element name="number4textfield" type="jnumericfield" nillable="true" minOccurs="0" />
+          <xs:element name="typetextfield" type="xs:anyType" />
+          <xs:element name="yeartextfield" type="jnumericfield" nillable="true" minOccurs="0" />
+          <xs:element name="monthtextfield" type="jnumericfield" nillable="true" minOccurs="0" />
+          <xs:element name="securitycodetextfield" type="jnumericfield" nillable="true" minOccurs="0" />
+          <xs:element name="carderrorlabel" type="xs:anyType" />
+          <xs:element name="dateerrorlabel" type="xs:anyType" />
+          <xs:element name="addcardbutton" type="fancybutton" nillable="true" minOccurs="0" />
+          <xs:element name="cardnumber" type="xs:string" />
+          <xs:element name="" type="cardtype" nillable="true" minOccurs="0" />
+          <xs:element name="fillallareaslabel" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="applicationlauncher" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

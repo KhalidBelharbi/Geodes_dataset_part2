@@ -1,0 +1,35 @@
+
+hearingpart(id:UUID [PK], GeneratedName:Session #FK to(session), sessionid:UUID, isdeleted:boolean, createdat:OffsetDateTime, modifiedat:OffsetDateTime, createdby:String, modifiedby:String, start:OffsetDateTime, GeneratedName:Hearing #FK to(hearing), hearingid:UUID, status:StatusConfig #FK to(statusconfig));
+
+room(id:UUID [PK], name:String, GeneratedName:RoomType #FK to(roomtype));
+
+usertransaction(id:UUID [PK], status:UserTransactionStatus, rulesprocessingstatus:UserTransactionRulesProcessingStatus, startedat:OffsetDateTime);
+
+hearingtype();
+
+hearing_type_case_type(hearing_type_code:HearingType [PK] #FK to HearingType,case_type_code:set<casetype> [PK] #FK to set<casetype>);
+
+casetype();
+
+sessiontype();
+
+case_type_session_type(session_type_code:SessionType [PK] #FK to SessionType,case_type_code:set<casetype> [PK] #FK to set<casetype>);hearing_type_session_type(session_type_code:SessionType [PK] #FK to SessionType,hearing_type_code:set<hearingtype> [PK] #FK to set<hearingtype>);
+
+activitylog(id:UUID [PK], usertransactionid:UUID, entityid:UUID, entityname:String, status:ActivityStatus, description:String, createdby:String, createdat:OffsetDateTime);
+
+problem(//thisismd5hash,notuuid!itistohandlethedeterministicnatureofourrulesid:String [PK], usertransactionid:UUID, type:String, severity:String, message:String, createdat:OffsetDateTime, references:List<ProblemReference>);
+
+usertransactiondata(id:UUID [PK], entity:String, entityid:UUID, beforedata:String, action:String, counteraction:String, counteractionorder:int, GeneratedName:UserTransaction #FK to(usertransaction), usertransactionid:UUID);
+
+statusconfig(GeneratedName:Status [PK], canbelisted:boolean, canbeunlisted:boolean, countinutilization:boolean, canbevacated:boolean, canbeadjourned:boolean, canbewithdrawn:boolean);
+
+person(id:UUID [PK], persontype:String, name:String, username:String);
+
+roomtype();
+
+hearing(entity_name:String, id:UUID [PK], casenumber:String, casetitle:String, GeneratedName:CaseType #FK to(casetype), GeneratedName:HearingType #FK to(hearingtype), GeneratedName:Duration, numberofsessions:int, ismultisession:boolean, schedulestart:OffsetDateTime, scheduleend:OffsetDateTime, communicationfacilitator:String, GeneratedName:Priority, isdeleted:boolean, reservedjudge:Person #FK to(person), createdat:OffsetDateTime, modifiedat:OffsetDateTime, createdby:String, modifiedby:String, status:StatusConfig #FK to(statusconfig));
+
+session(id:UUID [PK], GeneratedName:Person #FK to(person), start:OffsetDateTime, GeneratedName:Duration, GeneratedName:Room #FK to(room), GeneratedName:SessionType #FK to(sessiontype), createdat:OffsetDateTime, modifiedat:OffsetDateTime, createdby:String, modifiedby:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

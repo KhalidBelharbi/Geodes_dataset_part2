@@ -1,0 +1,21 @@
+
+userdomains(_userdomainid:int [PK], _useruuid:String, _domainname:String, _domainuuid:String);
+
+userdomains(_userid:int [PK], _domainid:int [PK], _:Domain #FK to(domain));
+
+domain(_domainid:int [PK], _name:String);
+
+domainrole(_domainid:int [PK], _roleid:int [PK], _userid:int [PK], _:Role #FK to(role));
+
+user(_userid:int [PK], _username:String, _email:String, _password:String);
+
+userrole(_userid:int [PK], _roleid:int [PK], //@onetoone(fetch:Role #FK to(role));
+
+role(_roleid:int [PK], _name:String);
+
+domainrole(_domainroleid:int [PK], _domainname:String, _username:String, _rolename:String);
+
+user(_userid:int [PK], _username:String, _email:String, _password:String, _useruuid:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

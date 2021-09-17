@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="demoapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="appbeans" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cmdrunner" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="bookservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authorresolver" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="defaultauthorresolver" >
+      <xs:sequence>
+        <xs:element name="rest" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="author" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deletebookcommand" >
+      <xs:complexContent>
+       <xs:extension base="command">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="createbookcommand" >
+      <xs:complexContent>
+       <xs:extension base="command">
+         <xs:sequence>
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="authors" type="author" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="updatebookcommand" >
+      <xs:complexContent>
+       <xs:extension base="command">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="authors" type="author" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="authornotexistexception" >
+      <xs:complexContent>
+       <xs:extension base="illegalargumentexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="booknotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="defaultbookservice" >
+      <xs:sequence>
+        <xs:element name="bookeventbinding" type="xs:string" />
+        <xs:element name="repository" type="bookrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="authorresolver" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="publisher" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authoreventhandler" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="bookservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<book,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="updatebookcommandreceived" >
+      <xs:complexContent>
+       <xs:extension base="commandevent<updatebookcommand>">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="deletebookcommandreceived" >
+      <xs:complexContent>
+       <xs:extension base="commandevent<deletebookcommand>">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bookdeleted" >
+      <xs:complexContent>
+       <xs:extension base="domainevent<book>">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bookcreated" >
+      <xs:complexContent>
+       <xs:extension base="domainevent<book>">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bookupdated" >
+      <xs:complexContent>
+       <xs:extension base="domainevent<book>">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="createbookcommandreceived" >
+      <xs:complexContent>
+       <xs:extension base="commandevent<createbookcommand>">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="book" >
+      <xs:complexContent>
+       <xs:extension base="domain">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="authorrefs" type="authorref" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bookfactory" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authorref" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="book" nillable="true" minOccurs="0" />
+        <xs:element name="authorid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookviewfactory" >
+      <xs:sequence>
+        <xs:element name="factory" type="bookviewfactory" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookview" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="authorresolver" nillable="true" minOccurs="0" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="authorrefs" type="authorref" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="authors" type="author" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookspec" >
+      <xs:sequence>
+        <xs:element name="specs" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookcontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="bookservice" nillable="true" minOccurs="0" />
+        <xs:element name="publisher" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="withid" >
+      <xs:complexContent>
+       <xs:extension base="withid<id>>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sqlutils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="command" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="domaineventmessage" >
+      <xs:complexContent>
+       <xs:extension base="domain>">
+         <xs:sequence>
+          <xs:element name="event" type="xs:string" />
+          <xs:element name="occuredat" type="xs:anyType" />
+          <xs:element name="id" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="domain" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="appeventlogger" >
+      <xs:sequence>
+        <xs:element name="repository" type="eventrecordrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baseevent" >
+      <xs:complexContent>
+       <xs:extension base="applicationevent">
+         <xs:sequence>
+          <xs:element name="occuredat" type="xs:anyType" />
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="eventrecord" >
+      <xs:sequence>
+        <xs:element name="mapper" type="xs:anyType" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="event" type="xs:string" />
+        <xs:element name="occuredat" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="eventrecordrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<eventrecord,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="commandevent" >
+      <xs:complexContent>
+       <xs:extension base="command>">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="domainevent" >
+      <xs:complexContent>
+       <xs:extension base="domain>">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="queryparamnotsupporttedexception" >
+      <xs:complexContent>
+       <xs:extension base="illegalargumentexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="demoapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="v0_0_0__init" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="v0_0_1__create_books_table" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="v0_0_2__create_event_records_table" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

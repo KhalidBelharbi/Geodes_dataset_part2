@@ -1,0 +1,21 @@
+
+sysmenus(/***/serialversionuid:long, id:String [PK], name:String, iconstyle:String, code:String, menuindex:Integer, deep:int, roleid:String, sys:boolean, url:String, id:SysMenus #FK to(sysmenus), rescources:SysResources #FK to(sysresources));
+
+sysroles(/***/serialversionuid:long, id:String [PK], rolename:String, roledesc:String, isenabled:boolean, create:Date, createuserid:String, issys:boolean, datalevel:Integer);
+
+sysroles_collection<sysauthorities>(sysrolesID:sysroles [PK] #FK to sysroles,collection<sysauthorities>ID:collection<sysauthorities> [PK] #FK to collection<sysauthorities>);
+
+sysresources(/***/serialversionuid:long, /***theid.*/id:String, /***theresourcename.*/resourcename:String, /***theresourcedesc.*/resourcedesc:String, /***theresourcetype.*/resourcetype:Integer, /***theresourcepath.*/resourcepath:String, /***theisenabled.*/isenabled:Boolean, /***thepriority.*/priority:String, /***theissys.*/issys:Boolean, /***theresource_authorities.*/resource_authorities:Collection<SysAuthorities>, /***theparent.*/parent:SysResources, /***thechildren.*/children:Collection<SysResources>);
+
+sysauthorities(/***/serialversionuid:long, id:String [PK], authorityname:String, authoritydesc:String, authoritycode:String, isenabled:boolean, create:Date, createuserid:String, sys:boolean);
+
+sysauthorities_collection<sysresources>(sysauthoritiesID:sysauthorities [PK] #FK to sysauthorities,collection<sysresources>ID:collection<sysresources> [PK] #FK to collection<sysresources>);
+
+sysusers(/***/serialversionuid:long, id:String [PK], username:String, useraccount:String, userpassword:String, usertype:int, isaccountnonexpired:boolean, username:String, password:String, isaccountnonlocked:boolean, iscredentialsnonexpired:boolean, isenabled:boolean, issys:boolean, job:String, creatorid:String, create:Date);
+
+sysusers_collection<sysroles>(sysusersID:sysusers [PK] #FK to sysusers,collection<sysroles>ID:collection<sysroles> [PK] #FK to collection<sysroles>);
+
+sysrolemenus(/***/serialversionuid:long, id:String [PK], ind:Integer, enable:boolean, menu:SysMenus #FK to(sysmenus), role:SysRoles #FK to(sysroles));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="coupon" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="discount" type="xs:anyType" />
+        <xs:element name="expdate" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="couponrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<coupon,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<product,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="product" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="price" type="xs:anyType" />
+        <xs:element name="couponcode" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="multipledatasourcesapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="coupondatasourceconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productdatasourceconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="multipledatasourcesapplicationtests" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="couponrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="productrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

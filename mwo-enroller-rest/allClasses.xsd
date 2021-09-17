@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="participantrestcontrollertest" >
+      <xs:sequence>
+        <xs:element name="mvc" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="meetingservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="participantservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hibernate.cfg" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="databaseconnector" >
+      <xs:sequence>
+        <xs:element name="instance" type="databaseconnector" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="meetingservice" >
+      <xs:sequence>
+        <xs:element name="connector" type="databaseconnector" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="participantservice" >
+      <xs:sequence>
+        <xs:element name="connector" type="databaseconnector" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlitedialect" >
+      <xs:complexContent>
+       <xs:extension base="dialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hibernateutil" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="meetingrestcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="participantservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="meetingservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="participantrestcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="participantservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="app" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="meeting" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="date" type="xs:string" />
+        <xs:element name="participants" type="participant" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="participant" >
+      <xs:sequence>
+        <xs:element name="login" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

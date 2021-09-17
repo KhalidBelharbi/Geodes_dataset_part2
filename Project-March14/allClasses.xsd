@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="ordermsapplicationtests" >
+      <xs:sequence>
+        <xs:element name="service" type="orderservice" nillable="true" minOccurs="0" />
+        <xs:element name="orderrepo" type="orderrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productsorderedrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<productsordered,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<orderdetails,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productsordereddto" >
+      <xs:sequence>
+        <xs:element name="orderid" type="xs:long" />
+        <xs:element name="prodid" type="xs:long" />
+        <xs:element name="sellerid" type="xs:long" />
+        <xs:element name="quantity" type="xs:long" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="price" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderdto" >
+      <xs:sequence>
+        <xs:element name="orderid" type="xs:long" />
+        <xs:element name="buyerid" type="xs:long" />
+        <xs:element name="amount" type="xs:double" />
+        <xs:element name="GeneratedName" type="xs:dateTime" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="prodordered" type="productsordered" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="newplaceorder" >
+      <xs:sequence>
+        <xs:element name="buyerid" type="xs:anyType" />
+        <xs:element name="address" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="placeorderdto" >
+      <xs:sequence>
+        <xs:element name="buyerid" type="xs:long" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="prodid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cartdto" >
+      <xs:sequence>
+        <xs:element name="buyerid" type="xs:anyType" />
+        <xs:element name="prodid" type="xs:anyType" />
+        <xs:element name="quantity" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="combineddto" >
+      <xs:sequence>
+        <xs:element name="orderid" type="xs:long" />
+        <xs:element name="buyerid" type="xs:long" />
+        <xs:element name="amount" type="xs:double" />
+        <xs:element name="GeneratedName" type="xs:dateTime" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="productsordered" type="productsordereddto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productsdto" >
+      <xs:sequence>
+        <xs:element name="prodid" type="xs:anyType" />
+        <xs:element name="brand" type="xs:string" />
+        <xs:element name="category" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="image" type="xs:string" />
+        <xs:element name="productname" type="xs:string" />
+        <xs:element name="subcategory" type="xs:string" />
+        <xs:element name="sellerid" type="xs:anyType" />
+        <xs:element name="stock" type="xs:anyType" />
+        <xs:element name="price" type="xs:double" />
+        <xs:element name="rating" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="buyerdto" >
+      <xs:sequence>
+        <xs:element name="buyerid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="phonenumber" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="isprivileged" type="xs:long" />
+        <xs:element name="rewardpos" type="xs:long" />
+        <xs:element name="isactive" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productsordered" >
+      <xs:sequence>
+        <xs:element name="orderid" type="xs:long" />
+        <xs:element name="prodid" type="xs:long" />
+        <xs:element name="sellerid" type="xs:long" />
+        <xs:element name="quantity" type="xs:long" />
+        <xs:element name="price" type="xs:double" />
+        <xs:element name="status" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productsorderedidusingidclass" >
+      <xs:sequence>
+        <xs:element name="orderid" type="xs:long" />
+        <xs:element name="prodid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderdetails" >
+      <xs:sequence>
+        <xs:element name="orderid" type="xs:long" />
+        <xs:element name="buyerid" type="xs:long" />
+        <xs:element name="amount" type="xs:double" />
+        <xs:element name="GeneratedName" type="xs:dateTime" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="status" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kafkaconsumerconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kafkaconsumer" >
+      <xs:sequence>
+        <xs:element name="msg" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="orderrepo" type="orderrepository" nillable="true" minOccurs="0" />
+        <xs:element name="productrepo" type="productsorderedrepo" nillable="true" minOccurs="0" />
+        <xs:element name="kafka" type="kafkaconsumer" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ordercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="orderservice" nillable="true" minOccurs="0" />
+        <xs:element name="kafka" type="kafkaconsumer" nillable="true" minOccurs="0" />
+        <xs:element name="carturl" type="xs:string" />
+        <xs:element name="producturl" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

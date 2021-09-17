@@ -1,0 +1,17 @@
+
+genre(id:Long [PK], genre:GenreEnum);
+
+stock(id:Long [PK], quantity:Long, GeneratedName:Shop #FK to(shop), GeneratedName:Game #FK to(game));
+
+client(id:Long [PK], card:String, name:String, surname:String);
+
+ticket(id:Long [PK], GeneratedName:Client #FK to(client), GeneratedName:Stock #FK to(stock));
+
+shop(id:Long [PK], name:String, location:String);
+
+game(id:Long [PK], title:String, description:String, release:Date);
+
+games_genres(games:Game [PK] #FK to Game,genres:list<genre> [PK] #FK to list<genre>);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

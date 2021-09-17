@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="pregnancyaggregateapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dataentryform" >
+      <xs:sequence>
+        <xs:element name="phonenumber" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="pregnancystage" type="xs:string" />
+        <xs:element name="age" type="xs:string" />
+        <xs:element name="location" type="xs:string" />
+        <xs:element name="district" type="xs:string" />
+        <xs:element name="village" type="xs:string" />
+        <xs:element name="edd" type="xs:string" />
+        <xs:element name="linkfacility" type="xs:string" />
+        <xs:element name="linkcu" type="xs:string" />
+        <xs:element name="contactchv" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pregnantmotherdata" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="fullname" type="xs:string" />
+        <xs:element name="age" type="xs:string" />
+        <xs:element name="village" type="xs:string" />
+        <xs:element name="numberofcildren" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="apiresponse" >
+      <xs:sequence>
+        <xs:element name="resultcode" type="xs:long" />
+        <xs:element name="resultdescription" type="xs:string" />
+        <xs:element name="daa" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logindetails" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pregnancyaggregateapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dataentryformcontrollercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="formentryservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="homedeliverydataentrycontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="registercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="registerservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userscontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="passwordresetcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="resetpassservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logincontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="loginservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="formentryservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="formsrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="registerservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resetpassservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="loginservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="formsrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<dataentryform,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="authservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="homecontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authcontroller" >
+      <xs:sequence>
+        <xs:element name="userlist" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="dataentryformlist" type="dataentryform" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="formentryservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dashboard" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

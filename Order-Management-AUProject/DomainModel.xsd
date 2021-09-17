@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="customerorder" >
+      <xs:sequence>
+        <xs:element name="//@manytoone(targetentity" type="customer" nillable="true" minOccurs="0" />
+        <xs:element name="customerid" type="xs:long" />
+        <xs:element name="orderid" type="xs:long" />
+        <xs:element name="products" type="product" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="orderstatus" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customer" >
+      <xs:sequence>
+        <xs:element name="customerid" type="xs:long" />
+        <xs:element name="customername" type="xs:string" />
+        <xs:element name="customerphone" type="xs:string" />
+        <xs:element name="customeremail" type="xs:string" />
+        <xs:element name="customeraddress" type="xs:string" />
+        <xs:element name="customerpincode" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="product" >
+      <xs:sequence>
+        <xs:element name="productid" type="xs:long" />
+        <xs:element name="productname" type="xs:string" />
+        <xs:element name="productonhand" type="xs:string" />
+        <xs:element name="productavailable" type="xs:string" />
+        <xs:element name="productoutgoing" type="xs:string" />
+        <xs:element name="productincoming" type="xs:string" />
+        <xs:element name="productcostprice" type="xs:string" />
+        <xs:element name="productsellingprice" type="xs:string" />
+        <xs:element name="purchaseorder" type="purchaseorder" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="customerorder" type="customerorder" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="purchaseorder" >
+      <xs:sequence>
+        <xs:element name="purchaseid" type="xs:long" />
+        <xs:element name="id" type="supplier" nillable="true" minOccurs="0" />
+        <xs:element name="products" type="product" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="purchasestatus" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="supplier" >
+      <xs:sequence>
+        <xs:element name="supplierid" type="xs:long" />
+        <xs:element name="suppliername" type="xs:string" />
+        <xs:element name="supplierphone" type="xs:string" />
+        <xs:element name="supplieremail" type="xs:string" />
+        <xs:element name="supplieraddress" type="xs:string" />
+        <xs:element name="supplierpincode" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

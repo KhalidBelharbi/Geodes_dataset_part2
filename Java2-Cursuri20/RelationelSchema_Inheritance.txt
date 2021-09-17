@@ -1,0 +1,19 @@
+publication(id:long [PK], title:String, publishingdate:LocalDate);
+
+autor(id:long [PK], firstname:String, lastname:String);
+
+autor_set<publication>(autorID:autor [PK] #FK to autor,set<publication>ID:set<publication> [PK] #FK to set<publication>);
+
+publisher(id:long [PK], name:String);
+
+book(GeneratedName:Publisher #FK to(publisher));
+
+employee(id:long [PK], name:String);
+
+employee_list<task>(employeeID:employee [PK] #FK to employee,list<task>ID:list<task> [PK] #FK to list<task>);
+
+task(id:long [PK], description:String, supervisor:String);
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

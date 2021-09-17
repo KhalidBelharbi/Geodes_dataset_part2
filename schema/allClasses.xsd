@@ -1,0 +1,729 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="messages" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="seam" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messages_en_gb" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="main" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authenticator" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="loginaction" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authenticationtoken" >
+      <xs:sequence>
+        <xs:element name="tokenid" type="xs:anyType" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="securityprovider" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="simplesecurityprovider" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ldapsecurityprovider" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="eventvegetarianrequest" >
+      <xs:sequence>
+        <xs:element name="idvegetarianrequest" type="xs:long" />
+        <xs:element name="iduser" type="xs:long" />
+        <xs:element name="idevent" type="xs:long" />
+        <xs:element name="vegetarian" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="eventchildrenmenurequest" >
+      <xs:sequence>
+        <xs:element name="ideventchildrenmenurequest" type="xs:long" />
+        <xs:element name="iduser" type="xs:long" />
+        <xs:element name="idevent" type="xs:long" />
+        <xs:element name="childrenmenus" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="eventchildrenagerequest" >
+      <xs:sequence>
+        <xs:element name="idchildrenagerequest" type="xs:long" />
+        <xs:element name="iduser" type="xs:long" />
+        <xs:element name="idevent" type="xs:long" />
+        <xs:element name="childrenage" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="eventpartnerrequest" >
+      <xs:sequence>
+        <xs:element name="idpartnerrequest" type="xs:long" />
+        <xs:element name="partnerrequest" type="xs:anyType" />
+        <xs:element name="iduser" type="xs:long" />
+        <xs:element name="idevent" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="eventcopydata" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="start" type="xs:dateTime" />
+        <xs:element name="end" type="xs:dateTime" />
+        <xs:element name="signstart" type="xs:dateTime" />
+        <xs:element name="signend" type="xs:dateTime" />
+        <xs:element name="unsignend" type="xs:dateTime" />
+        <xs:element name="memberprice" type="xs:long" />
+        <xs:element name="notmemberprice" type="xs:long" />
+        <xs:element name="noshowprice" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="excelcolumndata" >
+      <xs:sequence>
+        <xs:element name="header" type="xs:string" />
+        <xs:element name="userlist" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="joineddata" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userforactivitypaintdata" >
+      <xs:sequence>
+        <xs:element name="numberofusers" type="xs:long" />
+        <xs:element name="GeneratedName" type="activity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="eventrepository" >
+      <xs:sequence>
+        <xs:element name="events" type="event" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="datamanager" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="eventgrownmenurequest" >
+      <xs:sequence>
+        <xs:element name="ideventgrownmenurequest" type="xs:long" />
+        <xs:element name="iduser" type="xs:long" />
+        <xs:element name="idevent" type="xs:long" />
+        <xs:element name="grownmenus" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="eventnumberofpassesrequest" >
+      <xs:sequence>
+        <xs:element name="ideventnumberofpassesrequest" type="xs:long" />
+        <xs:element name="iduser" type="xs:long" />
+        <xs:element name="idevent" type="xs:long" />
+        <xs:element name="numberofpasses" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="event" >
+      <xs:sequence>
+        <xs:element name="idevent" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="start" type="xs:dateTime" />
+        <xs:element name="end" type="xs:dateTime" />
+        <xs:element name="enabled" type="xs:anyType" />
+        <xs:element name="signstart" type="xs:dateTime" />
+        <xs:element name="signend" type="xs:dateTime" />
+        <xs:element name="unsignend" type="xs:dateTime" />
+        <xs:element name="memberprice" type="xs:long" />
+        <xs:element name="notmemberprice" type="xs:long" />
+        <xs:element name="noshowprice" type="xs:long" />
+        <xs:element name="GeneratedName" type="location" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="logo" nillable="true" minOccurs="0" />
+        <xs:element name="canrequestpartner" type="xs:anyType" />
+        <xs:element name="canrequestvegetarian" type="xs:anyType" />
+        <xs:element name="canrequestchildrenage" type="xs:anyType" />
+        <xs:element name="canrequestchildrenmenus" type="xs:anyType" />
+        <xs:element name="canrequestgrownmenus" type="xs:anyType" />
+        <xs:element name="canrequestpasses" type="xs:anyType" />
+        <xs:element name="partnerrequest" type="xs:anyType" />
+        <xs:element name="vegetarianrequest" type="xs:long" />
+        <xs:element name="grownmenurequest" type="xs:long" />
+        <xs:element name="childrenmenurequest" type="xs:long" />
+        <xs:element name="passesrequest" type="xs:long" />
+        <xs:element name="childrenagerequest" type="xs:string" />
+        <xs:element name="showattendingusers" type="xs:anyType" />
+        <xs:element name="activities" type="activity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="activitylist" type="activity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="selected" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="eventcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="commandcontroller" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="eventcopydata" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="eventrepository" nillable="true" minOccurs="0" />
+        <xs:element name="currenteventlist" type="event" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="eventlist" type="event" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="closedeventlist" type="event" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="event" nillable="true" minOccurs="0" />
+        <xs:element name="//@datamodelselection(value" type="event" nillable="true" minOccurs="0" />
+        <xs:element name="selection" type="event" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="authenticator" nillable="true" minOccurs="0" />
+        <xs:element name="hasactivities" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="usersforactivitypaintdata" type="userforactivitypaintdata" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userforactivitypaintbean" nillable="true" minOccurs="0" />
+        <xs:element name="userforactivity" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="notfound" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="eventrequesthandler" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="eventrequesthandler" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="eventcontroller" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userconverter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="blof" type="xs:anyType" />
+        <xs:element name="shirtsizes" type="xs:anyType" />
+        <xs:element name="iduser" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="employeeid" type="xs:string" />
+        <xs:element name="mail" type="xs:string" />
+        <xs:element name="department" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="admin" type="xs:anyType" />
+        <xs:element name="personaleforening" type="xs:anyType" />
+        <xs:element name="shirtsize" type="xs:string" />
+        <xs:element name="firstlogin" type="xs:anyType" />
+        <xs:element name="events" type="event" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="activities" type="activity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="roles" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdetails" >
+      <xs:sequence>
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="recipient" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="mail" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="senduserdetailscontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userdetails" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="recipient" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="commandcontroller" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="authenticator" nillable="true" minOccurs="0" />
+        <xs:element name="selected" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="userlist" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="personaleforening" type="xs:anyType" />
+        <xs:element name="new" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commandcontroller" >
+      <xs:sequence>
+        <xs:element name="commands" type="command" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="redolist" type="command" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="command" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deleteusercommand" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="old" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="datamanager" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="saveusercommand" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="old" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="datamanager" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="unjoinactivitycommand" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="activity" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="joinactivitycommand" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="activity" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deleteactivitycommand" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="activityrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="activity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="createactivitycommand" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="activityrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="activity" nillable="true" minOccurs="0" />
+        <xs:element name="parent" type="event" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="createpartnerrequestcommand" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="activity" nillable="true" minOccurs="0" />
+        <xs:element name="partnerrequest" type="xs:string" />
+        <xs:element name="GeneratedName" type="activitypartnerrequest" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="updateactivitycommand" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="activity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="removepartnerrequestcommand" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="activity" nillable="true" minOccurs="0" />
+        <xs:element name="old_" type="activitypartnerrequest" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="createlocationcommand" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="location" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="locationrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="editlocationcommand" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="location" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="locationrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deletelocationcommand" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="location" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="locationrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="datamanager" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="createeventcommand" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="eventrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="event" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="joineventcommand" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="event" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="updateeventcommand" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="eventrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="event" nillable="true" minOccurs="0" />
+        <xs:element name="old" type="event" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="datamanager" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="addactivitytoeventcommand" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deleteeventcommand" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="eventrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="event" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="unjoineventcommand" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="event" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mailcontent" >
+      <xs:sequence>
+        <xs:element name="to" type="xs:string" />
+        <xs:element name="body" type="xs:string" />
+        <xs:element name="subject" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="greeting" type="xs:string" />
+        <xs:element name="userdetails" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mail" >
+      <xs:sequence>
+        <xs:element name="sender" type="xs:string" />
+        <xs:element name="to" type="xs:string" />
+        <xs:element name="subject" type="xs:string" />
+        <xs:element name="body" type="xs:string" />
+        <xs:element name="beforename" type="xs:string" />
+        <xs:element name="aftername" type="xs:string" />
+        <xs:element name="greeting" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mailcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="mail" nillable="true" minOccurs="0" />
+        <xs:element name="selected" type="event" nillable="true" minOccurs="0" />
+        <xs:element name="tooall" type="xs:anyType" />
+        <xs:element name="usegreeting" type="xs:anyType" />
+        <xs:element name="senduserdetails" type="xs:anyType" />
+        <xs:element name="recipients" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="mailcontent" type="mailcontent" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="webutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logoinformation" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="uploadservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="imageuploader" >
+      <xs:sequence>
+        <xs:element name="data" type="xs:anyType" />
+        <xs:element name="contenttype" type="xs:string" />
+        <xs:element name="filename" type="xs:string" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="size" type="xs:long" />
+        <xs:element name="GeneratedName" type="logorepository" nillable="true" minOccurs="0" />
+        <xs:element name="logolist" type="logo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="upload" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logorepository" >
+      <xs:sequence>
+        <xs:element name="logolist" type="logo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logo" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="size" type="xs:long" />
+        <xs:element name="contenttype" type="xs:string" />
+        <xs:element name="data" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="thumbnail" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="data" type="xs:anyType" />
+        <xs:element name="size" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fileuploadbean" >
+      <xs:sequence>
+        <xs:element name="files" type="logo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="uploadsavailable" type="xs:long" />
+        <xs:element name="autoupload" type="xs:anyType" />
+        <xs:element name="useflash" type="xs:anyType" />
+        <xs:element name="imagename" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logoconverter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="teamcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="team" nillable="true" minOccurs="0" />
+        <xs:element name="teamlist" type="team" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="selected" type="team" nillable="true" minOccurs="0" />
+        <xs:element name="usersforteam" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="shirtmap" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="teamconverter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="teamuserselection" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="iduser" type="xs:long" />
+        <xs:element name="idteam" type="xs:long" />
+        <xs:element name="idevent" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="team" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fileutil" >
+      <xs:sequence>
+        <xs:element name="//init---------------------------------------------------------------------------------------line_separator" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="csvutil" >
+      <xs:complexContent>
+       <xs:extension base="object>">
+         <xs:sequence>
+          <xs:element name="//init---------------------------------------------------------------------------------------//defaults.default_csv_separator" type="xs:anyType" />
+          <xs:element name="//crlf.default_line_separator" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="teamuploadcontroller" >
+      <xs:sequence>
+        <xs:element name="accept" type="xs:string" />
+        <xs:element name="data" type="xs:anyType" />
+        <xs:element name="contenttype" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="size" type="xs:long" />
+        <xs:element name="errormessages" type="xs:anyType" />
+        <xs:element name="selected" type="event" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messageutils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dateutilities" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="missinguserdataphaselistener" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="authenticator" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="classificationcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="classificationrepository" nillable="true" minOccurs="0" />
+        <xs:element name="classificationlist" type="classification" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="classification" nillable="true" minOccurs="0" />
+        <xs:element name="classificationtypes" type="classificationtype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="classificationrepository" >
+      <xs:sequence>
+        <xs:element name="classifications" type="classification" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="classificationvalue" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="classification" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="type" type="classificationtype" nillable="true" minOccurs="0" />
+        <xs:element name="classificationvalues" type="classificationvalue" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="classificationtype" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="classificationtypeconverter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="classificationconverter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adminactivitiescontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="commandcontroller" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="activity" >
+      <xs:sequence>
+        <xs:element name="idactivity" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="start" type="xs:dateTime" />
+        <xs:element name="end" type="xs:dateTime" />
+        <xs:element name="minimumplayers" type="xs:long" />
+        <xs:element name="minimumteams" type="xs:long" />
+        <xs:element name="GeneratedName" type="location" nillable="true" minOccurs="0" />
+        <xs:element name="responsible" type="xs:string" />
+        <xs:element name="canrequestpartner" type="xs:anyType" />
+        <xs:element name="memberprice" type="xs:anyType" />
+        <xs:element name="notmemberprice" type="xs:anyType" />
+        <xs:element name="noshowprice" type="xs:anyType" />
+        <xs:element name="partnerrequest" type="xs:string" />
+        <xs:element name="text" type="xs:string" />
+        <xs:element name="color" type="xs:anyType" />
+        <xs:element name="scale" type="xs:double" />
+        <xs:element name="percentage" type="xs:long" />
+        <xs:element name="offset" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="paintbean" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="activityrepository" >
+      <xs:sequence>
+        <xs:element name="activities" type="activity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="activitypartnerrequest" >
+      <xs:sequence>
+        <xs:element name="idpartnerrequest" type="xs:long" />
+        <xs:element name="iduser" type="xs:long" />
+        <xs:element name="idactivity" type="xs:long" />
+        <xs:element name="partnernames" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userforactivitypaintbean" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="activitiescontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="adminactivitiescontroller" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="activityrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="commandcontroller" nillable="true" minOccurs="0" />
+        <xs:element name="activitylist" type="activity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="activity" nillable="true" minOccurs="0" />
+        <xs:element name="selected" type="activity" nillable="true" minOccurs="0" />
+        <xs:element name="parent" type="event" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="authenticator" nillable="true" minOccurs="0" />
+        <xs:element name="users" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="locationcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="locationrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="commandcontroller" nillable="true" minOccurs="0" />
+        <xs:element name="locationlist" type="location" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="location" nillable="true" minOccurs="0" />
+        <xs:element name="selected" type="location" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="locationconverter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="location" >
+      <xs:sequence>
+        <xs:element name="idlocation" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="locationrepository" >
+      <xs:sequence>
+        <xs:element name="locations" type="location" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="utf8filter" >
+      <xs:sequence>
+        <xs:element name="encoding" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="missinguserdataexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="issue" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="priority" type="xs:long" />
+        <xs:element name="estimate" type="xs:long" />
+        <xs:element name="area" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="issuenumber" type="xs:long" />
+        <xs:element name="unknown" type="xs:long" />
+        <xs:element name="severe" type="xs:long" />
+        <xs:element name="high" type="xs:long" />
+        <xs:element name="medium" type="xs:long" />
+        <xs:element name="low" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="priorityconverter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="estimateconverter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="issuerepository" >
+      <xs:sequence>
+        <xs:element name="issues" type="issue" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userimporter" >
+      <xs:sequence>
+        <xs:element name="users" type="xs:anyType" />
+        <xs:element name="ae" type="xs:string" />
+        <xs:element name="oe" type="xs:string" />
+        <xs:element name="aa" type="xs:string" />
+        <xs:element name="ae" type="xs:string" />
+        <xs:element name="oe" type="xs:string" />
+        <xs:element name="aa" type="xs:string" />
+        <xs:element name="eping" type="xs:string" />
+        <xs:element name="oumlaut" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="versioninformation" >
+      <xs:sequence>
+        <xs:element name="idversioninformation" type="xs:long" />
+        <xs:element name="major" type="xs:long" />
+        <xs:element name="majorminor" type="xs:long" />
+        <xs:element name="minor" type="xs:long" />
+        <xs:element name="minorminor" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sessionfactoryutil" >
+      <xs:sequence>
+        <xs:element name="/***thesingleinstanceofhibernate*/" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datamanager" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

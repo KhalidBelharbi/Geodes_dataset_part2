@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="daohistorico" >
+      <xs:complexContent>
+       <xs:extension base="daogeneric<historico>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dificuldade" >
+      <xs:sequence>
+        <xs:element name="dificuldade" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="daogeneric" >
+      <xs:sequence>
+        <xs:element name="em" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partida" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="idpartida" type="xs:long" />
+        <xs:element name="GeneratedName" type="jogador" nillable="true" minOccurs="0" />
+        <xs:element name="jogo" type="jogo9x9" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="dificuldade" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="daodificuldade" >
+      <xs:complexContent>
+       <xs:extension base="daogeneric<dificuldade>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="daopartida" >
+      <xs:complexContent>
+       <xs:extension base="daogeneric<partida>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jogo9x9" >
+      <xs:sequence>
+        <xs:element name="tamanho" type="xs:long" />
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="matriz" type="xs:long" />
+        <xs:element name="numeroabertos" type="xs:long" />
+        <xs:element name="gerador" type="xs:anyType" />
+        <xs:element name="numero" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jogador" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nome" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="daojogador" >
+      <xs:complexContent>
+       <xs:extension base="daogeneric<jogador>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="historico" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="GeneratedName" type="partida" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="daojogo" >
+      <xs:complexContent>
+       <xs:extension base="daogeneric<jogo9x9>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="historico" >
+      <xs:complexContent>
+       <xs:extension base="jframe">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="intro" >
+      <xs:complexContent>
+       <xs:extension base="jframe">
+         <xs:sequence>
+          <xs:element name="//actionlistenercontrollerprimeiratela" type="xs:anyType" />
+          <xs:element name="panel1" type="xs:anyType" />
+          <xs:element name="btnhistorico" type="xs:anyType" />
+          <xs:element name="btnfacil" type="xs:anyType" />
+          <xs:element name="btnmedio" type="xs:anyType" />
+          <xs:element name="btndificil" type="xs:anyType" />
+          <xs:element name="controller" type="controllerinterface" nillable="true" minOccurs="0" />
+          <xs:element name="jtext" type="xs:anyType" />
+          <xs:element name="lblnomejogador" type="xs:anyType" />
+          <xs:element name="" type="dificuldade" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="campo9x9" >
+      <xs:sequence>
+        <xs:element name="matrizdesolucao" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sudoku" >
+      <xs:complexContent>
+       <xs:extension base="jframe">
+         <xs:sequence>
+          <xs:element name="primeiratela" type="xs:anyType" />
+          <xs:element name="gerador" type="xs:anyType" />
+          <xs:element name="1" type="xs:anyType" />
+          <xs:element name="2" type="xs:anyType" />
+          <xs:element name="btnnovojogo" type="xs:anyType" />
+          <xs:element name="btndicas" type="xs:anyType" />
+          <xs:element name="btndesistir" type="xs:anyType" />
+          <xs:element name="btntimer" type="xs:anyType" />
+          <xs:element name="campos" type="campo9x9" nillable="true" minOccurs="0" />
+          <xs:element name="controller" type="controllersudoku" nillable="true" minOccurs="0" />
+          <xs:element name="matriz" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="controller" >
+      <xs:sequence>
+        <xs:element name="//controllerclass////publiccontroller(controllerclass){//this.class" type="controllerinterface" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="controllersudoku" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="controllersudoku" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="jogador" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="dificuldade" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partida" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="historico" nillable="true" minOccurs="0" />
+        <xs:element name="jogo" type="jogo9x9" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="sudoku" nillable="true" minOccurs="0" />
+        <xs:element name="data" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="controllerinterface" >
+      <xs:sequence>
+        <xs:element name="sudoku" type="intro" nillable="true" minOccurs="0" />
+        <xs:element name="sudokugame" type="controllersudoku" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

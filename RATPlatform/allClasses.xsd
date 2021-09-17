@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="monitor" >
+      <xs:complexContent>
+       <xs:extension base="httpservlet{">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rattestwebservices" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ratwebservicesessionlistener" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ratwebservices" >
+      <xs:sequence>
+        <xs:element name="current_user_key" type="xs:string" />
+        <xs:element name="current_user_pwd" type="xs:string" />
+        <xs:element name="//publicstringstatus_response" type="xs:anyType" />
+        <xs:element name="_request" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ratwebservicescontextlistener" >
+      <xs:sequence>
+        <xs:element name="messagesendercontextkey" type="xs:string" />
+        <xs:element name="keepalivesent" type="xs:string" />
+        <xs:element name="keepalivereceived" type="xs:string" />
+        <xs:element name="keepalivestatus" type="xs:string" />
+        <xs:element name="hibernatefactorykey" type="xs:string" />
+        <xs:element name="//scheduledexecutorservice_scheduledexecutorservice" type="keepalive" nillable="true" minOccurs="0" />
+        <xs:element name="_" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ratmessagesender" >
+      <xs:sequence>
+        <xs:element name="_messagesenderexecutor" type="xs:anyType" />
+        <xs:element name="_pool" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messagesender" >
+      <xs:sequence>
+        <xs:element name="_" type="xs:anyType" />
+        <xs:element name="_" type="xs:anyType" />
+        <xs:element name="_response" type="xs:anyType" />
+        <xs:element name="_sessionid" type="xs:string" />
+        <xs:element name="_message" type="xs:string" />
+        <xs:element name="_stop" type="xs:anyType" />
+        <xs:element name="_result" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="imessagesender" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="constants" >
+      <xs:sequence>
+        <xs:element name="keepaliveinitialdelay" type="xs:string" />
+        <xs:element name="keepaliveperiod" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ratsessionmanager" >
+      <xs:sequence>
+        <xs:element name="_numberofcores" type="xs:long" />
+        <xs:element name="_sessionworkerexecutor" type="xs:anyType" />
+        <xs:element name="_queue" type="xs:anyType" />
+        <xs:element name="_sharedmap" type="xs:anyType" />
+        <xs:element name="_sessiondatamap" type="xs:anyType" />
+        <xs:element name="_instance" type="ratsessionmanager" nillable="true" minOccurs="0" />
+        <xs:element name="_monitor" type="xs:anyType" />
+        <xs:element name="//todo:vedinotaallaclassetimertask_scheduledexecutor" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sessiondata" >
+      <xs:sequence>
+        <xs:element name="_username" type="xs:string" />
+        <xs:element name="_password" type="xs:string" />
+        <xs:element name="_sessionid" type="xs:string" />
+        <xs:element name="_dbuserid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sessionworker" >
+      <xs:sequence>
+        <xs:element name="_owner" type="ratsessionmanager" nillable="true" minOccurs="0" />
+        <xs:element name="_stop" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sessionmonitor" >
+      <xs:sequence>
+        <xs:element name="_sessionid" type="xs:string" />
+        <xs:element name="_starttime" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="keepalive" >
+      <xs:sequence>
+        <xs:element name="_" type="xs:anyType" />
+        <xs:element name="_" type="xs:anyType" />
+        <xs:element name="_scheduledfuture" type="keepalivetask" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="keepalivetask" >
+      <xs:sequence>
+        <xs:element name="_" type="xs:anyType" />
+        <xs:element name="_map" type="xs:anyType" />
+        <xs:element name="_messagesenderexecutor" type="xs:anyType" />
+        <xs:element name="_pool" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="choosedomaindata" >
+      <xs:sequence>
+        <xs:element name="_sessionid" type="xs:string" />
+        <xs:element name="_username" type="xs:string" />
+        <xs:element name="_domainname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="identitymanager" >
+      <xs:sequence>
+        <xs:element name="_" type="xs:anyType" />
+        <xs:element name="_dbuserid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdomains" >
+      <xs:sequence>
+        <xs:element name="_userdomainid" type="xs:long" />
+        <xs:element name="_useruuid" type="xs:string" />
+        <xs:element name="_domainname" type="xs:string" />
+        <xs:element name="_domainuuid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdomains" >
+      <xs:sequence>
+        <xs:element name="_userid" type="xs:long" />
+        <xs:element name="_domainid" type="xs:long" />
+        <xs:element name="_" type="domain" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="identitymanager" >
+      <xs:sequence>
+        <xs:element name="_" type="xs:anyType" />
+        <xs:element name="_dbuserid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="domain" >
+      <xs:sequence>
+        <xs:element name="_domainid" type="xs:long" />
+        <xs:element name="_name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdomainsid" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="_userid" type="xs:long" />
+        <xs:element name="_domainid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="domainrole" >
+      <xs:sequence>
+        <xs:element name="_domainid" type="xs:long" />
+        <xs:element name="_roleid" type="xs:long" />
+        <xs:element name="_userid" type="xs:long" />
+        <xs:element name="_" type="role" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="_userid" type="xs:long" />
+        <xs:element name="_username" type="xs:string" />
+        <xs:element name="_email" type="xs:string" />
+        <xs:element name="_password" type="xs:string" />
+        <xs:element name="_userroles" type="userrole" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="_userdomains" type="userdomains" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="domainroleid" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="_userid" type="xs:long" />
+        <xs:element name="_roleid" type="xs:long" />
+        <xs:element name="_domainid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrole" >
+      <xs:sequence>
+        <xs:element name="_userid" type="xs:long" />
+        <xs:element name="_roleid" type="xs:long" />
+        <xs:element name="//@onetoone(fetch" type="role" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userroleid" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="_userid" type="xs:long" />
+        <xs:element name="_roleid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="_roleid" type="xs:long" />
+        <xs:element name="_name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="domainrole" >
+      <xs:sequence>
+        <xs:element name="_domainroleid" type="xs:long" />
+        <xs:element name="_domainname" type="xs:string" />
+        <xs:element name="_username" type="xs:string" />
+        <xs:element name="_rolename" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="_userid" type="xs:long" />
+        <xs:element name="_username" type="xs:string" />
+        <xs:element name="_email" type="xs:string" />
+        <xs:element name="_password" type="xs:string" />
+        <xs:element name="_useruuid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="incorrectcredentialsexception" >
+      <xs:complexContent>
+       <xs:extension base="exception{">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="visitor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jsonfy" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="visitable" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logindata" >
+      <xs:sequence>
+        <xs:element name="_email" type="xs:string" />
+        <xs:element name="_password" type="xs:string" />
+        <xs:element name="//todoauto-generatedconstructorstub_query" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

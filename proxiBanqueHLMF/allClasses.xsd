@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ouvriruncompte" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="web" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="client" >
+      <xs:sequence>
+        <xs:element name="/***theid.*///attributsid" type="xs:long" />
+        <xs:element name="/***the.*/" type="adresse" nillable="true" minOccurs="0" />
+        <xs:element name="/***thenumtel.*/numtel" type="xs:string" />
+        <xs:element name="/***thecptec.*/cptec" type="comptecourant" nillable="true" minOccurs="0" />
+        <xs:element name="/***thecpteep.*/cpteep" type="compteepargne" nillable="true" minOccurs="0" />
+        <xs:element name="/***thevisap.*/visap" type="cartevisapremier" nillable="true" minOccurs="0" />
+        <xs:element name="/***thevisae.*/visae" type="cartevisaelectron" nillable="true" minOccurs="0" />
+        <xs:element name="/***theemail.*/email" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cartebancaire" >
+      <xs:sequence>
+        <xs:element name="/***thenumcarte.*/numcarte" type="xs:long" />
+        <xs:element name="/***thedatevalid.*/datevalid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="compteepargne" >
+      <xs:complexContent>
+       <xs:extension base="comptebancaire">
+         <xs:sequence>
+          <xs:element name="/***thetxinteret.*/txinteret" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="conseiller" >
+      <xs:sequence>
+        <xs:element name="/***thenom.*/nom" type="xs:string" />
+        <xs:element name="/***theprenom.*/prenom" type="xs:string" />
+        <xs:element name="/***theclients.*/clients" type="xs:anyType" />
+        <xs:element name="/***theid.*/id" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="comptebancaire" >
+      <xs:sequence>
+        <xs:element name="/***thenumcompte.*/numcompte" type="xs:long" />
+        <xs:element name="/***thesoldecompte.*/soldecompte" type="xs:double" />
+        <xs:element name="/***thedate.*/date" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clientparticulier" >
+      <xs:complexContent>
+       <xs:extension base="client">
+         <xs:sequence>
+          <xs:element name="/***thenom.*/nom" type="xs:string" />
+          <xs:element name="/***theprenom.*/prenom" type="xs:string" />
+          <xs:element name="/***theconstantdecouvertautorise.*/decouvertautorise" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="gerant" >
+      <xs:complexContent>
+       <xs:extension base="conseiller{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cartevisaelectron" >
+      <xs:complexContent>
+       <xs:extension base="cartebancaire{">
+         <xs:sequence>
+          <xs:element name="/***thetype.*/type" type="xs:string" />
+          <xs:element name="/***the.*/" type="client" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cartevisapremier" >
+      <xs:complexContent>
+       <xs:extension base="cartebancaire">
+         <xs:sequence>
+          <xs:element name="/***thetype.*/type" type="xs:string" />
+          <xs:element name="/***the.*/" type="client" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cliententreprise" >
+      <xs:complexContent>
+       <xs:extension base="client{">
+         <xs:sequence>
+          <xs:element name="/***theconstantdecouvertautorise.*/decouvertautorise" type="xs:double" />
+          <xs:element name="/***thenumsiret.*/numsiret" type="xs:long" />
+          <xs:element name="/***theraisonsociale.*/raisonsociale" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="comptecourant" >
+      <xs:complexContent>
+       <xs:extension base="comptebancaire{">
+         <xs:sequence>
+          <xs:element name="/***thedecouvertautorise.*/decouvertautorise" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="adresse" >
+      <xs:sequence>
+        <xs:element name="/***therue.*/rue" type="xs:string" />
+        <xs:element name="/***thecodepostal.*/codepostal" type="xs:long" />
+        <xs:element name="/***theville.*/ville" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="idaocrud" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="daoauditparticulier" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="daoclient" >
+      <xs:sequence>
+        <xs:element name="/***thedaoclient.*/" type="daoclient" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="daocomptebancaire" >
+      <xs:sequence>
+        <xs:element name="/***thedaocompte.*/daocompte" type="daocomptebancaire" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="daoauditentreprise" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="idaoaudit" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clientupdateservlet" >
+      <xs:complexContent>
+       <xs:extension base="httpservlet">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="session" type="xs:anyType" />
+          <xs:element name="" type="clientservice" nillable="true" minOccurs="0" />
+          <xs:element name="cpteservice" type="compteservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="creationcompteservlet" >
+      <xs:complexContent>
+       <xs:extension base="httpservlet">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="listerunclientservlet" >
+      <xs:complexContent>
+       <xs:extension base="httpservlet">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="clientserv" type="clientservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="virementservlet" >
+      <xs:complexContent>
+       <xs:extension base="httpservlet">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="session" type="xs:anyType" />
+          <xs:element name="" type="clientservice" nillable="true" minOccurs="0" />
+          <xs:element name="cpteservice" type="compteservice" nillable="true" minOccurs="0" />
+          <xs:element name="cs" type="clientservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="calculcreditservlet" >
+      <xs:complexContent>
+       <xs:extension base="httpservlet">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="conseillerservlet" >
+      <xs:complexContent>
+       <xs:extension base="httpservlet">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="nouveaucompteservlet" >
+      <xs:complexContent>
+       <xs:extension base="httpservlet">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="loginservlet" >
+      <xs:complexContent>
+       <xs:extension base="httpservlet">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testmain" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="servicecommon" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="auditservice" >
+      <xs:sequence>
+        <xs:element name="/***theauditpart.*/auditpart" type="daoauditparticulier" nillable="true" minOccurs="0" />
+        <xs:element name="/***theauditent.*/auditent" type="daoauditentreprise" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="calculcreditservice" >
+      <xs:sequence>
+        <xs:element name="/***themontantemprunt.*/montantemprunt" type="xs:double" />
+        <xs:element name="/***themensualites.*/mensualites" type="xs:double" />
+        <xs:element name="/***thedureemois.*/dureemois" type="xs:long" />
+        <xs:element name="/***thetxcredit.*/txcredit" type="xs:double" />
+        <xs:element name="//publicdoubleresultcredit/***thedf.*/df" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="serviceutils" >
+      <xs:sequence>
+        <xs:element name="/***theem.*/em" type="xs:anyType" />
+        <xs:element name="/***theet.*/et" type="xs:anyType" />
+        <xs:element name="/***theinstance.*/instance" type="serviceutils" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clientservice" >
+      <xs:complexContent>
+       <xs:extension base="servicecommon{">
+         <xs:sequence>
+          <xs:element name="/***theclientservice.*/clientservice" type="client" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="compteservice" >
+      <xs:complexContent>
+       <xs:extension base="servicecommon">
+         <xs:sequence>
+          <xs:element name="/***thecompteservice.*/compteservice" type="comptebancaire" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="virementservice" >
+      <xs:complexContent>
+       <xs:extension base="servicecommon">
+         <xs:sequence>
+          <xs:element name="/***thecomptedao.*/comptedao" type="daocomptebancaire" nillable="true" minOccurs="0" />
+          <xs:element name="/***thecomptedebit.*/comptedebit" type="comptebancaire" nillable="true" minOccurs="0" />
+          <xs:element name="/***thecomptecredit.*/comptecredit" type="comptebancaire" nillable="true" minOccurs="0" />
+          <xs:element name="/***themontant.*/montant" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="invalidvirementexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+          <xs:element name="/***theconstantserialversionuid.*/serialversionuid" type="xs:long" />
+          <xs:element name="/***thest.*/st" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="virementevent" >
+      <xs:sequence>
+        <xs:element name="/***theidcomptedepart.*/idcomptedepart" type="xs:long" />
+        <xs:element name="/***theidcomptecible.*/idcomptecible" type="xs:long" />
+        <xs:element name="/***themontant.*/montant" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

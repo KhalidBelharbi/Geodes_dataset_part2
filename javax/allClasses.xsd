@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="notnullitemrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<notnullitem,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="nullableitemrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<nullableitem,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="nullableitem" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="price" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notnullitem" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="price" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notnullvsnullableapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application.check_nullability" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logback" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="itemintegrationtestwithchecknullability" >
+      <xs:complexContent>
+       <xs:extension base="localeawareunittest">
+         <xs:sequence>
+          <xs:element name="" type="notnullitemrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="nullableitemrepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="itemintegrationtestwithoutchecknullability" >
+      <xs:complexContent>
+       <xs:extension base="localeawareunittest">
+         <xs:sequence>
+          <xs:element name="" type="notnullitemrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="nullableitemrepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="localeawareunittest" >
+      <xs:sequence>
+        <xs:element name="previousdefault" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="member" >
+      <xs:sequence>
+        <xs:element name="/***defaultvalueincludedtoremovewarning.removeormodifyatwill.**/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="phonenumber" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ssaemployees" >
+      <xs:sequence>
+        <xs:element name="ssaemployeesid" type="xs:anyType" />
+        <xs:element name="ssaemployeename" type="xs:string" />
+        <xs:element name="ofjoining" type="xs:dateTime" />
+        <xs:element name="absentfrom" type="xs:dateTime" />
+        <xs:element name="absentto" type="xs:dateTime" />
+        <xs:element name="employeeemail" type="xs:string" />
+        <xs:element name="groupemail" type="xs:string" />
+        <xs:element name="ssaemployeefullname" type="xs:string" />
+        <xs:element name="needsparking" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="ssaparkingspots" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ssaparkingspots" >
+      <xs:sequence>
+        <xs:element name="ssaparkingspotsid" type="xs:anyType" />
+        <xs:element name="ssaparkingnumber" type="xs:string" />
+        <xs:element name="originalparkingownername" type="xs:string" />
+        <xs:element name="isvisitorparking" type="xs:anyType" />
+        <xs:element name="parkinglabel" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ssaemployeeparkingmapping" >
+      <xs:sequence>
+        <xs:element name="id" type="ssaemployeeparkingmappingid" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="ssaemployees" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="ssaparkingspots" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

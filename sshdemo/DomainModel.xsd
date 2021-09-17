@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="log" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authority" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="sort" type="xs:long" />
+        <xs:element name="parent" type="authority" nillable="true" minOccurs="0" />
+        <xs:element name="children" type="authority" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="display" type="xs:long" />
+        <xs:element name="role_auths" type="role_auth" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role_auth" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="authority" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="role" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="sort" type="xs:long" />
+        <xs:element name="parent" type="role" nillable="true" minOccurs="0" />
+        <xs:element name="defaultset" type="xs:long" />
+        <xs:element name="role_authorities" type="role_auth" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="account" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="dpm" type="department" nillable="true" minOccurs="0" />
+        <xs:element name="user_roles" type="user_role" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//注册时间" type="xs:dateTime" />
+        <xs:element name="//头像himage" type="xs:string" />
+        <xs:element name="//状态status" type="xs:long" />
+        <xs:element name="//cas服务端状态casstatus" type="xs:long" />
+        <xs:element name="//在此时间后才能登陆allowlogintime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="department" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="sort" type="xs:long" />
+        <xs:element name="parent" type="department" nillable="true" minOccurs="0" />
+        <xs:element name="children" type="department" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="users" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user_login" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistentlogin" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="series" type="xs:string" />
+        <xs:element name="token" type="xs:string" />
+        <xs:element name="last_used" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user_role" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="role" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

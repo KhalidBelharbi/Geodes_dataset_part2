@@ -1,0 +1,11 @@
+ClassDiagram.Class>> Order =>=>=> RelationalSchema.Table>> order;
+ClassDiagram.Class>> OrderItem =>=>=> RelationalSchema.Table>> orderitem;
+ClassDiagram.Attribut>> Order.number:int =>=>=> RelationalSchema.Column>> order.number PRIMARY KEY;
+ClassDiagram.Attribut>> Order.customerid:String =>=>=> RelationalSchema.Column>> order.customerid;
+ClassDiagram.Attribut>> OrderItem.id:int =>=>=> RelationalSchema.Column>> orderitem.id PRIMARY KEY;
+ClassDiagram.Attribut>> OrderItem.productid:String =>=>=> RelationalSchema.Column>> orderitem.productid;
+ClassDiagram.Attribut>> OrderItem.productdescription:String =>=>=> RelationalSchema.Column>> orderitem.productdescription;
+ClassDiagram.Attribut>> OrderItem.quantity:int =>=>=> RelationalSchema.Column>> orderitem.quantity;
+ClassDiagram.Attribut>> OrderItem.unitprice:BigDecimal =>=>=> RelationalSchema.Column>> orderitem.unitprice;
+One-To-Many relationship from ClassDiagram.Class>>Order  to ClassDiagram.Class>>List<OrderItem>;
+Many-To-One relationship from ClassDiagram.Class>>OrderItem  to ClassDiagram.Class>>order represented by ClassDiagram.Atrribute>>GeneratedName;

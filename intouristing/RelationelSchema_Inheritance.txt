@@ -1,0 +1,19 @@
+
+request(id:Long [PK], sender:User #FK to(user), destination:User #FK to(user), type:RelationshipType, createdat:LocalDateTime, acceptedat:LocalDateTime, declinedat:LocalDateTime);
+
+privatechat(firstuser:Long [PK], seconduser:Long [PK]);
+
+userposition(id:Long [PK], latitude:Double, longitude:Double, accuracy:Double, speed:Double, heading:Double, GeneratedName:User #FK to(user));
+
+relationship(firstuser:Long [PK], seconduser:Long [PK], type:RelationshipType, createdat:LocalDateTime, updatedat:LocalDateTime);
+
+chatgroup(id:Long [PK], title:String, type:ChatGroupType, createdat:LocalDateTime, updatedat:LocalDateTime, excludedat:LocalDateTime, createdby:User #FK to(user));
+
+chatgroup_list<user>(chatgroupID:chatgroup [PK] #FK to chatgroup,list<user>ID:list<user> [PK] #FK to list<user>);
+
+user(id:Long [PK], name:String, lastname:String, email:String, username:String, password:String, createdat:LocalDateTime, updatedat:LocalDateTime, lastlogin:LocalDateTime, avatarimage:byte, GeneratedName:UserPosition #FK to(userposition));
+
+user_list<chatgroup>(userID:user [PK] #FK to user,list<chatgroup>ID:list<chatgroup> [PK] #FK to list<chatgroup>);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

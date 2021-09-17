@@ -1,0 +1,794 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="systemconstant" >
+      <xs:sequence>
+        <xs:element name="/***接口处理成功返回值*/result_success" type="xs:string" />
+        <xs:element name="/***接口处理失败返回值*/result_fail" type="xs:string" />
+        <xs:element name="vertical" type="xs:string" />
+        <xs:element name="/***传感器类型id*///设备类型stype_id" type="xs:string" />
+        <xs:element name="//雨量yl_id" type="xs:string" />
+        <xs:element name="//预警站yj_id" type="xs:string" />
+        <xs:element name="//入户报警器rh_id" type="xs:string" />
+        <xs:element name="//gnssgnss_id" type="xs:string" />
+        <xs:element name="//裂缝lf_id" type="xs:string" />
+        <xs:element name="//含水率hsl_id" type="xs:string" />
+        <xs:element name="//倾角qj_id" type="xs:string" />
+        <xs:element name="//泥位nw_id" type="xs:string" />
+        <xs:element name="//视频sp_id" type="xs:string" />
+        <xs:element name="//深部位移sbwy_id" type="xs:string" />
+        <xs:element name="//报警正常代码alarm_zero" type="xs:string" />
+        <xs:element name="//项目exchange前缀subject_exchange" type="xs:string" />
+        <xs:element name="//项目queue前缀subject_queue" type="xs:string" />
+        <xs:element name="/***传感器属性代码*///雨量ylattr" type="xs:string" />
+        <xs:element name="//预警站yjattr" type="xs:string" />
+        <xs:element name="//入户报警器rhattr" type="xs:string" />
+        <xs:element name="//gnssgnssxattr" type="xs:string" />
+        <xs:element name="//gnssgnssyattr" type="xs:string" />
+        <xs:element name="//gnssgnsszattr" type="xs:string" />
+        <xs:element name="//裂缝lfattr" type="xs:string" />
+        <xs:element name="//含水率10cmhsl10attr" type="xs:string" />
+        <xs:element name="//含水率20cmhsl20attr" type="xs:string" />
+        <xs:element name="//含水率30cmhsl30attr" type="xs:string" />
+        <xs:element name="//含水率40cmhsl40attr" type="xs:string" />
+        <xs:element name="//含水率50cmhsl50attr" type="xs:string" />
+        <xs:element name="//含水率60cmhsl60attr" type="xs:string" />
+        <xs:element name="//含水率70cmhsl70attr" type="xs:string" />
+        <xs:element name="//含水率80cmhsl80attr" type="xs:string" />
+        <xs:element name="//倾角qjxattr" type="xs:string" />
+        <xs:element name="//倾角qjyattr" type="xs:string" />
+        <xs:element name="//倾角qjzattr" type="xs:string" />
+        <xs:element name="//泥位nwattr" type="xs:string" />
+        <xs:element name="//视频spattr" type="xs:string" />
+        <xs:element name="/***mq队列名称*///广播通知队列alarm_horn_queue" type="xs:string" />
+        <xs:element name="alarm_horn_exchange" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stedpaer" >
+      <xs:sequence>
+        <xs:element name="//站号stcd" type="xs:string" />
+        <xs:element name="tm" type="xs:dateTime" />
+        <xs:element name="//x向角度变化量，累计变化量（0-360，正北向为0，顺时针增加）x" type="xs:double" />
+        <xs:element name="//y向角度变化量，累计变量（0-360，正北向为0，顺时针增加）y" type="xs:double" />
+        <xs:element name="//z向角度变化量，累计变量（0-360，正北向为0，顺时针增加）z" type="xs:double" />
+        <xs:element name="//合方向上倾斜角度tiltangle" type="xs:double" />
+        <xs:element name="//倾斜方向，0-360°tiltdirection" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stesmstr" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="stcd" type="xs:string" />
+        <xs:element name="tm" type="xs:dateTime" />
+        <xs:element name="mt" type="xs:double" />
+        <xs:element name="mm" type="xs:double" />
+        <xs:element name="mb" type="xs:double" />
+        <xs:element name="mar" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jcdinfo" >
+      <xs:sequence>
+        <xs:element name="jcdbh" type="xs:string" />
+        <xs:element name="tybh" type="xs:string" />
+        <xs:element name="dname" type="xs:string" />
+        <xs:element name="x" type="xs:double" />
+        <xs:element name="y" type="xs:double" />
+        <xs:element name="ucode" type="xs:anyType" />
+        <xs:element name="eaddress" type="xs:string" />
+        <xs:element name="topography" type="xs:string" />
+        <xs:element name="altitude" type="xs:double" />
+        <xs:element name="traffic" type="xs:string" />
+        <xs:element name="material" type="xs:string" />
+        <xs:element name="protective" type="xs:string" />
+        <xs:element name="cpname" type="xs:string" />
+        <xs:element name="cpphone" type="xs:string" />
+        <xs:element name="econdition" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="steddpmh" >
+      <xs:sequence>
+        <xs:element name="stcd" type="xs:string" />
+        <xs:element name="tm" type="xs:dateTime" />
+        <xs:element name="djt" type="xs:anyType" />
+        <xs:element name="dtt" type="xs:anyType" />
+        <xs:element name="djm" type="xs:anyType" />
+        <xs:element name="dtm" type="xs:anyType" />
+        <xs:element name="djb" type="xs:anyType" />
+        <xs:element name="dtb" type="xs:anyType" />
+        <xs:element name="mar" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stepptnr" >
+      <xs:sequence>
+        <xs:element name="stcd" type="xs:string" />
+        <xs:element name="tm" type="xs:dateTime" />
+        <xs:element name="drp" type="xs:double" />
+        <xs:element name="intv" type="xs:double" />
+        <xs:element name="dyp" type="xs:double" />
+        <xs:element name="curp" type="xs:double" />
+        <xs:element name="accp" type="xs:double" />
+        <xs:element name="mar" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stewtlvr" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="stcd" type="xs:string" />
+        <xs:element name="tm" type="xs:dateTime" />
+        <xs:element name="zm" type="xs:double" />
+        <xs:element name="zk" type="xs:double" />
+        <xs:element name="z" type="xs:double" />
+        <xs:element name="mar" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sterdpmh" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="stcd" type="xs:string" />
+        <xs:element name="tm" type="xs:dateTime" />
+        <xs:element name="rdj" type="xs:double" />
+        <xs:element name="rdt" type="xs:double" />
+        <xs:element name="mar" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="steadpmr" >
+      <xs:sequence>
+        <xs:element name="stcd" type="xs:string" />
+        <xs:element name="tm" type="xs:dateTime" />
+        <xs:element name="d" type="xs:double" />
+        <xs:element name="ns" type="xs:double" />
+        <xs:element name="we" type="xs:double" />
+        <xs:element name="h" type="xs:double" />
+        <xs:element name="dd" type="xs:double" />
+        <xs:element name="nsd" type="xs:anyType" />
+        <xs:element name="wed" type="xs:anyType" />
+        <xs:element name="hd" type="xs:anyType" />
+        <xs:element name="mar" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="zhdinfo" >
+      <xs:sequence>
+        <xs:element name="tybh" type="xs:string" />
+        <xs:element name="dfbh" type="xs:string" />
+        <xs:element name="ucode" type="xs:anyType" />
+        <xs:element name="ywcode" type="xs:string" />
+        <xs:element name="zname" type="xs:string" />
+        <xs:element name="province" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="county" type="xs:string" />
+        <xs:element name="village" type="xs:string" />
+        <xs:element name="addr" type="xs:string" />
+        <xs:element name="x" type="xs:double" />
+        <xs:element name="y" type="xs:double" />
+        <xs:element name="apdate" type="xs:string" />
+        <xs:element name="dpeople" type="xs:anyType" />
+        <xs:element name="tpeople" type="xs:anyType" />
+        <xs:element name="zjlost" type="xs:double" />
+        <xs:element name="tmoney" type="xs:double" />
+        <xs:element name="wdx" type="xs:string" />
+        <xs:element name="gm" type="xs:string" />
+        <xs:element name="zq" type="xs:string" />
+        <xs:element name="xq" type="xs:string" />
+        <xs:element name="ztype" type="xs:string" />
+        <xs:element name="reperson" type="xs:string" />
+        <xs:element name="quanjing" type="xs:anyType" />
+        <xs:element name="dzgk" type="xs:string" />
+        <xs:element name="sbfbt" type="xs:string" />
+        <xs:element name="hdfx" type="xs:string" />
+        <xs:element name="wxzh" type="xs:anyType" />
+        <xs:element name="wxfw" type="xs:anyType" />
+        <xs:element name="wxdx" type="xs:string" />
+        <xs:element name="zbxx" type="xs:string" />
+        <xs:element name="fzcs" type="xs:string" />
+        <xs:element name="zjly" type="xs:string" />
+        <xs:element name="zjed" type="xs:double" />
+        <xs:element name="fzlb" type="xs:string" />
+        <xs:element name="jsdw" type="xs:string" />
+        <xs:element name="jldw" type="xs:string" />
+        <xs:element name="sgdw" type="xs:string" />
+        <xs:element name="jd" type="xs:string" />
+        <xs:element name="ztxz" type="xs:string" />
+        <xs:element name="qdrcz" type="xs:double" />
+        <xs:element name="jcdexist" type="xs:anyType" />
+        <xs:element name="verifyuserid" type="xs:anyType" />
+        <xs:element name="verifytime" type="xs:dateTime" />
+        <xs:element name="verifystatus" type="xs:anyType" />
+        <xs:element name="isqcqf" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stesmsth" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="stcd" type="xs:string" />
+        <xs:element name="tm" type="xs:dateTime" />
+        <xs:element name="mt" type="xs:double" />
+        <xs:element name="mm" type="xs:double" />
+        <xs:element name="mb" type="xs:double" />
+        <xs:element name="mar" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="warningsettings" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="tybh" type="xs:string" />
+        <xs:element name="eqbh" type="xs:string" />
+        <xs:element name="datatype" type="xs:string" />
+        <xs:element name="usewarning" type="xs:anyType" />
+        <xs:element name="warningway" type="xs:anyType" />
+        <xs:element name="warningvalue" type="xs:double" />
+        <xs:element name="weight" type="xs:double" />
+        <xs:element name="dx" type="xs:double" />
+        <xs:element name="dxqz" type="xs:double" />
+        <xs:element name="dy" type="xs:double" />
+        <xs:element name="dyqz" type="xs:double" />
+        <xs:element name="dh" type="xs:double" />
+        <xs:element name="dhqz" type="xs:double" />
+        <xs:element name="dxy" type="xs:double" />
+        <xs:element name="dxyqz" type="xs:double" />
+        <xs:element name="dxyh" type="xs:double" />
+        <xs:element name="dxyhqz" type="xs:double" />
+        <xs:element name="rain30m" type="xs:double" />
+        <xs:element name="rain1h" type="xs:double" />
+        <xs:element name="rain3h" type="xs:double" />
+        <xs:element name="rain6h" type="xs:double" />
+        <xs:element name="rain12h" type="xs:double" />
+        <xs:element name="rain24h" type="xs:double" />
+        <xs:element name="nw0" type="xs:double" />
+        <xs:element name="nw1" type="xs:double" />
+        <xs:element name="ylcountyl" type="xs:anyType" />
+        <xs:element name="ylcountnw" type="xs:anyType" />
+        <xs:element name="dxstate" type="xs:anyType" />
+        <xs:element name="ledstate" type="xs:anyType" />
+        <xs:element name="lasttime" type="xs:string" />
+        <xs:element name="warnlevel" type="xs:anyType" />
+        <xs:element name="dxon" type="xs:anyType" />
+        <xs:element name="dxsendrecent" type="xs:anyType" />
+        <xs:element name="ledon" type="xs:anyType" />
+        <xs:element name="ledsendrecent" type="xs:anyType" />
+        <xs:element name="lasttimeled" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stestssr" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="stcd" type="xs:string" />
+        <xs:element name="tm" type="xs:dateTime" />
+        <xs:element name="vt" type="xs:double" />
+        <xs:element name="vs" type="xs:double" />
+        <xs:element name="csq" type="xs:anyType" />
+        <xs:element name="zt" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stedpaeh" >
+      <xs:sequence>
+        <xs:element name="//站号stcd" type="xs:string" />
+        <xs:element name="tm" type="xs:dateTime" />
+        <xs:element name="//x向角度变化量，累计变化量（0-360，正北向为0，顺时针增加）x" type="xs:double" />
+        <xs:element name="//y向角度变化量，累计变量（0-360，正北向为0，顺时针增加）y" type="xs:double" />
+        <xs:element name="//z向角度变化量，累计变量（0-360，正北向为0，顺时针增加）z" type="xs:double" />
+        <xs:element name="//合方向上倾斜角度tiltangle" type="xs:double" />
+        <xs:element name="//倾斜方向，0-360°tiltdirection" type="xs:double" />
+        <xs:element name="createtime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="primarykey" >
+      <xs:sequence>
+        <xs:element name="stcd" type="xs:string" />
+        <xs:element name="tm" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="steadpmh" >
+      <xs:sequence>
+        <xs:element name="stcd" type="xs:string" />
+        <xs:element name="tm" type="xs:dateTime" />
+        <xs:element name="d" type="xs:double" />
+        <xs:element name="ns" type="xs:double" />
+        <xs:element name="we" type="xs:double" />
+        <xs:element name="h" type="xs:double" />
+        <xs:element name="dd" type="xs:double" />
+        <xs:element name="nsd" type="xs:anyType" />
+        <xs:element name="wed" type="xs:anyType" />
+        <xs:element name="hd" type="xs:anyType" />
+        <xs:element name="mar" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sterdpmr" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="stcd" type="xs:string" />
+        <xs:element name="tm" type="xs:dateTime" />
+        <xs:element name="rdj" type="xs:double" />
+        <xs:element name="rdt" type="xs:double" />
+        <xs:element name="mar" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stepptnh" >
+      <xs:sequence>
+        <xs:element name="stcd" type="xs:string" />
+        <xs:element name="tm" type="xs:dateTime" />
+        <xs:element name="drp" type="xs:double" />
+        <xs:element name="intv" type="xs:double" />
+        <xs:element name="dyp" type="xs:double" />
+        <xs:element name="curp" type="xs:double" />
+        <xs:element name="accp" type="xs:double" />
+        <xs:element name="mar" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="eqinfo" >
+      <xs:sequence>
+        <xs:element name="eqbh" type="xs:string" />
+        <xs:element name="ename" type="xs:string" />
+        <xs:element name="tybh" type="xs:string" />
+        <xs:element name="jcdbh" type="xs:string" />
+        <xs:element name="etype" type="xs:string" />
+        <xs:element name="ywbh" type="xs:string" />
+        <xs:element name="eid" type="xs:string" />
+        <xs:element name="tdcode" type="xs:string" />
+        <xs:element name="tmission" type="xs:string" />
+        <xs:element name="simid" type="xs:string" />
+        <xs:element name="beidou" type="xs:string" />
+        <xs:element name="x" type="xs:double" />
+        <xs:element name="y" type="xs:double" />
+        <xs:element name="altitude" type="xs:string" />
+        <xs:element name="inlocation" type="xs:string" />
+        <xs:element name="wlevel" type="xs:string" />
+        <xs:element name="wtime" type="xs:dateTime" />
+        <xs:element name="estate" type="xs:string" />
+        <xs:element name="lastrecivetime" type="xs:dateTime" />
+        <xs:element name="oneday" type="xs:anyType" />
+        <xs:element name="twoday" type="xs:anyType" />
+        <xs:element name="threeday" type="xs:anyType" />
+        <xs:element name="dcause" type="xs:string" />
+        <xs:element name="bzswz" type="xs:double" />
+        <xs:element name="gkposition" type="xs:string" />
+        <xs:element name="ptype" type="xs:string" />
+        <xs:element name="pinfo" type="xs:string" />
+        <xs:element name="gsignal" type="xs:string" />
+        <xs:element name="g3signal" type="xs:string" />
+        <xs:element name="bnorms" type="xs:string" />
+        <xs:element name="cinfo" type="xs:string" />
+        <xs:element name="lithology" type="xs:string" />
+        <xs:element name="lighting" type="xs:string" />
+        <xs:element name="signal" type="xs:string" />
+        <xs:element name="winfo" type="xs:string" />
+        <xs:element name="c" type="xs:dateTime" />
+        <xs:element name="p" type="xs:dateTime" />
+        <xs:element name="cperson" type="xs:string" />
+        <xs:element name="ckperson" type="xs:string" />
+        <xs:element name="aperson" type="xs:string" />
+        <xs:element name="surface" type="xs:string" />
+        <xs:element name="pole" type="xs:anyType" />
+        <xs:element name="solar" type="xs:anyType" />
+        <xs:element name="acquisition" type="xs:anyType" />
+        <xs:element name="transmission" type="xs:anyType" />
+        <xs:element name="instal" type="xs:dateTime" />
+        <xs:element name="complete" type="xs:dateTime" />
+        <xs:element name="inperson" type="xs:string" />
+        <xs:element name="inckperson" type="xs:string" />
+        <xs:element name="inaperson" type="xs:string" />
+        <xs:element name="hno" type="xs:string" />
+        <xs:element name="inunit" type="xs:string" />
+        <xs:element name="maxvalue" type="xs:double" />
+        <xs:element name="minvalue" type="xs:double" />
+        <xs:element name="bzpower" type="xs:double" />
+        <xs:element name="curpower" type="xs:double" />
+        <xs:element name="cgqms" type="xs:double" />
+        <xs:element name="issgbj" type="xs:anyType" />
+        <xs:element name="remark" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stewtlvh" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="stcd" type="xs:string" />
+        <xs:element name="tm" type="xs:dateTime" />
+        <xs:element name="zm" type="xs:double" />
+        <xs:element name="zk" type="xs:double" />
+        <xs:element name="z" type="xs:double" />
+        <xs:element name="mar" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="steddpmr" >
+      <xs:sequence>
+        <xs:element name="stcd" type="xs:string" />
+        <xs:element name="tm" type="xs:dateTime" />
+        <xs:element name="djt" type="xs:anyType" />
+        <xs:element name="dtt" type="xs:anyType" />
+        <xs:element name="djm" type="xs:anyType" />
+        <xs:element name="dtm" type="xs:anyType" />
+        <xs:element name="djb" type="xs:anyType" />
+        <xs:element name="dtb" type="xs:anyType" />
+        <xs:element name="mar" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hexutils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iputils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="doubleutils" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="//默认除法运算精度def_div_scale" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dateutil" >
+      <xs:sequence>
+        <xs:element name="/***年份格式(yyyy)*/year_pattern" type="xs:string" />
+        <xs:element name="/***时间格式(yyyy-mm-dd)*/date_pattern" type="xs:string" />
+        <xs:element name="/***时间格式(yyyy/mm/dd)*/date_pattern_slash" type="xs:string" />
+        <xs:element name="/***时间格式(yyyy-mm-ddhh:mm:ss)*/date_time_pattern" type="xs:string" />
+        <xs:element name="/***时间格式(yyyy年m月dd日ah:mm:ss)代码生成器使用*/date_time_chn_pattern" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="alarmutils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="creatcode" >
+      <xs:sequence>
+        <xs:element name="uuidzero" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pilingutils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commonutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="parameters" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="operator" nillable="true" minOccurs="0" />
+        <xs:element name="attributename" type="xs:string" />
+        <xs:element name="value" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logicalexpression" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="criterion" nillable="true" minOccurs="0" />
+        <xs:element name="//计算符" type="operator" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="restrictions" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="criterion" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baserepository" >
+      <xs:complexContent>
+       <xs:extension base="serializable>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="operator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="criteria" >
+      <xs:sequence>
+        <xs:element name="criterions" type="criterion" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="simpleexpression" >
+      <xs:sequence>
+        <xs:element name="//属性名fieldname" type="xs:string" />
+        <xs:element name="//对应值value" type="xs:anyType" />
+        <xs:element name="//计算符" type="operator" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rabbitmqconfig" >
+      <xs:sequence>
+        <xs:element name="queuenames" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="webmvcconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="corsconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="zhdinfodao" >
+      <xs:complexContent>
+       <xs:extension base="baserepository<zhdinfo,string>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sterdpmhdao" >
+      <xs:complexContent>
+       <xs:extension base="baserepository<sterdpmh,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="stewtlvhdao" >
+      <xs:complexContent>
+       <xs:extension base="baserepository<stewtlvh,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="steadpmhdao" >
+      <xs:complexContent>
+       <xs:extension base="baserepository<steadpmh,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="warningsettingsdao" >
+      <xs:complexContent>
+       <xs:extension base="baserepository<warningsettings,string>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="stepptnrdao" >
+      <xs:complexContent>
+       <xs:extension base="baserepository<stepptnr,string>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="steddpmrdao" >
+      <xs:complexContent>
+       <xs:extension base="baserepository<steddpmr,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="stedpaehdao" >
+      <xs:complexContent>
+       <xs:extension base="baserepository<stedpaeh,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="stesmstrdao" >
+      <xs:complexContent>
+       <xs:extension base="baserepository<stesmstr,string>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="stepptnhdao" >
+      <xs:complexContent>
+       <xs:extension base="baserepository<stepptnh,string>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="steddpmhdao" >
+      <xs:complexContent>
+       <xs:extension base="baserepository<steddpmh,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="stedpaerdao" >
+      <xs:complexContent>
+       <xs:extension base="baserepository<stedpaer,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="stesmsthdao" >
+      <xs:complexContent>
+       <xs:extension base="baserepository<stesmsth,string>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sterdpmrdao" >
+      <xs:complexContent>
+       <xs:extension base="baserepository<sterdpmr,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jcdinfodao" >
+      <xs:complexContent>
+       <xs:extension base="baserepository<jcdinfo,string>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="stewtlvrdao" >
+      <xs:complexContent>
+       <xs:extension base="baserepository<stewtlvr,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="stestssrdao" >
+      <xs:complexContent>
+       <xs:extension base="baserepository<stestssr,string>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="steadpmrdao" >
+      <xs:complexContent>
+       <xs:extension base="baserepository<steadpmr,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="eqinfodao" >
+      <xs:complexContent>
+       <xs:extension base="baserepository<eqinfo,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="eqinfoservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sterdpmservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stewtlvservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stesmstservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stedpaeservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stestssrservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stepptnservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="steddpmserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="steddpmhdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="steddpmrdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="stestssrdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="eqinfodao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="stestssrservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="eqinfoserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="eqinfodao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stestssrserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="stestssrdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sterdpmserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="eqinfoservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="sterdpmrdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="sterdpmhdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="stestssrservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="steadpmserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="steadpmhdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="steadpmrdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="stestssrdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="eqinfodao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stepptnserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="stepptnrdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="stepptnhdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="eqinfoservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="stestssrservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="handledataserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="stesmstservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="steadpmservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="stedpaeservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="stepptnservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="sterdpmservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="stewtlvservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="steddpmservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stesmstserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="stesmstrdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="stesmsthdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="eqinfoservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="stestssrservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stedpaeserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="stedpaerdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="stedpaehdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="eqinfodao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="stestssrdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stewtlvserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="eqinfoservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="stewtlvrdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="stewtlvhdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="stestssrservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="handledataservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="steddpmservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="steadpmservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dataparsercontroller" >
+      <xs:sequence>
+        <xs:element name="steadpmhservice" type="steadpmservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="currentdatahandle" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="handledataservice" nillable="true" minOccurs="0" />
+        <xs:element name="queuenames" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spbootapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application-dev" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

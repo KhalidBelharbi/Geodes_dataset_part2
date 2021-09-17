@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="dbunitmodule" >
+      <xs:complexContent>
+       <xs:extension base="annotation>,">
+         <xs:sequence>
+          <xs:element name="/*thegerinstanceforthisclass*/ger" type="xs:anyType" />
+          <xs:element name="defaultannotationpropertyvalues" type="xs:anyType" />
+          <xs:element name="dbunitdatabaseconnections" type="xs:anyType" />
+          <xs:element name="/***theunitilsconfiguration*/configuration" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="boardmanagecontrollertest" >
+      <xs:complexContent>
+       <xs:extension base="basewebtest">
+         <xs:sequence>
+          <xs:element name="" type="forumservice" nillable="true" minOccurs="0" />
+          <xs:element name="controller" type="boardmanagecontroller" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="forummanagecontrollertest" >
+      <xs:complexContent>
+       <xs:extension base="basewebtest">
+         <xs:sequence>
+          <xs:element name="controller" type="forummanagecontroller" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basewebtest" >
+      <xs:complexContent>
+       <xs:extension base="unitilsjunit4">
+         <xs:sequence>
+          <xs:element name="handleradapter" type="xs:anyType" />
+          <xs:element name="//声明request与response模拟对象request" type="xs:anyType" />
+          <xs:element name="response" type="xs:anyType" />
+          <xs:element name="session" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="logincontrollertest" >
+      <xs:complexContent>
+       <xs:extension base="basewebtest">
+         <xs:sequence>
+          <xs:element name="controller" type="logincontroller" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="registercontrollertest" >
+      <xs:complexContent>
+       <xs:extension base="basewebtest">
+         <xs:sequence>
+          <xs:element name="controller" type="registercontroller" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="multischemaxlsdatasetreader" >
+      <xs:sequence>
+        <xs:element name="defaultschemaname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="multischemaxlsdatasetfactory" >
+      <xs:sequence>
+        <xs:element name="defaultschemaname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="xlsdatasetbeanfactory" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="forumservicetest" >
+      <xs:complexContent>
+       <xs:extension base="baseservicetest">
+         <xs:sequence>
+          <xs:element name="" type="forumservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="userservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseservicetest" >
+      <xs:complexContent>
+       <xs:extension base="unitilsjunit4">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userservicetest" >
+      <xs:complexContent>
+       <xs:extension base="baseservicetest">
+         <xs:sequence>
+          <xs:element name="" type="userdao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="userservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userdaotest" >
+      <xs:complexContent>
+       <xs:extension base="basedaotest">
+         <xs:sequence>
+          <xs:element name="" type="userdao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basedaotest" >
+      <xs:complexContent>
+       <xs:extension base="unitilsjunit4{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="boarddaotest" >
+      <xs:complexContent>
+       <xs:extension base="basedaotest{">
+         <xs:sequence>
+          <xs:element name="" type="boarddao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="topicdaotest" >
+      <xs:complexContent>
+       <xs:extension base="basedaotest">
+         <xs:sequence>
+          <xs:element name="" type="topicdao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="postdaotest" >
+      <xs:complexContent>
+       <xs:extension base="basedaotest">
+         <xs:sequence>
+          <xs:element name="" type="postdao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="log4j" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="boarddao" >
+      <xs:complexContent>
+       <xs:extension base="basedao<board>{">
+         <xs:sequence>
+          <xs:element name="get_board_num" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basedao" >
+      <xs:sequence>
+        <xs:element name="entityclass" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="topicdao" >
+      <xs:complexContent>
+       <xs:extension base="basedao<topic>">
+         <xs:sequence>
+          <xs:element name="get_board_digest_topics" type="xs:string" />
+          <xs:element name="get_paged_topics" type="xs:string" />
+          <xs:element name="query_topic_by_titile" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="postdao" >
+      <xs:complexContent>
+       <xs:extension base="basedao<post>">
+         <xs:sequence>
+          <xs:element name="get_paged_posts" type="xs:string" />
+          <xs:element name="delete_topic_posts" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="page" >
+      <xs:sequence>
+        <xs:element name="default_page_size" type="xs:long" />
+        <xs:element name="//每页的记录数pagesize" type="xs:long" />
+        <xs:element name="//当前页第一条数据在list中的位置,从0开始start" type="xs:long" />
+        <xs:element name="//当前页中存放的记录,类型一般为data" type="xs:anyType" />
+        <xs:element name="//总记录数totalcount" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdao" >
+      <xs:complexContent>
+       <xs:extension base="basedao<user>">
+         <xs:sequence>
+          <xs:element name="get_user_by_username" type="xs:string" />
+          <xs:element name="query_user_by_username" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="loginlogdao" >
+      <xs:complexContent>
+       <xs:extension base="basedao<loginlog>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="forumservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="topicdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="boarddao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="postdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="loginlogdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commonconstant" >
+      <xs:sequence>
+        <xs:element name="/***用户对象放到session中的键名称*/user_context" type="xs:string" />
+        <xs:element name="/***将登录前的url放到session中的键名称*/login_to_url" type="xs:string" />
+        <xs:element name="/***每页的记录数*/page_size" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="forumfilter" >
+      <xs:sequence>
+        <xs:element name="filtered_request" type="xs:string" />
+        <xs:element name="inherent_escape_uris" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logincontroller" >
+      <xs:complexContent>
+       <xs:extension base="basecontroller">
+         <xs:sequence>
+          <xs:element name="/***自动注入*/" type="userservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="registercontroller" >
+      <xs:complexContent>
+       <xs:extension base="basecontroller">
+         <xs:sequence>
+          <xs:element name="/***自动注入*/" type="userservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="forumhandlerexceptionresolver" >
+      <xs:complexContent>
+       <xs:extension base="		simplemappingexceptionresolver">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="forummanagecontroller" >
+      <xs:complexContent>
+       <xs:extension base="basecontroller">
+         <xs:sequence>
+          <xs:element name="" type="forumservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="userservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="boardmanagecontroller" >
+      <xs:complexContent>
+       <xs:extension base="basecontroller">
+         <xs:sequence>
+          <xs:element name="" type="forumservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basecontroller" >
+      <xs:sequence>
+        <xs:element name="error_msg_key" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basedomain" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="basedomain">
+         <xs:sequence>
+          <xs:element name="/***锁定用户对应的状态值*/user_lock" type="xs:long" />
+          <xs:element name="/***用户解锁对应的状态值*/user_unlock" type="xs:long" />
+          <xs:element name="/***管理员类型*/forum_admin" type="xs:long" />
+          <xs:element name="/***普通用户类型*/normal_user" type="xs:long" />
+          <xs:element name="userid" type="xs:long" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="usertype" type="xs:long" />
+          <xs:element name="lastip" type="xs:string" />
+          <xs:element name="lastvisit" type="xs:dateTime" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="locked" type="xs:long" />
+          <xs:element name="credit" type="xs:long" />
+          <xs:element name="manboards" type="board" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="topic" >
+      <xs:complexContent>
+       <xs:extension base="basedomain">
+         <xs:sequence>
+          <xs:element name="/***精华主题帖子*/digest_topic" type="xs:long" />
+          <xs:element name="/***普通的主题帖子*/not_digest_topic" type="xs:long" />
+          <xs:element name="topicid" type="xs:long" />
+          <xs:element name="topictitle" type="xs:string" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="boardid" type="xs:long" />
+          <xs:element name="" type="mainpost" nillable="true" minOccurs="0" />
+          <xs:element name="lastpost" type="xs:dateTime" />
+          <xs:element name="createtime" type="xs:dateTime" />
+          <xs:element name="views" type="xs:long" />
+          <xs:element name="replies" type="xs:long" />
+          <xs:element name="digest" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="post" >
+      <xs:complexContent>
+       <xs:extension base="basedomain">
+         <xs:sequence>
+          <xs:element name="postid" type="xs:long" />
+          <xs:element name="posttitle" type="xs:string" />
+          <xs:element name="posttext" type="xs:string" />
+          <xs:element name="boardid" type="xs:long" />
+          <xs:element name="createtime" type="xs:dateTime" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="" type="topic" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="loginlog" >
+      <xs:complexContent>
+       <xs:extension base="basedomain">
+         <xs:sequence>
+          <xs:element name="loginlogid" type="xs:long" />
+          <xs:element name="login" type="xs:dateTime" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="ip" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mainpost" >
+      <xs:complexContent>
+       <xs:extension base="post">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="board" >
+      <xs:complexContent>
+       <xs:extension base="basedomain">
+         <xs:sequence>
+          <xs:element name="boardid" type="xs:long" />
+          <xs:element name="boardname" type="xs:string" />
+          <xs:element name="boarddesc" type="xs:string" />
+          <xs:element name="topicnum" type="xs:long" />
+          <xs:element name="users" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="post.hbm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="topic.hbm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="board.hbm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user.hbm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="loginlog.hbm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userexistexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="notloginexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

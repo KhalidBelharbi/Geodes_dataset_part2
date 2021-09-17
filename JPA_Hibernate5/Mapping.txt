@@ -1,0 +1,12 @@
+ClassDiagram.Class>> Patient =>=>=> RelationalSchema.Table>> patient;
+ClassDiagram.Class>> ClinicalData =>=>=> RelationalSchema.Table>> clinicaldata;
+ClassDiagram.Attribut>> Patient.id:int =>=>=> RelationalSchema.Column>> patient.id PRIMARY KEY;
+ClassDiagram.Attribut>> Patient.firstname:String =>=>=> RelationalSchema.Column>> patient.firstname;
+ClassDiagram.Attribut>> Patient.lastname:String =>=>=> RelationalSchema.Column>> patient.lastname;
+ClassDiagram.Attribut>> Patient.age:int =>=>=> RelationalSchema.Column>> patient.age;
+ClassDiagram.Attribut>> ClinicalData.id:int =>=>=> RelationalSchema.Column>> clinicaldata.id PRIMARY KEY;
+ClassDiagram.Attribut>> ClinicalData.componentname:String =>=>=> RelationalSchema.Column>> clinicaldata.componentname;
+ClassDiagram.Attribut>> ClinicalData.componentvalue:String =>=>=> RelationalSchema.Column>> clinicaldata.componentvalue;
+ClassDiagram.Attribut>> ClinicalData.measureddatetime:Timestamp =>=>=> RelationalSchema.Column>> clinicaldata.measureddatetime;
+One-To-Many relationship from ClassDiagram.Class>>Patient  to ClassDiagram.Class>>List<ClinicalData>;
+Many-To-One relationship from ClassDiagram.Class>>ClinicalData  to ClassDiagram.Class>>patient represented by ClassDiagram.Atrribute>>GeneratedName;

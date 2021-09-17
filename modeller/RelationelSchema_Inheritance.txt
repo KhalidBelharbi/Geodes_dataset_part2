@@ -1,0 +1,25 @@
+
+project(id:Long [PK], projectname:String, description:String, GeneratedName:GitRepository #FK to(gitrepository), status:ProjectStatus);
+
+release(id:Long [PK], description:String, branchname:String, extreleaseid:String, releasename:String, GeneratedName:Project #FK to(project));
+
+tagtype(id:Long [PK], name:String, description:String, color:String);
+
+user(id:Long [PK], username:String, password:String, GeneratedName:Role #FK to(role), GeneratedName:Project #FK to(project));
+
+permission(mnemonic:String [PK], permission:String, description:String);
+
+gitrepository(id:Long [PK], uri:String, username:String, password:String, GeneratedName:Project #FK to(project));
+
+tag(id:Long [PK], name:String, description:String, type:TagType #FK to(tagtype));
+
+enoviaentity(id:Long [PK], entityname:String, GeneratedName:Release #FK to(release), description:String, type:String, filename:String);
+
+tags_entity(entities_id:EnoviaEntity [PK] #FK to EnoviaEntity,tags_id:set<tag> [PK] #FK to set<tag>);
+
+role(mnemonic:String [PK], rolename:String, description:String);
+
+role_permission(role_id:Role [PK] #FK to Role,permission_id:set<permission> [PK] #FK to set<permission>);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

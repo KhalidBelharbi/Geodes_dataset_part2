@@ -1,0 +1,43 @@
+
+peccancy(id:Integer [PK], carnumber:String, pcode:String, pdatetime:String, paddr:String);
+
+suser(username:String [PK], password:String, email:String, role:String, pname:String, pcardid:String, psex:String, ptel:String, pregister:Date);
+
+loginuser(username:String [PK], userpwd:String, userrole:String);
+
+sparam(name:String [PK], val:String, descr:String);
+
+scarcharge(serialversionuid:long, ccid:int [PK], chargetime:Date, money:int, //bi-directionalmany-to-oneassociationto:Scarinfo #FK to(scarinfo));
+
+sbusinfo(serialversionuid:long, busid:int [PK], buscapacity:int);
+
+setctralog(serialversionuid:long, etlid:int [PK], carid:int, intime:Date, money:int, outtime:Date);
+
+scarinfo(serialversionuid:long, carid:int [PK], balance:int, caraction:String);
+
+scarblacklist(serialversionuid:long, cbid:int [PK], carid:int, time:Date, username:String);
+
+scarfee(serialversionuid:long, cfid:int [PK], feetime:Date, money:int, GeneratedName:Scarinfo #FK to(scarinfo));
+
+slightsence(serialversionuid:long, down:String [PK], up:String [PK]);
+
+sroadlight(serialversionuid:long, roadlightid:int [PK], controlmode:String, status:String);
+
+sothersingle(serialversionuid:long, name:String [PK], descr:String, value:String);
+
+stralight(serialversionuid:long, trafficlightid:int [PK], greentime:int, redtime:int, status:String, time:int, yellowtime:int);
+
+smonthtemperature(serialversionuid:long, month:int [PK], maxt:int, m:int);
+
+sbusstation(serialversionuid:long, busid:int [PK], busstationid:int [PK], distance:int);
+
+peccancytype(pcode:String [PK], premarks:String, pmoney:Integer, pscore:Integer);
+
+caruser(username:String [PK], pname:String, pcardid:String, psex:String, ptel:String, pregisterdate:String);
+
+peccancyx(id:Integer [PK], carnumber:String, pcode:String, pdatetime:String, paddr:String);
+
+carinfo(carnumber:String [PK], number:Integer, pcardid:String, carbrand:String, buy:Date);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

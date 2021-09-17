@@ -1,0 +1,15 @@
+
+useravailability(id:long [PK], day:String, start_:Time, end_:Time, user:ApplicationUser #FK to(app));
+
+meeting(id:long [PK], meeting_day:String, meeting_start_:Time, meeting_end_:Time, //formeetingcalculationmeeting_duration:double, group_id:MeetupGroup #FK to(meetupgroup), user:ApplicationUser #FK to(app));
+
+meetingpossibility(id:long [PK], day:String, start_:Time, end_:Time, vote_count:long, group_id:MeetupGroup #FK to(meetupgroup));
+
+groupmembership(/***/serialversionuid:long, group_id:MeetupGroup [PK] #FK to(meetupgroup), id:ApplicationUser [PK] #FK to(app));
+
+applicationuser(id:long [PK], fullname:String, email:String, phone:String, username:String, password:String);
+
+meetupgroup(group_id:long [PK], group_name:String, id:ApplicationUser #FK to(app));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

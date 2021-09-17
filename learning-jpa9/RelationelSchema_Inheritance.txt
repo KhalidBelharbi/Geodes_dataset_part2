@@ -1,0 +1,75 @@
+album03(artist:String);
+
+movie03(director:String, actor:String);
+
+book03(id:Long [PK] #FK to Item01, author:String, isbn:String);
+
+item03(id:Long [PK] #FK to Item01, id:Long [PK], name:String, price:int);
+
+book01(id:Long [PK] #FK to Item01, author:String, isbn:String);
+
+item01(id:Long [PK], name:String, price:int);
+
+album01(artist:String);
+
+movie01(director:String, actor:String);
+
+movie02(director:String, actor:String);
+
+album02(artist:String);
+
+book02(author:String, isbn:String);
+
+seller04(//id상속//name상속shopname:String);
+
+member04(//id오버라이딩//name상속email:String);
+
+child11(id:Long [PK], name:String);
+
+parent11(id:Long [PK], name:String);
+
+parent13(id:Long [PK], name:String);
+
+parent13_child13(parent13_id:Parent13 [PK] #FK to Parent13,child13_id:Child13 [PK] #FK to Child13);
+
+child13(id:Long [PK], name:String);
+
+parent10(id:Long [PK], name:String, child:Child10 #FK to(Child10));
+
+child10(id:Long [PK], name:String);
+
+parent12(id:Long [PK], name:String);
+
+child12(id:Long [PK], name:String, parent:Parent12 #FK to(Parent12));
+
+child05(id:String [PK], parent05_id1:Parent05 #FK to(parent05));
+
+parent05(//parent05id.id1과연결id1:String [PK], id2:String [PK], name:String);
+
+child06(id:String [PK], parent06_id1:Parent06 #FK to(parent06));
+
+parent06(id:Parent06Id, name:String);
+
+parent07(id:String [PK], name:String);
+
+child07(parent:Parent07 [PK] #FK to(parent07), childid:String [PK], name:String);
+
+grandchild07(child:Child07 [PK] #FK to(child07), id:String [PK], name:String);
+
+grandchild08(id:GrandChild08Id, child:Child08 #FK to(child08), name:String);
+
+parent08(id:String [PK], name:String);
+
+child08(id:Child08Id, //@mapsid외래키와매핑한연관관계를기본키에도매핑parent:Parent08 #FK to(parent08), name:String);
+
+board14(id:Long [PK], title:String, content:String);
+
+board09(id:Long [PK], title:String, boarddetail:BoardDetail09 #FK to(boarddetail09));
+
+boarddetail09(boardid:Long [PK], board:Board09 [PK] #FK to(board09), content:String);
+
+item02(id:Long [PK], //이름name:String, //가격price:int, DTYPE: String);
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

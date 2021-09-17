@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="dozent" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="person" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pruefungsfach" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="titel" type="xs:string" />
+        <xs:element name="beschreibung" type="xs:string" />
+        <xs:element name="GeneratedName" type="manipel" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="person" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="person" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="vorname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pruefungsleistung" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="versuch" type="xs:long" />
+        <xs:element name="GeneratedName" type="note" nillable="true" minOccurs="0" />
+        <xs:element name="mdl_moeglich" type="xs:anyType" />
+        <xs:element name="gueltig" type="xs:anyType" />
+        <xs:element name="erfassungsdatum" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="pruefung" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="student" nillable="true" minOccurs="0" />
+        <xs:element name="studentmatrikelnummer" type="xs:long" />
+        <xs:element name="erfasser" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="ergaenzungspruefung" nillable="true" minOccurs="0" />
+        <xs:element name="aenderungseintrag" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="student" >
+      <xs:sequence>
+        <xs:element name="matrikelnummer" type="xs:long" />
+        <xs:element name="GeneratedName" type="person" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="manipel" nillable="true" minOccurs="0" />
+        <xs:element name="pruefungsleistungen" type="pruefungsleistung" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ergaenzungspruefung" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="note" nillable="true" minOccurs="0" />
+        <xs:element name="datum" type="xs:dateTime" />
+        <xs:element name="erfassungsdatum" type="xs:dateTime" />
+        <xs:element name="pruefungsleistungid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pruefung" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="datum" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="pruefungsfach" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="dozent" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="manipel" >
+      <xs:sequence>
+        <xs:element name="pk" type="manipelpk" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

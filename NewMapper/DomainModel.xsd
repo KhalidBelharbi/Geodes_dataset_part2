@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="sysuser" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="//登录用户名,所属表字段为water_user.usernameusername" type="xs:string" />
+          <xs:element name="//登录密码,所属表字段为water_user.passwordpassword" type="xs:string" />
+          <xs:element name="//姓名,所属表字段为water_user.namename" type="xs:string" />
+          <xs:element name="//性别：1男0女,所属表字段为water_user.gendergender" type="xs:anyType" />
+          <xs:element name="//是否管理员：1是0否,所属表字段为water_user.is_adminisadmin" type="xs:anyType" />
+          <xs:element name="//外键，所属部门id,所属表字段为water_user.department_iddepartmentid" type="xs:long" />
+          <xs:element name="//是否锁定：1是0否,所属表字段为water_user.is_lockislock" type="xs:anyType" />
+          <xs:element name="//是否删除：1是0否,所属表字段为water_user.delete_flagdeleteflag" type="xs:anyType" />
+          <xs:element name="roles" type="sysrole" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="/***start以下为自己编写的代码区域一般是多表之间的联合查询start**/departmentname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sysdepartment" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="//图标iconcls" type="xs:string" />
+          <xs:element name="//排序号sort" type="xs:anyType" />
+          <xs:element name="/*@manytoone(cascade" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="syspermission" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="//名称name" type="xs:string" />
+          <xs:element name="//code" type="xs:string" />
+          <xs:element name="//菜单路径url" type="xs:string" />
+          <xs:element name="//图标iconcls" type="xs:string" />
+          <xs:element name="//资源类型,0菜单1功能type" type="xs:anyType" />
+          <xs:element name="//排序号sort" type="xs:anyType" />
+          <xs:element name="/*@manytoone(cascade" type="xs:long" />
+          <xs:element name="roles" type="sysrole" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sysrole" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="users" type="sysuser" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="permissions" type="syspermission" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

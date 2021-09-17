@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="cupcake" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="" type="filling" nillable="true" minOccurs="0" />
+          <xs:element name="" type="droid" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="droid" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="" type="unicorn" nillable="true" minOccurs="0" />
+          <xs:element name="cupcakes" type="cupcake" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="alive" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="unicorn" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="droids" type="droid" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="color" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

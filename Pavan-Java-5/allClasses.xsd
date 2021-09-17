@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="patientschedulingcontroller" >
+      <xs:sequence>
+        <xs:element name="patientrepo" type="patientrepository" nillable="true" minOccurs="0" />
+        <xs:element name="doctorrepo" type="doctorrepository" nillable="true" minOccurs="0" />
+        <xs:element name="appoinmentrepo" type="appointmentrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="doctorrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<doctor,long>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="patientrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<patient,long>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="appointmentrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<appoinment,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hibernatecomponentmapping1application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="appoinment" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="appointmenttime" type="xs:anyType" />
+        <xs:element name="started" type="xs:anyType" />
+        <xs:element name="ended" type="xs:anyType" />
+        <xs:element name="reason" type="xs:string" />
+        <xs:element name="GeneratedName" type="patient" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="doctor" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="doctor" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="speciality" type="xs:string" />
+        <xs:element name="patients" type="patient" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="appointments" type="appoinment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="insurance" >
+      <xs:sequence>
+        <xs:element name="providername" type="xs:string" />
+        <xs:element name="copay" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="patient" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="GeneratedName" type="insurance" nillable="true" minOccurs="0" />
+        <xs:element name="/*	*inthebelow@jointableannotation	*@joincolumn(name" type="doctor" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="appointments" type="appoinment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hibernatecomponentmapping1applicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

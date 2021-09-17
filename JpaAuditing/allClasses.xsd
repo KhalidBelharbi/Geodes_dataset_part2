@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="jpaauditingapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpaauditingapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="auditorawareimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="auditconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="attendancerepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<attendance,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="attendance" >
+      <xs:complexContent>
+       <xs:extension base="auditablebase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="empid" type="xs:anyType" />
+          <xs:element name="effectivedt" type="xs:anyType" />
+          <xs:element name="present" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="auditablebase" >
+      <xs:sequence>
+        <xs:element name="createdby" type="xs:string" />
+        <xs:element name="createddt" type="xs:anyType" />
+        <xs:element name="modifiedby" type="xs:string" />
+        <xs:element name="modifieddt" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="attendanceid" >
+      <xs:sequence>
+        <xs:element name="empid" type="xs:anyType" />
+        <xs:element name="effectivedt" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="attendanceservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="attendancerepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="attendancecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="attendanceservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

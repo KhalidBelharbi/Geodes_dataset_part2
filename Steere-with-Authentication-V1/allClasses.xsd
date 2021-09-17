@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="steereintranetapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="securityconfiguration" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="usersquery" type="xs:string" />
+          <xs:element name="rolesquery" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="webmvcconfig" >
+      <xs:complexContent>
+       <xs:extension base="webmvcconfigureradapter">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="emaildetails" >
+      <xs:sequence>
+        <xs:element name="emailto" type="xs:string" />
+        <xs:element name="emailsubject" type="xs:string" />
+        <xs:element name="emailcc" type="xs:string" />
+        <xs:element name="emailbody" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mysimpleurlauthenticationsuccesshandler" >
+      <xs:complexContent>
+       <xs:extension base="grantedauthority>">
+         <xs:sequence>
+          <xs:element name="ger" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="employee" >
+      <xs:sequence>
+        <xs:element name="employee_id" type="xs:long" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="confirmpassword" type="xs:string" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="active" type="xs:long" />
+        <xs:element name="extension" type="xs:string" />
+        <xs:element name="cellphone" type="xs:string" />
+        <xs:element name="resettoken" type="xs:string" />
+        <xs:element name="roles" type="role" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="manual" >
+      <xs:sequence>
+        <xs:element name="manual_id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="path" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="role" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="domainlist" >
+      <xs:sequence>
+        <xs:element name="domain_id" type="xs:long" />
+        <xs:element name="domaintype" type="xs:string" />
+        <xs:element name="domainvalue" type="xs:string" />
+        <xs:element name="active" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="status" >
+      <xs:sequence>
+        <xs:element name="status_id" type="xs:long" />
+        <xs:element name="status" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vendor" >
+      <xs:sequence>
+        <xs:element name="vendor_id" type="xs:long" />
+        <xs:element name="vendorname" type="xs:string" />
+        <xs:element name="vendortype" type="xs:string" />
+        <xs:element name="vendorurl" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mail" >
+      <xs:sequence>
+        <xs:element name="from" type="xs:string" />
+        <xs:element name="to" type="xs:string" />
+        <xs:element name="subject" type="xs:string" />
+        <xs:element name="model" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="emailcommand" >
+      <xs:sequence>
+        <xs:element name="employee_id" type="xs:long" />
+        <xs:element name="confirmpassword" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="employeecommand" >
+      <xs:sequence>
+        <xs:element name="employee_id" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="extension" type="xs:string" />
+        <xs:element name="cellphone" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="confirmpassword" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="newemailprocessor" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="emailservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tokengenerator" >
+      <xs:sequence>
+        <xs:element name="random" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="emailchannel" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fieldmatchvalidator" >
+      <xs:sequence>
+        <xs:element name="firstfieldname" type="xs:string" />
+        <xs:element name="secondfieldname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fieldmatch" >
+      <xs:complexContent>
+       <xs:extension base="payload>[]">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="indexcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="employeeservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="intranetcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="employeeservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="manualservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="greetingcontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logincontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="employeeservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="emailservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="employeetoemailcommand" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="employeecontroller" >
+      <xs:sequence>
+        <xs:element name="phonelist_phonelistform_url" type="xs:string" />
+        <xs:element name="GeneratedName" type="employeeservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="employeerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<employee,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="statusrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<status,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="vendorrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<vendor,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="domainlistrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<domainlist,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="manualrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<manual,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rolerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<role,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="devbootstrap" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="emailservice" >
+      <xs:sequence>
+        <xs:element name="sender" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="domainlistserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="domainlistrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="manualserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="manualrepository" nillable="true" minOccurs="0" />
+        <xs:element name="port" type="xs:string" />
+        <xs:element name="host" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="statusserviceimp" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="statusrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="employeeserviceimpl" >
+      <xs:sequence>
+        <xs:element name="pwsuffix" type="xs:string" />
+        <xs:element name="GeneratedName" type="employeerepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="employeecommandtoemployee" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="employeetoemployeecommand" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="rolerepository" nillable="true" minOccurs="0" />
+        <xs:element name="port" type="xs:string" />
+        <xs:element name="host" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="statusservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="domainlistservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vendorservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="manualservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="employeeservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vendorserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="vendorrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="greeting" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="content" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="employeetoemailcommand" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="employeetoemployeecommand" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="employeecommandtoemployee" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="steereintranetapplication" >
+      <xs:complexContent>
+       <xs:extension base="springbootservletinitializer">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="additional-spring-configuration-metadata" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="access-denied" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="index" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="home" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="result" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="show" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="phonelist" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="manuals" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="login" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="forgotpassword" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="index" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="show" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="greeting" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

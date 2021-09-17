@@ -1,0 +1,47 @@
+
+tenderentity(id:Integer [PK], number:String, datepublished:LocalDate, periodstartdate:LocalDate, periodenddate:LocalDate, guaranteeamount:Double);
+
+checklistindicatorentity(id:Integer [PK], indicator:IndicatorEntity #FK to(indicatorentity), answertype:AnswerTypeEntity #FK to(answertypeentity), componentimpact:ComponentImpactEntity #FK to(componentimpactentity), checklist:ChecklistEntity #FK to(checklistentity), comment:String);
+
+answertypeentity(id:Integer [PK], name:String, nameen:String);
+
+checkliststatusentity(id:Integer [PK], name:String, nameen:String);
+
+workdateentity(date:LocalDate [PK], isworking:Boolean);
+
+permissionentity(id:Integer [PK], name:String, description:String, descriptionen:String);
+
+checklistscoreentity(id:Integer [PK], name:String, nameen:String, leftbound:Integer, rightbound:Integer, buyerleftbound:Integer, buyerrightbound:Integer);
+
+checklistentity(id:Integer [PK], name:String, startdate:LocalDate, enddate:LocalDate, templatename:String, templatetypeid:Integer, autoscore:ChecklistScoreEntity #FK to(checklistscoreentity), manualscore:ChecklistScoreEntity #FK to(checklistscoreentity), manualtendersscore:ChecklistScoreEntity #FK to(checklistscoreentity), autotendersscore:ChecklistScoreEntity #FK to(checklistscoreentity), tenderscomment:String, tendersimpact:ComponentImpactEntity #FK to(componentimpactentity), status:ChecklistStatusEntity #FK to(checkliststatusentity), buyer:BuyerEntity #FK to(buyerentity), tender:TenderEntity #FK to(tenderentity), auditor:AuditorEntity #FK to(auditorentity), modifieddate:LocalDate, summary:String, auditname:String, contractnumber:String, contractamount:Double, contractdescription:String, supplier:String);
+
+okgzentity(code:String [PK], originalcode:String, name:String, nameen:String);
+
+buyerentity(id:Integer [PK], identifierid:String, identifierlegalnameru:String);
+
+answerentity(id:Integer [PK], comment:String, npa:String, answertype:AnswerTypeEntity #FK to(answertypeentity), componentimpact:ComponentImpactEntity #FK to(componentimpactentity), categoryname:String, categorynumber:String, questiondescription:String, basequestion:Boolean, questionnumber:String);
+
+questionentity(id:Integer [PK], description:String, base:boolean, categoryid:Integer, number:String);
+
+checklistquestionentity(id:Integer [PK], description:String, category:QuestionCategoryEntity #FK to(questioncategoryentity), checklist:ChecklistEntity #FK to(checklistentity));
+
+componentimpactentity(id:Integer [PK], name:String, nameen:String, impact:Integer);
+
+auditorentity(id:Integer [PK], email:String, password:String, name:String, disabled:boolean, accountlocked:boolean, tendervaluerank:Float, tenderrisklevelrank:Float, buyervaluerank:Float, buyerrisklevelrank:Float);
+
+auditor_permission(auditor_id:AuditorEntity [PK] #FK to AuditorEntity,permission_id:list<permissionentity> [PK] #FK to list<permissionentity>);
+
+questioncategoryentity(id:Integer [PK], name:String, number:String, templateid:Integer);
+
+contractentity(id:Integer [PK], datesigned:LocalDate);
+
+templateentity(id:Integer [PK], name:String, base:boolean, type:TemplateTypeEntity #FK to(templatetypeentity), auditor:AuditorEntity #FK to(auditorentity), modifieddate:LocalDate);
+
+indicatorentity(id:Integer [PK], name:String, description:String, risks:String, lawviolation:String, riskleveltext:String, descriptionen:String);
+
+templatetypeentity(id:Integer [PK], name:String, nameen:String, procurementmethods:List<String>);
+
+bidentity(id:Integer [PK], datedisclosed:LocalDate);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

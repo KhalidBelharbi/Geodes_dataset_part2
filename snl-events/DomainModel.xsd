@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="hearingpart" >
+      <xs:complexContent>
+       <xs:extension base="versionedentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="" type="session" nillable="true" minOccurs="0" />
+          <xs:element name="sessionid" type="xs:anyType" />
+          <xs:element name="isdeleted" type="xs:anyType" />
+          <xs:element name="createdat" type="xs:anyType" />
+          <xs:element name="modifiedat" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="modifiedby" type="xs:string" />
+          <xs:element name="start" type="xs:anyType" />
+          <xs:element name="" type="hearing" nillable="true" minOccurs="0" />
+          <xs:element name="hearingid" type="xs:anyType" />
+          <xs:element name="status" type="statusconfig" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="room" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="sessionlist" type="session" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="roomtype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usertransaction" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="status" type="usertransactionstatus" nillable="true" minOccurs="0" />
+        <xs:element name="rulesprocessingstatus" type="usertransactionrulesprocessingstatus" nillable="true" minOccurs="0" />
+        <xs:element name="startedat" type="xs:anyType" />
+        <xs:element name="usertransactiondatalist" type="usertransactiondata" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hearingtype" >
+      <xs:complexContent>
+       <xs:extension base="basereferencedata">
+         <xs:sequence>
+          <xs:element name="sessiontypes" type="sessiontype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="casetypes" type="casetype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="casetype" >
+      <xs:complexContent>
+       <xs:extension base="basereferencedata">
+         <xs:sequence>
+          <xs:element name="sessiontypes" type="sessiontype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="hearingtypes" type="hearingtype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sessiontype" >
+      <xs:complexContent>
+       <xs:extension base="basereferencedata">
+         <xs:sequence>
+          <xs:element name="sessions" type="session" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="casetypes" type="casetype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="hearingtypes" type="hearingtype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="activitylog" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="usertransactionid" type="xs:anyType" />
+        <xs:element name="entityid" type="xs:anyType" />
+        <xs:element name="entityname" type="xs:string" />
+        <xs:element name="status" type="activitystatus" nillable="true" minOccurs="0" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="createdby" type="xs:string" />
+        <xs:element name="createdat" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="problem" >
+      <xs:sequence>
+        <xs:element name="//thisismd5hash,notuuid!itistohandlethedeterministicnatureofourrulesid" type="xs:string" />
+        <xs:element name="usertransactionid" type="xs:anyType" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="severity" type="xs:string" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="createdat" type="xs:anyType" />
+        <xs:element name="references" type="problemreference" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usertransactiondata" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="entity" type="xs:string" />
+        <xs:element name="entityid" type="xs:anyType" />
+        <xs:element name="beforedata" type="xs:string" />
+        <xs:element name="action" type="xs:string" />
+        <xs:element name="counteraction" type="xs:string" />
+        <xs:element name="counteractionorder" type="xs:long" />
+        <xs:element name="GeneratedName" type="usertransaction" nillable="true" minOccurs="0" />
+        <xs:element name="usertransactionid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="statusconfig" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="status" nillable="true" minOccurs="0" />
+        <xs:element name="canbelisted" type="xs:anyType" />
+        <xs:element name="canbeunlisted" type="xs:anyType" />
+        <xs:element name="countinutilization" type="xs:anyType" />
+        <xs:element name="canbevacated" type="xs:anyType" />
+        <xs:element name="canbeadjourned" type="xs:anyType" />
+        <xs:element name="canbewithdrawn" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="person" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="persontype" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="sessionlist" type="session" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="roomtype" >
+      <xs:complexContent>
+       <xs:extension base="basereferencedata">
+         <xs:sequence>
+          <xs:element name="rooms" type="room" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hearing" >
+      <xs:complexContent>
+       <xs:extension base="versionedentity">
+         <xs:sequence>
+          <xs:element name="entity_name" type="xs:string" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="casenumber" type="xs:string" />
+          <xs:element name="casetitle" type="xs:string" />
+          <xs:element name="" type="casetype" nillable="true" minOccurs="0" />
+          <xs:element name="" type="hearingtype" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="numberofsessions" type="xs:long" />
+          <xs:element name="ismultisession" type="xs:anyType" />
+          <xs:element name="schedulestart" type="xs:anyType" />
+          <xs:element name="scheduleend" type="xs:anyType" />
+          <xs:element name="communicationfacilitator" type="xs:string" />
+          <xs:element name="" type="priority" nillable="true" minOccurs="0" />
+          <xs:element name="isdeleted" type="xs:anyType" />
+          <xs:element name="reservedjudge" type="person" nillable="true" minOccurs="0" />
+          <xs:element name="createdat" type="xs:anyType" />
+          <xs:element name="modifiedat" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="modifiedby" type="xs:string" />
+          <xs:element name="hearingparts" type="hearingpart" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="status" type="statusconfig" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="session" >
+      <xs:complexContent>
+       <xs:extension base="versionedentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="" type="person" nillable="true" minOccurs="0" />
+          <xs:element name="start" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="room" nillable="true" minOccurs="0" />
+          <xs:element name="hearingparts" type="hearingpart" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="sessiontype" nillable="true" minOccurs="0" />
+          <xs:element name="createdat" type="xs:anyType" />
+          <xs:element name="modifiedat" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="modifiedby" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

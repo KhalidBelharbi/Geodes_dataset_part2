@@ -1,0 +1,18 @@
+ClassDiagram.Class>> Film =>=>=> RelationalSchema.Table>> film;
+ClassDiagram.Class>> Actor =>=>=> RelationalSchema.Table>> actor;
+ClassDiagram.Class>> Genre =>=>=> RelationalSchema.Table>> genre;
+ClassDiagram.Class>> Language =>=>=> RelationalSchema.Table>> language;
+ClassDiagram.Attribut>> Film._id:Integer =>=>=> RelationalSchema.Column>> film._id PRIMARY KEY;
+ClassDiagram.Attribut>> Film._title:String =>=>=> RelationalSchema.Column>> film._title;
+ClassDiagram.Attribut>> Film._releaseyear:Integer =>=>=> RelationalSchema.Column>> film._releaseyear;
+ClassDiagram.Attribut>> Actor._id:Integer =>=>=> RelationalSchema.Column>> actor._id PRIMARY KEY;
+ClassDiagram.Attribut>> Actor._fname:String =>=>=> RelationalSchema.Column>> actor._fname;
+ClassDiagram.Attribut>> Actor._lname:String =>=>=> RelationalSchema.Column>> actor._lname;
+ClassDiagram.Attribut>> Actor._residence:String =>=>=> RelationalSchema.Column>> actor._residence;
+ClassDiagram.Attribut>> Genre._id:Integer =>=>=> RelationalSchema.Column>> genre._id PRIMARY KEY;
+ClassDiagram.Attribut>> Genre._name:String =>=>=> RelationalSchema.Column>> genre._name;
+ClassDiagram.Attribut>> Language._id:Integer =>=>=> RelationalSchema.Column>> language._id PRIMARY KEY;
+ClassDiagram.Attribut>> Language._name:String =>=>=> RelationalSchema.Column>> language._name;
+Many-To-One relationship from ClassDiagram.Class>>Film  to ClassDiagram.Class>>language represented by ClassDiagram.Atrribute>>_;
+Many-To-One relationship from ClassDiagram.Class>>Film  to ClassDiagram.Class>>genre represented by ClassDiagram.Atrribute>>_;
+Many-To-Many relationship between ClassDiagram.Class>>Film  and ClassDiagram.Class>>list<actor>: filmactor(filmid:Film [PK] #FK to Film,actorid:list<actor> [PK] #FK to list<actor>);

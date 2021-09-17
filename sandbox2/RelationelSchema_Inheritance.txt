@@ -1,0 +1,25 @@
+employeeleavemaster(GeneratedName:Employee #FK to(employee), leaveyear:int, availableleavebalance:int, openingleavebalance:int);
+
+role(/***/serialversionuid:long, role:String);
+
+aclsid(/***/serialversionuid:long, principal:String, sid:String);
+
+user(/***/serialversionuid:long, username:String, password:String, enabled:int, email:String);
+
+user_roles(user_id:User [PK] #FK to User,role_id:Role [PK] #FK to Role);
+
+authority(/***/serialversionuid:long, authority:String, name:User #FK to(User));
+
+employee(serialversionuid:long, employeename:String, employeeid:String, email:String, manager:Employee #FK to(employee), GeneratedName:User #FK to(User));
+
+base(/***/serialversionuid:long, id:String [PK], createdon:DateTime, modifiedon:DateTime, isdeleted:boolean);
+
+holiday(holidayname:String, holidaydate:DateTime);
+
+leavestatus(statusvalue:String);
+
+leaverequest(requestorname:Employee #FK to(employee), approvername:Employee #FK to(employee), //@format(pattern:DateTime, //@format(pattern:DateTime, //todo-thisshouldbeamastertypeofleave:String, leavedurationtype:String, remarks:String, availableleavebalance:int, leaveduration:int, GeneratedName:LeaveStatus #FK to(leavestatus), log:String);
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

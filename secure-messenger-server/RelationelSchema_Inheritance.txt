@@ -1,0 +1,15 @@
+
+group(id:int [PK], name:String);
+
+message(id:int [PK], GeneratedName:Group #FK to(group), sender:User #FK to(user), whensent:Timestamp, text:String, GeneratedName:BinaryContent #FK to(binarycontent));
+
+usergroup(GeneratedName:Group [PK] #FK to(group), GeneratedName:User [PK] #FK to(user), roleid:int, lastreceived:Message #FK to(message), lastread:Message #FK to(message));
+
+user(id:int [PK], pseudo:String, lasttimeonline:Timestamp);
+
+friends(user1_id:User [PK] #FK to User,user2_id:list<user> [PK] #FK to list<user>);friends(user2_id:User [PK] #FK to User,user1_id:list<user> [PK] #FK to list<user>);
+
+binarycontent(id:int [PK], type:String, content:byte, GeneratedName:Message #FK to(message));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

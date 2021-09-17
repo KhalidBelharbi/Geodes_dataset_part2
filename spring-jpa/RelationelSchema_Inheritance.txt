@@ -1,0 +1,27 @@
+userinfo(age:Integer, name:String [PK], telephone:String [PK]);
+
+user(id:Long [PK], name:String, email:String);
+
+book(/***createtablebook(*colorvarchar(31)notnull,*idbigintgeneratedbydefaultasidentity,*titlevarchar(255),*blue_markvarchar(255),*red_markvarchar(255),*primarykey(id)*)*/id:Long [PK], title:String);
+
+redbook(redmark:String);
+
+userextend(id:Long [PK], userid:Long, idcard:String, age:Integer);
+
+userinfo2(age:Integer, GeneratedName:UserInfoId2);
+
+user(id:Long [PK], name:String, createdate:Instant, up:Date, email:String, sex:String);
+
+user(id:Long [PK], name:String, email:String, sex:String);
+
+useraddress(id:Long [PK], address:String, /***配置多对一关系*/:User #FK to(user));
+
+userinfo(id:Long [PK], address:String, /***维护的外键关联关系，配置为一对一**altertable_info*addconstraintfkn8pl63y4abe7n0ls6topbqjh2*foreignkey(_id)*references*/:User #FK to(user));
+
+user(id:Long [PK], name:String, email:String, sex:String, /***配置双向关联关系，维护关联关系是拥有外键的一方（）,*只需在本实体类配置mappedby即可。*/:UserInfo #FK to(UserInfo));
+
+book(bluemark:String, color: String);
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

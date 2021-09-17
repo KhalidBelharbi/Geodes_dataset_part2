@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="secureapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="utils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrestrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="usergrouprestrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="groupservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="grouprestrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="usergrouprestrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userrestrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrestrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="messagerestrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<message,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usergrouprestrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<usergroup,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="grouprestrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<group,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="group" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="messages" type="message" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="usergroups" type="usergroup" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="message" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="group" nillable="true" minOccurs="0" />
+        <xs:element name="sender" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="whensent" type="xs:anyType" />
+        <xs:element name="text" type="xs:string" />
+        <xs:element name="GeneratedName" type="binarycontent" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usergroup" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="group" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="roleid" type="xs:long" />
+        <xs:element name="lastreceived" type="message" nillable="true" minOccurs="0" />
+        <xs:element name="lastread" type="message" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="pseudo" type="xs:string" />
+        <xs:element name="lasttimeonline" type="xs:anyType" />
+        <xs:element name="friends" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="friendof" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="usergroups" type="usergroup" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="messages" type="message" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usergroupid" >
+      <xs:sequence>
+        <xs:element name="group" type="xs:long" />
+        <xs:element name="user" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="binarycontent" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="content" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="message" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="secureapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

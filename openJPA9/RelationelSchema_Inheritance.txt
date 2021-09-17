@@ -1,0 +1,13 @@
+
+accountdatabean(serialversionuid:long, /*accessormethodsforpersistentfields*/accountid:Integer [PK], /*accountid*/logincount:int, /*logincount*/logoutcount:int, /*logoutcount*/lastlogin:Date, /*lastlogin*/creation:Date, /*creationdate*/balance:BigDecimal, /*balance*/openbalance:BigDecimal, profile:AccountProfileDataBean #FK to(accountprofiledatabean));
+
+accountprofiledatabean(serialversionuid:long, /*accessormethodsforpersistentfields*/userid:String [PK], /*userid*/passwd:String, /*password*/fullname:String, /*fullname*/address:String, /*address*/email:String, /*email*/creditcard:String, /*creditcard*/account:AccountDataBean #FK to(AccountDataBean));
+
+holdingdatabean(serialversionuid:long, /*persistent/relationshipfields*/holdingid:Integer [PK], /*holdingid*/quantity:double, /*quantity*/purchaseprice:BigDecimal, /*purchaseprice*/purchase:Date, quote(1)*/account:AccountDataBean #FK to(AccountDataBean), quote:QuoteDataBean #FK to(quotedatabean));
+
+quotedatabean(serialversionuid:long, /*accessormethodsforpersistentfields*/symbol:String [PK], /*symbol*/companyname:String, /*companyname*/volume:double, /*volume*/price:BigDecimal, /*price*/open1:BigDecimal, /*open1price*/low:BigDecimal, /*lowprice*/high:BigDecimal, /*highprice*/change1:double);
+
+orderdatabean(serialversionuid:long, orderid:Integer [PK], /*orderid*/ordertype:String, /*ordertype(buy,sell,etc.)*/orderstatus:String, /*orderstatus(open,processing,completed,closed,cancelled)*/open:Date, /*open(whentheorderwasentered)*/completion:Date, /*completiondate*/quantity:double, /*quantity*/price:BigDecimal, /*price*/orderfee:BigDecimal, /*price*/account:AccountDataBean #FK to(AccountDataBean), quote:QuoteDataBean #FK to(quotedatabean), //causeselloperationfailed,seejiradaytrader-63fordetails.//@transientholding:HoldingDataBean #FK to(holdingdatabean));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

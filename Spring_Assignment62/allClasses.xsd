@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="loggingtestcase" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messagecontrollertest" >
+      <xs:sequence>
+        <xs:element name="message" type="xs:anyType" />
+        <xs:element name="userauth" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="message" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="messageservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="messagecontroller" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usertag" >
+      <xs:sequence>
+        <xs:element name="/*	*thisclassshouldhavethreefields(usertagid,username,tag).outofthese	*threefields,thefieldusertagidshouldbetheprimarykeyandshouldbe	*generated.thisclassshouldalsocontainthegettersandsettersforthe	*fields.	*/usertagid" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="tag" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="message" >
+      <xs:sequence>
+        <xs:element name="messageid" type="xs:long" />
+        <xs:element name="sendername" type="xs:string" />
+        <xs:element name="receiverid" type="xs:string" />
+        <xs:element name="circlename" type="xs:string" />
+        <xs:element name="posteddate" type="xs:anyType" />
+        <xs:element name="streamtype" type="xs:string" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="tag" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messageservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messageserviceimpl" >
+      <xs:sequence>
+        <xs:element name="/*	*autowiringshouldbeimplementedfortheusertag,,	*messagerepository.pleasenotethatweshouldnotcreateanyobjectusingthe	*newkeyword	*/" type="usertagrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="messagerepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messagecontroller" >
+      <xs:sequence>
+        <xs:element name="/*	*fromtheproblemstatement,wecanunderstandthattheapplication	requiresusto	*implementninefunctionalitiesregardingcircles.theyareasfollowing:	*	*1.sendmessagetocircle	*2.sendmessagetousers	*3.retrievemessagefromusers	*4.retrievemessagefromcircles	*5.retrievealltags	*6.retrievemessagescontainingaspecifictag	*7.subscribeausertostreamcontainingaspecifictag	*8.unsubscribeauserfromastreamcontainingaspecifictag	*9.retrievethesetoftagssubscribedbyaspecificuser	*	*wemustalsoensurethatonlyauserwhoisloggedinshouldbeabletoperformthe	*functionalitiesmentionedabove.	*	*//*	*autowiringshouldbeimplementedforthe.pleasenotethat	*weshouldnotcreateanyobjectusingthenewkeyword	**/" type="messageservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="activitystreamstep6backendapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="loggingaspectmessage" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="loggingaspectmessageservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messagerepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<message,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usertagrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<usertag,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="logback" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

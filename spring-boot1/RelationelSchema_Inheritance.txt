@@ -1,0 +1,21 @@
+
+address(serialversionuid:long, addressid:Integer [PK], street:String, city:String, GeneratedName:User #FK to(user));
+
+user(serialversionuid:long, /***:指定表的主键*@generatedvalue:定义了标识字段生成方式*/userid:Integer [PK], /***@column:定义了将成员属性映射到关系表中的字段名称*/username:String, GeneratedName:Address #FK to(address));
+
+test(serialversionuid:long, teid:long [PK], stid:long [PK]);
+
+position(posid:long [PK], posname:String);
+
+company(comid:long [PK], comname:String);
+
+detailinfo(detid:long [PK], detname:String, GeneratedName:employee #FK to(employee));
+
+department(depid:long [PK], depname:String, GeneratedName:company #FK to(company));
+
+employee(empid:long [PK], empname:String, //mappedby:detailInfo #FK to(detailinfo), GeneratedName:department #FK to(department));
+
+t_em_pos(em_id:employee [PK] #FK to employee,em_id:list<position> [PK] #FK to list<position>);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

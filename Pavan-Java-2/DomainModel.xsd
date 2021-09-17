@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="instructorentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="@column(name" type="instructordetailentity" nillable="true" minOccurs="0" />
+        <xs:element name="courses" type="courseentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="studententity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="courseentity" type="courseentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="instructordetailentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="youtubechannel" type="xs:string" />
+        <xs:element name="hobby" type="xs:string" />
+        <xs:element name="//exceptdeleteremaining./*	*@onetoone(mappedby" type="instructorentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="courseentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="instrentity" type="instructorentity" nillable="true" minOccurs="0" />
+        <xs:element name="reviews" type="reviewentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="studententity" type="studententity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reviewentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="comment" type="xs:string" />
+        <xs:element name="courseid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

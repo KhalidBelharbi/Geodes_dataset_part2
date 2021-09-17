@@ -1,0 +1,49 @@
+
+authenticationtoken(tokenid:Integer [PK], username:String, value:String);
+
+eventvegetarianrequest(idvegetarianrequest:int [PK], iduser:int, idevent:int, vegetarian:int);
+
+eventchildrenmenurequest(ideventchildrenmenurequest:int [PK], iduser:int, idevent:int, childrenmenus:int);
+
+eventchildrenagerequest(idchildrenagerequest:int [PK], iduser:int, idevent:int, childrenage:String);
+
+eventpartnerrequest(idpartnerrequest:int [PK], partnerrequest:boolean, iduser:int, idevent:int);
+
+eventgrownmenurequest(ideventgrownmenurequest:int [PK], iduser:int, idevent:int, grownmenus:int);
+
+eventnumberofpassesrequest(ideventnumberofpassesrequest:int [PK], iduser:int, idevent:int, numberofpasses:int);
+
+event(idevent:int [PK], name:String, description:String, start:Date, end:Date, enabled:boolean, signstart:Date, signend:Date, unsignend:Date, memberprice:int, notmemberprice:int, noshowprice:int, GeneratedName:Location, GeneratedName:Logo, canrequestpartner:boolean, canrequestvegetarian:boolean, canrequestchildrenage:boolean, canrequestchildrenmenus:boolean, canrequestgrownmenus:boolean, canrequestpasses:boolean, partnerrequest:boolean, showattendingusers:boolean, activitylist:List<Activity>, selected:User);
+
+user(blof:PERSONFOR, iduser:int [PK], firstname:String, lastname:String, username:String, password:String, employeeid:String, mail:String, department:String, phone:String, admin:boolean, personaleforening:boolean, shirtsize:String, firstlogin:boolean);
+
+user_has_event(user_iduser:User [PK] #FK to User,event_idevent:set<event> [PK] #FK to set<event>);user_has_activity(user_iduser:User [PK] #FK to User,activity_idactivity:set<activity> [PK] #FK to set<activity>);
+
+logoinformation();
+
+logo(id:Long [PK], name:String, size:long, contenttype:String, data:byte);
+
+thumbnail(serialversionuid:long, id:int [PK], data:byte, size:long);
+
+teamuserselection(id:int [PK], iduser:int, idteam:int, idevent:int);
+
+team(id:int [PK], name:String);
+
+classificationvalue(id:int [PK], value:String);
+
+classification(id:int [PK], type:ClassificationType #FK to(classificationtype), name:String);
+
+classification_has_value(id_classification:Classification [PK] #FK to Classification,id_classificationvalue:set<classificationvalue> [PK] #FK to set<classificationvalue>);
+
+classificationtype(id:int [PK], name:String, type:String);
+
+activity(idactivity:int [PK], name:String, description:String, start:Date, end:Date, minimumplayers:int, minimumteams:int, GeneratedName:Location, responsible:String, canrequestpartner:boolean, memberprice:Integer, notmemberprice:Integer, noshowprice:Integer, text:String);
+
+activitypartnerrequest(idpartnerrequest:int [PK], iduser:int, idactivity:int, partnernames:String);
+
+location(idlocation:int [PK], name:String);
+
+versioninformation(idversioninformation:int [PK], major:int, majorminor:int, minor:int, minorminor:int);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

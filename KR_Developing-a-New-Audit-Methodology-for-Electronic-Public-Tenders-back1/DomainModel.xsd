@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="tenderentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="number" type="xs:string" />
+        <xs:element name="datepublished" type="xs:anyType" />
+        <xs:element name="periodstartdate" type="xs:anyType" />
+        <xs:element name="periodenddate" type="xs:anyType" />
+        <xs:element name="guaranteeamount" type="xs:double" />
+        <xs:element name="bids" type="bidentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="contracts" type="contractentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="checklistindicatorentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="indicator" type="indicatorentity" nillable="true" minOccurs="0" />
+        <xs:element name="answertype" type="answertypeentity" nillable="true" minOccurs="0" />
+        <xs:element name="componentimpact" type="componentimpactentity" nillable="true" minOccurs="0" />
+        <xs:element name="checklist" type="checklistentity" nillable="true" minOccurs="0" />
+        <xs:element name="comment" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="answertypeentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="nameen" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="checkliststatusentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="nameen" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="workdateentity" >
+      <xs:sequence>
+        <xs:element name="date" type="xs:anyType" />
+        <xs:element name="isworking" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="permissionentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="descriptionen" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="checklistscoreentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="nameen" type="xs:string" />
+        <xs:element name="leftbound" type="xs:anyType" />
+        <xs:element name="rightbound" type="xs:anyType" />
+        <xs:element name="buyerleftbound" type="xs:anyType" />
+        <xs:element name="buyerrightbound" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="checklistentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="startdate" type="xs:anyType" />
+        <xs:element name="enddate" type="xs:anyType" />
+        <xs:element name="templatename" type="xs:string" />
+        <xs:element name="templatetypeid" type="xs:anyType" />
+        <xs:element name="answers" type="answerentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="indicators" type="checklistindicatorentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="autoscore" type="checklistscoreentity" nillable="true" minOccurs="0" />
+        <xs:element name="manualscore" type="checklistscoreentity" nillable="true" minOccurs="0" />
+        <xs:element name="manualtendersscore" type="checklistscoreentity" nillable="true" minOccurs="0" />
+        <xs:element name="autotendersscore" type="checklistscoreentity" nillable="true" minOccurs="0" />
+        <xs:element name="tenderscomment" type="xs:string" />
+        <xs:element name="tendersimpact" type="componentimpactentity" nillable="true" minOccurs="0" />
+        <xs:element name="status" type="checkliststatusentity" nillable="true" minOccurs="0" />
+        <xs:element name="buyer" type="buyerentity" nillable="true" minOccurs="0" />
+        <xs:element name="tender" type="tenderentity" nillable="true" minOccurs="0" />
+        <xs:element name="auditor" type="auditorentity" nillable="true" minOccurs="0" />
+        <xs:element name="modifieddate" type="xs:anyType" />
+        <xs:element name="summary" type="xs:string" />
+        <xs:element name="auditname" type="xs:string" />
+        <xs:element name="contractnumber" type="xs:string" />
+        <xs:element name="contractamount" type="xs:double" />
+        <xs:element name="contractdescription" type="xs:string" />
+        <xs:element name="supplier" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="okgzentity" >
+      <xs:sequence>
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="originalcode" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="nameen" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="buyerentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="identifierid" type="xs:string" />
+        <xs:element name="identifierlegalnameru" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="answerentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="comment" type="xs:string" />
+        <xs:element name="npa" type="xs:string" />
+        <xs:element name="answertype" type="answertypeentity" nillable="true" minOccurs="0" />
+        <xs:element name="componentimpact" type="componentimpactentity" nillable="true" minOccurs="0" />
+        <xs:element name="categoryname" type="xs:string" />
+        <xs:element name="categorynumber" type="xs:string" />
+        <xs:element name="questiondescription" type="xs:string" />
+        <xs:element name="basequestion" type="xs:anyType" />
+        <xs:element name="questionnumber" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="questionentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="base" type="xs:anyType" />
+        <xs:element name="categoryid" type="xs:anyType" />
+        <xs:element name="number" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="checklistquestionentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="category" type="questioncategoryentity" nillable="true" minOccurs="0" />
+        <xs:element name="checklist" type="checklistentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="componentimpactentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="nameen" type="xs:string" />
+        <xs:element name="impact" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="auditorentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="disabled" type="xs:anyType" />
+        <xs:element name="accountlocked" type="xs:anyType" />
+        <xs:element name="tendervaluerank" type="xs:double" />
+        <xs:element name="tenderrisklevelrank" type="xs:double" />
+        <xs:element name="buyervaluerank" type="xs:double" />
+        <xs:element name="buyerrisklevelrank" type="xs:double" />
+        <xs:element name="permissions" type="permissionentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="questioncategoryentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="number" type="xs:string" />
+        <xs:element name="templateid" type="xs:anyType" />
+        <xs:element name="questions" type="questionentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contractentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="datesigned" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="templateentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="base" type="xs:anyType" />
+        <xs:element name="type" type="templatetypeentity" nillable="true" minOccurs="0" />
+        <xs:element name="categories" type="questioncategoryentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="auditor" type="auditorentity" nillable="true" minOccurs="0" />
+        <xs:element name="modifieddate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="indicatorentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="risks" type="xs:string" />
+        <xs:element name="lawviolation" type="xs:string" />
+        <xs:element name="riskleveltext" type="xs:string" />
+        <xs:element name="descriptionen" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="templatetypeentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="nameen" type="xs:string" />
+        <xs:element name="procurementmethods" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bidentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="datedisclosed" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

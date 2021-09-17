@@ -1,0 +1,29 @@
+
+person(serialversionuid:long, name:String, username:String, phone:Long, emailprimary:String, emailsecondary:String, gender:GenderEnum, age:int, password:String, dob:LocalDate, isadult:Boolean, GeneratedName:Address #FK to(Address));
+
+address(serialversionuid:long, street:String, suite:String, city:String, zipcode:String, GeneratedName:Geo #FK to(geo), GeneratedName:Person #FK to(Person));
+
+geo(serialversionuid:long, lat:String, lng:String, GeneratedName:Address #FK to(Address));
+
+permission(serialversionuid:long, name:String);
+
+user(serialversionuid:long, password:String, username:String, email:String, isaccountnonexpired:boolean, isaccountnonlocked:boolean, iscredentialsnonexpired:boolean, isenabled:boolean);
+
+sbat_auth_role_user(user_id:User [PK] #FK to User,role_id:list<role> [PK] #FK to list<role>);
+
+role(serialversionuid:long, name:String);
+
+sbat_auth_permission_role(role_id:Role [PK] #FK to Role,permission_id:list<permission> [PK] #FK to list<permission>);
+
+refreshtoken(serialversionuid:long, token:String, username:String);
+
+verificationtoken(serialversionuid:long, token:String, expirydate:Instant, status:VerificationTokenEnum, GeneratedName:User #FK to(user));
+
+applicationsetings(serialversionuid:long, appkey:String, appvalue:String);
+
+applicationlog(//defaultserialversionidserialversionuid:long, event:ApplicationLogEnum, details:String);
+
+builtwith(//defaultserialversionidserialversionuid:long, name:String, version:String, description:String, link:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

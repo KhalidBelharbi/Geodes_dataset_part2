@@ -1,0 +1,14 @@
+ClassDiagram.Class>> AuditModel =>=>=> RelationalSchema.Table>> auditmodel;
+ClassDiagram.Class>> MinerAddress =>=>=> RelationalSchema.Table>> mineraddress;
+ClassDiagram.Class>> NodeAddress =>=>=> RelationalSchema.Table>> nodeaddress;
+ClassDiagram.Attribut>> AuditModel.createdat:Date =>=>=> RelationalSchema.Column>> auditmodel.createdat;
+ClassDiagram.Attribut>> AuditModel.updat:Date =>=>=> RelationalSchema.Column>> auditmodel.updat;
+ClassDiagram.Attribut>> MinerAddress.id:Long =>=>=> RelationalSchema.Column>> mineraddress.id PRIMARY KEY;
+ClassDiagram.Attribut>> MinerAddress.address:String =>=>=> RelationalSchema.Column>> mineraddress.address;
+ClassDiagram.Attribut>> MinerAddress.vrs:String =>=>=> RelationalSchema.Column>> mineraddress.vrs;
+ClassDiagram.Attribut>> NodeAddress.id:String =>=>=> RelationalSchema.Column>> nodeaddress.id PRIMARY KEY;
+ClassDiagram.Attribut>> NodeAddress.title:String =>=>=> RelationalSchema.Column>> nodeaddress.title;
+ClassDiagram.Attribut>> NodeAddress.description:String =>=>=> RelationalSchema.Column>> nodeaddress.description;
+ClassDiagram.Attribut>> NodeAddress.content:String =>=>=> RelationalSchema.Column>> nodeaddress.content;
+Many-To-One relationship from ClassDiagram.Class>>MinerAddress  to ClassDiagram.Class>>nodeaddress represented by ClassDiagram.Atrribute>>GeneratedName;
+One-To-Many relationship from ClassDiagram.Class>>NodeAddress  to ClassDiagram.Class>>Set<MinerAddress>;

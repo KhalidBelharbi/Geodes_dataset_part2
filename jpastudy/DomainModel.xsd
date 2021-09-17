@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="member" >
+      <xs:complexContent>
+       <xs:extension base="base">
+         <xs:sequence>
+          <xs:element name="memberno" type="xs:long" />
+          <xs:element name="memberid" type="xs:string" />
+          <xs:element name="receiveagrees" type="receiveagree" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="receiveagree" >
+      <xs:sequence>
+        <xs:element name="receiveno" type="xs:long" />
+        <xs:element name="receiveagreedivcd" type="xs:string" />
+        <xs:element name="receveagreeyn" type="xs:string" />
+        <xs:element name="GeneratedName" type="member" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="idparent" >
+      <xs:sequence>
+        <xs:element name="id1" type="xs:string" />
+        <xs:element name="id2" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="child" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="parent" type="idparent" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="item" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="price" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="movie" >
+      <xs:complexContent>
+       <xs:extension base="item">
+         <xs:sequence>
+          <xs:element name="director" type="xs:string" />
+          <xs:element name="actor" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="album" >
+      <xs:complexContent>
+       <xs:extension base="item">
+         <xs:sequence>
+          <xs:element name="artist" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="header" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="header1" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="loginservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="loginserviceimpl" >
+      <xs:sequence>
+        <xs:element name="userrepo" type="loginrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="boardservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="boardrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rentdto" >
+      <xs:sequence>
+        <xs:element name="rent_id" type="xs:long" />
+        <xs:element name="author" type="xs:string" />
+        <xs:element name="rent_title" type="xs:string" />
+        <xs:element name="rent_content" type="xs:string" />
+        <xs:element name="picture" type="xs:string" />
+        <xs:element name="price" type="xs:string" />
+        <xs:element name="rent_date" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="boarddto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="author" type="xs:string" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="createddate" type="xs:anyType" />
+        <xs:element name="modifieddate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdto" >
+      <xs:sequence>
+        <xs:element name="author" type="xs:string" />
+        <xs:element name="user_password" type="xs:string" />
+        <xs:element name="user_password_check" type="xs:string" />
+        <xs:element name="user_address" type="xs:string" />
+        <xs:element name="user_email" type="xs:string" />
+        <xs:element name="user_name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sharecampingapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logincontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="loginservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="boardcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="boardservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="rentrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="rentcommentrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="boardrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="communitycommentrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="servletinitializer" >
+      <xs:complexContent>
+       <xs:extension base="springbootservletinitializer">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="boardrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<board,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rentcommentrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<rentcomment,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="loginrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rentrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<rent,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="communitycommentrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<communitycomment,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="author" type="xs:string" />
+        <xs:element name="user_password" type="xs:string" />
+        <xs:element name="user_password_check" type="xs:string" />
+        <xs:element name="user_address" type="xs:string" />
+        <xs:element name="user_name" type="xs:string" />
+        <xs:element name="user_email" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rent" >
+      <xs:sequence>
+        <xs:element name="rent_id" type="xs:long" />
+        <xs:element name="author" type="xs:string" />
+        <xs:element name="rent_title" type="xs:string" />
+        <xs:element name="picture" type="xs:string" />
+        <xs:element name="rent_content" type="xs:string" />
+        <xs:element name="rent_date" type="xs:anyType" />
+        <xs:element name="rentcomment" type="rentcomment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="board" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="author" type="xs:string" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="createddate" type="xs:anyType" />
+        <xs:element name="modifieddate" type="xs:anyType" />
+        <xs:element name="communitycomment" type="communitycomment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="communitycomment" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="community_comment_content" type="xs:string" />
+        <xs:element name="author" type="xs:string" />
+        <xs:element name="GeneratedName" type="board" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rentcomment" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="rent_comment_content" type="xs:string" />
+        <xs:element name="author" type="xs:string" />
+        <xs:element name="GeneratedName" type="rent" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sharecampingapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

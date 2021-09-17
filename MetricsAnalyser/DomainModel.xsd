@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="valormetrica" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="source" type="xs:string" />
+        <xs:element name="pack" type="xs:string" />
+        <xs:element name="valor" type="xs:double" />
+        <xs:element name="GeneratedName" type="metrica" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="projeto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="descricao" type="xs:string" />
+        <xs:element name="gerente" type="usuario" nillable="true" minOccurs="0" />
+        <xs:element name="equipe" type="usuario" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="atualizacoes" type="atualizacao" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="metrica" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="tipo" type="tipometrica" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="atualizacao" nillable="true" minOccurs="0" />
+        <xs:element name="valores" type="valormetrica" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="atualizacao" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="data" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="projeto" nillable="true" minOccurs="0" />
+        <xs:element name="metricas" type="metrica" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuario" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="login" type="xs:string" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="senha" type="xs:string" />
+        <xs:element name="habilitado" type="xs:anyType" />
+        <xs:element name="autorizacoes" type="autorizacao" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="autorizacao" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="usuarios" type="usuario" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

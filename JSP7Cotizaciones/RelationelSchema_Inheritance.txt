@@ -1,0 +1,87 @@
+
+incotermfaccostosadic(/***/serialversionuid:long, cemp:String [PK], idincoterm:String [PK], idfaccostosadic:String [PK], c_emp:Incoterm #FK to(incoterm), c_emp:FacCostosAdic #FK to(faccostosadic));
+
+mercado(cemp:String [PK], merc:String [PK], desmerc:String, tipo:String);
+
+embalaje(serialversionuid:long, cemp:String [PK], cemb:String [PK], nombre:String, version:Integer);
+
+clicontacto(/***/serialversionuid:long, id:Long [PK], cemp:String, nit:String, cargo:String, percargo:String);
+
+precio(/***/serialversionuid:long, cemp:String [PK], cod:String [PK], cri:String [PK], pven:Double, fecha:Date);
+
+usuage(/***/serialversionuid:long, usuario:String [PK], cemp:String [PK], version:Integer);
+
+faccostosadic(cemp:String [PK], codigo:String [PK], nombre:String, moneda:String, ccta:String, cret:String, civa:String, version:Integer, tipo:String);
+
+criterio(/***/serialversionuid:long, cemp:String [PK], cri:String [PK], des:String, mon:String, act:String);
+
+cliente(/***/serialversionuid:long, cemp:String [PK], nide:String [PK], cri:String);
+
+municipio(/***/serialversionuid:long, cemp:String [PK], cpai:String [PK], cdpto:String [PK], cmnpo:String [PK], nombre:String);
+
+servicio(cemp:String [PK], cod:String [PK], mon:String [PK], pven:Double);
+
+cotseccionessinonimos(/***/serialversionuid:long, cemp:String [PK], codseccion:String [PK], idioma:String [PK], descripcion:String, version:Integer);
+
+idioma(/***/serialversionuid:long, cemp:String [PK], idioma:String [PK], version:Integer);
+
+proveedor(/***/serialversionuid:long, cemp:String [PK], nide:String [PK], nche:String);
+
+cotencsecciones(/***/serialversionuid:long, cemp:String [PK], per:String [PK], cagr:String [PK], cot:String [PK], rev:Long [PK], codseccion:String [PK], descripcion:String, etiqueta:String);
+
+succli(/***/serialversionuid:long, cemp:String [PK], nide:String [PK], csuc:String [PK], nom:String);
+
+faccostoscot(/***/serialversionuid:long, cemp:String [PK], cagr:String [PK], per:String [PK], numdoc:String [PK], rev:Integer [PK], codcosto:String [PK], valor:Double);
+
+categoriacomercial(/***/serialversionuid:long, cemp:String [PK], codcat:String [PK], nombrecat:String, codcatpadre:String);
+
+parametros(cemp:String [PK], emp:String);
+
+cotenc(/***/serialversionuid:long, cemp:String [PK], per:String [PK], cagr:String [PK], cot:String [PK], rev:Integer [PK], emi:Date, ven:Date, perct:String, totd:Double, iva:Double, nide:String, cven:String, codsuc:String, idioma:String, codincoterm:String, origen:String, despacho:String, terminopago:String, tiempoentrega:String, est:String, lugardestino:String, obs:String, id:CliContacto #FK to(icon), c_pai:Pais #FK to(pais), cod_emb:Embalaje #FK to(embalaje), cri:Criterio #FK to(criterio), n_ide:FctTerceros #FK to(fctterceros), n_ide:Nits #FK to(nits));
+
+nits(/***/serialversionuid:long, cemp:String [PK], nide:String [PK], nom:String, est:String, csuc:String);
+
+incoterm(/***/serialversionuid:long, cemp:String [PK], codincoterm:String [PK], nombre:String, version:Integer);
+
+usuarios(/***/serialversionuid:long, username:String [PK], codigo:String, password:String, activo:String, nombre:String, email:String, password:Date);
+
+fctterceros(/***/serialversionuid:long, cemp:String [PK], nide:String [PK], nom:String, est:String, csuc:String);
+
+prospectocliente(/***/serialversionuid:long, cemp:String [PK], nide:String [PK], nombre:String, est:String, dir:String, tel:String, cpai:String, dep:String, ciu:String);
+
+embalajesinonimo(/***/serialversionuid:long, cemp:String [PK], codemb:String [PK], idioma:String [PK], descripcion:String);
+
+menu(/***/serialversionuid:long, id:Integer [PK], label:String, link:String, id:Menu #FK to(menu));
+
+viewclientes(id:Long [PK], codempresa:String, nitcliente:String, nombrecliente:String, iva:String, zona:String, sucursal:String, mercado:String, direccion:String, telefono:String, email:String, pais:String, departamento:String, ciudad:String, contactocargo:String, contactopersona:String);
+
+pais(/***/serialversionuid:long, cemp:String [PK], cpai:String [PK], nom:String);
+
+cotdet(/***/serialversionuid:long, cemp:String, per:String [PK], cagr:String [PK], cot:String [PK], rev:Integer [PK], cod:String [PK], can:Double, lis:Double, ven:Double, pdes:Double, inf7:String, nom:String, orden:Integer, cod:Articulo #FK to(articulo));
+
+cotseccionesdetsinonimos(/***/serialversionuid:long, cemp:String [PK], codseccion:String [PK], codval:String [PK], idioma:String [PK], descripcion:String, version:Integer);
+
+vendedor(/***/serialversionuid:long, cemp:String [PK], nide:String [PK], usuario:String, est:String, n_ide:Nits #FK to(nits));
+
+paramfac(/***/serialversionuid:long, cemp:String [PK], incparr:int, incpabj:int, seguroaut:String, porcsegaut:Double);
+
+cotseccionesdet(/***/serialversionuid:long, cemp:String [PK], codseccion:String [PK], codval:String [PK], descripcion:String, version:Integer);
+
+cotsecciones(/***/serialversionuid:long, cemp:String [PK], codseccion:String [PK], nombresec:String, tiposeccion:String, orden:Integer);
+
+agencia(/***/serialversionuid:long, cemp:String [PK], cage:String [PK], nom:String);
+
+zona(/***/serialversionuid:long, cemp:String [PK], zon:String [PK], nom:String, tipo:String);
+
+articulo(/***/serialversionuid:long, cemp:String [PK], cod:String [PK], nom:String, uni:String, nomlargo:String, rama:String, fact:String, iva:String, clase:String, c_emp:DesctoEgr #FK to(desctoegr), c_emp:Clase #FK to(clase));
+
+departamento(cemp:String [PK], cpai:String [PK], cdpto:String [PK], nombre:String);
+
+articulodescom(/***/serialversionuid:long, id:Long [PK], cemp:String, cod:String, idioma:String, descripcion:String);
+
+desctoegr(cemp:String [PK], cdes:String [PK], ndes:String, pctj:Double, tipoimp:String, usoimp:String);
+
+clase(cemp:String [PK], clase:String [PK], nom:String, afinvent:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

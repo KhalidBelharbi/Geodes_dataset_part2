@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="speaker" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="surname" type="xs:string" />
+        <xs:element name="bio" type="xs:string" />
+        <xs:element name="twitter" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="program" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sellerservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="carservice" >
+      <xs:sequence>
+        <xs:element name="em" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="developertype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="developer" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="GeneratedName" type="developertype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="car" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="//названиеавтоname" type="xs:string" />
+        <xs:element name="//датавыпускаrelease" type="xs:dateTime" />
+        <xs:element name="//стоимостьcost" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="seller" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="//полноеимяfullname" type="xs:string" />
+        <xs:element name="//возврастage" type="xs:long" />
+        <xs:element name="//зар.платаsalary" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="player" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="surname" type="xs:string" />
+        <xs:element name="age" type="xs:long" />
+        <xs:element name="birth" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="phone" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="number" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="employee" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="surname" type="xs:string" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="created" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="surname" type="xs:string" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="created" type="xs:dateTime" />
+        <xs:element name="phones" type="phone" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tournaments" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="tournament" type="xs:string" />
+        <xs:element name="players" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="players" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="surname" type="xs:string" />
+        <xs:element name="age" type="xs:long" />
+        <xs:element name="birth" type="xs:dateTime" />
+        <xs:element name="/***cascadetype.persist:itmeansthatthesave()andpersist()operationsinthehibernatecascadetotherelatedentities*cascadetype.merge:itmeansthattherelatedentitiesarejoinedwhentheowningentityisjoined*cascadetype.remove:itmeansthattherelatedentitiesaredeletedwhentheowningentityisdeleted*cascadetype.detach:itdetachesalltherelatedentitiesifamanualdetachoccurs*cascadetype.refresh:itworkssimilartotherefresh()operationinthehibernate*cascadetype.all:itisanalternativeforperformingalltheabovecascadeoperationsinthehibernateframework*/tournaments" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="data" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="playerit" >
+      <xs:sequence>
+        <xs:element name="//todo:howtoconnecttoderby??emf" type="xs:anyType" />
+        <xs:element name="em" type="xs:anyType" />
+        <xs:element name="tx" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="turnamentsplayersit" >
+      <xs:sequence>
+        <xs:element name="//todo:howtoconnecttoderby??emf" type="xs:anyType" />
+        <xs:element name="em" type="xs:anyType" />
+        <xs:element name="tx" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="carservicetest" >
+      <xs:sequence>
+        <xs:element name="service" type="carservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mypersistenceunitit" >
+      <xs:sequence>
+        <xs:element name="//todo:howtoconnecttoderby??emf" type="xs:anyType" />
+        <xs:element name="em" type="xs:anyType" />
+        <xs:element name="tx" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

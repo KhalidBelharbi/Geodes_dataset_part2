@@ -1,0 +1,783 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="informe" >
+      <xs:sequence>
+        <xs:element name="numexpedicion" type="xs:long" />
+        <xs:element name="tareas" type="xs:string" />
+        <xs:element name="dnitrabajadorinforme" type="xs:string" />
+        <xs:element name="GeneratedName" type="factura" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="trabajador" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="controlador" >
+      <xs:sequence>
+        <xs:element name="modelo" type="dao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="vista" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="daorepuestoexcepcion" >
+      <xs:complexContent>
+       <xs:extension base="exception{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="daotrabajadorexcepcion" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="daoobdexcepcion" >
+      <xs:complexContent>
+       <xs:extension base="exception{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="daofacturaexcepcion" >
+      <xs:complexContent>
+       <xs:extension base="exception{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="daovehiculoexcepcion" >
+      <xs:complexContent>
+       <xs:extension base="exception{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="daoconexionexcepcion" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="daoinformeexcepcion" >
+      <xs:complexContent>
+       <xs:extension base="exception{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="trabajador" >
+      <xs:sequence>
+        <xs:element name="dni" type="xs:string" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="apellido1" type="xs:string" />
+        <xs:element name="apellido2" type="xs:string" />
+        <xs:element name="funcion" type="xs:string" />
+        <xs:element name="vehiculo" type="vehiculo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="informe" type="informe" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="repuestos" type="repuestos" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="facturasxml" >
+      <xs:sequence>
+        <xs:element name="facturas" type="factura" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="trabajadoresxml" >
+      <xs:sequence>
+        <xs:element name="trabajadores" type="trabajador" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="informesxml" >
+      <xs:sequence>
+        <xs:element name="informes" type="informe" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="repuestosxml" >
+      <xs:sequence>
+        <xs:element name="repuestos" type="repuestos" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="obdsxml" >
+      <xs:sequence>
+        <xs:element name="obds" type="obd" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vehiculosxml" >
+      <xs:sequence>
+        <xs:element name="vehiculos" type="vehiculo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="obd" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="rpm_inst" type="xs:long" />
+        <xs:element name="temp_aceite" type="xs:double" />
+        <xs:element name="temp_agua" type="xs:double" />
+        <xs:element name="cod_salida" type="xs:string" />
+        <xs:element name="sensores" type="xs:string" />
+        <xs:element name="bastidorvehiculoobd" type="xs:string" />
+        <xs:element name="GeneratedName" type="vehiculo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="formularioobd" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="confirmacionexportacionxml" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="eliminarobd" >
+      <xs:complexContent>
+       <xs:extension base="javax.swing.jdialog">
+         <xs:sequence>
+          <xs:element name="/***createsnewformeliminartrabajador*/confirmareliminar" type="xs:anyType" />
+          <xs:element name="//variablesdeclaration-donotmodify//gen-begin:variablesjpanel1" type="xs:anyType" />
+          <xs:element name="jbaceptar" type="xs:anyType" />
+          <xs:element name="jbcancelar" type="xs:anyType" />
+          <xs:element name="jlbastidorobd" type="xs:anyType" />
+          <xs:element name="jlcodsalida" type="xs:anyType" />
+          <xs:element name="jlid" type="xs:anyType" />
+          <xs:element name="jlrmpinst" type="xs:anyType" />
+          <xs:element name="jlsensores" type="xs:anyType" />
+          <xs:element name="jltempaceite" type="xs:anyType" />
+          <xs:element name="jltempagua" type="xs:anyType" />
+          <xs:element name="jltituloeliminarvehiculo" type="xs:anyType" />
+          <xs:element name="jtfbastidorobd" type="xs:anyType" />
+          <xs:element name="jtfcodsalida" type="xs:anyType" />
+          <xs:element name="jtfid" type="xs:anyType" />
+          <xs:element name="jtfrpminst" type="xs:anyType" />
+          <xs:element name="jtfsensores" type="xs:anyType" />
+          <xs:element name="jtftempaceite" type="xs:anyType" />
+          <xs:element name="jtftempagua" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="confirmacionexportacionxml" >
+      <xs:complexContent>
+       <xs:extension base="javax.swing.jdialog">
+         <xs:sequence>
+          <xs:element name="//variablesdeclaration-donotmodify//gen-begin:variablesjpanel1" type="xs:anyType" />
+          <xs:element name="jlexportacionexitosa" type="xs:anyType" />
+          <xs:element name="jlrutaexportado" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="eliminarobd" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="formularioobd" >
+      <xs:complexContent>
+       <xs:extension base="javax.swing.jdialog">
+         <xs:sequence>
+          <xs:element name="/***createsnewforminsertartrabajador*/confirmarinsertar" type="xs:anyType" />
+          <xs:element name="" type="controlador" nillable="true" minOccurs="0" />
+          <xs:element name="//variablesdeclaration-donotmodify//gen-begin:variablesjpanel1" type="xs:anyType" />
+          <xs:element name="jbaceptar" type="xs:anyType" />
+          <xs:element name="jbcancelar" type="xs:anyType" />
+          <xs:element name="jcbbastidorobd" type="xs:anyType" />
+          <xs:element name="jlbastidorobd" type="xs:anyType" />
+          <xs:element name="jlcodsalida" type="xs:anyType" />
+          <xs:element name="jlformularioobd" type="xs:anyType" />
+          <xs:element name="jlid" type="xs:anyType" />
+          <xs:element name="jlrmpinst" type="xs:anyType" />
+          <xs:element name="jlsensores" type="xs:anyType" />
+          <xs:element name="jltempaceite" type="xs:anyType" />
+          <xs:element name="jltempagua" type="xs:anyType" />
+          <xs:element name="jtfcodsalida" type="xs:anyType" />
+          <xs:element name="jtfid" type="xs:anyType" />
+          <xs:element name="jtfrpminst" type="xs:anyType" />
+          <xs:element name="jtfsensores" type="xs:anyType" />
+          <xs:element name="jtftempaceite" type="xs:anyType" />
+          <xs:element name="jtftempagua" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="vista" >
+      <xs:complexContent>
+       <xs:extension base="javax.swing.jframe">
+         <xs:sequence>
+          <xs:element name="/***createsnewformvista*/" type="controlador" nillable="true" minOccurs="0" />
+          <xs:element name="listatrabajadores" type="trabajador" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="listavehiculos" type="vehiculo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="listainformes" type="informe" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="listafacturas" type="factura" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="listarepuestos" type="repuestos" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="listaobd" type="obd" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="selector" type="selectorconexion" nillable="true" minOccurs="0" />
+          <xs:element name="seleccionmodelo" type="xs:long" />
+          <xs:element name="contadortrabajador" type="xs:long" />
+          <xs:element name="contadorvehiculo" type="xs:long" />
+          <xs:element name="contadorinforme" type="xs:long" />
+          <xs:element name="contadorrepuestos" type="xs:long" />
+          <xs:element name="contadorobd" type="xs:long" />
+          <xs:element name="contadorfactura" type="xs:long" />
+          <xs:element name="//variablesdeclaration-donotmodify//gen-begin:variablesfondomain" type="xs:anyType" />
+          <xs:element name="jlabel2" type="xs:anyType" />
+          <xs:element name="jmenu2" type="xs:anyType" />
+          <xs:element name="jpanel1" type="xs:anyType" />
+          <xs:element name="jpanel2" type="xs:anyType" />
+          <xs:element name="jpanel3" type="xs:anyType" />
+          <xs:element name="jpanel4" type="xs:anyType" />
+          <xs:element name="jbanteriorfactura" type="xs:anyType" />
+          <xs:element name="jbanteriorinforme" type="xs:anyType" />
+          <xs:element name="jbanteriorobd" type="xs:anyType" />
+          <xs:element name="jbanteriorrepuesto" type="xs:anyType" />
+          <xs:element name="jbanteriortrabajador" type="xs:anyType" />
+          <xs:element name="jbanteriorvehiculo" type="xs:anyType" />
+          <xs:element name="jbeliminarfactura" type="xs:anyType" />
+          <xs:element name="jbeliminarinforme" type="xs:anyType" />
+          <xs:element name="jbeliminarobd" type="xs:anyType" />
+          <xs:element name="jbeliminarrepuesto" type="xs:anyType" />
+          <xs:element name="jbeliminartrabajador" type="xs:anyType" />
+          <xs:element name="jbeliminarvehiculo" type="xs:anyType" />
+          <xs:element name="jbinsertarfactura" type="xs:anyType" />
+          <xs:element name="jbinsertarinforme" type="xs:anyType" />
+          <xs:element name="jbinsertarobd" type="xs:anyType" />
+          <xs:element name="jbinsertarrepuesto" type="xs:anyType" />
+          <xs:element name="jbinsertartrabajador" type="xs:anyType" />
+          <xs:element name="jbinsertarvehiculo" type="xs:anyType" />
+          <xs:element name="jbmodificarfactura" type="xs:anyType" />
+          <xs:element name="jbmodificarinforme" type="xs:anyType" />
+          <xs:element name="jbmodificarobd" type="xs:anyType" />
+          <xs:element name="jbmodificarrepuesto" type="xs:anyType" />
+          <xs:element name="jbmodificartrabajador" type="xs:anyType" />
+          <xs:element name="jbmodificarvehiculo" type="xs:anyType" />
+          <xs:element name="jbsiguientefactura" type="xs:anyType" />
+          <xs:element name="jbsiguienteinforme" type="xs:anyType" />
+          <xs:element name="jbsiguienteobd" type="xs:anyType" />
+          <xs:element name="jbsiguienterepuesto" type="xs:anyType" />
+          <xs:element name="jbsiguientetrabajador" type="xs:anyType" />
+          <xs:element name="jbsiguientevehiculo" type="xs:anyType" />
+          <xs:element name="jlaceitevehiculo" type="xs:anyType" />
+          <xs:element name="jlapellido1trabajador" type="xs:anyType" />
+          <xs:element name="jlapellido2trabajador" type="xs:anyType" />
+          <xs:element name="jlbastidorvehiculo" type="xs:anyType" />
+          <xs:element name="jlbastidorvehiculoobd" type="xs:anyType" />
+          <xs:element name="jlbastidorvehiculorepuestos" type="xs:anyType" />
+          <xs:element name="jlcarburantevehiculo" type="xs:anyType" />
+          <xs:element name="jlcodigosalidaobd" type="xs:anyType" />
+          <xs:element name="jlconsumovehiculo" type="xs:anyType" />
+          <xs:element name="jldnitrabajador" type="xs:anyType" />
+          <xs:element name="jldnitrabajadorinforme" type="xs:anyType" />
+          <xs:element name="jldnitrabajadorvehiculo" type="xs:anyType" />
+          <xs:element name="jlfechacomprarepuesto" type="xs:anyType" />
+          <xs:element name="jlfechaentradavehiculo" type="xs:anyType" />
+          <xs:element name="jlfunciontrabajador" type="xs:anyType" />
+          <xs:element name="jlidobd" type="xs:anyType" />
+          <xs:element name="jllineafactura" type="xs:anyType" />
+          <xs:element name="jlmarcarepuesto" type="xs:anyType" />
+          <xs:element name="jlmarcavehiculo" type="xs:anyType" />
+          <xs:element name="jlmatriculavehiculo" type="xs:anyType" />
+          <xs:element name="jlmodelovehiculo" type="xs:anyType" />
+          <xs:element name="jlmotorvehiculo" type="xs:anyType" />
+          <xs:element name="jlnombrecompletotrabajadorvehiculo" type="xs:anyType" />
+          <xs:element name="jlnombrerepuesto" type="xs:anyType" />
+          <xs:element name="jlnombretrabajador" type="xs:anyType" />
+          <xs:element name="jlnumexpedicioninforme" type="xs:anyType" />
+          <xs:element name="jlnumfactura" type="xs:anyType" />
+          <xs:element name="jlnumserierepuesto" type="xs:anyType" />
+          <xs:element name="jlnumerofacturarepuestos" type="xs:anyType" />
+          <xs:element name="jlpotenciavehiculo" type="xs:anyType" />
+          <xs:element name="jlpreciofactura" type="xs:anyType" />
+          <xs:element name="jlreferenciarepuesto" type="xs:anyType" />
+          <xs:element name="jlrpminstobd" type="xs:anyType" />
+          <xs:element name="jlsensores" type="xs:anyType" />
+          <xs:element name="jltareasinforme" type="xs:anyType" />
+          <xs:element name="jltemperaturaaceiteobd" type="xs:anyType" />
+          <xs:element name="jltemperaturaaguaobd" type="xs:anyType" />
+          <xs:element name="jltiempodedicado" type="xs:anyType" />
+          <xs:element name="jltiendarepuesto" type="xs:anyType" />
+          <xs:element name="jltrabajadorasignado" type="xs:anyType" />
+          <xs:element name="jlusorepuesto" type="xs:anyType" />
+          <xs:element name="jlnumexpedicioninformefactura" type="xs:anyType" />
+          <xs:element name="jmbbarraherramientas" type="xs:anyType" />
+          <xs:element name="jmiexportarxml" type="xs:anyType" />
+          <xs:element name="jtfaceitevehiculo" type="xs:anyType" />
+          <xs:element name="jtfapellido1trabajador" type="xs:anyType" />
+          <xs:element name="jtfapellido2trabajador" type="xs:anyType" />
+          <xs:element name="jtfbastidorvehiculo" type="xs:anyType" />
+          <xs:element name="jtfbastidorvehiculoobd" type="xs:anyType" />
+          <xs:element name="jtfbastidorvehiculorepuestos" type="xs:anyType" />
+          <xs:element name="jtfcarburantevehiculo" type="xs:anyType" />
+          <xs:element name="jtfcodigosalidaobd" type="xs:anyType" />
+          <xs:element name="jtfconsumovehiculo" type="xs:anyType" />
+          <xs:element name="jtfdnitrabajadorvehiculo" type="xs:anyType" />
+          <xs:element name="jtfdnitrabajador" type="xs:anyType" />
+          <xs:element name="jtfdnitrabajadorinforme" type="xs:anyType" />
+          <xs:element name="jtffechacomprarepuesto" type="xs:anyType" />
+          <xs:element name="jtffechaentradavehiculo" type="xs:anyType" />
+          <xs:element name="jtffunciontrabajador" type="xs:anyType" />
+          <xs:element name="jtfidobd" type="xs:anyType" />
+          <xs:element name="jtflineafactura" type="xs:anyType" />
+          <xs:element name="jtfmarcarepuesto" type="xs:anyType" />
+          <xs:element name="jtfmarcavehiculo" type="xs:anyType" />
+          <xs:element name="jtfmatriculavehiculo" type="xs:anyType" />
+          <xs:element name="jtfmodelovehiculo" type="xs:anyType" />
+          <xs:element name="jtfmotorvehiculo" type="xs:anyType" />
+          <xs:element name="jtfnombrecompletotrabajadorvehiculo" type="xs:anyType" />
+          <xs:element name="jtfnombrerepuesto" type="xs:anyType" />
+          <xs:element name="jtfnombretrabajador" type="xs:anyType" />
+          <xs:element name="jtfnumexpedicioninforme" type="xs:anyType" />
+          <xs:element name="jtfnumfactura" type="xs:anyType" />
+          <xs:element name="jtfnumfacturarepuestos" type="xs:anyType" />
+          <xs:element name="jtfnumserierepuesto" type="xs:anyType" />
+          <xs:element name="jtfpotenciavehiculo" type="xs:anyType" />
+          <xs:element name="jtfpreciofactura" type="xs:anyType" />
+          <xs:element name="jtfreferenciarepuesto" type="xs:anyType" />
+          <xs:element name="jtfrpminstobd" type="xs:anyType" />
+          <xs:element name="jtfsensores" type="xs:anyType" />
+          <xs:element name="jtftareasinforme" type="xs:anyType" />
+          <xs:element name="jtftemperaturaaceiteobd" type="xs:anyType" />
+          <xs:element name="jtftemperaturaaguaobd" type="xs:anyType" />
+          <xs:element name="jtftiempodedicado" type="xs:anyType" />
+          <xs:element name="jtftiendarepuesto" type="xs:anyType" />
+          <xs:element name="jtfusorepuesto" type="xs:anyType" />
+          <xs:element name="jtfnumexpedicioninformefactura" type="xs:anyType" />
+          <xs:element name="jtptablaprincipal" type="xs:anyType" />
+          <xs:element name="lbltitle" type="xs:anyType" />
+          <xs:element name="ptrabajadores" type="xs:anyType" />
+          <xs:element name="ptrabajadores1" type="xs:anyType" />
+          <xs:element name="ptrabajadores2" type="xs:anyType" />
+          <xs:element name="ptrabajadores3" type="xs:anyType" />
+          <xs:element name="pvehiculos" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="formulariovehiculo" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="formulariotrabajador" >
+      <xs:complexContent>
+       <xs:extension base="javax.swing.jdialog">
+         <xs:sequence>
+          <xs:element name="/***createsnewforminsertartrabajador*/confirmarinsertar" type="xs:anyType" />
+          <xs:element name="//variablesdeclaration-donotmodify//gen-begin:variablesjpanel1" type="xs:anyType" />
+          <xs:element name="jbaceptar" type="xs:anyType" />
+          <xs:element name="jbcancelar" type="xs:anyType" />
+          <xs:element name="jlapellido1" type="xs:anyType" />
+          <xs:element name="jlapellido2" type="xs:anyType" />
+          <xs:element name="jldni" type="xs:anyType" />
+          <xs:element name="jlformulariotrabajador" type="xs:anyType" />
+          <xs:element name="jlfuncion" type="xs:anyType" />
+          <xs:element name="jlnombre" type="xs:anyType" />
+          <xs:element name="jtfapellido1" type="xs:anyType" />
+          <xs:element name="jtfapellido2" type="xs:anyType" />
+          <xs:element name="jtfdni" type="xs:anyType" />
+          <xs:element name="jtffuncion" type="xs:anyType" />
+          <xs:element name="jtfnombre" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="eliminarinforme" >
+      <xs:complexContent>
+       <xs:extension base="javax.swing.jdialog">
+         <xs:sequence>
+          <xs:element name="/***createsnewformeliminartrabajador*/confirmareliminar" type="xs:anyType" />
+          <xs:element name="//variablesdeclaration-donotmodify//gen-begin:variablesdnitrabajadorinforme" type="xs:anyType" />
+          <xs:element name="jpanel1" type="xs:anyType" />
+          <xs:element name="jbaceptar" type="xs:anyType" />
+          <xs:element name="jbcancelar" type="xs:anyType" />
+          <xs:element name="jlnumexpedicion" type="xs:anyType" />
+          <xs:element name="jltareas" type="xs:anyType" />
+          <xs:element name="jltituloeliminarinforme" type="xs:anyType" />
+          <xs:element name="jtfdnitrabajadorinforme" type="xs:anyType" />
+          <xs:element name="jtfnumexpedicion" type="xs:anyType" />
+          <xs:element name="jtftareas" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="formularioinforme" >
+      <xs:complexContent>
+       <xs:extension base="javax.swing.jdialog">
+         <xs:sequence>
+          <xs:element name="/***createsnewforminsertartrabajador*/confirmarinsertar" type="xs:anyType" />
+          <xs:element name="" type="controlador" nillable="true" minOccurs="0" />
+          <xs:element name="//variablesdeclaration-donotmodify//gen-begin:variablesdnitrabajadorinforme" type="xs:anyType" />
+          <xs:element name="jpanel1" type="xs:anyType" />
+          <xs:element name="jbaceptar" type="xs:anyType" />
+          <xs:element name="jbcancelar" type="xs:anyType" />
+          <xs:element name="jcbdnitrabajadorinforme" type="xs:anyType" />
+          <xs:element name="jlformularioinforme" type="xs:anyType" />
+          <xs:element name="jlnumexpedicion" type="xs:anyType" />
+          <xs:element name="jltareas" type="xs:anyType" />
+          <xs:element name="jtfnumexpedicion" type="xs:anyType" />
+          <xs:element name="jtftareas" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="eliminarrepuestos" >
+      <xs:complexContent>
+       <xs:extension base="javax.swing.jdialog">
+         <xs:sequence>
+          <xs:element name="/***createsnewformeliminartrabajador*/confirmareliminar" type="xs:anyType" />
+          <xs:element name="//variablesdeclaration-donotmodify//gen-begin:variablesjpanel1" type="xs:anyType" />
+          <xs:element name="jbaceptar" type="xs:anyType" />
+          <xs:element name="jbcancelar" type="xs:anyType" />
+          <xs:element name="jlbastidorrepuestos" type="xs:anyType" />
+          <xs:element name="jlfechacompra" type="xs:anyType" />
+          <xs:element name="jlmarca" type="xs:anyType" />
+          <xs:element name="jlnombre" type="xs:anyType" />
+          <xs:element name="jlnumfacturarepuestos" type="xs:anyType" />
+          <xs:element name="jlnumserie" type="xs:anyType" />
+          <xs:element name="jlreferencia" type="xs:anyType" />
+          <xs:element name="jltienda" type="xs:anyType" />
+          <xs:element name="jltituloeliminarvehiculo" type="xs:anyType" />
+          <xs:element name="jluso" type="xs:anyType" />
+          <xs:element name="jtfbastidorrepuestos" type="xs:anyType" />
+          <xs:element name="jtffechacompra" type="xs:anyType" />
+          <xs:element name="jtfmarca" type="xs:anyType" />
+          <xs:element name="jtfnombre" type="xs:anyType" />
+          <xs:element name="jtfnumfacturarepuestos" type="xs:anyType" />
+          <xs:element name="jtfnumserie" type="xs:anyType" />
+          <xs:element name="jtfreferencia" type="xs:anyType" />
+          <xs:element name="jtftienda" type="xs:anyType" />
+          <xs:element name="jtfuso" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="eliminarrepuestos" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="formularioinforme" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="eliminarinforme" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="formulariotrabajador" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="formulariovehiculo" >
+      <xs:complexContent>
+       <xs:extension base="javax.swing.jdialog">
+         <xs:sequence>
+          <xs:element name="/***createsnewforminsertartrabajador*/confirmarinsertar" type="xs:anyType" />
+          <xs:element name="" type="controlador" nillable="true" minOccurs="0" />
+          <xs:element name="//variablesdeclaration-donotmodify//gen-begin:variablesjpanel1" type="xs:anyType" />
+          <xs:element name="jbaceptar" type="xs:anyType" />
+          <xs:element name="jbcancelar" type="xs:anyType" />
+          <xs:element name="jcbdnitrabajadorvehiculo" type="xs:anyType" />
+          <xs:element name="jlaceite" type="xs:anyType" />
+          <xs:element name="jlbastidor" type="xs:anyType" />
+          <xs:element name="jlcarburante" type="xs:anyType" />
+          <xs:element name="jlconsumo" type="xs:anyType" />
+          <xs:element name="jldnitrabajadorasignado" type="xs:anyType" />
+          <xs:element name="jlfechaentrada" type="xs:anyType" />
+          <xs:element name="jlformulariovehiculo" type="xs:anyType" />
+          <xs:element name="jlmarca" type="xs:anyType" />
+          <xs:element name="jlmatricula" type="xs:anyType" />
+          <xs:element name="jlmodelo" type="xs:anyType" />
+          <xs:element name="jlmotor" type="xs:anyType" />
+          <xs:element name="jlpotencia" type="xs:anyType" />
+          <xs:element name="jltiempodedicado" type="xs:anyType" />
+          <xs:element name="jsfechaentrada" type="xs:anyType" />
+          <xs:element name="jtfaceite" type="xs:anyType" />
+          <xs:element name="jtfbastidor" type="xs:anyType" />
+          <xs:element name="jtfcarburante" type="xs:anyType" />
+          <xs:element name="jtfconsumo" type="xs:anyType" />
+          <xs:element name="jtfmarca" type="xs:anyType" />
+          <xs:element name="jtfmatricula" type="xs:anyType" />
+          <xs:element name="jtfmodelo" type="xs:anyType" />
+          <xs:element name="jtfmotor" type="xs:anyType" />
+          <xs:element name="jtfpotencia" type="xs:anyType" />
+          <xs:element name="jtftiempodedicado" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="selectorconexion" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="eliminartrabajador" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="eliminarvehiculo" >
+      <xs:complexContent>
+       <xs:extension base="javax.swing.jdialog">
+         <xs:sequence>
+          <xs:element name="/***createsnewformeliminartrabajador*/confirmareliminar" type="xs:anyType" />
+          <xs:element name="//variablesdeclaration-donotmodify//gen-begin:variablesjpanel1" type="xs:anyType" />
+          <xs:element name="jbaceptar" type="xs:anyType" />
+          <xs:element name="jbcancelar" type="xs:anyType" />
+          <xs:element name="jlaceite" type="xs:anyType" />
+          <xs:element name="jlbastidor" type="xs:anyType" />
+          <xs:element name="jlcarburante" type="xs:anyType" />
+          <xs:element name="jlconsumo" type="xs:anyType" />
+          <xs:element name="jldnitrabajadorasignado" type="xs:anyType" />
+          <xs:element name="jlfechaentrada" type="xs:anyType" />
+          <xs:element name="jlmarca" type="xs:anyType" />
+          <xs:element name="jlmatricula" type="xs:anyType" />
+          <xs:element name="jlmodelo" type="xs:anyType" />
+          <xs:element name="jlmotor" type="xs:anyType" />
+          <xs:element name="jlpotencia" type="xs:anyType" />
+          <xs:element name="jltiempodedicado" type="xs:anyType" />
+          <xs:element name="jltituloeliminarvehiculo" type="xs:anyType" />
+          <xs:element name="jtfaceite" type="xs:anyType" />
+          <xs:element name="jtfbastidor" type="xs:anyType" />
+          <xs:element name="jtfcarburante" type="xs:anyType" />
+          <xs:element name="jtfconsumo" type="xs:anyType" />
+          <xs:element name="jtfdnitrabajadorasignado" type="xs:anyType" />
+          <xs:element name="jtffechaentrada" type="xs:anyType" />
+          <xs:element name="jtfmarca" type="xs:anyType" />
+          <xs:element name="jtfmatricula" type="xs:anyType" />
+          <xs:element name="jtfmodelo" type="xs:anyType" />
+          <xs:element name="jtfmotor" type="xs:anyType" />
+          <xs:element name="jtfpotencia" type="xs:anyType" />
+          <xs:element name="jtftiempodedicado" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="eliminarvehiculo" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="eliminartrabajador" >
+      <xs:complexContent>
+       <xs:extension base="javax.swing.jdialog">
+         <xs:sequence>
+          <xs:element name="/***createsnewformeliminartrabajador*/confirmareliminar" type="xs:anyType" />
+          <xs:element name="//variablesdeclaration-donotmodify//gen-begin:variablesjpanel1" type="xs:anyType" />
+          <xs:element name="jbaceptar" type="xs:anyType" />
+          <xs:element name="jbcancelar" type="xs:anyType" />
+          <xs:element name="jlapellido1" type="xs:anyType" />
+          <xs:element name="jlapellido2" type="xs:anyType" />
+          <xs:element name="jldni" type="xs:anyType" />
+          <xs:element name="jlfuncion" type="xs:anyType" />
+          <xs:element name="jlnombre" type="xs:anyType" />
+          <xs:element name="jltituloeliminartrabajador" type="xs:anyType" />
+          <xs:element name="jtfapellido1" type="xs:anyType" />
+          <xs:element name="jtfapellido2" type="xs:anyType" />
+          <xs:element name="jtfdni" type="xs:anyType" />
+          <xs:element name="jtffuncion" type="xs:anyType" />
+          <xs:element name="jtfnombre" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="selectorconexion" >
+      <xs:complexContent>
+       <xs:extension base="javax.swing.jdialog">
+         <xs:sequence>
+          <xs:element name="/***createsnewformselectorconexion*/seleccion" type="xs:long" />
+          <xs:element name="//variablesdeclaration-donotmodify//gen-begin:variablesjpanel1" type="xs:anyType" />
+          <xs:element name="jbaceptar" type="xs:anyType" />
+          <xs:element name="jltituloseleccion" type="xs:anyType" />
+          <xs:element name="jrbhibernate" type="xs:anyType" />
+          <xs:element name="jrbjdbc" type="xs:anyType" />
+          <xs:element name="jrbmongodb" type="xs:anyType" />
+          <xs:element name="jrbobjectdb" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="eliminarfactura" >
+      <xs:complexContent>
+       <xs:extension base="javax.swing.jdialog">
+         <xs:sequence>
+          <xs:element name="/***createsnewformeliminartrabajador*/confirmareliminar" type="xs:anyType" />
+          <xs:element name="//variablesdeclaration-donotmodify//gen-begin:variablesjpanel1" type="xs:anyType" />
+          <xs:element name="jbaceptar" type="xs:anyType" />
+          <xs:element name="jbcancelar" type="xs:anyType" />
+          <xs:element name="jllineafactura" type="xs:anyType" />
+          <xs:element name="jlnumexpedicioninforme" type="xs:anyType" />
+          <xs:element name="jlnumfactura" type="xs:anyType" />
+          <xs:element name="jlpreciofactura" type="xs:anyType" />
+          <xs:element name="jltituloeliminarfactura" type="xs:anyType" />
+          <xs:element name="jtflineafactura" type="xs:anyType" />
+          <xs:element name="jtfnumexpedicioninforme" type="xs:anyType" />
+          <xs:element name="jtfnumfactura" type="xs:anyType" />
+          <xs:element name="jtfprecio" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="formulariorepuestos" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="formulariofactura" >
+      <xs:complexContent>
+       <xs:extension base="javax.swing.jdialog">
+         <xs:sequence>
+          <xs:element name="/***createsnewforminsertartrabajador*/confirmarinsertar" type="xs:anyType" />
+          <xs:element name="" type="controlador" nillable="true" minOccurs="0" />
+          <xs:element name="//variablesdeclaration-donotmodify//gen-begin:variablesjpanel1" type="xs:anyType" />
+          <xs:element name="jbaceptar" type="xs:anyType" />
+          <xs:element name="jbcancelar" type="xs:anyType" />
+          <xs:element name="jcbnumexpedicioninforme" type="xs:anyType" />
+          <xs:element name="jlformulariofactura" type="xs:anyType" />
+          <xs:element name="jllineafactura" type="xs:anyType" />
+          <xs:element name="jlnumexpedicioninforme" type="xs:anyType" />
+          <xs:element name="jlnumfactura" type="xs:anyType" />
+          <xs:element name="jlpreciofactura" type="xs:anyType" />
+          <xs:element name="jtflineafactura" type="xs:anyType" />
+          <xs:element name="jtfnumfactura" type="xs:anyType" />
+          <xs:element name="jtfprecio" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="formulariofactura" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="formulariorepuestos" >
+      <xs:complexContent>
+       <xs:extension base="javax.swing.jdialog">
+         <xs:sequence>
+          <xs:element name="/***createsnewforminsertartrabajador*/confirmarinsertar" type="xs:anyType" />
+          <xs:element name="" type="controlador" nillable="true" minOccurs="0" />
+          <xs:element name="//variablesdeclaration-donotmodify//gen-begin:variablesjpanel1" type="xs:anyType" />
+          <xs:element name="jbaceptar" type="xs:anyType" />
+          <xs:element name="jbcancelar" type="xs:anyType" />
+          <xs:element name="jcbbastidorrepuestos" type="xs:anyType" />
+          <xs:element name="jcbnumfacturarepuestos" type="xs:anyType" />
+          <xs:element name="jlbastidorrepuestos" type="xs:anyType" />
+          <xs:element name="jlfechacompra" type="xs:anyType" />
+          <xs:element name="jlformulariorepuestos" type="xs:anyType" />
+          <xs:element name="jlmarca" type="xs:anyType" />
+          <xs:element name="jlnombre" type="xs:anyType" />
+          <xs:element name="jlnumfacturarepuestos" type="xs:anyType" />
+          <xs:element name="jlnumserie" type="xs:anyType" />
+          <xs:element name="jlreferencia" type="xs:anyType" />
+          <xs:element name="jltienda" type="xs:anyType" />
+          <xs:element name="jluso" type="xs:anyType" />
+          <xs:element name="jsfechacompra" type="xs:anyType" />
+          <xs:element name="jtfmarca" type="xs:anyType" />
+          <xs:element name="jtfnombre" type="xs:anyType" />
+          <xs:element name="jtfnumserie" type="xs:anyType" />
+          <xs:element name="jtfreferencia" type="xs:anyType" />
+          <xs:element name="jtftienda" type="xs:anyType" />
+          <xs:element name="jtfuso" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="eliminarfactura" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="factura" >
+      <xs:sequence>
+        <xs:element name="numfactura" type="xs:long" />
+        <xs:element name="precio" type="xs:double" />
+        <xs:element name="lineafactura" type="xs:string" />
+        <xs:element name="numexpedicioninforme" type="xs:string" />
+        <xs:element name="GeneratedName" type="informe" nillable="true" minOccurs="0" />
+        <xs:element name="repuestos" type="repuestos" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vehiculo" >
+      <xs:sequence>
+        <xs:element name="bastidor" type="xs:string" />
+        <xs:element name="matricula" type="xs:string" />
+        <xs:element name="marca" type="xs:string" />
+        <xs:element name="modelo" type="xs:string" />
+        <xs:element name="motor" type="xs:string" />
+        <xs:element name="potenciacv" type="xs:string" />
+        <xs:element name="carburante" type="xs:string" />
+        <xs:element name="aceite" type="xs:string" />
+        <xs:element name="consumo" type="xs:string" />
+        <xs:element name="fechaentrada" type="xs:dateTime" />
+        <xs:element name="tiempodedicado" type="xs:string" />
+        <xs:element name="dnitrabajador" type="xs:string" />
+        <xs:element name="GeneratedName" type="trabajador" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="obd" nillable="true" minOccurs="0" />
+        <xs:element name="repuestos" type="repuestos" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="modelohibernate" >
+      <xs:sequence>
+        <xs:element name="sesion" type="xs:anyType" />
+        <xs:element name="factory" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="modelojdbc" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="modeloobjectdb" >
+      <xs:sequence>
+        <xs:element name="emf" type="xs:anyType" />
+        <xs:element name="em" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="modelomongo" >
+      <xs:sequence>
+        <xs:element name="mongo" type="xs:anyType" />
+        <xs:element name="database" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="repuestos" >
+      <xs:sequence>
+        <xs:element name="numserie" type="xs:string" />
+        <xs:element name="referencia" type="xs:string" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="marca" type="xs:string" />
+        <xs:element name="uso" type="xs:string" />
+        <xs:element name="tienda" type="xs:string" />
+        <xs:element name="fechacompra" type="xs:dateTime" />
+        <xs:element name="bastidorvehiculorepuestos" type="xs:string" />
+        <xs:element name="numfacturarepuestos" type="xs:string" />
+        <xs:element name="GeneratedName" type="vehiculo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="factura" nillable="true" minOccurs="0" />
+        <xs:element name="trabajador" type="trabajador" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="repuestos.hbm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vehiculo.hbm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="informe.hbm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="obd.hbm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hibernate.cfg" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="factura.hbm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="trabajador.hbm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

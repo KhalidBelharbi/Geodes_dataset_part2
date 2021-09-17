@@ -1,0 +1,25 @@
+
+type_user(//ondeclarelesattributsdelaclassetype_user//onajoutel'annotationjusteaudessusdel'attributid_type_userpourdirequecetattribut//corresspondaunecleprimaiedanslatabletype_userid_type_user:int [PK], lib_type_user_ar:String, lib_type_user_fr:String, lib_type_user_en:String, descr_type_user_ar:String, descr_type_user_fr:String, descr_type_user_en:String);
+
+fonction_user(//ondeclarelesattributsdelaclassefonction_user//onajoutel'annotationjusteaudessusdel'attributid_fonct_userpourdirequecetattribut//corresspondaunecleprimaiedanslatablefonction_userid_fonct_user:int [PK], lib_fonct_user_ar:String, lib_fonct_user_fr:String, lib_fonct_user_en:String);
+
+user(//ondeclarelesattributsdelaclasseuser//onajoutel'annotationjusteaudessusdel'attributid_userpourdirequecetattribut//corresspondaunecleprimaiedanslatableuser_tableid_user:int [PK], //onajoutel'annotation@columnpourspecifierlatailleduchamps,//pourempechercettecolonnedeporterdesvaleursnullesnom_user_ar:String, nom_user_fr:String, nom_user_en:String, prenom_user_ar:String, prenom_user_fr:String, prenom_user_en:String, pwd_user:String, resetpassword:String, username:String, tel1_user:String, tel2_user:String, _creat_user:Date, //@temporal(temporaltype.date)//onajoutelannotation@temporalpourenregistrerlesdatesentantquejour/mois/annéedate_naiss_user:String, email1_user:String, email2_user:String, adr_user:String, //ondeclarelesassociations://1.onaunerelation1,1aveclatabledonconvaajouterl'annotation//unutilisateurpeutavoirunetunseultypetypeuser:Type_User #FK to(type_user), //2.onaunerelation1,1aveclatabledonconvaajouterl'annotation//unutilisateurpeutavoirunetunseulgenresoithommeoufemmegender:Genre_user #FK to(genre_user), //3.onaunerelation1,1aveclatabledonconvaajouterl'annotation//unutilisateurpeutavoiruneetuneseulefonctionfonctionuser:Fonction_user #FK to(fonction_user), //4.onaunerelation1,1aveclatabledonconvaajouterl'annotation@onetoone//unutilisateurpeutavoirunetunseul:Profil #FK to(profil));
+
+newsletter_user(id_user:User [PK] #FK to User,id_newsletter:set<newsletter> [PK] #FK to set<newsletter>);
+
+genre_user(//ondeclarelesattributsdelaclasseuser//onajoutel'annotationjusteaudessusdel'attributid_genre_userpourdirequecetattribut//corresspondaunecleprimaiedanslatablegenre_userid_genre_user:int [PK], lib_genre_user_ar:String, lib_genre_user_fr:String, lib_genre_user_en:String);
+
+newsletter(//ondeclarelesattributsdelaclassenewsletter//onajoutel'annotationjusteaudessusdel'attributid_newsletterpourdirequecetattribut//corresspondaunecleprimaiedanslatablenewsletterid_newsletter:int [PK], sujet_newsletter:String, //@column(name:Date);
+
+profil(//ondeclarelesattributsdelaclasseprofil//onajoutel'annotationjusteaudessusdel'attributid_profilpourdirequecetattribut//corresspondaunecleprimaiedanslatableprofilid_profil:int [PK], lib_profil:String, descr_profil:String);
+
+journalisation(//leestdelaclassecleaction_quicorresspondaunidparl'annotation:User [PK] #FK to(user), GeneratedName:Action [PK] #FK to(action), _journalisation:Date);
+
+action(//ondeclarelesattributsdelaclasseactionid_action:int [PK], lib_action:String, descr_action:String);
+
+profil_privilege(//onajoutelesdeuxattributsdetypeprofiletaveclesannotationset@jpoincolumn:Privilege [PK] #FK to(privilege), GeneratedName:Profil [PK] #FK to(profil), descr_profil_priv:String, _affect_profil_priv:Date);
+
+privilege(//ondeclarelesattributsdelaclasseprivilege//onajoutel'annotationjusteaudessusdel'attributid_privilegepourdirequecetattribut//corresspondaunecleprimaiedanslatableprivilegeid_privilege:int [PK], lib_privilege:String, descr_privilege:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

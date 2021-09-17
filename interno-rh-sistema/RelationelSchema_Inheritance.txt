@@ -1,0 +1,423 @@
+
+dateaudit(createdat:Instant, updatedat:Instant);
+
+treinamentosugeridocomplemento(serialversionuid:long, id:Long [PK], GeneratedName:TreinamentoSugerido #FK to(treinamentosugerido), local:String, endereco:String, complemento:String, bairro:String, GeneratedName:Municipio #FK to(municipio));
+
+contacontabilsimples(id:Long [PK], codigo:String, descricao:String);
+
+naturezafuncao(/***/serialversionuid:long, id:Long [PK], descricao:String);
+
+cnae(id:Long [PK], codigosecao:String, nomesecao:String, codigoclasse:Long, nomeclasse:String);
+
+requisicaopessoalcandidato(serialversionuid:long, id:Long [PK], nome:String, comentario:String, comentariocurriculo:String, situacao:RequisicaoPessoalAnaliseEnum, GeneratedName:Anexo #FK to(anexo), GeneratedName:RequisicaoPessoal #FK to(requisicaopessoal));
+
+sindicato(id:Long [PK], descricao:String, mesbase:Integer, pisosalarial:Integer, cnpj:String, codigoentidade:String, ddd:Integer, telefone:String, patronal:PatronalSindicatoEnum, endereco:String, numero:String, complemento:String, bairro:String, municipio:String, GeneratedName:UnidadeFederativa #FK to(unidadefederativa), cep:String);
+
+frequenciacertidaoexsegurado(serialversionuid:long, id:Long [PK], GeneratedName:CertidaoExSegurado #FK to(certidaoexsegurado), ano:Integer, tempobruto:Integer, faltas:Integer, licencas:Integer, licencassemvenc:Integer, suspensoes:Integer, disponibilidade:Integer, outros:Integer, tempoliquido:Integer);
+
+correcao(serialversionuid:long, id:Long [PK], datacompetencia:Instant, GeneratedName:TipoProcessamento #FK to(tipoprocessamento), empresa:EmpresaFilial #FK to(empresafilial), filial:EmpresaFilial #FK to(empresafilial), GeneratedName:Lotacao #FK to(lotacao), GeneratedName:CentroCusto #FK to(centrocusto), GeneratedName:Sindicato #FK to(sindicato), GeneratedName:Funcao #FK to(funcao), nivelsalarial:ReferenciaSalarial #FK to(referenciasalarial), situacao:SituacaoFuncional #FK to(situacaofuncional), GeneratedName:TipoFolha #FK to(tipofolha), GeneratedName:Verba #FK to(verba), valorfaixai:BigDecimal, valorfaixaii:BigDecimal, percentualproduto:Double, percentualaumento:Double, valorproduto:BigDecimal, valorpiso:BigDecimal, tipoarredondamento:TipoArredondamentoEnum, avos:Integer, valorarrendamento:BigDecimal, atualizames:Integer, retroativo:Instant, abono:Boolean, verbaabono:Integer);
+
+entidadeexame(/***/serialversionuid:long, id:Long [PK], GeneratedName:TomadorServico #FK to(tomadorservico), tipo:TipoEntidadeExameEnum, logradouro:String, numero:String, complemento:String, cep:String, uf:UnidadeFederativa #FK to(unidadefederativa), bairro:String, GeneratedName:Municipio #FK to(municipio), telefone:String);
+
+entidade_exame_exame(entidade_exame_id:EntidadeExame [PK] #FK to EntidadeExame,exame_id:set<exame> [PK] #FK to set<exame>);
+
+empresafilial(/***/serialversionuid:long, id:Long [PK], sigla:String, nomeresponsavel:String, vigenciainicial:Date, vigencia:Date, emailresponsavel:String, nomefilial:String, empresamatriz:Boolean, tipofilial:TipoFilialEnum, GeneratedName:Cnae #FK to(cnae), codigogps:CodigoPagamentoGps #FK to(codigopagamentogps), situacao:SituacaoFilialEnum, esferaorgao:EsferaOrgaoEnum, qtdproprietario:Integer, tipoestabelecimento:TipoEstabelecimentoEnum, capitalsocialanual:Double, datainicialatividade:Instant, referenciacontribuicao:ReferenciaContribuicaoEnum, atividadeprimaria:String, naturezaestabelecimento:String, GeneratedName:Banco #FK to(banco), agencia:Integer, codigoconvenio:Integer, tipooperacao:TipoOperacaoEnum, bancaria:Agencia #FK to(agencia), fpas:Integer, codigogrpasacidentetrabalho:Integer, cnpj:String, cei:String, codigoempregador:Integer, rnegativa:Integer, percentualempregador:Double, sat:Double, salarioeducacao:Double, senai:Double, sesi:Double, senac:Double, sesc:Double, sebrae:Double, senar:Double, senat:Double, set:Double, secoop:Double, dpc:Double, forcaaerea:Double, fap:Integer, logradouro:String, numero:String, complemento:String, cep:String, uf:UnidadeFederativa #FK to(unidadefederativa), bairro:String, GeneratedName:Municipio #FK to(municipio), telefone:String, GeneratedName:Anexo #FK to(anexo), tipoinscricao:TipoInscricaoEnum, pais:Nacionalidade #FK to(nacionalidade));
+
+feriasprogramacao(id:Long [PK], GeneratedName:Funcionario #FK to(funcionario), exercicioinicio:Date, exerciciofim:Date, datalimite:Date, quantfaltas:String, tipoferias:FeriasProgramacaoTipoFeriasEnum, quantdias:String, abonopeculiario:Boolean, decimoterceiro:Boolean, situacao:FeriasProgramacaoSituacaoEnum, mescompetenciaparticaoum:String, diasagozarum:String, tipoprocessamentoum:FeriasProgramacaoTipoProcessamentoEnum, datainicialum:Date, dataum:Date, situacaoum:FeriasProgramacaoSituacaoEnum, mescompetenciaparticaodois:String, diasagozardois:String, tipoprocessamentodois:FeriasProgramacaoTipoProcessamentoEnum, datainicialdois:Date, datadois:Date, situacaodois:FeriasProgramacaoSituacaoEnum, mescompetenciaparticaotres:String, diasagozartres:String, tipoprocessamentotres:FeriasProgramacaoTipoProcessamentoEnum, datainicialtres:Date, datatres:Date, situacaotres:FeriasProgramacaoSituacaoEnum, motivo:String);
+
+recadastramentodados(serialversionuid:long, id:Long [PK], GeneratedName:Municipio #FK to(municipio), GeneratedName:Nacionalidade #FK to(nacionalidade), nome:String, nomemae:String, nomepai:String, genero:GeneroEnum, estadocivil:EstadoCivilEnum, racacor:CorPeleEnum, tiposanguineo:String, grauinstrucao:GrauInstrucaoEnum);
+
+gruposalarial(/***/serialversionuid:long, id:Long [PK], nome:String);
+
+requisicaopessoalfuncao(serialversionuid:long, id:Long [PK], GeneratedName:Funcao #FK to(funcao), tipocontratacao:TipoContratacaoEnum, qtdvagas:Integer, custoporvaga:Double, GeneratedName:Turno #FK to(turno), GeneratedName:RequisicaoPessoal #FK to(requisicaopessoal));
+
+vinculo(/***/serialversionuid:long, id:Long [PK], descricao:String, apos:Vinculo #FK to(vinculo), grupo:GrupoVinculoEnum, categoria:Sefip #FK to(sefip), ocorrencia:Sefip #FK to(sefip), GeneratedName:TipoContrato #FK to(tipocontrato), categoria:Esocial #FK to(esocial), situacaoinicial:SituacaoFuncional #FK to(situacaofuncional), datainicial:Date, data:Date);
+
+referenciasalarial(/***/serialversionuid:long, id:Long [PK], codigo:String, descricao:String, valor:Double, nivelreferencia:boolean, mesanocompetencia:String);
+
+classesalarial(/***/serialversionuid:long, id:Long [PK], nome:String, GeneratedName:GrupoSalarial #FK to(gruposalarial));
+
+historicosituacaofuncional(serialversionuid:long, id:Long [PK], tipohistoricosituacaofuncional:TipoHistoricoSituacaoFuncionalEnum, GeneratedName:Funcionario #FK to(funcionario), GeneratedName:Funcao #FK to(funcao), nivelsalarial:ReferenciaSalarial #FK to(referenciasalarial), GeneratedName:Motivo #FK to(motivo), ato:String, dataato:Instant, datadiariooficial:Instant, datainicio:Instant, datafim:Instant, observacaocancelamento:String, filialdestino:EmpresaFilial #FK to(empresafilial), situacao:MotivoAfastamento #FK to(motivoafastamento), dataretorno:Instant, tipoexoneracaodemissao:TipoExoneracaoDemissaoEnum, GeneratedName:SituacaoFuncional #FK to(situacaofuncional), anterior:SituacaoFuncional #FK to(situacaofuncional));
+
+parametroglobal(/***/serialversionuid:long, id:Long [PK], chave:ParametroGlobalChaveEnum, tipo:ParametroGlobalTipoEnum, valor:String, ativo:boolean);
+
+pensaoalimenticia(/***/serialversionuid:long, //blocoinicialid:Long [PK], GeneratedName:Funcionario #FK to(funcionario), //blocodoalimentandonomealimentando:String, nascimentoalimentando:Date, tipopensao:TipoPensaoEnum, rg:String, orgao:String, estadodocumento:UnidadeFederativa #FK to(unidadefederativa), cpf:String, numerotelefone:String, alimentando:Endereco, //blocodoresponsávellegalresponsavel:ResponsavelLegal #FK to(responsavellegal), numeroprocessoresponsavel:String, datainicial:Date, data:Date, //blocodepagamentoparte1datainicialpagamento:Date, datapagamento:Date, GeneratedName:CentroCusto #FK to(centrocusto), GeneratedName:Verba #FK to(verba), GeneratedName:DadoBancario, //blocodepagamentoparte2numeroprocessopagamento:String, vencimento:Date, tipovalor:TipoValorEnum, valor:Double, salariofamilia:Long, tipoincidenciaprincipalpensao:TipoIncidenciaPrincipalPensaoEnum, salario13:boolean, ferias:boolean, recisao:boolean);
+
+tipoprocessamento(serialversionuid:long, id:Long [PK], codigo:String, descricao:String);
+
+tipo_processamento_verba(tipo_processamento_id:TipoProcessamento [PK] #FK to TipoProcessamento,verba_id:list<verba> [PK] #FK to list<verba>);
+
+certidaocompensacao(serialversionuid:long, id:Long [PK], numero:Long, ano:Integer, GeneratedName:Funcionario #FK to(funcionario), classificacoes:List<ClassificacaoCertidaoCompensacaoEnum>, statusatual:StatusCertidaoCompensacaoEnum, fundo:FundoCertidaoCompensacaoEnum, GeneratedName:Lotacao #FK to(lotacao), processo:String, numeroretificacao:Long, GeneratedName:CertidaoCompensacao #FK to(certidaocompensacao), arquivada:Boolean, tipocertidaocompensacao:CertidaoCompensacaoTipoEnum);
+
+naturezajuridica(id:Long [PK], codigo:String, nome:String, grupamento:GrupamentoNaturezaEnum);
+
+recisaocontrato(id:Long [PK], GeneratedName:Funcionario #FK to(funcionario), feriasvencidas:Boolean, avisoprevio:Boolean, dataaviso:Instant, diasaviso:Integer, motivo:MotivoDesligamento #FK to(motivodesligamento), datadesligamento:Instant, datahomologacao:Instant, datapagamento:Instant, status:RecisaoContratoEnum);
+
+definicaoorganicolotacaofuncao(id:Long [PK], empresafilialid:Long, lotacaoid:Long, funcaoid:Long, quantpermitido:Long);
+
+usuario(id:Long [PK], nome:String, cpf:String, ativo:Boolean, login:String, senha:String, GeneratedName:Anexo #FK to(anexo), email:String, GeneratedName:EmpresaFilial #FK to(empresafilial));
+
+usuario_papel(usuario_id:Usuario [PK] #FK to Usuario,papel_id:set<papel> [PK] #FK to set<papel>);
+
+nivelsalarialhistorico(/***/serialversionuid:long, id:Long [PK], dataajuste:Date, origemajuste:NivelSalarialHistoricoOrigemAjusteEnum, valororiginal:Double, valorajustado:Double, valorretroativo:Double, simulacao:SimuladorNivelSalarial #FK to(simuladornivelsalarial), nivelsalarial:ReferenciaSalarial #FK to(referenciasalarial));
+
+simuladornivelsalarialvalores(/***/serialversionuid:long, id:Long [PK], valorretroativo:Double, valorajustado:Double, nivelsalarial:ReferenciaSalarial #FK to(referenciasalarial), simulador:SimuladorNivelSalarial #FK to(simuladornivelsalarial));
+
+relacaoremuneracaocertidaoexsegurado(serialversionuid:long, id:Long [PK], GeneratedName:CertidaoExSegurado #FK to(certidaoexsegurado), ano:Integer, janeiro:BigDecimal, fevereiro:BigDecimal, marco:BigDecimal, abril:BigDecimal, maio:BigDecimal, junho:BigDecimal, julho:BigDecimal, agosto:BigDecimal, setembro:BigDecimal, outubro:BigDecimal, novembro:BigDecimal, dezembro:BigDecimal, decimoterceiro:BigDecimal);
+
+arquivoremessapagamento(serialversionuid:long, id:Long [PK], GeneratedName:FolhaPagamento #FK to(folhapagamento), numeroremessa:Integer, datapagamento:LocalDate, situacao:ArquivoRemessaPagamentoSituacaoEnum, motivo:String);
+
+arquivo_remessa_pagamento_anexo(arquivo_remessa_id:ArquivoRemessaPagamento [PK] #FK to ArquivoRemessaPagamento,anexo_id:list<anexo> [PK] #FK to list<anexo>);
+
+nacionalidade(serialversionuid:long, id:Long [PK], sigla:String, nacionalidadefeminina:String, nacionalidademasculina:String, codigosiprev:Long);
+
+pacientepericiatelefone(id:Long [PK], telefone:String, GeneratedName:PacientePericiaMedica #FK to(pacientepericiamedica));
+
+motivo(id:Long [PK], descricao:String, tipo:TipoMotivoEnum, evento:EventoMotivoEnum);
+
+exame(id:Long [PK], codigo:String, descricao:String, categoria:CategoriaExameEnum);
+
+esocial(serialversionuid:long, id:Long [PK], descricao:String);
+
+processofuncao(id:Long [PK], descricao:String);
+
+tipofolha(serialversionuid:long, id:Long [PK], codigo:String, descricao:String);
+
+tipo_folha_verbas(id_tipo_folha:TipoFolha [PK] #FK to TipoFolha,id_verba:list<verba> [PK] #FK to list<verba>);
+
+tipoaverbacao(id:Long [PK], codigo:Integer, descricao:String, formaaverbacao:FormaAverbacaoEnum, deducaoaverbacao:DeducaoAverbacaoEnum);
+
+certidaoexservidorcargo(serialversionuid:long, id:Long [PK], certidaoexservidor:CertidaoExSegurado #FK to(certidaoexsegurado), descricaocargo:String);
+
+declaracaoexservidordadosfuncionais(serialversionuid:long, id:Long [PK], GeneratedName:DeclaracaoExServidor #FK to(declaracaoexservidor), GeneratedName:Cargo #FK to(cargo), atonomeacao:String, dataentrada:LocalDate, datadiariooficialentrada:LocalDate, dataencerramento:LocalDate, atoencerramento:String, datadiariooficialencerramento:LocalDate);
+
+agendamedicadata(id:Long [PK], GeneratedName:AgendaMedica #FK to(agendamedica), diasemana:String, horario:Time, data:LocalDate);
+
+equipamentoprotecaocoletiva(id:Long [PK], codigo:String, tipoprotecao:String, descricao:String, validade:Instant, certificado:String, referencia:String, minimo:Integer, livre:Integer, atual:Integer);
+
+papel(id:Long [PK], nome:PapelNomeEnum, GeneratedName:Menu #FK to(menu));
+
+certidaoexservidororgaolotacao(serialversionuid:long, id:Long [PK], certidaoexservidor:CertidaoExSegurado #FK to(certidaoexsegurado), descricaoorgaolotacao:String);
+
+declaracaoaposentadoriaassinatura(serialversionuid:long, id:Long [PK], GeneratedName:DeclaracaoAposentadoria #FK to(declaracaoaposentadoria), GeneratedName:Funcionario #FK to(funcionario), funcao:FuncaoDeclaracaoAposentadoriaEnum);
+
+simuladornivelsalarial(/***/serialversionuid:long, id:Long [PK], descricao:String, datacompetencia:Instant, situacao:SituacaoSimuladorNivelSalarialEnum, programarajuste:boolean, motivoajuste:MotivoAjusteSalarialEnum, tipoajuste:TipoAjusteSalarialEnum, valorajuste:Double, dataajuste:Instant);
+
+licencamedica(serialversionuid:long, id:Long [PK], GeneratedName:Funcionario #FK to(funcionario), crm:CrmCrea #FK to(crmcrea), GeneratedName:SituacaoFuncional #FK to(situacaofuncional), GeneratedName:MotivoAfastamento #FK to(motivoafastamento), periodoinicial:Instant, periodo:Instant, datainspecao:Instant, cid:ClassificacaoInternacionalDoenca #FK to(classificacaointernacionaldoenca));
+
+arrecadacaoaliquotaencargo(serialversionuid:long, id:Long [PK], GeneratedName:ArrecadacaoAliquotaPeriodo #FK to(arrecadacaoaliquotaperiodo), aliquotaencargo:ArrecadacaoAliquotaEncargoEnum, aliquota:Double);
+
+avaliacaodesempenhoitem(serialversionuid:long, id:Long [PK], GeneratedName:AvaliacaoDesempenho #FK to(avaliacaodesempenho), coditemavaliacao:String, nome:String, seqavaliacao:String, descricao:String, tipoquestao:AvaliacaoDesempenhoItemTipoQuestaoEnum, formaavaliacao:AvaliacaoDesempenhoItemFormaAvaliacaoEnum);
+
+arrecadacaoindice(serialversionuid:long, id:Long [PK], indice:String);
+
+curso(/***/serialversionuid:long, id:Long [PK], nomecurso:String, codigomec:String, cargahoraria:Long, GeneratedName:GrauAcademico #FK to(grauacademico), GeneratedName:AreaFormacao #FK to(areaformacao));
+
+periodocertidaoexsegurado(serialversionuid:long, id:Long [PK], GeneratedName:CertidaoExSegurado #FK to(certidaoexsegurado), periodoinicio:Instant, periodo:Instant, aproveitamento:String);
+
+crmcrea(/***/serialversionuid:long, id:Long [PK], nomeconveniado:String, numerocrmcrea:String, coordenadorpcmso:boolean, responsavelltcat:boolean, tipo:CrmCreaEnum);
+
+crm_crea_convenio(crm_crea_id:CrmCrea [PK] #FK to CrmCrea,convenio_id:set<convenio> [PK] #FK to set<convenio>);
+
+dirf(serialversionuid:long, id:Long [PK], anobase:Integer, tipodeclaracao:DirfTipoDeclaracaoEnum, numerodeclaracao:Integer, filial:EmpresaFilial #FK to(empresafilial), responsavelreceita:DirfResponsavelReceita #FK to(dirfresponsavelreceita), naturezadeclarante:Integer, situacao:DirfSituacao);
+
+dirf_anexo(dirf_id:Dirf [PK] #FK to Dirf,anexo_id:list<anexo> [PK] #FK to list<anexo>);
+
+declaracaoaposentadoriaaverbacao(serialversionuid:long, id:Long [PK], GeneratedName:DeclaracaoAposentadoria #FK to(declaracaoaposentadoria), empregador:String, periodoinicio:LocalDate, periodofim:LocalDate, fonteinf:String, observacao:String, averbado:Boolean);
+
+recadastramentoendereco(serialversionuid:long, id:Long [PK], GeneratedName:Municipio #FK to(municipio), cep:String, bairro:String, logradouro:String, complemento:String, numero:String, email:String, observacao:String);
+
+recadastramento_endereco_telefone(recadastramento_endereco_id:RecadastramentoEndereco [PK] #FK to RecadastramentoEndereco,telefone_id:list<telefone> [PK] #FK to list<telefone>);
+
+pensionista(/***/serialversionuid:long, id:Long [PK], GeneratedName:Funcionario #FK to(funcionario), pensaopagamento:PensaoPrevidenciariaPagamento #FK to(pensaoprevidenciariapagamento), matricula:Integer, nome:String, datanascimento:LocalDate, genero:GeneroEnum, estadocivil:EstadoCivilEnum, status:boolean, grauinstrucao:GrauInstrucaoEnum, naturalidade:Municipio #FK to(municipio), tituloeleitor:String, nomemae:String, nomepai:String, cep:Integer, logradouro:String, numerologradouro:String, complementologradouro:String, bairro:String, GeneratedName:Municipio #FK to(municipio), tipofamilia:TipoFamiliaEnum, grauparentesco:GrauParentescoEnum, motivo:MotivoPensionistaEnum, GeneratedName:ResponsavelLegal #FK to(responsavellegal), datainicioresponsavel:LocalDate, datavencimentoresponsavel:LocalDate, numeroprocessoresponsavel:Integer, GeneratedName:Anexo #FK to(anexo), cpf:String, identidade:String, dataexpedicaorg:Instant, tiposanguineo:String, corpele:CorPeleEnum, GeneratedName:Nacionalidade #FK to(nacionalidade), emailpessoal:String, telefonefixo:String, celular:String, observacao:String);
+
+arrecadacaoaliquotaperiodo(serialversionuid:long, id:Long [PK], iniciovigencia:LocalDate, fimvigencia:LocalDate);
+
+prestadorservico(//dadospessoaisid:Long [PK], nomecivil:String, nomesocial:String, cpf:String, datanascimento:Instant, estadocivil:EstadoCivilEnum, sexo:SexoPrestadorEnum, cor:CorPrestadorEnum, GeneratedName:Nacionalidade #FK to(nacionalidade), nomemae:String, nomepai:String, logradouro:String, numero:String, complemento:String, bairro:String, ufendereco:UnidadeFederativa #FK to(unidadefederativa), GeneratedName:Municipio #FK to(municipio), cep:String, dddcelular:Integer, numerocelular:String, dddtelefone:Integer, telefone:String, email:String, //dadostrabalhistaslocacao:LocacaoPrestadorEnum, GeneratedName:EmpresaFilial #FK to(empresafilial), GeneratedName:CategoriaProfissional #FK to(categoriaprofissional), GeneratedName:Cbo #FK to(cbo), datainicial:Instant, data:Instant, unidadepagamento:UnidadePagamentoEnum, naturezaatividade:NaturezaAtividadeEnum, agentenocivo:Boolean, exposicaopassado:Boolean, tempocontribuicao:TempoContribuicaoEnum, //dadosfiscaisrecolheinss:Boolean, modopagamento:ModoPagamentoEnum, valorpago:Double, descontoinss:Double, basecalculo:Double, descontoir:Double, registrofgts:String, cnpj:String, irretido:Double, insspago:Double, cnpjempresapagadora:String, //@digits(:Integer, GeneratedName:Verba #FK to(verba), GeneratedName:Convenio #FK to(convenio), numeroempenho:Integer, dataempenho:Instant, numeronotafiscal:Integer, dataemissaonf:Instant, //documentospessoaispispasep:String, numeroctps:Integer, seriectps:Integer, ufctps:UnidadeFederativa #FK to(unidadefederativa), numeroidentcivilnac:Integer, orgemissoridentcivilnac:String, dataemissaoidentcivilnac:Instant, numerorg:Integer, orgaoemissorrg:String, dataemissaorg:Instant, numeroregnacestrangeiro:Integer, orgaoemissorregnacestrangeiro:String, dataemissaoregnacestrangeiro:Instant, registroprofissional:Integer, dataemissaoregprofissional:Instant, datavalidaderegprofissional:Instant, numerocnh:Integer, datavalidadecnh:Instant, dataprimeiracnh:Instant, dataemissaocnh:Instant, categoriacnh:CategoriaCnhEnum, ufcnh:UnidadeFederativa #FK to(unidadefederativa), //seçãodependentestipodependente:TipoDependenteEnum, nomedependente:String, cpfdependente:String, impostoretidofonte:Boolean, planosaudeprivado:Boolean, recebebeneficio:Boolean, capacitacaoprofissional:Boolean);
+
+arrecadacaoindiceanoperiodicidade(id:Long [PK], ano:Long, periodicidademes:PeriodicidadeMesEnum, GeneratedName:ArrecadacaoIndice #FK to(arrecadacaoindice));
+
+funcionarioverba(serialversionuid:long, id:Long [PK], GeneratedName:Funcionario #FK to(funcionario), GeneratedName:Verba #FK to(verba), ativo:Boolean, valor:Double, tipovalor:TipoValorEnum, recorrencia:RecorrenciaEnum, parcelas:Integer, parcelaspagas:Integer);
+
+treinamentosugeridovalores(serialversionuid:long, id:Long [PK], GeneratedName:TreinamentoSugerido #FK to(treinamentosugerido), valordocencia:Double, valorconducao:Double, valordiarias:Double, valormaterial:Double, valorhospedagem:Double, valorindividual:Double);
+
+faixasalarial(/***/serialversionuid:long, id:Long [PK], GeneratedName:GrupoSalarial #FK to(gruposalarial), GeneratedName:ClasseSalarial #FK to(classesalarial));
+
+faixa_salarial_nivel(id_faixa_salarial:FaixaSalarial [PK] #FK to FaixaSalarial,id_nivel_salarial:set<referenciasalarial> [PK] #FK to set<referenciasalarial>);
+
+cargo(/***/serialversionuid:long, id:Long [PK], //abaprincipalnome:String, codigo:String, descricao:String, extintoem:Instant, dedicacaoexclusiva:Boolean, GeneratedName:Cbo #FK to(cbo), GeneratedName:NaturezaFuncao #FK to(naturezafuncao), GeneratedName:ProcessoFuncao #FK to(processofuncao), GeneratedName:CategoriaProfissional #FK to(categoriaprofissional), GeneratedName:Sindicato #FK to(sindicato), contagemtempoespecial:ContagemTempoEspecialEnum, motivolei:MotivoLeiEnum, leirespaldo:String, GeneratedName:GrupoSalarial #FK to(gruposalarial));
+
+cargo_vinculo(cargo_id:Cargo [PK] #FK to Cargo,vinculo_id:set<vinculo> [PK] #FK to set<vinculo>);cargo_verba(cargo_id:Cargo [PK] #FK to Cargo,verba_id:set<verba> [PK] #FK to set<verba>);cargo_atividade(cargo_id:Cargo [PK] #FK to Cargo,atividade_id:set<atividade> [PK] #FK to set<atividade>);cargo_habilidade(cargo_id:Cargo [PK] #FK to Cargo,habilidade_id:set<habilidade> [PK] #FK to set<habilidade>);cargo_curso(cargo_id:Cargo [PK] #FK to Cargo,curso_id:set<curso> [PK] #FK to set<curso>);
+
+atividade(id:Long [PK], codigo:String, descricao:String, observacao:String);
+
+definicaoorganico(id:Long [PK], GeneratedName:EmpresaFilial #FK to(empresafilial), primeirosubstitutonome:String, primeirosubstitutoemail:String, segundosubstitutonome:String, segundosubstitutoemail:String, previsaofuncionarios:Long, funcionariosatuais:Long, totalfuncionarios:Long, previsaocustos:BigDecimal, custosatuais:BigDecimal, custototal:BigDecimal, confcriticaavisar:Boolean, confcriticacriticar:Boolean, confcriticanenhum:Boolean);
+
+municipio(serialversionuid:long, id:Long [PK], regiaofiscal:String, descricao:String, uf:UnidadeFederativa #FK to(unidadefederativa), cep:String, naturalidade:String, codigoibge:Long);
+
+importadorlancamentomanual(/***/serialversionuid:long, id:Long [PK], GeneratedName:FolhaPagamento #FK to(folhapagamento), arquivoimportacao:Anexo #FK to(anexo), excluido:Boolean);
+
+categoriadoenca(/***/serialversionuid:long, id:Long [PK], codigo:String, descricao:String, ativo:boolean);
+
+codigopagamentogps(id:Long [PK], codigo:String, descricao:String);
+
+funcionario(/***/serialversionuid:long, id:Long [PK], //inícioabadedadosdocontratonome:String, matricula:Integer, empresa:EmpresaFilial #FK to(empresafilial), filial:EmpresaFilial #FK to(empresafilial), datanascimento:Instant, sexo:char, estadocivil:EstadoCivilEnum, grauinstrucao:GrauInstrucaoEnum, GeneratedName:Nacionalidade #FK to(nacionalidade), naturalidade:Municipio #FK to(municipio), GeneratedName:Municipio #FK to(municipio), conhecidocomo:String, tiposanguineo:String, corpele:CorPeleEnum, nomemae:String, nomepai:String, //fimabadadosdocontrato//inícioabacontato&endereçoestrangeiro:Boolean, naturalizado:Boolean, registroestrangeirouf:UnidadeFederativa #FK to(unidadefederativa), uf:UnidadeFederativa #FK to(unidadefederativa), registroestrangeiro:Municipio #FK to(municipio), casamentobrasileiro:Boolean, filhobrasileiro:Boolean, logradouro:String, numero:String, complemento:String, bairro:String, cep:String, emailpessoal:String, emailcorporativo:String, telefoneprincipal:String, telefoneopcional:String, datanomeacao:Instant, telefonecomercial:String, //fimabacontato&endereço//inícioabadocumentaçãoidentidade:String, orgaoexpeditor:String, uforgaoexpeditor:UnidadeFederativa #FK to(unidadefederativa), dataexpedicaorg:Instant, numeroctps:String, seriectps:String, ufctps:UnidadeFederativa #FK to(unidadefederativa), cpf:String, pispasep:String, dataemissaopispasep:Instant, agenciapispasep:Integer, tituloeleitor:String, zona:Integer, secao:Integer, uftituloeleitor:UnidadeFederativa #FK to(unidadefederativa), cnh:String, datavalidadecnh:Instant, categoriacnh:CategoriaCnhEnum, registroalistamento:Integer, categoriaalistamento:String, GeneratedName:ClassificacaoAto #FK to(classificacaoato), numeroprocesso:Integer, numeroato:Integer, numerodiariooficial:Integer, datapublicacaodiariooficial:Instant, numerosus:String, //fimabadocumentaçao//inícioabadedadosdopagamento:Vinculo #FK to(vinculo), dataadmissao:Instant, numerodependentesimpostorenda:Integer, numerodependentessalariofamilia:Integer, GeneratedName:Funcao #FK to(funcao), GeneratedName:Cargo #FK to(cargo), cargo:FaixaSalarial #FK to(faixasalarial), cargo:ReferenciaSalarial #FK to(referenciasalarial), funcao:FaixaSalarial #FK to(faixasalarial), funcao:ReferenciaSalarial #FK to(referenciasalarial), opcaofgts:Boolean, dataopcaofgts:Instant, agenciafgts:Integer, contafgts:Integer, dataexercicioadmissaoats:Instant, tipoadicionaltemposervico:TipoAdicionalTempoServicoEnum, tipoestabilidade:TipoEstabilidadeEnum, estabilidade:Boolean, trabalho:Municipio #FK to(municipio), uftrabalho:UnidadeFederativa #FK to(unidadefederativa), GeneratedName:Lotacao #FK to(lotacao), GeneratedName:Banco #FK to(banco), agencia:String, bancaria:Agencia #FK to(agencia), tipoconta:TipoContaResponsavelEnum, numeroconta:String, digitoconta:String, operacao:String, probatorio:Boolean, jornadatrabalho:Turno #FK to(turno), cargahoraria:CargaHorariaSemanalEnum, GeneratedName:Sindicato #FK to(sindicato), tipofrequencia:TipoFrequenciaEnum, tipo:SituacaoFuncional #FK to(situacaofuncional), GeneratedName:MotivoAfastamento #FK to(motivoafastamento), datainiciosituacaofuncional:Instant, datafimsituacaofuncional:Instant, iniciocontratotemporario:Instant, fimcontratotemporario:Instant, diasafastado:Integer, matriculadestino:Integer, cessaoempresadestino:String, matriculavinculo:String, descricaovinculo:String, valorvinculo:Double, //dadocadastralcomplementardadocadastral:DadoCadastralComplementar #FK to(dadocadastralcomplementar), GeneratedName:CentroCusto #FK to(centrocusto));
+
+itemformula(id:Long [PK], GeneratedName:Verba #FK to(verba), ordem:Integer, valor:String, rotina:Verba #FK to(verba), tipo:ItemFormulaTipoEnum);
+
+certidaoexsegurado(serialversionuid:long, id:Long [PK], GeneratedName:Funcionario #FK to(funcionario), numerocertidao:Integer, anocertidao:Integer, numeroretificacao:Long, statussituacaocertidao:StatusSituacaoCertidaoExSeguradoEnum, GeneratedName:Lotacao #FK to(lotacao), dataexoneracao:Instant, fonteinformacao:String, GeneratedName:CertidaoExSegurado #FK to(certidaoexsegurado));
+
+certidao_ex_segurado_anexo(certidao_ex_segurado_id:CertidaoExSegurado [PK] #FK to CertidaoExSegurado,anexo_id:list<anexo> [PK] #FK to list<anexo>);
+
+recadastramentohistoricoligacao(serialversionuid:long, id:Long [PK], GeneratedName:Funcionario #FK to(funcionario), observacao:String);
+
+funcionariovaletransporte(id:Long [PK], GeneratedName:Funcionario #FK to(funcionario), quantidade:Integer, GeneratedName:ValeTransporte #FK to(valetransporte));
+
+relatoriofinanceirofolhapagamentohistorico(/***/serialversionuid:long, id:Long [PK], GeneratedName:RelatorioFinanceiroFolhaPagamento #FK to(relatoriofinanceirofolhapagamento), status:StatusRelatorioFinanceiroEnum);
+
+soladiantamento(/***/serialversionuid:long, id:Long [PK], solicitante:Funcionario #FK to(funcionario), porcentagemadiantamento:PorcentagemAdiantamentoEnum, mesadiantamento:MesAdiantamentoEnum, situacao:SituacaoSolAdiantamentoEnum);
+
+dependentebeneficio(id:Long [PK], GeneratedName:Consignado #FK to(consignado), GeneratedName:Dependente #FK to(dependente), valor:BigDecimal);
+
+frequenciacertidaoexservidordetalhamento(serialversionuid:long, id:Long [PK], GeneratedName:CertidaoExSegurado #FK to(certidaoexsegurado), periodoinicio:Instant, periodo:Instant, tempo:Integer, descricao:String, tipo:TipoDetalhamentoFrequenciaEnum);
+
+tipoaposentadoria(serialversionuid:long, id:Long [PK], codigo:Integer, descricao:String);
+
+sefip(/***/serialversionuid:long, id:Long [PK], codigo:String, descricao:String, tipo:TipoSefipEnum);
+
+classificacaointernacionaldoenca(/***/serialversionuid:long, id:Long [PK], codigo:String, descricao:String, GeneratedName:CategoriaDoenca #FK to(categoriadoenca), GeneratedName:SubCategoriaDoenca #FK to(subcategoriadoenca));
+
+centrocusto(id:Long [PK], codigo:String, descricao:String, efetivo:Integer, nivel:Integer, tipodebito:String, tipocredito:String, contacredito:Integer, contadebito:Integer, tipocentrocusto:TipoCentroCustoEnum, cnpj:String);
+
+transferenciaprevidenciafuncionario(serialversionuid:long, id:Long [PK], GeneratedName:Funcionario #FK to(funcionario), GeneratedName:TransferenciaFuncionario #FK to(transferenciafuncionario), GeneratedName:TipoAposentadoria #FK to(tipoaposentadoria), GeneratedName:HistoricoSituacaoFuncional #FK to(historicosituacaofuncional), datasolicitacao:Instant, dataaposentadoria:Instant, tipoproporcao:TipoProporcaoEnum, proporcao:Integer, processo:String, observacao:String);
+
+certidaocompensacaohistorico(serialversionuid:long, id:Long [PK], GeneratedName:CertidaoCompensacao #FK to(certidaocompensacao), classificacoes:List<ClassificacaoCertidaoCompensacaoEnum>, statusatual:StatusCertidaoCompensacaoEnum, fundo:FundoCertidaoCompensacaoEnum, tipocertidaocompensacao:CertidaoCompensacaoTipoEnum, observacao:String);
+
+declaracaoexservidor(serialversionuid:long, id:Long [PK], GeneratedName:Funcionario #FK to(funcionario), responsavel:Funcionario #FK to(funcionario), dirigente:Funcionario #FK to(funcionario), status:StatusDeclaracaoExServidorEnum);
+
+tipocontrato(serialversionuid:long, id:Long [PK], nome:String);
+
+especialidademedica(/***/serialversionuid:long, id:Long [PK], codigo:String, nome:String);
+
+situacaofuncional(serialversionuid:long, id:Long [PK], codigo:String, descricao:String, raissituacao:Integer, rais:Integer, tipo:TipoAfastamentoEnum, modalidade:ModalidadeAfastamentoEnum, qtddias:Integer, GeneratedName:MotivoAfastamento #FK to(motivoafastamento), GeneratedName:MotivoDesligamento #FK to(motivodesligamento), GeneratedName:CausaAfastamento #FK to(causaafastamento), entrafolha:boolean);
+
+valetransporte(id:Long [PK], codigo:String, valor:Double);
+
+medico(serialversionuid:long, id:Long [PK], matricula:Integer, empresa:EmpresaFilial #FK to(empresafilial), filial:EmpresaFilial #FK to(empresafilial), nome:String, status:boolean, naturalidade:Municipio #FK to(municipio), GeneratedName:Nacionalidade #FK to(nacionalidade), estadocivil:EstadoCivilEnum, sexo:GeneroEnum, datanascimento:Instant, nomemae:String, nomepai:String, coordenadormedico:boolean, clinicogeral:boolean, especialista:boolean, identidade:String, orgaoexpeditor:String, rguf:UnidadeFederativa #FK to(unidadefederativa), dataexpedicaorg:Instant, cpf:String, crm:Integer, dataexpedicaocrm:Instant, crmuf:UnidadeFederativa #FK to(unidadefederativa), logradouro:String, numero:String, complemento:String, bairro:String, enderecouf:UnidadeFederativa #FK to(unidadefederativa), GeneratedName:Municipio #FK to(municipio), cep:String, GeneratedName:Usuario #FK to(usuario), emails:List<String>);
+
+medico_telefone(medico_id:Medico [PK] #FK to Medico,telefone_id:list<telefone> [PK] #FK to list<telefone>);medico_especialidade_medica(medico_id:Medico [PK] #FK to Medico,especialidade_medica_id:list<especialidademedica> [PK] #FK to list<especialidademedica>);
+
+tempoespecialcertidaoexsegurado(serialversionuid:long, id:Long [PK], GeneratedName:CertidaoExSegurado #FK to(certidaoexsegurado), periodoinicial:Instant, periodo:Instant, tempo:Integer, tipotempo:TipoTempoEspecialEnum, graudeficiencia:GrauDeficienciaEnum);
+
+agendamedica(serialversionuid:long, id:Long [PK], GeneratedName:Medico #FK to(medico), datainicio:LocalDate, datafim:LocalDate, horainicial:Time, hora:Time, intervalo:Integer, semanal:boolean);
+
+agenda_medica_especialidade_medica(agenda_medica_id:AgendaMedica [PK] #FK to AgendaMedica,especialidade_medica_id:list<especialidademedica> [PK] #FK to list<especialidademedica>);
+
+legislacao(/***/serialversionuid:long, id:Long [PK], GeneratedName:EnteFederado #FK to(entefederado), GeneratedName:Norma #FK to(norma), GeneratedName:DetalhamentoNorma #FK to(detalhamentonorma), numeronorma:Integer, anonorma:Integer, ementanorma:String, inicioefeitofinanceiro:Instant, publicacao:Instant, iniciovigencia:Instant, fimvigencia:Instant, GeneratedName:AssuntoNorma #FK to(assuntonorma), GeneratedName:UnidadeGestora #FK to(unidadegestora), pessoal:Legislacao #FK to(legislacao));
+
+textodocumento(id:Long [PK], codigo:Integer, descricao:String, vigencia:Instant);
+
+unidadegestora(id:Long [PK], codigo:Integer, descricao:String);
+
+assuntonorma(id:Long [PK], codigo:Integer, descricao:String, vigencia:Instant);
+
+norma(id:Long [PK], codigo:Integer, descricao:String, vigencia:Instant);
+
+legislacaoanexo(/***/serialversionuid:long, id:Long [PK], GeneratedName:TextoDocumento #FK to(textodocumento), GeneratedName:Anexo #FK to(anexo), GeneratedName:Legislacao #FK to(legislacao));
+
+detalhamentonorma(id:Long [PK], codigo:Integer, descricao:String, vigencia:Instant);
+
+entefederado(id:Long [PK], codigo:Integer, descricao:String, vigencia:Instant);
+
+classificacaoagentenocivo(id:Long [PK], codigo:String, descricao:String, tempoexposicao:Integer);
+
+turno(/***/serialversionuid:long, id:Long [PK], codigo:String, datainicio:Date, datafim:Date, horarioflexivel:boolean, horarioflexivelinicio:Date, horarioflexivelfim:Date, jornada:Date, intervaloflexivel:boolean, intervalo:Date, intervaloflexivelinicio:Date, intervaloflexivelfim:Date);
+
+falta(serialversionuid:long, id:Long [PK], GeneratedName:Funcionario #FK to(funcionario), datainicio:Instant, dataretorno:Instant, GeneratedName:MotivoAfastamento #FK to(motivoafastamento), GeneratedName:SituacaoFuncional #FK to(situacaofuncional), diagnosticomedico:String, observacaodocumento:String, GeneratedName:Anexo #FK to(anexo));
+
+processo(serialversionuid:long, id:Long [PK], GeneratedName:Funcionario #FK to(funcionario), numeroprocesso:String, assunto:String, datainicio:Instant, datafim:Instant, requerente:String, atoportaria:Long, dataato:Instant, doe:String, datadoe:Instant, impactofinanceiro:Boolean, tiporeflexo:TipoReflexoEnum, inicioimpactofinanco:Instant, fimimpactofinanco:Instant, situacao:SituacaoProcessoEnum);
+
+anexo_processo(processo_id:Processo [PK] #FK to Processo,anexo_id:list<anexo> [PK] #FK to list<anexo>);
+
+etapa(id:Long [PK], codigo:Integer, descricao:String, processo:ProcessoEtapaEnum);
+
+codigorecolhimento(id:Long [PK], codigo:Integer, descricao:String);
+
+agencia(/***/serialversionuid:long, id:Long [PK], numero:Integer, digito:Integer, nome:String, uf:UnidadeFederativa #FK to(unidadefederativa), bloqueado:boolean, GeneratedName:Banco #FK to(banco), GeneratedName:Municipio #FK to(municipio));
+
+contacontabil(id:Long [PK], empresa:EmpresaFilial #FK to(empresafilial), GeneratedName:Verba #FK to(verba), filial:EmpresaFilial #FK to(empresafilial), GeneratedName:CentroCusto #FK to(centrocusto), tipoconta:TipoContaLotacaoEnum, conta:Integer, rateio:Double, rateiototal:Double);
+
+conta_contabil_lotacao(conta_contabil_id:ContaContabil [PK] #FK to ContaContabil,lotacao_id:set<lotacao> [PK] #FK to set<lotacao>);
+
+menu(id:Long [PK], nome:String, ativo:boolean, categoria:MenuCategoriaEnum, url:String);
+
+prontuariopericiamedica(serialversionuid:long, id:Long [PK], GeneratedName:PacientePericiaMedica #FK to(pacientepericiamedica), GeneratedName:ConsultaPericiaMedica #FK to(consultapericiamedica), GeneratedName:EspecialidadeMedica #FK to(especialidademedica), GeneratedName:Medico #FK to(medico), numeropericia:Integer, anopericia:Integer, motivopericia:String, cid:String, hda:String, examefisico:String, diagnostico:String, acao:TipoAcaoPericiaMedicaEnum, dataproximapericia:LocalDate, diasproximaconsulta:Integer, observacaomedico:String, laudo:boolean);
+
+relatoriofinanceirofolhapagamento(/***/serialversionuid:long, id:Long [PK], descricao:String, GeneratedName:Anexo #FK to(anexo), GeneratedName:FolhaCompetencia #FK to(folhacompetencia), historicoatual:RelatorioFinanceiroFolhaPagamentoHistorico #FK to(relatoriofinanceirofolhapagamentohistorico));
+
+relatorio_financeiro_folha_pagamento_filial(relatorio_financeiro_folha_pagamento_id:RelatorioFinanceiroFolhaPagamento [PK] #FK to RelatorioFinanceiroFolhaPagamento,empresa_filial_id:set<empresafilial> [PK] #FK to set<empresafilial>);relatorio_financeiro_folha_pagamento_situacao_funcional(relatorio_financeiro_folha_pagamento_id:RelatorioFinanceiroFolhaPagamento [PK] #FK to RelatorioFinanceiroFolhaPagamento,situacao_funcional_id:set<situacaofuncional> [PK] #FK to set<situacaofuncional>);relatorio_financeiro_folha_pagamento_lotacao(relatorio_financeiro_folha_pagamento_id:RelatorioFinanceiroFolhaPagamento [PK] #FK to RelatorioFinanceiroFolhaPagamento,lotacao_id:set<lotacao> [PK] #FK to set<lotacao>);
+
+auditoria(/***/serialversionuid:long, id:Long [PK], descricao:String, entidade:String, acao:AcaoAuditoriaEnum, idobjectauditado:Long);
+
+recadastramentocontato(serialversionuid:long, id:Long [PK], nome:String, email:String, observacao:String);
+
+recadastramento_contato_telefone(recadastramento_contato_id:RecadastramentoContato [PK] #FK to RecadastramentoContato,telefone_id:list<telefone> [PK] #FK to list<telefone>);
+
+requisito(id:Long [PK], descricao:String, dadocomparativo:DadoComparativoEnum, comparacao:TipoComparacaoEnum, valor:String, iniciointervalo:String, fimintervalo:String);
+
+avaliacaodesempenho(serialversionuid:long, id:Long [PK], GeneratedName:EmpresaFilial #FK to(empresafilial), codavaliacao:String, nome:String, modelo:AvaliacaoDesempenhoModeloEnum);
+
+motivoafastamento(id:Long [PK], codigo:String, descricao:String, disponivelparapericia:boolean);
+
+categoriaeconomica(id:Long [PK], codigo:String, descricao:String);
+
+importadorverbasfuncionario(serialversionuid:long, id:Long [PK], arquivoimportacao:Anexo #FK to(anexo), excluido:Boolean);
+
+equipamentoprotecaoindividual(id:Long [PK], codigo:String, tipoprotecao:String, descricao:String, validade:Instant, certificado:String, minimo:Integer, livre:Integer, atual:Integer);
+
+turnofolga(/***/serialversionuid:long, id:Long [PK], GeneratedName:Turno #FK to(turno), dia:TurnoFolgaDiaEnum);
+
+lancamento(serialversionuid:long, id:Long [PK], GeneratedName:Contracheque #FK to(contracheque), GeneratedName:Verba #FK to(verba), valorreferencia:Double, valor:Double, //todoanaliasradicionadomanualmente:Boolean, GeneratedName:PensaoAlimenticia #FK to(pensaoalimenticia), GeneratedName:FuncionarioVerba #FK to(funcionarioverba), GeneratedName:PensionistaVerba #FK to(pensionistaverba), numeroparcela:Integer);
+
+consultapericiamedica(serialversionuid:long, id:Long [PK], GeneratedName:PacientePericiaMedica #FK to(pacientepericiamedica), GeneratedName:AgendaMedicaData #FK to(agendamedicadata), GeneratedName:EspecialidadeMedica #FK to(especialidademedica), compareceu:boolean, observacaomedica:String, observacaoassitente:String, tipopericia:String, tipoproximapericia:String, proximaconsulta:EspecialidadeMedica #FK to(especialidademedica), dataproximoagendamento:LocalDate, GeneratedName:Medico #FK to(medico));
+
+simuladornivelsalarialacordo(/***/serialversionuid:long, id:Long [PK], simulador:SimuladorNivelSalarial #FK to(simuladornivelsalarial), tipo:TipoAcordoAjusteSalarialEnum, dataacordo:Instant, dataincial:Instant, data:Instant, descricao:String);
+
+compensacao(id:Long [PK], GeneratedName:TomadorServico #FK to(tomadorservico), competencia:Instant, valorcompensacao:Double, datacompensacaoinicial:Instant, datacompensacao:Instant, camposeisgpsanterior:Integer, camponovegpsanterior:Integer);
+
+aliquota(serialversionuid:long, id:Long [PK], valorinicial:Double, valor:Double, deducao:Double, aliquota:Double, ano:Integer, faixa:FaixaEnum);
+
+convenio(id:Long [PK], descricao:String);
+
+dadocadastralcomplementar(/***/serialversionuid:long, id:Long [PK], GeneratedName:Funcionario #FK to(funcionario), //inícioabadadospessoaisfardamento:FardamentoEnum, altura:Double, peso:Double, calcado:String, //fimabadadospessoais//inícioabacondiçõesdesaúdecondicaoretornotrabalho:CondicaoRetornoTrabalhoEnum, datainiciodeficiencia:Instant, datafimdeficiencia:Instant, reabilitado:Boolean, cotista:Boolean, descricaodeficiencia:String, //fimabadeficiência//inícioabaaponsentadoriadataaposentadoria:Instant, tipoaposentadoria:TipoAposentadoriaEnum, proporcionalidade:Integer, tipoproporcao:TipoProporcaoEnum, ////@column(name:Boolean, //@notnull//@column(name:Long, localredistribuicao:String, datadistribuicaocedencia:Instant, //@column(name:Instant, temposervidorprofessor:Integer, //implementaçãodeisençõesdatainicialisencaoir:Instant, dataisencaoir:Instant, datainicialisencaoprevidencia:Instant, dataisencaoprevidencia:Instant, previdenciaespecial:Boolean);
+
+dirfresponsavelreceita(serialversionuid:long, id:Long [PK], cpf:String, nome:String, ddd:String, numerotelefone:String, ramal:String, email:String);
+
+certidaocompensacaoperiodo(serialversionuid:long, id:Long [PK], GeneratedName:CertidaoCompensacao #FK to(certidaocompensacao), periodoinicio:LocalDate, periodofim:LocalDate);
+
+assinaturacertidaoexsegurado(serialversionuid:long, id:Long [PK], GeneratedName:Funcionario #FK to(funcionario), GeneratedName:CertidaoExSegurado #FK to(certidaoexsegurado), funcaoassinaturacertidao:FuncaoDeclaracaoAposentadoriaEnum, GeneratedName:AbaAssinaturaCertidao);
+
+diautil(/***/id:Long [PK], ano:String, mes:String, dia:String, diadasemana:String);
+
+pensaoprevidenciariapagamento(serialversionuid:long, id:Long [PK], dataprimeiropagamento:LocalDate, tiporateio:TipoRateioEnum, valorrateio:Double, tipopensao:TipoPensaoEnum, comparidade:Boolean, numeroprocessopensao:String, datafimbeneficio:LocalDate, datalimiteretroativo:LocalDate, tipocota:TipoCotaEnum, numeroreserva:Integer, GeneratedName:Agencia #FK to(agencia), tipoconta:DadoBancarioTipoContaEnum, numeroconta:String, //@enumerated(enumtype.string)//@column(name:Instant, dataisencaoir:Instant, datainicialisencaoprevidencia:Instant, dataisencaoprevidencia:Instant, digito:String, operacao:String);
+
+contracheque(/***/serialversionuid:long, id:Long [PK], GeneratedName:FolhaPagamento #FK to(folhapagamento), GeneratedName:Funcionario #FK to(funcionario), GeneratedName:Pensionista #FK to(pensionista), valorbruto:Double, valorliquido:Double, valordesconto:Double, situacao:SituacaoProcessamentoEnum, nome:String, matricula:Integer, lotacao:String, municipio:String, dataadmissao:Instant, cargoefetivo:String, datanascimento:Instant, nivel:String, cargofuncao:String, referencia:String, vinculo:String, tiposituacaofuncional:String, identidade:String, cpf:String, orgaopagador:String, depsf:Integer, depir:Integer, cargahoraria:String, feedback:String);
+
+funcao(serialversionuid:long, id:Long [PK], nome:String, descricao:String, codigo:String, GeneratedName:Cbo #FK to(cbo), datacriacao:Instant, dataextincao:Instant, funcaoextinta:Boolean, GeneratedName:NaturezaFuncao #FK to(naturezafuncao), GeneratedName:ProcessoFuncao #FK to(processofuncao), GeneratedName:CategoriaProfissional #FK to(categoriaprofissional), dedicacaoexclusiva:Boolean, numerolei:Integer, datalei:Instant, funcaoacumulavel:FuncaoAcumulavelEnum, contagemtempoespecial:ContagemTempoEspecialEnum, motivolei:MotivoLeiEnum, GeneratedName:GrupoSalarial #FK to(gruposalarial), GeneratedName:CentroCusto #FK to(centrocusto));
+
+funcao_vinculo(funcao_id:Funcao [PK] #FK to Funcao,vinculo_id:set<vinculo> [PK] #FK to set<vinculo>);funcao_curso(funcao_id:Funcao [PK] #FK to Funcao,curso_id:set<curso> [PK] #FK to set<curso>);funcao_habilidade(funcao_id:Funcao [PK] #FK to Funcao,habilidade_id:set<habilidade> [PK] #FK to set<habilidade>);funcao_atividade(funcao_id:Funcao [PK] #FK to Funcao,atividade_id:set<atividade> [PK] #FK to set<atividade>);funcao_requisito(funcao_id:Funcao [PK] #FK to Funcao,requisito_id:set<requisito> [PK] #FK to set<requisito>);funcao_verba(funcao_id:Funcao [PK] #FK to Funcao,verba_id:set<verba> [PK] #FK to set<verba>);
+
+modelodocumento(/***/serialversionuid:long, id:Long [PK], descricao:String, conteudo:String);
+
+pensionistaverba(serialversionuid:long, id:Long [PK], GeneratedName:Pensionista #FK to(pensionista), GeneratedName:Verba #FK to(verba), valor:Double, ativo:Boolean, tipovalor:TipoValorEnum, recorrencia:RecorrenciaEnum, parcelas:Integer, parcelaspagas:Integer);
+
+acidentetrabalho(/***/serialversionuid:long, id:Long [PK], aviso:String, GeneratedName:Funcionario #FK to(funcionario), setorlocal:String, causa:String, entidade:TomadorServico #FK to(tomadorservico), GeneratedName:TomadorServico #FK to(tomadorservico), datahoraacidente:Date, diasafastado:Integer, dataprevistavolta:Date, resultado:String, numerocat:Integer, documentoemitido:boolean, dataemissaodocumento:Date, GeneratedName:Anexo #FK to(anexo));
+
+requisicaopessoal(serialversionuid:long, status_tempo_na_data_limite:String, status_tempo_apos_a_data_limite:String, status_tempo_antes_da_data_limite:String, id:Long [PK], solicitante:Funcionario #FK to(funcionario), justificativa:String, situacao:SituacaoRequisicaoPessoalEnum, dataentrada:Instant, datalimite:Instant, dataconclusao:Instant, dataprevistaadimissao:Instant, motivosolicitacao:String, substituido:Funcionario #FK to(funcionario));
+
+subcategoriadoenca(/***/serialversionuid:long, id:Long [PK], codigo:String, descricao:String);
+
+anexo(/***/serialversionuid:long, id:Long [PK], filename:String, filedownloaduri:String, filetype:String, size:Long, description:String);
+
+folhacompetencia(/***/serialversionuid:long, id:Long [PK], mescompetencia:Integer, anocompetencia:Integer, iniciocompetencia:Date, fimcompetencia:Date, programacaofechamento:LocalDate, checarrecad:boolean, checarrecadamplegal:String);
+
+transferenciafuncionario(/***/serialversionuid:long, id:Long [PK], GeneratedName:Funcionario #FK to(funcionario), empresa:EmpresaFilial #FK to(empresafilial), GeneratedName:Lotacao #FK to(lotacao), empresaanterior:EmpresaFilial #FK to(empresafilial), anterior:Lotacao #FK to(lotacao));
+
+causaafastamento(id:Long [PK], codigo:String, descricao:String);
+
+habilidade(id:Long [PK], codigo:String, descricao:String);
+
+frequencia(serialversionuid:long, id:Long [PK], GeneratedName:Funcionario #FK to(funcionario), data:LocalDate, horastrabalhadas:LocalDateTime, horaextra:LocalDateTime, entradaum:LocalDateTime, saidaum:LocalDateTime, entradadois:LocalDateTime, saidadois:LocalDateTime, GeneratedName:Falta #FK to(falta));
+
+adiantamentopagamento(id:Long [PK], GeneratedName:Funcionario #FK to(funcionario), GeneratedName:EmpresaFilial #FK to(empresafilial), GeneratedName:Lotacao #FK to(lotacao), tipoadiantamento:TipoPagamentoEnum, recebimento:RecebimentoEnum, percentualadiantamento:Double, valoradiantamento:BigDecimal, datainicio:Instant, datafim:Instant, status:StatusAdiantamentoEnum, competencia:String);
+
+certidaocompensacaoassinatura(serialversionuid:long, id:Long [PK], GeneratedName:CertidaoCompensacao #FK to(certidaocompensacao), GeneratedName:Funcionario #FK to(funcionario), funcao:FuncaoCertidaoCompensacaoEnum);
+
+declaracaoaposentadoria(serialversionuid:long, id:Long [PK], numero:Long, ano:Integer, excluida:Boolean, GeneratedName:Funcionario #FK to(funcionario), numeroretificacao:Long, GeneratedName:DeclaracaoAposentadoria #FK to(declaracaoaposentadoria), arquivada:Boolean, tipodeclaracao:DeclaracaoAposentadoriaTipoEnum);
+
+areaformacao(id:Long [PK], areaformacao:String);
+
+recadastramento(serialversionuid:long, id:Long [PK], GeneratedName:Funcionario #FK to(funcionario), pensao:Pensionista #FK to(pensionista), dados:RecadastramentoDados #FK to(recadastramentodados), endereco:RecadastramentoEndereco #FK to(recadastramentoendereco), contato:RecadastramentoContato #FK to(recadastramentocontato), data:LocalDate, status:boolean);
+
+recadastramento_anexo(recadastramento_id:Recadastramento [PK] #FK to Recadastramento,anexo_id:list<anexo> [PK] #FK to list<anexo>);
+
+funcaohistoricolei(id:Long [PK], numerolei:Integer, datalei:Instant, motivolei:MotivoLeiEnum, GeneratedName:Funcao #FK to(funcao));
+
+evento(id:Long [PK], descricao:String, situacao:SituacaoEventoEnum);
+
+lotacao(id:Long [PK], descricao:String, descricaocompleta:String, nivel:Integer, efetivo:Integer, GeneratedName:CentroCusto #FK to(centrocusto), tipoconta:TipoContaLotacaoEnum, numeroconta:Integer, tipo:TipoLotacaoEnum, vigenciainicial:Instant, vigencia:Instant, excluida:Boolean);
+
+grauacademico(id:Long [PK], nome:String);
+
+historicocertidaoexsegurado(serialversionuid:long, id:Long [PK], GeneratedName:CertidaoExSegurado #FK to(certidaoexsegurado), status:StatusSituacaoCertidaoExSeguradoEnum, observacao:String, GeneratedName:Funcionario #FK to(funcionario), numerocertidao:Long, anocertidao:Integer, numeroretificacao:Long, GeneratedName:Lotacao #FK to(lotacao), dataexoneracao:Instant, fonteinformacao:String);
+
+responsavellegal(serialversionuid:long, id:Long [PK], codigoresponsavel:String, nome:String, GeneratedName:Banco #FK to(banco), agencia:Integer, bancaria:Agencia #FK to(agencia), contacorrente:Integer, digitoconta:String, tiporesponsavel:TipoResponsavelEnum, cpf:String, identidade:Integer, tipoconta:TipoContaResponsavelEnum, logradouro:String, numero:String, complemento:String, bairro:String, GeneratedName:Municipio #FK to(municipio), cep:String, GeneratedName:UnidadeFederativa #FK to(unidadefederativa), telefone:String);
+
+definicaoorganicolotacaocargo(id:Long [PK], empresafilialid:Long, lotacaoid:Long, cargoid:Long, quantpermitido:Long);
+
+verba(serialversionuid:long, id:Long [PK], codigo:String, descricaoverba:String, descricaoresumida:String, GeneratedName:TipoVerba, GeneratedName:DestinacaoExterna, valormaximo:Double, tipovalor:TipoValorEnum, comentario:String, contadebito:Integer, associada:Verba #FK to(verba), identificadorverba:IdentificacaoVerbaEnum, contacredito:Integer, contaauxiliarprimaria:Integer, contaauxiliarsecundaria:Integer, vigenciainicial:Instant, vigencia:Instant, recorrencia:RecorrenciaEnum, GeneratedName:CentroCusto #FK to(centrocusto), referencia:Double, faixaaliquota:FaixaEnum);
+
+verba_incidencia(verba_id:Verba [PK] #FK to Verba,verba_incidencia_id:set<verba> [PK] #FK to set<verba>);
+
+motivodesligamento(id:Long [PK], codigo:String, descricao:String);
+
+cbo(/***/serialversionuid:long, id:Long [PK], codigo:String, nome:String);
+
+pacientepericiamedica(id:Long [PK], GeneratedName:Funcionario #FK to(funcionario), numeroprocesso:Long, cid:String, cpf:String, nome:String, contadorcomparecimento:Integer, tipoanalise:TipoAnaliseEnum, status:StatusAgendamentoPericiaEnum);
+
+licencapremio(id:Long [PK], GeneratedName:FuncionarioExercicio #FK to(funcionarioexercicio), observacao:String, datainicio:Instant, dataretorno:Instant, dias:String);
+
+treinamentosugerido(serialversionuid:long, id:Long [PK], GeneratedName:Curso #FK to(curso), tipo:TipoTreinamentoSugerido, instrutor:String, motivo:String, local:String, datainicio:LocalDate, data:LocalDate, situacao:SituacaoTreinamentoSugeridoEnum, informacoesadicionais:String, turma:String, justificativa:String, resultado:String, horario:Date, quantidadevagas:String);
+
+treinamento_sugerido_funcionario(id_treinamento_sugerido:TreinamentoSugerido [PK] #FK to TreinamentoSugerido,id_funcionario:list<funcionario> [PK] #FK to list<funcionario>);
+
+arquivoremessahistoricosituacao(serialversionuid:long, id:Long [PK], arquivoremessa:ArquivoRemessaPagamento #FK to(arquivoremessapagamento), situacao:ArquivoRemessaPagamentoSituacaoEnum);
+
+telefone(serialversionuid:long, id:Long [PK], numero:String, tipo:TipoTelefoneEnum);
+
+funcionarioexercicio(id:Long [PK], GeneratedName:Funcionario #FK to(funcionario), GeneratedName:ClassificacaoAto #FK to(classificacaoato), exercicio:String, datainicio:Instant, datafim:Instant, processo:String, numdiariooficial:String, datadiariooficial:Instant, numeroato:String, anoato:String, dataato:Instant);
+
+historicocontabil(id:Long [PK], descricao:String, codigo:String);
+
+unidadefederativa(serialversionuid:long, id:Long [PK], sigla:String, estado:String);
+
+consignado(/***/serialversionuid:long, id:Long [PK], descricao:String, GeneratedName:Endereco, telefone:String, GeneratedName:CentroCusto #FK to(centrocusto), cnpj:String, rg:String, orgaoexpedidor:String, margemconsignavel:Double, GeneratedName:Banco #FK to(banco), agencia:Integer, bancaria:Agencia #FK to(agencia), contacorrente:String, digitoconta:String, tipoconta:TipoContaBancariaEnum, contrato:String, tipocalculo:Double, email:String, taxaoperacional:Double, tac:Double, taxacadastrosiglaconsignado:Integer, siglaconsignado:String, registroans:Integer, codigoconvergencia:Integer, digitoconvergencia:Integer, extratoconvenente:Integer, digitoconvenente:Integer, nomeconvenente:String, pvresponsavel:String, datacompetenciaprocessamento:Instant, verbadesconto:Integer, modalidade:ModalidadeConsignadoEnum, GeneratedName:UnidadeFederativa #FK to(unidadefederativa));
+
+notificacao(serialversionuid:long, id:Long [PK], GeneratedName:TipoNotificacao, descricao:String, destinatario:Usuario #FK to(usuario), visualizada:Boolean, identidade:Long, enviaemail:Boolean);
+
+temposervico(id:Long [PK], //inícioabadadosdofuncionário:Funcionario #FK to(funcionario), protocoloctccts:String, salario:Double, indicecontribuicao:IndiceContribuicaoPrevidenciaEnum, ultimocargo:String, categoria:Sefip #FK to(sefip), descricaocertidao:String, //fimabadadosdofuncionário//inícioabadadosdaaverbaçãodescricaoempresa:String, efeitoaverbacao:TipoAverbacao #FK to(tipoaverbacao), tipoaverbacao:TipoAverbacaoEnum, averbado:Boolean, datainicio:Instant, datatermino:Instant, qtddias:Integer, //fimabadadosdaaverbação//inícioabadadosdapublicaçãonumeroprocesso:String, GeneratedName:ClassificacaoAto #FK to(classificacaoato), numerodiariooficial:String, anopublicacao:Integer, datadiariooficial:Instant, numeroato:String, data:Instant, //fimabadadosdapublicação//inícioabadadosdainstituiçãoendereco:String, cidade:String, numero:String, complemento:String, bairro:String, uf:UnidadeFederativa #FK to(unidadefederativa), cep:String, telefone:String, cnpj:String);
+
+tomadorservico(/***/serialversionuid:long, id:Long [PK], tipoinscricao:TipoInscricaoEnum, razaosocial:String, GeneratedName:Endereco, GeneratedName:CodigoRecolhimento #FK to(codigorecolhimento), cnpj:String, GeneratedName:CodigoPagamentoGps #FK to(codigopagamentogps), GeneratedName:Compensacao #FK to(compensacao));
+
+contribuicaosindical(/***/serialversionuid:long, id:Long [PK], GeneratedName:Funcionario #FK to(funcionario), ano:Integer, GeneratedName:Sindicato #FK to(sindicato), permitedesconto:boolean, GeneratedName:Anexo #FK to(anexo));
+
+perfil(/***/serialversionuid:long, id:Long [PK], nome:String, ativo:boolean);
+
+perfil_papel(perfil_id:Perfil [PK] #FK to Perfil,papel_id:set<papel> [PK] #FK to set<papel>);usuario_perfil(perfil_id:Perfil [PK] #FK to Perfil,usuario_id:set<usuario> [PK] #FK to set<usuario>);
+
+historicodeclaracaoaposentadoria(/***/serialversionuid:long, id:Long [PK], GeneratedName:DeclaracaoAposentadoria #FK to(declaracaoaposentadoria), tipodeclaracao:DeclaracaoAposentadoriaTipoEnum);
+
+categoriaprofissional(/***/serialversionuid:long, id:Long [PK], codigo:String, descricao:String);
+
+categoria_profissional_verba(categoria_profissional_id:CategoriaProfissional [PK] #FK to CategoriaProfissional,verba_id:list<verba> [PK] #FK to list<verba>);
+
+tipoferias(id:Long [PK], descricao:String, abono:Integer, dias:Integer, saldo:Integer, decimoterceiro:DecimoTerceiroEnum, coletivo:ColetivoEnum, licencapremio:LicencaPremioEnum);
+
+dependente(/***/serialversionuid:long, id:Long [PK], GeneratedName:Funcionario #FK to(funcionario), tipo:DependenteTipoDependenteEnum, nome:String, naturalidade:String, iniciomotivo:Instant, fimmotivo:Instant, sexo:String, datanascimento:Instant, numerocpf:String, numeroidentidade:String, logradouro:String, numero:String, GeneratedName:Municipio #FK to(municipio), GeneratedName:UnidadeFederativa #FK to(unidadefederativa), cep:String, numdocumentocomprobatorio:String, datadocumentocomprobatorio:Instant, dependenciair:Boolean, dependenciasf:Boolean);
+
+arrecadacaoindicemes(id:Long [PK], mes:MesEnum, aliquota:Double, GeneratedName:ArrecadacaoIndiceAnoPeriodicidade #FK to(arrecadacaoindiceanoperiodicidade));
+
+experienciaprofissional(id:Long [PK], GeneratedName:Funcao #FK to(funcao), GeneratedName:Funcionario #FK to(funcionario));
+
+regraaposentadoria(/***/serialversionuid:long, id:Long [PK], //modalidadedeaposentadoriamodalidadeaposentadoria:ModalidadeAposentadoriaEnum, //nomedamodalidade(casoamodalidadesejadotipo'especifica')modalidadeaposentadorianome:String, //tipodeaposentadoriatipoaposentadoria:TipoAposentadoriaEnum, //tipoderegratiporegra:TipoRegraEnum, //leidebaseleibase:String, //datadevigênciavigencia:Date, //temposerviçopúblicotemposervicopublico:Integer, //tempodecargoefetivotempocargoefetivo:Integer, //tempocarreiratempocarreira:Integer, //tempodecontribuiçãotempocontribuicaomulher:Integer, tempocontribuicaohomem:Integer, tempocontribuicaomulherformula:String, tempocontribuicaohomemformula:String, //pedágiopedagio:Boolean, //idadeidadehomem:Integer, idademulher:Integer, idadehomemformula:String, idademulherformula:String, //licençaprêmiolicencapremio:Boolean, //abonopermanênciaabonopermanencia:Boolean, //artigoartigo:String, //proventosproventos:String, //reajustereajuste:String, //tipodevigenciatipovigencia:TipoVigenciaEnum, //tempodeserviçoemplenoexerciciodafunçãotemposervicoemplenoexercicio:Boolean);
+
+folhapagamento(/***/serialversionuid:long, id:Long [PK], GeneratedName:TipoProcessamento #FK to(tipoprocessamento), GeneratedName:FolhaCompetencia #FK to(folhacompetencia), periodoprocessamentoinicio:Date, periodoprocessamentofim:Date, status:StatusFolhaEnum, situacao:SituacaoProcessamentoEnum, processamentos:Long, filial:EmpresaFilial #FK to(empresafilial));
+
+folha_pagamento_lotacao(folha_pagamento_id:FolhaPagamento [PK] #FK to FolhaPagamento,lotacao_id:set<lotacao> [PK] #FK to set<lotacao>);
+
+classificacaoato(id:Long [PK], descricao:String);
+
+banco(/***/serialversionuid:long, id:Long [PK], codigo:String, nome:String, bloqueado:boolean, principal:Boolean);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

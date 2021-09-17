@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="home" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ingredientrepository" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<ingredient,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="reciperepository" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<recipe,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="baseobject">
+         <xs:sequence>
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="useremail" type="xs:string" />
+          <xs:element name="recipes" type="recipe" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="recipe" >
+      <xs:complexContent>
+       <xs:extension base="baseobject">
+         <xs:sequence>
+          <xs:element name="recipename" type="xs:string" />
+          <xs:element name="userid" type="xs:string" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="ingredients" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ingredient" >
+      <xs:complexContent>
+       <xs:extension base="baseobject">
+         <xs:sequence>
+          <xs:element name="ingredientname" type="xs:string" />
+          <xs:element name="" type="recipe" nillable="true" minOccurs="0" />
+          <xs:element name="description" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseobject" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="homecontroller" >
+      <xs:sequence>
+        <xs:element name="ingredients" type="ingredientrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="recipetrackerapplication" >
+      <xs:complexContent>
+       <xs:extension base="springbootservletinitializer{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

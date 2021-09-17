@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="list" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="update" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="write" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="header" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="footer" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="boardrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<board,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="timeentitiy" >
+      <xs:sequence>
+        <xs:element name="createdate" type="xs:anyType" />
+        <xs:element name="modifieddate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="board" >
+      <xs:complexContent>
+       <xs:extension base="timeentitiy{">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="writer" type="xs:string" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="content" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="boarddto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="writer" type="xs:string" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="createdate" type="xs:anyType" />
+        <xs:element name="modifieddate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="boardservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="boardrepository" nillable="true" minOccurs="0" />
+        <xs:element name="//페이지처리를위한추가//블럭에존재하는페이지수block_page_num_count" type="xs:long" />
+        <xs:element name="//한페이지에존재하는게시글수page_post_count" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="boardcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="boardservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

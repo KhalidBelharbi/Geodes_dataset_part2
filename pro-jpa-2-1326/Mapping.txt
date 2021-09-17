@@ -1,0 +1,11 @@
+ClassDiagram.Class>> Department =>=>=> RelationalSchema.Table>> department;
+ClassDiagram.Class>> Project =>=>=> RelationalSchema.Table>> project;
+ClassDiagram.Attribut>> Department.number:int =>=>=> RelationalSchema.Column>> department.number PRIMARY KEY;
+ClassDiagram.Attribut>> Department.country:String =>=>=> RelationalSchema.Column>> department.country PRIMARY KEY;
+ClassDiagram.Attribut>> Department.name:String =>=>=> RelationalSchema.Column>> department.name;
+ClassDiagram.Attribut>> Project.name:String =>=>=> RelationalSchema.Column>> project.name PRIMARY KEY;
+ClassDiagram.Attribut>> Project.dept:Department =>=>=> RelationalSchema.Column>> project.dept PRIMARY KEY;
+ClassDiagram.Attribut>> Project.start:Date =>=>=> RelationalSchema.Column>> project.start;
+ClassDiagram.Attribut>> Project.end:Date =>=>=> RelationalSchema.Column>> project.end;
+One-To-Many relationship from ClassDiagram.Class>>Department  to ClassDiagram.Class>>Collection<Project>;
+Many-To-One relationship from ClassDiagram.Class>>Project  to ClassDiagram.Class>>Department represented by ClassDiagram.Atrribute>>num;

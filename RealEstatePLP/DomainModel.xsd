@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="estate" >
+      <xs:sequence>
+        <xs:element name="estateid" type="xs:anyType" />
+        <xs:element name="estatename" type="xs:string" />
+        <xs:element name="estate" type="address" nillable="true" minOccurs="0" />
+        <xs:element name="estatearea" type="xs:anyType" />
+        <xs:element name="estateprice" type="xs:anyType" />
+        <xs:element name="estateowner" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="imagelist" type="images" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="createdby" type="xs:string" />
+        <xs:element name="creation" type="xs:dateTime" />
+        <xs:element name="lastmodifiedby" type="xs:string" />
+        <xs:element name="lastmodifieddate" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="images" >
+      <xs:sequence>
+        <xs:element name="imageid" type="xs:anyType" />
+        <xs:element name="imagename" type="xs:string" />
+        <xs:element name="imagetype" type="xs:string" />
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="data" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:anyType" />
+        <xs:element name="useremail" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="userpassword" type="xs:string" />
+        <xs:element name="userrole" type="xs:string" />
+        <xs:element name="usercontact" type="xs:string" />
+        <xs:element name="birthdate" type="xs:anyType" />
+        <xs:element name="ownedproperties" type="estate" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="interestedlist" type="estate" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="offer" type="estate" nillable="true" minOccurs="0" />
+        <xs:element name="createdby" type="xs:string" />
+        <xs:element name="creation" type="xs:dateTime" />
+        <xs:element name="lastmodifiedby" type="xs:string" />
+        <xs:element name="lastmodifieddate" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

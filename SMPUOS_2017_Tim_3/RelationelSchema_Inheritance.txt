@@ -1,0 +1,11 @@
+
+adresa(id:Long [PK], nazivnaseljenogmesta:String, nazivulice:String, broj:int, geoduzina:float, geosirina:float);
+
+bioskop(id:Long [PK], naziv:String, adresa_id:Adresa #FK to(adresa), ocena:Long, prosecnaocena:float, brojac:int, sumaocena:float);
+
+sala(id:Long [PK], oznakasale:String, kapacitet:int, brojsedistaredovi:int, brojsedistakolone:int, tip:SalaTip, GeneratedName:Bioskop #FK to(bioskop));
+
+ocjena(id:long [PK], bioskop_id:Bioskop #FK to(bioskop), username:String, ocjena:float);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

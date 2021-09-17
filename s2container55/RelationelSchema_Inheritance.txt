@@ -1,0 +1,65 @@
+
+department4(/***/departmentid:int [PK], /***/departmentno:int, /***/transientdepartmentname:String);
+
+pattern(/***/value:String);
+
+tablestrategy3(/***/id:Integer [PK], /***/value:String);
+
+identitystrategy(/***/id:Integer [PK], /***/value:String);
+
+autostrategy(/***/id:Integer [PK], /***/value:String);
+
+tablestrategy(/***/id:Integer [PK], /***/value:String);
+
+compkeydepartment(/***/departmentid1:int [PK], /***/departmentid2:int [PK], /***/departmentno:int, /***/departmentname:String, /***/location:String, /***/version:int);
+
+concretedepartment(/***/departmentid:int [PK]);
+
+ownerofnoid(/***/id:int [PK], /***/:NoId #FK to(noid));
+
+authority(/***/id:int [PK], /***/:AuthorityType);
+
+employee(/***/employeeid:int [PK], /***/employeeno:int, /***/employeename:String, /***/managerid:int, employee_id:Employee #FK to(employee), /***/hire:Date, /***/salary:BigDecimal, /***/departmentid:int, department_id:Department #FK to(department), /***/addressid:int, /***/:Address #FK to(address), /***/version:int);
+
+department5(/***/departmentid:Integer [PK], /***/departmentno:int, /***/transientdepartmentname:String);
+
+tablestrategy2(/***/id:Integer [PK], /***/value:String);
+
+department(/***/departmentid:int [PK], /***/departmentno:int, /***/departmentname:String, /***/location:String, /***/version:int);
+
+largeobject(/***/id:Integer [PK], /***/name:String, /***/largename:String, s:byte, larges:byte, /***/dto:MyDto, /***/largedto:MyDto);
+
+concreteaddress(/***/version:int);
+
+sequencestrategy3(/***/id:Integer [PK], /***/value:String);
+
+address(/***/addressid:int [PK], /***/street:String, /***/version:int, /***/:Employee #FK to(employee));
+
+tablestrategy4(/***/id:Integer [PK], /***/value:String);
+
+sequencestrategy(/***/id:Integer [PK], /***/value:String);
+
+compkeyemployee(/***/employeeid1:int [PK], /***/employeeid2:int [PK], /***/employeeno:int, /***/employeename:String, /***/managerid1:int, /***/managerid2:int, employee_id1:CompKeyEmployee #FK to(compkeyemployee), /***/hire:Date, /***/salary:BigDecimal, /***/departmentid1:int, /***/departmentid2:int, department_id1:CompKeyDepartment #FK to(compkeydepartment), /***/addressid1:int, /***/addressid2:int, /***/address:CompKeyAddress #FK to(compkeyaddress), /***/version:int);
+
+department3(/***/departmentid:int [PK], /***/departmentno:int);
+
+noid(/***/value1:int, /***/value2:int);
+
+concreteemployee(/***/salary:BigDecimal);
+
+tablestrategy5(/***/id:Integer [PK], /***/value:String);
+
+compkeyaddress(/***/addressid1:int [PK], /***/addressid2:int [PK], /***/street:String, /***/version:int, /***/employee:CompKeyEmployee #FK to(compkeyemployee));
+
+department2(/***/departmentid:int [PK], /***/departmentno:int, /***/departmentname:String);
+
+tense(/***/id:int [PK], /***/:Date, /***/time:Date, /***/timestamp:Date, /***/caldate:Calendar, /***/caltime:Calendar, /***/caltimestamp:Calendar, /***/sqldate:java.sql.Date, /***/sql:Time, /***/sql:Timestamp);
+
+job(/***/id:int [PK], /***/:JobType);
+
+sequencestrategy2(/***/id:Integer [PK], /***/value:String);
+
+constraintchecking(/***/primarykey:Integer [PK], /***/uniquekey:Integer, /***/foreignkey:Integer, /***/checkconstraint:Integer, /***/notnull:Integer);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

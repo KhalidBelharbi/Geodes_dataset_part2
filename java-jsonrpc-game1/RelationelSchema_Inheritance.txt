@@ -1,0 +1,131 @@
+
+whitelist(/***/serialversionuid:long, id:Integer [PK], imei:String);
+
+baseheroequip(serialversionuid:long, pk:BaseHeroEquipPK [PK], item_id:BaseItem #FK to(baseitem), item_id:BaseItem #FK to(baseitem), item_id:BaseItem #FK to(baseitem), item_id:BaseItem #FK to(baseitem), item_id:BaseItem #FK to(baseitem), item_id:BaseItem #FK to(baseitem));
+
+baseshopdiscount(/***/serialversionuid:long, type:Integer [PK], discount:Integer, begintime:Timestamp, endtime:Timestamp);
+
+basespecialcopy(/***/serialversionuid:long, week:Integer [PK], type:Integer [PK], begintime:Timestamp, endtime:Timestamp);
+
+baseitem(serialversionuid:long, baseid:Integer [PK], name:String, type:Integer, sellcoin:Integer, makecoin:Integer, color:Integer, exp:Integer, level:Integer);
+
+baseitemshop(money_type_coin:int, money_type_gold:int, //竞技场币money_type_3:int, //远征币money_type_4:int, //远征币money_type_5:int, //普通商店shop_type_1:int, //竞技场商店shop_type_3:int, //远征商店shop_type_4:int, //boss商店shop_type_5:int, /***/serialversionuid:long, id:Integer [PK], itemid:Integer, type:Integer, moneytype:Integer, price:Integer, num:Integer);
+
+basestory(copy_type:int, hero_copy_type:int, special_copy_type:int, serialversionuid:long, id:Integer [PK], type:Integer [PK], name:String, teamexp:Integer, exp:Integer, coin:Integer, //等级限制unlocklevel:Integer, //掉落道具items:String, //扫荡掉落wipeoutitems:String);
+
+baseheroshop(serialversionuid:long, id:Integer [PK], type:String, quality:Integer, itemid:Integer, minnum:Integer, maxnum:Integer, weight:Integer);
+
+basemakeitem(serialversionuid:long, pk:BaseMakeItemPK [PK], num:Integer);
+
+baseskill(serialversionuid:long, id:Integer [PK], name:String, maxlevel:int, basecoin:int, levelupcoin:int, combo:boolean);
+
+baseachievement(/***/serialversionuid:long, type_crusade:String, type_hero_class:String, type_hero_id:String, type_kill_num:String, type_pk:String, type_vip:String, type_star:String, id:Integer [PK], parentid:int, goal:int, money:int, target:int, name:String, type:String, reward:String, desc:String, other:String);
+
+basedailytask(/***/serialversionuid:long, id:Integer [PK], goal:Integer, name:String, type:String, reward:String, desc:String);
+
+baseboss(/***/serialversionuid:long, id:Integer [PK], name:String, level:int, hp:int, skill1level:int, skill2level:int, skill3level:int, skill4level:int, atk:int, def:int, magic:int, //魔抗mr:int, crtical:int, dex:int, vampire:int, other:String);
+
+basehero(serialversionuid:long, id:Integer [PK], name:String, star:Integer, skill_id:BaseSkill #FK to(baseskill), skill_id:BaseSkill #FK to(baseskill), skill_id:BaseSkill #FK to(baseskill), skill_id:BaseSkill #FK to(baseskill));
+
+basemission(serialversionuid:long, //longserialversionuid:Integer [PK], parentid:Integer, goal:Integer, level:Integer, target:Integer, name:String, type:String, reward:String, desc:String);
+
+mail(/***/serialversionuid:long, //privatelongserialversionuid:int, deleted:int, //publicintsystem:Integer [PK], fromname:String, roleid:Integer, title:String, content:String, attachment:String, status:Integer, sendtime:Timestamp);
+
+friend(/***/serialversionuid:long, roleid:Integer [PK], roleid2:Integer [PK]);
+
+bosskiller(/***/serialversionuid:long, id:Integer [PK], roleid:int, name:String, serverid:int, date:int);
+
+friendap(id:Integer [PK], roleid:Integer, roleid2:Integer, name:String, avatar:int, level:int, date:int);
+
+basespecialcopy(/***/serialversionuid:long, week:Integer [PK], type:Integer [PK], begintime:Timestamp, endtime:Timestamp);
+
+order(serialversionuid:long, status_create:int, status_pay:int, status_success:int, moon_card:int, id:Integer [PK], roleid:int, userid:int, serverid:int, type:int, gold:int, addgold:int, money:int, status:int, platformid:int, time:Timestamp, desc:String);
+
+killrank(/***/serialversionuid:long, roleid:Integer [PK], serverid:int, name:String, avatar:int, level:int, num:int, time:Timestamp);
+
+user(normal_reg:int, quick_reg:int, serialversionuid:long, id:Integer [PK], password:String, imei:String, //@column(name:int, username:String, registertype:int, time:Timestamp, signintime:Timestamp);
+
+baseheroequip(serialversionuid:long, pk:BaseHeroEquipPK [PK], item_id:BaseItem #FK to(baseitem), item_id:BaseItem #FK to(baseitem), item_id:BaseItem #FK to(baseitem), item_id:BaseItem #FK to(baseitem), item_id:BaseItem #FK to(baseitem), item_id:BaseItem #FK to(baseitem));
+
+onlinelog(/***/serialversionuid:long, id:Integer [PK], num:int, time:Timestamp);
+
+basecheckin(/***/serialversionuid:long, month:Integer [PK], reward:String, //累计签到奖励lj:String);
+
+notice(/***/serialversionuid:long, id:Integer [PK], name:String, begintime:String, endtime:String, title:String, content:String);
+
+basehero(serialversionuid:long, id:Integer [PK], name:String, star:Integer, skill_id:BaseSkill #FK to(baseskill), skill_id:BaseSkill #FK to(baseskill), skill_id:BaseSkill #FK to(baseskill), skill_id:BaseSkill #FK to(baseskill));
+
+baseskill(serialversionuid:long, id:Integer [PK], //name:String, //maxlevel:Integer, //basecoin:Integer, //levelupcoin:Integer);
+
+item(/***/serialversionuid:long, id:Integer [PK], itemid:Integer, level:Integer, num:Integer, roleid:Integer);
+
+ljcheckin(/***/serialversionuid:long, id:Integer [PK], roleid:int, month:int, num:int);
+
+friendmsg(id:Integer [PK], roleid:Integer, roleid2:Integer, name:String, avatar:int, level:int);
+
+server(serialversionuid:long, id:Integer [PK], name:String, address:String, state:Integer, enable:Boolean);
+
+power(/***/serialversionuid:long, roleid:Integer [PK], power:Integer, level:Integer, avatar:Integer, name:String, data:String, serverid:Integer);
+
+giftcode(/***/serialversionuid:long, code:String [PK], status:Integer, giftid:Integer);
+
+baseitemshop(money_type_coin:int, money_type_gold:int, //竞技场币money_type_3:int, //远征币money_type_4:int, //普通商店shop_type_1:int, //竞技场商店shop_type_3:int, //远征商店shop_type_4:int, /***/serialversionuid:long, id:Integer [PK], itemid:Integer, type:Integer, moneytype:Integer, price:Integer, num:Integer);
+
+basepayshop(/***/serialversionuid:long, m_card:int, id:Integer [PK], type:Integer, name:String, addgold:Integer, gold:Integer, money:Integer, order:Integer, desc:String, recommend:Boolean);
+
+copystar(/***/serialversionuid:long, id:Integer [PK], type:int, chapter:int, star:int, roleid:int);
+
+basestory(copy_type:int, hero_copy_type:int, special_copy_type:int, serialversionuid:long, id:Integer [PK], type:Integer [PK], name:String, teamexp:Integer, exp:Integer, coin:Integer, //等级限制unlocklevel:Integer, //掉落道具items:String, //扫荡掉落wipeoutitems:String);
+
+mission(/***/serialversionuid:long, aroleid:int [PK], missionid:int [PK], type:String, num:int, complete:boolean);
+
+battlelog(//新战斗battle_log_init:int, //胜利battle_log_win:int, //失败battle_log_lost:int, /***/serialversionuid:long, id:Integer [PK], roleid:Integer, storyid:Integer, storytype:Integer, //0无发送结果1胜利2失败battleresult:Integer, begintime:Integer, endtime:Integer, heroid1:Integer, heroid2:Integer, heroid3:Integer, heroid4:Integer, data:String, roleid2:int);
+
+activity(/***/serialversionuid:long, id:Integer [PK], roleid:Integer, actid:Integer, key:int, time:Timestamp);
+
+basemakeitem(serialversionuid:long, pk:BaseMakeItemPK [PK], num:Integer);
+
+baseshopdiscount(/***/serialversionuid:long, type:Integer [PK], discount:Integer, begintime:Timestamp, endtime:Timestamp);
+
+bossdamage(/***/serialversionuid:long, id:Integer [PK], roleid:int, name:String, avatar:int, serverid:int, damage:int, date:int, heros:String);
+
+arena(/***/serialversionuid:long, roleid:Integer [PK], rank:Integer, battlenum:Integer, date:Integer, battletime:Long, winnum:Integer, generalid1:Integer, generalid2:Integer, generalid3:Integer, generalid4:Integer, //购买挑战次数buynum:Integer);
+
+baseheroshop(serialversionuid:long, id:Integer [PK], type:String, quality:Integer, itemid:Integer, minnum:Integer, maxnum:Integer, weight:Integer);
+
+role(serialversionuid:long, actioncooltime:int, //体力最大值-等级anum:int, exp:int, vip_gold:int, roleid:Integer [PK], coin:int, gold:int, exp:int, ap:int, aptime:int, vip:int, bargoldtime:int, //@column(name:int, name:String, avatar:int, serverid:int, userid:int, money3:int, money4:int, money5:int, level:int, createtime:Timestamp, enable:boolean, str:String, countgold:int, pillagetime:int, pillagenum:int, rank:int, winnum:int, cardtime:int, killnum:int, disablemsg:boolean, crusadenum:int);
+
+version(type_zip:int, type_apk:int, enable:int, versioncode:Integer [PK], versiontype:Integer, versionname:String, versionurl:String, versionenable:Integer, channel:Integer);
+
+gifttemplate(//可重复type_0:int, type_1:int, /***/serialversionuid:long, id:Integer [PK], name:String, type:int, reward:String);
+
+ranklog(/***/serialversionuid:long, id:Integer [PK], date:int, serverid:int, data:String, rank:String);
+
+itemtable(/***/serialversionuid:long, id:Integer [PK], itemid:Integer, level:Integer, num:Integer, roleid:Integer);
+
+skill(/***/serialversionuid:long, aroleid:int [PK], skillid:int [PK], level:int);
+
+baseactivity(/***/serialversionuid:long, id:Integer [PK], name:String, type:String, icon:String, begintime:Timestamp, endtime:Timestamp, reward:String, serverid:int, enable:boolean, order:int, title:String, content:String);
+
+achievement(/***/serialversionuid:long, aroleid:int [PK], achievementid:int [PK], type:String, complete:boolean);
+
+checkin(/***/serialversionuid:long, id:Integer [PK], roleid:Integer, month:Integer, day:Integer, num:Integer);
+
+financelog(/***/serialversionuid:long, status_gen_star_up:int, status_random_gen_one_times_coin:int, status_random_gen_one_times_gold:int, status_random_gen_ten_times_coin:int, status_random_gen_ten_times_gold:int, status_reset_skill:int, status_reset_po:int, status_random_soul:int, status_equip_make:int, status_item_sell:int, //status_mail_get_coin:int, status_sign_get_gold:int, status_pay_get_gold:int, status_shop_refresh:int, status_shop_buy_coin:int, status_shop_buy_gold:int, status_story_get_coin:int, status_wipe_out_get:int, status_buy_physical_strengthp:int, //status_task_get_coin:int, //status_activity_pay_coin:int, status_activity_pay:int, status_daily_task_get:int, status_buy_wipe_out:int, status_code_get:int, status_task_get:int, status_arena_buy:int, status_update_name:int, status_battle_in_world:int, //扫荡status_gold_wipe_out:int, status_shop_buy_money3:int, status_shop_buy_money4:int, status_coin_equip_exp:int, status_chat:int, //投资计划status_touzijihua:int, //成就获得status_ach_get:int, //成就消费status_buy_ach:int, status_shop_buy_money5:int, status_reset_boss:int, id:Integer [PK], //1coin2goldmoneytype:Integer, oldmoney:Integer, newmoney:Integer, status:Integer, time:Timestamp, roleid:Integer, desc:String);
+
+basedailytask(/***/serialversionuid:long, id:Integer [PK], goal:Integer, name:String, type:String, reward:String, desc:String);
+
+arenalog(/***/serialversionuid:long, id:Integer [PK], begintime:Long, endtime:Long, roleid1:Integer, roleid2:Integer, battleresult:Integer, rank1:Integer, rank2:Integer, data:String, name1:String, name2:String, avatar1:Integer, avatar2:Integer);
+
+giftlog(/***/serialversionuid:long, id:Integer [PK], code:String, giftid:Integer, roleid:Integer, rolename:String, time:Timestamp);
+
+basemission(serialversionuid:long, //longserialversionuid:Integer [PK], parentid:Integer, goal:Integer, level:Integer, target:Integer, name:String, type:String, reward:String, desc:String);
+
+baseitem(serialversionuid:long, baseid:Integer [PK], name:String, type:Integer, sellcoin:Integer, makecoin:Integer, color:Integer, exp:Integer);
+
+hero(serialversionuid:long, exp:int, aroleid:int [PK], heroid:int [PK], exp:int, str:int, GeneratedName:int, dex:int, class:int, star:int, isbattle:boolean, position:int, skill1level:int, skill2level:int, skill3level:int, skill4level:int, equip1:boolean, equip2:boolean, equip3:boolean, equip4:boolean, equip5:boolean, equip6:boolean, //这个是专属神器//@jsonserialize(include:int, equip1exp:int, equip2exp:int, equip3exp:int, equip4exp:int, equip5exp:int, equip6exp:int, equip7exp:int, level:int);
+
+story(/***/serialversionuid:long, copy_type:int, hero_copy_type:int, aroleid:Integer [PK], storyid:Integer [PK], type:Integer [PK], star:Integer, num:Integer, buynum:Integer, date:Integer);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

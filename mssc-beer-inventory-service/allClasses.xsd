@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="beerpagedlist" >
+      <xs:complexContent>
+       <xs:extension base="pageimpl<beerdto>">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="beerstyleenum" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="newinventoryevent" >
+      <xs:complexContent>
+       <xs:extension base="beerevent">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="beerevent" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="GeneratedName" type="beerdto" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="brewbeerevent" >
+      <xs:complexContent>
+       <xs:extension base="beerevent">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="beerdto" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="version" type="xs:anyType" />
+        <xs:element name="createddate" type="xs:anyType" />
+        <xs:element name="lastmodifieddate" type="xs:anyType" />
+        <xs:element name="beername" type="xs:string" />
+        <xs:element name="beerstyle" type="xs:string" />
+        <xs:element name="upc" type="xs:string" />
+        <xs:element name="price" type="xs:anyType" />
+        <xs:element name="quantityonhand" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customerdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="newinventorylistener" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="beerinventoryrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="newinventorysqslistener" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="beerinventoryrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="beerinventorydto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="createddate" type="xs:anyType" />
+        <xs:element name="lastmodifieddate" type="xs:anyType" />
+        <xs:element name="beerid" type="xs:anyType" />
+        <xs:element name="quantityonhand" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="beerinventorymapper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datemapper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="beerinventorycontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="beerinventoryrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="beerinventorymapper" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="awssqsconfig" >
+      <xs:sequence>
+        <xs:element name="new_inventory_queue" type="xs:string" />
+        <xs:element name="//@value("${cloud.aws.region.}")//regionaccesskey" type="xs:string" />
+        <xs:element name="secretkey" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="servicediscovery" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jmsconfig" >
+      <xs:sequence>
+        <xs:element name="new_inventory_queue" type="xs:string" />
+        <xs:element name="brokerurl" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="beerinvntorybootstrap" >
+      <xs:sequence>
+        <xs:element name="beer_1_upc" type="xs:string" />
+        <xs:element name="beer_2_upc" type="xs:string" />
+        <xs:element name="beer_3_upc" type="xs:string" />
+        <xs:element name="beer_1_" type="xs:anyType" />
+        <xs:element name="beer_2_" type="xs:anyType" />
+        <xs:element name="beer_3_" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="beerinventoryrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="beerinventoryapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="beerinventoryrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<beerinventory,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="//@transient//booleanisnew" type="xs:long" />
+        <xs:element name="createddate" type="xs:anyType" />
+        <xs:element name="lastmodifieddate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="beerinventory" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="beerid" type="xs:anyType" />
+          <xs:element name="upc" type="xs:string" />
+          <xs:element name="quantityonhand" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="beerinventoryapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

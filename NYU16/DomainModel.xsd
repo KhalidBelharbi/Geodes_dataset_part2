@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="order" >
+      <xs:sequence>
+        <xs:element name="number" type="xs:long" />
+        <xs:element name="customerid" type="xs:string" />
+        <xs:element name="items" type="orderitem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderitem" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="order" nillable="true" minOccurs="0" />
+        <xs:element name="productid" type="xs:string" />
+        <xs:element name="productdescription" type="xs:string" />
+        <xs:element name="quantity" type="xs:long" />
+        <xs:element name="unitprice" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

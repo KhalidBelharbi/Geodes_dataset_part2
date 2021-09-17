@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="test" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="securityapiapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="securityapiapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="auditlog" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="method" type="xs:string" />
+        <xs:element name="path" type="xs:string" />
+        <xs:element name="status" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="createtime" type="xs:dateTime" />
+        <xs:element name="modifytime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="auditlogresposity" >
+      <xs:complexContent>
+       <xs:extension base="jpaspecificationexecutor<auditlog>,crudrepository<auditlog,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="simpleresponse" >
+      <xs:sequence>
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="msg" type="xs:string" />
+        <xs:element name="data" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baseentity" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="handlerexction" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="auditloginterceptor" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="auditlogresposity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="httpbasicauthenticationfilter" >
+      <xs:complexContent>
+       <xs:extension base="onceperrequestfilter">
+         <xs:sequence>
+          <xs:element name="" type="userresposity" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="interceptorconfig" >
+      <xs:complexContent>
+       <xs:extension base="webmvcconfigurationsupport">
+         <xs:sequence>
+          <xs:element name="" type="auditloginterceptor" nillable="true" minOccurs="0" />
+          <xs:element name="" type="aclinterceptor" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="aclinterceptor" >
+      <xs:complexContent>
+       <xs:extension base="handlerinterceptoradapter">
+         <xs:sequence>
+          <xs:element name="str" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ratelimiterfilter" >
+      <xs:complexContent>
+       <xs:extension base="onceperrequestfilter{">
+         <xs:sequence>
+          <xs:element name="//默认如果不写单位单位为秒，下面这句话是一秒只能通过一次请求limiter" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userinfo" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="/***///serialversionuid" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="//简单的acl权限permission" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userresposity" >
+      <xs:complexContent>
+       <xs:extension base="jpaspecificationexecutor<user>,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userresposity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

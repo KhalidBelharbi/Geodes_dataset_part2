@@ -1,0 +1,29 @@
+
+celebration(serialversionuid:long, c_id:int [PK], cname:String, fkuserorganizer:int, //uni-directionalmany-to-oneassociationto:Category #FK to(category), //uni-directionalmany-to-oneassociationto:Location #FK to(location), //uni-directionalmany-to-oneassociationto:Motto #FK to(motto), //uni-directionalmany-to-oneassociationto:Timeinfo #FK to(timeinfo));
+
+location(serialversionuid:long, location_id:int [PK], capacity:int, publicity:Object, //uni-directionalmany-to-oneassociationto:Address #FK to(address), //uni-directionalmany-to-oneassociationto:Timeinfo #FK to(timeinfo));
+
+location_tag(locations_location_id:Location [PK] #FK to Location,tags_tagname:set<tag> [PK] #FK to set<tag>);
+
+timeinfo(serialversionuid:long, ts_id:int [PK], createtime:Date, uptime:Date);
+
+invite(serialversionuid:long, id:InvitePK, participatin:Object, //uni-directionalmany-to-oneassociationto:Celebration #FK to(celebration));
+
+motto(serialversionuid:long, mottoname:String [PK]);
+
+motto_tag(fk_mt_mottoname:Motto [PK] #FK to Motto,tags_tagname:set<tag> [PK] #FK to set<tag>);
+
+tag(serialversionuid:long, tagname:String [PK]);
+
+user(serialversionuid:long, person_personid:int [PK], oauth:Object, password:String, username:String, //uni-directionalone-to-oneassociationto:Person #FK to(person), //uni-directionalmany-to-oneassociationto:Timeinfo #FK to(timeinfo), organizedcelebrations:HashSet<Celebration>, friends:HashSet<User>);
+
+paidobject(serialversionuid:long, poid:int [PK], amount:int, name:String, price:double, reflink:String, //uni-directionalmany-to-oneassociationto:Celebration #FK to(celebration));
+
+person(serialversionuid:long, personid:int [PK], email:String, lastname:String, name:String, pseodo:String);
+
+category(serialversionuid:long, categoryid:int [PK], name:String);
+
+address(serialversionuid:long, address_id:int [PK], country:String, number:int, postcode:int, street:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

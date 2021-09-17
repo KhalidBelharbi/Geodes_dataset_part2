@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="mappertests" >
+      <xs:sequence>
+        <xs:element name="mapper" type="reviewmapper" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistencetests" >
+      <xs:sequence>
+        <xs:element name="repository" type="reviewrepository" nillable="true" minOccurs="0" />
+        <xs:element name="savedentity" type="reviewentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reviewserviceapplicationtests" >
+      <xs:sequence>
+        <xs:element name="client" type="xs:anyType" />
+        <xs:element name="repository" type="reviewrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reviewserviceapplication" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reviewentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="productid" type="xs:long" />
+        <xs:element name="reviewid" type="xs:long" />
+        <xs:element name="author" type="xs:string" />
+        <xs:element name="subject" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reviewrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<reviewentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="reviewmapper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reviewserviceimpl" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="repository" type="reviewrepository" nillable="true" minOccurs="0" />
+        <xs:element name="mapper" type="reviewmapper" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

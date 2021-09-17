@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lsebase" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lse1x1lfjt" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="unirightjt" type="lse1x1rt" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lse1x1lflzy" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="uniright" type="lse1x1rt" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lse1xmrt" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="lastname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lse1x1lf" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="uniright" type="lse1x1rt" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lse1xmlfegr" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="uniright" type="lse1xmrt" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lse1xmlf" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="uniright" type="lse1xmrt" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lse1xmlfjt" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="uniright" type="lse1xmrt" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lockscopetestcase" >
+      <xs:complexContent>
+       <xs:extension base="sqllistenertestcase">
+         <xs:sequence>
+          <xs:element name="any" type="xs:string" />
+          <xs:element name="select" type="xs:string" />
+          <xs:element name="selectversion" type="xs:string" />
+          <xs:element name="where" type="xs:string" />
+          <xs:element name="//join" type="xs:string" />
+          <xs:element name="forupdaterex" type="xs:string" />
+          <xs:element name="forupdateclause" type="xs:string" />
+          <xs:element name="forupdate" type="xs:string" />
+          <xs:element name="noforupdate" type="xs:string" />
+          <xs:element name="db2lockclause" type="xs:string" />
+          <xs:element name="db2lock" type="xs:string" />
+          <xs:element name="nodb2lock" type="xs:string" />
+          <xs:element name="emptablename" type="xs:anyType" />
+          <xs:element name="normalprops" type="xs:anyType" />
+          <xs:element name="extendedprops" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="lse1x1rt" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="lastname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lseelecolegr" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="collection" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lsejoincon" >
+      <xs:complexContent>
+       <xs:extension base="lsejoinabs">
+         <xs:sequence>
+          <xs:element name="lastname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="lsejoinabs" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testbasiclockscope" >
+      <xs:complexContent>
+       <xs:extension base="lockscopetestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="lsesngtblcon" >
+      <xs:complexContent>
+       <xs:extension base="lsesngtblabs">
+         <xs:sequence>
+          <xs:element name="lastname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="lsesngtblabs" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="test1xmlockscope" >
+      <xs:complexContent>
+       <xs:extension base="lockscopetestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="lse1x1lfjtlzy" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="unirightjt" type="lse1x1rt" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lse1xmlfjtegr" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="uniright" type="lse1xmrt" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="test1x1lockscope" >
+      <xs:complexContent>
+       <xs:extension base="lockscopetestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="lsesectbl" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lseelecol" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="collection" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testlocking" >
+      <xs:complexContent>
+       <xs:extension base="sqllistenertestcase">
+         <xs:sequence>
+          <xs:element name="_phone" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testpessimisticlocks" >
+      <xs:complexContent>
+       <xs:extension base="sqllistenertestcase">
+         <xs:sequence>
+          <xs:element name="dict" type="xs:anyType" />
+          <xs:element name="lockwaittime" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testmixedlockmanagerfindbasic" >
+      <xs:complexContent>
+       <xs:extension base="sequencedactionstest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testmixedlockmanagerlockexception" >
+      <xs:complexContent>
+       <xs:extension base="sequencedactionstest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testoptimisticnamedquerylockmode" >
+      <xs:complexContent>
+       <xs:extension base="sqllistenertestcase">
+         <xs:sequence>
+          <xs:element name="lockclause" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testmixedlockmanagernonversion" >
+      <xs:complexContent>
+       <xs:extension base="sqllistenertestcase">
+         <xs:sequence>
+          <xs:element name="emptablename" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="employee" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="GeneratedName" type="department" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lockemployee" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testnamedquerylockmode" >
+      <xs:complexContent>
+       <xs:extension base="sqllistenertestcase">
+         <xs:sequence>
+          <xs:element name="lockclause" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="lockemployeenonversion" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testmixedlockmanagerdeadlock" >
+      <xs:complexContent>
+       <xs:extension base="sequencedactionstest">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="expwritelockexclasses" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testemlocktimeout" >
+      <xs:complexContent>
+       <xs:extension base="sequencedactionstest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sequencedactionstest" >
+      <xs:complexContent>
+       <xs:extension base="sqllistenertestcase">
+         <xs:sequence>
+          <xs:element name="default_firstname" type="xs:string" />
+          <xs:element name="expectingoptimisticlockexclass" type="xs:anyType" />
+          <xs:element name="expectingpessimisticlockexclass" type="xs:anyType" />
+          <xs:element name="expectinglocktimeoutexclass" type="xs:anyType" />
+          <xs:element name="expectinganylockexclass" type="xs:anyType" />
+          <xs:element name="mhreadwaitinms" type="xs:long" />
+          <xs:element name="waitinmsec" type="xs:long" />
+          <xs:element name="emptablename" type="xs:string" />
+          <xs:element name="threads" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="person" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="phonenumbers" type="phonenumber" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testemlockmode" >
+      <xs:complexContent>
+       <xs:extension base="sequencedactionstest">
+         <xs:sequence>
+          <xs:element name="non_supported_optimistic_sql" type="xs:string" />
+          <xs:element name="//appendlockclausefromdictnon_supported_for_update_sql" type="xs:string" />
+          <xs:element name="version_update_sql" type="xs:string" />
+          <xs:element name="db2_optimistic_sql" type="xs:string" />
+          <xs:element name="db2_pessimistic_rs_sql" type="xs:string" />
+          <xs:element name="db2_pessimistic_rr_sql" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testmixedlockmanagerrefreshbasic" >
+      <xs:complexContent>
+       <xs:extension base="sequencedactionstest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testmixedlockmanagerlockbasic" >
+      <xs:complexContent>
+       <xs:extension base="sequencedactionstest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="versionentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="version" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="department" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="employees" type="employee" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testmixedlockmanagerrefreshpermutation" >
+      <xs:complexContent>
+       <xs:extension base="sequencedactionstest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="phonenumber" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="number" type="xs:string" />
+        <xs:element name="owners" type="person" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mixedlockmanagergenerictest" >
+      <xs:complexContent>
+       <xs:extension base="sequencedactionstest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testmixedlockmanagerlockpermutation" >
+      <xs:complexContent>
+       <xs:extension base="sequencedactionstest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testfetchhints" >
+      <xs:complexContent>
+       <xs:extension base="sequencedactionstest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testmixedlockmanagerfindpermutation" >
+      <xs:complexContent>
+       <xs:extension base="sequencedactionstest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testmixedlockmanagerfindexception" >
+      <xs:complexContent>
+       <xs:extension base="sequencedactionstest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testmixedlockmanagerrefreshexception" >
+      <xs:complexContent>
+       <xs:extension base="sequencedactionstest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

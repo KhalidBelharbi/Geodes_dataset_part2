@@ -1,0 +1,33 @@
+lecturer(serialversionuid:long, information:String);
+
+s_lecturers_and_their_degrees(lecturer_id:Lecturer [PK] #FK to Lecturer,degree_id:set<degree> [PK] #FK to set<degree>);
+
+assignmentsolution(serialversionuid:long, id:Long [PK], GeneratedName:Assignment #FK to(assignment), submittedby:User #FK to(user), gradedby:Lecturer #FK to(lecturer), creationtime:Date, timesubmitted:Date, solutiontext:String, filename:String, mark:Double, max_file_name_size:int);
+
+userright(serialversionuid:long, rightname:String [PK]);
+
+s_users_rights_and_users_roles(right_name:UserRight [PK] #FK to UserRight,role_name:set<userrole> [PK] #FK to set<userrole>);
+
+discipline(serialversionuid:long, id:Long [PK], disciplinename:String, //:Speciality #FK to(speciality), min_discipline_name_size:int, max_discipline_name_size:int);
+
+s_disciplines_and_lead_lecturers(discipline_id:Discipline [PK] #FK to Discipline,lecturer_id:set<user> [PK] #FK to set<user>);
+
+s_users_and_users_roles_assigned(user_id:User [PK] #FK to User,role_name:set<userrole> [PK] #FK to set<userrole>);
+
+speciality(serialversionuid:long, id:Long [PK], specialityname:String, min_speciality_name_size:int);
+
+s_specialities_and_students_enrolled(speciality_id:Speciality [PK] #FK to Speciality,student_id:set<student> [PK] #FK to set<student>);
+
+degree(serialversionuid:long, id:Long [PK], degreename:String, max_degree_name_size:int);
+
+userrole(serialversionuid:long, rolename:String [PK], roletitle:String, max_user_role_name_size:int);
+
+assignment(serialversionuid:long, id:Long [PK], title:String, attachedfile:String, description:String, creationtime:Date, starttime:Date, endtime:Date, GeneratedName:Discipline #FK to(discipline), min_file_name_size:int, max_title_size:int, max_file_name_size:int);
+
+student(serialversionuid:long, facultynumber:String);
+
+user(serialversionuid:long, id:Long [PK], username:String, password:String, email:String, GeneratedName:PersonName, isactivated:boolean, user_type: String);
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

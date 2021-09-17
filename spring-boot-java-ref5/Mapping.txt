@@ -1,0 +1,14 @@
+ClassDiagram.Class>> Book =>=>=> RelationalSchema.Table>> book;
+ClassDiagram.Class>> Publisher =>=>=> RelationalSchema.Table>> publisher;
+ClassDiagram.Class>> Author =>=>=> RelationalSchema.Table>> author;
+ClassDiagram.Attribut>> Book.id:Long =>=>=> RelationalSchema.Column>> book.id PRIMARY KEY;
+ClassDiagram.Attribut>> Book.title:String =>=>=> RelationalSchema.Column>> book.title;
+ClassDiagram.Attribut>> Book.isbn:String =>=>=> RelationalSchema.Column>> book.isbn;
+ClassDiagram.Attribut>> Publisher.id:Long =>=>=> RelationalSchema.Column>> publisher.id;
+ClassDiagram.Attribut>> Publisher.name:String =>=>=> RelationalSchema.Column>> publisher.name;
+ClassDiagram.Attribut>> Publisher.address:String =>=>=> RelationalSchema.Column>> publisher.address;
+ClassDiagram.Attribut>> Author.id:long =>=>=> RelationalSchema.Column>> author.id;
+ClassDiagram.Attribut>> Author.firstname:String =>=>=> RelationalSchema.Column>> author.firstname;
+ClassDiagram.Attribut>> Author.lastname:String =>=>=> RelationalSchema.Column>> author.lastname;
+One-To-One relationship between ClassDiagram.Class>>Book  to ClassDiagram.Class>>Publisher represented by ClassDiagram.Atrribute>>GeneratedName;
+Many-To-Many relationship between ClassDiagram.Class>>Book  and ClassDiagram.Class>>set<author>: author_book(book_id:Book [PK] #FK to Book,author_id:set<author> [PK] #FK to set<author>);

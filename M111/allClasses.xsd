@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="brokeragent" >
+      <xs:complexContent>
+       <xs:extension base="agent">
+         <xs:sequence>
+          <xs:element name="" type="requirements" nillable="true" minOccurs="0" />
+          <xs:element name="" type="transport" nillable="true" minOccurs="0" />
+          <xs:element name="" type="room" nillable="true" minOccurs="0" />
+          <xs:element name="hotelagents" type="xs:anyType" />
+          <xs:element name="transpagent" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clientagent" >
+      <xs:complexContent>
+       <xs:extension base="agent">
+         <xs:sequence>
+          <xs:element name="mygui" type="clientgui" nillable="true" minOccurs="0" />
+          <xs:element name="" type="requirements" nillable="true" minOccurs="0" />
+          <xs:element name="brokeragents" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hotelagent" >
+      <xs:complexContent>
+       <xs:extension base="agent">
+         <xs:sequence>
+          <xs:element name="" type="requirements" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="main" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="transportagent" >
+      <xs:complexContent>
+       <xs:extension base="agent">
+         <xs:sequence>
+          <xs:element name="" type="requirements" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="transport" >
+      <xs:complexContent>
+       <xs:extension base="entitie">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="typeveh" type="xs:string" />
+          <xs:element name="price" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitie" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hotel" >
+      <xs:complexContent>
+       <xs:extension base="entitie">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="address" type="xs:string" />
+          <xs:element name="phone" type="xs:string" />
+          <xs:element name="listroom" type="room" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="room" >
+      <xs:complexContent>
+       <xs:extension base="entitie">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="typeroom" type="xs:string" />
+          <xs:element name="num" type="xs:string" />
+          <xs:element name="price" type="xs:double" />
+          <xs:element name="" type="hotel" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dbmanager" >
+      <xs:sequence>
+        <xs:element name="emf" type="xs:anyType" />
+        <xs:element name="tx" type="xs:anyType" />
+        <xs:element name="em" type="xs:anyType" />
+        <xs:element name="instance" type="dbmanager" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="requirements" >
+      <xs:sequence>
+        <xs:element name="hotel" type="xs:string" />
+        <xs:element name="adr" type="xs:string" />
+        <xs:element name="typeroom" type="xs:string" />
+        <xs:element name="typeveh" type="xs:string" />
+        <xs:element name="roomprice" type="xs:double" />
+        <xs:element name="priceveh" type="xs:double" />
+        <xs:element name="clientagent" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="constant" >
+      <xs:sequence>
+        <xs:element name="main_type" type="xs:string" />
+        <xs:element name="main_name" type="xs:string" />
+        <xs:element name="client_type" type="xs:string" />
+        <xs:element name="client_name" type="xs:string" />
+        <xs:element name="broker_type" type="xs:string" />
+        <xs:element name="broker_name" type="xs:string" />
+        <xs:element name="hotel_type" type="xs:string" />
+        <xs:element name="hotel_name" type="xs:string" />
+        <xs:element name="trans_type" type="xs:string" />
+        <xs:element name="trans_name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="receiverequesttransport" >
+      <xs:complexContent>
+       <xs:extension base="cyclicbehaviour">
+         <xs:sequence>
+          <xs:element name="" type="requirements" nillable="true" minOccurs="0" />
+          <xs:element name="transpagent" type="transportagent" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sendrequestclient" >
+      <xs:complexContent>
+       <xs:extension base="behaviour">
+         <xs:sequence>
+          <xs:element name="" type="requirements" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="receiveinfosclient" >
+      <xs:complexContent>
+       <xs:extension base="cyclicbehaviour">
+         <xs:sequence>
+          <xs:element name="" type="requirements" nillable="true" minOccurs="0" />
+          <xs:element name="" type="clientagent" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="acceptproposalclient" >
+      <xs:complexContent>
+       <xs:extension base="cyclicbehaviour">
+         <xs:sequence>
+          <xs:element name="" type="requirements" nillable="true" minOccurs="0" />
+          <xs:element name="" type="clientagent" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="receiveproposebroker" >
+      <xs:complexContent>
+       <xs:extension base="cyclicbehaviour">
+         <xs:sequence>
+          <xs:element name="" type="requirements" nillable="true" minOccurs="0" />
+          <xs:element name="" type="brokeragent" nillable="true" minOccurs="0" />
+          <xs:element name="list" type="transport" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="rooms" type="room" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="besthotel" type="xs:anyType" />
+          <xs:element name="besttrans" type="xs:anyType" />
+          <xs:element name="clientagent" type="xs:anyType" />
+          <xs:element name="bestpriceroom" type="xs:double" />
+          <xs:element name="bestprice" type="xs:double" />
+          <xs:element name="type" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sendrequestbroker" >
+      <xs:complexContent>
+       <xs:extension base="behaviour">
+         <xs:sequence>
+          <xs:element name="" type="requirements" nillable="true" minOccurs="0" />
+          <xs:element name="hotels" type="xs:anyType" />
+          <xs:element name="transports" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="receiverequestbroker" >
+      <xs:complexContent>
+       <xs:extension base="cyclicbehaviour">
+         <xs:sequence>
+          <xs:element name="" type="requirements" nillable="true" minOccurs="0" />
+          <xs:element name="" type="brokeragent" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="receiverequesthotel" >
+      <xs:complexContent>
+       <xs:extension base="cyclicbehaviour">
+         <xs:sequence>
+          <xs:element name="" type="requirements" nillable="true" minOccurs="0" />
+          <xs:element name="" type="hotelagent" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clientgui" >
+      <xs:complexContent>
+       <xs:extension base="jframe">
+         <xs:sequence>
+          <xs:element name="" type="clientagent" nillable="true" minOccurs="0" />
+          <xs:element name="////variablesdeclarationbtnaccept" type="xs:anyType" />
+          <xs:element name="btnclear" type="xs:anyType" />
+          <xs:element name="btnclose" type="xs:anyType" />
+          <xs:element name="btnsearch" type="xs:anyType" />
+          <xs:element name="1" type="xs:anyType" />
+          <xs:element name="2" type="xs:anyType" />
+          <xs:element name="3" type="xs:anyType" />
+          <xs:element name="4" type="xs:anyType" />
+          <xs:element name="5" type="xs:anyType" />
+          <xs:element name="6" type="xs:anyType" />
+          <xs:element name="1" type="xs:anyType" />
+          <xs:element name="2" type="xs:anyType" />
+          <xs:element name="3" type="xs:anyType" />
+          <xs:element name="1" type="xs:anyType" />
+          <xs:element name="2" type="xs:anyType" />
+          <xs:element name="txtaddrbroker" type="xs:anyType" />
+          <xs:element name="txtaddrhotel" type="xs:anyType" />
+          <xs:element name="txtresphotel" type="xs:anyType" />
+          <xs:element name="txtresptrans" type="xs:anyType" />
+          <xs:element name="txtroomprice" type="xs:anyType" />
+          <xs:element name="txtroomtype" type="xs:anyType" />
+          <xs:element name="txttransprice" type="xs:anyType" />
+          <xs:element name="txttypeveh" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clientgui_old" >
+      <xs:complexContent>
+       <xs:extension base="jframe">
+         <xs:sequence>
+          <xs:element name="" type="clientagent" nillable="true" minOccurs="0" />
+          <xs:element name="/***@paramargs*thecommandlinearguments*///variablesdeclaration1" type="xs:anyType" />
+          <xs:element name="2" type="xs:anyType" />
+          <xs:element name="3" type="xs:anyType" />
+          <xs:element name="4" type="xs:anyType" />
+          <xs:element name="5" type="xs:anyType" />
+          <xs:element name="6" type="xs:anyType" />
+          <xs:element name="btnfermer" type="xs:anyType" />
+          <xs:element name="1" type="xs:anyType" />
+          <xs:element name="2" type="xs:anyType" />
+          <xs:element name="3" type="xs:anyType" />
+          <xs:element name="4" type="xs:anyType" />
+          <xs:element name="5" type="xs:anyType" />
+          <xs:element name="6" type="xs:anyType" />
+          <xs:element name="1" type="xs:anyType" />
+          <xs:element name="2" type="xs:anyType" />
+          <xs:element name="3" type="xs:anyType" />
+          <xs:element name="1" type="xs:anyType" />
+          <xs:element name="2" type="xs:anyType" />
+          <xs:element name="resphotel" type="xs:anyType" />
+          <xs:element name="resptransport" type="xs:anyType" />
+          <xs:element name="1" type="xs:anyType" />
+          <xs:element name="2" type="xs:anyType" />
+          <xs:element name="3" type="xs:anyType" />
+          <xs:element name="4" type="xs:anyType" />
+          <xs:element name="5" type="xs:anyType" />
+          <xs:element name="6" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

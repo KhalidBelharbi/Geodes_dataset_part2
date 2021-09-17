@@ -1,0 +1,9 @@
+
+user(/***/serialversionuid:long, id:Long [PK], username:String, password:String, name:String, email:String, role:String, createddate:LocalDateTime);
+
+comment(/***/serialversionuid:long, id:Long [PK], content:String, GeneratedName:Post #FK to(post), createdby:User #FK to(user), createddate:LocalDateTime);
+
+post(/***/serialversionuid:long, id:Long [PK], title:String, content:String, GeneratedName:Status, createdby:User #FK to(user), createddate:LocalDateTime, lastmodifiedby:User #FK to(user), lastmodifieddate:LocalDateTime);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

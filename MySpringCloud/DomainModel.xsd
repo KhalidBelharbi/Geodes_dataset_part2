@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="syswork" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="projectname" type="xs:string" />
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="starttime" type="xs:dateTime" />
+        <xs:element name="endtime" type="xs:dateTime" />
+        <xs:element name="moditime" type="xs:dateTime" />
+        <xs:element name="jobdescription" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="like" type="xs:anyType" />
+        <xs:element name="grade" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sysporject" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="approvalinfo" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="/***更新时间*/moditime" type="xs:dateTime" />
+        <xs:element name="user" type="xs:string" />
+        <xs:element name="organization" type="xs:string" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="auditor" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sysrole" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="/***角色名称*/name" type="xs:string" />
+        <xs:element name="/***角色描述*/comments" type="xs:string" />
+        <xs:element name="/***更新时间*/moditime" type="xs:dateTime" />
+        <xs:element name="sysusers" type="sysuser" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sysorganization" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="/***机构代码(行政区划码)*/code" type="xs:string" />
+        <xs:element name="/***机构名称*/name" type="xs:string" />
+        <xs:element name="/***机构类型*/type" type="xs:string" />
+        <xs:element name="/***机构等级*/level" type="xs:string" />
+        <xs:element name="/***上级节点id*/pid" type="xs:string" />
+        <xs:element name="/***电话*/phone" type="xs:string" />
+        <xs:element name="/***地址*/addr" type="xs:string" />
+        <xs:element name="/***负责人*/principal" type="xs:string" />
+        <xs:element name="/***更新时间*/moditime" type="xs:dateTime" />
+        <xs:element name="sysusers" type="sysuser" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sysstation" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="/***个人电脑编号*/pccode" type="xs:string" />
+        <xs:element name="/***pcip个人电脑ip*/pcip" type="xs:string" />
+        <xs:element name="GeneratedName" type="sysuser" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sysuser" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="/***用户状态*/status" type="xs:string" />
+        <xs:element name="/***邮箱*/email" type="xs:string" />
+        <xs:element name="/***登录用户名*/loginname" type="xs:string" />
+        <xs:element name="/***用户名名称*/username" type="xs:string" />
+        <xs:element name="/***密码策略*/password" type="xs:string" />
+        <xs:element name="/***电话*/phone" type="xs:string" />
+        <xs:element name="/***更新时间*/moditime" type="xs:dateTime" />
+        <xs:element name="/***用户-角色列表（多对多）*@return*/sysroles" type="sysrole" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="sysorganization" nillable="true" minOccurs="0" />
+        <xs:element name="portrait" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userinfo" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="age" type="xs:long" />
+        <xs:element name="sex" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

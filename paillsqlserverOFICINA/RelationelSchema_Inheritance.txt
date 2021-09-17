@@ -1,0 +1,35 @@
+
+opcionesappmoviles(serialversionuid:long, idopcionesappmoviles:Integer [PK], nombre:String, descripcion:String, logo:String, idappmovil:AppMoviles #FK to(appmoviles), idempleado:String);
+
+clientesfv(serialversionuid:long, idcliente:String [PK], nombre:String, idproducto:String, nombreproducto:String, cantidad:String, guardado:String);
+
+registrosmmdet(serialversionuid:long, idregmmdet:Integer [PK], //@max(value:BigDecimal, notas:String, guardado:Date, idregmm:RegistrosMM #FK to(registrosmm), idproducto:Productos #FK to(Productos));
+
+doctoress(serialversionuid:long, jvpm:String [PK], idcliente:String, nombre:String);
+
+perfilesmoviles(serialversionuid:long, idperfilmovil:Integer [PK], nombre:String, descripcion:String, activo:Boolean);
+
+usuarios(serialversionuid:long, uid:String [PK], nombre:String, compras:int, contabilidad:int, creditos:int, inventarios:int, planillas:int, produccion:int, ventas:int, seguridad:int, idsucursal:String, bitacora:String, mantenimiento:Integer, limite:Integer, su:Integer, idempleado:String, iddepto:String, informatica:Integer, especiales:BigInteger, incluieren:String, fechaexpiracion:Date, idperfil:Integer, especiales2:BigInteger, activo:Boolean, idperfilmovil:PerfilesMoviles #FK to(PerfilesMoviles));
+
+productomm(idproducto:String [PK], nombre:String, entrada:String, salida:String, diferencia:String);
+
+productos(/*@size(max:String [PK], nombre:String, idunidad:String, idbodega:String, idestatus:String, lote:String);
+
+vendedores(idvendedor:String [PK], nombre:String, grupo:String);
+
+escalas(idescala:String [PK], nombre:String, precio:String);
+
+appmoviles(serialversionuid:long, idappmovil:Integer [PK], nombre:String, descripcion:String, logo:byte);
+
+appporperfiles(idappmovil:AppMoviles [PK] #FK to AppMoviles,idperfilmovil:PerfilesMoviles [PK] #FK to PerfilesMoviles);
+
+registrosmm(serialversionuid:long, idregmm:Integer [PK], idvendedor:String, idcliente:String, nombre:String, latitud:String, longitud:String, notas:String, guardado:Date, totalmm:double);
+
+transacciones(idregmmdet:String [PK], idcliente:String, nombre:String, idproducto:String, nombreproducto:String, cantidad:String, guardado:String);
+
+clientes(serialversionuid:long, idcliente:String [PK], nombre:String, regfiscal:String, idvendedor:String, tasadesc:String, idescala:String, tipoiva:String);
+
+bodegavirtualmm(serialversionuid:long, GeneratedName:BodegaVirtualMMPK, cantidad:String, actualizado:Date, idproducto:Productos #FK to(Productos));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

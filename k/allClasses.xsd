@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="authcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="memservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="authservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="commonservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authservice" >
+      <xs:sequence>
+        <xs:element name="authrepo" type="authrepository" nillable="true" minOccurs="0" />
+        <xs:element name="memrepo" type="memrepository" nillable="true" minOccurs="0" />
+        <xs:element name="siterepo" type="siterepository" nillable="true" minOccurs="0" />
+        <xs:element name="memsitemaprepo" type="memsitemaprepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tokendomain" >
+      <xs:sequence>
+        <xs:element name="token" type="xs:string" />
+        <xs:element name="ci" type="xs:string" />
+        <xs:element name="di" type="xs:string" />
+        <xs:element name="sid" type="xs:string" />
+        <xs:element name="regdt" type="xs:anyType" />
+        <xs:element name="expiredt" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<tokendomain,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="siteservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sitedomain" >
+      <xs:sequence>
+        <xs:element name="siteid" type="xs:string" />
+        <xs:element name="sitenm" type="xs:string" />
+        <xs:element name="secretkey" type="xs:string" />
+        <xs:element name="url" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="siterepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<sitedomain,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="memkey" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="ci" type="xs:string" />
+        <xs:element name="di" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="memdomain" >
+      <xs:sequence>
+        <xs:element name="ci" type="xs:string" />
+        <xs:element name="di" type="xs:string" />
+        <xs:element name="safekey" type="xs:string" />
+        <xs:element name="token" type="xs:string" />
+        <xs:element name="regdt" type="xs:anyType" />
+        <xs:element name="tokenregdt" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="memsitemapdomain" >
+      <xs:sequence>
+        <xs:element name="ci" type="xs:string" />
+        <xs:element name="di" type="xs:string" />
+        <xs:element name="siteid" type="xs:string" />
+        <xs:element name="memid" type="xs:string" />
+        <xs:element name="memnm" type="xs:string" />
+        <xs:element name="birth" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="safekey" type="xs:string" />
+        <xs:element name="regdt" type="xs:anyType" />
+        <xs:element name="uptdt" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="memsitemapkey" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="ci" type="xs:string" />
+        <xs:element name="di" type="xs:string" />
+        <xs:element name="siteid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="memservice" >
+      <xs:sequence>
+        <xs:element name="memrepo" type="memrepository" nillable="true" minOccurs="0" />
+        <xs:element name="memsitemaprepo" type="memsitemaprepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="memcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="memservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="commonservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="memrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<memdomain,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="memsitemaprepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<memsitemapdomain,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="skmssoapplication" >
+      <xs:complexContent>
+       <xs:extension base="springbootservletinitializer">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="commonservice" >
+      <xs:sequence>
+        <xs:element name="siterepo" type="siterepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stringconst" >
+      <xs:sequence>
+        <xs:element name="seedkey" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="exceptioncustom" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception{">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="status" type="xs:anyType" />
+          <xs:element name="message" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="controlleradvice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="exceptionconst" >
+      <xs:sequence>
+        <xs:element name="default" type="xs:string" />
+        <xs:element name="p0001" type="xs:string" />
+        <xs:element name="m0001" type="xs:string" />
+        <xs:element name="m0002" type="xs:string" />
+        <xs:element name="m0003" type="xs:string" />
+        <xs:element name="s0001" type="xs:string" />
+        <xs:element name="s0002" type="xs:string" />
+        <xs:element name="d0001" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="responsemsg" >
+      <xs:sequence>
+        <xs:element name="status" type="xs:anyType" />
+        <xs:element name="message" type="statusenum" nillable="true" minOccurs="0" />
+        <xs:element name="data" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="statusenum" >
+      <xs:sequence>
+        <xs:element name="statuscode" type="xs:long" />
+        <xs:element name="code" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

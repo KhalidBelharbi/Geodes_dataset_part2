@@ -1,0 +1,49 @@
+
+dperson(password_encoder:PasswordEncoder, partyid:UUID [PK], partycode:String, party_type_id:PartyType #FK to(partytype), GeneratedName:Person #FK to(person), description:String, status_id:Status #FK to(status), userlogin:DPersonUserLogin #FK to(dpersonuserlogin), isunread:boolean, createdby:String, modifiedby:String, created:Date, createdstamp:Date, lastupdstamp:Date);
+
+dpersonuserlogin(userloginid:String [PK], issystem:boolean, enabled:boolean, GeneratedName:Party #FK to(party), disabledtime:Date, createdstamp:Date, lastupdstamp:Date);
+
+dusercombineentity(password_encoder:PasswordEncoder, userloginid:String, partyid:UUID [PK], firstname:String, middlename:String, lastname:String, gender:String, birth:Date);
+
+orders(id:UUID [PK], code:String, status:OrderStatus, GeneratedName:Supplier #FK to(supplier), GeneratedName:PaymentMethod, discount:Long, totalpayment:long, quantity:int, expdeliverydate:LocalDate, note:String, deleted:boolean, lastupdstamp:Date, createdstamp:Date);
+
+orderitem(id:OrderItemId, orderquantity:Integer, importquantity:Integer, price:Long);
+
+supplier(id:UUID [PK], code:String, name:String, phonenumber:String, email:String, address:String, deleted:boolean, lastupdstamp:Date, createdstamp:Date);
+
+category(id:UUID [PK], name:String, description:String, deleted:boolean, lastupdstamp:Date, createdstamp:Date);
+
+supplier_category(category_id:Category [PK] #FK to Category,supplier_id:list<supplier> [PK] #FK to list<supplier>);
+
+product(id:UUID [PK], GeneratedName:Category #FK to(category), code:String, name:String, price:long, uom:String, imagelink:String, inventorynumber:int, description:String, deleted:boolean, lastupdstamp:Date, createdstamp:Date);
+
+person(partyid:UUID [PK], //@column(name:String, //@column(name:String, //@column(name:String, //@column(name:String, //@column(name:Date);
+
+roletype(roletypeid:String [PK]);
+
+statusitem(statusid:String [PK], status_type_id:StatusType #FK to(statustype), statuscode:String, description:String);
+
+application(applicationid:String [PK], application_type_id:ApplicationType #FK to(applicationtype), application_id:Application #FK to(application), permission_id:SecurityPermission #FK to(securitypermission), createdstamp:Date, lastupdstamp:Date);
+
+userlogin(password_encoder:PasswordEncoder, userloginid:String [PK], password:String, passwordhint:String, otpsecret:String, issystem:boolean, enabled:boolean, hasloggedout:boolean, requirepasswordchange:boolean, successivefailedlogins:Integer, clienttoken:String, otpresendnumber:int, GeneratedName:Party #FK to(party), disabledtime:Date);
+
+partytype(partytypeid:String [PK], party_type_id:PartyType #FK to(partytype), hastable:boolean, description:String, createdstamp:Date, lastupdstamp:Date);
+
+status(id:String [PK], status_type_id:StatusType #FK to(statustype), statuscode:String, sequenceid:String, description:String, createdstamp:Date, lastupdstamp:Date);
+
+partyrelationship(partyrelationshipid:UUID [PK], party_id:Party #FK to(party), party_id:Party #FK to(party), role_type_id:RoleType #FK to(roletype), from:Date, thru:Date);
+
+userregister(//varchar(60),userloginid:String [PK], //varchar(20),password:String, //varchar(30),email:String, //varchar(100),fullname:String, status_id:StatusItem #FK to(statusitem));
+
+applicationtype(applicationtypeid:String [PK], description:String, createdstamp:Date, lastupdstamp:Date);
+
+statustype(id:String [PK], status_type_id:StatusType #FK to(statustype), description:String, createdstamp:Date, lastupdstamp:Date);
+
+securitypermission(permissionid:String [PK], description:String, createdstamp:Date, lastupdstamp:Date);
+
+securitygroup(groupid:String [PK], description:String, createdstamp:Date, lastupdstamp:Date);
+
+party(partyid:UUID [PK], partycode:String, name:String, party_type_id:PartyType #FK to(partytype), description:String, status_id:Status #FK to(status), created:Date, lastmodified:Date, GeneratedName:UserLogin #FK to(userlogin), isunread:boolean, createdby:String, modifiedby:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

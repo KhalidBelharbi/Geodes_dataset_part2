@@ -1,0 +1,1083 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="departmentcondition" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+          <xs:element name="departmentid" type="xs:anyType" />
+          <xs:element name="departmentno" type="xs:anyType" />
+          <xs:element name="/***/departmentname" type="departmentcondition" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***/location" type="departmentcondition" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="version" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="addresscondition" >
+      <xs:complexContent>
+       <xs:extension base="abstractentitycondition<addresscondition>">
+         <xs:sequence>
+          <xs:element name="addressid" type="xs:anyType" />
+          <xs:element name="/***/street" type="addresscondition" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="version" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="employeecondition" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+          <xs:element name="employeeid" type="xs:anyType" />
+          <xs:element name="employeeno" type="xs:anyType" />
+          <xs:element name="/***/employeename" type="employeecondition" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="managerid" type="xs:anyType" />
+          <xs:element name="hiredate" type="xs:anyType" />
+          <xs:element name="salary" type="xs:anyType" />
+          <xs:element name="departmentid" type="xs:anyType" />
+          <xs:element name="addressid" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sqlbatchupdatetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlprocedurecalltest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfunctioncalltest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlselectiterationcallbacktest" >
+      <xs:sequence>
+        <xs:element name="sql" type="xs:string" />
+        <xs:element name="sql2" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="beansalarysumcallback" type="xs:anyType" />
+        <xs:element name="mapsalarysumcallback" type="xs:anyType" />
+        <xs:element name="objectsalarysumcallback" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlselectgetresulttest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlselectpagingtest" >
+      <xs:sequence>
+        <xs:element name="sql" type="xs:string" />
+        <xs:element name="sql2" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlselectvaluetypetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlselectgetcounttest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlselectwheretest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlupdatetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dialect" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileexecutor" >
+      <xs:sequence>
+        <xs:element name="/***ロガー*/" type="xs:anyType" />
+        <xs:element name="/***方言*/" type="dialect" nillable="true" minOccurs="0" />
+        <xs:element name="/***sqlファイルのエンコーディング*/sqlfileencoding" type="xs:string" />
+        <xs:element name="/***sqlステートメントの区切り文字*/statementdelimiter" type="xs:anyType" />
+        <xs:element name="/***sqlブロックの区切り文字*/blockdelimiter" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfailedruntimeexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="/***ファイルのパス*/sqlfilepath" type="xs:string" />
+          <xs:element name="/***行番号*/linenumber" type="xs:long" />
+          <xs:element name="/***sql*/sql" type="xs:string" />
+          <xs:element name="/***メッセージ*/message" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sqlfilereader" >
+      <xs:sequence>
+        <xs:element name="/***ロガー*/" type="xs:anyType" />
+        <xs:element name="/***sqlファイル*/sql" type="xs:anyType" />
+        <xs:element name="/***sqlファイルのエンコーディング*/sqlfileencoding" type="xs:string" />
+        <xs:element name="/***トークナイザ*/tokenizer" type="sqlfiletokenizer" nillable="true" minOccurs="0" />
+        <xs:element name="/***方言*/" type="dialect" nillable="true" minOccurs="0" />
+        <xs:element name="/***リーダ*/reader" type="xs:anyType" />
+        <xs:element name="/***行番号のカウント*/linecount" type="xs:long" />
+        <xs:element name="/***処理対象のsqlの先頭の行番号*/linenumber" type="xs:long" />
+        <xs:element name="/***ファイルの終端に達した場合{@codetrue}*/endoffile" type="xs:anyType" />
+        <xs:element name="/***行の終端に達した場合{@codetrue}*/endofline" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlexecutioncontext" >
+      <xs:sequence>
+        <xs:element name="/***ロガー*/" type="xs:anyType" />
+        <xs:element name="/***{@linkruntimeexception}のリスト*/exceptionlist" type="xs:anyType" />
+        <xs:element name="/***データソース*/" type="xs:anyType" />
+        <xs:element name="/***コネクション*/" type="xs:anyType" />
+        <xs:element name="/***エラー発生時に処理を即座に中断する場合{@codetrue}、中断しない場合{@codefalse}*/haltonerror" type="xs:anyType" />
+        <xs:element name="/***ステートメント*/" type="xs:anyType" />
+        <xs:element name="/***準備されたステートメント*/" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfiletokenizer" >
+      <xs:sequence>
+        <xs:element name="/***sqlステートメントの区切り文字*/statementdelimiter" type="xs:anyType" />
+        <xs:element name="/***sqlブロックの区切り文字*/blockdelimiter" type="xs:string" />
+        <xs:element name="/***sqlの行*/line" type="xs:string" />
+        <xs:element name="/***現在の位置*/pos" type="xs:long" />
+        <xs:element name="/***次の位置*/nextpos" type="xs:long" />
+        <xs:element name="/***{@code#line}の長さ*/length" type="xs:long" />
+        <xs:element name="/***トークン*/token" type="xs:string" />
+        <xs:element name="/***トークンのタイプ*/type" type="xs:anyType" />
+        <xs:element name="/***ブロックコメントが開始されている場合{@codetrue}*/blockcommentstarted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mssql2005dialect" >
+      <xs:complexContent>
+       <xs:extension base="standarddialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mysqldialect" >
+      <xs:complexContent>
+       <xs:extension base="standarddialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="postgredialect" >
+      <xs:complexContent>
+       <xs:extension base="standarddialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="standarddialect" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="oracledialect" >
+      <xs:complexContent>
+       <xs:extension base="standarddialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="db2dialect" >
+      <xs:complexContent>
+       <xs:extension base="standarddialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="executesqltask" >
+      <xs:complexContent>
+       <xs:extension base="task">
+         <xs:sequence>
+          <xs:element name="dialectmap" type="xs:anyType" />
+          <xs:element name="/***エラー時に即座に中止する場合{@codetrue}、継続する場合{@codefalse}*/haltonerror" type="xs:anyType" />
+          <xs:element name="/***sqlファイル*/sql" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="addressnames" >
+      <xs:complexContent>
+       <xs:extension base="propertyname<address>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="employeenames" >
+      <xs:complexContent>
+       <xs:extension base="propertyname<employee>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="departmentnames" >
+      <xs:complexContent>
+       <xs:extension base="propertyname<department>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sqlfileprocedurecalltest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileupdatetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselectiterationcallbacktest" >
+      <xs:sequence>
+        <xs:element name="path" type="xs:string" />
+        <xs:element name="path2" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="beansalarysumcallback" type="xs:anyType" />
+        <xs:element name="mapsalarysumcallback" type="xs:anyType" />
+        <xs:element name="objectsalarysumcallback" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselectpagingtest" >
+      <xs:sequence>
+        <xs:element name="path" type="xs:string" />
+        <xs:element name="path2" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselectvaluetypetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselectgetresulttest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselectgetcounttest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselectwheretest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfilebatchupdatetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfilefunctioncalltest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="autobatchinserttest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="singlekeyonetomanytest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="autoselecthinttest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="autoselectpagingtest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="autoselectwheretest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mappedsuperclassjointest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="autoselecttransienttest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mappedsuperclassonetomanytest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="autoselectnoidtest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="compkeyjointest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="autoselectgetcounttest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="compkeymanytoonetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mappedsuperclassonetoonetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="singlekeyonetoonetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mappedsuperclassmanytoonetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="autoselectiterationcallbacktest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="salarysumcallback" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="autoselectforupdatetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="implementor" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="compkeyonetomanytest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="autoselectgetresulttest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="singlekeymanytoonetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="autoselectpatternmachingtest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="compkeyonetoonetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="autoselectvaluetypetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="singlekeyjointest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="constraintviolationtest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="autobatchupdatetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="autodeletetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="autoprocedurecalltest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="autofunctioncalltest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="autoinserttest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="autobatchdeletetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="autoupdatetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="compkeyemployee" >
+      <xs:sequence>
+        <xs:element name="/***/employeeid1" type="xs:long" />
+        <xs:element name="/***/employeeid2" type="xs:long" />
+        <xs:element name="/***/employeeno" type="xs:long" />
+        <xs:element name="/***/employeename" type="xs:string" />
+        <xs:element name="/***/managerid1" type="xs:long" />
+        <xs:element name="/***/managerid2" type="xs:long" />
+        <xs:element name="/***/manager" type="compkeyemployee" nillable="true" minOccurs="0" />
+        <xs:element name="/***/hire" type="xs:dateTime" />
+        <xs:element name="/***/salary" type="xs:anyType" />
+        <xs:element name="/***/departmentid1" type="xs:long" />
+        <xs:element name="/***/departmentid2" type="xs:long" />
+        <xs:element name="/***/department" type="compkeydepartment" nillable="true" minOccurs="0" />
+        <xs:element name="/***/addressid1" type="xs:long" />
+        <xs:element name="/***/addressid2" type="xs:long" />
+        <xs:element name="/***/address" type="compkeyaddress" nillable="true" minOccurs="0" />
+        <xs:element name="/***/version" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tablestrategy" >
+      <xs:sequence>
+        <xs:element name="/***/id" type="xs:anyType" />
+        <xs:element name="/***/value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="noid" >
+      <xs:sequence>
+        <xs:element name="/***/value1" type="xs:long" />
+        <xs:element name="/***/value2" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractdepartment" >
+      <xs:sequence>
+        <xs:element name="/***/departmentno" type="xs:long" />
+        <xs:element name="/***/departmentname" type="xs:string" />
+        <xs:element name="/***/location" type="xs:string" />
+        <xs:element name="/***/version" type="xs:long" />
+        <xs:element name="/***/employees" type="concreteemployee" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tablestrategy4" >
+      <xs:sequence>
+        <xs:element name="/***/id" type="xs:anyType" />
+        <xs:element name="/***/value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pattern" >
+      <xs:sequence>
+        <xs:element name="/***/value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="employee" >
+      <xs:sequence>
+        <xs:element name="/***/employeeid" type="xs:long" />
+        <xs:element name="/***/employeeno" type="xs:long" />
+        <xs:element name="/***/employeename" type="xs:string" />
+        <xs:element name="/***/managerid" type="xs:long" />
+        <xs:element name="/***/manager" type="employee" nillable="true" minOccurs="0" />
+        <xs:element name="/***/hire" type="xs:dateTime" />
+        <xs:element name="/***/salary" type="xs:anyType" />
+        <xs:element name="/***/departmentid" type="xs:long" />
+        <xs:element name="/***/" type="department" nillable="true" minOccurs="0" />
+        <xs:element name="/***/addressid" type="xs:long" />
+        <xs:element name="/***/" type="address" nillable="true" minOccurs="0" />
+        <xs:element name="/***/version" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="department2" >
+      <xs:sequence>
+        <xs:element name="/***/departmentid" type="xs:long" />
+        <xs:element name="/***/departmentno" type="xs:long" />
+        <xs:element name="/***/departmentname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="concreteaddress" >
+      <xs:complexContent>
+       <xs:extension base="abstractaddress">
+         <xs:sequence>
+          <xs:element name="/***/version" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="concreteemployee" >
+      <xs:complexContent>
+       <xs:extension base="abstractemployee">
+         <xs:sequence>
+          <xs:element name="/***/salary" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractemployee" >
+      <xs:sequence>
+        <xs:element name="/***/employeeid" type="xs:long" />
+        <xs:element name="/***/employeeno" type="xs:long" />
+        <xs:element name="/***/employeename" type="xs:string" />
+        <xs:element name="/***/managerid" type="xs:long" />
+        <xs:element name="/***/manager" type="concreteemployee" nillable="true" minOccurs="0" />
+        <xs:element name="/***/hire" type="xs:dateTime" />
+        <xs:element name="/***/departmentid" type="xs:long" />
+        <xs:element name="/***/department" type="concretedepartment" nillable="true" minOccurs="0" />
+        <xs:element name="/***/addressid" type="xs:long" />
+        <xs:element name="/***/address" type="concreteaddress" nillable="true" minOccurs="0" />
+        <xs:element name="/***/version" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sequencestrategy" >
+      <xs:sequence>
+        <xs:element name="/***/id" type="xs:anyType" />
+        <xs:element name="/***/value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="job" >
+      <xs:sequence>
+        <xs:element name="/***/id" type="xs:long" />
+        <xs:element name="/***/" type="jobtype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="compkeydepartment" >
+      <xs:sequence>
+        <xs:element name="/***/departmentid1" type="xs:long" />
+        <xs:element name="/***/departmentid2" type="xs:long" />
+        <xs:element name="/***/departmentno" type="xs:long" />
+        <xs:element name="/***/departmentname" type="xs:string" />
+        <xs:element name="/***/location" type="xs:string" />
+        <xs:element name="/***/version" type="xs:long" />
+        <xs:element name="/***/employees" type="compkeyemployee" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="department3" >
+      <xs:sequence>
+        <xs:element name="/***/departmentid" type="xs:long" />
+        <xs:element name="/***/departmentno" type="xs:long" />
+        <xs:element name="/***/departmentname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="constraintchecking" >
+      <xs:sequence>
+        <xs:element name="/***/primarykey" type="xs:anyType" />
+        <xs:element name="/***/uniquekey" type="xs:anyType" />
+        <xs:element name="/***/foreignkey" type="xs:anyType" />
+        <xs:element name="/***/checkconstraint" type="xs:anyType" />
+        <xs:element name="/***/notnull" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="compkeyaddress" >
+      <xs:sequence>
+        <xs:element name="/***/addressid1" type="xs:long" />
+        <xs:element name="/***/addressid2" type="xs:long" />
+        <xs:element name="/***/street" type="xs:string" />
+        <xs:element name="/***/version" type="xs:long" />
+        <xs:element name="/***/employee" type="compkeyemployee" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="largeobject" >
+      <xs:sequence>
+        <xs:element name="/***/id" type="xs:anyType" />
+        <xs:element name="/***/name" type="xs:string" />
+        <xs:element name="/***/largename" type="xs:string" />
+        <xs:element name="s" type="xs:anyType" />
+        <xs:element name="larges" type="xs:anyType" />
+        <xs:element name="/***/dto" type="xs:anyType" />
+        <xs:element name="/***/largedto" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tablestrategy5" >
+      <xs:sequence>
+        <xs:element name="/***/id" type="xs:anyType" />
+        <xs:element name="/***/value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="concretedepartment" >
+      <xs:complexContent>
+       <xs:extension base="abstractdepartment">
+         <xs:sequence>
+          <xs:element name="/***/departmentid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="address" >
+      <xs:sequence>
+        <xs:element name="/***/addressid" type="xs:long" />
+        <xs:element name="/***/street" type="xs:string" />
+        <xs:element name="/***/version" type="xs:long" />
+        <xs:element name="/***/" type="employee" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="department5" >
+      <xs:sequence>
+        <xs:element name="/***/departmentid" type="xs:anyType" />
+        <xs:element name="/***/departmentno" type="xs:long" />
+        <xs:element name="/***/transientdepartmentname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sequencestrategy2" >
+      <xs:sequence>
+        <xs:element name="/***/id" type="xs:anyType" />
+        <xs:element name="/***/value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tense" >
+      <xs:sequence>
+        <xs:element name="/***/id" type="xs:long" />
+        <xs:element name="/***/" type="xs:dateTime" />
+        <xs:element name="/***/time" type="xs:dateTime" />
+        <xs:element name="/***/timestamp" type="xs:dateTime" />
+        <xs:element name="/***/caldate" type="xs:anyType" />
+        <xs:element name="/***/caltime" type="xs:anyType" />
+        <xs:element name="/***/caltimestamp" type="xs:anyType" />
+        <xs:element name="/***/sqldate" type="xs:anyType" />
+        <xs:element name="/***/sql" type="xs:dateTime" />
+        <xs:element name="/***/sql" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="autostrategy" >
+      <xs:sequence>
+        <xs:element name="/***/id" type="xs:anyType" />
+        <xs:element name="/***/value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tablestrategy3" >
+      <xs:sequence>
+        <xs:element name="/***/id" type="xs:anyType" />
+        <xs:element name="/***/value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractaddress" >
+      <xs:sequence>
+        <xs:element name="/***/addressid" type="xs:long" />
+        <xs:element name="/***/street" type="xs:string" />
+        <xs:element name="/***/employee" type="concreteemployee" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tablestrategy2" >
+      <xs:sequence>
+        <xs:element name="/***/id" type="xs:anyType" />
+        <xs:element name="/***/value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ownerofnoid" >
+      <xs:sequence>
+        <xs:element name="/***/id" type="xs:long" />
+        <xs:element name="/***/" type="noid" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authority" >
+      <xs:sequence>
+        <xs:element name="/***/id" type="xs:long" />
+        <xs:element name="/***/" type="authoritytype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="identitystrategy" >
+      <xs:sequence>
+        <xs:element name="/***/id" type="xs:anyType" />
+        <xs:element name="/***/value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="department4" >
+      <xs:sequence>
+        <xs:element name="/***/departmentid" type="xs:long" />
+        <xs:element name="/***/departmentno" type="xs:long" />
+        <xs:element name="/***/transientdepartmentname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobtype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sequencestrategy3" >
+      <xs:sequence>
+        <xs:element name="/***/id" type="xs:anyType" />
+        <xs:element name="/***/value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authoritytype" >
+      <xs:sequence>
+        <xs:element name="level" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="department" >
+      <xs:sequence>
+        <xs:element name="/***/departmentid" type="xs:long" />
+        <xs:element name="/***/departmentno" type="xs:long" />
+        <xs:element name="/***/departmentname" type="xs:string" />
+        <xs:element name="/***/location" type="xs:string" />
+        <xs:element name="/***/version" type="xs:long" />
+        <xs:element name="/***/employees" type="employee" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselecttest_getsingleresult_nonuniqueresultexception2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselecttest_no2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfilefunctioncalltest_dto" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselecttest_paging2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileprocedurecalltest_resultsetout" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileupdatetest_entityexistsexception_update" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfilefunctioncalltest_no" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileprocedurecalltest_resultsetupdate2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfilefunctioncalltest_dto_time" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileprocedurecalltest_none" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselecttest_getresultlist_noresultexception" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileprocedurecalltest_dto" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselecttest_getsingleresult_noresultexception" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselecttest_paging" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselecttest_simpletype2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileprocedurecalltest_simpletype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselecttest_dto" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselecttest_getsingleresult_noresultexception2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselecttest_simpletype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileprocedurecalltest_dto_time" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselecttest_getsingleresult_nonuniqueresultexception" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselecttest_object_temporaltype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfilebatchupdatetest_entityexistsexception_update" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileprocedurecalltest_resultsetsupdatesout" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfilefunctioncalltest_simpletype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfilefunctioncalltest_resultset" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileprocedurecalltest_resultset" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileprocedurecalltest_simpletype_time" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfilefunctioncalltest_resultsetupdate" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselecttest_getsingleresult_null" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileprocedurecalltest_resultsetout2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselectwheretest_dto2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselectgetresulttest_getsingleresult_null" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselectpagingtest_paging" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselectgetresulttest_getresultlist_noresultexception2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselectvaluetypetest_temporaltype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselectgetresulttest_getsingleresult" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselectgetresulttest_getsingleresult2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselectwheretest_simpletype2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselectgetresulttest_getsingleresult_noresultexception2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselectgetresulttest_getsingleresult_nonuniqueresultexception2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselectvaluetypetest_object_temporaltype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselectwheretest_simpletype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselectiterationcallbacktest_object" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselectgetcounttest_getcount" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselectgetresulttest_getsingleresult_nonuniqueresultexception" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselectpagingtest_paging2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselectgetresulttest_getsingleresult_noresultexception" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselectiterationcallbacktest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselectgetresulttest_getresultlist_noresultexception" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselectwheretest_no2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselectwheretest_no" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselectgetresulttest_getsingleresult_null2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselectwheretest_dto" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileprocedurecalltest_resultsets" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselecttest_no" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfilebatchupdatetest_entityexistsexception_insert" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselecttest_getsingleresult2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselecttest_dto2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselecttest_getresultlist_noresultexception2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileupdatetest_entityexistsexception_insert" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselecttest_temporaltype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileprocedurecalltest_resultsets2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselecttest_getsingleresult_null2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileprocedurecalltest_resultsetsupdatesout2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileprocedurecalltest_resultsetupdate" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileprocedurecalltest_resultset2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfilefunctioncalltest_simpletype_time" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlfileselecttest_getsingleresult" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="log4j" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="xadatasource_hsqldb" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="xadatasource_h2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="xadatasource_standard" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="xadatasource_db2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jdbc" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="s2junit4" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="server" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="env_ut" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="xadatasource_mysql" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="xadatasource_postgre" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="xadatasource_oracle" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

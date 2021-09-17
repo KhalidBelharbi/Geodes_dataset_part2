@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="catalogserviceapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="catalog" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="productid" type="xs:string" />
+        <xs:element name="productname" type="xs:string" />
+        <xs:element name="stock" type="xs:anyType" />
+        <xs:element name="unitprice" type="xs:anyType" />
+        <xs:element name="createdat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="catalogrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<catalog,long>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="catalogdto" >
+      <xs:sequence>
+        <xs:element name="productid" type="xs:string" />
+        <xs:element name="quantity" type="xs:anyType" />
+        <xs:element name="unitprice" type="xs:anyType" />
+        <xs:element name="totalprice" type="xs:anyType" />
+        <xs:element name="orderid" type="xs:string" />
+        <xs:element name="userid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="responsecatalog" >
+      <xs:sequence>
+        <xs:element name="productid" type="xs:string" />
+        <xs:element name="productname" type="xs:string" />
+        <xs:element name="unitprice" type="xs:anyType" />
+        <xs:element name="stock" type="xs:anyType" />
+        <xs:element name="createdat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="catalogcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="catalogservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="env" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="appconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="catalogservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="catalogserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="catalogrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="catalogserviceapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

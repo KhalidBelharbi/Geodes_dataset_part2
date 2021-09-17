@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="styles" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application-production" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application-test" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="index" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="signup" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="profile" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="feed" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="connections" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="layout" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customuserdetailsservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="myapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="developmentsecurityconfiguration" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="commentrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<comment,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="endorsementrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<endorsement,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="skillrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<skill,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="postrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<post,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="connectionrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<connection,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="likerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<like,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="skillrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="endorsementrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="postservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="postrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="likerepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="commentrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="connectionservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="connectionrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commentservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="commentrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="postservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="postrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="postcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="post" nillable="true" minOccurs="0" />
+        <xs:element name="likes" type="like" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="comments" type="comment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="iscurrentuser" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="postservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="commentservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commentcontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="defaultcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="connectioncontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="connectionservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="skill" nillable="true" minOccurs="0" />
+        <xs:element name="count" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="post" >
+      <xs:complexContent>
+       <xs:extension base="abstractpersistable<long>">
+         <xs:sequence>
+          <xs:element name="content" type="xs:string" />
+          <xs:element name="" type="xs:dateTime" />
+          <xs:element name="poster" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="likes" type="like" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="comments" type="comment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="endorsement" >
+      <xs:complexContent>
+       <xs:extension base="abstractpersistable<long>">
+         <xs:sequence>
+          <xs:element name="endorser" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="" type="skill" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="like" >
+      <xs:complexContent>
+       <xs:extension base="abstractpersistable<long>">
+         <xs:sequence>
+          <xs:element name="liker" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="" type="post" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="comment" >
+      <xs:complexContent>
+       <xs:extension base="abstractpersistable<long>">
+         <xs:sequence>
+          <xs:element name="content" type="xs:string" />
+          <xs:element name="creator" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="" type="post" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="skill" >
+      <xs:complexContent>
+       <xs:extension base="abstractpersistable<long>">
+         <xs:sequence>
+          <xs:element name="skill" type="xs:string" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="endorsements" type="endorsement" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="abstractpersistable<long>">
+         <xs:sequence>
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="fullname" type="xs:string" />
+          <xs:element name="profilename" type="xs:string" />
+          <xs:element name="photo" type="xs:anyType" />
+          <xs:element name="photocontenttype" type="xs:string" />
+          <xs:element name="posts" type="post" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="connections" type="connection" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="connectionrequests" type="connection" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="likes" type="like" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="endorsements" type="endorsement" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="skills" type="skill" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="connection" >
+      <xs:complexContent>
+       <xs:extension base="abstractpersistable<long>">
+         <xs:sequence>
+          <xs:element name="sender" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="receiver" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="accepted" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="securityconfiguration" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="main" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="projektitest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="test" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

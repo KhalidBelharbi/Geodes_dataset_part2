@@ -1,0 +1,39 @@
+
+grade(serialversionuid:long, id:Long [PK], codgrd:String, libgrda:String, libgrdl:String);
+
+deptgen(serialversionuid:long, code:String [PK], liba:String, libl:String, typdept:String, cptmission:short, cptnbp:Integer, cptnop:Integer, codcomm:String);
+
+zone(serialversionuid:long, codzone:String [PK], libzonea:String, libzonel:String);
+
+avoirfrais(GeneratedName:AvoirFraisPK, valeurp:BigDecimal, valeurr:BigDecimal, supporte:String, supcode:String, codprj:String, observ:String, aobserv:String, code:OrdMis #FK to(OrdMis), cod_pays:Pays #FK to(pays), typ_frais:TypFrais #FK to(typfrais));
+
+classe(serialversionuid:long, classgrd:String [PK], libclassgrda:String, libclassgrdl:String);
+
+userstruct(serialversionuid:long, iduserstruct:long [PK], affectation:Date, //bi-directionalmany-to-oneassociationtodepartementdepartement:DeptGen #FK to(DeptGen), //bi-directionalmany-to-oneassociationto:Utilisateur #FK to(Utilisateur));
+
+fonction(serialversionuid:long, id:Long [PK], codfonction:String, libfonca:String, libfoncl:String, typfonc:String);
+
+role(id:Long [PK], name:String);
+
+ordmis(GeneratedName:OrdMisPK, datdepp:Date, datarrp:Date, datdepr:Date, datarrr:Date, timbr:BigDecimal, avance:BigDecimal, etat:String, numpb:String, pay:Date, avanceacc:BigDecimal, datrap:Date, numop:String, tauxspec:BigDecimal, avanceold:BigDecimal, obsctrl:String, typav:String, resume:String, num_mission:Mission #FK to(Mission), cin:Missionnaire #FK to(Mission));
+
+motcle(serialversionuid:long, codemotcle:String [PK], amotcle:String, lmotcle:String, ind:Short);
+
+mission(GeneratedName:MissionPK, objeta:String, objetl:String, datdepp:Date, datarrp:Date, GeneratedName:DeptGen #FK to(DeptGen), GeneratedName:Motcle #FK to(Motcle));
+
+categorie(serialversionuid:long, codecat:String [PK], libcatar:String, libcatfr:String);
+
+utilisateur(username:String [PK], nom:String, prenom:String, password:String, enable:boolean);
+
+users_roles(user_id:Utilisateur [PK] #FK to Utilisateur,role_id:Role [PK] #FK to Role);
+
+groupe(serialversionuid:long, codgrp:String [PK], libgrp:String, libgrpl:String);
+
+pays(serialversionuid:long, codpays:String [PK], libpaysa:String, libpaysl:String, langue:String, prep:String, pour:String, cod_zone:Zone #FK to(Zone));
+
+missionnaire(serialversionuid:long, cin:String [PK], matricule:String, nom:String, noml:String, prenom:String, prenoml:String, nationalite:String, nationalitel:String, naissance:Date, place_naissance:String, rib:String, _cin:Date, place_cin:String, groupe:String, niveau:String, ministr:String, cod_cat:Categorie #FK to(Categorie), classgrd:Classe #FK to(Classe), code:DeptGen #FK to(DeptGen), codgrp:Groupe #FK to(Groupe), grade_id:Grade #FK to(Grade), fonction_id:Fonction #FK to(Fonction));
+
+typfrais(serialversionuid:long, typfrais:String [PK], libfrais:String, libfraisl:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

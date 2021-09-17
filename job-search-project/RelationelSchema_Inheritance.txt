@@ -1,0 +1,21 @@
+
+employer(id:Long [PK], GeneratedName:User #FK to(user), GeneratedName:Company #FK to(company), position:String);
+
+user(id:Long [PK], username:String, firstname:String, lastname:String, password:String, email:String, phonenum:String, isbanned:boolean);
+
+user_roles(user_id:User [PK] #FK to User,role_id:set<role> [PK] #FK to set<role>);
+
+resume(id:Long [PK], GeneratedName:Employee #FK to(employee), desiredposition:String, city:String, workexperience:String, skills:String);
+
+company(id:Long [PK], name:String, codeedrpou:Long, address:String, description:String, industry:String, employeesnum:Integer);
+
+job(id:Long [PK], jobtitle:String, description:String, postedon:LocalDate, GeneratedName:Employer #FK to(employer), GeneratedName:Company #FK to(company), industry:String, status:JobStatus, location:String, skills:String, salary:Integer, employmenttype:String);
+
+job_applicants(job_id:Job [PK] #FK to Job,resume_id:list<resume> [PK] #FK to list<resume>);
+
+role(id:Integer [PK], role:String);
+
+employee(id:Long [PK], GeneratedName:User #FK to(user));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

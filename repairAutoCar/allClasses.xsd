@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="usuariotest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuariogui" >
+      <xs:complexContent>
+       <xs:extension base="jframe">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="contentpane" type="xs:anyType" />
+          <xs:element name="txtusername" type="xs:anyType" />
+          <xs:element name="txtemail" type="xs:anyType" />
+          <xs:element name="btnincluir" type="xs:anyType" />
+          <xs:element name="btnalterar" type="xs:anyType" />
+          <xs:element name="btnexcluir" type="xs:anyType" />
+          <xs:element name="rdbtnativo" type="xs:anyType" />
+          <xs:element name="rdbtnadmin" type="xs:anyType" />
+          <xs:element name="btnsair" type="xs:anyType" />
+          <xs:element name="passwordfieldsenha" type="xs:anyType" />
+          <xs:element name="lblcodigo" type="xs:anyType" />
+          <xs:element name="textcodigo" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usuario" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="ativo" type="xs:anyType" />
+        <xs:element name="admin" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuarioprestador" >
+      <xs:sequence>
+        <xs:element name="//dadosdecadastronameperson" type="xs:string" />
+        <xs:element name="cnpj" type="xs:long" />
+        <xs:element name="//faltainstanciardisponibilidade" type="xs:anyType" />
+        <xs:element name="//dadosdecontacpf" type="xs:long" />
+        <xs:element name="agencia" type="xs:long" />
+        <xs:element name="conta" type="xs:long" />
+        <xs:element name="operacao" type="xs:long" />
+        <xs:element name="codigobanco" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="prestadorconta" >
+      <xs:sequence>
+        <xs:element name="id_p" type="xs:anyType" />
+        <xs:element name="tipe" type="xs:string" />
+        <xs:element name="namecont" type="xs:string" />
+        <xs:element name="agencia" type="xs:anyType" />
+        <xs:element name="conta" type="xs:anyType" />
+        <xs:element name="operacao" type="xs:anyType" />
+        <xs:element name="codigobanco" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuariocliente" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="prestadordao" >
+      <xs:complexContent>
+       <xs:extension base="genericadaoprestador<prestadorconta,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="genericadaoprestador" >
+      <xs:complexContent>
+       <xs:extension base="serializable>{">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="classepersistencia" type="prestadorconta" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usuariodao" >
+      <xs:complexContent>
+       <xs:extension base="genericdao<usuario,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="genericdao" >
+      <xs:complexContent>
+       <xs:extension base="serializable>{">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="classepersistencia" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="prestadorcontservice" >
+      <xs:complexContent>
+       <xs:extension base="conexaobancoservice{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usuarioservice" >
+      <xs:complexContent>
+       <xs:extension base="conexaobancoservice">
+         <xs:sequence>
+          <xs:element name="" type="usuariodao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="conexaobancoservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuariocontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="variaveisprojeto" >
+      <xs:sequence>
+        <xs:element name="persistence_unit_name" type="xs:string" />
+        <xs:element name="erro_inclusao" type="xs:anyType" />
+        <xs:element name="erro_alteracao" type="xs:anyType" />
+        <xs:element name="erro_exclusao" type="xs:anyType" />
+        <xs:element name="digitacao_ok" type="xs:anyType" />
+        <xs:element name="campo_vazio" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="conexaobancodados" >
+      <xs:sequence>
+        <xs:element name="conexao_banco_dados" type="conexaobancodados" nillable="true" minOccurs="0" />
+        <xs:element name="fabrica_conexao" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

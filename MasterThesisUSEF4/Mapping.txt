@@ -1,0 +1,16 @@
+ClassDiagram.Class>> SynchronisationConnectionStatus =>=>=> RelationalSchema.Table>> synchronisationconnectionstatus;
+ClassDiagram.Class>> MeterDataCompany =>=>=> RelationalSchema.Table>> meterdatacompany;
+ClassDiagram.Class>> CommonReferenceOperator =>=>=> RelationalSchema.Table>> commonreferenceoperator;
+ClassDiagram.Class>> SynchronisationConnection =>=>=> RelationalSchema.Table>> synchronisationconnection;
+ClassDiagram.Attribut>> SynchronisationConnectionStatus.id:Long =>=>=> RelationalSchema.Column>> synchronisationconnectionstatus.id PRIMARY KEY;
+ClassDiagram.Attribut>> SynchronisationConnectionStatus.status:SynchronisationConnectionStatusType =>=>=> RelationalSchema.Column>> synchronisationconnectionstatus.status;
+ClassDiagram.Attribut>> MeterDataCompany.domain:String =>=>=> RelationalSchema.Column>> meterdatacompany.domain PRIMARY KEY;
+ClassDiagram.Attribut>> CommonReferenceOperator.id:Long =>=>=> RelationalSchema.Column>> commonreferenceoperator.id PRIMARY KEY;
+ClassDiagram.Attribut>> CommonReferenceOperator.domain:String =>=>=> RelationalSchema.Column>> commonreferenceoperator.domain;
+ClassDiagram.Attribut>> SynchronisationConnection.id:Long =>=>=> RelationalSchema.Column>> synchronisationconnection.id PRIMARY KEY;
+ClassDiagram.Attribut>> SynchronisationConnection.entityaddress:String =>=>=> RelationalSchema.Column>> synchronisationconnection.entityaddress;
+ClassDiagram.Attribut>> SynchronisationConnection.lastsynchronisationtime:Date =>=>=> RelationalSchema.Column>> synchronisationconnection.lastsynchronisationtime;
+ClassDiagram.Attribut>> SynchronisationConnection.lastmodificationtime:Date =>=>=> RelationalSchema.Column>> synchronisationconnection.lastmodificationtime;
+Many-To-One relationship from ClassDiagram.Class>>SynchronisationConnectionStatus  to ClassDiagram.Class>>commonreferenceoperator represented by ClassDiagram.Atrribute>>id;
+Many-To-One relationship from ClassDiagram.Class>>SynchronisationConnectionStatus  to ClassDiagram.Class>>synchronisationconnection represented by ClassDiagram.Atrribute>>id;
+One-To-Many relationship from ClassDiagram.Class>>SynchronisationConnection  to ClassDiagram.Class>>List<SynchronisationConnectionStatus>;

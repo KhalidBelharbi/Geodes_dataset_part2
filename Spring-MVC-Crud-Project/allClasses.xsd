@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="departments" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="departmentname" type="xs:string" />
+        <xs:element name="manager" type="employee" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="location" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="location" >
+      <xs:sequence>
+        <xs:element name="locationid" type="xs:anyType" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="department" type="departments" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="employee" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="//departmentsdepartmentsdepartments" type="departments" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="menucontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="departmentcontroller" >
+      <xs:sequence>
+        <xs:element name="managers" type="employee" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="locations" type="location" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="departments" type="departments" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="employees" type="employee" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="department" type="departments" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="departmentservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="departmentdaoimp" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="departmentdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="departmentservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="departmentserviceimp" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="departmentdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messages" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

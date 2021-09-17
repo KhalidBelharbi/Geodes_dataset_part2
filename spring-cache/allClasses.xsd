@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="demoapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="error" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="index" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="show" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="index" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="login" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authoritydto" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="authority" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authoritydao" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<authoritydto,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="authoritypk" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="authority" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customerdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="enabled" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customerdao" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<customerdto,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userdetailsserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="customerdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="authoritydao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdetailsimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="customerdto" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="authoritydto" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authenticationsuccesshandlerimpl" >
+      <xs:complexContent>
+       <xs:extension base="savedrequestawareauthenticationsuccesshandler">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="contenttype" >
+      <xs:sequence>
+        <xs:element name="json" type="xs:string" />
+        <xs:element name="//todo:画像を送れない可能性があるので、ここの値はバリエーションが必要な場合があるform_data" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="securityconfig" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usernamepasswordauthenticationfilterimpl" >
+      <xs:complexContent>
+       <xs:extension base="usernamepasswordauthenticationfilter">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="authenticationfailurehandlerimpl" >
+      <xs:complexContent>
+       <xs:extension base="simpleurlauthenticationfailurehandler">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userscontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authcontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="demoapplication" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="customerdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="authoritydao" nillable="true" minOccurs="0" />
+        <xs:element name="encoder" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

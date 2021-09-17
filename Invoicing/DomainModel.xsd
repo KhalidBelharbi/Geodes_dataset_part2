@@ -1,0 +1,731 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="accountingtype" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="accountingmode" type="accountingmodecode" nillable="true" minOccurs="0" />
+          <xs:element name="accountings" type="accounting" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="region" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="parent" type="region" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="log" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="event" type="logevent" nillable="true" minOccurs="0" />
+          <xs:element name="usercreate" type="xs:long" />
+          <xs:element name="datecreate" type="xs:anyType" />
+          <xs:element name="comment" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="logevent" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="enabled" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="enabled" type="xs:anyType" />
+          <xs:element name="users" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="authorities" type="authority" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="authority" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="url" type="xs:string" />
+          <xs:element name="parent" type="authority" nillable="true" minOccurs="0" />
+          <xs:element name="enabled" type="xs:anyType" />
+          <xs:element name="roles" type="role" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="userid" type="xs:string" />
+          <xs:element name="pwd" type="xs:string" />
+          <xs:element name="passwordhint" type="xs:string" />
+          <xs:element name="admin" type="xs:anyType" />
+          <xs:element name="enabled" type="xs:anyType" />
+          <xs:element name="accountlocked" type="xs:anyType" />
+          <xs:element name="credentialsexpired" type="xs:anyType" />
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="lastname" type="xs:string" />
+          <xs:element name="mobilephone" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="netcommunityid" type="xs:string" />
+          <xs:element name="birthday" type="xs:dateTime" />
+          <xs:element name="birthaddress" type="xs:string" />
+          <xs:element name="comments" type="xs:string" />
+          <xs:element name="roles" type="role" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usersession" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="sessionid" type="xs:long" />
+          <xs:element name="sessionkey" type="xs:string" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="created" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="contract" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="dealmoney" type="xs:double" />
+          <xs:element name="typecode" type="contracttypecode" nillable="true" minOccurs="0" />
+          <xs:element name="source" type="xs:string" />
+          <xs:element name="created" type="xs:dateTime" />
+          <xs:element name="usercreatedby" type="xs:long" />
+          <xs:element name="comment" type="xs:string" />
+          <xs:element name="filepath" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="accounting" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="money" type="xs:double" />
+          <xs:element name="type" type="accountingtype" nillable="true" minOccurs="0" />
+          <xs:element name="" type="paymentaccount" nillable="true" minOccurs="0" />
+          <xs:element name="/***对象，如供应商或客户*/customerid" type="xs:string" />
+          <xs:element name="/***来源，如入库单或出库单*/orderid" type="xs:string" />
+          <xs:element name="comment" type="xs:string" />
+          <xs:element name="created" type="xs:anyType" />
+          <xs:element name="updated" type="xs:anyType" />
+          <xs:element name="usercreatedby" type="xs:long" />
+          <xs:element name="userupdatedby" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="deliverycompany" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="goodstype" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="/***parenttype*/parent" type="goodstype" nillable="true" minOccurs="0" />
+          <xs:element name="goodslist" type="goods" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="goodsstoragetransfer" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="bid" type="xs:string" />
+          <xs:element name="" type="goods" nillable="true" minOccurs="0" />
+          <xs:element name="depository" type="goodsdepository" nillable="true" minOccurs="0" />
+          <xs:element name="amountbeforetransfer" type="xs:long" />
+          <xs:element name="amountaftertransfer" type="xs:long" />
+          <xs:element name="created" type="xs:dateTime" />
+          <xs:element name="usercreatedby" type="xs:long" />
+          <xs:element name="comment" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="goodspicture" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="filename" type="xs:string" />
+          <xs:element name="contenttype" type="xs:string" />
+          <xs:element name="" type="goods" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="goodsserialnumber" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="serialnumber" type="xs:string" />
+          <xs:element name="" type="goods" nillable="true" minOccurs="0" />
+          <xs:element name="" type="orderinitem" nillable="true" minOccurs="0" />
+          <xs:element name="" type="orderoutitem" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="goodsunit" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="goodsstoragepricerevise" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="bid" type="xs:string" />
+          <xs:element name="" type="goods" nillable="true" minOccurs="0" />
+          <xs:element name="depository" type="goodsdepository" nillable="true" minOccurs="0" />
+          <xs:element name="pricebeforerevise" type="xs:double" />
+          <xs:element name="priceafterrevise" type="xs:double" />
+          <xs:element name="created" type="xs:dateTime" />
+          <xs:element name="usercreatedby" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="goodsstoragecheck" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="bid" type="xs:string" />
+          <xs:element name="" type="goods" nillable="true" minOccurs="0" />
+          <xs:element name="depository" type="goodsdepository" nillable="true" minOccurs="0" />
+          <xs:element name="amountbeforecheck" type="xs:long" />
+          <xs:element name="amountaftercheck" type="xs:long" />
+          <xs:element name="created" type="xs:dateTime" />
+          <xs:element name="usercreatedby" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="goodsissue" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="comment" type="xs:string" />
+          <xs:element name="statuscode" type="goodsissuestatuscode" nillable="true" minOccurs="0" />
+          <xs:element name="/***谁负责处理*/signuser" type="xs:long" />
+          <xs:element name="userupdatedby" type="xs:long" />
+          <xs:element name="created" type="xs:dateTime" />
+          <xs:element name="/***最后一次更新的时间*/lastupd" type="xs:dateTime" />
+          <xs:element name="" type="goods" nillable="true" minOccurs="0" />
+          <xs:element name="goodsserial" type="xs:string" />
+          <xs:element name="" type="customer" nillable="true" minOccurs="0" />
+          <xs:element name="" type="provider" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="goods" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="shortcode" type="xs:string" />
+          <xs:element name="specificationmodel" type="xs:string" />
+          <xs:element name="barcode" type="xs:string" />
+          <xs:element name="comment" type="xs:string" />
+          <xs:element name="/***成本价*/averageprice" type="xs:double" />
+          <xs:element name="/***预计进货价*/importprice" type="xs:double" />
+          <xs:element name="/***零售参考价*/retailprice" type="xs:double" />
+          <xs:element name="/***批发参考价*/tradeprice" type="xs:double" />
+          <xs:element name="/***最低库存*/minstock" type="xs:long" />
+          <xs:element name="/***最高库存*/maxstock" type="xs:long" />
+          <xs:element name="userupdatedby" type="xs:long" />
+          <xs:element name="lastupd" type="xs:dateTime" />
+          <xs:element name="unit" type="goodsunit" nillable="true" minOccurs="0" />
+          <xs:element name="type" type="goodstype" nillable="true" minOccurs="0" />
+          <xs:element name="prefereddepository" type="goodsdepository" nillable="true" minOccurs="0" />
+          <xs:element name="pictures" type="goodspicture" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***库存*/storages" type="goodsstorage" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="goodsstorage" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="depository" type="goodsdepository" nillable="true" minOccurs="0" />
+          <xs:element name="amount" type="xs:long" />
+          <xs:element name="price" type="xs:double" />
+          <xs:element name="worth" type="xs:double" />
+          <xs:element name="" type="goods" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="goodsdepository" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="enabled" type="xs:anyType" />
+          <xs:element name="goodses" type="goods" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="project" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="" type="customer" nillable="true" minOccurs="0" />
+          <xs:element name="start" type="xs:dateTime" />
+          <xs:element name="end" type="xs:dateTime" />
+          <xs:element name="comment" type="xs:string" />
+          <xs:element name="statuscode" type="projectstatuscode" nillable="true" minOccurs="0" />
+          <xs:element name="/***施工费*/constructionfee" type="xs:double" />
+          <xs:element name="/***辅材及其他费*/otherfee" type="xs:double" />
+          <xs:element name="usercreatedby" type="xs:long" />
+          <xs:element name="userupdatedby" type="xs:long" />
+          <xs:element name="/***设备费*/orders" type="orderout" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="providerpaymentrecord" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="paid" type="xs:double" />
+          <xs:element name="comment" type="xs:string" />
+          <xs:element name="" type="paymentaccount" nillable="true" minOccurs="0" />
+          <xs:element name="" type="paymentway" nillable="true" minOccurs="0" />
+          <xs:element name="" type="orderin" nillable="true" minOccurs="0" />
+          <xs:element name="payment" type="providerpayment" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderin" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="bid" type="xs:string" />
+          <xs:element name="/***交易额*/dealmoney" type="xs:double" />
+          <xs:element name="/***折扣率*/discount" type="xs:double" />
+          <xs:element name="/***应收款*/receivable" type="xs:double" />
+          <xs:element name="/***实收额*/paidmoney" type="xs:double" />
+          <xs:element name="/***操作员*/usercreatedby" type="xs:long" />
+          <xs:element name="userupdatedby" type="xs:long" />
+          <xs:element name="datecreated" type="xs:anyType" />
+          <xs:element name="lastupdated" type="xs:anyType" />
+          <xs:element name="comment" type="xs:string" />
+          <xs:element name="statuscode" type="orderstatuscode" nillable="true" minOccurs="0" />
+          <xs:element name="typecode" type="ordertypecode" nillable="true" minOccurs="0" />
+          <xs:element name="" type="provider" nillable="true" minOccurs="0" />
+          <xs:element name="orderitems" type="orderinitem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="provider" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="shortname" type="xs:string" />
+          <xs:element name="shortcode" type="xs:string" />
+          <xs:element name="unpaymoney" type="xs:double" />
+          <xs:element name="sharable" type="xs:anyType" />
+          <xs:element name="deleted" type="xs:anyType" />
+          <xs:element name="comment" type="xs:string" />
+          <xs:element name="usersigned" type="xs:long" />
+          <xs:element name="contacts" type="providercontact" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="payments" type="providerpayment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="providertype" nillable="true" minOccurs="0" />
+          <xs:element name="orders" type="orderin" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="providertype" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="providers" type="provider" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="providercontact" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="mobilephone" type="xs:string" />
+          <xs:element name="fixedphone" type="xs:string" />
+          <xs:element name="netcommunityid" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="address" type="xs:string" />
+          <xs:element name="isprefered" type="xs:anyType" />
+          <xs:element name="" type="provider" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderinitem" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="unitprice" type="xs:double" />
+          <xs:element name="amount" type="xs:long" />
+          <xs:element name="sum" type="xs:double" />
+          <xs:element name="comment" type="xs:string" />
+          <xs:element name="" type="goods" nillable="true" minOccurs="0" />
+          <xs:element name="depository" type="goodsdepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="orderin" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="providerpayment" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="bid" type="xs:string" />
+          <xs:element name="typecode" type="paymenttypecode" nillable="true" minOccurs="0" />
+          <xs:element name="receiptid" type="xs:string" />
+          <xs:element name="paiddate" type="xs:anyType" />
+          <xs:element name="addunpaid" type="xs:double" />
+          <xs:element name="remainunpaid" type="xs:double" />
+          <xs:element name="usercreatedby" type="xs:long" />
+          <xs:element name="paymentrecords" type="providerpaymentrecord" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="comment" type="xs:string" />
+          <xs:element name="" type="provider" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="paymentway" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="paymentaccount" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="accountid" type="xs:string" />
+          <xs:element name="remainmoney" type="xs:double" />
+          <xs:element name="accountmode" type="paymentaccountmode" nillable="true" minOccurs="0" />
+          <xs:element name="accounttransfers" type="paymenttransfer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customertype" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="customers" type="customer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderdelivery" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="company" type="deliverycompany" nillable="true" minOccurs="0" />
+          <xs:element name="number" type="xs:string" />
+          <xs:element name="amount" type="xs:long" />
+          <xs:element name="fee" type="xs:double" />
+          <xs:element name="paid" type="xs:double" />
+          <xs:element name="created" type="xs:dateTime" />
+          <xs:element name="usercreatedby" type="xs:long" />
+          <xs:element name="" type="orderout" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderoutitem" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="unitprice" type="xs:double" />
+          <xs:element name="amount" type="xs:long" />
+          <xs:element name="sum" type="xs:double" />
+          <xs:element name="comment" type="xs:string" />
+          <xs:element name="" type="goods" nillable="true" minOccurs="0" />
+          <xs:element name="depository" type="goodsdepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="orderout" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customerpaymentrecord" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="paid" type="xs:double" />
+          <xs:element name="comment" type="xs:string" />
+          <xs:element name="" type="paymentaccount" nillable="true" minOccurs="0" />
+          <xs:element name="" type="paymentway" nillable="true" minOccurs="0" />
+          <xs:element name="" type="orderout" nillable="true" minOccurs="0" />
+          <xs:element name="payment" type="customerpayment" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderout" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="bid" type="xs:string" />
+          <xs:element name="/***交易额*/dealmoney" type="xs:double" />
+          <xs:element name="/***折扣率*/discount" type="xs:double" />
+          <xs:element name="/***应收款*/receivable" type="xs:double" />
+          <xs:element name="/***实收额*/paidmoney" type="xs:double" />
+          <xs:element name="/***利润*/profit" type="xs:double" />
+          <xs:element name="/***操作员*/usercreatedby" type="xs:long" />
+          <xs:element name="userupdatedby" type="xs:long" />
+          <xs:element name="datecreated" type="xs:anyType" />
+          <xs:element name="lastupdated" type="xs:anyType" />
+          <xs:element name="comment" type="xs:string" />
+          <xs:element name="statuscode" type="orderstatuscode" nillable="true" minOccurs="0" />
+          <xs:element name="typecode" type="ordertypecode" nillable="true" minOccurs="0" />
+          <xs:element name="" type="customer" nillable="true" minOccurs="0" />
+          <xs:element name="orderitems" type="orderoutitem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="orderdelivery" nillable="true" minOccurs="0" />
+          <xs:element name="" type="orderreceipt" nillable="true" minOccurs="0" />
+          <xs:element name="" type="project" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderreceipt" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="type" type="receipttypecode" nillable="true" minOccurs="0" />
+          <xs:element name="fee" type="xs:double" />
+          <xs:element name="paid" type="xs:double" />
+          <xs:element name="created" type="xs:dateTime" />
+          <xs:element name="usercreatedby" type="xs:long" />
+          <xs:element name="" type="orderout" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customerpayment" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="bid" type="xs:string" />
+          <xs:element name="typecode" type="paymenttypecode" nillable="true" minOccurs="0" />
+          <xs:element name="receiptid" type="xs:string" />
+          <xs:element name="paiddate" type="xs:anyType" />
+          <xs:element name="addunpaid" type="xs:double" />
+          <xs:element name="remainunpaid" type="xs:double" />
+          <xs:element name="usercreatedby" type="xs:long" />
+          <xs:element name="paymentrecords" type="customerpaymentrecord" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="comment" type="xs:string" />
+          <xs:element name="" type="customer" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customerlevel" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="enabled" type="xs:anyType" />
+          <xs:element name="order" type="xs:long" />
+          <xs:element name="/***等级条件一：销售额*/salemoney" type="xs:double" />
+          <xs:element name="/***等级条件二：利润额*/profitmoney" type="xs:double" />
+          <xs:element name="/***优惠一：账期天数*/paymentdays" type="xs:long" />
+          <xs:element name="/***优惠二：最多允许欠账*/maxdebt" type="xs:double" />
+          <xs:element name="/***优惠三：价格折扣率*/pricerate" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customercontact" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="mobilephone" type="xs:string" />
+          <xs:element name="fixedphone" type="xs:string" />
+          <xs:element name="netcommunityid" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="address" type="xs:string" />
+          <xs:element name="isprefered" type="xs:anyType" />
+          <xs:element name="" type="customer" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customer" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="shortname" type="xs:string" />
+          <xs:element name="shortcode" type="xs:string" />
+          <xs:element name="unpaymoney" type="xs:double" />
+          <xs:element name="sharable" type="xs:anyType" />
+          <xs:element name="deleted" type="xs:anyType" />
+          <xs:element name="usersigned" type="xs:long" />
+          <xs:element name="comment" type="xs:string" />
+          <xs:element name="contacts" type="customercontact" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="payments" type="customerpayment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="customertype" nillable="true" minOccurs="0" />
+          <xs:element name="" type="customerlevel" nillable="true" minOccurs="0" />
+          <xs:element name="orders" type="orderout" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="paymenttransfer" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="targetaccount" type="paymentaccount" nillable="true" minOccurs="0" />
+          <xs:element name="transfertypecode" type="paymenttransfertypecode" nillable="true" minOccurs="0" />
+          <xs:element name="source" type="xs:string" />
+          <xs:element name="inmoney" type="xs:double" />
+          <xs:element name="outmoney" type="xs:double" />
+          <xs:element name="remainmoney" type="xs:double" />
+          <xs:element name="datecreated" type="xs:anyType" />
+          <xs:element name="usercreatedby" type="xs:long" />
+          <xs:element name="comment" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

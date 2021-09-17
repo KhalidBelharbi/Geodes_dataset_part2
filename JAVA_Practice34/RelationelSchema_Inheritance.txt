@@ -1,0 +1,17 @@
+
+department(departmentid:long [PK], name:String, description:String);
+
+privilege(privilegeid:Long [PK], name:String, pid:Long, icon:String, isparent:Boolean, url:String, target:String, type:int);
+
+duty(//主键dutyid:long, //父节点idpid:long, name:String, isparent:boolean, description:String);
+
+duty_set<privilege>(dutyID:duty [PK] #FK to duty,set<privilege>ID:set<privilege> [PK] #FK to set<privilege>);
+
+person(id:long [PK], name:String, time:Date);
+
+user(userid:long [PK], username:String, password:String, phone:String, email:String, sex:String, GeneratedName:Department);
+
+user_set<duty>(userID:user [PK] #FK to user,set<duty>ID:set<duty> [PK] #FK to set<duty>);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

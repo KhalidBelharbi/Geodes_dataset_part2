@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="modelmapperdemoapplicationtests" >
+      <xs:sequence>
+        <xs:element name="cupcakes" type="cupcake" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="droids" type="droid" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="unicorn" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="unicornmapper" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="unicornrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="droidrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="cupcakerepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="swaggerconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filling" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="type" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="color" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="created" type="xs:anyType" />
+        <xs:element name="updated" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="unicorndto" >
+      <xs:complexContent>
+       <xs:extension base="abstractdto">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="droids" type="droiddto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="color" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="droiddto" >
+      <xs:complexContent>
+       <xs:extension base="abstractdto">
+         <xs:sequence>
+          <xs:element name="unicornid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="cupcakes" type="cupcakedto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="alive" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cupcakedto" >
+      <xs:complexContent>
+       <xs:extension base="abstractdto">
+         <xs:sequence>
+          <xs:element name="filling" type="xs:string" />
+          <xs:element name="droidid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="unicorncontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="unicornservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="unicornservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="unicornserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repository" type="unicornrepository" nillable="true" minOccurs="0" />
+        <xs:element name="mapper" type="unicornmapper" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="created" type="xs:anyType" />
+        <xs:element name="updated" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cupcake" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="" type="filling" nillable="true" minOccurs="0" />
+          <xs:element name="" type="droid" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="droid" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="" type="unicorn" nillable="true" minOccurs="0" />
+          <xs:element name="cupcakes" type="cupcake" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="alive" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="unicorn" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="droids" type="droid" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="color" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mapper" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cupcakemapper" >
+      <xs:complexContent>
+       <xs:extension base="abstractmapper<cupcake,">
+         <xs:sequence>
+          <xs:element name="mapper" type="xs:anyType" />
+          <xs:element name="" type="droidrepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="droidmapper" >
+      <xs:complexContent>
+       <xs:extension base="abstractmapper<droid,">
+         <xs:sequence>
+          <xs:element name="mapper" type="xs:anyType" />
+          <xs:element name="" type="unicornrepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="unicornmapper" >
+      <xs:complexContent>
+       <xs:extension base="abstractmapper<unicorn,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractmapper" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity,">
+         <xs:sequence>
+          <xs:element name="mapper" type="xs:anyType" />
+          <xs:element name="entityclass" type="xs:anyType" />
+          <xs:element name="dtoclass" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="demomodelmapperapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="unicornrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<unicorn,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="droidrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<droid,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cupcakerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<cupcake,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

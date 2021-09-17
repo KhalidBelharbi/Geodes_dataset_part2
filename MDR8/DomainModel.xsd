@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="dataelement" >
+      <xs:complexContent>
+       <xs:extension base="item">
+         <xs:sequence>
+          <xs:element name="domain" type="valuedomain" nillable="true" minOccurs="0" />
+          <xs:element name="meaning" type="dataelementconcept" nillable="true" minOccurs="0" />
+          <xs:element name="precision" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="assertion" >
+      <xs:complexContent>
+       <xs:extension base="item">
+         <xs:sequence>
+          <xs:element name="assertor" type="conceptsystem" nillable="true" minOccurs="0" />
+          <xs:element name="terms" type="assertionend" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="formula" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="languageidentification" >
+      <xs:complexContent>
+       <xs:extension base="item">
+         <xs:sequence>
+          <xs:element name="en_us" type="xs:string" />
+          <xs:element name="languageidentifier" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="definitioncontext" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="definition" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="context" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="conceptsystem" >
+      <xs:complexContent>
+       <xs:extension base="item">
+         <xs:sequence>
+          <xs:element name="includedassertions" type="assertion" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="members" type="concept" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="itemlink" >
+      <xs:sequence>
+        <xs:element name="tag_history" type="xs:string" />
+        <xs:element name="tag_favourites" type="xs:string" />
+        <xs:element name="tag_update" type="xs:string" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="target" type="xs:string" />
+        <xs:element name="created" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="tag" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="session" >
+      <xs:sequence>
+        <xs:element name="prime" type="xs:anyType" />
+        <xs:element name="max" type="xs:anyType" />
+        <xs:element name="current_session" type="session" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="publicid" type="xs:string" />
+        <xs:element name="subject" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vote" >
+      <xs:sequence>
+        <xs:element name="rater" type="xs:string" />
+        <xs:element name="target" type="xs:string" />
+        <xs:element name="value" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="indexelement" >
+      <xs:sequence>
+        <xs:element name="remove_all" type="xs:string" />
+        <xs:element name="remove_by_element" type="xs:string" />
+        <xs:element name="token" type="xs:string" />
+        <xs:element name="element" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="target" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usergroup" >
+      <xs:complexContent>
+       <xs:extension base="item">
+         <xs:sequence>
+          <xs:element name="subjects" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="document" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="content" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="item">
+         <xs:sequence>
+          <xs:element name="identifier" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="fullname" type="xs:string" />
+          <xs:element name="passwordhash" type="xs:string" />
+          <xs:element name="links" type="itemlink" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="designationcontext" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="designation" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="context" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="linkend" >
+      <xs:complexContent>
+       <xs:extension base="assertionend">
+         <xs:sequence>
+          <xs:element name="endroles" type="relationrole" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="characteristic" >
+      <xs:complexContent>
+       <xs:extension base="concept">
+         <xs:sequence>
+          <xs:element name="concepts" type="dataelementconcept" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="valuedomain" >
+      <xs:complexContent>
+       <xs:extension base="item">
+         <xs:sequence>
+          <xs:element name="maximumcharacterquantity" type="xs:anyType" />
+          <xs:element name="" type="datatype" nillable="true" minOccurs="0" />
+          <xs:element name="format" type="xs:string" />
+          <xs:element name="meaning" type="conceptualdomain" nillable="true" minOccurs="0" />
+          <xs:element name="usages" type="dataelement" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="unitofmeasure" nillable="true" minOccurs="0" />
+          <xs:element name="subdomains" type="valuedomain" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="members" type="permissiblevalue" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="link" >
+      <xs:complexContent>
+       <xs:extension base="assertion">
+         <xs:sequence>
+          <xs:element name="" type="relation" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dimensionality" >
+      <xs:complexContent>
+       <xs:extension base="concept">
+         <xs:sequence>
+          <xs:element name="coordinateindicator" type="xs:anyType" />
+          <xs:element name="applicableunits" type="unitofmeasure" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="valuemeaning" >
+      <xs:complexContent>
+       <xs:extension base="concept">
+         <xs:sequence>
+          <xs:element name="representations" type="permissiblevalue" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="containingdomain" type="conceptualdomain" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="begin" type="xs:dateTime" />
+          <xs:element name="end" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="namespace" >
+      <xs:complexContent>
+       <xs:extension base="item">
+         <xs:sequence>
+          <xs:element name="data" type="xs:string" />
+          <xs:element name="//naming_authorityonenameperitem" type="xs:anyType" />
+          <xs:element name="oneitempername" type="xs:anyType" />
+          <xs:element name="mandatorynamingconvention" type="xs:anyType" />
+          <xs:element name="shorthandprefix" type="xs:string" />
+          <xs:element name="namespaceschemereference" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="conceptualdomain" >
+      <xs:complexContent>
+       <xs:extension base="concept">
+         <xs:sequence>
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="representations" type="valuedomain" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="usages" type="dataelementconcept" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="members" type="valuemeaning" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="permissiblevalue" >
+      <xs:complexContent>
+       <xs:extension base="item">
+         <xs:sequence>
+          <xs:element name="meaning" type="valuemeaning" nillable="true" minOccurs="0" />
+          <xs:element name="containingdomains" type="valuedomain" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="permittedvalue" type="xs:string" />
+          <xs:element name="begin" type="xs:dateTime" />
+          <xs:element name="end" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="context" >
+      <xs:complexContent>
+       <xs:extension base="item">
+         <xs:sequence>
+          <xs:element name="log" type="logger" nillable="true" minOccurs="0" />
+          <xs:element name="mdr" type="xs:string" />
+          <xs:element name="relevantdesignations" type="designationcontext" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="relevantdefinitions" type="definitioncontext" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="objectclass" >
+      <xs:complexContent>
+       <xs:extension base="concept">
+         <xs:sequence>
+          <xs:element name="concepts" type="dataelementconcept" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="item" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="log" type="logger" nillable="true" minOccurs="0" />
+          <xs:element name="designations" type="designation" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="definitions" type="definition" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="identifiers" type="scopedidentifier" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="classifications" type="classification" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="unitofmeasure" >
+      <xs:complexContent>
+       <xs:extension base="concept">
+         <xs:sequence>
+          <xs:element name="coordinate" type="dimensionality" nillable="true" minOccurs="0" />
+          <xs:element name="noncoordinate" type="dimensionality" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="designation" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="sign" type="xs:string" />
+        <xs:element name="language" type="languageidentification" nillable="true" minOccurs="0" />
+        <xs:element name="scopes" type="designationcontext" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="item" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="classification" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="classified" type="item" nillable="true" minOccurs="0" />
+        <xs:element name="classifier" type="concept" nillable="true" minOccurs="0" />
+        <xs:element name="schemes" type="conceptsystem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="scopedidentifier" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="identifier" type="xs:string" />
+        <xs:element name="fullexpansion" type="xs:string" />
+        <xs:element name="shorthandexpansion" type="xs:string" />
+        <xs:element name="scope" type="namespace" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="item" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="definition" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="text" type="xs:string" />
+        <xs:element name="language" type="languageidentification" nillable="true" minOccurs="0" />
+        <xs:element name="scopes" type="definitioncontext" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="item" nillable="true" minOccurs="0" />
+        <xs:element name="sourcereference" type="referencedocument" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="concept" >
+      <xs:complexContent>
+       <xs:extension base="item">
+         <xs:sequence>
+          <xs:element name="including" type="conceptsystem" nillable="true" minOccurs="0" />
+          <xs:element name="assertions" type="assertionend" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="slot" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="relation" >
+      <xs:complexContent>
+       <xs:extension base="concept">
+         <xs:sequence>
+          <xs:element name="roles" type="relationrole" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="links" type="link" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="relationrole" >
+      <xs:complexContent>
+       <xs:extension base="concept">
+         <xs:sequence>
+          <xs:element name="source" type="relation" nillable="true" minOccurs="0" />
+          <xs:element name="linkends" type="linkend" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="assertionend" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="end" type="concept" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="assertion" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dataelementconcept" >
+      <xs:complexContent>
+       <xs:extension base="concept">
+         <xs:sequence>
+          <xs:element name="" type="objectclass" nillable="true" minOccurs="0" />
+          <xs:element name="" type="characteristic" nillable="true" minOccurs="0" />
+          <xs:element name="domains" type="conceptualdomain" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="representations" type="dataelement" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="datatype" >
+      <xs:complexContent>
+       <xs:extension base="item">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="schemereference" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="referencedocument" >
+      <xs:complexContent>
+       <xs:extension base="item">
+         <xs:sequence>
+          <xs:element name="identifier" type="xs:string" />
+          <xs:element name="typedescription" type="xs:string" />
+          <xs:element name="language" type="languageidentification" nillable="true" minOccurs="0" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="uri" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,25 @@
+
+team(id:Long [PK], name:String, foundationyear:int, nickname:String, headcoach:String, fifarating:int, capitan:String, GeneratedName:FileStorage #FK to(filestorage));
+
+team_tourmanentgroup(team_id:Team [PK] #FK to Team,tourmanentgroup_id:set<tourmanentgroup> [PK] #FK to set<tourmanentgroup>);
+
+matchitem(id:Long [PK], match:Date, country:String, host:Team #FK to(team), guest:Team #FK to(team), GeneratedName:Stadium #FK to(stadium));
+
+tournament(id:Long [PK], tournamentname:String, start:Date, end:Date, GeneratedName:TournamentType);
+
+playeramplua(id:Long [PK], //@column(unique:String);
+
+player(id:Long [PK], fname:String, lname:String, mname:String, birth:Date, GeneratedName:PlayerAmplua #FK to(playeramplua), GeneratedName:FileStorage #FK to(filestorage));
+
+score(id:Long [PK], gooaltime:Long, GeneratedName:Player #FK to(player), GeneratedName:MatchItem #FK to(matchitem), GeneratedName:GoalType);
+
+stadium(id:Long [PK], city:String, name:String, GeneratedName:FileStorage #FK to(filestorage));
+
+tourmanentgroup(id:Long [PK], name:String, GeneratedName:Tournament #FK to(tournament));
+
+filestorage(id:String [PK], filepath:String, filename:String);
+
+playerteams(id:Long [PK], GeneratedName:Player #FK to(player), GeneratedName:Team #FK to(team), number:int, startwork:LocalDateTime, endwork:LocalDateTime);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

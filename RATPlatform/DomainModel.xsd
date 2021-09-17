@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="userdomains" >
+      <xs:sequence>
+        <xs:element name="_userdomainid" type="xs:long" />
+        <xs:element name="_useruuid" type="xs:string" />
+        <xs:element name="_domainname" type="xs:string" />
+        <xs:element name="_domainuuid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdomains" >
+      <xs:sequence>
+        <xs:element name="_userid" type="xs:long" />
+        <xs:element name="_domainid" type="xs:long" />
+        <xs:element name="_" type="domain" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="domain" >
+      <xs:sequence>
+        <xs:element name="_domainid" type="xs:long" />
+        <xs:element name="_name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="domainrole" >
+      <xs:sequence>
+        <xs:element name="_domainid" type="xs:long" />
+        <xs:element name="_roleid" type="xs:long" />
+        <xs:element name="_userid" type="xs:long" />
+        <xs:element name="_" type="role" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="_userid" type="xs:long" />
+        <xs:element name="_username" type="xs:string" />
+        <xs:element name="_email" type="xs:string" />
+        <xs:element name="_password" type="xs:string" />
+        <xs:element name="_userroles" type="userrole" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="_userdomains" type="userdomains" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrole" >
+      <xs:sequence>
+        <xs:element name="_userid" type="xs:long" />
+        <xs:element name="_roleid" type="xs:long" />
+        <xs:element name="//@onetoone(fetch" type="role" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="_roleid" type="xs:long" />
+        <xs:element name="_name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="domainrole" >
+      <xs:sequence>
+        <xs:element name="_domainroleid" type="xs:long" />
+        <xs:element name="_domainname" type="xs:string" />
+        <xs:element name="_username" type="xs:string" />
+        <xs:element name="_rolename" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="_userid" type="xs:long" />
+        <xs:element name="_username" type="xs:string" />
+        <xs:element name="_email" type="xs:string" />
+        <xs:element name="_password" type="xs:string" />
+        <xs:element name="_useruuid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

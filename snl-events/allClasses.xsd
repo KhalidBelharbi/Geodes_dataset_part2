@@ -1,0 +1,2974 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="config.saat" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="config.aat" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="healthchecktest" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="smoketest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baseintegrationtest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="sessionbuilder" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="upsertsessionbuilder" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingpartbuilder" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sessionsearchutilisationtests" >
+      <xs:complexContent>
+       <xs:extension base="basesessionsearchtest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basesessionsearchtest" >
+      <xs:complexContent>
+       <xs:extension base="baseintegrationtest">
+         <xs:sequence>
+          <xs:element name="session_type_code" type="xs:string" />
+          <xs:element name="smalltrial" type="sessiontype" nillable="true" minOccurs="0" />
+          <xs:element name="" type="casetype" nillable="true" minOccurs="0" />
+          <xs:element name="" type="hearingtype" nillable="true" minOccurs="0" />
+          <xs:element name="zero_minutes" type="xs:anyType" />
+          <xs:element name="half_hour" type="xs:anyType" />
+          <xs:element name="one_hour" type="xs:anyType" />
+          <xs:element name="one_and_half_hour" type="xs:anyType" />
+          <xs:element name="two_hours" type="xs:anyType" />
+          <xs:element name="first_page" type="xs:anyType" />
+          <xs:element name="listedstatus" type="statusconfig" nillable="true" minOccurs="0" />
+          <xs:element name="" type="hearingrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="sessionrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="hearingpartrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="statusconfigrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="sessionservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="servicesearchservicetests" >
+      <xs:complexContent>
+       <xs:extension base="basesessionsearchtest">
+         <xs:sequence>
+          <xs:element name="judge_kamil_id" type="xs:anyType" />
+          <xs:element name="judge_kamil_name" type="xs:string" />
+          <xs:element name="judge_kamil" type="person" nillable="true" minOccurs="0" />
+          <xs:element name="room_tryton_id" type="xs:string" />
+          <xs:element name="room_name" type="xs:string" />
+          <xs:element name="_tryton" type="room" nillable="true" minOccurs="0" />
+          <xs:element name="room_type_code" type="xs:string" />
+          <xs:element name="room_type_desc" type="xs:string" />
+          <xs:element name="room_type" type="roomtype" nillable="true" minOccurs="0" />
+          <xs:element name="yesterday_date" type="xs:string" />
+          <xs:element name="now_date" type="xs:string" />
+          <xs:element name="tomorrow_date" type="xs:string" />
+          <xs:element name="yesterday_datetime" type="xs:anyType" />
+          <xs:element name="now_datetime" type="xs:anyType" />
+          <xs:element name="tomorrow_datetime" type="xs:anyType" />
+          <xs:element name="second_page" type="xs:anyType" />
+          <xs:element name="" type="personrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="roomtyperepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="roomrepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usertransactionstests" >
+      <xs:complexContent>
+       <xs:extension base="baseintegrationtest">
+         <xs:sequence>
+          <xs:element name="utrepository" type="usertransactionrepository" nillable="true" minOccurs="0" />
+          <xs:element name="utservice" type="usertransactionservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="rollbackconfig" type="scheduledrollbackconfiguration" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hearingservicetests" >
+      <xs:complexContent>
+       <xs:extension base="baseintegrationtest">
+         <xs:sequence>
+          <xs:element name="case_number_123" type="xs:string" />
+          <xs:element name="small_claims" type="xs:string" />
+          <xs:element name="fast_track" type="xs:string" />
+          <xs:element name="case_type_field" type="xs:string" />
+          <xs:element name="case_title_field" type="xs:string" />
+          <xs:element name="case_number_field" type="xs:string" />
+          <xs:element name="case_number_222" type="xs:string" />
+          <xs:element name="judge_id" type="xs:string" />
+          <xs:element name="hearing_id" type="xs:anyType" />
+          <xs:element name="smallclaims" type="casetype" nillable="true" minOccurs="0" />
+          <xs:element name="fasttrack" type="casetype" nillable="true" minOccurs="0" />
+          <xs:element name="trial" type="hearingtype" nillable="true" minOccurs="0" />
+          <xs:element name="firstpage" type="xs:anyType" />
+          <xs:element name="listed" type="hearing" nillable="true" minOccurs="0" />
+          <xs:element name="unlisted" type="hearing" nillable="true" minOccurs="0" />
+          <xs:element name="" type="hearingpart" nillable="true" minOccurs="0" />
+          <xs:element name="" type="hearingrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="sessionrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="personrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="hearingpartrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="casetyperepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="hearingtyperepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="hearingservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hearingpartservicetest" >
+      <xs:complexContent>
+       <xs:extension base="baseintegrationtestwithfakerules">
+         <xs:sequence>
+          <xs:element name="" type="hearingpartservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="hearingrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="sessionrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="hearingpartrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="usertransactionservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="hearingtyperepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="casetyperepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="sessiontyperepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sessionservicetest" >
+      <xs:complexContent>
+       <xs:extension base="baseintegrationtestwithfakerules">
+         <xs:sequence>
+          <xs:element name="" type="rulesservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="factmessageservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="sessionservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="sessionrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="usertransactionservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="s2sjwtauthenticationfilterintegrationtest" >
+      <xs:complexContent>
+       <xs:extension base="baseintegrationtestwithfakerules">
+         <xs:sequence>
+          <xs:element name="port" type="xs:long" />
+          <xs:element name="s2sauthservice" type="s2srulesauthenticationclient" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseintegrationtestwithfakerules" >
+      <xs:complexContent>
+       <xs:extension base="baseintegrationtest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sessionrepositorytest" >
+      <xs:complexContent>
+       <xs:extension base="baseintegrationtestwithfakerules">
+         <xs:sequence>
+          <xs:element name="judge_user_name" type="xs:string" />
+          <xs:element name="" type="factmessageservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="rulesservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="sessionrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="personrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="sessiontyperepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="integrationtestwithfakerules" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="integrationtest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="problemrepositorytests" >
+      <xs:complexContent>
+       <xs:extension base="baseintegrationmodeltest">
+         <xs:sequence>
+          <xs:element name="warning" type="xs:string" />
+          <xs:element name="urgent" type="xs:string" />
+          <xs:element name="critical" type="xs:string" />
+          <xs:element name="" type="problemrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="usertransactionrepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testconfiguration" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="roomtests" >
+      <xs:complexContent>
+       <xs:extension base="baseintegrationmodeltest">
+         <xs:sequence>
+          <xs:element name="" type="roomrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="roomtyperepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sessiontypetests" >
+      <xs:complexContent>
+       <xs:extension base="baseintegrationmodeltest">
+         <xs:sequence>
+          <xs:element name="" type="sessiontyperepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="sessionrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="casetyperepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="hearingtyperepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="sessiontype" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseintegrationmodeltest" >
+      <xs:complexContent>
+       <xs:extension base="baseintegrationtestwithfakerules">
+         <xs:sequence>
+          <xs:element name="main_type_code" type="xs:string" />
+          <xs:element name="main_type_description" type="xs:string" />
+          <xs:element name="ref_type_code" type="xs:string" />
+          <xs:element name="ref_type_description" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hearingtypetests" >
+      <xs:complexContent>
+       <xs:extension base="baseintegrationmodeltest">
+         <xs:sequence>
+          <xs:element name="" type="sessiontyperepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="casetyperepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="hearingtyperepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="hearingtype" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="casetypetests" >
+      <xs:complexContent>
+       <xs:extension base="baseintegrationmodeltest">
+         <xs:sequence>
+          <xs:element name="" type="sessiontyperepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="casetyperepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="hearingtyperepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="casetype" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sessiontests" >
+      <xs:complexContent>
+       <xs:extension base="baseintegrationmodeltest">
+         <xs:sequence>
+          <xs:element name="" type="sessiontyperepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="sessionrepository" nillable="true" minOccurs="0" />
+          <xs:element name="sessionid" type="xs:anyType" />
+          <xs:element name="" type="session" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="offsetdatetimehelper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="upsertsessionbuilder" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="transactionid" type="xs:anyType" />
+        <xs:element name="start" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="sessiontype" type="xs:string" />
+        <xs:element name="personid" type="xs:string" />
+        <xs:element name="roomid" type="xs:string" />
+        <xs:element name="version" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sessionbuilder" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="start" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="sessiontype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hearingpartbuilder" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="start" type="xs:anyType" />
+        <xs:element name="createdat" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="casetypecode" type="xs:string" />
+        <xs:element name="casetypedesc" type="xs:string" />
+        <xs:element name="casenumber" type="xs:string" />
+        <xs:element name="casetitle" type="xs:string" />
+        <xs:element name="hearingtypecode" type="xs:string" />
+        <xs:element name="hearingtypedesc" type="xs:string" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="hearingid" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="hearingtype" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="casetype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="eventsmockmvc" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="actiontesthelper" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="statusesmock" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="statusesmock" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="statusservicemanager" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="statusconfigservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="statusconfigrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="nullornotblankvalidatortests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="modelsvalidationtest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpatestconfiguration" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="factpropagationconfigurationtest" >
+      <xs:sequence>
+        <xs:element name="good_type" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="restexceptionhandlertest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="restexceptionhandler" nillable="true" minOccurs="0" />
+        <xs:element name="ex" type="xs:anyType" />
+        <xs:element name="headers" type="xs:anyType" />
+        <xs:element name="request" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="statusestestconfiguration" >
+      <xs:sequence>
+        <xs:element name="mockholder" type="statusesmock" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="h2dbextendeddialect" >
+      <xs:complexContent>
+       <xs:extension base="h2dialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testconfiguration" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="s2srulesauthenticationclienttest" >
+      <xs:sequence>
+        <xs:element name="secret_rules" type="xs:string" />
+        <xs:element name="default_expiry" type="xs:long" />
+        <xs:element name="GeneratedName" type="s2sauthenticationconfig" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="s2srulesauthenticationclient" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="s2sjwtauthenticationfiltertest" >
+      <xs:sequence>
+        <xs:element name="secret_events" type="xs:string" />
+        <xs:element name="default_expiry" type="xs:long" />
+        <xs:element name="GeneratedName" type="s2sauthenticationconfig" nillable="true" minOccurs="0" />
+        <xs:element name="filter" type="s2sjwtauthenticationfilter" nillable="true" minOccurs="0" />
+        <xs:element name="request" type="xs:anyType" />
+        <xs:element name="response" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="client" type="tokenservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sessionsearchselectcolumntest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hearingforlistingcolumntest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hearingforlistingqueriestest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="hearingforlistingqueries" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="factsmappertest" >
+      <xs:sequence>
+        <xs:element name="duration" type="xs:long" />
+        <xs:element name="duration_mapped" type="xs:string" />
+        <xs:element name="start" type="xs:anyType" />
+        <xs:element name="start_mapped" type="xs:string" />
+        <xs:element name="end" type="xs:anyType" />
+        <xs:element name="end_mapped" type="xs:string" />
+        <xs:element name="case_type_code" type="xs:string" />
+        <xs:element name="case_type_desc" type="xs:string" />
+        <xs:element name="case_type" type="casetype" nillable="true" minOccurs="0" />
+        <xs:element name="case_type_2" type="xs:string" />
+        <xs:element name="case_type_desc_2" type="xs:string" />
+        <xs:element name="session_type" type="xs:string" />
+        <xs:element name="session_type_desc" type="xs:string" />
+        <xs:element name="hearing_type_desc" type="xs:string" />
+        <xs:element name="hearing_type_code" type="xs:string" />
+        <xs:element name="hearing_type" type="hearingtype" nillable="true" minOccurs="0" />
+        <xs:element name="hearing_type_code_2" type="xs:string" />
+        <xs:element name="hearing_type_desc_2" type="xs:string" />
+        <xs:element name="hearing_type_2" type="hearingtype" nillable="true" minOccurs="0" />
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="session_id" type="xs:string" />
+        <xs:element name="person_id" type="xs:string" />
+        <xs:element name="room_id" type="xs:string" />
+        <xs:element name="hp_id" type="xs:string" />
+        <xs:element name="value" type="xs:long" />
+        <xs:element name="person_name" type="xs:string" />
+        <xs:element name="room_name" type="xs:string" />
+        <xs:element name="GeneratedName" type="factsmapper" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hearingmappertests" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="utils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="offsetdatetimeattributeconvertertest" >
+      <xs:sequence>
+        <xs:element name="time_in_milliseconds" type="xs:long" />
+        <xs:element name="offset_date_time" type="xs:anyType" />
+        <xs:element name="converter" type="offsetdatetimeattributeconverter" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="durationconvertertest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="durationconverter" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reloadrulesservicetest" >
+      <xs:sequence>
+        <xs:element name="body" type="xs:string" />
+        <xs:element name="endpoint" type="xs:string" />
+        <xs:element name="GeneratedName" type="reloadrulesservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="factmessageservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="rulesservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="factpropagationconfiguration" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="s2srulesauthenticationclient" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="sessionrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="personrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="roomrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingpartrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="sessiontyperepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="factsmapper" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="problemservicetest" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="severity" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="entity" type="xs:string" />
+        <xs:element name="entity_id" type="xs:string" />
+        <xs:element name="problem_id" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="created_at" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="problemservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="problemrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="revertchangesmanagertest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="revertchangesmanager" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="sessionrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingpartrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="rulesservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="factsmapper" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="activitylogrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="statusesmock" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="statusservicemanagertest" >
+      <xs:sequence>
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="GeneratedName" type="statusservicemanager" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="roomservicetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="roomservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="roomrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rulesservicetest" >
+      <xs:sequence>
+        <xs:element name="body" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="GeneratedName" type="rulesservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="factmessageservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="factpropagationconfiguration" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="s2srulesauthenticationclient" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="factmessageservicetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="factmessageservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="problemservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usertransactionservicetest" >
+      <xs:sequence>
+        <xs:element name="someid" type="xs:anyType" />
+        <xs:element name="ut" type="usertransaction" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="usertransactionservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="usertransactionrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="usertransactiondatarepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="revertchangesmanager" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="rollbackconfig" type="scheduledrollbackconfiguration" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="statusconfigservicetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="statusconfigservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="statusconfigrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="personservicetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="personservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="personrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="referencedataservicetest" >
+      <xs:complexContent>
+       <xs:extension base="basereferencedata>">
+         <xs:sequence>
+          <xs:element name="default_code" type="xs:string" />
+          <xs:element name="default_description" type="xs:string" />
+          <xs:element name="service" type="referencedataservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="casetyperepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="sessiontyperepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="hearingtyperepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="roomtyperepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hearingpartservicetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="hearingpartservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="hearingpartrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="usertransactionservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="sessionrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="rulesservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="s2srulesauthenticationclient" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="factsmapper" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sessionservicetest" >
+      <xs:sequence>
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="offset_date_time" type="xs:anyType" />
+        <xs:element name="duration" type="xs:long" />
+        <xs:element name="session_type" type="xs:string" />
+        <xs:element name="session_type_desc" type="xs:string" />
+        <xs:element name="uuid_" type="xs:string" />
+        <xs:element name="judge_name" type="xs:string" />
+        <xs:element name="hearing_id" type="xs:string" />
+        <xs:element name="start_date" type="xs:anyType" />
+        <xs:element name="end_date" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="statusesmock" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="sessionservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="sessionrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="roomrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="personrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingpartrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="sessiontyperepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="usertransactionservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="factsmapper" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="rulesservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="actionservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="actionservicetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="actionservice" nillable="true" minOccurs="0" />
+        <xs:element name="mock" type="testaction" nillable="true" minOccurs="0" />
+        <xs:element name="mock" type="rulesprocessabletestaction" nillable="true" minOccurs="0" />
+        <xs:element name="uts" type="usertransactionservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="rulesservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reportservicetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="reportservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingpartrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usertransactionsrollbackscheduledtasktest" >
+      <xs:sequence>
+        <xs:element name="scheduledtasks" type="usertransactionsrollbackscheduledtask" nillable="true" minOccurs="0" />
+        <xs:element name="utservice" type="usertransactionservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rulesscheduledtaskstest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="rulesscheduledtasks" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="reloadrulesservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sessiontests" >
+      <xs:complexContent>
+       <xs:extension base="referencedata">
+         <xs:sequence>
+          <xs:element name="" type="session" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sessiontypetests" >
+      <xs:complexContent>
+       <xs:extension base="referencedata">
+         <xs:sequence>
+          <xs:element name="" type="sessiontype" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hearingtypetests" >
+      <xs:complexContent>
+       <xs:extension base="referencedata">
+         <xs:sequence>
+          <xs:element name="" type="hearingtype" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hearingwithsessionsresponsetests" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="case_number" type="xs:string" />
+        <xs:element name="case_title" type="xs:string" />
+        <xs:element name="hearing_type_description" type="xs:string" />
+        <xs:element name="case_type_description" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="schedule_start" type="xs:anyType" />
+        <xs:element name="schedule_end" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="priority" nillable="true" minOccurs="0" />
+        <xs:element name="communication_facilitator" type="xs:string" />
+        <xs:element name="judge_name" type="xs:string" />
+        <xs:element name="version" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="casetypetests" >
+      <xs:complexContent>
+       <xs:extension base="referencedata">
+         <xs:sequence>
+          <xs:element name="" type="casetype" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="roomtests" >
+      <xs:complexContent>
+       <xs:extension base="referencedata">
+         <xs:sequence>
+          <xs:element name="" type="room" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="activitylogcontrollertest" >
+      <xs:sequence>
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="mvc" type="eventsmockmvc" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="activitylogrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="s2srulesauthenticationclient" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reportcontrollertest" >
+      <xs:sequence>
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="GeneratedName" type="reportservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="s2srulesauthenticationclient" nillable="true" minOccurs="0" />
+        <xs:element name="mvc" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getwelcometest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sessioncontrollertest" >
+      <xs:sequence>
+        <xs:element name="session_url" type="xs:string" />
+        <xs:element name="GeneratedName" type="sessionservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="s2srulesauthenticationclient" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="rulesservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="usertransactionservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="factsmapper" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="sessionrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="actionservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="mvc" type="eventsmockmvc" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hearingpartcontrollertest" >
+      <xs:sequence>
+        <xs:element name="case_type_code" type="xs:string" />
+        <xs:element name="case_number" type="xs:string" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="hearing_type_code" type="xs:string" />
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="url_is_listed_false" type="xs:string" />
+        <xs:element name="communication_facilitator" type="xs:string" />
+        <xs:element name="reserved_judge_id" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="statusesmock" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingpartrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="actionservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="hearingpartservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="rulesservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="s2srulesauthenticationclient" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="factsmapper" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingtyperepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="sessionrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="casetyperepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingmapper" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="mvc" type="eventsmockmvc" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="roomcontrollertest" >
+      <xs:sequence>
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="mvc" type="eventsmockmvc" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="roomservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="s2srulesauthenticationclient" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="problemcontrollertest" >
+      <xs:sequence>
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="GeneratedName" type="problemservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="s2srulesauthenticationclient" nillable="true" minOccurs="0" />
+        <xs:element name="mvc" type="eventsmockmvc" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hearingcontrollertest" >
+      <xs:sequence>
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="mvc" type="eventsmockmvc" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingpartservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingpartrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="sessionrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="actionservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="s2srulesauthenticationclient" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="referencedatacontrollertest" >
+      <xs:complexContent>
+       <xs:extension base="basereferencedata>">
+         <xs:sequence>
+          <xs:element name="url_room_types" type="xs:string" />
+          <xs:element name="url_session_types" type="xs:string" />
+          <xs:element name="url_hearing_types" type="xs:string" />
+          <xs:element name="url_case_types" type="xs:string" />
+          <xs:element name="default_code" type="xs:string" />
+          <xs:element name="default_description" type="xs:string" />
+          <xs:element name="testservice" type="referencedataservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="s2srulesauthenticationclient" nillable="true" minOccurs="0" />
+          <xs:element name="mvc" type="eventsmockmvc" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="personcontrollertest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="personservice" nillable="true" minOccurs="0" />
+        <xs:element name="mvc" type="eventsmockmvc" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="s2srulesauthenticationclient" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="statusconfigcontrollertest" >
+      <xs:sequence>
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="mvc" type="eventsmockmvc" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="statusconfigservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="s2srulesauthenticationclient" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="applicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="unlisthearingactiontest" >
+      <xs:sequence>
+        <xs:element name="transaction_id" type="xs:anyType" />
+        <xs:element name="hearing_id_to_be_unlisted" type="xs:anyType" />
+        <xs:element name="hearing_part_id_a" type="xs:anyType" />
+        <xs:element name="hearing_version_id_a" type="xs:long" />
+        <xs:element name="hearing_part_id_b" type="xs:anyType" />
+        <xs:element name="hearing_version_id_b" type="xs:long" />
+        <xs:element name="session_id_a" type="xs:anyType" />
+        <xs:element name="session_id_b" type="xs:anyType" />
+        <xs:element name="hearingversions" type="versioninfo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="statusesmock" nillable="true" minOccurs="0" />
+        <xs:element name="action" type="unlisthearingaction" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingpartrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vacatehearingactiontest" >
+      <xs:sequence>
+        <xs:element name="hearing_id_to_be_vacated" type="xs:anyType" />
+        <xs:element name="hearing_version_to_be_vacated" type="xs:long" />
+        <xs:element name="hearing_part_id_a" type="xs:anyType" />
+        <xs:element name="hearing_version_id_a" type="xs:long" />
+        <xs:element name="hearing_part_id_b" type="xs:anyType" />
+        <xs:element name="hearing_version_id_b" type="xs:long" />
+        <xs:element name="hearing_part_id_c" type="xs:anyType" />
+        <xs:element name="hearing_version_id_c" type="xs:long" />
+        <xs:element name="hearing_part_id_d" type="xs:anyType" />
+        <xs:element name="hearing_version_id_d" type="xs:long" />
+        <xs:element name="session_id_a" type="xs:anyType" />
+        <xs:element name="session_id_b" type="xs:anyType" />
+        <xs:element name="session_id_c" type="xs:anyType" />
+        <xs:element name="session_id_d" type="xs:anyType" />
+        <xs:element name="user_transaction_id" type="xs:anyType" />
+        <xs:element name="hearing" type="statusconfig" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="statusesmock" nillable="true" minOccurs="0" />
+        <xs:element name="action" type="vacatehearingaction" nillable="true" minOccurs="0" />
+        <xs:element name="ath" type="actiontesthelper" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingpartrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="withdrawhearingactiontest" >
+      <xs:sequence>
+        <xs:element name="transaction_id" type="xs:anyType" />
+        <xs:element name="hearing_id_to_be_withdrawn" type="xs:anyType" />
+        <xs:element name="hearing_version_to_be_withdrawn" type="xs:long" />
+        <xs:element name="hearing_part_id_a" type="xs:anyType" />
+        <xs:element name="hearing_version_id_a" type="xs:long" />
+        <xs:element name="hearing_part_id_b" type="xs:anyType" />
+        <xs:element name="hearing_version_id_b" type="xs:long" />
+        <xs:element name="session_id_a" type="xs:anyType" />
+        <xs:element name="session_id_b" type="xs:anyType" />
+        <xs:element name="ath" type="actiontesthelper" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="statusesmock" nillable="true" minOccurs="0" />
+        <xs:element name="action" type="withdrawhearingaction" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingpartrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adjournhearingactiontest" >
+      <xs:sequence>
+        <xs:element name="hearing_id_to_be_adjourned" type="xs:anyType" />
+        <xs:element name="hearing_version_to_be_adjourned" type="xs:long" />
+        <xs:element name="hearing_part_id_a" type="xs:anyType" />
+        <xs:element name="hearing_version_id_a" type="xs:long" />
+        <xs:element name="hearing_part_id_b" type="xs:anyType" />
+        <xs:element name="hearing_version_id_b" type="xs:long" />
+        <xs:element name="session_id_a" type="xs:anyType" />
+        <xs:element name="session_id_b" type="xs:anyType" />
+        <xs:element name="transaction_id" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="statusesmock" nillable="true" minOccurs="0" />
+        <xs:element name="action" type="adjournhearingaction" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingpartrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="assignsessionstohearingactiontest" >
+      <xs:sequence>
+        <xs:element name="datetime" type="xs:anyType" />
+        <xs:element name="start_time" type="xs:anyType" />
+        <xs:element name="transaction_id" type="xs:anyType" />
+        <xs:element name="hearing_part_id" type="xs:anyType" />
+        <xs:element name="hearing_part_id_2" type="xs:anyType" />
+        <xs:element name="session_id" type="xs:anyType" />
+        <xs:element name="session_id_2" type="xs:anyType" />
+        <xs:element name="hearing_id" type="xs:anyType" />
+        <xs:element name="update_action_text" type="xs:string" />
+        <xs:element name="action" type="assignsessionstohearingaction" nillable="true" minOccurs="0" />
+        <xs:element name="request" type="hearingsessionrelationship" nillable="true" minOccurs="0" />
+        <xs:element name="mocked" type="hearingpart" nillable="true" minOccurs="0" />
+        <xs:element name="mocked2" type="hearingpart" nillable="true" minOccurs="0" />
+        <xs:element name="mocked" type="session" nillable="true" minOccurs="0" />
+        <xs:element name="mocked2" type="session" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="statusesmock" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="sessionrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingpartrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="amendsessionactiontest" >
+      <xs:sequence>
+        <xs:element name="session_type_code" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="datetime" type="xs:anyType" />
+        <xs:element name="session_type" type="sessiontype" nillable="true" minOccurs="0" />
+        <xs:element name="action" type="amendsessionaction" nillable="true" minOccurs="0" />
+        <xs:element name="request" type="amendsessionrequest" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="sessionrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="failingrunnable" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="amendsessionvalidatorstest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="sessionstarttime" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="draganddropsessionactiontest" >
+      <xs:sequence>
+        <xs:element name="session_id" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="sessionstarttime" type="xs:anyType" />
+        <xs:element name="action" type="draganddropsessionaction" nillable="true" minOccurs="0" />
+        <xs:element name="request" type="draganddropsessionrequest" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingpart" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="sessionrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="roomrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="personrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="createlistingrequestactiontest" >
+      <xs:sequence>
+        <xs:element name="hearing_part_id" type="xs:string" />
+        <xs:element name="hearing_part_id2" type="xs:string" />
+        <xs:element name="hearing_id" type="xs:string" />
+        <xs:element name="transaction_id" type="xs:string" />
+        <xs:element name="GeneratedName" type="statusesmock" nillable="true" minOccurs="0" />
+        <xs:element name="action" type="createlistingrequestaction" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="createhearingrequest" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingpartrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingtyperepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="casetyperepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="hearingmapper" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="amendscheduledlistingactiontest" >
+      <xs:sequence>
+        <xs:element name="datetime" type="xs:anyType" />
+        <xs:element name="start_time" type="xs:anyType" />
+        <xs:element name="transaction_id" type="xs:anyType" />
+        <xs:element name="hearing_part_id" type="xs:anyType" />
+        <xs:element name="hearing_version" type="xs:long" />
+        <xs:element name="action" type="amendscheduledlistingaction" nillable="true" minOccurs="0" />
+        <xs:element name="request" type="amendscheduledlistingrequest" nillable="true" minOccurs="0" />
+        <xs:element name="unlisted" type="hearingpart" nillable="true" minOccurs="0" />
+        <xs:element name="listed" type="hearingpart" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearing" nillable="true" minOccurs="0" />
+        <xs:element name="starttimehour" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="hearingpartrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="assignhearingparttosessionactiontest" >
+      <xs:sequence>
+        <xs:element name="session_type_code" type="xs:string" />
+        <xs:element name="datetime" type="xs:anyType" />
+        <xs:element name="start_time" type="xs:anyType" />
+        <xs:element name="transaction_id" type="xs:anyType" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="session_id" type="xs:anyType" />
+        <xs:element name="session_id_previous" type="xs:anyType" />
+        <xs:element name="hearing_id" type="xs:anyType" />
+        <xs:element name="session_type" type="sessiontype" nillable="true" minOccurs="0" />
+        <xs:element name="action" type="assignhearingparttosessionaction" nillable="true" minOccurs="0" />
+        <xs:element name="request" type="hearingpartsessionrelationship" nillable="true" minOccurs="0" />
+        <xs:element name="mocked" type="session" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="statusesmock" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="sessionrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingpartrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="mocked" type="hearingpart" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deletelistingrequestactiontest" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="transaction_id" type="xs:string" />
+        <xs:element name="hearing_part_id" type="xs:string" />
+        <xs:element name="action" type="deletelistingrequestaction" nillable="true" minOccurs="0" />
+        <xs:element name="dlr" type="deletelistingrequest" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingpartrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="updatelistingrequestactiontest" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="transaction_id" type="xs:string" />
+        <xs:element name="case_type_code" type="xs:string" />
+        <xs:element name="hearing_type_code" type="xs:string" />
+        <xs:element name="hearing_type" type="hearingtype" nillable="true" minOccurs="0" />
+        <xs:element name="case_type" type="casetype" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="statusesmock" nillable="true" minOccurs="0" />
+        <xs:element name="action" type="updatelistingrequestaction" nillable="true" minOccurs="0" />
+        <xs:element name="ulr" type="updatelistingrequest" nillable="true" minOccurs="0" />
+        <xs:element name="previous" type="hearing" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingpartrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="hearingtyperepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="casetyperepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rulesprocessabletestaction" >
+      <xs:complexContent>
+       <xs:extension base="action">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testaction" >
+      <xs:complexContent>
+       <xs:extension base="action">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="logback" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="referencedata" >
+      <xs:sequence>
+        <xs:element name="main_type_code" type="xs:string" />
+        <xs:element name="main_type_description" type="xs:string" />
+        <xs:element name="ref_type_code" type="xs:string" />
+        <xs:element name="ref_type_description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="db-changelog" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sl-934-additional-rules" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sl-1855-create-activity-log-table" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sl-982-change-availability-table" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sl-1922-remove-availability" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sl-1107-hearing-part-priority" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sl-934-new-rules-db-changes" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sl-1855-add-additional-columns-to-activity-log-table" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sl-830-sessions-from-db" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sl-1900-add-statuses-adjourned-vacated-withdrawn" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sl-1608-remove-casetype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sl-871-add-user-transaction" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sl-1000-add-versioning" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sl-1755-capture-start-time-hearing-part" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sl-957-user-transaction-rollback" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sl-915-availability" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sl-1967-statuses-configuration" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sl-871-change-schema-of-problem-table" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sl-907-add-case-type-column-to-session-table" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sl-1516-add-createdat-to-problem-table" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sl-1108-add-columns-to-hearing-part-table" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sl-975-add-versioning" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sl-892-add-person-room-tables" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sl-1111-add-is-deleted-column-to-hearing-part-table" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sl-2043-add-startedat-to-user_transaction-table" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sl-1968-statuses-configuration-update" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sl-892-problem" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sl-898-add-hearing-part-table" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="truncate-all" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="insert-testdata-postgresql" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sl-1969-migrate-multisession" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sl-1535-migrate-hearing-type-to-hearing-type-code" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sl-1969-migrate-sessions-and-multisessions" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="liquibase" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logback" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="validationmessages" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="swaggerconfiguration" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="websecurityconfig" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+          <xs:element name="unauthorizedhandler" type="serviceauthenticationentrypoint" nillable="true" minOccurs="0" />
+          <xs:element name="" type="s2sauthenticationconfig" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="restexceptionhandler" >
+      <xs:complexContent>
+       <xs:extension base="responseentityexceptionhandler">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="beansconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="extendedpostgresdialect" >
+      <xs:complexContent>
+       <xs:extension base="postgresql95dialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="factpropagationconfiguration" >
+      <xs:sequence>
+        <xs:element name="/***allenginesthatwillbeconnected.*/engines" type="factpropagationengineconfiguration" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="factpropagationengineconfiguration" >
+      <xs:sequence>
+        <xs:element name="/***namedoesn'tmatter,itisherejusttodifferentiatetheengineseasily.*/name" type="xs:string" />
+        <xs:element name="/***endpointusedtofindoutiftherulesengineisloaded.*orisloading.*/reloadstatusurl" type="xs:string" />
+        <xs:element name="/***endpointwhereallmessageswithcommandswillbesent.*/msgurl" type="xs:string" />
+        <xs:element name="/***commandsthatshouldbesendtotheengineviathemsgurl.*/msgtypes" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schedulerconfiguration" >
+      <xs:sequence>
+        <xs:element name="enabled" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="scheduledrollbackconfiguration" >
+      <xs:sequence>
+        <xs:element name="timeoutervalinminutes" type="xs:long" />
+        <xs:element name="enabled" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jacksonconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="auditconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="snleventsexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitynotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="activitybuilderexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="snlruntimeexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="draganddropsessionaction" >
+      <xs:complexContent>
+       <xs:extension base="action">
+         <xs:sequence>
+          <xs:element name="" type="draganddropsessionrequest" nillable="true" minOccurs="0" />
+          <xs:element name="" type="sessionrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="roomrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="personrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="session" nillable="true" minOccurs="0" />
+          <xs:element name="hearingparts" type="hearingpart" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="currentsessionas" type="xs:string" />
+          <xs:element name="usertransactiondataservice" type="usertransactiondatapreparerservice" nillable="true" minOccurs="0" />
+          <xs:element name="validators" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="amendsessionaction" >
+      <xs:complexContent>
+       <xs:extension base="action">
+         <xs:sequence>
+          <xs:element name="" type="amendsessionrequest" nillable="true" minOccurs="0" />
+          <xs:element name="" type="sessionrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="session" nillable="true" minOccurs="0" />
+          <xs:element name="hearingparts" type="hearingpart" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="currentsessionas" type="xs:string" />
+          <xs:element name="userdatprepserv" type="usertransactiondatapreparerservice" nillable="true" minOccurs="0" />
+          <xs:element name="validators" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="amendsessionvalidators" >
+      <xs:sequence>
+        <xs:element name="validateifjudgecanbechanged" type="xs:anyType" />
+        <xs:element name="validatestartandenddatewasshrinked" type="xs:anyType" />
+        <xs:element name="canchangeday" type="xs:anyType" />
+        <xs:element name="validatestartissetearlier" type="xs:anyType" />
+        <xs:element name="validatedurationisgreaterorequal" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vacatehearingaction" >
+      <xs:complexContent>
+       <xs:extension base="action">
+         <xs:sequence>
+          <xs:element name="" type="vacatehearingrequest" nillable="true" minOccurs="0" />
+          <xs:element name="" type="hearing" nillable="true" minOccurs="0" />
+          <xs:element name="hearingparts" type="hearingpart" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="sessions" type="session" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="hearingrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="hearingpartrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="statusconfigservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="statusservicemanager" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="//id&hearingpartstringdatapreparerservice" type="usertransactiondatapreparerservice" nillable="true" minOccurs="0" />
+          <xs:element name="originalhearingparts" type="xs:anyType" />
+          <xs:element name="previoushearing" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="withdrawhearingaction" >
+      <xs:complexContent>
+       <xs:extension base="action">
+         <xs:sequence>
+          <xs:element name="" type="withdrawhearingrequest" nillable="true" minOccurs="0" />
+          <xs:element name="" type="hearing" nillable="true" minOccurs="0" />
+          <xs:element name="hearingparts" type="hearingpart" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="sessions" type="session" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="hearingrepository" nillable="true" minOccurs="0" />
+          <xs:element name="entitymngr" type="xs:anyType" />
+          <xs:element name="" type="statusconfigservice" nillable="true" minOccurs="0" />
+          <xs:element name="hearingpartrepo" type="hearingpartrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="statusservicemanager" nillable="true" minOccurs="0" />
+          <xs:element name="originalhearingparts" type="xs:anyType" />
+          <xs:element name="previoushearing" type="xs:string" />
+          <xs:element name="utdps" type="usertransactiondatapreparerservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="assignsessionstohearingaction" >
+      <xs:complexContent>
+       <xs:extension base="action">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="relationship" type="hearingsessionrelationship" nillable="true" minOccurs="0" />
+          <xs:element name="hearingid" type="xs:anyType" />
+          <xs:element name="" type="hearing" nillable="true" minOccurs="0" />
+          <xs:element name="hearingparts" type="hearingpart" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="targetsessions" type="session" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="targetsessionsids" type="xs:anyType" />
+          <xs:element name="originalhearingparts" type="xs:anyType" />
+          <xs:element name="previoushearing" type="xs:string" />
+          <xs:element name="" type="hearingrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="hearingpartrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="sessionrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="statusconfigservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="statusservicemanager" nillable="true" minOccurs="0" />
+          <xs:element name="saved" type="hearing" nillable="true" minOccurs="0" />
+          <xs:element name="datapreparerservce" type="usertransactiondatapreparerservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="adjournhearingaction" >
+      <xs:complexContent>
+       <xs:extension base="action">
+         <xs:sequence>
+          <xs:element name="" type="adjournhearingrequest" nillable="true" minOccurs="0" />
+          <xs:element name="" type="hearing" nillable="true" minOccurs="0" />
+          <xs:element name="hearingparts" type="hearingpart" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="sessions" type="session" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="hearingrepository" nillable="true" minOccurs="0" />
+          <xs:element name="hprepository" type="hearingpartrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="statusconfigservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="statusservicemanager" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="originalhearingparts" type="xs:anyType" />
+          <xs:element name="previoushearing" type="xs:string" />
+          <xs:element name="datapreparer" type="usertransactiondatapreparerservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="unlisthearingaction" >
+      <xs:complexContent>
+       <xs:extension base="action">
+         <xs:sequence>
+          <xs:element name="" type="unlisthearingrequest" nillable="true" minOccurs="0" />
+          <xs:element name="" type="hearing" nillable="true" minOccurs="0" />
+          <xs:element name="hearingparts" type="hearingpart" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="sessions" type="session" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="hearingrepository" nillable="true" minOccurs="0" />
+          <xs:element name="hprepo" type="hearingpartrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="statusconfigservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="statusservicemanager" nillable="true" minOccurs="0" />
+          <xs:element name="entitymgr" type="xs:anyType" />
+          <xs:element name="originalhearingparts" type="xs:anyType" />
+          <xs:element name="previoushearing" type="xs:string" />
+          <xs:element name="" type="usertransactiondatapreparerservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="activitybuilder" >
+      <xs:sequence>
+        <xs:element name="usertransactionid" type="xs:anyType" />
+        <xs:element name="activitylogs" type="activitylog" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="assignhearingparttosessionaction" >
+      <xs:complexContent>
+       <xs:extension base="action">
+         <xs:sequence>
+          <xs:element name="relationship" type="hearingpartsessionrelationship" nillable="true" minOccurs="0" />
+          <xs:element name="hearingpartid" type="xs:anyType" />
+          <xs:element name="" type="hearingpart" nillable="true" minOccurs="0" />
+          <xs:element name="target" type="session" nillable="true" minOccurs="0" />
+          <xs:element name="previoushearingpart" type="xs:string" />
+          <xs:element name="previous" type="session" nillable="true" minOccurs="0" />
+          <xs:element name="saved" type="hearingpart" nillable="true" minOccurs="0" />
+          <xs:element name="" type="hearingpartrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="sessionrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="statusconfigservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="statusservicemanager" nillable="true" minOccurs="0" />
+          <xs:element name="dataprepservice" type="usertransactiondatapreparerservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="amendscheduledlistingaction" >
+      <xs:complexContent>
+       <xs:extension base="action">
+         <xs:sequence>
+          <xs:element name="" type="amendscheduledlistingrequest" nillable="true" minOccurs="0" />
+          <xs:element name="" type="hearingpart" nillable="true" minOccurs="0" />
+          <xs:element name="" type="hearing" nillable="true" minOccurs="0" />
+          <xs:element name="previoushearingpart" type="xs:string" />
+          <xs:element name="previoushearing" type="xs:string" />
+          <xs:element name="" type="hearingpartrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="hearingrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="action" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="factsmapper" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="updatelistingrequestaction" >
+      <xs:complexContent>
+       <xs:extension base="action">
+         <xs:sequence>
+          <xs:element name="hearingparts" type="hearingpart" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="hearingpartstoadd" type="hearingpart" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="hearingpartstoremove" type="hearingpart" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="currenthearingpartstoremovemap" type="xs:anyType" />
+          <xs:element name="" type="hearing" nillable="true" minOccurs="0" />
+          <xs:element name="sessions" type="session" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="updatelistingrequest" nillable="true" minOccurs="0" />
+          <xs:element name="currenthearingas" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="hearingrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="hearingpartrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="statusconfigservice" nillable="true" minOccurs="0" />
+          <xs:element name="utdps" type="usertransactiondatapreparerservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="createlistingrequestaction" >
+      <xs:complexContent>
+       <xs:extension base="action">
+         <xs:sequence>
+          <xs:element name="" type="createhearingrequest" nillable="true" minOccurs="0" />
+          <xs:element name="hearingparts" type="hearingpart" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="hearing" nillable="true" minOccurs="0" />
+          <xs:element name="" type="hearingtyperepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="casetyperepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="hearingmapper" nillable="true" minOccurs="0" />
+          <xs:element name="" type="hearingrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="hearingpartrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="statusconfigservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="statusservicemanager" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="dataprepservice" type="usertransactiondatapreparerservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="deletelistingrequestaction" >
+      <xs:complexContent>
+       <xs:extension base="action">
+         <xs:sequence>
+          <xs:element name="" type="deletelistingrequest" nillable="true" minOccurs="0" />
+          <xs:element name="" type="hearingrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="hearingpartrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="hearing" nillable="true" minOccurs="0" />
+          <xs:element name="currenthearingas" type="xs:string" />
+          <xs:element name="hearingparts" type="hearingpart" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="currenthearingpartsmap" type="xs:anyType" />
+          <xs:element name="tdps" type="usertransactiondatapreparerservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usertransactionable" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="activityloggable" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rulesprocessable" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iaction" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usertransactiondatapreparerservice" >
+      <xs:sequence>
+        <xs:element name="hearing" type="xs:string" />
+        <xs:element name="hearing_part" type="xs:string" />
+        <xs:element name="session" type="xs:string" />
+        <xs:element name="usertransactiondatalist" type="usertransactiondata" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="factmessage" >
+      <xs:sequence>
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="data" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hearingmapper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="factsmapper" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="durationtosecondsserializer" >
+      <xs:complexContent>
+       <xs:extension base="stdserializer<duration>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="durationconverter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="offsetdatetimeattributeconverter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="simpledictionarysettable" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="facttransformer" >
+      <xs:sequence>
+        <xs:element name="nondirectfactstoentitymap" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="statusservicemanager" >
+      <xs:sequence>
+        <xs:element name="possibleoperationconfig" type="possibleoperationvalidator" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="checkifstatuscanbeunlisted" type="hearingwithsessionsresponse" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="checkifstatuscanbeadjourned" type="hearingwithsessionsresponse" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="checkifstatuscanbewithdrawn" type="hearingwithsessionsresponse" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="checkifstatuscanbevacated" type="hearingwithsessionsresponse" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="checkifadjourncanbeperformed" type="xs:anyType" />
+        <xs:element name="checkifwithdrawcanbeperformed" type="xs:anyType" />
+        <xs:element name="checkifunlistcanbeperformed" type="xs:anyType" />
+        <xs:element name="checkifvacatedcanbeperformed" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hearingservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="hearingqueries" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingforlistingqueries" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingpartrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="actionservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="statusconfigservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="statusservicemanager" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reportservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="hearingpartrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usertransactionservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="usertransactionrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="usertransactiondatarepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="revertchangesmanager" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="scheduledrollbackconfiguration" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hearingpartservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="hearingpartrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="usertransactionservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="sessionrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="rulesservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="factsmapper" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="referencedataservice" >
+      <xs:complexContent>
+       <xs:extension base="simpledictionarysettable>">
+         <xs:sequence>
+          <xs:element name="tosimpledictionarydata" type="xs:anyType" />
+          <xs:element name="" type="casetyperepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="sessiontyperepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="hearingtyperepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="roomtyperepository" nillable="true" minOccurs="0" />
+          <xs:element name="//comparatortoordercasetypesandhearingtypesbytheirdescriptioni.e.//theordertobedisplayedindrop-downcontrolssdddescriptioncomparator" type="simpledictionarydata" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rulesservice" >
+      <xs:sequence>
+        <xs:element name="insert_session" type="xs:string" />
+        <xs:element name="upsert_session" type="xs:string" />
+        <xs:element name="upsert_hearing_part" type="xs:string" />
+        <xs:element name="upsert_room" type="xs:string" />
+        <xs:element name="upsert_judge" type="xs:string" />
+        <xs:element name="delete_session" type="xs:string" />
+        <xs:element name="delete_hearing_part" type="xs:string" />
+        <xs:element name="upsert_session_type" type="xs:string" />
+        <xs:element name="upsert_reload_status" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="factmessageservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="factpropagationconfiguration" nillable="true" minOccurs="0" />
+        <xs:element name="s2sauthservice" type="s2srulesauthenticationclient" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reloadrulesservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="factmessageservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="rulesservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="factpropagationconfiguration" nillable="true" minOccurs="0" />
+        <xs:element name="s2sauthservice" type="s2srulesauthenticationclient" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="factsmapper" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="sessionrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="personrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="roomrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingpartrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="sessiontyperepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="year" type="xs:long" />
+        <xs:element name="month" type="xs:long" />
+        <xs:element name="day" type="xs:long" />
+        <xs:element name="hour" type="xs:long" />
+        <xs:element name="minute" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sessionservice" >
+      <xs:sequence>
+        <xs:element name="session_entity_name" type="xs:string" />
+        <xs:element name="sessiondbtosessioninfo" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="sessionrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="roomrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="personrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingpartrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="sessiontyperepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="usertransactionservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="searchsessionquery" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="actionservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="problemservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="problemrepository" nillable="true" minOccurs="0" />
+        <xs:element name="problemreferencedbtoresponse" type="xs:anyType" />
+        <xs:element name="problemdbtoresponse" type="xs:anyType" />
+        <xs:element name="problemreferencecreatetodb" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="personservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="personrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="roomservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="roomrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="revertchangesmanager" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="sessionrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingpartrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="rulesservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="factsmapper" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="activitylogrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="actionservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="usertransactionservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="rulesservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="activitylogrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="factmessageservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="problemservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="statusconfigservice" >
+      <xs:sequence>
+        <xs:element name="statusconfigs" type="statusconfig" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="statusconfigrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hearingpartrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<hearingpart,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sessionrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<session,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="activitylogrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<activitylog,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hearingtyperepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<hearingtype,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="roomrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<room,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usertransactionrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<usertransaction,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="personrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<person,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="roomtyperepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<roomtype,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usertransactiondatarepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<usertransactiondata,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sessiontyperepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<sessiontype,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="problemrepository" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<problem,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hearingrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<hearing,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="casetyperepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<casetype,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="statusconfigrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<statusconfig,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="comparisonoperations" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sessionqueries" >
+      <xs:sequence>
+        <xs:element name="get_session_info_sql" type="xs:string" />
+        <xs:element name="//durationismultiplyby1000000000inordertoconvertitfromnanosecondstosecondsget_session_amend_response_sql" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="problemqueries" >
+      <xs:sequence>
+        <xs:element name="get_problems" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hearingforlistingcolumn" >
+      <xs:sequence>
+        <xs:element name="columnname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="searchsessionquery" >
+      <xs:sequence>
+        <xs:element name="count_by_session_id" type="xs:string" />
+        <xs:element name="select_query_placeholder" type="xs:string" />
+        <xs:element name="//multiplydurationfieldsby1000000000inordertoconvertthemfromnanosecondstosecondssearch_session_query" type="xs:string" />
+        <xs:element name="limit_query" type="xs:string" />
+        <xs:element name="items_per_page_param_name" type="xs:string" />
+        <xs:element name="page_number_param_name" type="xs:string" />
+        <xs:element name="limit_placeholder" type="xs:string" />
+        <xs:element name="where_placeholder" type="xs:string" />
+        <xs:element name="order_by_placeholder" type="xs:string" />
+        <xs:element name="search_session_query_placeholders" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="whereclauseinfo" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="sessionfilterkey" nillable="true" minOccurs="0" />
+        <xs:element name="whereclause" type="xs:string" />
+        <xs:element name="keyvaluepairs" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="searchsessionselectcolumn" >
+      <xs:sequence>
+        <xs:element name="columnname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sessionfilterkey" >
+      <xs:sequence>
+        <xs:element name="utilisation_keys" type="xs:anyType" />
+        <xs:element name="case_not_handled_msg" type="xs:string" />
+        <xs:element name="key" type="xs:string" />
+        <xs:element name="GeneratedName" type="searchcriteria" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="searchcriteria" >
+      <xs:sequence>
+        <xs:element name="key" type="xs:string" />
+        <xs:element name="operation" type="comparisonoperations" nillable="true" minOccurs="0" />
+        <xs:element name="value" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hearingqueries" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="hearingrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hearingforlistingqueries" >
+      <xs:sequence>
+        <xs:element name="hearing_for_listing_select_count" type="xs:string" />
+        <xs:element name="hearing_for_listing_select_entities" type="xs:string" />
+        <xs:element name="hearing_for_listing_query_body" type="xs:string" />
+        <xs:element name="order_by_query_part" type="xs:string" />
+        <xs:element name="order_property_placeholder" type="xs:string" />
+        <xs:element name="order_direction_placeholder" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hearingsessionrelationship" >
+      <xs:sequence>
+        <xs:element name="usertransactionid" type="xs:anyType" />
+        <xs:element name="hearingid" type="xs:anyType" />
+        <xs:element name="hearingversion" type="xs:long" />
+        <xs:element name="sessionsdata" type="sessionassignmentdata" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="start" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="draganddropsessionrequest" >
+      <xs:sequence>
+        <xs:element name="sessionid" type="xs:anyType" />
+        <xs:element name="start" type="xs:anyType" />
+        <xs:element name="durationinseconds" type="xs:long" />
+        <xs:element name="personid" type="xs:anyType" />
+        <xs:element name="roomid" type="xs:anyType" />
+        <xs:element name="usertransactionid" type="xs:anyType" />
+        <xs:element name="version" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="unlisthearingrequest" >
+      <xs:sequence>
+        <xs:element name="hearingid" type="xs:anyType" />
+        <xs:element name="hearingpartsversions" type="versioninfo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="usertransactionid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="createproblem" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="severity" type="xs:string" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="references" type="createproblemreference" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="createdat" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="amendscheduledlistingrequest" >
+      <xs:sequence>
+        <xs:element name="usertransactionid" type="xs:anyType" />
+        <xs:element name="hearingpartid" type="xs:anyType" />
+        <xs:element name="hearingpartversion" type="xs:long" />
+        <xs:element name="starttime" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deletelistingrequest" >
+      <xs:sequence>
+        <xs:element name="hearingid" type="xs:anyType" />
+        <xs:element name="hearingversion" type="xs:long" />
+        <xs:element name="usertransactionid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="upsertsession" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="usertransactionid" type="xs:anyType" />
+        <xs:element name="start" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="sessiontype" type="xs:string" />
+        <xs:element name="personid" type="xs:string" />
+        <xs:element name="roomid" type="xs:string" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="sessiontypecode" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usertransactionaction" >
+      <xs:sequence>
+        <xs:element name="action" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sessionassignmentdata" >
+      <xs:sequence>
+        <xs:element name="sessionid" type="xs:anyType" />
+        <xs:element name="sessionversion" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="createproblemreference" >
+      <xs:sequence>
+        <xs:element name="//typeidfactid" type="xs:string" />
+        <xs:element name="fact" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="createhearingrequest" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="casenumber" type="xs:string" />
+        <xs:element name="casetitle" type="xs:string" />
+        <xs:element name="casetypecode" type="xs:string" />
+        <xs:element name="hearingtypecode" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="numberofsessions" type="xs:long" />
+        <xs:element name="multisession" type="xs:anyType" />
+        <xs:element name="schedulestart" type="xs:anyType" />
+        <xs:element name="scheduleend" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="priority" nillable="true" minOccurs="0" />
+        <xs:element name="reservedjudgeid" type="xs:anyType" />
+        <xs:element name="communicationfacilitator" type="xs:string" />
+        <xs:element name="usertransactionid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="versioninfo" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="version" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hearingpartsessionrelationship" >
+      <xs:sequence>
+        <xs:element name="usertransactionid" type="xs:anyType" />
+        <xs:element name="hearingpartid" type="xs:anyType" />
+        <xs:element name="hearingpartversion" type="xs:long" />
+        <xs:element name="sessiondata" type="sessionassignmentdata" nillable="true" minOccurs="0" />
+        <xs:element name="start" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="updatelistingrequest" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="casenumber" type="xs:string" />
+        <xs:element name="casetitle" type="xs:string" />
+        <xs:element name="casetypecode" type="xs:string" />
+        <xs:element name="hearingtypecode" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="numberofsessions" type="xs:long" />
+        <xs:element name="multisession" type="xs:anyType" />
+        <xs:element name="schedulestart" type="xs:anyType" />
+        <xs:element name="scheduleend" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="priority" nillable="true" minOccurs="0" />
+        <xs:element name="reservedjudgeid" type="xs:anyType" />
+        <xs:element name="communicationfacilitator" type="xs:string" />
+        <xs:element name="usertransactionid" type="xs:anyType" />
+        <xs:element name="version" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vacatehearingrequest" >
+      <xs:complexContent>
+       <xs:extension base="withdrawhearingrequest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="adjournhearingrequest" >
+      <xs:sequence>
+        <xs:element name="hearingid" type="xs:anyType" />
+        <xs:element name="hearingversion" type="xs:long" />
+        <xs:element name="usertransactionid" type="xs:anyType" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="withdrawhearingrequest" >
+      <xs:sequence>
+        <xs:element name="hearingid" type="xs:anyType" />
+        <xs:element name="hearingversion" type="xs:long" />
+        <xs:element name="usertransactionid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datetimepartvalue" >
+      <xs:sequence>
+        <xs:element name="timetype" type="xs:string" />
+        <xs:element name="value" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="amendsessionrequest" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="usertransactionid" type="xs:anyType" />
+        <xs:element name="inseconds" type="xs:anyType" />
+        <xs:element name="starttime" type="xs:anyType" />
+        <xs:element name="sessiontypecode" type="xs:string" />
+        <xs:element name="version" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="possibleoperationvalidator" >
+      <xs:sequence>
+        <xs:element name="dbconfigverifier" type="hearingwithsessionsresponse" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="businessoperationverifier" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="activitystatus" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="scheduledlistingresponse" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="hearingpartstarttime" type="xs:anyType" />
+        <xs:element name="start" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="roomname" type="xs:string" />
+        <xs:element name="judgename" type="xs:string" />
+        <xs:element name="sessiontype" type="xs:string" />
+        <xs:element name="hearingpartidofcurrenthearing" type="xs:anyType" />
+        <xs:element name="hearingpartversionofcurrenthearing" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="statusconfigresponse" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="status" nillable="true" minOccurs="0" />
+        <xs:element name="canbelisted" type="xs:anyType" />
+        <xs:element name="canbeunlisted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="roomresponse" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="roomtypecode" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="validationerrordetails" >
+      <xs:sequence>
+        <xs:element name="errordetailslist" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hearingsearchresponse" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="casenumber" type="xs:string" />
+        <xs:element name="casetitle" type="xs:string" />
+        <xs:element name="casetypecode" type="xs:string" />
+        <xs:element name="casetypedescription" type="xs:string" />
+        <xs:element name="hearingtypecode" type="xs:string" />
+        <xs:element name="hearingtypedescription" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="schedulestart" type="xs:anyType" />
+        <xs:element name="scheduleend" type="xs:anyType" />
+        <xs:element name="reservedjudgeid" type="xs:anyType" />
+        <xs:element name="reservedjudgename" type="xs:string" />
+        <xs:element name="communicationfacilitator" type="xs:string" />
+        <xs:element name="GeneratedName" type="priority" nillable="true" minOccurs="0" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="GeneratedName" type="status" nillable="true" minOccurs="0" />
+        <xs:element name="listingdate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hearingsearchresponseforamendment" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="casenumber" type="xs:string" />
+        <xs:element name="casetitle" type="xs:string" />
+        <xs:element name="casetypecode" type="xs:string" />
+        <xs:element name="casetypedescription" type="xs:string" />
+        <xs:element name="hearingtypecode" type="xs:string" />
+        <xs:element name="hearingtypedescription" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="schedulestart" type="xs:anyType" />
+        <xs:element name="scheduleend" type="xs:anyType" />
+        <xs:element name="reservedjudgeid" type="xs:anyType" />
+        <xs:element name="reservedjudgename" type="xs:string" />
+        <xs:element name="communicationfacilitator" type="xs:string" />
+        <xs:element name="GeneratedName" type="priority" nillable="true" minOccurs="0" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="GeneratedName" type="status" nillable="true" minOccurs="0" />
+        <xs:element name="listingdate" type="xs:anyType" />
+        <xs:element name="personname" type="xs:string" />
+        <xs:element name="numberofsessions" type="xs:long" />
+        <xs:element name="ismultisession" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="problemreferenceresponse" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="entity" type="xs:string" />
+        <xs:element name="entityid" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="problemid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hearingwithsessionsresponse" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="casenumber" type="xs:string" />
+        <xs:element name="casetitle" type="xs:string" />
+        <xs:element name="casetype" type="xs:string" />
+        <xs:element name="hearingtype" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="numberofsessions" type="xs:long" />
+        <xs:element name="ismultisession" type="xs:anyType" />
+        <xs:element name="schedulestart" type="xs:anyType" />
+        <xs:element name="scheduleend" type="xs:anyType" />
+        <xs:element name="priority" type="xs:string" />
+        <xs:element name="communicationfacilitator" type="xs:string" />
+        <xs:element name="reservedtojudge" type="xs:string" />
+        <xs:element name="GeneratedName" type="status" nillable="true" minOccurs="0" />
+        <xs:element name="sessions" type="scheduledlistingresponse" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="hearingpartsversions" type="versioninfo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="possibleactions" nillable="true" minOccurs="0" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="GeneratedName" type="statusconfig" nillable="true" minOccurs="0" />
+        <xs:element name="listingdate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sessionamendresponse" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="start" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="sessiontypecode" type="xs:string" />
+        <xs:element name="personname" type="xs:string" />
+        <xs:element name="roomname" type="xs:string" />
+        <xs:element name="roomdescription" type="xs:string" />
+        <xs:element name="roomtypecode" type="xs:string" />
+        <xs:element name="hearingpartscount" type="xs:long" />
+        <xs:element name="hasmultisessionhearingassigned" type="xs:anyType" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="haslistedhearingparts" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="problemresponse" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="severity" type="xs:string" />
+        <xs:element name="references" type="problemreferenceresponse" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="createdat" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hearingforlistingresponse" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="casenumber" type="xs:string" />
+        <xs:element name="casetitle" type="xs:string" />
+        <xs:element name="casetypecode" type="xs:string" />
+        <xs:element name="casetypedescription" type="xs:string" />
+        <xs:element name="hearingtypecode" type="xs:string" />
+        <xs:element name="hearingtypedescription" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="schedulestart" type="xs:anyType" />
+        <xs:element name="scheduleend" type="xs:anyType" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="priority" type="xs:anyType" />
+        <xs:element name="communicationfacilitator" type="xs:string" />
+        <xs:element name="reservedjudgeid" type="xs:anyType" />
+        <xs:element name="reservedjudgename" type="xs:string" />
+        <xs:element name="numberofsessions" type="xs:anyType" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="ismultisession" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sessionsearchresponse" >
+      <xs:sequence>
+        <xs:element name="sessionid" type="xs:anyType" />
+        <xs:element name="personid" type="xs:anyType" />
+        <xs:element name="personname" type="xs:string" />
+        <xs:element name="roomid" type="xs:anyType" />
+        <xs:element name="roomname" type="xs:string" />
+        <xs:element name="sessiontypecode" type="xs:string" />
+        <xs:element name="sessiontypedescription" type="xs:string" />
+        <xs:element name="starttime" type="xs:anyType" />
+        <xs:element name="startdate" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="noofhearingpartsassignedtosession" type="xs:long" />
+        <xs:element name="sessionversion" type="xs:long" />
+        <xs:element name="allocated" type="xs:anyType" />
+        <xs:element name="utilisation" type="xs:long" />
+        <xs:element name="available" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="casetypewithhearingtypesresponse" >
+      <xs:complexContent>
+       <xs:extension base="simpledictionarydata">
+         <xs:sequence>
+          <xs:element name="hearingtypes" type="simpledictionarydata" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hearingpartresponse" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="sessionid" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="hearinginfo" nillable="true" minOccurs="0" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="start" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="status" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="activityresponse" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="activitystatus" nillable="true" minOccurs="0" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="createdby" type="xs:string" />
+        <xs:element name="createdat" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usertransactionactionresponse" >
+      <xs:sequence>
+        <xs:element name="transactionid" type="xs:anyType" />
+        <xs:element name="action" type="usertransactionaction" nillable="true" minOccurs="0" />
+        <xs:element name="success" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="possibleactions" >
+      <xs:sequence>
+        <xs:element name="unlist" type="xs:anyType" />
+        <xs:element name="withdraw" type="xs:anyType" />
+        <xs:element name="adjourn" type="xs:anyType" />
+        <xs:element name="vacate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hearinginfo" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="casenumber" type="xs:string" />
+        <xs:element name="casetitle" type="xs:string" />
+        <xs:element name="casetypecode" type="xs:string" />
+        <xs:element name="hearingtypecode" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="schedulestart" type="xs:anyType" />
+        <xs:element name="scheduleend" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="priority" nillable="true" minOccurs="0" />
+        <xs:element name="reservedjudgeid" type="xs:anyType" />
+        <xs:element name="communicationfacilitator" type="xs:string" />
+        <xs:element name="deleted" type="xs:anyType" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="numberofsessions" type="xs:long" />
+        <xs:element name="multisession" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="status" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sessionwithhearings" >
+      <xs:sequence>
+        <xs:element name="sessions" type="sessioninfo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="hearingpartsresponse" type="hearingpartresponse" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sessioninfo" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="start" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="person" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="room" nillable="true" minOccurs="0" />
+        <xs:element name="sessiontypecode" type="xs:string" />
+        <xs:element name="version" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="simpledictionarydata" >
+      <xs:sequence>
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="priority" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usertransactionstatus" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usertransactional" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usertransactionrulesprocessingstatus" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="listedhearingrequestreportresult" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="unlistedhearingrequestsreportresult" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="status" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="facthearingpart" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="sessionid" type="xs:string" />
+        <xs:element name="casetypecode" type="xs:string" />
+        <xs:element name="hearingtypecode" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="schedulestart" type="xs:anyType" />
+        <xs:element name="scheduleend" type="xs:anyType" />
+        <xs:element name="createdat" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rulesenginereloadstatus" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="reloadstatus" type="factreloadstatus" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="facthearingtype" >
+      <xs:sequence>
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="factreloadstatus" >
+      <xs:sequence>
+        <xs:element name="startedat" type="xs:anyType" />
+        <xs:element name="finishedat" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="factsessiontype" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="casetypes" type="factcasetype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="hearingtypes" type="facthearingtype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="factroom" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="factsession" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="judgeid" type="xs:string" />
+        <xs:element name="start" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="roomid" type="xs:string" />
+        <xs:element name="sessiontype" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sessionwithhearingpartsfacts" >
+      <xs:sequence>
+        <xs:element name="sessionfact" type="xs:string" />
+        <xs:element name="hearingpartsfacts" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="factperson" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="facttime" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="value" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="factcasetype" >
+      <xs:sequence>
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hearingpart" >
+      <xs:complexContent>
+       <xs:extension base="versionedentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="" type="session" nillable="true" minOccurs="0" />
+          <xs:element name="sessionid" type="xs:anyType" />
+          <xs:element name="isdeleted" type="xs:anyType" />
+          <xs:element name="createdat" type="xs:anyType" />
+          <xs:element name="modifiedat" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="modifiedby" type="xs:string" />
+          <xs:element name="start" type="xs:anyType" />
+          <xs:element name="" type="hearing" nillable="true" minOccurs="0" />
+          <xs:element name="hearingid" type="xs:anyType" />
+          <xs:element name="status" type="statusconfig" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="statusable" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="room" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="sessionlist" type="session" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="roomtype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usertransaction" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="status" type="usertransactionstatus" nillable="true" minOccurs="0" />
+        <xs:element name="rulesprocessingstatus" type="usertransactionrulesprocessingstatus" nillable="true" minOccurs="0" />
+        <xs:element name="startedat" type="xs:anyType" />
+        <xs:element name="usertransactiondatalist" type="usertransactiondata" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="historyauditable" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hearingtype" >
+      <xs:complexContent>
+       <xs:extension base="basereferencedata">
+         <xs:sequence>
+          <xs:element name="sessiontypes" type="sessiontype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="casetypes" type="casetype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="versionedentity" >
+      <xs:sequence>
+        <xs:element name="version" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="casetype" >
+      <xs:complexContent>
+       <xs:extension base="basereferencedata">
+         <xs:sequence>
+          <xs:element name="sessiontypes" type="sessiontype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="hearingtypes" type="hearingtype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sessiontype" >
+      <xs:complexContent>
+       <xs:extension base="basereferencedata">
+         <xs:sequence>
+          <xs:element name="sessions" type="session" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="casetypes" type="casetype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="hearingtypes" type="hearingtype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="activitylog" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="usertransactionid" type="xs:anyType" />
+        <xs:element name="entityid" type="xs:anyType" />
+        <xs:element name="entityname" type="xs:string" />
+        <xs:element name="status" type="activitystatus" nillable="true" minOccurs="0" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="createdby" type="xs:string" />
+        <xs:element name="createdat" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="problem" >
+      <xs:sequence>
+        <xs:element name="//thisismd5hash,notuuid!itistohandlethedeterministicnatureofourrulesid" type="xs:string" />
+        <xs:element name="usertransactionid" type="xs:anyType" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="severity" type="xs:string" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="createdat" type="xs:anyType" />
+        <xs:element name="references" type="problemreference" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usertransactiondata" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="entity" type="xs:string" />
+        <xs:element name="entityid" type="xs:anyType" />
+        <xs:element name="beforedata" type="xs:string" />
+        <xs:element name="action" type="xs:string" />
+        <xs:element name="counteraction" type="xs:string" />
+        <xs:element name="counteractionorder" type="xs:long" />
+        <xs:element name="GeneratedName" type="usertransaction" nillable="true" minOccurs="0" />
+        <xs:element name="usertransactionid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="problemreference" >
+      <xs:sequence>
+        <xs:element name="entity" type="xs:string" />
+        <xs:element name="entityid" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="statusconfig" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="status" nillable="true" minOccurs="0" />
+        <xs:element name="canbelisted" type="xs:anyType" />
+        <xs:element name="canbeunlisted" type="xs:anyType" />
+        <xs:element name="countinutilization" type="xs:anyType" />
+        <xs:element name="canbevacated" type="xs:anyType" />
+        <xs:element name="canbeadjourned" type="xs:anyType" />
+        <xs:element name="canbewithdrawn" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="person" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="persontype" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="sessionlist" type="session" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="roomtype" >
+      <xs:complexContent>
+       <xs:extension base="basereferencedata">
+         <xs:sequence>
+          <xs:element name="rooms" type="room" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basereferencedata" >
+      <xs:sequence>
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hearing" >
+      <xs:complexContent>
+       <xs:extension base="versionedentity">
+         <xs:sequence>
+          <xs:element name="entity_name" type="xs:string" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="casenumber" type="xs:string" />
+          <xs:element name="casetitle" type="xs:string" />
+          <xs:element name="" type="casetype" nillable="true" minOccurs="0" />
+          <xs:element name="" type="hearingtype" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="numberofsessions" type="xs:long" />
+          <xs:element name="ismultisession" type="xs:anyType" />
+          <xs:element name="schedulestart" type="xs:anyType" />
+          <xs:element name="scheduleend" type="xs:anyType" />
+          <xs:element name="communicationfacilitator" type="xs:string" />
+          <xs:element name="" type="priority" nillable="true" minOccurs="0" />
+          <xs:element name="isdeleted" type="xs:anyType" />
+          <xs:element name="reservedjudge" type="person" nillable="true" minOccurs="0" />
+          <xs:element name="createdat" type="xs:anyType" />
+          <xs:element name="modifiedat" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="modifiedby" type="xs:string" />
+          <xs:element name="hearingparts" type="hearingpart" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="status" type="statusconfig" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="session" >
+      <xs:complexContent>
+       <xs:extension base="versionedentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="" type="person" nillable="true" minOccurs="0" />
+          <xs:element name="start" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="room" nillable="true" minOccurs="0" />
+          <xs:element name="hearingparts" type="hearingpart" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="sessiontype" nillable="true" minOccurs="0" />
+          <xs:element name="createdat" type="xs:anyType" />
+          <xs:element name="modifiedat" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="modifiedby" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usertransactionsrollbackscheduledtask" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="usertransactionservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rulesscheduledtasks" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="reloadrulesservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="nullornotblankvalidator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mindurationvalidator" >
+      <xs:sequence>
+        <xs:element name="minminutes" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="nullornotblank" >
+      <xs:complexContent>
+       <xs:extension base="payload>[]">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="minduration" >
+      <xs:complexContent>
+       <xs:extension base="payload>[]">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="referencedatacontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="referencedataservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sessioncontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="sessionservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="rulesservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="usertransactionservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="factsmapper" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="sessionrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="actionservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reportcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="reportservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="statusconfigcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="statusconfigservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usertransactioncontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="usertransactionservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="problemcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="problemservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="roomcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="roomservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rootcontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hearingcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="hearingrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingpartrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="sessionrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="actionservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="statusservicemanager" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="statusconfigservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="activitylogcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="activitylogrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="personcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="personservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hearingpartcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="hearingpartservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingpartrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="sessionrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="actionservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="hearingtyperepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="casetyperepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hearingmapper" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="statusservicemanager" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="statusconfigservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rulesstatuscontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="reloadrulesservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="serviceauthenticationentrypoint" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="s2srulesauthenticationclient" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="tokenservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="s2sauthenticationconfig" >
+      <xs:sequence>
+        <xs:element name="events" type="xs:anyType" />
+        <xs:element name="rules" type="xs:anyType" />
+        <xs:element name="enabled" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tokenservice" >
+      <xs:sequence>
+        <xs:element name="header_name" type="xs:string" />
+        <xs:element name="header_content_prefix" type="xs:string" />
+        <xs:element name="secret" type="xs:string" />
+        <xs:element name="expiration" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="s2sjwtauthenticationfilter" >
+      <xs:complexContent>
+       <xs:extension base="onceperrequestfilter">
+         <xs:sequence>
+          <xs:element name="approvedservicesnames" type="xs:anyType" />
+          <xs:element name="" type="s2sauthenticationconfig" nillable="true" minOccurs="0" />
+          <xs:element name="" type="tokenservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

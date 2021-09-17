@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="demomysqldockerspringbootjpaapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="demomysqldockerspringbootjpaapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="index" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="album" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="album" type="xs:string" />
+        <xs:element name="//одинальбомсодержитнесколькопесенsongplayerslist" type="songplayers" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="book" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="GeneratedName" type="bookcategory" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookcategory" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="books" type="book" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="message" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="text" type="xs:string" />
+        <xs:element name="tag" type="xs:string" />
+        <xs:element name="author" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rockgroups" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="rockgroup" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="grantedauthority>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="active" type="xs:anyType" />
+          <xs:element name="roles" type="role" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="songplayers" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="song" type="xs:string" />
+        <xs:element name="//укомпозицииодинкомпозиторcomposer" type="xs:string" />
+        <xs:element name="//иодинавторстиховpoet" type="xs:string" />
+        <xs:element name="//песнясодержитсявальбомеalbum" type="xs:string" />
+        <xs:element name="//имногоисполнителей//исполнителимогутисполнятьразныепесниsonginstrumentalist" type="people" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="people" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="human" type="xs:string" />
+        <xs:element name="//нескольколюдейиграютводнойгруппе" type="rockgroups" nillable="true" minOccurs="0" />
+        <xs:element name="//разныелюдиисполняютразныекомпозицииsongitems" type="songplayers" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

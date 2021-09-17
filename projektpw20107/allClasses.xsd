@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="saxtreebuilder" >
+      <xs:complexContent>
+       <xs:extension base="defaulthandler{">
+         <xs:sequence>
+          <xs:element name="currentnode" type="xs:anyType" />
+          <xs:element name="previousnode" type="xs:anyType" />
+          <xs:element name="rootnode" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="_testclass" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="result" >
+      <xs:sequence>
+        <xs:element name="latitude" type="xs:string" />
+        <xs:element name="longitude" type="xs:string" />
+        <xs:element name="formatedadress" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="treetool" >
+      <xs:sequence>
+        <xs:element name="rootnode" type="xs:anyType" />
+        <xs:element name="parents" type="xs:string" />
+        <xs:element name="bparents" type="xs:anyType" />
+        <xs:element name="brothers" type="xs:string" />
+        <xs:element name="bbrothers" type="xs:anyType" />
+        <xs:element name="wynik" type="xs:string" />
+        <xs:element name="rezultat" type="result" nillable="true" minOccurs="0" />
+        <xs:element name="calkowitywynik" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="degeocoder" >
+      <xs:sequence>
+        <xs:element name="saxtree" type="saxtreebuilder" nillable="true" minOccurs="0" />
+        <xs:element name="work" type="xs:anyType" />
+        <xs:element name="//ok,zero_results,over_query_limit,request_denied,invalid_requeststatus" type="xs:string" />
+        <xs:element name="wynik" type="xs:anyType" />
+        <xs:element name="//zdekodowanelatitude" type="xs:double" />
+        <xs:element name="//po�o�enielongitude" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iareamanager" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iparent" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ichild" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="databaseutils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="area" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="childdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="parentdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="areamanagerdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="areapoint" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="connectionmanager" >
+      <xs:sequence>
+        <xs:element name="cm" type="connectionmanager" nillable="true" minOccurs="0" />
+        <xs:element name="conn" type="xs:anyType" />
+        <xs:element name="ods" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="area" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="idarea" type="xs:long" />
+        <xs:element name="idareapoint" type="xs:long" />
+        <xs:element name="idchild" type="xs:long" />
+        <xs:element name="GeneratedName" type="areapoint" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="family" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="idfamily" type="xs:long" />
+        <xs:element name="idparent" type="xs:long" />
+        <xs:element name="idchild" type="xs:long" />
+        <xs:element name="child" type="children" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="parent" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="parentsettings" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="idparentsettings" type="xs:long" />
+        <xs:element name="idparent" type="xs:long" />
+        <xs:element name="idchild" type="xs:long" />
+        <xs:element name="steptime" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="parent" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="idparent" type="xs:long" />
+        <xs:element name="shortedpassword" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="GeneratedName" type="parentsettings" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="children" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="idchild" type="xs:long" />
+        <xs:element name="idarea" type="xs:long" />
+        <xs:element name="imei" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="ofbirth" type="xs:dateTime" />
+        <xs:element name="key" type="xs:string" />
+        <xs:element name="GeneratedName" type="area" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="marker" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="idmarker" type="xs:long" />
+        <xs:element name="x" type="xs:double" />
+        <xs:element name="y" type="xs:double" />
+        <xs:element name="time" type="xs:dateTime" />
+        <xs:element name="child" type="children" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="areapoint" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="idareapoint" type="xs:long" />
+        <xs:element name="idarea" type="xs:long" />
+        <xs:element name="x" type="xs:double" />
+        <xs:element name="y" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="genericdao" >
+      <xs:complexContent>
+       <xs:extension base="hibernatedaosupport">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testparentdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dao" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="session" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="childdao" >
+      <xs:complexContent>
+       <xs:extension base="genericdao">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="parentdao" >
+      <xs:complexContent>
+       <xs:extension base="genericdao{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="server" >
+      <xs:sequence>
+        <xs:element name="/*---------------attribute----------------------------*//***rechnernamederserverinstanz*/name" type="xs:string" />
+        <xs:element name="/***connectorportderserverinstanz*/connectorport" type="xs:string" />
+        <xs:element name="/***listederipsderserverinstanz*/ip" type="xs:string" />
+        <xs:element name="derserverinstanz*/jvmroute" type="xs:string" />
+        <xs:element name="/***zeitpunktderletzenregistrierung/benachrichtungderserverinstanz.anhanddesdatumswerden*veralteteeinträgeinderdbgelöscht.*/datum" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="d3" >
+      <xs:sequence>
+        <xs:element name="/***iddesd3-akte*/id" type="xs:long" />
+        <xs:element name="/***url*/url" type="xs:string" />
+        <xs:element name="/***dcc*/dcc" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="enumprioritaet" >
+      <xs:complexContent>
+       <xs:extension base="enumbean">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="enumvorgangtyp" >
+      <xs:complexContent>
+       <xs:extension base="enumbean">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="enumzustaendigkeitstatus" >
+      <xs:complexContent>
+       <xs:extension base="enumbean">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="enumvorgangstatus" >
+      <xs:complexContent>
+       <xs:extension base="enumbean">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="enumfreigabestatus" >
+      <xs:complexContent>
+       <xs:extension base="enumbean">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="enumverlauftyp" >
+      <xs:complexContent>
+       <xs:extension base="enumbean">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="stadtgrenze" >
+      <xs:sequence>
+        <xs:element name="/*---------------attribute----------------------------*//***idderstadtgrenze*/id" type="xs:anyType" />
+        <xs:element name="/***stadtgrenze*/grenze" type="xs:anyType" />
+        <xs:element name="/*---------------transient----------------------------*/" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="aussendienstkoordinator" >
+      <xs:sequence>
+        <xs:element name="/***aussendienst(cnderrollederartaussendienst)*/aussendienst" type="xs:string" />
+        <xs:element name="/***koordinator(cndesnutzersderrollekoordinator)*/koordinator" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="auftrag" >
+      <xs:sequence>
+        <xs:element name="/*---------------attribute----------------------------*/id" type="xs:anyType" />
+        <xs:element name="/***fürdenauftrag*/" type="vorgang" nillable="true" minOccurs="0" />
+        <xs:element name="/***teamfürdenauftrag*/team" type="xs:string" />
+        <xs:element name="/***zeitpunktderbearbeitung*/datum" type="xs:dateTime" />
+        <xs:element name="/***priorität*/prioritaet" type="xs:anyType" />
+        <xs:element name="/***status*/status" type="enumauftragstatus" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vorgang" >
+      <xs:sequence>
+        <xs:element name="/***iddesvorganges*/id" type="xs:long" />
+        <xs:element name="/***zeitpunktderletztenänderung*/version" type="xs:dateTime" />
+        <xs:element name="/***erstellungszeitpunkt*/datum" type="xs:dateTime" />
+        <xs:element name="/***zeitpunktderletztenstatusänderung*/statusdatum" type="xs:dateTime" />
+        <xs:element name="/***vorgangstyp*/typ" type="enumvorgangtyp" nillable="true" minOccurs="0" />
+        <xs:element name="/***adresse*/adresse" type="xs:string" />
+        <xs:element name="/***informationüberdaseigentumdesflürstücks,indemdervorgangliegt*/flurstueckseigentum" type="xs:string" />
+        <xs:element name="/***beschreibung*/beschreibung" type="xs:string" />
+        <xs:element name="/***freigabestatusderbeschreibung*/beschreibungfreigabestatus" type="enumfreigabestatus" nillable="true" minOccurs="0" />
+        <xs:element name="/***geographischeposition/ort*/ovi" type="xs:anyType" />
+        <xs:element name="/***e-mail-adressedeserstellers*/autoremail" type="xs:string" />
+        <xs:element name="trust" type="xs:anyType" />
+        <xs:element name="/***hashzumbestätigendesvorganges*/hash" type="xs:string" />
+        <xs:element name="/***vorgangsstatus*/status" type="enumvorgangstatus" nillable="true" minOccurs="0" />
+        <xs:element name="/***vorgangsstatusalsinteger.(daserlaubtdaseinfacheresortierendervorgängeinder*ergebnistabellemithilfeeinerangepasstendb-anfrage)*/statusordinal" type="enumvorgangstatus" nillable="true" minOccurs="0" />
+        <xs:element name="/***kommentarzumstatus*/statuskommentar" type="xs:string" />
+        <xs:element name="/***erstsichtungerfolgt*/erstsichtungerfolgt" type="xs:anyType" />
+        <xs:element name="/***foto*/fotogross" type="xs:string" />
+        <xs:element name="/***foto*/fotonormal" type="xs:string" />
+        <xs:element name="/***fotodesvorgangesalsvorschaubild*/fotothumb" type="xs:string" />
+        <xs:element name="/***freigabestatusdesfoto*/fotofreigabestatus" type="enumfreigabestatus" nillable="true" minOccurs="0" />
+        <xs:element name="/***zuständigkeit(idderrolle)fürdenvorgang*/zustaendigkeit" type="xs:string" />
+        <xs:element name="/***zuständigkeit(idderrolle)fürdenvorgang*/initialeakzeptiertezustaendigkeit" type="xs:string" />
+        <xs:element name="/***statusderzuständigkeit*/zustaendigkeitstatus" type="enumzustaendigkeitstatus" nillable="true" minOccurs="0" />
+        <xs:element name="/***zuständigkeitfürfrontend(alsoausführlicherstandortbzw.namedesamteslocalityder*rolle)fürdenvorgang*/zustaendigkeitfrontend" type="xs:string" />
+        <xs:element name="/***delegiertan(idderrolle)*/delegiertan" type="xs:string" />
+        <xs:element name="/***listederkommentare*/kommentare" type="kommentar" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="/***listevonlob,hinweisenoderkritikzumvorgang*/lobhinweisekritik" type="lobhinweisekritik" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="/***listederverlaufseinträge*/verlauf" type="verlauf" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="letzteraktivitaeten" type="verlauf" nillable="true" minOccurs="0" />
+        <xs:element name="/****/" type="kategorie" nillable="true" minOccurs="0" />
+        <xs:element name="/***listederunterstützungen*/unterstuetzer" type="unterstuetzer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="/***listedermissbrauchsmeldungen*/missbrauchsmeldungen" type="missbrauchsmeldung" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="/***priorität*/prioritaet" type="enumprioritaet" nillable="true" minOccurs="0" />
+        <xs:element name="/***prioritätalsinteger.(daserlaubtdaseinfacheresortierendervorgängeinder*ergebnistabellemithilfeeinerangepasstendb-anfrage)*/prioritaetordinal" type="enumprioritaet" nillable="true" minOccurs="0" />
+        <xs:element name="/***flagzummarkierenarchiviertevorgänge*/archiviert" type="xs:anyType" />
+        <xs:element name="/***einwunschnacheinemfotowurdegeäußert*/fotowunsch" type="xs:anyType" />
+        <xs:element name="/***letzterbearbeiterdesvorgangs,fürsortierungbeilisten*/letzterbearbeiter" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="settingsservice" nillable="true" minOccurs="0" />
+        <xs:element name="internalprojection" type="xs:string" />
+        <xs:element name="/***wirdbenötigt,umdastrust-levelzuermitteln*/" type="securityservice" nillable="true" minOccurs="0" />
+        <xs:element name="/***zudemvorgang*/" type="auftrag" nillable="true" minOccurs="0" />
+        <xs:element name="unterstuetzercount" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobrun" >
+      <xs:sequence>
+        <xs:element name="/*---------------attribute----------------------------*//***iddeshintergrundjobs*/id" type="xs:string" />
+        <xs:element name="/***name/bezeichnungdesjobs*/name" type="xs:string" />
+        <xs:element name="/***startzeitdesjobs*/datum" type="xs:dateTime" />
+        <xs:element name="/***connectorportdesservers,derdenjobausführt*/serverport" type="xs:string" />
+        <xs:element name="/***ipsdesservers,derdenjobausführt*/serverip" type="xs:string" />
+        <xs:element name="/***rechnernamedesservers,derdenjobausführt*/servername" type="xs:string" />
+        <xs:element name="/***aktuellerstatusbzw.desjobs*/" type="xs:anyType" />
+        <xs:element name="/***fehlermeldungdesjobs*/fehlermeldung" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kommentar" >
+      <xs:sequence>
+        <xs:element name="/*---------------attribute----------------------------*//***iddeskommentars*/id" type="xs:long" />
+        <xs:element name="/***zudemderkommentargehört*/" type="vorgang" nillable="true" minOccurs="0" />
+        <xs:element name="/***textdeskommentars*/text" type="xs:string" />
+        <xs:element name="/***erstellungszeitdeskommentars*/datum" type="xs:dateTime" />
+        <xs:element name="/***letztebearbeitungdeskommentars*/zuletztbearbeitet" type="xs:dateTime" />
+        <xs:element name="anzbearbeitet" type="xs:anyType" />
+        <xs:element name="/***iddesbenutzer,derdenkommentarerstellthat*/nutzer" type="xs:string" />
+        <xs:element name="geloescht" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vorgangfeatures" >
+      <xs:sequence>
+        <xs:element name="/*---------------attribute----------------------------*//***fürdendiefeatureberechnetwurden*/" type="vorgang" nillable="true" minOccurs="0" />
+        <xs:element name="features" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lobhinweisekritik" >
+      <xs:sequence>
+        <xs:element name="/*---------------attribute----------------------------*//***id*/id" type="xs:long" />
+        <xs:element name="/***,zudemlob,hinweiseoderkritikgehören*/" type="vorgang" nillable="true" minOccurs="0" />
+        <xs:element name="/***e-mail-adressedessenders*/autoremail" type="xs:string" />
+        <xs:element name="/***e-mail-adressedesempfängers*/empfaengeremail" type="xs:string" />
+        <xs:element name="/***freitext*/freitext" type="xs:string" />
+        <xs:element name="/***erstellungszeit*/datum" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="benutzer" >
+      <xs:sequence>
+        <xs:element name="/*---------------attribute----------------------------*/id" type="xs:anyType" />
+        <xs:element name="/***benutzername*/benutzername" type="xs:string" />
+        <xs:element name="flaechen" type="flaeche" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="redaktionempfaenger" >
+      <xs:sequence>
+        <xs:element name="/*---------------attribute----------------------------*//***iddesempfängersvonredaktionellene-mails*/id" type="xs:anyType" />
+        <xs:element name="/***zugehörigkeitdesempfängerszueinerzuständigkeit*/zustaendigkeit" type="xs:string" />
+        <xs:element name="/***e-mail-adressedesempfängers*/email" type="xs:string" />
+        <xs:element name="/***eskalationsstufe,inderderempfängerredaktionellee-mailserhaltensoll*/stufe" type="xs:long" />
+        <xs:element name="/***tage,diezwischendemversendenredaktionellere-mailsandenempfängerverstreichensollen*/tagezwischenmails" type="xs:long" />
+        <xs:element name="/***zeitpunktdesletzenversandeseinerredaktionellene-mailandenempfänger*/letztemail" type="xs:dateTime" />
+        <xs:element name="/***sollempfängerauche-mailsmitlob,kritikundhinweisenempfangen?*/empfaengerlobhinweisekritik" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="georss" >
+      <xs:sequence>
+        <xs:element name="/*---------------attribute----------------------------*//***iddesfeeds*/id" type="xs:long" />
+        <xs:element name="/***überwachtefläche*/ovi" type="xs:anyType" />
+        <xs:element name="/***problemeüberwachen?*/probleme" type="xs:anyType" />
+        <xs:element name="/***listederüberwachtenhauptkategorienbeidenproblemen*/problemehauptkategorien" type="xs:string" />
+        <xs:element name="/***listederüberwachtenunterkategorienbeidenproblemen*/problemeunterkategorien" type="xs:string" />
+        <xs:element name="/***ideenüberwachen?*/ideen" type="xs:anyType" />
+        <xs:element name="/***listederüberwachtenhauptkategorienbeidenideen*/ideenhauptkategorien" type="xs:string" />
+        <xs:element name="/***listederüberwachtenunterkategorienbeidenideen*/ideenunterkategorien" type="xs:string" />
+        <xs:element name="/*---------------transient----------------------------*/" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="unterstuetzer" >
+      <xs:sequence>
+        <xs:element name="/*---------------attribute----------------------------*//***idderunterstützung*/id" type="xs:long" />
+        <xs:element name="/***zudemdieunterstützunggehört*/" type="vorgang" nillable="true" minOccurs="0" />
+        <xs:element name="/***hashzumbestatigenderunterstützung*/hash" type="xs:string" />
+        <xs:element name="/***erstellungszeitderunterstützung*/datum" type="xs:dateTime" />
+        <xs:element name="/***bestätigungszeitderunterstützung*/datumbestaetigung" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="flaeche" >
+      <xs:sequence>
+        <xs:element name="/*---------------attribute----------------------------*/id" type="xs:anyType" />
+        <xs:element name="/***kurzname*/kurzname" type="xs:string" />
+        <xs:element name="/***langname*/langname" type="xs:string" />
+        <xs:element name="/***stadtteilgrenze*/flaeche" type="xs:anyType" />
+        <xs:element name="benutzer" type="benutzer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="trashmail" >
+      <xs:sequence>
+        <xs:element name="/*---------------attribute----------------------------*//***iddertrash-e-mail*/id" type="xs:long" />
+        <xs:element name="/***patterndertrash-e-mail*/pattern" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="missbrauchsmeldung" >
+      <xs:sequence>
+        <xs:element name="/*---------------attribute----------------------------*//***iddermissbrauchsmeldung*/id" type="xs:long" />
+        <xs:element name="/***zudemdiemissbrauchsmeldunggehört*/" type="vorgang" nillable="true" minOccurs="0" />
+        <xs:element name="/***hashzumbestätigendermissbrauchsmeldung*/hash" type="xs:string" />
+        <xs:element name="/***textdermissbrauchsmeldung*/text" type="xs:string" />
+        <xs:element name="/***erstellungszeitdermissbrauchsmeldung*/datum" type="xs:dateTime" />
+        <xs:element name="/***zeitpunktderbestätigungdermissbrauchsmeldung*/datumbestaetigung" type="xs:dateTime" />
+        <xs:element name="/***zeitpunktderabbarbeitungdermissbrauchsmeldung*/datumabarbeitung" type="xs:dateTime" />
+        <xs:element name="/***e-mail-adressedessenders*/autoremail" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="foto" >
+      <xs:sequence>
+        <xs:element name="/*---------------attribute----------------------------*//***iddesfotos*/id" type="xs:long" />
+        <xs:element name="/***zudemdasfotogehört*/" type="vorgang" nillable="true" minOccurs="0" />
+        <xs:element name="/***hashzumbestätigendesfotos*/hash" type="xs:string" />
+        <xs:element name="/***foto*/fotogross" type="xs:string" />
+        <xs:element name="/***foto*/fotonormal" type="xs:string" />
+        <xs:element name="/***fotodesvorgangesalsvorschaubild*/fotothumb" type="xs:string" />
+        <xs:element name="/***erstellungszeitdesfotos*/datum" type="xs:dateTime" />
+        <xs:element name="/***zeitpunktderbestätigungdesfotos*/datumbestaetigung" type="xs:dateTime" />
+        <xs:element name="/***e-mail-adressedessenders*/autoremail" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="statuskommentarvorlage" >
+      <xs:sequence>
+        <xs:element name="/*---------------attribute----------------------------*//***iddervorlagenfürdenstatuskommentar*/id" type="xs:long" />
+        <xs:element name="/***titeldervorlagenfürdenstatuskommentar*/titel" type="xs:string" />
+        <xs:element name="/***textdervorlagenfürdenstatuskommentar*/text" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kategorie" >
+      <xs:sequence>
+        <xs:element name="/***idderkategorie*/id" type="xs:long" />
+        <xs:element name="/***typderkategorie*/typ" type="enumvorgangtyp" nillable="true" minOccurs="0" />
+        <xs:element name="/***namederkategorie*/name" type="xs:string" />
+        <xs:element name="/***übergeordnete*/parent" type="kategorie" nillable="true" minOccurs="0" />
+        <xs:element name="/***untergeordnetekategorien*/children" type="xs:anyType" />
+        <xs:element name="/***listevonintialenzuständigkeitenfürdievorgängemitderkategorie*/initialzustaendigkeiten" type="xs:anyType" />
+        <xs:element name="geloescht" type="xs:anyType" />
+        <xs:element name="/***-akte*/" type="d3" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="redaktionkriterien" >
+      <xs:sequence>
+        <xs:element name="/***iddesredaktionskriteriums*/id" type="xs:anyType" />
+        <xs:element name="/***eskalationsstufe*/stufe" type="xs:long" />
+        <xs:element name="/***tage,dievorgängemitdemstatus'offen',diebishernichtakzeptiertwurden,mindestens*zugewiesenseinsollen*/tageoffennichtakzeptiert" type="xs:long" />
+        <xs:element name="/***tage,dievorgängemitdemstatus'inbearbeitung',diebisherkeineöffentliche*statusinformationaufweisen,unverändertgebliebenseinsollen*/tageinbearbeitungohnestatuskommentar" type="xs:long" />
+        <xs:element name="/***tage,dieideenmitdemstatus'offen',diebishernichtdiezahldernotwendigen*unterstützungenaufweisen,seitdererstsichtungüberdauerthabensollen*/tageideeoffenohneunterstuetzung" type="xs:long" />
+        <xs:element name="/***tage,dievorgängemitdemstatus'inbearbeitung'sindundnichtabgeschlossenwurden*/tageinbearbeitung" type="xs:long" />
+        <xs:element name="/***vorgängeausweisenmitdemstatus'nichtlösbar'/'wirdnichtbearbeitet',diebisherkeineöffentliche*statusinformationaufweisen?*/nichtloesbarohnestatuskommentar" type="xs:anyType" />
+        <xs:element name="/***vorgängeausweisenmitdemstatus'offen',diebishernichtakzeptiertwurden?*/nichtmehroffennichtakzeptiert" type="xs:anyType" />
+        <xs:element name="/***vorgängeausweisen,dieihreerstsichtungbereitshintersichhaben,derenbeschreibunng*und/oderfotoabernochnichtfreigegebenwurde?*/ohneredaktionellefreigaben" type="xs:anyType" />
+        <xs:element name="/***vorgängeausweisen,dieaufgrundvonkommunikationsfehlernkeineeinträgeindendatenfeldern*'zustaendigkeit'und'zustaendigkeit_status'aufweisen?*/ohnezustaendigkeit" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vorganghistoryclasses" >
+      <xs:sequence>
+        <xs:element name="/*---------------attribute----------------------------*//***fürdiediebereitsverwendetenzuständigkeitenabgelegtwerden.*/" type="vorgang" nillable="true" minOccurs="0" />
+        <xs:element name="/***listevonbereitsverwendetenzuständigkeiten*/historyclasses" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="verlauf" >
+      <xs:sequence>
+        <xs:element name="/*---------------attribute----------------------------*//***idderverlaufeintrages*/id" type="xs:long" />
+        <xs:element name="/***zudemderverlaufeintraggehört*/" type="vorgang" nillable="true" minOccurs="0" />
+        <xs:element name="/***zeitpunktdesverlaufeintrages*/datum" type="xs:dateTime" />
+        <xs:element name="/***iddesbenutzers,derdenverlaufeintragverantwortet*/nutzer" type="xs:string" />
+        <xs:element name="/***typdesverlaufeintrages*/typ" type="enumverlauftyp" nillable="true" minOccurs="0" />
+        <xs:element name="/***alterwert(istabhängigvontypdesverlaufeintrages)*/wertalt" type="xs:string" />
+        <xs:element name="/***alterwert(istabhängigvontypdesverlaufeintrages)*/wertneu" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stadtteilgrenze" >
+      <xs:sequence>
+        <xs:element name="/*---------------attribute----------------------------*//***iddesstadtteils*/id" type="xs:anyType" />
+        <xs:element name="/***namedesstadtteils*/name" type="xs:string" />
+        <xs:element name="/***stadtteilgrenze*/grenze" type="xs:anyType" />
+        <xs:element name="/*---------------transient----------------------------*/" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

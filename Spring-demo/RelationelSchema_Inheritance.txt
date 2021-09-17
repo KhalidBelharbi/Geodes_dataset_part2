@@ -1,0 +1,15 @@
+
+permission(id:Integer [PK], permissionname:String, //一个权限对应一个角色:Role #FK to(role));
+
+user(id:Integer [PK], username:String, password:String);
+
+t_user_role(user_id:User [PK] #FK to User,role_id:list<role> [PK] #FK to list<role>);
+
+score(serialversionuid:long, id:int [PK], stuid:int, subjectname:String, score:float, examtime:Date);
+
+role(id:Integer [PK], rolename:String);
+
+t_user_role(role_id:Role [PK] #FK to Role,user_id:list<user> [PK] #FK to list<user>);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

@@ -1,0 +1,119 @@
+
+referencedata(id:Long [PK], assignedbanknumber:Short, GeneratedName:Account #FK to(account), amount:BigDecimal, checknumber:String, tracenumber:String, paid:Date, stop:Date, digest:String, GeneratedName:STATUS, itemtype:ITEM_TYPE, GeneratedName:FileMetaData #FK to(filemetadata), linenumber:String, stoppresented:Date, stoppresentedreason:String, GeneratedName:AuditInfo);
+
+workflow(id:Long [PK], name:String, version:Integer, xml:String);
+
+checklinkage(id:Long [PK], GeneratedName:LinkageType #FK to(linkagetype), linked:Check #FK to(check), actual:Check #FK to(check), GeneratedName:AuditInfo);
+
+userdetailfiltersearchvalue(serialversionuid:long, id:Long [PK], paramsequence:int, parametervalue:String, relationaloperator:String, GeneratedName:UserDetailDefinedFilter #FK to(userdetaildefinedfilter), GeneratedName:SearchParameter #FK to(searchparameter));
+
+filemetadata(exceptional_reference_data_file_name:String, exceptional_reference_data_original_file_name:String, exceptional_reference_data_upload_directory:String, manual_entry_file_name:String, manual_entry_original_file_name:String, migrated_file_name:String, migrated_original_file_name:String, manual_entry_upload_directory:String, manual_entry_checksum:String, exceptional_reference_data_checksum:String, serialversionuid:long, id:Long [PK], filename:String, uploaddirectory:String, filesize:long, originalfilename:String, itemsreceived:Long, GeneratedName:STATUS, checksum:String, GeneratedName:FileMapping #FK to(filemapping), GeneratedName:FileType #FK to(filetype), GeneratedName:AuditInfo);
+
+userdetaildefinedfilter(serialversionuid:long, id:Long [PK], name:String, description:String, GeneratedName:UserDetail #FK to(userdetail), GeneratedName:AuditInfo);
+
+role(id:Long [PK], /***thisisusedtoidentifytheroleprogramatically.thenameshouldbelike"admin","local_user"*/name:String, /***thiswillbeusedtoshowtotheuserthismaylooklike"admin","localuserdetail"*/description:String, isactive:boolean, label:String, GeneratedName:AuditInfo);
+
+role_permission(role_id:Role [PK] #FK to Role,permission_id:set<permission> [PK] #FK to set<permission>);
+
+exceptionstatus(serialversionuid:long, id:Long [PK], name:String, description:String, isactive:boolean, GeneratedName:AuditInfo);
+
+checkdetailcomment(serialversionuid:long, id:Long [PK], comment:String, GeneratedName:Check #FK to(check), GeneratedName:AuditInfo);
+
+userhistory(id:Long [PK], //considerthisforactionon(if"a"hasinactivted"b"then"b"willbeputintothiscolumn:UserDetail #FK to(userdetail), GeneratedName:UserActivity #FK to(useractivity), usercomment:String, systemcomment:String, GeneratedName:AuditInfo);
+
+company(serialversionuid:long, id:Long [PK], name:String, federaltaxid:String, branchname:String, accountforanalysis:String, timezone:String, isactive:Boolean, GeneratedName:Bank #FK to(bank), GeneratedName:DecisionWindow #FK to(decisionwindow), GeneratedName:AuditInfo);
+
+searchparameter(serialversionuid:long, id:Long [PK], name:String, GeneratedName:AuditInfo);
+
+reporttemplate(id:Long [PK], name:String, templatefilename:String, isinternal:Boolean, isexternal:Boolean, GeneratedName:ReportTemplateType #FK to(reporttemplatetype), accountserviceoption:String, GeneratedName:AuditInfo);
+
+jobstep(serialversionuid:long, id:Long [PK], name:String, description:String, GeneratedName:JobActionType #FK to(jobactiontype), sequence:Byte, GeneratedName:Job #FK to(job), GeneratedName:JobType #FK to(jobtype), GeneratedName:AuditInfo);
+
+check(serialversionuid:long, id:Long [PK], GeneratedName:CheckStatus #FK to(checkstatus), routingnumber:String, checknumber:String, issue:Date, void:Date, issuedamount:BigDecimal, voidamount:BigDecimal, payee:String, digest:String, matchstatus:String, stale:Date, GeneratedName:Workflow #FK to(workflow), GeneratedName:Action #FK to(action), GeneratedName:Account #FK to(account), GeneratedName:FileMetaData #FK to(filemetadata), GeneratedName:ReferenceData #FK to(referencedata), parent:Check #FK to(check), GeneratedName:LinkageType #FK to(linkagetype), linenumber:String, GeneratedName:ItemType #FK to(itemtype), GeneratedName:ExceptionType #FK to(exceptiontype), GeneratedName:ExceptionStatus #FK to(exceptionstatus), paymentstatus:String, exceptioncreation:Date, exceptionresolved:Date, GeneratedName:AuditInfo);
+
+action(id:Long [PK], name:String, description:String, actiontype:ACTION_TYPE, version:Integer, isanadminaction:Boolean, GeneratedName:AuditInfo);
+
+jobhistory(serialversionuid:long, id:Long [PK], GeneratedName:Job #FK to(job), actualstarttime:Date, actualendtime:Date, scheduledstart:Date, executingonmachine:String, GeneratedName:JobStatusType #FK to(jobstatustype), GeneratedName:AuditInfo);
+
+jobstephistory(serialversionuid:long, id:Long [PK], executingonmachine:String, actualstarttime:Date, actualendtime:Date, numberitemsprocessed:Long, numberoferrors:Long, comments:String, GeneratedName:Job #FK to(job), GeneratedName:JobStatusType #FK to(jobstatustype), GeneratedName:JobStep #FK to(jobstep), GeneratedName:AuditInfo);
+
+job(serialversionuid:long, id:Long [PK], name:String, description:String, frequency:String, start:Date, starttime:String, end:Date, endtime:String, nextrun:Date, lastrun:Date, isindefinite:boolean, isweekly:boolean, isactive:boolean, runday:String, timezone:String, intervaltime:String, cronexpression:String, GeneratedName:AuditInfo);
+
+accounttype(serialversionuid:long, id:Long [PK], name:String, description:String, isactive:boolean, GeneratedName:AuditInfo);
+
+bank(serialversionuid:long, id:Long [PK], name:String, routingnumber:String, assignedbanknumber:Short, parent:Bank #FK to(bank), GeneratedName:Address, contactphone:String, websiteurl:String, logopathfilename:String, active:Boolean, GeneratedName:AuditInfo);
+
+account(serialversionuid:long, id:Long [PK], number:String, name:String, GeneratedName:Company #FK to(company), staledays:int, GeneratedName:AccountType #FK to(accounttype), open:Date, fileinputmethod:String, reportoutputmethod:String, dataoutputmethod:String, defaultppdecision:String, GeneratedName:PaymentType #FK to(paymenttype), GeneratedName:AccountCycleCutOff #FK to(accountcyclecutoff), GeneratedName:AccountServiceOption #FK to(accountserviceoption), isactive:boolean, GeneratedName:Bank #FK to(bank), GeneratedName:AuditInfo);
+
+adjustmentcheck(id:Long [PK], GeneratedName:Check #FK to(check), GeneratedName:LinkageType #FK to(linkagetype), amount:BigDecimal, digest:String, GeneratedName:AuditInfo);
+
+exceptionalreferencedata(serialversionuid:long, id:Long [PK], assignedbanknumber:Short, amount:String, checknumber:String, tracenumber:String, paiddate:String, stopdate:String, itemtype:ReferenceData.ITEM_TYPE, linenumber:String, exceptionstatus:EXCEPTION_STATUS, accountnumber:String, stoppresenteddate:String, stoppresentedreason:String, GeneratedName:FileMetaData #FK to(filemetadata), GeneratedName:ExceptionType #FK to(exceptiontype), GeneratedName:ReferenceData #FK to(referencedata), GeneratedName:AuditInfo);
+
+checkhistory(serialversionuid:long, id:Long [PK], routingnumber:String, checknumber:String, issue:Date, checkamount:BigDecimal, issuedamount:BigDecimal, payee:String, systemcomment:String, usercomment:String, matchstatus:String, stale:Date, void:Date, voidamount:BigDecimal, source:String, GeneratedName:CheckStatus #FK to(checkstatus), former:CheckStatus #FK to(checkstatus), target:CheckStatus #FK to(checkstatus), GeneratedName:Check #FK to(check), GeneratedName:Action #FK to(action), GeneratedName:ReferenceData #FK to(referencedata), GeneratedName:LinkageType #FK to(linkagetype), GeneratedName:Account #FK to(account), GeneratedName:ItemType #FK to(itemtype), GeneratedName:ExceptionType #FK to(exceptiontype), paymentstatus:String, exceptioncreation:Date, exceptionresolved:Date, GeneratedName:AdjustmentCheck #FK to(adjustmentcheck), GeneratedName:AuditInfo);
+
+ssoattribute(id:Long [PK], GeneratedName:Sso #FK to(sso), name:String, value:String);
+
+sso(id:Long [PK], uid:String, GeneratedName:Status, createtimeinmillis:Long);
+
+paymenttype(serialversionuid:long, id:Long [PK], name:String, description:String, isactive:boolean, GeneratedName:AuditInfo);
+
+checkstatus(serialversionuid:long, start_status_name:String, issued_status_name:String, paid_status_name:String, stop_status_name:String, stale_status_name:String, void_status_name:String, void_paid_status_name:String, void_not_issued:String, duplicate_paid_status_name:String, duplicate_stop_status_name:String, paid_not_issued:String, stop_after_void:String, stale_paid:String, stale_stop:String, invalid_amount_paid:String, invalid_amount_stop:String, id:Long [PK], name:String, description:String, version:Integer, isexceptionalstatus:Boolean, GeneratedName:AuditInfo);
+
+jobactiontype(serialversionuid:long, id:Long [PK], name:String, description:String, springbeanname:String, GeneratedName:JobType #FK to(jobtype), GeneratedName:AuditInfo);
+
+itemtype(serialversionuid:long, id:Long [PK], name:String, description:String, debitcreditsign:String, itemcode:String, isactive:boolean, GeneratedName:AuditInfo);
+
+filemapping(serialversionuid:long, id:Long [PK], routingnumberposition:String, accountnumberposition:String, checknumberposition:String, issuecodeposition:String, issuedateposition:String, checkamountposition:String, payeeposition:String, filetype:String, filemappingname:String, GeneratedName:Company #FK to(company), GeneratedName:Delimiter #FK to(delimiter), GeneratedName:AuditInfo);
+
+contact(id:Long [PK], GeneratedName:Company #FK to(company), name:String, phone:String, fax:String, email:String, address1:String, address2:String, zip:String, city:String, state:String, isprimarycontact:Boolean, GeneratedName:AuditInfo);
+
+accountserviceoption(serialversionuid:long, id:Long [PK], name:String, description:String, isactive:boolean, GeneratedName:AuditInfo);
+
+jobexecutionlocker(serialversionuid:long, id:Long [PK], GeneratedName:Job #FK to(job), scheduledstarttime:Date, actualstarttime:Date, endtime:Date, isrunning:boolean, executingonmachine:String, GeneratedName:AuditInfo);
+
+reason(serialversionuid:long, id:Long [PK], name:String, description:String, isactive:boolean, ispay:boolean, GeneratedName:AuditInfo);
+
+jobcriteriadata(serialversionuid:long, id:Long [PK], GeneratedName:JobStep #FK to(jobstep), criterianame:CRITERIA_NAME, value:String, GeneratedName:AuditInfo);
+
+permission(id:Long [PK], GeneratedName:NAME, description:String, label:String, GeneratedName:TYPE, GeneratedName:AuditInfo);
+
+useractivity(id:Long [PK], name:String, description:String);
+
+linkagetype(id:Long [PK], GeneratedName:NAME, description:String, GeneratedName:AuditInfo);
+
+exceptiontype(serialversionuid:long, id:Long [PK], exceptiontype:EXCEPTION_TYPE, description:String, label:String, isactive:boolean, GeneratedName:AuditInfo);
+
+report(id:Long [PK], name:String, asof:Date, asofdateissymbolic:Boolean, asofdatesymbolicvalue:String, outputformat:String, GeneratedName:ReportTemplate #FK to(reporttemplate), GeneratedName:UserDetail #FK to(userdetail), GeneratedName:AuditInfo);
+
+accountcyclecutoff(serialversionuid:long, id:Long [PK], name:String, description:String, isactive:boolean, GeneratedName:AuditInfo);
+
+reportparameteroptionvalue(id:Long [PK], operator:String, valuechar:String, valuestart:Date, valueend:Date, valuedateissymbolic:Boolean, valuedatestartsymbolicvalue:String, valuedateendsymbolicvalue:String, GeneratedName:Report #FK to(report), GeneratedName:ReportParameterOption #FK to(reportparameteroption));
+
+userdetail(id:Long [PK], firstname:String, lastname:String, username:String, corporateusername:String, password:String, email:String, isactive:boolean, locked:boolean, institutionid:String, base:Role #FK to(role), GeneratedName:AuditInfo);
+
+user_detail_account(user_detail_id:UserDetail [PK] #FK to UserDetail,account_id:set<account> [PK] #FK to set<account>);user_detail_permission(user_detail_id:UserDetail [PK] #FK to UserDetail,permission_id:set<permission> [PK] #FK to set<permission>);
+
+filetype(id:Long [PK], description:String, name:FILE_TYPE, GeneratedName:AuditInfo);
+
+exceptionalcheck(serialversionuid:long, id:Long [PK], accountnumber:String, routingnumber:String, checknumber:String, issuecode:String, issuedate:String, issuedamount:String, payee:String, linenumber:String, GeneratedName:ExceptionStatus #FK to(exceptionstatus), checkstatus:CHECK_STATUS, GeneratedName:FileMetaData #FK to(filemetadata), GeneratedName:ExceptionType #FK to(exceptiontype), GeneratedName:AuditInfo);
+
+reporttemplatetype(id:Long [PK], name:String, GeneratedName:AuditInfo);
+
+jobstatustype(serialversionuid:long, id:Long [PK], name:String, isactive:boolean, statuscode:String, GeneratedName:AuditInfo);
+
+delimiter(serialversionuid:long, comma:String, single_space:String, double_space:String, pipe:String, id:Long [PK], name:String, value:String, symbol:String, GeneratedName:AuditInfo);
+
+systemmessage(id:Long [PK], GeneratedName:TYPE, starttime:Date, endtime:Date, message:String, GeneratedName:AuditInfo);
+
+jobtype(serialversionuid:long, id:Long [PK], name:String, isactive:boolean, GeneratedName:AuditInfo);
+
+reportparameteroption(id:Long [PK], name:String, displayname:String, datatype:String);
+
+report_template_parameter_option(report_parameter_option_id:ReportParameterOption [PK] #FK to ReportParameterOption,report_template_id:set<reporttemplate> [PK] #FK to set<reporttemplate>);
+
+decisionwindow(serialversionuid:long, id:Long [PK], startwindow:Time, endwindow:Time, timezone:String, decisionwindow:Date, GeneratedName:AuditInfo);
+
+reportbankcompanyaccountparameter(id:Long [PK], GeneratedName:Bank #FK to(bank), GeneratedName:Company #FK to(company), GeneratedName:Account #FK to(account), GeneratedName:Report #FK to(report), GeneratedName:AuditInfo);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

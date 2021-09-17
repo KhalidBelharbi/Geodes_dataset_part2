@@ -1,0 +1,193 @@
+homepageoffers(/***/serialversionuid:long, id:Long [PK], categoryname:String, sectionname:String, subcategoryname:String, description:String, categorytitle:String, discount:Integer, /*@column(name:String);
+
+customizations(/***/serialversionuid:long, id:Long [PK], customizationid:String, header:String, subheader:String);
+
+workerrating(/***/serialversionuid:long, id:Integer [PK], rating:Integer, ratingdesc:String, servicesworker:CompanyService #FK to(CompanyService), GeneratedName:Customer #FK to(customer), create:Date);
+
+services(serialversionuid:long, default_store:String, id:Integer [PK], servicetype:String, imageurl1:String, imageurl2:String, description:String);
+
+companyservice(/***/serialversionuid:long, id:Integer [PK], GeneratedName:Services #FK to(Services), /*@column(name:String, housenumber:String, street:String, area:String, city:String, state:String, pincode:String, country:String, imageurl:String, websitename:String, contactnumber:String);
+
+postrequirement(/***/serialversionuid:long, id:Long [PK], state:String, query:String, customerid:Long, categoryid:Long, responsemessage:String, posted:Date);
+
+product(serialversionuid:long, id:Long [PK], GeneratedName:AuditSection, GeneratedName:MerchantStore #FK to(merchantstore), available:Date, available:boolean, preorder:boolean, GeneratedName:Manufacturer #FK to(Manufacturer), type:ProductType #FK to(Product), GeneratedName:TaxClass #FK to(TaxClass), productvirtual:boolean, productshipeable:boolean, productisfree:boolean, productlength:BigDecimal, productwidth:BigDecimal, productheight:BigDecimal, productweight:BigDecimal, productreviewavg:BigDecimal, productreviewcount:Integer, productordered:Integer, sortorder:Integer, sku:String, /***externalsystemreferencesku/id*/refsku:String);
+
+product_category(product_id:Product [PK] #FK to Product,category_id:Category [PK] #FK to Category);product_filter(product_id:Product [PK] #FK to Product,filter_id:Filter [PK] #FK to Filter);
+
+productreview(serialversionuid:long, id:Long [PK], audit:AuditSection, reviewrating:Double, reviewread:Long, review:Date, status:Integer, GeneratedName:Customer #FK to(customer), GeneratedName:Product #FK to(Product), descriptionname:String, description:String);
+
+productreviewdescription(serialversionuid:long, GeneratedName:ProductReview #FK to(Product));
+
+productimagedescription(serialversionuid:long, GeneratedName:ProductImage #FK to(Product), alttag:String);
+
+productimage(serialversionuid:long, id:Long [PK], productimage:String, defaultimage:boolean, /***defaultto0forimagesmanagedbythesystem*/imagetype:int, /***referstoimagesnotaccessiblethroughthesystem.itmayalsobeavideo.*/productimageurl:String, imagecrop:boolean, GeneratedName:Product #FK to(Product));
+
+productavailability(serialversionuid:long, id:Long [PK], GeneratedName:Product #FK to(Product), productquantity:Integer, productavailable:Date, region:String, regionvariant:String, productstatus:boolean, productisalwaysfreeshipping:boolean, productquantityordermin:Integer, productquantityordermax:Integer);
+
+productprice(serialversionuid:long, default_price_code:String, id:Long [PK], code:String, productpriceamount:BigDecimal, GeneratedName:ProductPriceType, defaultprice:boolean, productpricespecialstart:Date, productpricespecialend:Date, productpricespecialamount:BigDecimal, productdiscountpercentage:BigDecimal, GeneratedName:ProductAvailability #FK to(Product), dealofday:String, featuredproduct:String, recentlybought:String, newproduct:String, recommendedproduct:String);
+
+productpricedescription(serialversionuid:long, default_price_description:String, GeneratedName:ProductPrice #FK to(Product));
+
+producttype(serialversionuid:long, general_type:String, id:Long [PK], GeneratedName:AuditSection, code:String, allowaddtocart:Boolean);
+
+testfilter(serialversionuid:long, id:Long [PK], filtername:String);
+
+filter(serialversionuid:long, id:Long [PK], GeneratedName:Category #FK to(Category), filtername:String);
+
+filtertype(serialversionuid:long, id:Long [PK], GeneratedName:Filter #FK to(Filter), filtertypename:String);
+
+productrelationship(serialversionuid:long, id:Long [PK], store:MerchantStore #FK to(merchantstore), GeneratedName:Product #FK to(Product), related:Product #FK to(Product), code:String, active:boolean);
+
+productoption(serialversionuid:long, id:Long [PK], productoptionsortorder:Integer, productoptiontype:String, GeneratedName:MerchantStore #FK to(merchantstore), readonly:boolean, //@index(name:String);
+
+productoptionvaluedescription(serialversionuid:long, GeneratedName:ProductOptionValue #FK to(Product));
+
+productattribute(serialversionuid:long, id:Long [PK], productattributeprice:BigDecimal, productoptionsortorder:Integer, productattributeisfree:boolean, productattributeweight:BigDecimal, attributedefault:boolean, attributerequired:boolean, /***areadonlyattributeisconsideredasacoreattributeaddition*/attributedisplayonly:boolean, attributediscounted:boolean, GeneratedName:ProductOption #FK to(Product), GeneratedName:ProductOptionValue #FK to(Product), GeneratedName:Product #FK to(Product));
+
+productoptiondescription(serialversionuid:long, GeneratedName:ProductOption #FK to(Product), productoptioncomment:String);
+
+productoptionvalue(serialversionuid:long, id:Long [PK], productoptionvaluesortorder:Integer, productoptionvalueimage:String, productoptiondisplayonly:boolean, code:String, GeneratedName:MerchantStore #FK to(merchantstore));
+
+manufacturerdescription(serialversionuid:long, GeneratedName:Manufacturer #FK to(Manufacturer), url:String, urlclicked:Integer, lastclick:Date);
+
+manufacturer(serialversionuid:long, id:Long [PK], GeneratedName:AuditSection, image:String, order:Integer, GeneratedName:MerchantStore #FK to(merchantstore), code:String);
+
+productdescription(serialversionuid:long, GeneratedName:Product #FK to(Product), producthighlight:String, productexternaldl:String, seurl:String, metatagtitle:String, metatagkeywords:String, metatagdescription:String);
+
+digitalproduct(serialversionuid:long, id:Long [PK], GeneratedName:Product #FK to(Product), productfilename:String);
+
+category(serialversionuid:long, id:Long [PK], GeneratedName:AuditSection, GeneratedName:MerchantStore #FK to(merchantstore), parent:Category #FK to(Category), categoryimage:String, categoryimage1:String, sortorder:Integer, categorystatus:boolean, visible:boolean, depth:Integer, lineage:String, code:String, preferenceorder:Integer);
+
+subcategoryimage(/***/serialversionuid:long, id:Long [PK], subcategoryimageurl:String, GeneratedName:Category #FK to(Category));
+
+categorydescription(serialversionuid:long, GeneratedName:Category #FK to(Category), seurl:String, categoryhighlight:String, metatagtitle:String, metatagkeywords:String, metatagdescription:String);
+
+historymanagement(/***/serialversionuid:long, id:Long [PK], productid:Long, productname:String, productprice:BigDecimal, productdiscountprice:BigDecimal, productpricestart:Date, productpriceend:Date, enablefor:String);
+
+language(serialversionuid:long, id:Integer [PK], GeneratedName:AuditSection, code:String, sortorder:Integer);
+
+geozone(serialversionuid:long, id:Long [PK], name:String, code:String);
+
+geozonedescription(serialversionuid:long, GeneratedName:GeoZone #FK to(GeoZone));
+
+zone(serialversionuid:long, id:Long [PK], GeneratedName:Country #FK to(Country), code:String);
+
+zonedescription(serialversionuid:long, GeneratedName:Zone #FK to(Zone));
+
+country(serialversionuid:long, id:Integer [PK], GeneratedName:GeoZone #FK to(GeoZone), supported:boolean, isocode:String);
+
+countrydescription(serialversionuid:long, GeneratedName:Country #FK to(Country));
+
+currency(serialversionuid:long, id:Long [PK], currency:java.util.Currency, supported:Boolean, code:String, name:String);
+
+vendorproduct(/***/serialversionuid:long, id:Long [PK], GeneratedName:Product #FK to(Product), GeneratedName:Customer #FK to(customer), created:Date, adminactivated:Boolean, adminactivated:Date, vendorwishlisted:Boolean);
+
+orderstatushistory(serialversionuid:long, id:Long [PK], GeneratedName:Order #FK to(Order), status:OrderStatus, added:Date, customernotified:java.lang.Integer, comments:String);
+
+order(/***/serialversionuid:long, id:Long [PK], status:OrderStatus, lastmodified:Date, //thecustomerobjectcanbedetached.anordercanexistandthecustomerdeletedcustomerid:Long, purchased:Date, //usedforanorderpayableonmultipleinstallmentorderfinished:Date, //whatwastheexchangerate//default1-1currencyvalue:BigDecimal, total:BigDecimal, ipaddress:String, channel:OrderChannel, GeneratedName:OrderType, GeneratedName:PaymentType, paymentmodulecode:String, shippingmodulecode:String, customeragreement:Boolean, confirmedaddress:Boolean, GeneratedName:Delivery, GeneratedName:Billing, GeneratedName:CreditCard, GeneratedName:Currency #FK to(Currency), GeneratedName:Locale, merchant:MerchantStore #FK to(merchantstore), shippingcharges:Long, customeremailaddress:String);
+
+orderaccount(serialversionuid:long, id:Long [PK], GeneratedName:Order #FK to(Order), orderaccountstart:Date, orderaccountend:Date, orderaccountbillday:Integer);
+
+orderaccountproduct(serialversionuid:long, orderaccountproductid:Long [PK], GeneratedName:OrderAccount #FK to(Order), GeneratedName:OrderProduct #FK to(Product), orderaccountproductstart:Date, orderaccountproductend:Date, orderaccountproducteot:Date, orderaccountproductaccounted:Date, orderaccountproductlaststatus:Date, orderaccountproductlasttransactionstatus:Integer, orderaccountproductpaymentfrequencytype:Integer, orderaccountproductstatus:Integer);
+
+orderproductdownload(serialversionuid:long, default_download_max_days:int, id:Long [PK], GeneratedName:OrderProduct #FK to(Product), orderproductfilename:String, maxdays:Integer, downloadcount:Integer);
+
+orderproductattribute(serialversionuid:long, id:Long [PK], productattributeprice:BigDecimal, productattributeisfree:boolean, productattributeweight:java.math.BigDecimal, GeneratedName:OrderProduct #FK to(Product), productoptionid:Long, productoptionvalueid:Long, productattributename:String, productattributevaluename:String);
+
+orderproductprice(serialversionuid:long, id:Long [PK], GeneratedName:OrderProduct #FK to(Product), productpricecode:String, productprice:BigDecimal, productpricespecial:BigDecimal, productpricespecialstart:Date, productpricespecialend:Date, defaultprice:Boolean, productpricename:String);
+
+orderproduct(serialversionuid:long, id:Long [PK], sku:String, productname:String, productquantity:int, onetimecharge:BigDecimal, GeneratedName:Order #FK to(Order), vendorid:Long, //addedspecifictoproductslikewallpapersproductcategory:String, productid:Long);
+
+ordertotal(serialversionuid:long, id:Long [PK], //shipping,taxordertotalcode:String, title:String, text:String, value:BigDecimal, module:String, GeneratedName:OrderValueType, GeneratedName:OrderTotalType, sortorder:int, GeneratedName:Order #FK to(Order));
+
+filehistory(serialversionuid:long, id:Long [PK], store:MerchantStore #FK to(merchantstore), fileid:Long, filesize:Integer, added:Date, deleted:Date, accounted:Date, downloadcount:Integer);
+
+taxrate(serialversionuid:long, id:Long [PK], GeneratedName:AuditSection, taxpriority:Integer, taxrate:BigDecimal, code:String, piggyback:boolean, GeneratedName:TaxClass #FK to(TaxClass), GeneratedName:MerchantStore #FK to(merchantstore), GeneratedName:Country #FK to(Country), GeneratedName:Zone #FK to(Zone), stateprovince:String, parent:TaxRate #FK to(TaxRate));
+
+taxratedescription(serialversionuid:long, GeneratedName:TaxRate #FK to(TaxRate));
+
+taxclass(serialversionuid:long, default_tax_class:String, id:Long [PK], code:String, title:String, /*	@manytomany(fetch:MerchantStore #FK to(merchantstore));
+
+shoppingcart(serialversionuid:long, GeneratedName:AuditSection, id:Long [PK], /***willbeusedtofetchshoppingcartmodelfromthecontroller*thisisauniquecodethatshouldbeattributedfromtheclient(ui)*/shoppingcartcode:String, GeneratedName:MerchantStore #FK to(merchantstore), customerid:Long, shippingcharges:Long);
+
+shoppingcartitem(serialversionuid:long, id:Long [PK], GeneratedName:ShoppingCart #FK to(ShoppingCart), quantity:Integer, GeneratedName:AuditSection, productid:Long, vendorid:Long, //addedspecifictoproductslikewallpapersproductcategory:String);
+
+shoppingcartattributeitem(serialversionuid:long, id:Long [PK], GeneratedName:AuditSection, productattributeid:Long, GeneratedName:ShoppingCartItem #FK to(ShoppingCart));
+
+contentdescription(/***/serialversionuid:long, GeneratedName:Content #FK to(content), seurl:String, metatagkeywords:String, metatagtitle:String, metatagdescription:String);
+
+content(serialversionuid:long, id:Long [PK], GeneratedName:AuditSection, GeneratedName:MerchantStore #FK to(merchantstore), code:String, visible:boolean, GeneratedName:ContentPosition, //usedforgrouping//box,section,page:ContentType, sortorder:Integer, //apagecancontainoneproductlistingproductgroup:String);
+
+user(serialversionuid:long, id:Long [PK], adminname:String, adminemail:String, adminpassword:String, GeneratedName:MerchantStore #FK to(merchantstore), firstname:String, active:boolean, lastname:String, default:Language #FK to(Language), question1:String, question2:String, question3:String, answer1:String, answer2:String, answer3:String, GeneratedName:AuditSection, lastaccess:Date, logintime:Date);
+
+user_group(user_id:User [PK] #FK to User,group_id:list<group> [PK] #FK to list<group>);
+
+permission(serialversionuid:long, id:Integer [PK], permissionname:String, GeneratedName:AuditSection);
+
+permission_group(permission_id:Permission [PK] #FK to Permission,group_id:list<group> [PK] #FK to list<group>);
+
+group(/***/serialversionuid:long, id:Integer [PK], GeneratedName:GroupType, groupname:String, GeneratedName:AuditSection);
+
+userupdates(/***/serialversionuid:long, id:Long [PK], emailaddress:String);
+
+transaction(GeneratedName:Logger, /***/serialversionuid:long, id:Long [PK], GeneratedName:AuditSection, GeneratedName:Order #FK to(Order), amount:BigDecimal, transaction:Date, GeneratedName:TransactionType, GeneratedName:PaymentType, details:String);
+
+description(serialversionuid:long, id:Long [PK], GeneratedName:AuditSection, GeneratedName:Language #FK to(Language), name:String, title:String, description:String);
+
+brandimage(/***/serialversionuid:long, id:Long [PK], image:String, name:String, status:String);
+
+merchantstore(serialversionuid:long, default_store:String, id:Integer [PK], storename:String, code:String, storephone:String, storeaddress:String, storecity:String, storepostalcode:String, GeneratedName:Country #FK to(Country), GeneratedName:Zone #FK to(Zone), storestateprovince:String, weightunitcode:String, seizeunitcode:String, inbusinesssince:Date, default:Language #FK to(Language), usecache:boolean, storetemplate:String, invoicetemplate:String, domainname:String, continueshoppingurl:String, storeemailaddress:String, storelogo:String, GeneratedName:Currency #FK to(Currency), currencyformatnational:boolean);
+
+merchant_language(MerchantStore_ID:MerchantStore [PK] #FK to MerchantStore,Language_ID:Language [PK] #FK to Language);
+
+servicesbooking(/***/serialversionuid:long, id:Long [PK], booking:Date, GeneratedName:Customer #FK to(customer), service:Customer #FK to(customer), servicetype:Services #FK to(Services), comment:String, status:String, contactinfo:String, appointment:Date, query:String);
+
+machineryportfolio(/***/serialversionuid:long, id:Long [PK], create:Date, GeneratedName:Customer #FK to(customer), portfolioname:String, imageurl:String, status:String, equipmentname:String, equipmentprice:BigDecimal, hiringtype:String);
+
+servicesrating(/***/serialversionuid:long, id:Long [PK], create:Date, rating:Integer, reviewdescription:String, reviewtitle:String, GeneratedName:Customer #FK to(customer), service:Customer #FK to(customer), servicetype:Services #FK to(Services));
+
+vendorrating(/***/serialversionuid:long, id:Long [PK], create:Date, rating:Integer, reviewdescription:String, reviewtitle:String, GeneratedName:Customer #FK to(customer), vendor:Customer #FK to(customer));
+
+vendorbooking(/***/serialversionuid:long, id:Long [PK], booking:Date, GeneratedName:Customer #FK to(customer), vendor:Customer #FK to(customer), comment:String, status:String, appointment:Date, description:String, address:String, closing:Date, portfolioid:Long);
+
+architectsportfolio(/***/serialversionuid:long, id:Long [PK], create:Date, GeneratedName:Customer #FK to(customer), portfolioname:String, imageurl:String, status:String);
+
+customer(serialversionuid:long, id:Long [PK], gender:CustomerGender, ofbirth:Date, emailaddress:String, nick:String, company:String, password:String, anonymous:boolean, customertype:String, activated:String, ofid:String, userprofile:String, default:Language #FK to(Language), GeneratedName:MerchantStore #FK to(merchantstore), GeneratedName:Delivery, GeneratedName:SecondaryDelivery, GeneratedName:Billing, vendorattrs:VendorAttributes, area:String, isadmin:String, issuperadmin:String, isvendoractivated:String, gst:String, avgreview:BigDecimal, file1:String, file2:String, file3:String);
+
+customer_group(customer_id:Customer [PK] #FK to Customer,group_id:list<group> [PK] #FK to list<group>);customer_services(customer_id:Customer [PK] #FK to Customer,id:Services [PK] #FK to Services);vendor_prof_services(customer_id:Customer [PK] #FK to Customer,category_id:Category [PK] #FK to Category);
+
+customeroptiondescription(serialversionuid:long, GeneratedName:CustomerOption #FK to(customeroption), customeroptioncomment:String);
+
+customeroptionset(/***/serialversionuid:long, id:Long [PK], GeneratedName:CustomerOption #FK to(customeroption), GeneratedName:CustomerOptionValue #FK to(customeroptionvalue), sortorder:Integer);
+
+customeroptionvaluedescription(serialversionuid:long, GeneratedName:CustomerOptionValue #FK to(customeroptionvalue));
+
+customeroption(serialversionuid:long, id:Long [PK], sortorder:Integer, customeroptiontype:String, //@index(name:String, active:boolean, publicoption:boolean, GeneratedName:MerchantStore #FK to(merchantstore));
+
+customerattribute(serialversionuid:long, id:Long [PK], GeneratedName:CustomerOption #FK to(customeroption), GeneratedName:CustomerOptionValue #FK to(customeroptionvalue), textvalue:String, GeneratedName:Customer #FK to(customer));
+
+customeroptionvalue(serialversionuid:long, id:Long [PK], sortorder:Integer, customeroptionvalueimage:String, code:String, GeneratedName:MerchantStore #FK to(merchantstore));
+
+customertestimonial(/***/serialversionuid:long, id:Long [PK], description:String, descriptiontitle:String, GeneratedName:Customer #FK to(customer), status:String);
+
+wallpaperportfolio(/***/serialversionuid:long, id:Long [PK], create:Date, GeneratedName:Customer #FK to(customer), portfolioname:String, imageurl:String, price:BigDecimal, size:String, thickness:String, brand:String, status:String, servicecharges:BigDecimal);
+
+shippingorigin(/***/serialversionuid:long, id:Long [PK], active:boolean, GeneratedName:MerchantStore #FK to(merchantstore), address:String, city:String, postalcode:String, state:String, GeneratedName:Country #FK to(Country), GeneratedName:Zone #FK to(Zone));
+
+merchantconfiguration(/***/serialversionuid:long, id:Long [PK], GeneratedName:MerchantStore #FK to(merchantstore), GeneratedName:AuditSection, key:String, value:String, GeneratedName:MerchantConfigurationType);
+
+systemconfiguration(serialversionuid:long, id:Long [PK], key:String, value:String, GeneratedName:AuditSection);
+
+customeroptin(/***/serialversionuid:long, id:Long [PK], optin:Date, GeneratedName:Optin #FK to(optin), firstname:String, lastname:String, email:String, value:String);
+
+optin(/***/serialversionuid:long, id:Long [PK], start:Date, end:Date, merchant:MerchantStore #FK to(merchantstore), code:String, description:String);
+
+merchantlog(/***/serialversionuid:long, id:Long [PK], store:MerchantStore #FK to(merchantstore), module:String, log:String);
+
+integrationmodule(/***/serialversionuid:long, id:Long [PK], module:String, code:String, regions:String, configuration:String, configdetails:String, type:String, image:String, custommodule:boolean, GeneratedName:AuditSection);
+
+systemnotification(/***/serialversionuid:long, id:Long [PK], key:String, value:String, GeneratedName:MerchantStore #FK to(merchantstore), GeneratedName:User #FK to(user), start:Date, end:Date, GeneratedName:AuditSection);
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

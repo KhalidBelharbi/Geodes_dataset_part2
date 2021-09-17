@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="transaction" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="findall" type="xs:string" />
+          <xs:element name="" type="xs:dateTime" />
+          <xs:element name="" type="account" nillable="true" minOccurs="0" />
+          <xs:element name="transactiontype" type="xs:string" />
+          <xs:element name="amount" type="xs:double" />
+          <xs:element name="sender" type="xs:string" />
+          <xs:element name="details" type="xs:string" />
+          <xs:element name="status" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="beneficiary" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="findall" type="xs:string" />
+          <xs:element name="iban" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="details" type="xs:string" />
+          <xs:element name="accountholder" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="device" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="deviceid" type="xs:long" />
+          <xs:element name="" type="customer" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseentity" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="findall" type="xs:string" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="version" type="xs:anyType" />
+        <xs:element name="deleted" type="xs:long" />
+        <xs:element name="//@notnullcreation" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="account" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="findall" type="xs:string" />
+          <xs:element name="iban" type="xs:string" />
+          <xs:element name="amount" type="xs:double" />
+          <xs:element name="" type="customer" nillable="true" minOccurs="0" />
+          <xs:element name="" type="currency" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="findallroles" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customer" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="findall" type="xs:string" />
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="lastname" type="xs:string" />
+          <xs:element name="login" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="" type="role" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="currency" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="findallcurrency" type="xs:string" />
+          <xs:element name="symbol" type="xs:string" />
+          <xs:element name="exchangerate" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

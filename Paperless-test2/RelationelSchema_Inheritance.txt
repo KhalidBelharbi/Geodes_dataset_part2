@@ -1,0 +1,59 @@
+
+users(id:String [PK], username:String, password:String, passwordupdatedat:Long, email:String, date:LocalDate, division:String, designation:String, ////@joincolumn(name:Section #FK to(Section), phonenumber:Long, position:String, company:String, role:String, user:Role #FK to(Role), GeneratedName:Organization #FK to(Organization), dashboardorder:String, address:String, status:String, dateadded:Timestamp, dateinactive:Timestamp, language:String);
+
+checklist(checklistid:int [PK], name:String, description:String, starttime:long, endtime:long, frequency:int, unit:String, //@notnull////@joincolumn(name:Section #FK to(Section), activationstatus:String, isdeleted:int, createdat:Long, createdby:Users #FK to(Users));
+
+workflowlevel(workflowlevelid:int [PK], workflowlevelname:String);
+
+role(roleid:long [PK], rolename:String, roledescription:String);
+
+checklistapprovergroup(id:int [PK], GeneratedName:Group #FK to(Group), GeneratedName:Checklist #FK to(Checklist), GeneratedName:WorkflowLevel #FK to(WorkflowLevel));
+
+checklistscheduleskipped(checklistschedlueskippedid:int [PK], skippedtimestamp:long, GeneratedName:ChecklistSchedule #FK to(Checklist), user:Users #FK to(Users), remarks:String);
+
+checklistscheduleclaimed(id:int [PK], timestamp:long, GeneratedName:ChecklistSchedule #FK to(Checklist), user:Users #FK to(Users));
+
+checkliststatushistory(checklisthistoryid:int [PK], statustimestamp:long, GeneratedName:ChecklistSchedule #FK to(Checklist), user:Users #FK to(Users), GeneratedName:WorkflowLevel #FK to(WorkflowLevel), previous:WorkflowLevel #FK to(WorkflowLevel), remarks:String);
+
+group(id:int [PK], name:String, description:String);
+
+ips(id:String [PK], ipaddr:String);
+
+resource(resourceid:int [PK], resourcename:String);
+
+section(sectionid:int [PK], GeneratedName:Department #FK to(Department), sectionname:String, isdeleted:int);
+
+checkliststatefield(checkliststatefieldid:long [PK], GeneratedName:ChecklistState #FK to(Checklist), GeneratedName:TemplateStructure #FK to(TemplateStructure), checkliststatefieldorderid:int);
+
+checklistpartiallysaveddata(id:long [PK], user:Users #FK to(Users), GeneratedName:ChecklistSchedule #FK to(Checklist), data:String);
+
+organization(id:int, organizationid:String [PK], name:String, address:String, email:String, businesstype:String, role:String, phone:String, orgnaizationpackage:String, status:String, numberofusers:Integer, numberoftags:Integer);
+
+checkliststructure(checklistfieldid:int [PK], //templatefieldid:TemplateStructure #FK to(TemplateStructure), ////@column(name:Checklist #FK to(Checklist), checklistfieldorderid:int, updatedat:Long);
+
+tagdetail(tagid:String [PK], description:String, tagopcname:String, tagtype:String, date:LocalDate, datasource:String, scheduled:boolean, id:Organization #FK to(Organization), updatedby:String, tagname:String, executioninterval:Integer, lastexecutiondate:Timestamp, tagnamedatasource:String, tagdatatype:String, templatefield:TemplateStructure #FK to(TemplateStructure));
+
+checkliststate(checkliststateid:long [PK], timestamp:long, GeneratedName:Checklist #FK to(Checklist), user:Users #FK to(Users));
+
+usergroup(/***/serialversionuid:long, user:Users [PK] #FK to(Users), GeneratedName:Group [PK] #FK to(Group));
+
+templatestructure(fieldid:int [PK], templateid:int, description:String, fieldtype:String, orderid:int, lowerlimit:Double, upperlimit:Double, unitofmeasure:String);
+
+department(id:int [PK], name:String, GeneratedName:Organization #FK to(Organization), isdeleted:int);
+
+checklistapproveruser(id:int [PK], user:Users #FK to(Users), GeneratedName:Checklist #FK to(Checklist), GeneratedName:WorkflowLevel #FK to(WorkflowLevel));
+
+roleresource(GeneratedName:Role [PK] #FK to(Role), GeneratedName:Resource [PK] #FK to(Resource), add:int, read:int, edit:int, delete:int);
+
+hierarchy(id:int [PK], parent:int, name:String, activestatus:int, description:String, type:String, saprefnumber:String);
+
+checklistschedule(checklistscheduleid:int [PK], GeneratedName:Checklist #FK to(Checklist), starttimestamp:Long, endtimestamp:Long, frequency:int, unit:String, GeneratedName:ChecklistState #FK to(Checklist));
+
+loginhistory(id:String [PK], ip:IPs #FK to(IPs));
+
+templatehierarchy(/***/serialversionuid:long, templateid:int [PK], nodeid:int [PK]);
+
+template(id:int [PK], name:String, description:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

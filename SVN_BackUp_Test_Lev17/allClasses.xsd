@@ -1,0 +1,702 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lucenequeryvisitorfiqltest" >
+      <xs:complexContent>
+       <xs:extension base="abstractlucenequeryvisitortest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractlucenequeryvisitortest" >
+      <xs:complexContent>
+       <xs:extension base="assert">
+         <xs:sequence>
+          <xs:element name="ireader" type="xs:anyType" />
+          <xs:element name="isearcher" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="lucenequeryvisitoranalyzerfiqltest" >
+      <xs:complexContent>
+       <xs:extension base="abstractlucenequeryvisitortest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="lucenequeryvisitorodatatest" >
+      <xs:complexContent>
+       <xs:extension base="abstractlucenequeryvisitortest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="searchcontextimpltest" >
+      <xs:complexContent>
+       <xs:extension base="assert">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="searchutilstest" >
+      <xs:complexContent>
+       <xs:extension base="assert">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="searchconditionbuildertest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fiqlsearchconditionbuildertest" >
+      <xs:complexContent>
+       <xs:extension base="assert">
+         <xs:sequence>
+          <xs:element name="b" type="fiqlsearchconditionbuilder" nillable="true" minOccurs="0" />
+          <xs:element name="tz" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bookreview" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="authors" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="book" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="book" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="booktitle" type="xs:string" />
+        <xs:element name="address" type="owneraddress" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="ownerinfo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="library" nillable="true" minOccurs="0" />
+        <xs:element name="reviews" type="bookreview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="authors" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractjpatypedqueryvisitortest" >
+      <xs:complexContent>
+       <xs:extension base="assert">
+         <xs:sequence>
+          <xs:element name="emfactory" type="xs:anyType" />
+          <xs:element name="em" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="library" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="books" type="book" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpatypedqueryvisitorfiqltest" >
+      <xs:complexContent>
+       <xs:extension base="abstractjpatypedqueryvisitortest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpalanguagevisitortest" >
+      <xs:complexContent>
+       <xs:extension base="assert">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpatypedqueryvisitorodatatest" >
+      <xs:complexContent>
+       <xs:extension base="abstractjpatypedqueryvisitortest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="name" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="owneraddress" >
+      <xs:sequence>
+        <xs:element name="street" type="xs:string" />
+        <xs:element name="housenumber" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ownerinfo" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="name" nillable="true" minOccurs="0" />
+        <xs:element name="ofbirth" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="book_" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="booktitle" type="xs:anyType" />
+        <xs:element name="library" type="xs:anyType" />
+        <xs:element name="ownerinfo" type="xs:anyType" />
+        <xs:element name="address" type="xs:anyType" />
+        <xs:element name="reviews" type="xs:anyType" />
+        <xs:element name="authors" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="book" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="id" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="beanspectortest" >
+      <xs:complexContent>
+       <xs:extension base="assert">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fiqlparsertest" >
+      <xs:complexContent>
+       <xs:extension base="assert">
+         <xs:sequence>
+          <xs:element name="parser" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tikacontentextractortest" >
+      <xs:complexContent>
+       <xs:extension base="assert">
+         <xs:sequence>
+          <xs:element name="extractor" type="tikacontentextractor" nillable="true" minOccurs="0" />
+          <xs:element name="parser" type="searchbean" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tikalucenecontentextractortest" >
+      <xs:complexContent>
+       <xs:extension base="assert">
+         <xs:sequence>
+          <xs:element name="extractor" type="tikalucenecontentextractor" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="writer" type="xs:anyType" />
+          <xs:element name="parser" type="searchbean" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="searchcontextimplcustomparsertest" >
+      <xs:complexContent>
+       <xs:extension base="assert">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="odataparsertest" >
+      <xs:complexContent>
+       <xs:extension base="assert">
+         <xs:sequence>
+          <xs:element name="parser" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hbasevisitortest" >
+      <xs:complexContent>
+       <xs:extension base="assert">
+         <xs:sequence>
+          <xs:element name="book_family" type="xs:anyType" />
+          <xs:element name="name_qualifier" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sqlprintervisitortest" >
+      <xs:complexContent>
+       <xs:extension base="assert">
+         <xs:sequence>
+          <xs:element name="parser" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ldapqueryvisitortest" >
+      <xs:complexContent>
+       <xs:extension base="assert">
+         <xs:sequence>
+          <xs:element name="parser" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="simplesearchconditiontest" >
+      <xs:sequence>
+        <xs:element name="ceq" type="xs:anyType" />
+        <xs:element name="cgt" type="xs:anyType" />
+        <xs:element name="cgeq" type="xs:anyType" />
+        <xs:element name="clt" type="xs:anyType" />
+        <xs:element name="cleq" type="xs:anyType" />
+        <xs:element name="attr" type="xs:anyType" />
+        <xs:element name="attrgreater" type="xs:anyType" />
+        <xs:element name="attrlesser" type="xs:anyType" />
+        <xs:element name="//todo1.comparisonwithmultiplevalues//todo2.comparisonwhengetterreturnsnull/throwsexceptionattr2vals" type="xs:anyType" />
+        <xs:element name="attr2valsgreater" type="xs:anyType" />
+        <xs:element name="attr2valslesser" type="xs:anyType" />
+        <xs:element name="attr1val" type="xs:anyType" />
+        <xs:element name="attr1valgreater" type="xs:anyType" />
+        <xs:element name="attr1vallesser" type="xs:anyType" />
+        <xs:element name="dc1eq" type="xs:anyType" />
+        <xs:element name="dc1gt" type="xs:anyType" />
+        <xs:element name="dc1geq" type="xs:anyType" />
+        <xs:element name="dc1lt" type="xs:anyType" />
+        <xs:element name="dc1leq" type="xs:anyType" />
+        <xs:element name="dc2eq" type="xs:anyType" />
+        <xs:element name="dc2gt" type="xs:anyType" />
+        <xs:element name="dc2geq" type="xs:anyType" />
+        <xs:element name="dc2lt" type="xs:anyType" />
+        <xs:element name="dc2leq" type="xs:anyType" />
+        <xs:element name="supported" type="conditiontype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="searchutils" >
+      <xs:sequence>
+        <xs:element name="timestamp_no_timezone" type="xs:string" />
+        <xs:element name="timestamp_with_timezone_z" type="xs:string" />
+        <xs:element name="default_date_format" type="xs:string" />
+        <xs:element name="date_format_property" type="xs:string" />
+        <xs:element name="timezone_support_property" type="xs:string" />
+        <xs:element name="lax_property_match" type="xs:string" />
+        <xs:element name="bean_property_map" type="xs:string" />
+        <xs:element name="search_visitor_property" type="xs:string" />
+        <xs:element name="decode_query_values" type="xs:string" />
+        <xs:element name="log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="primitivestatement" >
+      <xs:sequence>
+        <xs:element name="property" type="xs:string" />
+        <xs:element name="value" type="xs:anyType" />
+        <xs:element name="property" type="xs:anyType" />
+        <xs:element name="condition" type="conditiontype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="searchbean" >
+      <xs:sequence>
+        <xs:element name="values" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="beanspector" >
+      <xs:sequence>
+        <xs:element name="primitivewrappers" type="xs:anyType" />
+        <xs:element name="tclass" type="xs:anyType" />
+        <xs:element name="obj" type="xs:anyType" />
+        <xs:element name="getters" type="xs:anyType" />
+        <xs:element name="setters" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="interfaceproxy" >
+      <xs:sequence>
+        <xs:element name="map" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fiqlparser" >
+      <xs:complexContent>
+       <xs:extension base="abstractsearchconditionparser<t>">
+         <xs:sequence>
+          <xs:element name="or" type="xs:string" />
+          <xs:element name="and" type="xs:string" />
+          <xs:element name="gt" type="xs:string" />
+          <xs:element name="ge" type="xs:string" />
+          <xs:element name="lt" type="xs:string" />
+          <xs:element name="le" type="xs:string" />
+          <xs:element name="eq" type="xs:string" />
+          <xs:element name="neq" type="xs:string" />
+          <xs:element name="condition_map" type="xs:anyType" />
+          <xs:element name="support_single_equals" type="xs:string" />
+          <xs:element name="extension_count" type="xs:string" />
+          <xs:element name="extension_count_open" type="xs:string" />
+          <xs:element name="operators_map" type="xs:anyType" />
+          <xs:element name="comparators_" type="xs:anyType" />
+          <xs:element name="comparators__single_equals" type="xs:anyType" />
+          <xs:element name="operatorsmap" type="xs:anyType" />
+          <xs:element name="comparators" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="querycontext" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="andsearchcondition" >
+      <xs:complexContent>
+       <xs:extension base="abstractcomplexcondition<t>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="lucenequeryvisitor" >
+      <xs:complexContent>
+       <xs:extension base="abstractsearchconditionvisitor<t,">
+         <xs:sequence>
+          <xs:element name="contentsfieldname" type="xs:string" />
+          <xs:element name="contentsfieldmap" type="xs:anyType" />
+          <xs:element name="caseinsensitivematch" type="xs:anyType" />
+          <xs:element name="state" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="defaultparamconverterprovider" >
+      <xs:sequence>
+        <xs:element name="converters" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractjpatypedqueryvisitor" >
+      <xs:complexContent>
+       <xs:extension base="abstractsearchconditionvisitor<t,">
+         <xs:sequence>
+          <xs:element name="em" type="xs:anyType" />
+          <xs:element name="tclass" type="xs:anyType" />
+          <xs:element name="queryclass" type="xs:anyType" />
+          <xs:element name="root" type="xs:anyType" />
+          <xs:element name="builder" type="xs:anyType" />
+          <xs:element name="cq" type="xs:anyType" />
+          <xs:element name="predstack" type="xs:anyType" />
+          <xs:element name="criteriaized" type="xs:anyType" />
+          <xs:element name="joinproperties" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpatypedqueryvisitor" >
+      <xs:complexContent>
+       <xs:extension base="abstractjpatypedqueryvisitor<t,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpacriteriaqueryvisitor" >
+      <xs:complexContent>
+       <xs:extension base="abstractjpatypedqueryvisitor<t,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpalanguagevisitor" >
+      <xs:complexContent>
+       <xs:extension base="sqlprintervisitor<t>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orsearchcondition" >
+      <xs:complexContent>
+       <xs:extension base="abstractcomplexcondition<t>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="searchcontext" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hbasequeryvisitor" >
+      <xs:complexContent>
+       <xs:extension base="abstractsearchconditionvisitor<t,">
+         <xs:sequence>
+          <xs:element name="querystack" type="xs:anyType" />
+          <xs:element name="family" type="xs:string" />
+          <xs:element name="familymap" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="searchconditionparser" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="odataparser" >
+      <xs:complexContent>
+       <xs:extension base="abstractsearchconditionparser<t>">
+         <xs:sequence>
+          <xs:element name="parser" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractsearchconditionparser" >
+      <xs:sequence>
+        <xs:element name="empty_annottaions" type="xs:anyType" />
+        <xs:element name="contextproperties" type="xs:anyType" />
+        <xs:element name="conditionclass" type="xs:anyType" />
+        <xs:element name="beanspector" type="xs:anyType" />
+        <xs:element name="beanpropertiesmap" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fiqlsearchconditionbuilder" >
+      <xs:complexContent>
+       <xs:extension base="searchconditionbuilder">
+         <xs:sequence>
+          <xs:element name="properties" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="partialcondition" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="searchconditionbuilder" >
+      <xs:sequence>
+        <xs:element name="default_language" type="xs:string" />
+        <xs:element name="fiql" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="completecondition" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="property" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="searchparseexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="propertynotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="searchparseexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="value" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="querycontextprovider" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lucenedocumentmetadata" >
+      <xs:sequence>
+        <xs:element name="source_field" type="xs:string" />
+        <xs:element name="fieldtypes" type="xs:anyType" />
+        <xs:element name="contentfieldname" type="xs:string" />
+        <xs:element name="source" type="xs:string" />
+        <xs:element name="converterprovider" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tikalucenecontentextractor" >
+      <xs:sequence>
+        <xs:element name="defaultdocumentmetadata" type="lucenedocumentmetadata" nillable="true" minOccurs="0" />
+        <xs:element name="extractor" type="tikacontentextractor" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tikacontentextractor" >
+      <xs:complexContent>
+       <xs:extension base="totextcontenthandler">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+          <xs:element name="parsers" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="collectioncheck" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="collectioncheckstatement" >
+      <xs:complexContent>
+       <xs:extension base="primitivestatement">
+         <xs:sequence>
+          <xs:element name="checkinfo" type="collectioncheckinfo" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="collectioncheckinfo" >
+      <xs:sequence>
+        <xs:element name="checktype" type="collectioncheck" nillable="true" minOccurs="0" />
+        <xs:element name="checkvalue" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="collectioncheckcondition" >
+      <xs:complexContent>
+       <xs:extension base="primitivesearchcondition<t>">
+         <xs:sequence>
+          <xs:element name="checkinfo" type="collectioncheckinfo" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="paramconverterutils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractcomplexcondition" >
+      <xs:sequence>
+        <xs:element name="conditions" type="xs:anyType" />
+        <xs:element name="ctype" type="conditiontype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="searchcontextimpl" >
+      <xs:sequence>
+        <xs:element name="search_query" type="xs:string" />
+        <xs:element name="short_search_query" type="xs:string" />
+        <xs:element name="custom_search_parser_property" type="xs:string" />
+        <xs:element name="custom_search_parser_class_property" type="xs:string" />
+        <xs:element name="custom_search_query_param_name" type="xs:string" />
+        <xs:element name="use_plain_query_parameters" type="xs:string" />
+        <xs:element name="use_all_query_component" type="xs:string" />
+        <xs:element name="block_search_exception" type="xs:string" />
+        <xs:element name="keep_query_encoded" type="xs:string" />
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlprintervisitor" >
+      <xs:complexContent>
+       <xs:extension base="abstractuntypedsearchconditionvisitor<t,">
+         <xs:sequence>
+          <xs:element name="table" type="xs:string" />
+          <xs:element name="tablealias" type="xs:string" />
+          <xs:element name="columns" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="simplesearchcondition" >
+      <xs:sequence>
+        <xs:element name="supportedtypes" type="conditiontype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="joiningtype" type="conditiontype" nillable="true" minOccurs="0" />
+        <xs:element name="condiion" type="xs:anyType" />
+        <xs:element name="scts" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="primitivesearchcondition" >
+      <xs:sequence>
+        <xs:element name="propertyname" type="xs:string" />
+        <xs:element name="propertyvalue" type="xs:anyType" />
+        <xs:element name="property" type="xs:anyType" />
+        <xs:element name="condiion" type="xs:anyType" />
+        <xs:element name="ctype" type="conditiontype" nillable="true" minOccurs="0" />
+        <xs:element name="beanspector" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="conditiontype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="searchcondition" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractsearchconditionvisitor" >
+      <xs:sequence>
+        <xs:element name="fieldmap" type="xs:anyType" />
+        <xs:element name="primitivefieldtypemap" type="xs:anyType" />
+        <xs:element name="validator" type="xs:anyType" />
+        <xs:element name="converterprovider" type="xs:anyType" />
+        <xs:element name="wildcardstringmatch" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="threadlocalvisitorstate" >
+      <xs:sequence>
+        <xs:element name="state" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sbthreadlocalvisitorstate" >
+      <xs:complexContent>
+       <xs:extension base="threadlocalvisitorstate<stringbuilder>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="localvisitorstate" >
+      <xs:sequence>
+        <xs:element name="value" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="visitorstate" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="propertyvalidationexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="value" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractuntypedsearchconditionvisitor" >
+      <xs:complexContent>
+       <xs:extension base="abstractsearchconditionvisitor<t,">
+         <xs:sequence>
+          <xs:element name="state" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="propertyvalidator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ldapqueryvisitor" >
+      <xs:complexContent>
+       <xs:extension base="abstractuntypedsearchconditionvisitor<t,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="searchconditionvisitor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="searchcontextprovider" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

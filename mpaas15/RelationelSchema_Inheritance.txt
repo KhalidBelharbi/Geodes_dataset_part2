@@ -1,0 +1,23 @@
+
+moduleentity(serialversionuid:long, /***模块id*/moduleid:String [PK], /***包组*/groupid:String, /***包id**@return*/artifactid:String, /***包版本**@return*/version:String, /***创建时间*/createtime:Date, status:short, /***模块描述*/description:String, /***模块属性*/attributesentity:ModuleAttributesEntity #FK to(moduleattributesentity), /***模块数据*/dataentity:ModuleDataEntity #FK to(ModuleDataEntity));
+
+mavenrepositoryentity(serialversionuid:long, /***模块id*/mavenrepositoryid:String [PK], /***仓库地址*/url:String, /***仓库类型*/type:String, /***仓库id*/id:String, /***仓库帐号。*/username:String, /***仓库密码。*/password:String, /***创建时间*/createtime:Date, /***仓库状态*/status:short, /***仓库描述*/description:String);
+
+moduledataentity(serialversionuid:long, /***模块id*/moduleid:String [PK], /***jar包大小*/size:int, data:byte);
+
+repositorymoduleentity(serialversionuid:long, /***模块id*/moduleid:String [PK], /***包组*/groupid:String, /***包id**@return*/artifactid:String, /***包版本**@return*/version:String, /***创建时间*/createtime:Date, status:short, /***模块描述*/description:String, /***模块属性*/attributesentity:RepositoryModuleAttributesEntity #FK to(repositorymoduleattributesentity), /***模块数据*/dataentity:RepositoryModuleDataEntity #FK to(ModuleDataEntity));
+
+pluginattributesentity(serialversionuid:long, /***插件属性id*/pluginattributesid:String [PK], /***插件id*/pluginid:String, name:String, value:String);
+
+plugindataentity(serialversionuid:long, /***插件id*/pluginid:String [PK], /***jar包大小*/size:int, data:byte);
+
+moduleattributesentity(serialversionuid:long, /***插件属性id*/moduleattributesid:String [PK], /***插件id*/moduleid:String, name:String, value:String);
+
+repositorymoduleattributesentity(serialversionuid:long, /***插件属性id*/moduleattributesid:String [PK], /***插件id*/moduleid:String, name:String, value:String);
+
+repositorymoduledataentity(serialversionuid:long, /***模块id*/moduleid:String [PK], /***jar包大小*/size:int, data:byte);
+
+pluginentity(serialversionuid:long, /***插件id*/pluginid:String [PK], /***包组*/groupid:String, /***包id**@return*/artifactid:String, /***包版本**@return*/version:String, /***创建时间*/createtime:Date, status:short, /***模块描述*/description:String, /***插件属性*/attributesentity:PluginAttributesEntity #FK to(PluginAttributesEntity), /***插件数据*/dataentity:PluginDataEntity #FK to(plugindataentity));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

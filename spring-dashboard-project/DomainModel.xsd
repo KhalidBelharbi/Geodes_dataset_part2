@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="id_likes" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="member_idx" type="xs:long" />
+        <xs:element name="diary_idx" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="infant_diary" >
+      <xs:sequence>
+        <xs:element name="idx" type="xs:long" />
+        <xs:element name="GeneratedName" type="infant" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="member" nillable="true" minOccurs="0" />
+        <xs:element name="subject" type="xs:string" />
+        <xs:element name="contents" type="xs:string" />
+        <xs:element name="event_date" type="xs:string" />
+        <xs:element name="date_created" type="xs:string" />
+        <xs:element name="date_updated" type="xs:string" />
+        <xs:element name="hashtag" type="xs:string" />
+        <xs:element name="share" type="xs:anyType" />
+        <xs:element name="hits" type="xs:long" />
+        <xs:element name="likes" type="xs:long" />
+        <xs:element name="id_files" type="id_file" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="comments" type="id_comment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="id_comment" >
+      <xs:sequence>
+        <xs:element name="idx" type="xs:long" />
+        <xs:element name="diary_idx" type="xs:long" />
+        <xs:element name="GeneratedName" type="member" nillable="true" minOccurs="0" />
+        <xs:element name="contents" type="xs:string" />
+        <xs:element name="date_created" type="xs:string" />
+        <xs:element name="date_updated" type="xs:string" />
+        <xs:element name="likes" type="xs:long" />
+        <xs:element name="likes_check" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shipping_address" >
+      <xs:sequence>
+        <xs:element name="idx" type="xs:long" />
+        <xs:element name="member_idx" type="xs:long" />
+        <xs:element name="recipient_name" type="xs:string" />
+        <xs:element name="recipient_phone" type="xs:string" />
+        <xs:element name="recipient_phone2" type="xs:string" />
+        <xs:element name="address_name" type="xs:string" />
+        <xs:element name="address1" type="xs:string" />
+        <xs:element name="address2" type="xs:string" />
+        <xs:element name="zipcode" type="xs:string" />
+        <xs:element name="default_check" type="xs:anyType" />
+        <xs:element name="member_info" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="member_infant" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="member" nillable="true" minOccurs="0" />
+        <xs:element name="/*	@column(name" type="infant" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="corp_approval" >
+      <xs:sequence>
+        <xs:element name="member_idx" type="xs:long" />
+        <xs:element name="license_url" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="id_file" >
+      <xs:sequence>
+        <xs:element name="idx" type="xs:long" />
+        <xs:element name="diary_idx" type="xs:long" />
+        <xs:element name="original_filename" type="xs:string" />
+        <xs:element name="server_filename" type="xs:string" />
+        <xs:element name="file_url" type="xs:string" />
+        <xs:element name="represent" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="corporation" >
+      <xs:sequence>
+        <xs:element name="member_idx" type="xs:long" />
+        <xs:element name="corp_num" type="xs:string" />
+        <xs:element name="corp_name" type="xs:string" />
+        <xs:element name="//1.서비스업,2.제조업,3.도소매,4.기타field_code" type="xs:anyType" />
+        <xs:element name="//1.지식서비스,2.전자상거래,3.지식서비스+전자상거래service_code" type="xs:anyType" />
+        <xs:element name="approval" type="xs:anyType" />
+        <xs:element name="dname" type="xs:string" />
+        <xs:element name="dphone" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="coupon" >
+      <xs:sequence>
+        <xs:element name="idx" type="xs:long" />
+        <xs:element name="rate" type="xs:long" />
+        <xs:element name="start_date" type="xs:string" />
+        <xs:element name="end_date" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="thumbnail" >
+      <xs:sequence>
+        <xs:element name="idx" type="xs:long" />
+        <xs:element name="member_idx" type="xs:long" />
+        <xs:element name="original_filename" type="xs:string" />
+        <xs:element name="server_filename" type="xs:string" />
+        <xs:element name="file_size" type="xs:long" />
+        <xs:element name="category" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="alert" >
+      <xs:sequence>
+        <xs:element name="idx" type="xs:long" />
+        <xs:element name="requester" type="xs:long" />
+        <xs:element name="recipient" type="xs:long" />
+        <xs:element name="request_date" type="xs:string" />
+        <xs:element name="//0:그룹수락알림,1:그룹신청알림,2:게시물댓글알림,3:갤러리댓글알림,4:그룹다이어리작성알림,5:그룹스케쥴작성알림,6:배변알림,7:수유알림,8:저체온알림,9:고체온알림event_type" type="xs:anyType" />
+        <xs:element name="//읽음구분값.'f'또는't'read_chk" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="infant_thumbnail" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="infant_idx" type="xs:long" />
+        <xs:element name="origin_file" type="xs:string" />
+        <xs:element name="server_file" type="xs:string" />
+        <xs:element name="url" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="device" >
+      <xs:sequence>
+        <xs:element name="idx" type="xs:long" />
+        <xs:element name="member_idx" type="xs:long" />
+        <xs:element name="serial_num" type="xs:string" />
+        <xs:element name="//temp:1/peepee:2/bottle:3type" type="xs:anyType" />
+        <xs:element name="firmware" type="xs:string" />
+        <xs:element name="mac_address" type="xs:string" />
+        <xs:element name="unit" type="xs:anyType" />
+        <xs:element name="switch_chk" type="xs:anyType" />
+        <xs:element name="reg_time" type="xs:string" />
+        <xs:element name="update_time" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="infant_schedule" >
+      <xs:sequence>
+        <xs:element name="idx" type="xs:long" />
+        <xs:element name="GeneratedName" type="infant" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="member" nillable="true" minOccurs="0" />
+        <xs:element name="event_date_start" type="xs:string" />
+        <xs:element name="event_date_end" type="xs:string" />
+        <xs:element name="date_created" type="xs:string" />
+        <xs:element name="date_updated" type="xs:string" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="event_type" type="xs:anyType" />
+        <xs:element name="//이벤트시작시간과종료시간차이를담을변수.db연동xinterval" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dashboard" >
+      <xs:sequence>
+        <xs:element name="member_idx" type="xs:long" />
+        <xs:element name="temp" type="xs:string" />
+        <xs:element name="peepee" type="xs:string" />
+        <xs:element name="bottle" type="xs:string" />
+        <xs:element name="/*@column(name" type="xs:string" />
+        <xs:element name="group_info" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="infant" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="idx" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="birth" type="xs:string" />
+        <xs:element name="sex" type="xs:anyType" />
+        <xs:element name="nationality" type="xs:string" />
+        <xs:element name="weight" type="xs:double" />
+        <xs:element name="height" type="xs:double" />
+        <xs:element name="blood_type" type="xs:string" />
+        <xs:element name="thumbnail" type="infant_thumbnail" nillable="true" minOccurs="0" />
+        <xs:element name="/*@manytomany	@jointable(name" type="member_infant" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="member_mng" >
+      <xs:sequence>
+        <xs:element name="member_idx" type="xs:long" />
+        <xs:element name="po" type="xs:long" />
+        <xs:element name="grade" type="xs:anyType" />
+        <xs:element name="introduction" type="xs:string" />
+        <xs:element name="last_login_date" type="xs:string" />
+        <xs:element name="login_err_cnt" type="xs:long" />
+        <xs:element name="dormant_chk" type="xs:anyType" />
+        <xs:element name="unit" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="board" >
+      <xs:sequence>
+        <xs:element name="idx" type="xs:long" />
+        <xs:element name="category" type="xs:anyType" />
+        <xs:element name="subject" type="xs:string" />
+        <xs:element name="contents" type="xs:string" />
+        <xs:element name="hashtag" type="xs:string" />
+        <xs:element name="hits" type="xs:long" />
+        <xs:element name="likes" type="xs:long" />
+        <xs:element name="date_created" type="xs:string" />
+        <xs:element name="date_updated" type="xs:string" />
+        <xs:element name="notice" type="xs:anyType" />
+        <xs:element name="public_check" type="xs:anyType" />
+        <xs:element name="comments" type="comment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="board_files" type="board_file" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="member" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="alert_board" >
+      <xs:sequence>
+        <xs:element name="idx" type="xs:long" />
+        <xs:element name="board_idx" type="xs:long" />
+        <xs:element name="comment_idx" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rememberme" >
+      <xs:sequence>
+        <xs:element name="series" type="xs:string" />
+        <xs:element name="//email속성(회원아이디)username" type="xs:string" />
+        <xs:element name="token" type="xs:string" />
+        <xs:element name="last_used" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="member_log" >
+      <xs:sequence>
+        <xs:element name="session_id" type="xs:string" />
+        <xs:element name="member_idx" type="xs:long" />
+        <xs:element name="log_type" type="xs:anyType" />
+        <xs:element name="ip_address" type="xs:string" />
+        <xs:element name="browser" type="xs:string" />
+        <xs:element name="login_date" type="xs:string" />
+        <xs:element name="logout_date" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="member_group" >
+      <xs:sequence>
+        <xs:element name="member_idx" type="xs:long" />
+        <xs:element name="//@idgroup_idx" type="xs:long" />
+        <xs:element name="authority" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="board_file" >
+      <xs:sequence>
+        <xs:element name="idx" type="xs:long" />
+        <xs:element name="board_idx" type="xs:long" />
+        <xs:element name="original_filename" type="xs:string" />
+        <xs:element name="server_filename" type="xs:string" />
+        <xs:element name="file_url" type="xs:string" />
+        <xs:element name="file_size" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="friends" >
+      <xs:sequence>
+        <xs:element name="friend_id" type="xs:long" />
+        <xs:element name="member_idx1" type="xs:long" />
+        <xs:element name="member_idx2" type="xs:long" />
+        <xs:element name="status" type="xs:anyType" />
+        <xs:element name="request_time" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="family_group" >
+      <xs:sequence>
+        <xs:element name="idx" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="id_comment_likes" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="member_idx" type="xs:long" />
+        <xs:element name="comment_idx" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gallery" >
+      <xs:sequence>
+        <xs:element name="idx" type="xs:long" />
+        <xs:element name="GeneratedName" type="member" nillable="true" minOccurs="0" />
+        <xs:element name="subject" type="xs:string" />
+        <xs:element name="contents" type="xs:string" />
+        <xs:element name="hashtag" type="xs:string" />
+        <xs:element name="hits" type="xs:long" />
+        <xs:element name="likes" type="xs:long" />
+        <xs:element name="date_created" type="xs:string" />
+        <xs:element name="date_updated" type="xs:string" />
+        <xs:element name="original_filename" type="xs:string" />
+        <xs:element name="server_filename" type="xs:string" />
+        <xs:element name="file_url" type="xs:string" />
+        <xs:element name="file_size" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="comment" >
+      <xs:sequence>
+        <xs:element name="idx" type="xs:long" />
+        <xs:element name="board_idx" type="xs:long" />
+        <xs:element name="GeneratedName" type="member" nillable="true" minOccurs="0" />
+        <xs:element name="category" type="xs:anyType" />
+        <xs:element name="contents" type="xs:string" />
+        <xs:element name="likes" type="xs:long" />
+        <xs:element name="date_created" type="xs:string" />
+        <xs:element name="date_updated" type="xs:string" />
+        <xs:element name="likes_check" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="board_likes" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="member_idx" type="xs:long" />
+        <xs:element name="board_idx" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="comment_likes" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="member_idx" type="xs:long" />
+        <xs:element name="comment_idx" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="member" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="idx" type="xs:long" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="nickname" type="xs:string" />
+        <xs:element name="thumbnail" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="address1" type="xs:string" />
+        <xs:element name="address2" type="xs:string" />
+        <xs:element name="zipcode" type="xs:string" />
+        <xs:element name="birth" type="xs:string" />
+        <xs:element name="sex" type="xs:anyType" />
+        <xs:element name="join_date" type="xs:string" />
+        <xs:element name="pw_renew_date" type="xs:string" />
+        <xs:element name="social_code" type="xs:anyType" />
+        <xs:element name="country_code" type="xs:string" />
+        <xs:element name="member_type" type="xs:anyType" />
+        <xs:element name="dup_info" type="xs:string" />
+        <xs:element name="/*@manytomany	@jointable(name" type="member_infant" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notify_email" >
+      <xs:sequence>
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="date_created" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

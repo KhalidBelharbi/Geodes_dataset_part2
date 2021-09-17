@@ -1,0 +1,13 @@
+ClassDiagram.Class>> RoleEntity =>=>=> RelationalSchema.Table>> roleentity;
+ClassDiagram.Class>> UserEntity =>=>=> RelationalSchema.Table>> userentity;
+ClassDiagram.Class>> PermissionEntity =>=>=> RelationalSchema.Table>> permissionentity;
+ClassDiagram.Attribut>> RoleEntity.id:Long =>=>=> RelationalSchema.Column>> roleentity.id PRIMARY KEY;
+ClassDiagram.Attribut>> RoleEntity.role:String =>=>=> RelationalSchema.Column>> roleentity.role;
+ClassDiagram.Attribut>> UserEntity.id:Long =>=>=> RelationalSchema.Column>> userentity.id PRIMARY KEY;
+ClassDiagram.Attribut>> UserEntity.email:String =>=>=> RelationalSchema.Column>> userentity.email;
+ClassDiagram.Attribut>> UserEntity.passwordhash:String =>=>=> RelationalSchema.Column>> userentity.passwordhash;
+ClassDiagram.Attribut>> UserEntity.enabled:boolean =>=>=> RelationalSchema.Column>> userentity.enabled;
+ClassDiagram.Attribut>> PermissionEntity.id:Long =>=>=> RelationalSchema.Column>> permissionentity.id PRIMARY KEY;
+ClassDiagram.Attribut>> PermissionEntity.permission:String =>=>=> RelationalSchema.Column>> permissionentity.permission;
+set<userentity>: roleentity_set<userentity>(roleentityID:roleentity [PK] #FK to roleentity,set<userentity>ID:set<userentity> [PK] #FK to set<userentity>);
+set<permissionentity>: roleentity_set<userentity>(roleentityID:roleentity [PK] #FK to roleentity,set<userentity>ID:set<userentity> [PK] #FK to set<userentity>);roleentity_set<permissionentity>(roleentityID:roleentity [PK] #FK to roleentity,set<permissionentity>ID:set<permissionentity> [PK] #FK to set<permissionentity>);

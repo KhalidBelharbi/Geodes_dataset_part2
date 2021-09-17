@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="programthemerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<programtheme,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="serviceregionrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<serviceregion,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="regionrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<region,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="kakaoseqgeneratorrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<kakaoseqgenerator,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="themerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<theme,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="programrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<program,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="kakaopayapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kakaoseqgenerator" >
+      <xs:sequence>
+        <xs:element name="seqid" type="xs:long" />
+        <xs:element name="sequencename" type="xs:string" />
+        <xs:element name="nextval" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="theme" >
+      <xs:sequence>
+        <xs:element name="themecode" type="xs:string" />
+        <xs:element name="themename" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="region" >
+      <xs:sequence>
+        <xs:element name="regioncode" type="xs:string" />
+        <xs:element name="sidoname" type="xs:string" />
+        <xs:element name="sggname" type="xs:string" />
+        <xs:element name="emdname" type="xs:string" />
+        <xs:element name="detailaddress" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="serviceregion" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="programcode" type="xs:string" />
+        <xs:element name="regioncode" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="programthemeid" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="programcode" type="xs:string" />
+        <xs:element name="themecode" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="programtheme" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="programcode" type="xs:string" />
+        <xs:element name="themecode" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="serviceregionid" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="programcode" type="xs:string" />
+        <xs:element name="regioncode" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="program" >
+      <xs:sequence>
+        <xs:element name="programcode" type="xs:string" />
+        <xs:element name="programname" type="xs:string" />
+        <xs:element name="programdesc" type="xs:string" />
+        <xs:element name="programdetaildesc" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="regioncodegenerator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="themecodegenerator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="programcodegenerator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="service" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="serviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="kakaoseqgeneratorrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="programrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="themerepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="regionrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="programthemerepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="serviceregionrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datainserti" >
+      <xs:sequence>
+        <xs:element name="program_theme" type="xs:string" />
+        <xs:element name="program_name" type="xs:string" />
+        <xs:element name="program_desc" type="xs:string" />
+        <xs:element name="program_detail_desc" type="xs:string" />
+        <xs:element name="region" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dataupdatei" >
+      <xs:sequence>
+        <xs:element name="program_code" type="xs:string" />
+        <xs:element name="program_theme" type="xs:string" />
+        <xs:element name="program_name" type="xs:string" />
+        <xs:element name="program_desc" type="xs:string" />
+        <xs:element name="program_detail_desc" type="xs:string" />
+        <xs:element name="region" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="programcountlisto" >
+      <xs:sequence>
+        <xs:element name="keyword" type="xs:string" />
+        <xs:element name="programs" type="regioncounto" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="regioncounto" >
+      <xs:sequence>
+        <xs:element name="region" type="xs:string" />
+        <xs:element name="count" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="programlisto" >
+      <xs:sequence>
+        <xs:element name="region_id" type="xs:string" />
+        <xs:element name="programs" type="programo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="programlisto2" >
+      <xs:sequence>
+        <xs:element name="region" type="xs:string" />
+        <xs:element name="programs" type="programo2" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="programo" >
+      <xs:sequence>
+        <xs:element name="program_id" type="xs:string" />
+        <xs:element name="program_theme" type="xs:string" />
+        <xs:element name="program_name" type="xs:string" />
+        <xs:element name="program_desc" type="xs:string" />
+        <xs:element name="program_detail_desc" type="xs:string" />
+        <xs:element name="region" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="wordcounto" >
+      <xs:sequence>
+        <xs:element name="keyword" type="xs:string" />
+        <xs:element name="count" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="programo2" >
+      <xs:sequence>
+        <xs:element name="theme" type="xs:string" />
+        <xs:element name="program_name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resultmapo" >
+      <xs:complexContent>
+       <xs:extension base="hashmap<string,">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="resulto" >
+      <xs:sequence>
+        <xs:element name="result" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="addressparser" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="csvparser" >
+      <xs:sequence>
+        <xs:element name="br" type="xs:anyType" />
+        <xs:element name="columnsize" type="xs:long" />
+        <xs:element name="pos" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="controller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="service" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tourinfo" >
+      <xs:sequence>
+        <xs:element name="programid" type="xs:string" />
+        <xs:element name="programname" type="xs:string" />
+        <xs:element name="programdesc" type="xs:string" />
+        <xs:element name="programdetaildesc" type="xs:string" />
+        <xs:element name="theme" type="xs:string" />
+        <xs:element name="regioncode" type="xs:string" />
+        <xs:element name="region" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="servicetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="serviceimpl" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="programrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="themerepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="regionrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="programthemerepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="serviceregionrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kakaopayapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="controllertest" >
+      <xs:sequence>
+        <xs:element name="resttemplate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

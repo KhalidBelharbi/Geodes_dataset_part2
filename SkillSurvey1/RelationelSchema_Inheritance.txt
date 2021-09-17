@@ -1,0 +1,75 @@
+
+roleassignment(serialversionuid:long, //@embeddedid//roleassignmentpkidpkroleid:long [PK], individualid:long [PK]);
+
+survey(serialversionuid:long, idsurvey:long [PK], completedat:Date, startedat:Date, ////bi-directionalmany-to-oneassociationtosurveryanswer//@onetomany//@joincolumn(name:Individual #FK to(Individual), GeneratedName:Dapssco #FK to(dapssco), //bi-directionalmany-to-oneassociationtopathway:Need #FK to(need));
+
+surveryanswer(surveyid:Survey [PK] #FK to Survey,uocquestionid:list<uocquestion> [PK] #FK to list<uocquestion>);
+
+usertype(id:long [PK], usertype:String, description:String, serialversionuid:long);
+
+usertypeneeds(idusertype:UserType [PK] #FK to UserType,idneed:list<need> [PK] #FK to list<need>);
+
+functionoccupations(occupationid:long [PK], functionid:long [PK]);
+
+uocgroup(serialversionuid:long, //@generatedvalue(strategy:String [PK], notes:String, //bi-directionalmany-to-oneassociationto:Need #FK to(need));
+
+dapsscoskills(uocgroupid:UocGroup [PK] #FK to UocGroup,dapsscoid:list<dapssco> [PK] #FK to list<dapssco>);
+
+claim(serialversionuid:long, idclaim:long [PK], code:String);
+
+individual(serialversionuid:long, idindividual:long [PK], gender:String, login:String, password:String, pathway:long, ansofqtn1:String, ansofqtn2:String, mylock:boolean, mylockedon:Date, pwchangeon:Date, //longsupervisorid//longsupervisedid//bi-directionalmany-to-oneassociationtodepartmentfk:UserType #FK to(UserType), //@joincolumn(name:Location #FK to(Location), GeneratedName:Function #FK to(Function), GeneratedName:Occupation #FK to(Occupation), GeneratedName:Level #FK to(Level));
+
+supervisons(supervisorid:Individual [PK] #FK to Individual,supervisedid:Individual [PK] #FK to Individual);
+
+department(serialversionuid:long, iddepartment:long [PK], code:String, description:String, name:String);
+
+location(id:long [PK], name:String, serialversionuid:long);
+
+level(serialversionuid:long, idlevel:long [PK], code:String, description:String);
+
+dapsscolevel(levelid:Level [PK] #FK to Level,dapsscoid:list<dapssco> [PK] #FK to list<dapssco>);
+
+uocgroupmembers(//publicgetuoc_id(){//returnuoc_id//}////publicvoidsetuoc_id(uoc_id){//this.uoc_id:long, //longuoc_iduoc_id:String [PK], uoc_groupid:String [PK]);
+
+supervisons(/***/serialversionuid:long, supervisorid:long [PK], supervisedid:long [PK]);
+
+occupationlevel(serialversionuid:long, occupationid:long [PK], levelid:long [PK]);
+
+function(serialversionuid:long, idfunction:long [PK], description:String, name:String);
+
+functionoccupations(functionid:Function [PK] #FK to Function,occupationid:Occupation [PK] #FK to Occupation);
+
+occupation(serialversionuid:long, idoccupation:long [PK], description:String, name:String);
+
+occupationslevels(occupationid:Occupation [PK] #FK to Occupation,levelid:Level [PK] #FK to Level);
+
+usertypeneeds(idusertype:long [PK], idneed:long [PK], serialversionuid:long);
+
+dapsscolevel(dapsscoid:String [PK], levelid:long [PK], /***/serialversionuid:long);
+
+dapssco(serialversionuid:long, //@generatedvalue(strategy:String [PK], id:Level #FK to(Level), //bi-directionalmany-to-oneassociationto:Occupation #FK to(Occupation), ///newlyadded:Function #FK to(Function));
+
+dapsscoskills(dapsscoid:Dapssco [PK] #FK to Dapssco,uocgroupid:UocGroup [PK] #FK to UocGroup);dapsscolevel(dapsscoid:Dapssco [PK] #FK to Dapssco,levelid:Level [PK] #FK to Level);
+
+need(serialversionuid:long, idneed:long [PK], description:String, name:String);
+
+role(serialversionuid:long, idrole:long [PK], name:String, description:String);
+
+claimassignment(roleid:Role [PK] #FK to Role,claimid:Claim [PK] #FK to Claim);roleassignment(roleid:Role [PK] #FK to Role,individualid:Individual [PK] #FK to Individual);
+
+uocquestion(serialversionuid:long, iduocquestion:String [PK], //publicgettext(){//returntext//}////publicvoidsettext(text){//this.text:String, //@column(name:Byte, isprimay:Short, GeneratedName:Uoc #FK to(uoc));
+
+dapsscoskills(uocgroupid:String [PK], dapsscoid:String [PK]);
+
+provider(id:long [PK], name:String, description:String, courseurl:Byte, serialversionuid:long);
+
+surveryanswer(surveyid:long [PK], uocquestionid:String [PK], serialversionuid:long, answeredat:Date, value:String);
+
+claimassignments(claimid:long [PK], roleid:long [PK], /***/serialversionuid:long);
+
+uoc(serialversionuid:long, ////@generatedvalue(strategy:String [PK], description:Byte, name:String, type:String, uid:String, GeneratedName:Provider #FK to(provider));
+
+uocgroupmembers(uocid:Uoc [PK] #FK to Uoc,uocgroupid:UocGroup [PK] #FK to UocGroup);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

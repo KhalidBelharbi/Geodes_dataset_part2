@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="error" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="assignperson" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="addcurrency" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="addclient" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clients" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="searchperson" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="searchaccount" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accounts" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="main" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="template" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="menu" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tiles_template" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="web" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hsqldbexception" >
+      <xs:complexContent>
+       <xs:extension base="sqlexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="addnewelementexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="invaliddateexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="elementnotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="exchangeexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="exchangeticketservice" >
+      <xs:sequence>
+        <xs:element name="dao" type="exchangeticketdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="currencyservice" >
+      <xs:sequence>
+        <xs:element name="dao" type="currencydao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="exchangeservice" >
+      <xs:sequence>
+        <xs:element name="dao" type="ratedao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accountservice" >
+      <xs:sequence>
+        <xs:element name="dao" type="accountdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="personservice" >
+      <xs:sequence>
+        <xs:element name="dao" type="persondao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="exchangeticket" >
+      <xs:sequence>
+        <xs:element name="idticket" type="xs:long" />
+        <xs:element name="client" type="person" nillable="true" minOccurs="0" />
+        <xs:element name="fromcurr" type="xs:string" />
+        <xs:element name="tocurr" type="xs:string" />
+        <xs:element name="tocurramount" type="xs:double" />
+        <xs:element name="status" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="person" >
+      <xs:sequence>
+        <xs:element name="idperson" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="surname" type="xs:string" />
+        <xs:element name="dateofbirth" type="xs:string" />
+        <xs:element name="passportnumber" type="xs:string" />
+        <xs:element name="accounts" type="account" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="tickets" type="exchangeticket" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="account" >
+      <xs:sequence>
+        <xs:element name="idaccount" type="xs:long" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="startdate" type="xs:string" />
+        <xs:element name="enddate" type="xs:string" />
+        <xs:element name="value" type="xs:double" />
+        <xs:element name="curr" type="currency" nillable="true" minOccurs="0" />
+        <xs:element name="man" type="person" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="exchangerate" >
+      <xs:sequence>
+        <xs:element name="idrate" type="xs:long" />
+        <xs:element name="from" type="xs:string" />
+        <xs:element name="to" type="xs:string" />
+        <xs:element name="rate" type="xs:double" />
+        <xs:element name="exchangeday" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="currency" >
+      <xs:sequence>
+        <xs:element name="idcurrency" type="xs:long" />
+        <xs:element name="shortname" type="xs:string" />
+        <xs:element name="accounts" type="account" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="homecontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accountcontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="personservice" nillable="true" minOccurs="0" />
+        <xs:element name="currservice" type="currencyservice" nillable="true" minOccurs="0" />
+        <xs:element name="accservice" type="accountservice" nillable="true" minOccurs="0" />
+        <xs:element name="log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="personcontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="personservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="accountservice" nillable="true" minOccurs="0" />
+        <xs:element name="log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="currencycontroller" >
+      <xs:sequence>
+        <xs:element name="currservice" type="currencyservice" nillable="true" minOccurs="0" />
+        <xs:element name="log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accountdao" >
+      <xs:sequence>
+        <xs:element name="em" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="currencydao" >
+      <xs:sequence>
+        <xs:element name="em" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persondao" >
+      <xs:sequence>
+        <xs:element name="em" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ratedao" >
+      <xs:sequence>
+        <xs:element name="em" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="exchangeticketdao" >
+      <xs:sequence>
+        <xs:element name="em" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

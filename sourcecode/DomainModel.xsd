@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="basedomain">
+         <xs:sequence>
+          <xs:element name="/***锁定用户对应的状态值*/user_lock" type="xs:long" />
+          <xs:element name="/***用户解锁对应的状态值*/user_unlock" type="xs:long" />
+          <xs:element name="/***管理员类型*/forum_admin" type="xs:long" />
+          <xs:element name="/***普通用户类型*/normal_user" type="xs:long" />
+          <xs:element name="userid" type="xs:long" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="usertype" type="xs:long" />
+          <xs:element name="lastip" type="xs:string" />
+          <xs:element name="lastvisit" type="xs:dateTime" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="locked" type="xs:long" />
+          <xs:element name="credit" type="xs:long" />
+          <xs:element name="manboards" type="board" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="topic" >
+      <xs:complexContent>
+       <xs:extension base="basedomain">
+         <xs:sequence>
+          <xs:element name="/***精华主题帖子*/digest_topic" type="xs:long" />
+          <xs:element name="/***普通的主题帖子*/not_digest_topic" type="xs:long" />
+          <xs:element name="topicid" type="xs:long" />
+          <xs:element name="topictitle" type="xs:string" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="boardid" type="xs:long" />
+          <xs:element name="" type="mainpost" nillable="true" minOccurs="0" />
+          <xs:element name="lastpost" type="xs:dateTime" />
+          <xs:element name="createtime" type="xs:dateTime" />
+          <xs:element name="views" type="xs:long" />
+          <xs:element name="replies" type="xs:long" />
+          <xs:element name="digest" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="post" >
+      <xs:complexContent>
+       <xs:extension base="basedomain">
+         <xs:sequence>
+          <xs:element name="postid" type="xs:long" />
+          <xs:element name="posttitle" type="xs:string" />
+          <xs:element name="posttext" type="xs:string" />
+          <xs:element name="boardid" type="xs:long" />
+          <xs:element name="createtime" type="xs:dateTime" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="" type="topic" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="loginlog" >
+      <xs:complexContent>
+       <xs:extension base="basedomain">
+         <xs:sequence>
+          <xs:element name="loginlogid" type="xs:long" />
+          <xs:element name="login" type="xs:dateTime" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="ip" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mainpost" >
+      <xs:complexContent>
+       <xs:extension base="post">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="board" >
+      <xs:complexContent>
+       <xs:extension base="basedomain">
+         <xs:sequence>
+          <xs:element name="boardid" type="xs:long" />
+          <xs:element name="boardname" type="xs:string" />
+          <xs:element name="boarddesc" type="xs:string" />
+          <xs:element name="topicnum" type="xs:long" />
+          <xs:element name="users" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

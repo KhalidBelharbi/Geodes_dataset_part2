@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="logback" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fragment" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="_template" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sendemail" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="scheduledtaskhistory" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tasklist" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="error" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="index" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="403" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="main" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="login" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dateformatcheckforstring" >
+      <xs:complexContent>
+       <xs:extension base="payload>[]">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dateformatcheckforstringimpl" >
+      <xs:sequence>
+        <xs:element name="format" type="xs:string" />
+        <xs:element name="//@suppresswarnings("unused")message" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mailform" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="from" type="xs:string" />
+        <xs:element name="to" type="xs:string" />
+        <xs:element name="subject" type="xs:string" />
+        <xs:element name="body" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userregistform" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="retypepassword" type="xs:string" />
+        <xs:element name="emailaddress1" type="xs:string" />
+        <xs:element name="emailaddress2" type="xs:string" />
+        <xs:element name="gender" type="xs:string" />
+        <xs:element name="dateofbirth" type="xs:anyType" />
+        <xs:element name="nationality" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="creditcardno" type="xs:string" />
+        <xs:element name="creditexpirationdate" type="xs:string" />
+        <xs:element name="passwordhint" type="xs:string" />
+        <xs:element name="passwordhintanswer" type="xs:string" />
+        <xs:element name="sessiontimeout" type="xs:anyType" />
+        <xs:element name="emailnewsletter" type="xs:string" />
+        <xs:element name="agreeteams" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="taskform" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="scheduledate" type="xs:string" />
+        <xs:element name="status" type="xs:anyType" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="updateflg" type="xs:anyType" />
+        <xs:element name="deleteflg" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userlistform" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="userlist" type="userform" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fileuploadform" >
+      <xs:sequence>
+        <xs:element name="file" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="taskpageform" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="tasklist" type="taskform" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="currentpage" type="xs:long" />
+        <xs:element name="totalpages" type="xs:long" />
+        <xs:element name="haspreviouspage" type="xs:anyType" />
+        <xs:element name="hasnextpage" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="scheduledtaskhistoryform" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="method" type="xs:string" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="updatedate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tasklistform" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="tasklist" type="taskform" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userform" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="emailaddress1" type="xs:string" />
+        <xs:element name="emailaddress2" type="xs:string" />
+        <xs:element name="readonly" type="xs:anyType" />
+        <xs:element name="enable" type="xs:anyType" />
+        <xs:element name="updateflg" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="exceptionhandlingtestcontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tasklistcontroller" >
+      <xs:sequence>
+        <xs:element name="pagesize" type="xs:long" />
+        <xs:element name="service" type="taskmanageservice" nillable="true" minOccurs="0" />
+        <xs:element name="helper" type="tasklisthelper" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userregistcontroller" >
+      <xs:sequence>
+        <xs:element name="validator" type="userregistformvalidator" nillable="true" minOccurs="0" />
+        <xs:element name="service" type="usermanageservice" nillable="true" minOccurs="0" />
+        <xs:element name="helper" type="userregisthelper" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tasklistapipagecontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userlistcontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="usermanageservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="scheduledtaskhistorycontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="scheduledtaskservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="taskbulkupdatecontroller" >
+      <xs:complexContent>
+       <xs:extension base="tasklistcontroller">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fileuploadcontroller" >
+      <xs:sequence>
+        <xs:element name="validator" type="fileuploadformvalidator" nillable="true" minOccurs="0" />
+        <xs:element name="service" type="multipartfilemanageservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filedownloadcontroller" >
+      <xs:sequence>
+        <xs:element name="charset" type="xs:string" />
+        <xs:element name="msg" type="xs:anyType" />
+        <xs:element name="service" type="taskexcelmanageservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="taskcreatecontroller" >
+      <xs:sequence>
+        <xs:element name="pagesize" type="xs:long" />
+        <xs:element name="service" type="taskmanageservice" nillable="true" minOccurs="0" />
+        <xs:element name="helper" type="tasklisthelper" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tasklistapicontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="taskmanageservice" nillable="true" minOccurs="0" />
+        <xs:element name="helper" type="tasklisthelper" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="taskupdatecontroller" >
+      <xs:sequence>
+        <xs:element name="pagesize" type="xs:long" />
+        <xs:element name="service" type="taskmanageservice" nillable="true" minOccurs="0" />
+        <xs:element name="helper" type="tasklisthelper" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="taskdeletecontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="taskmanageservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sendemailcontroller" >
+      <xs:sequence>
+        <xs:element name="msg" type="xs:anyType" />
+        <xs:element name="service" type="sendemailthreadcontrolservice" nillable="true" minOccurs="0" />
+        <xs:element name="fromaddr" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userregistformvalidator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fileuploadformvalidator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userregisthelper" >
+      <xs:sequence>
+        <xs:element name="date_format" type="xs:string" />
+        <xs:element name="msg" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tasklisthelper" >
+      <xs:sequence>
+        <xs:element name="msg" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="securitywebappinitializer" >
+      <xs:complexContent>
+       <xs:extension base="abstractsecuritywebapplicationinitializer">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="datasourceconfig" >
+      <xs:sequence>
+        <xs:element name="env" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="webmvcconfig" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="env" type="xs:anyType" />
+        <xs:element name="taskexecutor" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="appconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="asyncconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpaconfig" >
+      <xs:sequence>
+        <xs:element name="env" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="taskschedulerconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="transactionadviceconfig" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="threadcleanuplistener" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="apphandlerexceptionresolver" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="appcontrolleradvice" >
+      <xs:sequence>
+        <xs:element name="formmaxlistsize" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="webappinitializer" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customdeferredresultprocessinginterceptor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customcallableprocessinginterceptor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdetailsimpl" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="displayname" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="enabled" type="xs:anyType" />
+        <xs:element name="authorities" type="xs:anyType" />
+        <xs:element name="accountnonexpired" type="xs:anyType" />
+        <xs:element name="accountnonlocked" type="xs:anyType" />
+        <xs:element name="credentialsnonexpired" type="xs:anyType" />
+        <xs:element name="sessiontimeout" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdetailsserviceimpl" >
+      <xs:sequence>
+        <xs:element name="userrepo" type="muserrepository" nillable="true" minOccurs="0" />
+        <xs:element name="userauthrepo" type="vuserauthorityrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authenticationsuccesshandlerimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="websecurityconfig" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+          <xs:element name="userrepo" type="muserrepository" nillable="true" minOccurs="0" />
+          <xs:element name="userauthrepo" type="vuserauthorityrepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="appconstants" >
+      <xs:sequence>
+        <xs:element name="/***configuration:characterencoding.*/character_encoding" type="xs:string" />
+        <xs:element name="/***configuration:sessiontimeout.*/default_session_timeout" type="xs:long" />
+        <xs:element name="/***javapackage:applicationbase.*/pkg_base" type="xs:string" />
+        <xs:element name="/***javapackage:componentscanpackageforconfiguration.*/pkg_config_di" type="xs:string" />
+        <xs:element name="/***javapackage:componentscanpackageforapplicationlayer.*/pkg_application_di" type="xs:string" />
+        <xs:element name="/***javapackage:componentscanpackagefordomainlayer.*/pkg_domain_di" type="xs:string" />
+        <xs:element name="/***javapackage:applicationservice.*/pkg_service" type="xs:string" />
+        <xs:element name="/***javapackage:springdatajparepository.*/pkg_jpa_repository" type="xs:string" />
+        <xs:element name="/***javapackage:springdatajpaentity.*/pkg_jpa_entity" type="xs:string" />
+        <xs:element name="*/transaction_pointcut_expression" type="xs:string" />
+        <xs:element name="//@formatter:on/***security:roleid-administratorrole.*/role_id_for_admin" type="xs:string" />
+        <xs:element name="/***security:roleid-role.*/role_id_for_users" type="xs:string" />
+        <xs:element name="/***security:uritopermitforallusers.*/uri_permit_all" type="xs:anyType" />
+        <xs:element name="/***security:uritopermitforusersauthority.*/uri_users_page" type="xs:anyType" />
+        <xs:element name="/***security:uritopermitforadminauthority.*/uri_admin_page" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dateutility" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="webutility" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fileutility" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commonutility" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stringutility" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="muserrolepk" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="roleid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="muser" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="emailaddress1" type="xs:string" />
+        <xs:element name="emailaddress2" type="xs:string" />
+        <xs:element name="gender" type="xs:string" />
+        <xs:element name="nationality1" type="xs:string" />
+        <xs:element name="nationality2" type="xs:string" />
+        <xs:element name="dateofbirth" type="xs:anyType" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="creditcardno" type="xs:string" />
+        <xs:element name="creditexpirationdate" type="xs:anyType" />
+        <xs:element name="passwordhint" type="xs:string" />
+        <xs:element name="passwordhintanswer" type="xs:string" />
+        <xs:element name="sessiontimeout" type="xs:anyType" />
+        <xs:element name="emailnewsletter1" type="xs:anyType" />
+        <xs:element name="emailnewsletter2" type="xs:anyType" />
+        <xs:element name="readonly" type="xs:anyType" />
+        <xs:element name="enabled" type="xs:anyType" />
+        <xs:element name="updatedate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vuserauthority" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="authorityname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tscheduledtaskhistory" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="method" type="xs:string" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="updatedate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vuserauthoritypk" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="authorityname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ttask" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="scheduledate" type="xs:anyType" />
+        <xs:element name="status" type="xs:anyType" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="userid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="muserrole" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="roleid" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sendemailservice" >
+      <xs:sequence>
+        <xs:element name="smtphost" type="xs:string" />
+        <xs:element name="smtpport" type="xs:long" />
+        <xs:element name="starttls" type="xs:anyType" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="charset" type="xs:string" />
+        <xs:element name="encode" type="xs:string" />
+        <xs:element name="connectiontimeout" type="xs:long" />
+        <xs:element name="timeout" type="xs:long" />
+        <xs:element name="debug" type="xs:anyType" />
+        <xs:element name="fromaddr" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="taskmanageservice" >
+      <xs:sequence>
+        <xs:element name="repo" type="ttaskrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="multipartfilemanageservice" >
+      <xs:sequence>
+        <xs:element name="savedir" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sendemailthreadcontrolservice" >
+      <xs:sequence>
+        <xs:element name="context" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="taskexcelmanageservice" >
+      <xs:sequence>
+        <xs:element name="filename" type="xs:string" />
+        <xs:element name="msg" type="xs:anyType" />
+        <xs:element name="repo" type="ttaskrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="scheduledtaskservice" >
+      <xs:sequence>
+        <xs:element name="repo" type="tscheduledtaskhistoryrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usermanageservice" >
+      <xs:sequence>
+        <xs:element name="userrepo" type="muserrepository" nillable="true" minOccurs="0" />
+        <xs:element name="userrolerepo" type="muserrolerepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vuserauthorityrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<vuserauthority,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="muserrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<muser,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tscheduledtaskhistoryrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<tscheduledtaskhistory,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="muserrolerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<muserrole,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ttaskrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<ttask,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="scheduledtasks" >
+      <xs:sequence>
+        <xs:element name="execute" type="xs:anyType" />
+        <xs:element name="service" type="scheduledtaskservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="methodlogginginterceptor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

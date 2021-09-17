@@ -1,0 +1,17 @@
+ClassDiagram.Class>> Loja =>=>=> RelationalSchema.Table>> loja;
+ClassDiagram.Class>> Estoque =>=>=> RelationalSchema.Table>> estoque;
+ClassDiagram.Class>> Produto =>=>=> RelationalSchema.Table>> produto;
+ClassDiagram.Attribut>> Loja.codigo:Integer =>=>=> RelationalSchema.Column>> loja.codigo PRIMARY KEY;
+ClassDiagram.Attribut>> Loja.name:String =>=>=> RelationalSchema.Column>> loja.name;
+ClassDiagram.Attribut>> Loja.inativo:Boolean =>=>=> RelationalSchema.Column>> loja.inativo;
+ClassDiagram.Attribut>> Estoque.quantidade:Integer =>=>=> RelationalSchema.Column>> estoque.quantidade;
+ClassDiagram.Attribut>> Estoque.codigo:Produto =>=>=> RelationalSchema.Column>> estoque.codigo PRIMARY KEY;
+ClassDiagram.Attribut>> Estoque.codigofilial:Loja =>=>=> RelationalSchema.Column>> estoque.codigofilial PRIMARY KEY;
+ClassDiagram.Attribut>> Produto.codigo:Integer =>=>=> RelationalSchema.Column>> produto.codigo PRIMARY KEY;
+ClassDiagram.Attribut>> Produto.descricao:String =>=>=> RelationalSchema.Column>> produto.descricao;
+ClassDiagram.Attribut>> Produto.datavalidade:LocalDate =>=>=> RelationalSchema.Column>> produto.datavalidade;
+ClassDiagram.Attribut>> Produto.ean:String =>=>=> RelationalSchema.Column>> produto.ean;
+ClassDiagram.Attribut>> Produto.inativo:Boolean =>=>=> RelationalSchema.Column>> produto.inativo;
+One-To-Many relationship from ClassDiagram.Class>>Loja  to ClassDiagram.Class>>List<Estoque>;
+Many-To-One relationship from ClassDiagram.Class>>Estoque  to ClassDiagram.Class>>produto represented by ClassDiagram.Atrribute>>codigo;
+Many-To-One relationship from ClassDiagram.Class>>Estoque  to ClassDiagram.Class>>loja represented by ClassDiagram.Atrribute>>codigofilial;

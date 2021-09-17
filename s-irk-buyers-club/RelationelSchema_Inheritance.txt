@@ -1,0 +1,21 @@
+
+organization(id:Long [PK], /***наименование.*/name:String, /***инн.*/inn:String, /***создан.*/createdat:LocalDateTime, /***обновлен.*/updatedat:LocalDateTime, /***пометканаудаление.*/deleted:Boolean);
+
+telegramuser(id:Long [PK], /***этобот.*/isbot:Boolean, /***наименование.*/username:String, /***имя.*/firstname:String, /***фамилия.*/lastname:String, /***можетприсоединитсякгруппе.толькодлябота.*/canjoingroups:Boolean, /***можетприсоединитсякгруппе.*/canreadallgroupmessages:Boolean, /***.*/supportinlinequeries:Boolean);
+
+shop(id:Long [PK], /***наименование.*/name:String, /***адрес.*/address:String, /***организация.*/:Organization #FK to(organization), /***создан.*/createdat:LocalDateTime, /***обновлен.*/updatedat:LocalDateTime, /***пометканаудаление.*/deleted:Boolean);
+
+cashier(id:Long [PK], /***наименование.*/name:String, /***магазин.*/:Shop #FK to(shop), /***создан.*/createdat:LocalDateTime, /***обновлен.*/updatedat:LocalDateTime, /***пометканаудаление.*/deleted:Boolean);
+
+product(id:Long [PK], /***наименование.*/name:String, /***группа.*/:ProductGroup #FK to(productgroup), /***создан.*/createdat:LocalDateTime, /***обновлен.*/updatedat:LocalDateTime, /***пометканаудаление.*/deleted:Boolean);
+
+productgroup(id:Long [PK], /***наименование.*/name:String, /***создан.*/createdat:LocalDateTime, /***обновлен.*/updatedat:LocalDateTime, /***пометканаудаление.*/deleted:Boolean);
+
+cashcheckline(id:Long [PK], /***товар.*/:Product #FK to(product), /***цена.*/price:Integer, /***количество.*/quantity:Integer, /***сумма.*/totalsum:Integer);
+
+cashcheck(id:Long [PK], /***кассир.*/:Cashier #FK to(cashier), /***номерчека(???).*/requestnumber:String, /***номерсмены(???).*/shiftnumber:String, /***рег.номеркассовогоаппарата(имяатрибутаоригинальное).*/kktregid:String, /***номерплаты.*/fiscaldrivenumber:String, /***номердокумента.*/fiscaldocumentnumber:String, /***сумма.*/totalsum:Integer, /***сумманаличные.*/cashsum:Integer, /***суммабезналичные.*/ecashsum:Integer, /***дата-время.*/checkdate:LocalDateTime, /***telegram-пользовательдобавивишийчек.*/:TelegramUser #FK to(telegramuser), /***создан.*/createdat:LocalDateTime, /***обновлен.*/updatedat:LocalDateTime, /***пометканаудаление.*/deleted:Boolean);
+
+productprice(id:Long [PK], /***магазин.*/:Shop #FK to(shop), /***товар.*/:Product #FK to(product), /***цена.*/price:Integer, /***дата-время.*/pricedate:LocalDateTime, /***пометканаудаление.*/deleted:Boolean);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

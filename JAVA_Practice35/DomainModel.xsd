@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="privilege" >
+      <xs:sequence>
+        <xs:element name="privilegeid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="pid" type="xs:long" />
+        <xs:element name="icon" type="xs:string" />
+        <xs:element name="isparent" type="xs:anyType" />
+        <xs:element name="duties" type="duty" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="checked" type="xs:anyType" />
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="target" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="person" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="time" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="sex" type="xs:string" />
+        <xs:element name="duties" type="duty" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="department" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="department" >
+      <xs:sequence>
+        <xs:element name="departmentid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="users" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="duty" >
+      <xs:sequence>
+        <xs:element name="//主键dutyid" type="xs:long" />
+        <xs:element name="//父节点idpid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="isparent" type="xs:anyType" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="users" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="privileges" type="privilege" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="checked" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

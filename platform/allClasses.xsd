@@ -1,0 +1,4025 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="alarmdao" >
+      <xs:complexContent>
+       <xs:extension base="dao<alarm>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basealarmservice" >
+      <xs:complexContent>
+       <xs:extension base="abstractentityservice">
+         <xs:sequence>
+          <xs:element name="incorrect_tenant_id" type="xs:string" />
+          <xs:element name="incorrect_customer_id" type="xs:string" />
+          <xs:element name="" type="alarmdao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="tenantdao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="readresultsprocessingexecutor" type="xs:anyType" />
+          <xs:element name="alarmdatavalidator" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sqltimeseriesdaoconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deviceserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="abstractentityservice">
+         <xs:sequence>
+          <xs:element name="incorrect_tenant_id" type="xs:string" />
+          <xs:element name="incorrect_device_profile_id" type="xs:string" />
+          <xs:element name="incorrect_page_link" type="xs:string" />
+          <xs:element name="incorrect_customer_id" type="xs:string" />
+          <xs:element name="incorrect_device_id" type="xs:string" />
+          <xs:element name="" type="devicedao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="tenantdao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="customerdao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="tenantprofilecache" type="xs:anyType" />
+          <xs:element name="devicevalidator" type="xs:anyType" />
+          <xs:element name="tenantdevicesremover" type="xs:anyType" />
+          <xs:element name="customerdeviceunasigner" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="claimdatainfo" >
+      <xs:sequence>
+        <xs:element name="fromcache" type="xs:anyType" />
+        <xs:element name="key" type="xs:anyType" />
+        <xs:element name="data" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="devicecredentialsdao" >
+      <xs:complexContent>
+       <xs:extension base="dao<devicecredentials>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="devicecredentialsserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="abstractentityservice">
+         <xs:sequence>
+          <xs:element name="" type="devicecredentialsdao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="credentialsvalidator" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="devicedao" >
+      <xs:complexContent>
+       <xs:extension base="dao<device>,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="deviceprofiledao" >
+      <xs:complexContent>
+       <xs:extension base="dao<deviceprofile>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="deviceprofileserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="abstractentityservice">
+         <xs:sequence>
+          <xs:element name="incorrect_tenant_id" type="xs:string" />
+          <xs:element name="incorrect_device_profile_id" type="xs:string" />
+          <xs:element name="incorrect_device_profile_name" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="attributes_proto_schema" type="xs:string" />
+          <xs:element name="telemetry_proto_schema" type="xs:string" />
+          <xs:element name="" type="deviceprofiledao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="devicedao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="tenantdao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="deviceprofilevalidator" type="xs:anyType" />
+          <xs:element name="tenantdeviceprofilesremover" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="claimdevicesserviceimpl" >
+      <xs:sequence>
+        <xs:element name="claim_attribute_name" type="xs:string" />
+        <xs:element name="claim_data_attribute_name" type="xs:string" />
+        <xs:element name="mapper" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="isallowedclaimingbydefault" type="xs:anyType" />
+        <xs:element name="systemdurationms" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entityquerydao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractentityservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baseentityservice" >
+      <xs:complexContent>
+       <xs:extension base="abstractentityservice">
+         <xs:sequence>
+          <xs:element name="incorrect_tenant_id" type="xs:string" />
+          <xs:element name="incorrect_customer_id" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="entityquerydao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="componentdescriptordao" >
+      <xs:complexContent>
+       <xs:extension base="dao<componentdescriptor>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basecomponentdescriptorservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="componentdescriptordao" nillable="true" minOccurs="0" />
+        <xs:element name="componentvalidator" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractsqltimeseriesdao" >
+      <xs:complexContent>
+       <xs:extension base="baseabstractsqltimeseriesdao">
+         <xs:sequence>
+          <xs:element name="seconds_in_day" type="xs:long" />
+          <xs:element name="logexecutor" type="scheduledlogexecutorcomponent" nillable="true" minOccurs="0" />
+          <xs:element name="tsbatchsize" type="xs:long" />
+          <xs:element name="tsmaxdelay" type="xs:long" />
+          <xs:element name="tsstatsprintintervalms" type="xs:long" />
+          <xs:element name="tsbatchthreads" type="xs:long" />
+          <xs:element name="timescalebatchthreads" type="xs:long" />
+          <xs:element name="batchsortenabled" type="xs:anyType" />
+          <xs:element name="systemttl" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpahsqltimeseriesdao" >
+      <xs:complexContent>
+       <xs:extension base="abstractchunkedaggregationtimeseriesdao">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseabstractsqltimeseriesdao" >
+      <xs:complexContent>
+       <xs:extension base="jpaabstractdaolisteningexecutorservice">
+         <xs:sequence>
+          <xs:element name="tskvdictionarymap" type="xs:anyType" />
+          <xs:element name="tscreationlock" type="xs:anyType" />
+          <xs:element name="dictionaryrepository" type="tskvdictionaryrepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sqltimeserieslatestdao" >
+      <xs:complexContent>
+       <xs:extension base="baseabstractsqltimeseriesdao">
+         <xs:sequence>
+          <xs:element name="desc_order" type="xs:string" />
+          <xs:element name="" type="tskvlatestrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="aggregationtimeseriesdao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="searchtskvlatestrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="insertlatesttsrepository" nillable="true" minOccurs="0" />
+          <xs:element name="tslatestqueue" type="tskvlatestentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="tslatestbatchsize" type="xs:long" />
+          <xs:element name="tslatestmaxdelay" type="xs:long" />
+          <xs:element name="tslateststatsprintintervalms" type="xs:long" />
+          <xs:element name="tslatestbatchthreads" type="xs:long" />
+          <xs:element name="batchsortenabled" type="xs:anyType" />
+          <xs:element name="logexecutor" type="scheduledlogexecutorcomponent" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tskvdictionaryrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<tskvdictionary,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitycontainer" >
+      <xs:complexContent>
+       <xs:extension base="abstracttskventity>">
+         <xs:sequence>
+          <xs:element name="eniy" type="xs:anyType" />
+          <xs:element name="partitiondate" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tskey" >
+      <xs:sequence>
+        <xs:element name="entityid" type="xs:anyType" />
+        <xs:element name="key" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tskvtimescalerepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<timescaletskventity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="timescaletimeseriesdao" >
+      <xs:complexContent>
+       <xs:extension base="abstractsqltimeseriesdao">
+         <xs:sequence>
+          <xs:element name="tskvrepository" type="tskvtimescalerepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="aggregationrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="insertrepository" type="timescaletskventity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="tsqueue" type="timescaletskventity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="aggregationrepository" >
+      <xs:sequence>
+        <xs:element name="find_avg" type="xs:string" />
+        <xs:element name="find_max" type="xs:string" />
+        <xs:element name="find_min" type="xs:string" />
+        <xs:element name="find_sum" type="xs:string" />
+        <xs:element name="find_count" type="xs:string" />
+        <xs:element name="from_where_clause" type="xs:string" />
+        <xs:element name="find_avg_query" type="xs:string" />
+        <xs:element name="find_max_query" type="xs:string" />
+        <xs:element name="find_min_query" type="xs:string" />
+        <xs:element name="find_sum_query" type="xs:string" />
+        <xs:element name="find_count_query" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tskvrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<tskventity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpapsqltimeseriesdao" >
+      <xs:complexContent>
+       <xs:extension base="abstractchunkedaggregationtimeseriesdao">
+         <xs:sequence>
+          <xs:element name="partitions" type="xs:anyType" />
+          <xs:element name="partitioncreationlock" type="xs:anyType" />
+          <xs:element name="partitioningrepository" type="psqlpartitioningrepository" nillable="true" minOccurs="0" />
+          <xs:element name="tsformat" type="sqltspartitiondate" nillable="true" minOccurs="0" />
+          <xs:element name="partitioning" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="timescaleinserttsrepository" >
+      <xs:complexContent>
+       <xs:extension base="abstractinsertrepository">
+         <xs:sequence>
+          <xs:element name="insert_or_update" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hsqlinserttsrepository" >
+      <xs:complexContent>
+       <xs:extension base="abstractinsertrepository">
+         <xs:sequence>
+          <xs:element name="insert_or_update" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hsqllatestinserttsrepository" >
+      <xs:complexContent>
+       <xs:extension base="abstractinsertrepository">
+         <xs:sequence>
+          <xs:element name="insert_or_update" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="insertlatesttsrepository" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="psqllatestinserttsrepository" >
+      <xs:complexContent>
+       <xs:extension base="abstractinsertrepository">
+         <xs:sequence>
+          <xs:element name="batch_update" type="xs:string" />
+          <xs:element name="insert_or_update" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="inserttsrepository" >
+      <xs:complexContent>
+       <xs:extension base="abstracttskventity>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractinsertrepository" >
+      <xs:sequence>
+        <xs:element name="pattern_thread_local" type="xs:anyType" />
+        <xs:element name="empty_str" type="xs:string" />
+        <xs:element name="removenullchars" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="psqlinserttsrepository" >
+      <xs:complexContent>
+       <xs:extension base="abstractinsertrepository">
+         <xs:sequence>
+          <xs:element name="insert_on_conflict_do_update" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="psqlpartitioningrepository" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="aggregationtimeseriesdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="searchtskvlatestrepository" >
+      <xs:sequence>
+        <xs:element name="find_all_by_entity_id" type="xs:string" />
+        <xs:element name="find_all_by_entity_id_query" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tskvlatestrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<tskvlatestentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractchunkedaggregationtimeseriesdao" >
+      <xs:complexContent>
+       <xs:extension base="abstractsqltimeseriesdao">
+         <xs:sequence>
+          <xs:element name="" type="tskvrepository" nillable="true" minOccurs="0" />
+          <xs:element name="insertrepository" type="tskventity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="tsqueue" type="tskventity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cassandrabasetimeserieslatestdao" >
+      <xs:complexContent>
+       <xs:extension base="abstractcassandrabasetimeseriesdao">
+         <xs:sequence>
+          <xs:element name="" type="aggregationtimeseriesdao" nillable="true" minOccurs="0" />
+          <xs:element name="latestinsertstmt" type="xs:anyType" />
+          <xs:element name="findlateststmt" type="xs:anyType" />
+          <xs:element name="findalllateststmt" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="psqlpartition" >
+      <xs:sequence>
+        <xs:element name="table_regex" type="xs:string" />
+        <xs:element name="start" type="xs:long" />
+        <xs:element name="end" type="xs:long" />
+        <xs:element name="partitiondate" type="xs:string" />
+        <xs:element name="query" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractcassandrabasetimeseriesdao" >
+      <xs:complexContent>
+       <xs:extension base="cassandraabstractasyncdao">
+         <xs:sequence>
+          <xs:element name="desc_order" type="xs:string" />
+          <xs:element name="generated_query_for_entity_type_and_entity_id" type="xs:string" />
+          <xs:element name="insert_into" type="xs:string" />
+          <xs:element name="select_prefix" type="xs:string" />
+          <xs:element name="equals_param" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sqltspartitiondate" >
+      <xs:sequence>
+        <xs:element name="pattern" type="xs:string" />
+        <xs:element name="transienttruncateunit" type="xs:anyType" />
+        <xs:element name="epoch_start" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="querycursor" >
+      <xs:sequence>
+        <xs:element name="entitytype" type="xs:string" />
+        <xs:element name="entityid" type="xs:anyType" />
+        <xs:element name="key" type="xs:string" />
+        <xs:element name="startts" type="xs:long" />
+        <xs:element name="endts" type="xs:long" />
+        <xs:element name="partitions" type="xs:anyType" />
+        <xs:element name="partitionindex" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="timeseriesdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="timeserieslatestdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basetimeseriesservice" >
+      <xs:sequence>
+        <xs:element name="inserts_per_entry" type="xs:long" />
+        <xs:element name="deletes_per_entry" type="xs:long" />
+        <xs:element name="sum_all_integers" type="xs:anyType" />
+        <xs:element name="maxtsintervals" type="xs:long" />
+        <xs:element name="GeneratedName" type="timeseriesdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="timeserieslatestdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tsinsertexecutortype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="simplelistenablefuture" >
+      <xs:complexContent>
+       <xs:extension base="abstractfuture<v>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tskvquerycursor" >
+      <xs:complexContent>
+       <xs:extension base="querycursor">
+         <xs:sequence>
+          <xs:element name="data" type="xs:anyType" />
+          <xs:element name="orderby" type="xs:string" />
+          <xs:element name="partitionindex" type="xs:long" />
+          <xs:element name="currentlimit" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cassandrabasetimeseriesdao" >
+      <xs:complexContent>
+       <xs:extension base="abstractcassandrabasetimeseriesdao">
+         <xs:sequence>
+          <xs:element name="min_aggregation_step_ms" type="xs:long" />
+          <xs:element name="asc_order" type="xs:string" />
+          <xs:element name="seconds_in_day" type="xs:long" />
+          <xs:element name="fixed_partition" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="partitioning" type="xs:string" />
+          <xs:element name="systemttl" type="xs:long" />
+          <xs:element name="setnullvaluesenabled" type="xs:anyType" />
+          <xs:element name="tsformat" type="nosqltspartitiondate" nillable="true" minOccurs="0" />
+          <xs:element name="partitioninsertstmt" type="xs:anyType" />
+          <xs:element name="partitioninsertttlstmt" type="xs:anyType" />
+          <xs:element name="savestmts" type="xs:anyType" />
+          <xs:element name="savettlstmts" type="xs:anyType" />
+          <xs:element name="fetchstmtsasc" type="xs:anyType" />
+          <xs:element name="fetchstmtsdesc" type="xs:anyType" />
+          <xs:element name="deletestmt" type="xs:anyType" />
+          <xs:element name="deletepartitionstmt" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="nosqltspartitiondate" >
+      <xs:sequence>
+        <xs:element name="pattern" type="xs:string" />
+        <xs:element name="transienttruncateunit" type="xs:anyType" />
+        <xs:element name="epoch_start" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="aggregatepartitionsfunction" >
+      <xs:sequence>
+        <xs:element name="long_cnt_pos" type="xs:long" />
+        <xs:element name="double_cnt_pos" type="xs:long" />
+        <xs:element name="bool_cnt_pos" type="xs:long" />
+        <xs:element name="str_cnt_pos" type="xs:long" />
+        <xs:element name="json_cnt_pos" type="xs:long" />
+        <xs:element name="long_pos" type="xs:long" />
+        <xs:element name="double_pos" type="xs:long" />
+        <xs:element name="bool_pos" type="xs:long" />
+        <xs:element name="str_pos" type="xs:long" />
+        <xs:element name="json_pos" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="key" type="xs:string" />
+        <xs:element name="ts" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tbsqlqueue" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractcomponentdescriptorinsertrepository" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="transactionmanager" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="componentdescriptorinsertrepository" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="psqlcomponentdescriptorinsertrepository" >
+      <xs:complexContent>
+       <xs:extension base="abstractcomponentdescriptorinsertrepository">
+         <xs:sequence>
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="clazz_clazz" type="xs:string" />
+          <xs:element name="p_key_conflict_statement" type="xs:string" />
+          <xs:element name="unq_key_conflict_statement" type="xs:string" />
+          <xs:element name="on_p_key_conflict_update_statement" type="xs:string" />
+          <xs:element name="on_unq_key_conflict_update_statement" type="xs:string" />
+          <xs:element name="insert_or_update_on_p_key_conflict" type="xs:string" />
+          <xs:element name="insert_or_update_on_unq_key_conflict" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hsqlcomponentdescriptorinsertrepository" >
+      <xs:complexContent>
+       <xs:extension base="abstractcomponentdescriptorinsertrepository">
+         <xs:sequence>
+          <xs:element name="p_key_conflict_statement" type="xs:string" />
+          <xs:element name="unq_key_conflict_statement" type="xs:string" />
+          <xs:element name="insert_or_update_on_p_key_conflict" type="xs:string" />
+          <xs:element name="insert_or_update_on_unq_key_conflict" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="componentdescriptorrepository" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<componentdescriptorentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpabasecomponentdescriptordao" >
+      <xs:complexContent>
+       <xs:extension base="jpaabstractsearchtextdao<componentdescriptorentity,">
+         <xs:sequence>
+          <xs:element name="" type="componentdescriptorrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="componentdescriptorinsertrepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="psqleventinsertrepository" >
+      <xs:complexContent>
+       <xs:extension base="abstracteventinsertrepository">
+         <xs:sequence>
+          <xs:element name="p_key_conflict_statement" type="xs:string" />
+          <xs:element name="unq_key_conflict_statement" type="xs:string" />
+          <xs:element name="update_p_key_statement" type="xs:string" />
+          <xs:element name="update_unq_key_statement" type="xs:string" />
+          <xs:element name="insert_or_update_on_p_key_conflict" type="xs:string" />
+          <xs:element name="insert_or_update_on_unq_key_conflict" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpabaseeventdao" >
+      <xs:complexContent>
+       <xs:extension base="jpaabstractdao<evententity,">
+         <xs:sequence>
+          <xs:element name="systemtenantid" type="xs:anyType" />
+          <xs:element name="" type="eventrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="eventinsertrepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hsqleventinsertrepository" >
+      <xs:complexContent>
+       <xs:extension base="abstracteventinsertrepository">
+         <xs:sequence>
+          <xs:element name="p_key_conflict_statement" type="xs:string" />
+          <xs:element name="unq_key_conflict_statement" type="xs:string" />
+          <xs:element name="insert_or_update_on_p_key_conflict" type="xs:string" />
+          <xs:element name="insert_or_update_on_unq_key_conflict" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="eventinsertrepository" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="eventrepository" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<evententity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstracteventinsertrepository" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="transactionmanager" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpaapiusagestatedao" >
+      <xs:complexContent>
+       <xs:extension base="jpaabstractdao<apiusagestateentity,">
+         <xs:sequence>
+          <xs:element name="" type="apiusagestaterepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="apiusagestaterepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<apiusagestateentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpaabstractsearchtextdao" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<d>,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpaabstractdaolisteningexecutorservice" >
+      <xs:sequence>
+        <xs:element name="service" type="jpaexecutorservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tbsqlblockingqueuewrapper" >
+      <xs:sequence>
+        <xs:element name="queues" type="xs:anyType" />
+        <xs:element name="params" type="tbsqlblockingqueueparams" nillable="true" minOccurs="0" />
+        <xs:element name="logexecutor" type="scheduledlogexecutorcomponent" nillable="true" minOccurs="0" />
+        <xs:element name="hashcodefunction" type="xs:anyType" />
+        <xs:element name="maxthreads" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="assetrepository" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<assetentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpaassetdao" >
+      <xs:complexContent>
+       <xs:extension base="jpaabstractsearchtextdao<assetentity,">
+         <xs:sequence>
+          <xs:element name="" type="assetrepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="deviceprofilerepository" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<deviceprofileentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="devicerepository" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<deviceentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpadeviceprofiledao" >
+      <xs:complexContent>
+       <xs:extension base="jpaabstractsearchtextdao<deviceprofileentity,">
+         <xs:sequence>
+          <xs:element name="" type="deviceprofilerepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpadevicedao" >
+      <xs:complexContent>
+       <xs:extension base="jpaabstractsearchtextdao<deviceentity,">
+         <xs:sequence>
+          <xs:element name="" type="devicerepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpadevicecredentialsdao" >
+      <xs:complexContent>
+       <xs:extension base="jpaabstractdao<devicecredentialsentity,">
+         <xs:sequence>
+          <xs:element name="" type="devicecredentialsrepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="devicecredentialsrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<devicecredentialsentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entityviewrepository" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<entityviewentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpaentityviewdao" >
+      <xs:complexContent>
+       <xs:extension base="jpaabstractsearchtextdao<entityviewentity,">
+         <xs:sequence>
+          <xs:element name="" type="entityviewrepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="widgettyperepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<widgettypeentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpawidgettypedao" >
+      <xs:complexContent>
+       <xs:extension base="jpaabstractdao<widgettypeentity,">
+         <xs:sequence>
+          <xs:element name="" type="widgettyperepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpawidgetsbundledao" >
+      <xs:complexContent>
+       <xs:extension base="jpaabstractsearchtextdao<widgetsbundleentity,">
+         <xs:sequence>
+          <xs:element name="" type="widgetsbundlerepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="widgetsbundlerepository" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<widgetsbundleentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tbsqlblockingqueueparams" >
+      <xs:sequence>
+        <xs:element name="logname" type="xs:string" />
+        <xs:element name="batchsize" type="xs:long" />
+        <xs:element name="maxdelay" type="xs:long" />
+        <xs:element name="statsprintintervalms" type="xs:long" />
+        <xs:element name="statsnameprefix" type="xs:string" />
+        <xs:element name="batchsortenabled" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpaabstractdao" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<d>,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="adminsettingsrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<adminsettingsentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpaadminsettingsdao" >
+      <xs:complexContent>
+       <xs:extension base="jpaabstractdao<adminsettingsentity,">
+         <xs:sequence>
+          <xs:element name="" type="adminsettingsrepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="alarmrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<alarmentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpaalarmdao" >
+      <xs:complexContent>
+       <xs:extension base="jpaabstractdao<alarmentity,">
+         <xs:sequence>
+          <xs:element name="" type="alarmrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="alarmqueryrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="relationdao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpadashboarddao" >
+      <xs:complexContent>
+       <xs:extension base="jpaabstractsearchtextdao<dashboardentity,">
+         <xs:sequence>
+          <xs:element name="" type="dashboardrepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dashboardrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<dashboardentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpadashboardinfodao" >
+      <xs:complexContent>
+       <xs:extension base="jpaabstractsearchtextdao<dashboardinfoentity,">
+         <xs:sequence>
+          <xs:element name="" type="relationdao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="dashboardinforepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dashboardinforepository" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<dashboardinfoentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpauserdao" >
+      <xs:complexContent>
+       <xs:extension base="jpaabstractsearchtextdao<userentity,">
+         <xs:sequence>
+          <xs:element name="" type="userrepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usercredentialsrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<usercredentialsentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpausercredentialsdao" >
+      <xs:complexContent>
+       <xs:extension base="jpaabstractdao<usercredentialsentity,">
+         <xs:sequence>
+          <xs:element name="" type="usercredentialsrepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<userentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="attributekvinsertrepository" >
+      <xs:sequence>
+        <xs:element name="pattern_thread_local" type="xs:anyType" />
+        <xs:element name="empty_str" type="xs:string" />
+        <xs:element name="batch_update" type="xs:string" />
+        <xs:element name="insert_or_update" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="removenullchars" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpaattributedao" >
+      <xs:complexContent>
+       <xs:extension base="jpaabstractdaolisteningexecutorservice">
+         <xs:sequence>
+          <xs:element name="logexecutor" type="scheduledlogexecutorcomponent" nillable="true" minOccurs="0" />
+          <xs:element name="" type="attributekvrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="attributekvinsertrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="batchsize" type="xs:long" />
+          <xs:element name="maxdelay" type="xs:long" />
+          <xs:element name="statsprintintervalms" type="xs:long" />
+          <xs:element name="batchthreads" type="xs:long" />
+          <xs:element name="batchsortenabled" type="xs:anyType" />
+          <xs:element name="queue" type="attributekventity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hsqlattributesinsertrepository" >
+      <xs:complexContent>
+       <xs:extension base="attributekvinsertrepository">
+         <xs:sequence>
+          <xs:element name="insert_or_update" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="psqlattributesinsertrepository" >
+      <xs:complexContent>
+       <xs:extension base="attributekvinsertrepository">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="attributekvrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<attributekventity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jparulenodedao" >
+      <xs:complexContent>
+       <xs:extension base="jpaabstractsearchtextdao<rulenodeentity,">
+         <xs:sequence>
+          <xs:element name="" type="rulenoderepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rulenodestaterepository" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<rulenodestateentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jparulenodestatedao" >
+      <xs:complexContent>
+       <xs:extension base="jpaabstractdao<rulenodestateentity,">
+         <xs:sequence>
+          <xs:element name="" type="rulenodestaterepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rulenoderepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<rulenodeentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rulechainrepository" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<rulechainentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jparulechaindao" >
+      <xs:complexContent>
+       <xs:extension base="jpaabstractsearchtextdao<rulechainentity,">
+         <xs:sequence>
+          <xs:element name="" type="rulechainrepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="defaultentityqueryrepository" >
+      <xs:sequence>
+        <xs:element name="entitytablemap" type="xs:anyType" />
+        <xs:element name="select_phone" type="xs:string" />
+        <xs:element name="select_zip" type="xs:string" />
+        <xs:element name="select_address_2" type="xs:string" />
+        <xs:element name="select_address" type="xs:string" />
+        <xs:element name="select_city" type="xs:string" />
+        <xs:element name="select_state" type="xs:string" />
+        <xs:element name="select_country" type="xs:string" />
+        <xs:element name="select_title" type="xs:string" />
+        <xs:element name="select_last_name" type="xs:string" />
+        <xs:element name="select_first_name" type="xs:string" />
+        <xs:element name="select_region" type="xs:string" />
+        <xs:element name="select_email" type="xs:string" />
+        <xs:element name="select_customer_id" type="xs:string" />
+        <xs:element name="select_tenant_id" type="xs:string" />
+        <xs:element name="select_created_time" type="xs:string" />
+        <xs:element name="select_name" type="xs:string" />
+        <xs:element name="select_type" type="xs:string" />
+        <xs:element name="select_label" type="xs:string" />
+        <xs:element name="select_additional_info" type="xs:string" />
+        <xs:element name="select_api_usage_state" type="xs:string" />
+        <xs:element name="relation_query_entity_types" type="xs:anyType" />
+        <xs:element name="hierarchical_query_template" type="xs:string" />
+        <xs:element name="hierarchical_to_query_template" type="xs:string" />
+        <xs:element name="hierarchical_from_query_template" type="xs:string" />
+        <xs:element name="jdbctemplate" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="querylog" type="defaultquerylogcomponent" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="defaultalarmqueryrepository" >
+      <xs:sequence>
+        <xs:element name="alarmfieldcolumnmap" type="xs:anyType" />
+        <xs:element name="select_originator_name" type="xs:string" />
+        <xs:element name="fields_selection" type="xs:string" />
+        <xs:element name="join_relations" type="xs:string" />
+        <xs:element name="jdbctemplate" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="querylog" type="defaultquerylogcomponent" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitykeymapping" >
+      <xs:sequence>
+        <xs:element name="allowedentityfieldmap" type="xs:anyType" />
+        <xs:element name="entityfieldcolumnmap" type="xs:anyType" />
+        <xs:element name="aliases" type="xs:anyType" />
+        <xs:element name="created_time" type="xs:string" />
+        <xs:element name="entity_type" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="label" type="xs:string" />
+        <xs:element name="first_name" type="xs:string" />
+        <xs:element name="last_name" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="region" type="xs:string" />
+        <xs:element name="country" type="xs:string" />
+        <xs:element name="state" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="address_2" type="xs:string" />
+        <xs:element name="zip" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="additional_info" type="xs:string" />
+        <xs:element name="typedentityfields" type="xs:anyType" />
+        <xs:element name="widgetentityfields" type="xs:anyType" />
+        <xs:element name="commonentityfields" type="xs:anyType" />
+        <xs:element name="dashboardentityfields" type="xs:anyType" />
+        <xs:element name="labeledentityfields" type="xs:anyType" />
+        <xs:element name="contactbasedentityfields" type="xs:anyType" />
+        <xs:element name="apiusagestateentityfields" type="xs:anyType" />
+        <xs:element name="commonentityfieldsset" type="xs:anyType" />
+        <xs:element name="relationqueryentityfieldsset" type="xs:anyType" />
+        <xs:element name="index" type="xs:long" />
+        <xs:element name="alias" type="xs:string" />
+        <xs:element name="islatest" type="xs:anyType" />
+        <xs:element name="isselection" type="xs:anyType" />
+        <xs:element name="issearchable" type="xs:anyType" />
+        <xs:element name="issortorder" type="xs:anyType" />
+        <xs:element name="ignore" type="xs:anyType" />
+        <xs:element name="keyfilters" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="paramidx" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entityqueryrepository" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="querylogcomponent" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="querysecuritycontext" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpaentityquerydao" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="entityqueryrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="querycontext" >
+      <xs:sequence>
+        <xs:element name="uuid_type" type="xs:anyType" />
+        <xs:element name="securityctx" type="querysecuritycontext" nillable="true" minOccurs="0" />
+        <xs:element name="query" type="xs:anyType" />
+        <xs:element name="params" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="defaultquerylogcomponent" >
+      <xs:sequence>
+        <xs:element name="logsqlqueries" type="xs:anyType" />
+        <xs:element name="logqueriesthreshold" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="alarmdataadapter" >
+      <xs:sequence>
+        <xs:element name="mapper" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="alarmqueryrepository" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitydataadapter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpaexecutorservice" >
+      <xs:complexContent>
+       <xs:extension base="abstractlisteningexecutor">
+         <xs:sequence>
+          <xs:element name="poolsize" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tbsqlblockingqueue" >
+      <xs:sequence>
+        <xs:element name="queue" type="xs:anyType" />
+        <xs:element name="params" type="tbsqlblockingqueueparams" nillable="true" minOccurs="0" />
+        <xs:element name="executor" type="xs:anyType" />
+        <xs:element name="stats" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tbsqlqueueelement" >
+      <xs:sequence>
+        <xs:element name="future" type="xs:anyType" />
+        <xs:element name="ntity" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpaoauth2clientregistrationtemplatedao" >
+      <xs:complexContent>
+       <xs:extension base="jpaabstractdao<oauth2clientregistrationtemplateentity,">
+         <xs:sequence>
+          <xs:element name="repository" type="oauth2clientregistrationtemplaterepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="oauth2clientregistrationinforepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<oauth2clientregistrationinfoentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="oauth2clientregistrationtemplaterepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<oauth2clientregistrationtemplateentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="oauth2clientregistrationrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<oauth2clientregistrationentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpaoauth2clientregistrationdao" >
+      <xs:complexContent>
+       <xs:extension base="jpaabstractdao<oauth2clientregistrationentity,">
+         <xs:sequence>
+          <xs:element name="repository" type="oauth2clientregistrationrepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpaoauth2clientregistrationinfodao" >
+      <xs:complexContent>
+       <xs:extension base="jpaabstractdao<oauth2clientregistrationinfoentity,">
+         <xs:sequence>
+          <xs:element name="repository" type="oauth2clientregistrationinforepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customerrepository" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<customerentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpacustomerdao" >
+      <xs:complexContent>
+       <xs:extension base="jpaabstractsearchtextdao<customerentity,">
+         <xs:sequence>
+          <xs:element name="" type="customerrepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="auditlogrepository" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<auditlogentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpaauditlogdao" >
+      <xs:complexContent>
+       <xs:extension base="jpaabstractdao<auditlogentity,">
+         <xs:sequence>
+          <xs:element name="" type="auditlogrepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jparelationdao" >
+      <xs:complexContent>
+       <xs:extension base="jpaabstractdaolisteningexecutorservice">
+         <xs:sequence>
+          <xs:element name="" type="relationrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="relationinsertrepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="psqlrelationinsertrepository" >
+      <xs:complexContent>
+       <xs:extension base="abstractrelationinsertrepository">
+         <xs:sequence>
+          <xs:element name="insert_on_conflict_do_update" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="relationinsertrepository" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="relationrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<relationentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hsqlrelationinsertrepository" >
+      <xs:complexContent>
+       <xs:extension base="abstractrelationinsertrepository">
+         <xs:sequence>
+          <xs:element name="insert_on_conflict_do_update" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractrelationinsertrepository" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpatenantdao" >
+      <xs:complexContent>
+       <xs:extension base="jpaabstractsearchtextdao<tenantentity,">
+         <xs:sequence>
+          <xs:element name="" type="tenantrepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpatenantprofiledao" >
+      <xs:complexContent>
+       <xs:extension base="jpaabstractsearchtextdao<tenantprofileentity,">
+         <xs:sequence>
+          <xs:element name="" type="tenantprofilerepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tenantprofilerepository" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<tenantprofileentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tenantrepository" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<tenantentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="scheduledlogexecutorcomponent" >
+      <xs:sequence>
+        <xs:element name="schedulerlogexecutor" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="timescaletslatestdaoconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cachespecs" >
+      <xs:sequence>
+        <xs:element name="timetoliveinminutes" type="xs:anyType" />
+        <xs:element name="maxsize" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tbredisclusterconfiguration" >
+      <xs:complexContent>
+       <xs:extension base="tbrediscacheconfiguration">
+         <xs:sequence>
+          <xs:element name="comma" type="xs:string" />
+          <xs:element name="colon" type="xs:string" />
+          <xs:element name="clusternodes" type="xs:string" />
+          <xs:element name="maxredirects" type="xs:anyType" />
+          <xs:element name="usedefaultpoolconfig" type="xs:anyType" />
+          <xs:element name="password" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tbredisstandaloneconfiguration" >
+      <xs:complexContent>
+       <xs:extension base="tbrediscacheconfiguration">
+         <xs:sequence>
+          <xs:element name="host" type="xs:string" />
+          <xs:element name="port" type="xs:anyType" />
+          <xs:element name="clientname" type="xs:string" />
+          <xs:element name="connecttimeout" type="xs:long" />
+          <xs:element name="readtimeout" type="xs:long" />
+          <xs:element name="usedefaultclientconfig" type="xs:anyType" />
+          <xs:element name="usepoolconfig" type="xs:anyType" />
+          <xs:element name="db" type="xs:anyType" />
+          <xs:element name="password" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tbrediscacheconfiguration" >
+      <xs:sequence>
+        <xs:element name="maxtotal" type="xs:long" />
+        <xs:element name="maxidle" type="xs:long" />
+        <xs:element name="minidle" type="xs:long" />
+        <xs:element name="testonborrow" type="xs:anyType" />
+        <xs:element name="testonreturn" type="xs:anyType" />
+        <xs:element name="testwhileidle" type="xs:anyType" />
+        <xs:element name="minevictablems" type="xs:long" />
+        <xs:element name="evictionrunsms" type="xs:long" />
+        <xs:element name="maxwaitmills" type="xs:long" />
+        <xs:element name="numbertestsperevictionrun" type="xs:long" />
+        <xs:element name="blockwhenexhausted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="previousdevicecredentialsidkeygenerator" >
+      <xs:sequence>
+        <xs:element name="not_valid_device" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="caffeinecacheconfiguration" >
+      <xs:sequence>
+        <xs:element name="specs" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adminsettingsserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="adminsettingsdao" nillable="true" minOccurs="0" />
+        <xs:element name="adminsettingsvalidator" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adminsettingsdao" >
+      <xs:complexContent>
+       <xs:extension base="dao<adminsettings>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="eventdao" >
+      <xs:complexContent>
+       <xs:extension base="dao<event>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseeventservice" >
+      <xs:sequence>
+        <xs:element name="max_debug_event_symbols" type="xs:long" />
+        <xs:element name="GeneratedName" type="eventdao" nillable="true" minOccurs="0" />
+        <xs:element name="eventvalidator" type="event" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="validator" >
+      <xs:complexContent>
+       <xs:extension base="uuidbased>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="datavalidator" >
+      <xs:complexContent>
+       <xs:extension base="basedata<?>>">
+         <xs:sequence>
+          <xs:element name="email_" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="timepaginatedremover" >
+      <xs:complexContent>
+       <xs:extension base="idbased<?>>">
+         <xs:sequence>
+          <xs:element name="default_limit" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="paginatedremover" >
+      <xs:complexContent>
+       <xs:extension base="idbased<?>>">
+         <xs:sequence>
+          <xs:element name="default_limit" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baserulechainservice" >
+      <xs:complexContent>
+       <xs:extension base="abstractentityservice">
+         <xs:sequence>
+          <xs:element name="default_page_size" type="xs:long" />
+          <xs:element name="" type="rulechaindao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="rulenodedao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="tenantdao" nillable="true" minOccurs="0" />
+          <xs:element name="tenantprofilecache" type="xs:anyType" />
+          <xs:element name="rulechainvalidator" type="xs:anyType" />
+          <xs:element name="tenantrulechainsremover" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rulechaindao" >
+      <xs:complexContent>
+       <xs:extension base="dao<rulechain>,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rulenodedao" >
+      <xs:complexContent>
+       <xs:extension base="dao<rulenode>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rulenodestatedao" >
+      <xs:complexContent>
+       <xs:extension base="dao<rulenodestate>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baserulenodestateservice" >
+      <xs:complexContent>
+       <xs:extension base="abstractentityservice">
+         <xs:sequence>
+          <xs:element name="" type="rulenodestatedao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hsqltslatestdaoconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="databaseexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="datavalidationexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="incorrectparameterexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bufferlimitexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="widgettypedao" >
+      <xs:complexContent>
+       <xs:extension base="dao<widgettype>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="widgettypeserviceimpl" >
+      <xs:sequence>
+        <xs:element name="incorrect_tenant_id" type="xs:string" />
+        <xs:element name="incorrect_bundle_alias" type="xs:string" />
+        <xs:element name="GeneratedName" type="widgettypedao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="tenantdao" nillable="true" minOccurs="0" />
+        <xs:element name="widgetsbundleservice" type="widgetsbundledao" nillable="true" minOccurs="0" />
+        <xs:element name="widgettypevalidator" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="widgetsbundleserviceimpl" >
+      <xs:sequence>
+        <xs:element name="default_widgets_bundle_limit" type="xs:long" />
+        <xs:element name="incorrect_tenant_id" type="xs:string" />
+        <xs:element name="incorrect_page_link" type="xs:string" />
+        <xs:element name="GeneratedName" type="widgetsbundledao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="tenantdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="widgetsbundlevalidator" type="xs:anyType" />
+        <xs:element name="tenantwidgetsbundleremover" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="widgetsbundledao" >
+      <xs:complexContent>
+       <xs:extension base="dao<widgetsbundle>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dashboardserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="abstractentityservice">
+         <xs:sequence>
+          <xs:element name="incorrect_dashboard_id" type="xs:string" />
+          <xs:element name="incorrect_tenant_id" type="xs:string" />
+          <xs:element name="" type="dashboarddao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="dashboardinfodao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="tenantdao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="customerdao" nillable="true" minOccurs="0" />
+          <xs:element name="tenantprofilecache" type="xs:anyType" />
+          <xs:element name="dashboardvalidator" type="xs:anyType" />
+          <xs:element name="tenantdashboardsremover" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dashboarddao" >
+      <xs:complexContent>
+       <xs:extension base="dao<dashboard>,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dashboardinfodao" >
+      <xs:complexContent>
+       <xs:extension base="dao<dashboardinfo>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="timescaledaoconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="assetdao" >
+      <xs:complexContent>
+       <xs:extension base="dao<asset>,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseassetservice" >
+      <xs:complexContent>
+       <xs:extension base="abstractentityservice">
+         <xs:sequence>
+          <xs:element name="incorrect_tenant_id" type="xs:string" />
+          <xs:element name="incorrect_page_link" type="xs:string" />
+          <xs:element name="incorrect_customer_id" type="xs:string" />
+          <xs:element name="incorrect_asset_id" type="xs:string" />
+          <xs:element name="tb_service_queue" type="xs:string" />
+          <xs:element name="" type="assetdao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="tenantdao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="customerdao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="tenantprofilecache" type="xs:anyType" />
+          <xs:element name="assetvalidator" type="xs:anyType" />
+          <xs:element name="tenantassetsremover" type="xs:anyType" />
+          <xs:element name="customerassetsunasigner" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="assettypefilter" >
+      <xs:sequence>
+        <xs:element name="relationtype" type="xs:string" />
+        <xs:element name="assettypes" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tenantentitydao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdao" >
+      <xs:complexContent>
+       <xs:extension base="dao<user>,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="abstractentityservice">
+         <xs:sequence>
+          <xs:element name="user_password_history" type="xs:string" />
+          <xs:element name="last_login_ts" type="xs:string" />
+          <xs:element name="failed_login_attempts" type="xs:string" />
+          <xs:element name="default_token_length" type="xs:long" />
+          <xs:element name="incorrect_user_id" type="xs:string" />
+          <xs:element name="incorrect_tenant_id" type="xs:string" />
+          <xs:element name="user_credentials_enabled" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="userlogincasesensitive" type="xs:anyType" />
+          <xs:element name="" type="userdao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="usercredentialsdao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="tenantdao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="customerdao" nillable="true" minOccurs="0" />
+          <xs:element name="tenantprofilecache" type="xs:anyType" />
+          <xs:element name="uservalidator" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="usercredentialsvalidator" type="xs:anyType" />
+          <xs:element name="tenantadminsremover" type="xs:anyType" />
+          <xs:element name="customerusersremover" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usercredentialsdao" >
+      <xs:complexContent>
+       <xs:extension base="dao<usercredentials>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="auditloglevelfilter" >
+      <xs:sequence>
+        <xs:element name="entitytypemask" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="auditlogserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="hasname,">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="incorrect_tenant_id" type="xs:string" />
+          <xs:element name="inserts_per_entry" type="xs:long" />
+          <xs:element name="" type="auditloglevelfilter" nillable="true" minOccurs="0" />
+          <xs:element name="" type="auditlogdao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="auditlogsink" nillable="true" minOccurs="0" />
+          <xs:element name="auditlogvalidator" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="auditloglevelmask" >
+      <xs:sequence>
+        <xs:element name="write" type="xs:anyType" />
+        <xs:element name="read" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="auditlogdao" >
+      <xs:complexContent>
+       <xs:extension base="dao<auditlog>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dummyauditlogserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="hasname,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="elasticsearchauditlogsink" >
+      <xs:sequence>
+        <xs:element name="tenant_placeholder" type="xs:string" />
+        <xs:element name="date_placeholder" type="xs:string" />
+        <xs:element name="index_type" type="xs:string" />
+        <xs:element name="mapper" type="xs:anyType" />
+        <xs:element name="indexpattern" type="xs:string" />
+        <xs:element name="schemename" type="xs:string" />
+        <xs:element name="host" type="xs:string" />
+        <xs:element name="port" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="dateformat" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="auditlogsink" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dummyauditlogsink" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cassandrabufferedrateexecutor" >
+      <xs:complexContent>
+       <xs:extension base="abstractbufferedrateexecutor<cassandrastatementtask,">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="tenantnamescache" type="xs:anyType" />
+          <xs:element name="printtenantnames" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cassandraabstractasyncdao" >
+      <xs:complexContent>
+       <xs:extension base="cassandraabstractdao">
+         <xs:sequence>
+          <xs:element name="readresultsprocessingexecutor" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cassandraabstractdao" >
+      <xs:sequence>
+        <xs:element name="cluster" type="xs:anyType" />
+        <xs:element name="preparedstatementmap" type="xs:anyType" />
+        <xs:element name="ratelimiter" type="cassandrabufferedrateexecutor" nillable="true" minOccurs="0" />
+        <xs:element name="session" type="xs:anyType" />
+        <xs:element name="defaultreadlevel" type="xs:anyType" />
+        <xs:element name="defaultwritelevel" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="psqltsdaoconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpadaoconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="attributesdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baseattributesservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="attributesdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customerserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="abstractentityservice">
+         <xs:sequence>
+          <xs:element name="public_customer_title" type="xs:string" />
+          <xs:element name="incorrect_customer_id" type="xs:string" />
+          <xs:element name="incorrect_tenant_id" type="xs:string" />
+          <xs:element name="" type="customerdao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="tenantdao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="tenantprofilecache" type="xs:anyType" />
+          <xs:element name="customervalidator" type="xs:anyType" />
+          <xs:element name="customersbytenantremover" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customerdao" >
+      <xs:complexContent>
+       <xs:extension base="dao<customer>,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="relationdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baserelationservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="relationdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hsqltsdaoconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="apiusagestatedao" >
+      <xs:complexContent>
+       <xs:extension base="dao<apiusagestate>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="apiusagestateserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="abstractentityservice">
+         <xs:sequence>
+          <xs:element name="incorrect_tenant_id" type="xs:string" />
+          <xs:element name="" type="apiusagestatedao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="tenantprofiledao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="tenantdao" nillable="true" minOccurs="0" />
+          <xs:element name="tsservice" type="xs:anyType" />
+          <xs:element name="apiusagestatevalidator" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="psqltslatestdaoconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entityviewdao" >
+      <xs:complexContent>
+       <xs:extension base="dao<entityview>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entityviewserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="abstractentityservice">
+         <xs:sequence>
+          <xs:element name="incorrect_tenant_id" type="xs:string" />
+          <xs:element name="incorrect_page_link" type="xs:string" />
+          <xs:element name="incorrect_customer_id" type="xs:string" />
+          <xs:element name="incorrect_entity_view_id" type="xs:string" />
+          <xs:element name="" type="entityviewdao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="tenantdao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="customerdao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="entityviewvalidator" type="xs:anyType" />
+          <xs:element name="tenantentityviewremover" type="xs:anyType" />
+          <xs:element name="customerentityviewsunassigner" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="defaulttbtenantprofilecache" >
+      <xs:sequence>
+        <xs:element name="tenantprofilefetch" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="tenantprofilesmap" type="xs:anyType" />
+        <xs:element name="tenantsmap" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tenantprofiledao" >
+      <xs:complexContent>
+       <xs:extension base="dao<tenantprofile>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tenantprofileserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="abstractentityservice">
+         <xs:sequence>
+          <xs:element name="incorrect_tenant_profile_id" type="xs:string" />
+          <xs:element name="" type="tenantprofiledao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="tenantprofilevalidator" type="xs:anyType" />
+          <xs:element name="tenantprofilesremover" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tenantdao" >
+      <xs:complexContent>
+       <xs:extension base="dao<tenant>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tenantserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="abstractentityservice">
+         <xs:sequence>
+          <xs:element name="default_tenant_region" type="xs:string" />
+          <xs:element name="incorrect_tenant_id" type="xs:string" />
+          <xs:element name="" type="tenantdao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="tenantvalidator" type="xs:anyType" />
+          <xs:element name="tenantsremover" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="daoutil" >
+      <xs:complexContent>
+       <xs:extension base="todata<t>>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractbufferedrateexecutor" >
+      <xs:complexContent>
+       <xs:extension base="asynctask,">
+         <xs:sequence>
+          <xs:element name="concurrency_level" type="xs:string" />
+          <xs:element name="maxwaittime" type="xs:long" />
+          <xs:element name="pollms" type="xs:long" />
+          <xs:element name="queue" type="xs:anyType" />
+          <xs:element name="dispatcherexecutor" type="xs:anyType" />
+          <xs:element name="callbackexecutor" type="xs:anyType" />
+          <xs:element name="timeoutexecutor" type="xs:anyType" />
+          <xs:element name="concurrencylimit" type="xs:long" />
+          <xs:element name="prqueriesfreq" type="xs:long" />
+          <xs:element name="pertenantlimitsenabled" type="xs:anyType" />
+          <xs:element name="pertenantlimitsconfiguration" type="xs:string" />
+          <xs:element name="pertenantlimits" type="xs:anyType" />
+          <xs:element name="printqueriesidx" type="xs:anyType" />
+          <xs:element name="concurrencylevel" type="xs:anyType" />
+          <xs:element name="stats" type="bufferedrateexecutorstats" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tenantratelimitexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bufferedrateexecutorstats" >
+      <xs:sequence>
+        <xs:element name="tenant_id_tag" type="xs:string" />
+        <xs:element name="total_added" type="xs:string" />
+        <xs:element name="total_launched" type="xs:string" />
+        <xs:element name="total_released" type="xs:string" />
+        <xs:element name="total_failed" type="xs:string" />
+        <xs:element name="total_expired" type="xs:string" />
+        <xs:element name="total_rejected" type="xs:string" />
+        <xs:element name="total_rate_limited" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="ratelimitedtenants" type="xs:anyType" />
+        <xs:element name="statscounters" type="xs:anyType" />
+        <xs:element name="totaladded" type="xs:anyType" />
+        <xs:element name="totallaunched" type="xs:anyType" />
+        <xs:element name="totalreleased" type="xs:anyType" />
+        <xs:element name="totalfailed" type="xs:anyType" />
+        <xs:element name="totalexpired" type="xs:anyType" />
+        <xs:element name="totalrejected" type="xs:anyType" />
+        <xs:element name="totalratelimited" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jsonbinarytype" >
+      <xs:complexContent>
+       <xs:extension base="abstractsinglecolumnstandardbasictype<object>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jacksonutil" >
+      <xs:sequence>
+        <xs:element name="object_mapper" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jsonbinarysqltypedescriptor" >
+      <xs:complexContent>
+       <xs:extension base="abstractjsonsqltypedescriptor">
+         <xs:sequence>
+          <xs:element name="instance" type="jsonbinarysqltypedescriptor" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jsontypedescriptor" >
+      <xs:complexContent>
+       <xs:extension base="abstracttypedescriptor<object>">
+         <xs:sequence>
+          <xs:element name="jsonobjectclass" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jsonstringsqltypedescriptor" >
+      <xs:complexContent>
+       <xs:extension base="abstractjsonsqltypedescriptor">
+         <xs:sequence>
+          <xs:element name="instance" type="jsonstringsqltypedescriptor" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jsonstringtype" >
+      <xs:complexContent>
+       <xs:extension base="abstractsinglecolumnstandardbasictype<object>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractjsonsqltypedescriptor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bufferedrateexecutor" >
+      <xs:complexContent>
+       <xs:extension base="asynctask,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="asyncratelimiter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="asynctaskcontext" >
+      <xs:complexContent>
+       <xs:extension base="asynctask,">
+         <xs:sequence>
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="ask" type="xs:anyType" />
+          <xs:element name="future" type="xs:anyType" />
+          <xs:element name="createtime" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="oauth2clientregistrationtemplatedao" >
+      <xs:complexContent>
+       <xs:extension base="dao<oauth2clientregistrationtemplate>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="oauth2utils" >
+      <xs:sequence>
+        <xs:element name="oauth2_authorization_path_template" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="oauth2clientregistrationinfodao" >
+      <xs:complexContent>
+       <xs:extension base="dao<oauth2clientregistrationinfo>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="oauth2clientregistrationdao" >
+      <xs:complexContent>
+       <xs:extension base="dao<oauth2clientregistration>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="oauth2serviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="abstractentityservice">
+         <xs:sequence>
+          <xs:element name="incorrect_tenant_id" type="xs:string" />
+          <xs:element name="incorrect_client_registration_id" type="xs:string" />
+          <xs:element name="incorrect_domain_name" type="xs:string" />
+          <xs:element name="incorrect_domain_scheme" type="xs:string" />
+          <xs:element name="clientregistrationinfodao" type="oauth2clientregistrationinfodao" nillable="true" minOccurs="0" />
+          <xs:element name="clientregistrationdao" type="oauth2clientregistrationdao" nillable="true" minOccurs="0" />
+          <xs:element name="clientparamsvalidator" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="oauth2configuration" >
+      <xs:sequence>
+        <xs:element name="loginprocessingurl" type="xs:string" />
+        <xs:element name="githubmapper" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hybridclientregistrationrepository" >
+      <xs:sequence>
+        <xs:element name="defaultredirecturitemplate" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="oauth2configtemplateserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="abstractentityservice">
+         <xs:sequence>
+          <xs:element name="incorrect_client_registration_template_id" type="xs:string" />
+          <xs:element name="incorrect_client_registration_provider_id" type="xs:string" />
+          <xs:element name="clientregistrationtemplatedao" type="oauth2clientregistrationtemplatedao" nillable="true" minOccurs="0" />
+          <xs:element name="clientregistrationtemplatevalidator" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basesqlentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="createdtime" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="modelconstants" >
+      <xs:sequence>
+        <xs:element name="null_" type="xs:anyType" />
+        <xs:element name="system_tenant" type="xs:anyType" />
+        <xs:element name="//thisisthedifferencebetweenmidnightoctober15,1582utcandmidnightjanuary1,1970utcas100nanosecondunitsepoch_diff" type="xs:long" />
+        <xs:element name="/***genericconstants.*/id_property" type="xs:string" />
+        <xs:element name="created_time_property" type="xs:string" />
+        <xs:element name="user_id_property" type="xs:string" />
+        <xs:element name="tenant_id_property" type="xs:string" />
+        <xs:element name="customer_id_property" type="xs:string" />
+        <xs:element name="device_id_property" type="xs:string" />
+        <xs:element name="title_property" type="xs:string" />
+        <xs:element name="alias_property" type="xs:string" />
+        <xs:element name="search_text_property" type="xs:string" />
+        <xs:element name="additional_info_property" type="xs:string" />
+        <xs:element name="entity_type_property" type="xs:string" />
+        <xs:element name="entity_type_column" type="xs:string" />
+        <xs:element name="tenant_id_column" type="xs:string" />
+        <xs:element name="entity_id_column" type="xs:string" />
+        <xs:element name="attribute_type_column" type="xs:string" />
+        <xs:element name="attribute_key_column" type="xs:string" />
+        <xs:element name="last_update_ts_column" type="xs:string" />
+        <xs:element name="/***cassandrauserconstants.*/user_column_family_name" type="xs:string" />
+        <xs:element name="user_pg_hibernate_column_family_name" type="xs:string" />
+        <xs:element name="user_tenant_id_property" type="xs:string" />
+        <xs:element name="user_customer_id_property" type="xs:string" />
+        <xs:element name="user_email_property" type="xs:string" />
+        <xs:element name="user_authority_property" type="xs:string" />
+        <xs:element name="user_first_name_property" type="xs:string" />
+        <xs:element name="user_last_name_property" type="xs:string" />
+        <xs:element name="user_additional_info_property" type="xs:string" />
+        <xs:element name="user_by_email_column_family_name" type="xs:string" />
+        <xs:element name="user_by_tenant_and_search_text_column_family_name" type="xs:string" />
+        <xs:element name="user_by_customer_and_search_text_column_family_name" type="xs:string" />
+        <xs:element name="/***cassandrauser_credentialsconstants.*/user_credentials_column_family_name" type="xs:string" />
+        <xs:element name="user_credentials_user_id_property" type="xs:string" />
+        <xs:element name="user_credentials_enabled_property" type="xs:string" />
+        <xs:element name="//nosonar,theconstantusedtoidentifypasswordcolumnname(notpasswordvalueitself)user_credentials_password_property" type="xs:string" />
+        <xs:element name="user_credentials_activate_token_property" type="xs:string" />
+        <xs:element name="user_credentials_reset_token_property" type="xs:string" />
+        <xs:element name="user_credentials_by_user_column_family_name" type="xs:string" />
+        <xs:element name="user_credentials_by_activate_token_column_family_name" type="xs:string" />
+        <xs:element name="user_credentials_by_reset_token_column_family_name" type="xs:string" />
+        <xs:element name="/***cassandraadmin_settingsconstants.*/admin_settings_column_family_name" type="xs:string" />
+        <xs:element name="admin_settings_key_property" type="xs:string" />
+        <xs:element name="admin_settings_json_value_property" type="xs:string" />
+        <xs:element name="admin_settings_by_key_column_family_name" type="xs:string" />
+        <xs:element name="/***cassandracontactconstants.*/country_property" type="xs:string" />
+        <xs:element name="state_property" type="xs:string" />
+        <xs:element name="city_property" type="xs:string" />
+        <xs:element name="address_property" type="xs:string" />
+        <xs:element name="address2_property" type="xs:string" />
+        <xs:element name="zip_property" type="xs:string" />
+        <xs:element name="phone_property" type="xs:string" />
+        <xs:element name="email_property" type="xs:string" />
+        <xs:element name="/***cassandratenantconstants.*/tenant_column_family_name" type="xs:string" />
+        <xs:element name="tenant_title_property" type="xs:string" />
+        <xs:element name="tenant_region_property" type="xs:string" />
+        <xs:element name="tenant_additional_info_property" type="xs:string" />
+        <xs:element name="tenant_tenant_profile_id_property" type="xs:string" />
+        <xs:element name="tenant_by_region_and_search_text_column_family_name" type="xs:string" />
+        <xs:element name="/***tenantprofileconstants.*/tenant_profile_column_family_name" type="xs:string" />
+        <xs:element name="tenant_profile_name_property" type="xs:string" />
+        <xs:element name="tenant_profile_profile_data_property" type="xs:string" />
+        <xs:element name="tenant_profile_description_property" type="xs:string" />
+        <xs:element name="tenant_profile_is_default_property" type="xs:string" />
+        <xs:element name="tenant_profile_isolated_tb_core" type="xs:string" />
+        <xs:element name="tenant_profile_isolated_tb_rule_engine" type="xs:string" />
+        <xs:element name="/***cassandracustomerconstants.*/customer_column_family_name" type="xs:string" />
+        <xs:element name="customer_tenant_id_property" type="xs:string" />
+        <xs:element name="customer_title_property" type="xs:string" />
+        <xs:element name="customer_additional_info_property" type="xs:string" />
+        <xs:element name="customer_by_tenant_and_search_text_column_family_name" type="xs:string" />
+        <xs:element name="customer_by_tenant_and_title_view_name" type="xs:string" />
+        <xs:element name="/***cassandradeviceconstants.*/device_column_family_name" type="xs:string" />
+        <xs:element name="device_family_name" type="xs:string" />
+        <xs:element name="device_tenant_id_property" type="xs:string" />
+        <xs:element name="device_customer_id_property" type="xs:string" />
+        <xs:element name="device_name_property" type="xs:string" />
+        <xs:element name="device_type_property" type="xs:string" />
+        <xs:element name="device_label_property" type="xs:string" />
+        <xs:element name="device_additional_info_property" type="xs:string" />
+        <xs:element name="device_device_profile_id_property" type="xs:string" />
+        <xs:element name="device_device_data_property" type="xs:string" />
+        <xs:element name="device_by_tenant_and_search_text_column_family_name" type="xs:string" />
+        <xs:element name="device_by_tenant_by_type_and_search_text_column_family_name" type="xs:string" />
+        <xs:element name="device_by_customer_and_search_text_column_family_name" type="xs:string" />
+        <xs:element name="device_by_customer_by_type_and_search_text_column_family_name" type="xs:string" />
+        <xs:element name="device_by_tenant_and_name_view_name" type="xs:string" />
+        <xs:element name="device_types_by_tenant_view_name" type="xs:string" />
+        <xs:element name="/***deviceprofileconstants.*/device_profile_column_family_name" type="xs:string" />
+        <xs:element name="device_profile_tenant_id_property" type="xs:string" />
+        <xs:element name="device_profile_name_property" type="xs:string" />
+        <xs:element name="device_profile_type_property" type="xs:string" />
+        <xs:element name="device_profile_transport_type_property" type="xs:string" />
+        <xs:element name="device_profile_provision_type_property" type="xs:string" />
+        <xs:element name="device_profile_profile_data_property" type="xs:string" />
+        <xs:element name="device_profile_description_property" type="xs:string" />
+        <xs:element name="device_profile_is_default_property" type="xs:string" />
+        <xs:element name="device_profile_default_rule_chain_id_property" type="xs:string" />
+        <xs:element name="device_profile_default_queue_name_property" type="xs:string" />
+        <xs:element name="device_profile_provision_device_key" type="xs:string" />
+        <xs:element name="/***cassandraentityviewconstants.*/entity_view_table_family_name" type="xs:string" />
+        <xs:element name="entity_view_entity_id_property" type="xs:string" />
+        <xs:element name="entity_view_tenant_id_property" type="xs:string" />
+        <xs:element name="entity_view_customer_id_property" type="xs:string" />
+        <xs:element name="entity_view_name_property" type="xs:string" />
+        <xs:element name="entity_view_by_tenant_and_customer_cf" type="xs:string" />
+        <xs:element name="entity_view_by_tenant_and_customer_and_type_cf" type="xs:string" />
+        <xs:element name="entity_view_by_tenant_and_entity_id_cf" type="xs:string" />
+        <xs:element name="entity_view_keys_property" type="xs:string" />
+        <xs:element name="entity_view_type_property" type="xs:string" />
+        <xs:element name="entity_view_start_ts_property" type="xs:string" />
+        <xs:element name="entity_view_end_ts_property" type="xs:string" />
+        <xs:element name="entity_view_additional_info_property" type="xs:string" />
+        <xs:element name="entity_view_by_tenant_and_search_text_cf" type="xs:string" />
+        <xs:element name="entity_view_by_tenant_by_type_and_search_text_cf" type="xs:string" />
+        <xs:element name="entity_view_by_tenant_and_name" type="xs:string" />
+        <xs:element name="/***cassandraauditlogconstants.*/audit_log_column_family_name" type="xs:string" />
+        <xs:element name="audit_log_by_entity_id_cf" type="xs:string" />
+        <xs:element name="audit_log_by_customer_id_cf" type="xs:string" />
+        <xs:element name="audit_log_by_user_id_cf" type="xs:string" />
+        <xs:element name="audit_log_by_tenant_id_cf" type="xs:string" />
+        <xs:element name="audit_log_by_tenant_id_partitions_cf" type="xs:string" />
+        <xs:element name="audit_log_id_property" type="xs:string" />
+        <xs:element name="audit_log_tenant_id_property" type="xs:string" />
+        <xs:element name="audit_log_customer_id_property" type="xs:string" />
+        <xs:element name="audit_log_entity_type_property" type="xs:string" />
+        <xs:element name="audit_log_entity_id_property" type="xs:string" />
+        <xs:element name="audit_log_entity_name_property" type="xs:string" />
+        <xs:element name="audit_log_user_id_property" type="xs:string" />
+        <xs:element name="audit_log_partition_property" type="xs:string" />
+        <xs:element name="audit_log_user_name_property" type="xs:string" />
+        <xs:element name="audit_log_action_type_property" type="xs:string" />
+        <xs:element name="audit_log_action_data_property" type="xs:string" />
+        <xs:element name="audit_log_action_status_property" type="xs:string" />
+        <xs:element name="audit_log_action_failure_details_property" type="xs:string" />
+        <xs:element name="/***cassandraassetconstants.*/asset_column_family_name" type="xs:string" />
+        <xs:element name="asset_tenant_id_property" type="xs:string" />
+        <xs:element name="asset_customer_id_property" type="xs:string" />
+        <xs:element name="asset_name_property" type="xs:string" />
+        <xs:element name="asset_type_property" type="xs:string" />
+        <xs:element name="asset_label_property" type="xs:string" />
+        <xs:element name="asset_additional_info_property" type="xs:string" />
+        <xs:element name="asset_by_tenant_and_search_text_column_family_name" type="xs:string" />
+        <xs:element name="asset_by_tenant_by_type_and_search_text_column_family_name" type="xs:string" />
+        <xs:element name="asset_by_customer_and_search_text_column_family_name" type="xs:string" />
+        <xs:element name="asset_by_customer_by_type_and_search_text_column_family_name" type="xs:string" />
+        <xs:element name="asset_by_tenant_and_name_view_name" type="xs:string" />
+        <xs:element name="asset_types_by_tenant_view_name" type="xs:string" />
+        <xs:element name="/***cassandraentity_subtypeconstants.*/entity_subtype_column_family_name" type="xs:string" />
+        <xs:element name="entity_subtype_tenant_id_property" type="xs:string" />
+        <xs:element name="entity_subtype_entity_type_property" type="xs:string" />
+        <xs:element name="entity_subtype_type_property" type="xs:string" />
+        <xs:element name="/***cassandraalarmconstants.*/alarm_column_family_name" type="xs:string" />
+        <xs:element name="alarm_tenant_id_property" type="xs:string" />
+        <xs:element name="alarm_type_property" type="xs:string" />
+        <xs:element name="alarm_details_property" type="xs:string" />
+        <xs:element name="alarm_originator_id_property" type="xs:string" />
+        <xs:element name="alarm_originator_name_property" type="xs:string" />
+        <xs:element name="alarm_originator_type_property" type="xs:string" />
+        <xs:element name="alarm_severity_property" type="xs:string" />
+        <xs:element name="alarm_status_property" type="xs:string" />
+        <xs:element name="alarm_start_ts_property" type="xs:string" />
+        <xs:element name="alarm_end_ts_property" type="xs:string" />
+        <xs:element name="alarm_ack_ts_property" type="xs:string" />
+        <xs:element name="alarm_clear_ts_property" type="xs:string" />
+        <xs:element name="alarm_propagate_property" type="xs:string" />
+        <xs:element name="alarm_propagate_relation_types" type="xs:string" />
+        <xs:element name="alarm_by_id_view_name" type="xs:string" />
+        <xs:element name="/***cassandraentityrelationconstants.*/relation_column_family_name" type="xs:string" />
+        <xs:element name="relation_from_id_property" type="xs:string" />
+        <xs:element name="relation_from_type_property" type="xs:string" />
+        <xs:element name="relation_to_id_property" type="xs:string" />
+        <xs:element name="relation_to_type_property" type="xs:string" />
+        <xs:element name="relation_type_property" type="xs:string" />
+        <xs:element name="relation_type_group_property" type="xs:string" />
+        <xs:element name="relation_by_type_and_child_type_view_name" type="xs:string" />
+        <xs:element name="relation_reverse_view_name" type="xs:string" />
+        <xs:element name="/***cassandradevice_credentialsconstants.*/device_credentials_column_family_name" type="xs:string" />
+        <xs:element name="device_credentials_device_id_property" type="xs:string" />
+        <xs:element name="device_credentials_credentials_type_property" type="xs:string" />
+        <xs:element name="device_credentials_credentials_id_property" type="xs:string" />
+        <xs:element name="device_credentials_credentials_value_property" type="xs:string" />
+        <xs:element name="device_credentials_by_device_column_family_name" type="xs:string" />
+        <xs:element name="device_credentials_by_credentials_id_column_family_name" type="xs:string" />
+        <xs:element name="/***cassandrawidgets_bundleconstants.*/widgets_bundle_column_family_name" type="xs:string" />
+        <xs:element name="widgets_bundle_tenant_id_property" type="xs:string" />
+        <xs:element name="widgets_bundle_alias_property" type="xs:string" />
+        <xs:element name="widgets_bundle_title_property" type="xs:string" />
+        <xs:element name="widgets_bundle_image_property" type="xs:string" />
+        <xs:element name="widgets_bundle_by_tenant_and_search_text_column_family_name" type="xs:string" />
+        <xs:element name="widgets_bundle_by_tenant_and_alias_column_family_name" type="xs:string" />
+        <xs:element name="/***cassandrawidget_typeconstants.*/widget_type_column_family_name" type="xs:string" />
+        <xs:element name="widget_type_tenant_id_property" type="xs:string" />
+        <xs:element name="widget_type_bundle_alias_property" type="xs:string" />
+        <xs:element name="widget_type_alias_property" type="xs:string" />
+        <xs:element name="widget_type_name_property" type="xs:string" />
+        <xs:element name="widget_type_descriptor_property" type="xs:string" />
+        <xs:element name="widget_type_by_tenant_and_aliases_column_family_name" type="xs:string" />
+        <xs:element name="/***cassandradashboardconstants.*/dashboard_column_family_name" type="xs:string" />
+        <xs:element name="dashboard_tenant_id_property" type="xs:string" />
+        <xs:element name="dashboard_title_property" type="xs:string" />
+        <xs:element name="dashboard_configuration_property" type="xs:string" />
+        <xs:element name="dashboard_assigned_customers_property" type="xs:string" />
+        <xs:element name="dashboard_by_tenant_and_search_text_column_family_name" type="xs:string" />
+        <xs:element name="/***cassandraplugincomponentmetadataconstants.*/component_descriptor_column_family_name" type="xs:string" />
+        <xs:element name="component_descriptor_type_property" type="xs:string" />
+        <xs:element name="component_descriptor_scope_property" type="xs:string" />
+        <xs:element name="component_descriptor_name_property" type="xs:string" />
+        <xs:element name="component_descriptor_class_property" type="xs:string" />
+        <xs:element name="component_descriptor_configuration_descriptor_property" type="xs:string" />
+        <xs:element name="component_descriptor_actions_property" type="xs:string" />
+        <xs:element name="component_descriptor_by_type_and_search_text_column_family_name" type="xs:string" />
+        <xs:element name="component_descriptor_by_scope_type_and_search_text_column_family_name" type="xs:string" />
+        <xs:element name="component_descriptor_by_id" type="xs:string" />
+        <xs:element name="/***cassandraeventconstants.*/event_column_family_name" type="xs:string" />
+        <xs:element name="event_tenant_id_property" type="xs:string" />
+        <xs:element name="event_type_property" type="xs:string" />
+        <xs:element name="event_uid_property" type="xs:string" />
+        <xs:element name="event_entity_type_property" type="xs:string" />
+        <xs:element name="event_entity_id_property" type="xs:string" />
+        <xs:element name="event_body_property" type="xs:string" />
+        <xs:element name="event_by_type_and_id_view_name" type="xs:string" />
+        <xs:element name="event_by_id_view_name" type="xs:string" />
+        <xs:element name="debug_mode" type="xs:string" />
+        <xs:element name="/***cassandrarulechainconstants.*/rule_chain_column_family_name" type="xs:string" />
+        <xs:element name="rule_chain_tenant_id_property" type="xs:string" />
+        <xs:element name="rule_chain_name_property" type="xs:string" />
+        <xs:element name="rule_chain_first_rule_node_id_property" type="xs:string" />
+        <xs:element name="rule_chain_root_property" type="xs:string" />
+        <xs:element name="rule_chain_configuration_property" type="xs:string" />
+        <xs:element name="rule_chain_by_tenant_and_search_text_column_family_name" type="xs:string" />
+        <xs:element name="/***cassandrarulenodeconstants.*/rule_node_column_family_name" type="xs:string" />
+        <xs:element name="rule_node_chain_id_property" type="xs:string" />
+        <xs:element name="rule_node_type_property" type="xs:string" />
+        <xs:element name="rule_node_name_property" type="xs:string" />
+        <xs:element name="rule_node_configuration_property" type="xs:string" />
+        <xs:element name="/***rulenodestateconstants.*/rule_node_state_table_name" type="xs:string" />
+        <xs:element name="rule_node_state_node_id_property" type="xs:string" />
+        <xs:element name="rule_node_state_entity_type_property" type="xs:string" />
+        <xs:element name="rule_node_state_entity_id_property" type="xs:string" />
+        <xs:element name="rule_node_state_data_property" type="xs:string" />
+        <xs:element name="/***oauth2clientregistrationconstants.*/oauth2_tenant_id_property" type="xs:string" />
+        <xs:element name="oauth2_client_registration_info_column_family_name" type="xs:string" />
+        <xs:element name="oauth2_client_registration_column_family_name" type="xs:string" />
+        <xs:element name="oauth2_client_registration_to_domain_column_family_name" type="xs:string" />
+        <xs:element name="oauth2_client_registration_template_column_family_name" type="xs:string" />
+        <xs:element name="oauth2_enabled_property" type="xs:string" />
+        <xs:element name="oauth2_template_provider_id_property" type="xs:string" />
+        <xs:element name="oauth2_client_registration_info_id_property" type="xs:string" />
+        <xs:element name="oauth2_domain_name_property" type="xs:string" />
+        <xs:element name="oauth2_domain_scheme_property" type="xs:string" />
+        <xs:element name="oauth2_client_id_property" type="xs:string" />
+        <xs:element name="oauth2_client_secret_property" type="xs:string" />
+        <xs:element name="oauth2_authorization_uri_property" type="xs:string" />
+        <xs:element name="oauth2_token_uri_property" type="xs:string" />
+        <xs:element name="oauth2_redirect_uri_template_property" type="xs:string" />
+        <xs:element name="oauth2_scope_property" type="xs:string" />
+        <xs:element name="oauth2_user_info_uri_property" type="xs:string" />
+        <xs:element name="oauth2_user_name_attribute_name_property" type="xs:string" />
+        <xs:element name="oauth2_jwk_set_uri_property" type="xs:string" />
+        <xs:element name="oauth2_client_authentication_method_property" type="xs:string" />
+        <xs:element name="oauth2_login_button_label_property" type="xs:string" />
+        <xs:element name="oauth2_login_button_icon_property" type="xs:string" />
+        <xs:element name="oauth2_allow_user_creation_property" type="xs:string" />
+        <xs:element name="oauth2_activate_user_property" type="xs:string" />
+        <xs:element name="oauth2_mapper_type_property" type="xs:string" />
+        <xs:element name="oauth2_email_attribute_key_property" type="xs:string" />
+        <xs:element name="oauth2_first_name_attribute_key_property" type="xs:string" />
+        <xs:element name="oauth2_last_name_attribute_key_property" type="xs:string" />
+        <xs:element name="oauth2_tenant_name_strategy_property" type="xs:string" />
+        <xs:element name="oauth2_tenant_name_pattern_property" type="xs:string" />
+        <xs:element name="oauth2_customer_name_pattern_property" type="xs:string" />
+        <xs:element name="oauth2_default_dashboard_name_property" type="xs:string" />
+        <xs:element name="oauth2_always_full_screen_property" type="xs:string" />
+        <xs:element name="oauth2_mapper_url_property" type="xs:string" />
+        <xs:element name="oauth2_mapper_username_property" type="xs:string" />
+        <xs:element name="oauth2_mapper_password_property" type="xs:string" />
+        <xs:element name="oauth2_mapper_send_token_property" type="xs:string" />
+        <xs:element name="oauth2_template_comment_property" type="xs:string" />
+        <xs:element name="oauth2_additional_info_property" type="xs:string" />
+        <xs:element name="oauth2_template_additional_info_property" type="xs:string" />
+        <xs:element name="oauth2_template_login_button_icon_property" type="xs:string" />
+        <xs:element name="oauth2_template_login_button_label_property" type="xs:string" />
+        <xs:element name="oauth2_template_help_link_property" type="xs:string" />
+        <xs:element name="/***usagerecordconstants.*/api_usage_state_table_name" type="xs:string" />
+        <xs:element name="api_usage_state_tenant_id_column" type="xs:string" />
+        <xs:element name="api_usage_state_entity_type_column" type="xs:string" />
+        <xs:element name="api_usage_state_entity_id_column" type="xs:string" />
+        <xs:element name="api_usage_state_transport_column" type="xs:string" />
+        <xs:element name="api_usage_state_db_storage_column" type="xs:string" />
+        <xs:element name="api_usage_state_re_exec_column" type="xs:string" />
+        <xs:element name="api_usage_state_js_exec_column" type="xs:string" />
+        <xs:element name="api_usage_state_email_exec_column" type="xs:string" />
+        <xs:element name="api_usage_state_sms_exec_column" type="xs:string" />
+        <xs:element name="/***cassandraattributesandtimeseriesconstants.*/attributes_kv_cf" type="xs:string" />
+        <xs:element name="ts_kv_cf" type="xs:string" />
+        <xs:element name="ts_kv_partitions_cf" type="xs:string" />
+        <xs:element name="ts_kv_latest_cf" type="xs:string" />
+        <xs:element name="partition_column" type="xs:string" />
+        <xs:element name="key_column" type="xs:string" />
+        <xs:element name="key_id_column" type="xs:string" />
+        <xs:element name="ts_column" type="xs:string" />
+        <xs:element name="/***mainnamesofcassandrakey-valuecolumnsstorage.*/boolean_value_column" type="xs:string" />
+        <xs:element name="_value_column" type="xs:string" />
+        <xs:element name="long_value_column" type="xs:string" />
+        <xs:element name="double_value_column" type="xs:string" />
+        <xs:element name="json_value_column" type="xs:string" />
+        <xs:element name="none_aggregation_columns" type="xs:string" />
+        <xs:element name="count_aggregation_columns" type="xs:string" />
+        <xs:element name="min_aggregation_columns" type="xs:string" />
+        <xs:element name="max_aggregation_columns" type="xs:string" />
+        <xs:element name="sum_aggregation_columns" type="xs:string" />
+        <xs:element name="avg_aggregation_columns" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dashboardentity" >
+      <xs:complexContent>
+       <xs:extension base="basesqlentity<dashboard>">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="assignedcustomerstype" type="xs:anyType" />
+          <xs:element name="tenantid" type="xs:anyType" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="searchtext" type="xs:string" />
+          <xs:element name="assignedcustomers" type="xs:string" />
+          <xs:element name="configuration" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractalarmentity" >
+      <xs:complexContent>
+       <xs:extension base="alarm>">
+         <xs:sequence>
+          <xs:element name="tenantid" type="xs:anyType" />
+          <xs:element name="originatorid" type="xs:anyType" />
+          <xs:element name="originatortype" type="xs:anyType" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="severity" type="xs:anyType" />
+          <xs:element name="status" type="xs:anyType" />
+          <xs:element name="startts" type="xs:long" />
+          <xs:element name="endts" type="xs:long" />
+          <xs:element name="ackts" type="xs:long" />
+          <xs:element name="clearts" type="xs:long" />
+          <xs:element name="details" type="xs:anyType" />
+          <xs:element name="propagate" type="xs:anyType" />
+          <xs:element name="propagaterelationtypes" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="alarminfoentity" >
+      <xs:complexContent>
+       <xs:extension base="abstractalarmentity<alarminfo>">
+         <xs:sequence>
+          <xs:element name="originatorname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usercredentialsentity" >
+      <xs:complexContent>
+       <xs:extension base="basesqlentity<usercredentials>">
+         <xs:sequence>
+          <xs:element name="userid" type="xs:anyType" />
+          <xs:element name="enabled" type="xs:anyType" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="activatetoken" type="xs:string" />
+          <xs:element name="resettoken" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="relationentity" >
+      <xs:sequence>
+        <xs:element name="fromid" type="xs:anyType" />
+        <xs:element name="fromtype" type="xs:string" />
+        <xs:element name="toid" type="xs:anyType" />
+        <xs:element name="totype" type="xs:string" />
+        <xs:element name="relationtypegroup" type="xs:string" />
+        <xs:element name="relationtype" type="xs:string" />
+        <xs:element name="additionalinfo" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstracttenantentity" >
+      <xs:complexContent>
+       <xs:extension base="tenant>">
+         <xs:sequence>
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="searchtext" type="xs:string" />
+          <xs:element name="region" type="xs:string" />
+          <xs:element name="country" type="xs:string" />
+          <xs:element name="state" type="xs:string" />
+          <xs:element name="city" type="xs:string" />
+          <xs:element name="address" type="xs:string" />
+          <xs:element name="address2" type="xs:string" />
+          <xs:element name="zip" type="xs:string" />
+          <xs:element name="phone" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="additionalinfo" type="xs:anyType" />
+          <xs:element name="tenantprofileid" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="devicecredentialsentity" >
+      <xs:complexContent>
+       <xs:extension base="basesqlentity<devicecredentials>">
+         <xs:sequence>
+          <xs:element name="deviceid" type="xs:anyType" />
+          <xs:element name="credentialstype" type="xs:anyType" />
+          <xs:element name="credentialsid" type="xs:string" />
+          <xs:element name="credentialsvalue" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="extendedoauth2clientregistrationinfoentity" >
+      <xs:complexContent>
+       <xs:extension base="abstractoauth2clientregistrationinfoentity<extendedoauth2clientregistrationinfo>">
+         <xs:sequence>
+          <xs:element name="domainname" type="xs:string" />
+          <xs:element name="domainscheme" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="alarmentity" >
+      <xs:complexContent>
+       <xs:extension base="abstractalarmentity<alarm>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rulenodestateentity" >
+      <xs:complexContent>
+       <xs:extension base="basesqlentity<rulenodestate>">
+         <xs:sequence>
+          <xs:element name="rulenodeid" type="xs:anyType" />
+          <xs:element name="entitytype" type="xs:string" />
+          <xs:element name="entityid" type="xs:anyType" />
+          <xs:element name="statedata" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rulechainentity" >
+      <xs:complexContent>
+       <xs:extension base="basesqlentity<rulechain>">
+         <xs:sequence>
+          <xs:element name="tenantid" type="xs:anyType" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="searchtext" type="xs:string" />
+          <xs:element name="firstrulenodeid" type="xs:anyType" />
+          <xs:element name="root" type="xs:anyType" />
+          <xs:element name="debugmode" type="xs:anyType" />
+          <xs:element name="configuration" type="xs:anyType" />
+          <xs:element name="additionalinfo" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="attributekventity" >
+      <xs:sequence>
+        <xs:element name="id" type="attributekvcompositekey" nillable="true" minOccurs="0" />
+        <xs:element name="value" type="xs:anyType" />
+        <xs:element name="strvalue" type="xs:string" />
+        <xs:element name="value" type="xs:long" />
+        <xs:element name="value" type="xs:double" />
+        <xs:element name="jsonvalue" type="xs:string" />
+        <xs:element name="lastupdatets" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="auditlogentity" >
+      <xs:complexContent>
+       <xs:extension base="basesqlentity<auditlog>">
+         <xs:sequence>
+          <xs:element name="tenantid" type="xs:anyType" />
+          <xs:element name="customerid" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="entityid" type="xs:anyType" />
+          <xs:element name="entityname" type="xs:string" />
+          <xs:element name="userid" type="xs:anyType" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="actiondata" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="actionfailuredetails" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="oauth2clientregistrationinfoentity" >
+      <xs:complexContent>
+       <xs:extension base="abstractoauth2clientregistrationinfoentity<oauth2clientregistrationinfo>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractoauth2clientregistrationinfoentity" >
+      <xs:complexContent>
+       <xs:extension base="oauth2clientregistrationinfo>">
+         <xs:sequence>
+          <xs:element name="enabled" type="xs:anyType" />
+          <xs:element name="clientid" type="xs:string" />
+          <xs:element name="clientsecret" type="xs:string" />
+          <xs:element name="authorizationuri" type="xs:string" />
+          <xs:element name="tokenuri" type="xs:string" />
+          <xs:element name="scope" type="xs:string" />
+          <xs:element name="userinfouri" type="xs:string" />
+          <xs:element name="usernameattributename" type="xs:string" />
+          <xs:element name="jwkseturi" type="xs:string" />
+          <xs:element name="clientauthenticationmethod" type="xs:string" />
+          <xs:element name="loginbuttonlabel" type="xs:string" />
+          <xs:element name="loginbuttonicon" type="xs:string" />
+          <xs:element name="allowusercreation" type="xs:anyType" />
+          <xs:element name="activateuser" type="xs:anyType" />
+          <xs:element name="type" type="xs:anyType" />
+          <xs:element name="emailattributekey" type="xs:string" />
+          <xs:element name="firstnameattributekey" type="xs:string" />
+          <xs:element name="lastnameattributekey" type="xs:string" />
+          <xs:element name="tenantnamestrategy" type="xs:anyType" />
+          <xs:element name="tenantnamepattern" type="xs:string" />
+          <xs:element name="customernamepattern" type="xs:string" />
+          <xs:element name="defaultdashboardname" type="xs:string" />
+          <xs:element name="alwaysfullscreen" type="xs:anyType" />
+          <xs:element name="url" type="xs:string" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="sendtoken" type="xs:anyType" />
+          <xs:element name="additionalinfo" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="deviceinfoentity" >
+      <xs:complexContent>
+       <xs:extension base="abstractdeviceentity<deviceinfo>">
+         <xs:sequence>
+          <xs:element name="deviceinfocolumnmap" type="xs:anyType" />
+          <xs:element name="customertitle" type="xs:string" />
+          <xs:element name="customerispublic" type="xs:anyType" />
+          <xs:element name="deviceprofilename" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="widgetsbundleentity" >
+      <xs:complexContent>
+       <xs:extension base="basesqlentity<widgetsbundle>">
+         <xs:sequence>
+          <xs:element name="tenantid" type="xs:anyType" />
+          <xs:element name="alias" type="xs:string" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="searchtext" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="apiusagestateentity" >
+      <xs:complexContent>
+       <xs:extension base="basesqlentity<apiusagestate>">
+         <xs:sequence>
+          <xs:element name="tenantid" type="xs:anyType" />
+          <xs:element name="entitytype" type="xs:string" />
+          <xs:element name="entityid" type="xs:anyType" />
+          <xs:element name="transportstate" type="xs:anyType" />
+          <xs:element name="dbstoragestate" type="xs:anyType" />
+          <xs:element name="reexecstate" type="xs:anyType" />
+          <xs:element name="jsexecstate" type="xs:anyType" />
+          <xs:element name="emailexecstate" type="xs:anyType" />
+          <xs:element name="smsexecstate" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="deviceentity" >
+      <xs:complexContent>
+       <xs:extension base="abstractdeviceentity<device>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tenantinfoentity" >
+      <xs:complexContent>
+       <xs:extension base="abstracttenantentity<tenantinfo>">
+         <xs:sequence>
+          <xs:element name="tenantinfocolumnmap" type="xs:anyType" />
+          <xs:element name="tenantprofilename" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rulenodeentity" >
+      <xs:complexContent>
+       <xs:extension base="basesqlentity<rulenode>">
+         <xs:sequence>
+          <xs:element name="rulechainid" type="xs:anyType" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="searchtext" type="xs:string" />
+          <xs:element name="configuration" type="xs:anyType" />
+          <xs:element name="additionalinfo" type="xs:anyType" />
+          <xs:element name="debugmode" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="deviceprofileentity" >
+      <xs:complexContent>
+       <xs:extension base="basesqlentity<deviceprofile>">
+         <xs:sequence>
+          <xs:element name="tenantid" type="xs:anyType" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="type" type="xs:anyType" />
+          <xs:element name="transporttype" type="xs:anyType" />
+          <xs:element name="provisiontype" type="xs:anyType" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="searchtext" type="xs:string" />
+          <xs:element name="isdefault" type="xs:anyType" />
+          <xs:element name="defaultrulechainid" type="xs:anyType" />
+          <xs:element name="defaultqueuename" type="xs:string" />
+          <xs:element name="profiledata" type="xs:anyType" />
+          <xs:element name="provisiondevicekey" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractassetentity" >
+      <xs:complexContent>
+       <xs:extension base="asset>">
+         <xs:sequence>
+          <xs:element name="tenantid" type="xs:anyType" />
+          <xs:element name="customerid" type="xs:anyType" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="label" type="xs:string" />
+          <xs:element name="searchtext" type="xs:string" />
+          <xs:element name="additionalinfo" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstracttskventity" >
+      <xs:sequence>
+        <xs:element name="sum" type="xs:string" />
+        <xs:element name="avg" type="xs:string" />
+        <xs:element name="min" type="xs:string" />
+        <xs:element name="max" type="xs:string" />
+        <xs:element name="entityid" type="xs:anyType" />
+        <xs:element name="key" type="xs:long" />
+        <xs:element name="ts" type="xs:long" />
+        <xs:element name="value" type="xs:anyType" />
+        <xs:element name="strvalue" type="xs:string" />
+        <xs:element name="value" type="xs:long" />
+        <xs:element name="value" type="xs:double" />
+        <xs:element name="jsonvalue" type="xs:string" />
+        <xs:element name="strkey" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customerentity" >
+      <xs:complexContent>
+       <xs:extension base="basesqlentity<customer>">
+         <xs:sequence>
+          <xs:element name="tenantid" type="xs:anyType" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="searchtext" type="xs:string" />
+          <xs:element name="country" type="xs:string" />
+          <xs:element name="state" type="xs:string" />
+          <xs:element name="city" type="xs:string" />
+          <xs:element name="address" type="xs:string" />
+          <xs:element name="address2" type="xs:string" />
+          <xs:element name="zip" type="xs:string" />
+          <xs:element name="phone" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="additionalinfo" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="componentdescriptorentity" >
+      <xs:complexContent>
+       <xs:extension base="basesqlentity<componentdescriptor>">
+         <xs:sequence>
+          <xs:element name="type" type="xs:anyType" />
+          <xs:element name="scope" type="xs:anyType" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="clazz" type="xs:string" />
+          <xs:element name="configurationdescriptor" type="xs:anyType" />
+          <xs:element name="actions" type="xs:string" />
+          <xs:element name="searchtext" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entityviewinfoentity" >
+      <xs:complexContent>
+       <xs:extension base="abstractentityviewentity<entityviewinfo>">
+         <xs:sequence>
+          <xs:element name="entityviewinfocolumnmap" type="xs:anyType" />
+          <xs:element name="customertitle" type="xs:string" />
+          <xs:element name="customerispublic" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="evententity" >
+      <xs:complexContent>
+       <xs:extension base="basesqlentity<event>">
+         <xs:sequence>
+          <xs:element name="tenantid" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="entityid" type="xs:anyType" />
+          <xs:element name="eventtype" type="xs:string" />
+          <xs:element name="eventuid" type="xs:string" />
+          <xs:element name="body" type="xs:anyType" />
+          <xs:element name="ts" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="attributekvcompositekey" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="entityid" type="xs:anyType" />
+        <xs:element name="attributetype" type="xs:string" />
+        <xs:element name="attributekey" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="assetentity" >
+      <xs:complexContent>
+       <xs:extension base="abstractassetentity<asset>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="relationcompositekey" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="fromid" type="xs:anyType" />
+        <xs:element name="fromtype" type="xs:string" />
+        <xs:element name="toid" type="xs:anyType" />
+        <xs:element name="totype" type="xs:string" />
+        <xs:element name="relationtype" type="xs:string" />
+        <xs:element name="relationtypegroup" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tenantentity" >
+      <xs:complexContent>
+       <xs:extension base="abstracttenantentity<tenant>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entityviewentity" >
+      <xs:complexContent>
+       <xs:extension base="abstractentityviewentity<entityview>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userentity" >
+      <xs:complexContent>
+       <xs:extension base="basesqlentity<user>">
+         <xs:sequence>
+          <xs:element name="tenantid" type="xs:anyType" />
+          <xs:element name="customerid" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="searchtext" type="xs:string" />
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="lastname" type="xs:string" />
+          <xs:element name="additionalinfo" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dashboardinfoentity" >
+      <xs:complexContent>
+       <xs:extension base="basesqlentity<dashboardinfo>">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="assignedcustomerstype" type="xs:anyType" />
+          <xs:element name="tenantid" type="xs:anyType" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="searchtext" type="xs:string" />
+          <xs:element name="assignedcustomers" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="adminsettingsentity" >
+      <xs:complexContent>
+       <xs:extension base="basesqlentity<adminsettings>">
+         <xs:sequence>
+          <xs:element name="key" type="xs:string" />
+          <xs:element name="jsonvalue" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tenantprofileentity" >
+      <xs:complexContent>
+       <xs:extension base="basesqlentity<tenantprofile>">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="searchtext" type="xs:string" />
+          <xs:element name="isdefault" type="xs:anyType" />
+          <xs:element name="isolatedtbcore" type="xs:anyType" />
+          <xs:element name="isolatedtbruleengine" type="xs:anyType" />
+          <xs:element name="profiledata" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractdeviceentity" >
+      <xs:complexContent>
+       <xs:extension base="device>">
+         <xs:sequence>
+          <xs:element name="tenantid" type="xs:anyType" />
+          <xs:element name="customerid" type="xs:anyType" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="label" type="xs:string" />
+          <xs:element name="searchtext" type="xs:string" />
+          <xs:element name="additionalinfo" type="xs:anyType" />
+          <xs:element name="deviceprofileid" type="xs:anyType" />
+          <xs:element name="devicedata" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="widgettypeentity" >
+      <xs:complexContent>
+       <xs:extension base="basesqlentity<widgettype>">
+         <xs:sequence>
+          <xs:element name="tenantid" type="xs:anyType" />
+          <xs:element name="bundlealias" type="xs:string" />
+          <xs:element name="alias" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="descriptor" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractentityviewentity" >
+      <xs:complexContent>
+       <xs:extension base="entityview>">
+         <xs:sequence>
+          <xs:element name="entityid" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="tenantid" type="xs:anyType" />
+          <xs:element name="customerid" type="xs:anyType" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="keys" type="xs:string" />
+          <xs:element name="startts" type="xs:long" />
+          <xs:element name="endts" type="xs:long" />
+          <xs:element name="searchtext" type="xs:string" />
+          <xs:element name="additionalinfo" type="xs:anyType" />
+          <xs:element name="mapper" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="assetinfoentity" >
+      <xs:complexContent>
+       <xs:extension base="abstractassetentity<assetinfo>">
+         <xs:sequence>
+          <xs:element name="assetinfocolumnmap" type="xs:anyType" />
+          <xs:element name="customertitle" type="xs:string" />
+          <xs:element name="customerispublic" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="oauth2clientregistrationtemplateentity" >
+      <xs:complexContent>
+       <xs:extension base="basesqlentity<oauth2clientregistrationtemplate>">
+         <xs:sequence>
+          <xs:element name="providerid" type="xs:string" />
+          <xs:element name="authorizationuri" type="xs:string" />
+          <xs:element name="tokenuri" type="xs:string" />
+          <xs:element name="scope" type="xs:string" />
+          <xs:element name="userinfouri" type="xs:string" />
+          <xs:element name="usernameattributename" type="xs:string" />
+          <xs:element name="jwkseturi" type="xs:string" />
+          <xs:element name="clientauthenticationmethod" type="xs:string" />
+          <xs:element name="type" type="xs:anyType" />
+          <xs:element name="emailattributekey" type="xs:string" />
+          <xs:element name="firstnameattributekey" type="xs:string" />
+          <xs:element name="lastnameattributekey" type="xs:string" />
+          <xs:element name="tenantnamestrategy" type="xs:anyType" />
+          <xs:element name="tenantnamepattern" type="xs:string" />
+          <xs:element name="customernamepattern" type="xs:string" />
+          <xs:element name="defaultdashboardname" type="xs:string" />
+          <xs:element name="alwaysfullscreen" type="xs:anyType" />
+          <xs:element name="comment" type="xs:string" />
+          <xs:element name="loginbuttonicon" type="xs:string" />
+          <xs:element name="loginbuttonlabel" type="xs:string" />
+          <xs:element name="helplink" type="xs:string" />
+          <xs:element name="additionalinfo" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="oauth2clientregistrationentity" >
+      <xs:complexContent>
+       <xs:extension base="basesqlentity<oauth2clientregistration>">
+         <xs:sequence>
+          <xs:element name="clientregistrationinfoid" type="xs:anyType" />
+          <xs:element name="domainname" type="xs:string" />
+          <xs:element name="domainscheme" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="searchtextentity" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<d>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tskvdictionary" >
+      <xs:sequence>
+        <xs:element name="key" type="xs:string" />
+        <xs:element name="keyid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tskvdictionarycompositekey" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="key" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tskvlatestentity" >
+      <xs:complexContent>
+       <xs:extension base="abstracttskventity">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tskvlatestcompositekey" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="entityid" type="xs:anyType" />
+        <xs:element name="key" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tskventity" >
+      <xs:complexContent>
+       <xs:extension base="abstracttskventity">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tskvcompositekey" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="entityid" type="xs:anyType" />
+        <xs:element name="key" type="xs:long" />
+        <xs:element name="ts" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="timescaletskvcompositekey" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="entityid" type="xs:anyType" />
+        <xs:element name="key" type="xs:long" />
+        <xs:element name="ts" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="timescaletskventity" >
+      <xs:complexContent>
+       <xs:extension base="abstracttskventity">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="todata" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baseentity" >
+      <xs:complexContent>
+       <xs:extension base="todata<d>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sstableformat" >
+      <xs:sequence>
+        <xs:element name="enablesstabledevelopmenttestmode" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="descriptor" >
+      <xs:sequence>
+        <xs:element name="tmp_ext" type="xs:string" />
+        <xs:element name="/***canonicalizedpathtothedirectorywheresstableresides*/directory" type="xs:anyType" />
+        <xs:element name="*/" type="xs:anyType" />
+        <xs:element name="ksname" type="xs:string" />
+        <xs:element name="cfname" type="xs:string" />
+        <xs:element name="generation" type="xs:long" />
+        <xs:element name="formattype" type="xs:anyType" />
+        <xs:element name="/***digest-mightbe{@codenull}forold,legacysstables*/digest" type="xs:anyType" />
+        <xs:element name="hashcode" type="xs:long" />
+        <xs:element name="/***filesobsoletedbycassandra-7066:temporaryfilesandcompactions_in_progress.wesupport*versions2.1(ka)and2.2(la).*temporaryfileshavetmp-ortmplink-atthebeginningfor2.2sstablesorafterks-cf-for2.1sstables*/legacy_comp_in_prog_regex_str" type="xs:string" />
+        <xs:element name="legacy_comp_in_prog_regex" type="xs:anyType" />
+        <xs:element name="legacy_tmp_regex_str" type="xs:string" />
+        <xs:element name="legacy_tmp_regex" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpadbunittestconfig" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customsqlunit" >
+      <xs:complexContent>
+       <xs:extension base="externalresource">
+         <xs:sequence>
+          <xs:element name="sqlfiles" type="xs:anyType" />
+          <xs:element name="dropalltablessqlfile" type="xs:string" />
+          <xs:element name="dburl" type="xs:string" />
+          <xs:element name="dbusername" type="xs:string" />
+          <xs:element name="dbpassword" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractjpadaotest" >
+      <xs:complexContent>
+       <xs:extension base="abstracttransactionaljunit4springcontexttests">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sqldaoservicetestsuite" >
+      <xs:sequence>
+        <xs:element name="sqlunit" type="customsqlunit" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpatenantdaotest" >
+      <xs:complexContent>
+       <xs:extension base="abstractjpadaotest">
+         <xs:sequence>
+          <xs:element name="" type="tenantdao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpacustomerdaotest" >
+      <xs:complexContent>
+       <xs:extension base="abstractjpadaotest">
+         <xs:sequence>
+          <xs:element name="" type="customerdao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpaalarmdaotest" >
+      <xs:complexContent>
+       <xs:extension base="abstractjpadaotest">
+         <xs:sequence>
+          <xs:element name="" type="alarmdao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpaassetdaotest" >
+      <xs:complexContent>
+       <xs:extension base="abstractjpadaotest">
+         <xs:sequence>
+          <xs:element name="" type="assetdao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpabaseeventdaotest" >
+      <xs:complexContent>
+       <xs:extension base="abstractjpadaotest">
+         <xs:sequence>
+          <xs:element name="hour_milliseconds" type="xs:long" />
+          <xs:element name="" type="eventdao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpabasecomponentdescriptordaotest" >
+      <xs:complexContent>
+       <xs:extension base="abstractjpadaotest">
+         <xs:sequence>
+          <xs:element name="" type="componentdescriptordao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpawidgetsbundledaotest" >
+      <xs:complexContent>
+       <xs:extension base="abstractjpadaotest">
+         <xs:sequence>
+          <xs:element name="" type="widgetsbundledao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpawidgettypedaotest" >
+      <xs:complexContent>
+       <xs:extension base="abstractjpadaotest">
+         <xs:sequence>
+          <xs:element name="" type="widgettypedao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpaauditlogdaotest" >
+      <xs:complexContent>
+       <xs:extension base="abstractjpadaotest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpadevicecredentialsdaotest" >
+      <xs:complexContent>
+       <xs:extension base="abstractjpadaotest">
+         <xs:sequence>
+          <xs:element name="" type="devicecredentialsdao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpadevicedaotest" >
+      <xs:complexContent>
+       <xs:extension base="abstractjpadaotest">
+         <xs:sequence>
+          <xs:element name="" type="devicedao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpauserdaotest" >
+      <xs:complexContent>
+       <xs:extension base="abstractjpadaotest">
+         <xs:sequence>
+          <xs:element name="" type="userdao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpausercredentialsdaotest" >
+      <xs:complexContent>
+       <xs:extension base="abstractjpadaotest">
+         <xs:sequence>
+          <xs:element name="" type="usercredentialsdao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpadashboardinfodaotest" >
+      <xs:complexContent>
+       <xs:extension base="abstractjpadaotest">
+         <xs:sequence>
+          <xs:element name="" type="dashboardinfodao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="nosqldaoservicetestsuite" >
+      <xs:sequence>
+        <xs:element name="sqlunit" type="customsqlunit" nillable="true" minOccurs="0" />
+        <xs:element name="cassandraunit" type="customcassandracqlunit" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpadaotestsuite" >
+      <xs:sequence>
+        <xs:element name="sqlunit" type="customsqlunit" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="attributesservicesqltest" >
+      <xs:complexContent>
+       <xs:extension base="baseattributesservicetest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseattributesservicetest" >
+      <xs:complexContent>
+       <xs:extension base="abstractservicetest">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basecustomerservicetest" >
+      <xs:complexContent>
+       <xs:extension base="abstractservicetest">
+         <xs:sequence>
+          <xs:element name="idcomparator" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baserelationcachetest" >
+      <xs:complexContent>
+       <xs:extension base="abstractservicetest">
+         <xs:sequence>
+          <xs:element name="entity_id_from" type="xs:anyType" />
+          <xs:element name="entity_id_to" type="xs:anyType" />
+          <xs:element name="relation_type" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="relationdao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basedevicecredentialsservicetest" >
+      <xs:complexContent>
+       <xs:extension base="abstractservicetest">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baserelationservicetest" >
+      <xs:complexContent>
+       <xs:extension base="abstractservicetest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseapiusagestateservicetest" >
+      <xs:complexContent>
+       <xs:extension base="abstractservicetest">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractservicetest" >
+      <xs:complexContent>
+       <xs:extension base="hasid>">
+         <xs:sequence>
+          <xs:element name="mapper" type="xs:anyType" />
+          <xs:element name="system_tenant_id" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="tsservice" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baserulechainservicetest" >
+      <xs:complexContent>
+       <xs:extension base="abstractservicetest">
+         <xs:sequence>
+          <xs:element name="idcomparator" type="xs:anyType" />
+          <xs:element name="rulenodeidcomparator" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseoauth2servicetest" >
+      <xs:complexContent>
+       <xs:extension base="abstractservicetest">
+         <xs:sequence>
+          <xs:element name="empty_params" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseoauth2configtemplateservicetest" >
+      <xs:complexContent>
+       <xs:extension base="abstractservicetest">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basealarmservicetest" >
+      <xs:complexContent>
+       <xs:extension base="abstractservicetest">
+         <xs:sequence>
+          <xs:element name="test_alarm" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseuserservicetest" >
+      <xs:complexContent>
+       <xs:extension base="abstractservicetest">
+         <xs:sequence>
+          <xs:element name="idcomparator" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basedeviceprofileservicetest" >
+      <xs:complexContent>
+       <xs:extension base="abstractservicetest">
+         <xs:sequence>
+          <xs:element name="idcomparator" type="xs:anyType" />
+          <xs:element name="deviceprofileinfoidcomparator" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseadminsettingsservicetest" >
+      <xs:complexContent>
+       <xs:extension base="abstractservicetest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basedashboardservicetest" >
+      <xs:complexContent>
+       <xs:extension base="abstractservicetest">
+         <xs:sequence>
+          <xs:element name="idcomparator" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basedeviceservicetest" >
+      <xs:complexContent>
+       <xs:extension base="abstractservicetest">
+         <xs:sequence>
+          <xs:element name="idcomparator" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="eventservicesqltest" >
+      <xs:complexContent>
+       <xs:extension base="baseeventservicetest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseeventservicetest" >
+      <xs:complexContent>
+       <xs:extension base="abstractservicetest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="timeseriesservicenosqltest" >
+      <xs:complexContent>
+       <xs:extension base="basetimeseriesservicetest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="timeseriesservicesqltest" >
+      <xs:complexContent>
+       <xs:extension base="basetimeseriesservicetest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basetimeseriesservicetest" >
+      <xs:complexContent>
+       <xs:extension base="abstractservicetest">
+         <xs:sequence>
+          <xs:element name="_key" type="xs:string" />
+          <xs:element name="long_key" type="xs:string" />
+          <xs:element name="double_key" type="xs:string" />
+          <xs:element name="boolean_key" type="xs:string" />
+          <xs:element name="ts" type="xs:long" />
+          <xs:element name="desc_order" type="xs:string" />
+          <xs:element name="string" type="xs:anyType" />
+          <xs:element name="long" type="xs:anyType" />
+          <xs:element name="double" type="xs:anyType" />
+          <xs:element name="boolean" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basetenantprofileservicetest" >
+      <xs:complexContent>
+       <xs:extension base="abstractservicetest">
+         <xs:sequence>
+          <xs:element name="idcomparator" type="xs:anyType" />
+          <xs:element name="tenantprofileinfoidcomparator" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basedevicecredentialscachetest" >
+      <xs:complexContent>
+       <xs:extension base="abstractservicetest">
+         <xs:sequence>
+          <xs:element name="credentials_id_1" type="xs:string" />
+          <xs:element name="credentials_id_2" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="devicecredentialsdao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="deviceid" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseassetservicetest" >
+      <xs:complexContent>
+       <xs:extension base="abstractservicetest">
+         <xs:sequence>
+          <xs:element name="idcomparator" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basewidgettypeservicetest" >
+      <xs:complexContent>
+       <xs:extension base="abstractservicetest">
+         <xs:sequence>
+          <xs:element name="idcomparator" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="daosqltest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baseentityservicetest" >
+      <xs:complexContent>
+       <xs:extension base="abstractservicetest">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="template" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="daonosqltest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="apiusagestateservicesqltest" >
+      <xs:complexContent>
+       <xs:extension base="baseapiusagestateservicetest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customerservicesqltest" >
+      <xs:complexContent>
+       <xs:extension base="basecustomerservicetest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="widgetsbundleservicesqltest" >
+      <xs:complexContent>
+       <xs:extension base="basewidgetsbundleservicetest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="deviceprofileservicesqltest" >
+      <xs:complexContent>
+       <xs:extension base="basedeviceprofileservicetest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="assetservicesqltest" >
+      <xs:complexContent>
+       <xs:extension base="baseassetservicetest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tenantservicesqltest" >
+      <xs:complexContent>
+       <xs:extension base="basetenantservicetest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="devicecredentialsservicesqltest" >
+      <xs:complexContent>
+       <xs:extension base="basedevicecredentialsservicetest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="oauth2configtemplateservicesqltest" >
+      <xs:complexContent>
+       <xs:extension base="baseoauth2configtemplateservicetest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="devicecredentialscacheservicesqltest" >
+      <xs:complexContent>
+       <xs:extension base="basedevicecredentialscachetest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="adminsettingsservicesqltest" >
+      <xs:complexContent>
+       <xs:extension base="baseadminsettingsservicetest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userservicesqltest" >
+      <xs:complexContent>
+       <xs:extension base="baseuserservicetest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="oauth2servicesqltest" >
+      <xs:complexContent>
+       <xs:extension base="baseoauth2servicetest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dashboardservicesqltest" >
+      <xs:complexContent>
+       <xs:extension base="basedashboardservicetest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="alarmservicesqltest" >
+      <xs:complexContent>
+       <xs:extension base="basealarmservicetest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entityservicesqltest" >
+      <xs:complexContent>
+       <xs:extension base="baseentityservicetest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="relationcachesqltest" >
+      <xs:complexContent>
+       <xs:extension base="baserelationcachetest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rulechainservicesqltest" >
+      <xs:complexContent>
+       <xs:extension base="baserulechainservicetest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="relationservicesqltest" >
+      <xs:complexContent>
+       <xs:extension base="baserelationservicetest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="widgettypeservicesqltest" >
+      <xs:complexContent>
+       <xs:extension base="basewidgettypeservicetest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="deviceservicesqltest" >
+      <xs:complexContent>
+       <xs:extension base="basedeviceservicetest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tenantprofileservicesqltest" >
+      <xs:complexContent>
+       <xs:extension base="basetenantprofileservicetest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basetenantservicetest" >
+      <xs:complexContent>
+       <xs:extension base="abstractservicetest">
+         <xs:sequence>
+          <xs:element name="idcomparator" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basewidgetsbundleservicetest" >
+      <xs:complexContent>
+       <xs:extension base="abstractservicetest">
+         <xs:sequence>
+          <xs:element name="idcomparator" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customcassandracqlunit" >
+      <xs:complexContent>
+       <xs:extension base="basecassandraunit">
+         <xs:sequence>
+          <xs:element name="datasets" type="xs:anyType" />
+          <xs:element name="session" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="daotestutil" >
+      <xs:sequence>
+        <xs:element name="postgres_driver_class" type="xs:string" />
+        <xs:element name="h2_driver_class" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqldbtype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testjsondata" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="nosql-test" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testjsondescriptor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logback" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rule" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user_credentials" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="widgets_bundle" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="empty_dataset" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="device_credentials" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="event" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="widget_type" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cassandra-test" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="drop-all-tables" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="drop-all-tables" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="drop-all-tables" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="system-test" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

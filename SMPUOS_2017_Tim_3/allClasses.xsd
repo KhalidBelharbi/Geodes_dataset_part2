@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="bioskopsevicetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="bioskopservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="salaservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="bioskoprepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="salarepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="adresarepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bioskopapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pocetna" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rangiranjebioskopa" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pregledbioskopa" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pregldsala" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pregledbioskopapoimenu" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="panelzaocjenjivanje" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ic_delete_forever_white_36px" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ic_done_white_24px" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ic_update_white_36px" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ic_add_white_36px" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ic_done_white_36px" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ic_power_settings_new_white_36px" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adresa" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nazivnaseljenogmesta" type="xs:string" />
+        <xs:element name="nazivulice" type="xs:string" />
+        <xs:element name="broj" type="xs:long" />
+        <xs:element name="geoduzina" type="xs:double" />
+        <xs:element name="geosirina" type="xs:double" />
+        <xs:element name="//morazbogpregledabioskopanaosnovukoordinatabioskopi" type="bioskop" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adresakoordinate" >
+      <xs:sequence>
+        <xs:element name="geoduzinacentar" type="xs:double" />
+        <xs:element name="geosirinacentar" type="xs:double" />
+        <xs:element name="poluprecnik" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bioskop" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="naziv" type="xs:string" />
+        <xs:element name="bioskopa" type="adresa" nillable="true" minOccurs="0" />
+        <xs:element name="ocena" type="xs:long" />
+        <xs:element name="prosecnaocena" type="xs:double" />
+        <xs:element name="brojac" type="xs:long" />
+        <xs:element name="sumaocena" type="xs:double" />
+        <xs:element name="ocjene" type="ocjena" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//bioskopimasalesale" type="sala" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sala" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="oznakasale" type="xs:string" />
+        <xs:element name="kapacitet" type="xs:long" />
+        <xs:element name="brojsedistaredovi" type="xs:long" />
+        <xs:element name="brojsedistakolone" type="xs:long" />
+        <xs:element name="tip" type="salatip" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="bioskop" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="salatip" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ocjena" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="bioskop" nillable="true" minOccurs="0" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="ocjena" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="salacontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="salaservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bioskopcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="bioskopservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ocjenarepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<ocjena,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="salarepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<sala,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bioskoprepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<bioskop,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="adresarepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<adresa,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="salaservicejpa" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="bioskoprepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="salarepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bioskopservicejpa" >
+      <xs:sequence>
+        <xs:element name="repository" type="bioskoprepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="adresarepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="ocjenarepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adresaservicejpa" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="adresarepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adresaservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bioskopservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="salaservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bioskopapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

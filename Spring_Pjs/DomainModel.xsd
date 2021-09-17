@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="movie" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="mno" type="xs:long" />
+          <xs:element name="title" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseentity" >
+      <xs:sequence>
+        <xs:element name="regdate" type="xs:anyType" />
+        <xs:element name="moddate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="review" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="reviewnum" type="xs:long" />
+          <xs:element name="grade" type="xs:long" />
+          <xs:element name="comment" type="xs:string" />
+          <xs:element name="" type="movie" nillable="true" minOccurs="0" />
+          <xs:element name="" type="member" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="member" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="mid" type="xs:long" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="nickname" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="movieimage" >
+      <xs:sequence>
+        <xs:element name="inum" type="xs:long" />
+        <xs:element name="uuid" type="xs:string" />
+        <xs:element name="imgname" type="xs:string" />
+        <xs:element name="path" type="xs:string" />
+        <xs:element name="GeneratedName" type="movie" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

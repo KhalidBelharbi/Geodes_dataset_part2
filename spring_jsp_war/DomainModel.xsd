@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="editorial" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="ideditorial" type="xs:long" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="pais" type="xs:string" />
+        <xs:element name="libros" type="libro" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="autorherencia" >
+      <xs:complexContent>
+       <xs:extension base="personaherencia">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="idautor" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="personaherencia" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="//@id//@generatedvalue(strategy" type="xs:long" />
+        <xs:element name="//@column(nullable" type="xs:string" />
+        <xs:element name="primerapellido" type="xs:string" />
+        <xs:element name="segundoapellido" type="xs:string" />
+        <xs:element name="//@temporal(temporaltype.)fechanacimiento" type="xs:dateTime" />
+        <xs:element name="lugarnacimiento" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="user_id" type="xs:long" />
+        <xs:element name="role" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="libro" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="idlibro" type="xs:anyType" />
+        <xs:element name="titulo" type="xs:string" />
+        <xs:element name="GeneratedName" type="editorial" nillable="true" minOccurs="0" />
+        <xs:element name="portada" type="xs:string" />
+        <xs:element name="GeneratedName" type="autor" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="autor" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="idautor" type="xs:long" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="primerapellido" type="xs:string" />
+        <xs:element name="segundoapellido" type="xs:string" />
+        <xs:element name="fechanacimiento" type="xs:dateTime" />
+        <xs:element name="lugarnacimiento" type="xs:string" />
+        <xs:element name="libros" type="libro" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuario" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="enabled" type="xs:anyType" />
+        <xs:element name="roles" type="role" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuario2" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="idusuario2" type="xs:anyType" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="estatus" type="xs:string" />
+        <xs:element name="fecharegistro" type="xs:dateTime" />
+        <xs:element name="perfiles" type="perfil" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="perfil" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="idperfil" type="xs:anyType" />
+        <xs:element name="perfil" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="directorherencia" >
+      <xs:complexContent>
+       <xs:extension base="personaherencia">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="iddirector" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

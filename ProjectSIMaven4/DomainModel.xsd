@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userproduct" nillable="true" minOccurs="0" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="cash" type="xs:double" />
+        <xs:element name="defaultcard" type="creditcard" nillable="true" minOccurs="0" />
+        <xs:element name="registration" type="xs:dateTime" />
+        <xs:element name="lastlogin" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="profile" nillable="true" minOccurs="0" />
+        <xs:element name="bets" type="bet" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="creditcards" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="competition" >
+      <xs:sequence>
+        <xs:element name="competitionnumber" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="GeneratedName" type="country" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="sport" nillable="true" minOccurs="0" />
+        <xs:element name="starting" type="xs:dateTime" />
+        <xs:element name="ending" type="xs:dateTime" />
+        <xs:element name="events" type="event" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="feedback" >
+      <xs:sequence>
+        <xs:element name="fbnumber" type="xs:anyType" />
+        <xs:element name="fbtype" type="xs:anyType" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="summary" type="xs:string" />
+        <xs:element name="details" type="xs:string" />
+        <xs:element name="submission" type="xs:dateTime" />
+        <xs:element name="filename" type="xs:string" />
+        <xs:element name="extension" type="xs:string" />
+        <xs:element name="filesize" type="xs:long" />
+        <xs:element name="filedata" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="profile" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="surname" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="phonenumber" type="xs:string" />
+        <xs:element name="nationality" type="country" nillable="true" minOccurs="0" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="birth" type="xs:dateTime" />
+        <xs:element name="profilepic" type="xs:string" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="event" >
+      <xs:sequence>
+        <xs:element name="eventnumber" type="xs:anyType" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="event" type="xs:dateTime" />
+        <xs:element name="ending" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="sport" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="competition" nillable="true" minOccurs="0" />
+        <xs:element name="questions" type="question" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="feedbackrecord" >
+      <xs:sequence>
+        <xs:element name="fbrecordnumber" type="xs:anyType" />
+        <xs:element name="administrator" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="feedback" nillable="true" minOccurs="0" />
+        <xs:element name="read" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="prediction" >
+      <xs:sequence>
+        <xs:element name="predictionnumber" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="question" nillable="true" minOccurs="0" />
+        <xs:element name="answer" type="xs:string" />
+        <xs:element name="odds" type="xs:double" />
+        <xs:element name="outcome" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="creditcard" >
+      <xs:sequence>
+        <xs:element name="cardnumber" type="xs:string" />
+        <xs:element name="due" type="xs:dateTime" />
+        <xs:element name="balance" type="xs:double" />
+        <xs:element name="limit" type="xs:double" />
+        <xs:element name="GeneratedName" type="cardtype" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="owner" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="default_balance" type="xs:double" />
+        <xs:element name="default_limit" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="question" >
+      <xs:sequence>
+        <xs:element name="questionnumber" type="xs:anyType" />
+        <xs:element name="question" type="xs:string" />
+        <xs:element name="betminimum" type="xs:double" />
+        <xs:element name="result" type="xs:long" />
+        <xs:element name="predictions" type="prediction" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="event" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bet" >
+      <xs:sequence>
+        <xs:element name="betnumber" type="xs:anyType" />
+        <xs:element name="bettor" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="type" type="bettype" nillable="true" minOccurs="0" />
+        <xs:element name="status" type="xs:anyType" />
+        <xs:element name="stake" type="xs:double" />
+        <xs:element name="placement" type="xs:dateTime" />
+        <xs:element name="starting" type="xs:dateTime" />
+        <xs:element name="resolving" type="xs:dateTime" />
+        <xs:element name="winnings" type="xs:double" />
+        <xs:element name="predictions" type="prediction" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

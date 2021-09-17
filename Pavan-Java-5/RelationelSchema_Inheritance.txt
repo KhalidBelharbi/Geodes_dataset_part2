@@ -1,0 +1,11 @@
+
+appoinment(id:Long [PK], appointmenttime:Timestamp, started:boolean, ended:boolean, reason:String, GeneratedName:Patient #FK to(patient), GeneratedName:Doctor #FK to(doctor));
+
+doctor(id:Long [PK], firstname:String, lastname:String, speciality:String);
+
+patient(id:Long [PK], firstname:String, lastname:String, phone:String, GeneratedName:Insurance);
+
+patient_doctor(patient_id:Patient [PK] #FK to Patient,doctor_id:list<doctor> [PK] #FK to list<doctor>);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

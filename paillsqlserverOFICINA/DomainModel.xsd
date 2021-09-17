@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="opcionesappmoviles" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="idopcionesappmoviles" type="xs:anyType" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="descripcion" type="xs:string" />
+        <xs:element name="logo" type="xs:string" />
+        <xs:element name="idappmovil" type="appmoviles" nillable="true" minOccurs="0" />
+        <xs:element name="idempleado" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clientesfv" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="idcliente" type="xs:string" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="idproducto" type="xs:string" />
+        <xs:element name="nombreproducto" type="xs:string" />
+        <xs:element name="cantidad" type="xs:string" />
+        <xs:element name="guardado" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="registrosmmdet" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="idregmmdet" type="xs:anyType" />
+        <xs:element name="//@max(value" type="xs:anyType" />
+        <xs:element name="notas" type="xs:string" />
+        <xs:element name="guardado" type="xs:dateTime" />
+        <xs:element name="idregmm" type="registrosmm" nillable="true" minOccurs="0" />
+        <xs:element name="idproducto" type="productos" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="doctoress" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="jvpm" type="xs:string" />
+        <xs:element name="idcliente" type="xs:string" />
+        <xs:element name="nombre" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="perfilesmoviles" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="idperfilmovil" type="xs:anyType" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="descripcion" type="xs:string" />
+        <xs:element name="activo" type="xs:anyType" />
+        <xs:element name="appmovileslist" type="appmoviles" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuarios" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="uid" type="xs:string" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="compras" type="xs:long" />
+        <xs:element name="contabilidad" type="xs:long" />
+        <xs:element name="creditos" type="xs:long" />
+        <xs:element name="inventarios" type="xs:long" />
+        <xs:element name="planillas" type="xs:long" />
+        <xs:element name="produccion" type="xs:long" />
+        <xs:element name="ventas" type="xs:long" />
+        <xs:element name="seguridad" type="xs:long" />
+        <xs:element name="idsucursal" type="xs:string" />
+        <xs:element name="bitacora" type="xs:string" />
+        <xs:element name="mantenimiento" type="xs:anyType" />
+        <xs:element name="limite" type="xs:anyType" />
+        <xs:element name="su" type="xs:anyType" />
+        <xs:element name="idempleado" type="xs:string" />
+        <xs:element name="iddepto" type="xs:string" />
+        <xs:element name="informatica" type="xs:anyType" />
+        <xs:element name="especiales" type="xs:anyType" />
+        <xs:element name="incluieren" type="xs:string" />
+        <xs:element name="fechaexpiracion" type="xs:dateTime" />
+        <xs:element name="idperfil" type="xs:anyType" />
+        <xs:element name="especiales2" type="xs:anyType" />
+        <xs:element name="activo" type="xs:anyType" />
+        <xs:element name="idperfilmovil" type="perfilesmoviles" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productomm" >
+      <xs:sequence>
+        <xs:element name="idproducto" type="xs:string" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="entrada" type="xs:string" />
+        <xs:element name="salida" type="xs:string" />
+        <xs:element name="diferencia" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productos" >
+      <xs:sequence>
+        <xs:element name="/*@size(max" type="xs:string" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="idunidad" type="xs:string" />
+        <xs:element name="idbodega" type="xs:string" />
+        <xs:element name="idestatus" type="xs:string" />
+        <xs:element name="lote" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vendedores" >
+      <xs:sequence>
+        <xs:element name="idvendedor" type="xs:string" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="grupo" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="escalas" >
+      <xs:sequence>
+        <xs:element name="idescala" type="xs:string" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="precio" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="appmoviles" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="idappmovil" type="xs:anyType" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="descripcion" type="xs:string" />
+        <xs:element name="logo" type="xs:anyType" />
+        <xs:element name="perfilesmovileslist" type="perfilesmoviles" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="opcionesappmovileslist" type="opcionesappmoviles" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="registrosmm" >
+      <xs:sequence>
+        <xs:element name="registrosmmdetlist" type="registrosmmdet" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="idregmm" type="xs:anyType" />
+        <xs:element name="idvendedor" type="xs:string" />
+        <xs:element name="idcliente" type="xs:string" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="latitud" type="xs:string" />
+        <xs:element name="longitud" type="xs:string" />
+        <xs:element name="notas" type="xs:string" />
+        <xs:element name="guardado" type="xs:dateTime" />
+        <xs:element name="totalmm" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="transacciones" >
+      <xs:sequence>
+        <xs:element name="idregmmdet" type="xs:string" />
+        <xs:element name="idcliente" type="xs:string" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="idproducto" type="xs:string" />
+        <xs:element name="nombreproducto" type="xs:string" />
+        <xs:element name="cantidad" type="xs:string" />
+        <xs:element name="guardado" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clientes" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="idcliente" type="xs:string" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="regfiscal" type="xs:string" />
+        <xs:element name="idvendedor" type="xs:string" />
+        <xs:element name="tasadesc" type="xs:string" />
+        <xs:element name="idescala" type="xs:string" />
+        <xs:element name="tipoiva" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bodegavirtualmm" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="GeneratedName" type="bodegavirtualmmpk" nillable="true" minOccurs="0" />
+        <xs:element name="cantidad" type="xs:string" />
+        <xs:element name="actualizado" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="productos" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

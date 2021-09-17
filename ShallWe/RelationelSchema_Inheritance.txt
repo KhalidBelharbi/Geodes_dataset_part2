@@ -1,0 +1,23 @@
+
+articletag(no:int [PK], articleid:int, tagid:int);
+
+tag(tagid:int [PK], name:String, articleid:int);
+
+like(no:int [PK], userid:int, articleid:int);
+
+accuse(accuseid:int [PK], reporter:String, defendant:String, accusekind:int, accusereason:String, accuseurl:String, accuseconfirm:int);
+
+category(categoryid:int [PK], name:String);
+
+user(userid:int [PK], email:String, password:String, name:String, nickname:String, address:String, grade:int, userpo:int, birthday:LocalDate, createtime:LocalDateTime);
+
+post(articleid:int [PK], categoryid:int, userid:int, title:String, writer:String, address:String, description:String, minprice:int, sumprice:int, likenum:int, commentnum:int, tag:String, urllink:String, image:String, temp:int, endtime:LocalDateTime, //생성시간은자동생성createtime:LocalDateTime);
+
+participant(no:int [PK], userid:int, articleid:int, title:String, price:int, writer:String, description:String);
+
+auth(authid:int [PK], email:String, authnumber:int);
+
+comment(commentid:int [PK], articleid:int, userid:int, writer:String, content:String, createtime:LocalDateTime);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

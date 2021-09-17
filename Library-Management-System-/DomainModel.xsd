@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="author" >
+      <xs:sequence>
+        <xs:element name="author_id" type="xs:long" />
+        <xs:element name="bookauthor" type="bookauthor" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fine" >
+      <xs:sequence>
+        <xs:element name="fineid" type="xs:long" />
+        <xs:element name="GeneratedName" type="bookloan" nillable="true" minOccurs="0" />
+        <xs:element name="fineamount" type="xs:string" />
+        <xs:element name="paid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookloan" >
+      <xs:sequence>
+        <xs:element name="loanid" type="xs:long" />
+        <xs:element name="GeneratedName" type="book" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="borrower" nillable="true" minOccurs="0" />
+        <xs:element name="out" type="xs:dateTime" />
+        <xs:element name="in" type="xs:dateTime" />
+        <xs:element name="due" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="fine" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="book" >
+      <xs:sequence>
+        <xs:element name="isbn" type="xs:string" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="available" type="xs:anyType" />
+        <xs:element name="author" type="bookauthor" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="bookloan" type="bookloan" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookauthor" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="GeneratedName" type="author" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="book" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="borrower" >
+      <xs:sequence>
+        <xs:element name="cardid" type="xs:long" />
+        <xs:element name="ssn" type="xs:string" />
+        <xs:element name="bname" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="bookloans" type="bookloan" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

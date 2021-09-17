@@ -1,0 +1,47 @@
+
+log(objectid:long [PK], text:String, level:LogLevel, date:LocalDateTime);
+
+anulacionbajaconsolidada(cca:ContractAccount #FK to(contractaccount), naf:String, ipf:String, ipt:String, frb:LocalDate);
+
+processstatus(id:long [PK], status:String);
+
+consultanaf(ipf:String, ipt:String, ap1:String, ap2:String);
+
+anulacionaltaprevia(cca:ContractAccount #FK to(contractaccount), naf:String, fra:LocalDate);
+
+contracttype(id:long [PK], type:String);
+
+consultaipf(naf:String);
+
+processtype(id:long [PK], type:String);
+
+contractkey(ckey:long [PK], type:ContractType #FK to(contracttype), timetype:ContractTimeType #FK to(contracttimetype), description:String);
+
+contractcoefficient(coefficient:long [PK], description:String);
+
+alta(cca:ContractAccount #FK to(contractaccount), //esteesunnuevocambionaf:String, ipf:String, ipt:String, fra:LocalDate, gco:String, sit:String, tco:ContractKey #FK to(contractkey), coe:ContractCoefficient #FK to(contractcoefficient));
+
+consultaaltasccc(cca:ContractAccount #FK to(contractaccount));
+
+anulacionaltaconsolidada(cca:ContractAccount #FK to(contractaccount), naf:String);
+
+anulacionbajaprevia(cca:ContractAccount #FK to(contractaccount), naf:String, frb:LocalDate);
+
+consultata(cca:ContractAccount #FK to(contractaccount), naf:String, frc:LocalDateTime);
+
+consultaalta(cca:ContractAccount #FK to(contractaccount), naf:String, frc:LocalDateTime);
+
+queue(id:long [PK], dateadded:LocalDateTime, refid:long, GeneratedName:ProcessType #FK to(processtype));
+
+cambiocontratoconsolidado(cca:ContractAccount #FK to(contractaccount), naf:String, ipf:String, ipt:String, tco:ContractKey #FK to(contractkey), frc:LocalDate, coe:ContractCoefficient #FK to(contractcoefficient));
+
+contractaccount(id:long [PK], name:String, ccc:String, reg:String);
+
+cambiocontratoprevio();
+
+contracttimetype(id:long [PK], timetype:String);
+
+baja(cca:ContractAccount #FK to(contractaccount), naf:String, ipf:String, ipt:String, frb:LocalDate, ffv:LocalDate, gco:int, sit:String, tco:ContractKey #FK to(contractkey), coe:ContractCoefficient #FK to(contractcoefficient));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

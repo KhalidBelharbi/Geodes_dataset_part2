@@ -1,0 +1,14 @@
+ClassDiagram.Class>> User =>=>=> RelationalSchema.Table>> user;
+ClassDiagram.Class>> Book =>=>=> RelationalSchema.Table>> book;
+ClassDiagram.Class>> Author =>=>=> RelationalSchema.Table>> author;
+ClassDiagram.Attribut>> User.id:Integer =>=>=> RelationalSchema.Column>> user.id PRIMARY KEY;
+ClassDiagram.Attribut>> User.name:String =>=>=> RelationalSchema.Column>> user.name;
+ClassDiagram.Attribut>> User.email:String =>=>=> RelationalSchema.Column>> user.email;
+ClassDiagram.Attribut>> User.password:String =>=>=> RelationalSchema.Column>> user.password;
+ClassDiagram.Attribut>> Book.id:Integer =>=>=> RelationalSchema.Column>> book.id PRIMARY KEY;
+ClassDiagram.Attribut>> Book.title:String =>=>=> RelationalSchema.Column>> book.title;
+ClassDiagram.Attribut>> Book.genre:String =>=>=> RelationalSchema.Column>> book.genre;
+ClassDiagram.Attribut>> Author.id:Integer =>=>=> RelationalSchema.Column>> author.id PRIMARY KEY;
+ClassDiagram.Attribut>> Author.firstname:String =>=>=> RelationalSchema.Column>> author.firstname;
+ClassDiagram.Attribut>> Author.lastname:String =>=>=> RelationalSchema.Column>> author.lastname;
+Many-To-Many relationship between ClassDiagram.Class>>Book  and ClassDiagram.Class>>set<author>: books_authors(author_id:Book [PK] #FK to Book,book_id:set<author> [PK] #FK to set<author>);

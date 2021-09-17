@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="domaintest" >
+      <xs:sequence>
+        <xs:element name="aircraft_classname" type="xs:string" />
+        <xs:element name="airport_classname" type="xs:string" />
+        <xs:element name="aircraftattributeandtype" type="xs:anyType" />
+        <xs:element name="aircraftattributeannotations" type="xs:anyType" />
+        <xs:element name="airportattributeandtype" type="xs:anyType" />
+        <xs:element name="airportattributeannotations" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="seleniumtest" >
+      <xs:sequence>
+        <xs:element name="port" type="xs:string" />
+        <xs:element name="driver" type="xs:anyType" />
+        <xs:element name="baseurl" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="repositorytest" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository,">
+         <xs:sequence>
+          <xs:element name="aircraft_repository_classname" type="xs:string" />
+          <xs:element name="airport_repository_classname" type="xs:string" />
+          <xs:element name="aircraft_classname" type="xs:string" />
+          <xs:element name="airport_classname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitytester" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="index" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="menu" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="airports" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="aircrafts" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="defaultcontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="aircraftcontrollerinterface" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="airportcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="airportrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="airportcontrollerinterface" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="aircraftcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="aircraftrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="airportrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tmp" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="aircraft" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="GeneratedName" type="airport" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="airport" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="identifier" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="aircrafts" type="aircraft" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="airportrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<airport,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="aircraftrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<aircraft,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

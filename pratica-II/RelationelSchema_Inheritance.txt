@@ -1,0 +1,175 @@
+
+curso(stitle:String, ptitle:String, cur_codigo:int [PK], cur_nome:String);
+
+solicitacao(stitle:String, ptitle:String, sol_codigo:int [PK], sol_descricao:String, sol_data:Date, sol_prioridade:int, GeneratedName:Pessoa #FK to(pessoa));
+
+turma(stitle:String, ptitle:String, tur_codigo:int [PK], tur_data_inicio:Date, tur_data_fim:Date, tur_limite_alunos:int, tur_status_turma:int, tur_cargahoraria_secao:Date, GeneratedName:Treinamento #FK to(Treinamento));
+
+treinamento(stitle:String, ptitle:String, tre_codigo:int [PK], tre_descricao:String, tre_cargahoraria:Date, tre_custototal:Double, tre_status:int, GeneratedName:Local #FK to(Local), GeneratedName:Curso #FK to(Curso));
+
+alunosturma(stitle:String, ptitle:String, pst_pestur:int [PK], pst_aprovado:int, pst_frequencia:double, pst_observacao:String, GeneratedName:Turma #FK to(Turma), GeneratedName:Pessoa #FK to(pessoa));
+
+pessoasrecebertreinamento(pes_codigo:Pessoa [PK] #FK to(pessoa), sol_codigo:Solicitacao [PK] #FK to(Solicitacao));
+
+cursospessoa(stitle:String, ptitle:String, crp_curpes:int [PK], crp_descricao:String, crp_carga_horaria:int, crp_data_inicio:Date, crp_data_fim:Date, crp_data_validade:Date, crp_status_validade:boolean, GeneratedName:Pessoa #FK to(pessoa), GeneratedName:Curso #FK to(Curso), GeneratedName:Empresa #FK to(empresa));
+
+competenciassolicitacao(cmp_codigo:Competencia [PK] #FK to(competencia), sol_codigo:Solicitacao [PK] #FK to(Solicitacao));
+
+local(stitle:String, ptitle:String, loc_codigo:int [PK], loc_descricao:String, loc_infraestrutura:String, GeneratedName:Empresa #FK to(empresa), GeneratedName:Cidade #FK to(cidade));
+
+instrutorestreinamento(pes_codigo:Pessoa [PK] #FK to(pessoa), tre_codigo:Treinamento [PK] #FK to(Treinamento));
+
+competenciastreinamento(cmp_codigo:Competencia [PK] #FK to(competencia), tre_codigo:Treinamento [PK] #FK to(Treinamento));
+
+pessoaexperiencia(stitle:String, ptitle:String, exp_codigo:int [PK], pes_codigo:Pessoa #FK to(pessoa), emp_codigo:Empresa #FK to(empresa), exp_cargo:String, exp_descricao:String, exp_datainicio:Date, exp_datafim:Date, exp_local:String, exp_referencia:String, exp_anotacao:String, exp_voluntario:boolean);
+
+areainteresse(stitle:String, ptitle:String, ari_codigo:int [PK], ari_descricao:String);
+
+rec_pessoa_areainteresse(AreaInteresse_ID:AreaInteresse [PK] #FK to AreaInteresse,list<pessoa>_ID:list<pessoa> [PK] #FK to list<pessoa>);
+
+pergunta(stitle:String, ptitle:String, qst_codigo:Questionario [PK] #FK to(Questionario), //@entitypublicclassemployee{//...//@tablegenerator(//name:int [PK], cmp_codigo:Competencia #FK to(competencia), prg_pergunta:String, prg_ordem:int, /***1:int, prg_opcaooutros:boolean, prg_exibircandidato:boolean, prg_obrigatoria:boolean);
+
+certificacao(stitle:String, ptitle:String, cer_codigo:int [PK], emp_codigo:Empresa #FK to(empresa), cer_nome:String, cer_datainicial:Date, cer_data:Date, cer_url:String);
+
+pessoaidioma(stitle:String, ptitle:String, pes_idi_codigo:int [PK], pes_codigo:Pessoa #FK to(pessoa), idi_codigo:Idioma #FK to(idioma), /***1-básico*2-básicoaermediário*3-ermediário*4-avançado*5-fluente*/pes_idi_nivelfala:int, pes_idi_nivelescrita:int, niveis:String);
+
+entrevistaquestionarioresposta(stitle:String, ptitle:String, rec_codigo:EntrevistaQuestionario [PK] #FK to(Entrevista), qst_codigo:Pergunta [PK] #FK to(Pergunta), rsp_pergunta:String, rsp_resposta:String, rsp_ordem:int, rsp_pontuacao:int);
+
+pessoacertificacao(stitle:String, ptitle:String, pcr_codigo:int [PK], pes_codigo:Pessoa #FK to(pessoa), cer_codigo:Certificacao #FK to(Certificacao), pcr_datainicial:Date, pcr_data:Date);
+
+recrutamento(stitle:String, ptitle:String, rec_codigo:int [PK], rec_titulo:String, rec_tipo:int, rec_inicio:Date, rec_fim:Date, /***1-aguardandoinício*2-buscandocandidatos*3-avaliandocandidatos*4-candidatosselecionados*5-treinamento*6-concluído*7-cancelado*/rec_status:int, rec_car_quantidade:int, rec_car_expectativasalario:double, rec_car_descricao:String, car_codigo:Cargo #FK to(cargo));
+
+entrevistapessoa(stitle:String, ptitle:String, rec_codigo:Entrevista [PK] #FK to(Entrevista), pes_codigo:Pessoa [PK] #FK to(pessoa), ent_pes_anotacao:String, ent_pes_nota:int);
+
+recrutamentopessoa(stitle:String, ptitle:String, rec_codigo:Recrutamento [PK] #FK to(Recrutamento), pes_codigo:Pessoa [PK] #FK to(pessoa), //@embeddedid//recrutamentopessoapkrecrutamentopessoapk/***1-aguardandoavaliação*2-emavaliação*3-eliminado*4-selecionado*/rec_pes_status:int);
+
+entrevista(stitle:String, ptitle:String, rec_codigo:RecrutamentoPessoa [PK] #FK to(Recrutamento), ent_codigo:int [PK], ent_datahora:Date, ent_resumo_entrevista:String);
+
+entrevistaquestionario(stitle:String, ptitle:String, rec_codigo:Entrevista [PK] #FK to(Entrevista), qst_codigo:Questionario [PK] #FK to(Questionario), ent_qst_titulo:String, ent_qst_status:int, ent_qst_respondida:boolean, ent_qst_temporesposta:int, ent_qst_pontuacaototal:int, ent_qst_pontuacaomax:int, ent_qst_tipo:int);
+
+pessoacompetencia(stitle:String, ptitle:String, pes_cmp_codigo:int [PK], pes_codigo:Pessoa #FK to(pessoa), cmp_codigo:Competencia #FK to(competencia), /***1-básico*2-básicoaermediário*3-ermediário*4-ermediárioaavançado*5-avançado*/pes_cmp_nivel:int, niveis:String);
+
+pessoaredesocial(stitle:String, ptitle:String, pes_rsc_codigo:int [PK], pes_codigo:Pessoa #FK to(pessoa), rsc_codigo:RedeSocial #FK to(redesocial), pes_rsc_usuario:String, pes_rsc_descricao:String, pes_rsc_url:String);
+
+questionario(stitle:String, ptitle:String, qst_codigo:int [PK], qst_titulo:String, /***pontuaçãomáximaquepoderáseratingidapelocandidato.paraasquestões*dissertativassomaovalordeqst_pontuacaomax.*/qst_pontuacaototal:int, /***pontuaçãomáximaparacadaquestão.porpadrão,*parametro.par_qst_pontuacaomax_padrao*/qst_pontuacaomax:int, /***1:int);
+
+pessoaligacaoexterna(stitle:String, ptitle:String, lex_codigo:int [PK], pes_codigo:Pessoa #FK to(pessoa), lex_titulo:String, lex_descricao:String, lex_url:String);
+
+pessoaformacao(stitle:String, ptitle:String, frm_codigo:int [PK], pes_codigo:Pessoa #FK to(pessoa), emp_codigo:Empresa #FK to(empresa), frm_curso:String, frm_datainicio:Date, frm_datafim:Date, frm_referencia:String, frm_anotacao:String, /***1-graduação*2-cursotécnico*3-curso*4-ensinofundamental*5-ensinomédio*6-outros*/frm_tipo:int, /***1-concluído*2-emandamento*3-abandonado*/frm_status:int);
+
+perguntaopcao(//eutenhoqueteressasopção,oueupossoteraminhaprópriaopção?stitle:String, ptitle:String, qst_codigo:Pergunta [PK] #FK to(Pergunta), opc_codigo:int [PK], opc_nome:String, opc_descricao:String, opc_pontuacao:int);
+
+advertencia(adv_codigo:int [PK], pes_codigo:Pessoa #FK to(pessoa), pes_codigo:Pessoa #FK to(pessoa), adv_descricao:String, adv_data:Date, adv_observacao:String, adv_motivo:String, adv_advertencia:String);
+
+falta(flt_codigo:int [PK], pes_codigo:Pessoa #FK to(pessoa), adv_codigo:Advertencia #FK to(Advertencia), flt_data:Date, flt_qtd_horas:double, observacao:String, flt_justificativa:String);
+
+ferias(fer_codigo:int [PK], pes_codigo:Pessoa #FK to(pessoa), fer_data_inicio:Date, fer_data_fim:Date, fer_observacao:String);
+
+faixainss(stitle:String, ptitle:String, fai_codigo:int [PK], fai_sal_ini:double, fai_sal_fin:double, fai_aliquota:double, fai_ab_imp_renda:double, tbs_codigo:TabelaINSS #FK to(tabelainss));
+
+eventopadrao(stitle:String, ptitle:String, evp_codigo:int [PK], eve_codigo:Evento #FK to(evento), pes_codigo:Pessoa #FK to(pessoa));
+
+tabelairrf(stitle:String, ptitle:String, tif_codigo:int [PK], tif_nome:String, tif_dataincial:Date, tif_data:Date, tif_valor_deducao:double, tif_valor_min_darf:double, tif_por_pis_pasep:double);
+
+tabelainss(stitle:String, ptitle:String, tbs_codigo:int [PK], tbs_data_inicial:Date, tbs_data_:Date, tbs_sal_fami_ini:double, tbs_sal_fami_fin:double, tbs_ab_imp_ini_fin:double, tbs_ab_imp_uni:double, tbs_sal_fami_uni:double, tbs_ali_normal:double, tbs_ali_lei1:double, tbs_ali_lei2:double, tbs_nome:String);
+
+eventofolha(eve_codigo:Evento [PK] #FK to(evento), hif_codigo:HistoricoFolha [PK] #FK to(historicofolha), evf_valor:double, evf_indice:String, evf_imprimir:boolean, evf_descricao:String, evf_serv_codigo:int, evf_tpe_codigo:int, evf_ben_codigo:int, evf_for_godigo:int, evf_tif_codigo:int, evs_tbs_codigo:int);
+
+serieevento(stitle:String, ptitle:String, sev_codigo:int [PK], sev_descricao:String, sev_nome:String);
+
+historicofolha(hif_codigo:int [PK], pes_codigo:Pessoa #FK to(pessoa), hif_valor_acre:double, hif_valor_desc:double, hif_salario_base:double, hif_data:Date, hif_valor_liquido:double);
+
+faixairrf(stitle:String, ptitle:String, frf_codigo:int [PK], frf_salario_inicial:double, frf_salario_:double, frf_aliquota:double, frf_deducao:double, tif_codigo:TabelaIRRF #FK to(tabelairrf));
+
+formula(stitle:String, ptitle:String, for_codigo:int [PK], for_nome:String, for_taxa:double, for_horas:int, for_horasmais:double);
+
+evento(stitle:String, ptitle:String, eve_codigo:int [PK], eve_descricao:String, eve_indice:double, eve_imprimir:boolean, eve_tributar_irrf:boolean, eve_tributar_inss:boolean, eve_tributar_fgts:boolean, eve_calcular_media_agregada13:boolean, tbs_codigo:TabelaINSS #FK to(tabelainss), tif_codigo:TabelaIRRF #FK to(tabelairrf), tpe_codigo:TipoEvento #FK to(tipoevento), sev_codigo:SerieEvento #FK to(serieevento), for_codigo:Formula #FK to(formula), ben_codigo:Beneficio #FK to(beneficio));
+
+tipoevento(stitle:String, ptitle:String, tpe_codigo:int [PK], tpe_tipo_de_entrada:String, tpe_nome:String);
+
+competencia(stitle:String, ptitle:String, cmp_codigo:int [PK], cmp_descricao:String, cmp_status:int, tcp_codigo:TipoCompetencia #FK to(tipocompetencia));
+
+pessoasavaliacao(stitle:String, stitledetails:String, ptitle:String, pes_codigo:Pessoa [PK] #FK to(pessoa), pes_codigo:Pessoa [PK] #FK to(pessoa), ava_codigo:Avaliacao [PK] #FK to(avaliacao), pea_media:int, pea_observacao:String, pea_datahora_resposta:Date);
+
+avaliacao(stitle:String, ptitle:String, ava_codigo:int [PK], tur_codigo:Turma #FK to(Turma), qst_codigo:Questionario #FK to(Questionario), ava_status:int, ava_nome:String, ava_observacao:String, ava_datainicial:Date, ava_data:Date);
+
+avaliacaopessoacargo(//achoqnauprecisadostitleaki,poisaquin'aovaiternenhumatelaapc_codigo:int [PK], apc_status:int, ava_codigo:Avaliacao [PK] #FK to(avaliacao), car_codigo:Cargo #FK to(cargo), pes_codigo:Pessoa #FK to(pessoa));
+
+perguntapessoaavaliacao(pes_codigo:Pessoa [PK] #FK to(pessoa), pes_codigo:Pessoa [PK] #FK to(pessoa), ava_codigo:Avaliacao [PK] #FK to(avaliacao), prg_codigo:Pergunta [PK] #FK to(Pergunta), ppa_resposta:String, ppa_pergunta:String, ppa_pontuacao:int);
+
+tipocompetencia(stitle:String, ptitle:String, tcp_codigo:int [PK], tcp_descricao:String);
+
+graduacao(stitle:String, ptitle:String, grd_codigo:int [PK], grd_descricao:String);
+
+graduacoespessoa(stitle:String, ptitle:String, grd_codigo:Graduacao [PK] #FK to(graduacao), pes_codigo:Pessoa [PK] #FK to(pessoa), grd_status:boolean);
+
+setor(stitle:String, ptitle:String, set_codigo:int [PK], set_descricao:String);
+
+csb_episetor(set_codigo:Setor [PK] #FK to Setor,epi_codigo:list<epi> [PK] #FK to list<epi>);
+
+tipoexame(stitle:String, ptitle:String, eme_codigo:int [PK], eme_descricao:String, eme_tipo:char, eme_periodico:boolean, eme_validade:int, eme_obrigatorio:boolean, eme_ervalorepeticao:int);
+
+examepessoa(stitle:String, ptitle:String, exa_codigo:int [PK], GeneratedName:TipoExame #FK to(tipoexame), GeneratedName:Pessoa #FK to(pessoa), eps_dataexame:Date, eps_datavalidade:Date, eps_situacao:boolean, eps_observacao:String);
+
+epi(stitle:String, ptitle:String, epi_codigo:int [PK], epi_descricao:String, //individual,coletivoepi_tipo:char, //epi_situacao:boolean);
+
+motivoalteracaosalarial(stitle:String, ptitle:String, mas_codigo:int [PK], mas_descricao:String, mas_situacao:boolean);
+
+cargo(stitle:String, ptitle:String, car_codigo:int [PK], car_descricao:String, car_ativo:boolean, car_cbo:String, car_tetosalarial:Double, car_pisosalarial:Double, car_codigo:Cargo #FK to(cargo), GeneratedName:Setor #FK to(setor));
+
+csb_competencias_cargo(car_codigo:Cargo [PK] #FK to Cargo,cmp_codigo:list<competencia> [PK] #FK to list<competencia>);csb_graduacoes_cargo(car_codigo:Cargo [PK] #FK to Cargo,grd_codigo:list<graduacao> [PK] #FK to list<graduacao>);csb_epicargo(car_codigo:Cargo [PK] #FK to Cargo,epi_codigo:list<epi> [PK] #FK to list<epi>);csb_beneficios_cargo(car_codigo:Cargo [PK] #FK to Cargo,ben_codigo:list<beneficio> [PK] #FK to list<beneficio>);rec_interesse_cargo(car_codigo:Cargo [PK] #FK to Cargo,pes_codigo:list<pessoa> [PK] #FK to list<pessoa>);
+
+beneficiospessoa(stitle:String, ptitle:String, bnp_codigo:int [PK], ben_codigo:Beneficio #FK to(beneficio), pes_codigo:Pessoa #FK to(pessoa), ben_ativo:boolean, ben_datainicio:Date, ben_datafim:Date, ben_valor:double);
+
+equipamentospessoa(stitle:String, ptitle:String, eqp_codigo:int [PK], epi_codigo:Epi #FK to(epi), pes_codigo:Pessoa #FK to(pessoa), epe_datainicio:Date, epe_datavencimento:Date, epe_situacao:char, epe_valor:double);
+
+salario(stitle:String, ptitle:String, sal_codigo:int [PK], car_codigo:Cargo #FK to(cargo), mas_codigo:MotivoAlteracaoSalarial #FK to(motivoalteracaosalarial), pes_codigo:Pessoa #FK to(pessoa), pln_codigo:PlanejamentoCargos #FK to(planejamentocargos), sal_datainicio:Date, sal_datafim:Date, sal_situacao:boolean, sal_valorbruto:double);
+
+beneficio(stitle:String, ptitle:String, ben_codigo:int [PK], ben_descricao:String, ben_valor:Double, ben_datainicio:Date, ben_datafim:Date);
+
+cargospessoa(stitle:String, ptitle:String, car_codigo:Cargo [PK] #FK to(cargo), pes_codigo:Pessoa [PK] #FK to(pessoa), car_data_inicio:Date, car_data_fim:Date, car_status:boolean);
+
+planejamentocargos(stitle:String, ptitle:String, pln_codigo:int [PK], planejamento:PlanejamentoCarreira #FK to(planejamentocarreira), GeneratedName:Cargo #FK to(cargo), car_ordem:int, car_tempominimo:Integer);
+
+planejamentocarreira(stitle:String, ptitle:String, pla_codigo:int [PK], pla_descricao:String, pla_status:boolean);
+
+log(stitle:String, ptitle:String, log_codigo:int [PK], GeneratedName:Usuario #FK to(usuario), log_tabela:String, log_operacao:String, log_datahora:Date);
+
+cidade(stitle:String, ptitle:String, cid_codigo:int [PK], cid_nome:String, cid_uf:String);
+
+usuario(stitle:String, ptitle:String, usu_login:String [PK], usu_senha:String, usu_status:boolean, GeneratedName:Pessoa #FK to(pessoa));
+
+conversa(stitle:String, ptitle:String, cnv_codigo:int [PK], pes_codigo:Pessoa #FK to(pessoa), cnv_assunto:String);
+
+cnv_pes(Conversa_ID:Conversa [PK] #FK to Conversa,list<pessoa>_ID:list<pessoa> [PK] #FK to list<pessoa>);cnv_apl(Conversa_ID:Conversa [PK] #FK to Conversa,list<apelido>_ID:list<apelido> [PK] #FK to list<apelido>);
+
+parametro(stitle:String, ptitle:String, par_codigo:int [PK], par_qst_pontuacaomax_padrao:int);
+
+redesocial(stitle:String, ptitle:String, rsc_codigo:int [PK], rsc_nome:String, rsc_url:String, rsc_urlperfil:String, GeneratedName:Repositorio #FK to(repositorio));
+
+pessoa(stitle:String, ptitle:String, pes_codigo:int [PK], GeneratedName:Repositorio #FK to(repositorio), GeneratedName:Bairro #FK to(bairro), GeneratedName:Cidade #FK to(cidade), GeneratedName:Endereco #FK to(endereco), nasc:Cidade #FK to(cidade), GeneratedName:Empresa #FK to(empresa), GeneratedName:Usuario #FK to(usuario), pes_nome:String, pes_cpf:String, pes_rg:String, pes_datanasc:Date, pes_numeroend:String, pes_complementoend:String, pes_telefone:String, pes_email:String, pes_pai:String, pes_mae:String, /***1-funcionário*2-exfuncionário*3-pessoadefora(candidatos)*4-instrutores*/pes_tipo:int, /***1-solteiro(a)*2-casado(a)*3-separado(a)*4-outros*/pes_estadocivil:int, pes_observacoes:String, pes_necessidadeespecial:Boolean, pes_necessidadeespecialdsc:String, pes_datacadastro:Date, pes_cur_resumo:String, pes_cur_dataatualizado:Date, pes_cur_pretensaosalarial:Double);
+
+car_codigo(Pessoa_ID:Pessoa [PK] #FK to Pessoa,list<cargo>_ID:list<cargo> [PK] #FK to list<cargo>);
+
+mensagempessoa(stitle:String, ptitle:String, pes_codigo:Pessoa [PK] #FK to(pessoa), cnv_codigo:Mensagem [PK] #FK to(mensagem), msg_lida:boolean);
+
+mensagem(stitle:String, ptitle:String, cnv_codigo:Conversa [PK] #FK to(conversa), msg_codigo:int [PK], pes_codigo:Pessoa #FK to(pessoa), msg_texto:String, msg_datahora:Date);
+
+bairro(stitle:String, ptitle:String, bai_codigo:int [PK], bai_descricao:String);
+
+grupo(usu_login:Usuario [PK] #FK to(usuario), grp_nome:String [PK]);
+
+empresa(stitle:String, ptitle:String, emp_codigo:int [PK], emp_nome:String, rep_codigo:Repositorio #FK to(repositorio), cid_codigo:Cidade #FK to(cidade), bai_codigo:Bairro #FK to(bairro), end_codigo:Endereco #FK to(endereco), /***1-empresaprivada*2-empresapública*3-escolaprivada*4-escolapública*/emp_tipo:int, /***1-familiar*2-pequena*3-média*4-grande*5-global*/emp_tamanho:int, emp_descricao:String, emp_website:String, emp_numeroendereco:String, emp_sede:int, emp_empresa_sistema:int);
+
+endereco(stitle:String, ptitle:String, end_codigo:int [PK], end_descricao:String, end_cep:String);
+
+repositorio(stitle:String, ptitle:String, rep_codigo:int [PK], rep_tipo:int, rep_data:Date, rep_nome:String, rep_nomearquivo:String, rep_extensao:String, rep_arquivo:byte);
+
+idioma(stitle:String, ptitle:String, idi_codigo:int [PK], idi_descricao:String);
+
+apelido(stitle:String, ptitle:String, als_codigo:int [PK], als_nome:String, als_status:int);
+
+apl_pes(Apelido_ID:Apelido [PK] #FK to Apelido,list<pessoa>_ID:list<pessoa> [PK] #FK to list<pessoa>);cnv_apl(Apelido_ID:Apelido [PK] #FK to Apelido,list<conversa>_ID:list<conversa> [PK] #FK to list<conversa>);apl_msg(Apelido_ID:Apelido [PK] #FK to Apelido,list<mensagem>_ID:list<mensagem> [PK] #FK to list<mensagem>);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

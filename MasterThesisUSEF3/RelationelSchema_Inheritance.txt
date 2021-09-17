@@ -1,0 +1,51 @@
+udipowercontainer(GeneratedName:Udi #FK to(udi));
+
+synchronisationconnection(id:Long [PK], entityaddress:String, iscustomer:boolean, lastsynchronisationtime:Date, lastmodificationtime:Date);
+
+udievent(id:String [PK], period:Date, GeneratedName:Udi #FK to(udi), deviceselector:String, GeneratedName:UdiEventType, startdtu:Integer, enddtu:Integer, finishbeforedtu:Integer, startafterdtu:Integer);
+
+connectiongrouppowercontainer(GeneratedName:ConnectionGroup #FK to(connectiongroup));
+
+synchronisationconnectionstatus(id:Long [PK], id:CommonReferenceOperator #FK to(commonreferenceoperator), id:SynchronisationConnection #FK to(synchronisationconnection), status:SynchronisationConnectionStatusType);
+
+connectionpowercontainer(GeneratedName:Connection #FK to(connection));
+
+reducerequest();
+
+reducecapability(minpower:BigInteger, durationmultiplier:BigDecimal);
+
+interruptcapability(maxdtus:Integer, type:InterruptCapabilityType);
+
+reportcapability();
+
+shiftcapability();
+
+increasecapability(maxpower:BigInteger, durationmultiplier:Integer);
+
+devicecapability(id:String [PK], GeneratedName:UdiEvent #FK to(udievent));
+
+commonreferenceoperator(id:Long [PK], domain:String);
+
+element(id:String [PK], connectionentityaddress:String, GeneratedName:ElementType, profile:String, dtuduration:Integer);
+
+udi(id:Long [PK], dtusize:Integer, endpoint:String, profile:String, GeneratedName:Connection #FK to(connection), validfrom:Date, validuntil:Date);
+
+powercontainer(id:Long [PK], period:Date, timeindex:Integer, profile:PowerData, /***thisshouldbefilledwithmeteredobserveddatabytheparty.*/forecast:ForecastPowerData, observed:PowerData);
+
+elementdtudata(id:Long [PK], GeneratedName:Element #FK to(element), dtuindex:Integer, profileuncontrolledload:BigInteger, profilepotentialflexconsumption:BigInteger, profilepotentialflexproduction:BigInteger, profileaverageconsumption:BigInteger, profileaverageproduction:BigInteger);
+
+reportrequest(dtuindexes:BigInteger);
+
+devicerequest(id:String [PK], period:Date, GeneratedName:DeviceMessage #FK to(devicemessage));
+
+increaserequest();
+
+devicemessage(id:Long [PK], GeneratedName:DeviceMessageStatus, endpoint:String, GeneratedName:Udi #FK to(udi));
+
+interruptrequest(eventid:String, dtuindexes:BigInteger);
+
+shiftrequest(eventid:String, startdtu:Integer);
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

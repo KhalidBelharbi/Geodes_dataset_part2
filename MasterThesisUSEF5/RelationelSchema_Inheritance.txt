@@ -1,0 +1,39 @@
+ptustate(regime:RegimeType, state:PtuContainerState);
+
+ptuflexrequest(power:BigInteger, disposition:DispositionAvailableRequested, prognosissequence:Long);
+
+ptusettlement(GeneratedName:FlexOrderSettlement #FK to(flexordersettlement), prognosispower:BigInteger, actualpower:BigInteger, orderedflexpower:BigInteger, deliveredflexpower:BigInteger, powerdeficiency:BigInteger, price:BigDecimal, penalty:BigDecimal);
+
+agrconnectiongroup(aggregatordomain:String);
+
+planboardmessage(id:Long [PK], creationtime:Date, /***thesequencenumberofthismessage.so,whenaflexrequestissent,itcontainsasequencenumberwhichissetinthis*field.*/sequence:Long, /***thesequencenumberoftheoriginmessage.so,whenaflexofferissend,itreferstoaflexrequest.thesequencenumberof*theflexrequestissetintheoriginsequencenumber.incaseofaflexrequesttheprognosissequenceistheorigin*sequencenumber.*/originsequence:Long, participantdomain:String, GeneratedName:DocumentStatus, GeneratedName:ConnectionGroup #FK to(connectiongroup), GeneratedName:DocumentType, period:Date, expiration:Date, GeneratedName:Message #FK to(message));
+
+exchange(participantdomain:String);
+
+document(id:Long [PK], GeneratedName:PtuContainer #FK to(ptucontainer), sequence:Long, GeneratedName:ConnectionGroup #FK to(connectiongroup));
+
+ptuflexoffer(power:BigInteger, price:BigDecimal, flexrequestsequence:Long);
+
+prognosissequence(id:Long [PK]);
+
+flexordersettlement(id:Long [PK], period:Date, sequence:Long, GeneratedName:ConnectionGroup #FK to(connectiongroup), flexorder:PlanboardMessage #FK to(planboardmessage));
+
+connectiongroupstate(id:Long [PK], GeneratedName:ConnectionGroup #FK to(connectiongroup), GeneratedName:Connection #FK to(connection), validfrom:Date, validuntil:Date);
+
+connection(entityaddress:String [PK]);
+
+ptuflexorder(flexoffersequence:Long, GeneratedName:AcknowledgementStatus);
+
+ptuprognosis(type:PrognosisType, power:BigInteger, substitute:Boolean);
+
+connectiongroup(usefidentifier:String [PK]);
+
+brpconnectiongroup(brpdomain:String);
+
+ptucontainer(id:Long [PK], ptu:Date, ptuindex:Integer, phase:PhaseType);
+
+connectiongroup(dsodomain:String, CONNECTION_GROUP_TYPE: String);
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

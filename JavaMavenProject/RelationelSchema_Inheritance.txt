@@ -1,0 +1,33 @@
+
+lsoperationstatus(serialversionuid:long, operationstatusid:long [PK], //uni-directionalmany-to-oneassociationto:LSStatusType #FK to(LSStatusType), description:String);
+
+lsclientstatus(serialversionuid:long, clientstatusid:long [PK], description:String);
+
+lsstatustype(serialversionuid:long, statustypeid:long [PK], description:String);
+
+lsmessage(serialversionuid:long, messageid:long [PK], //uni-directionalmany-to-oneassociationto:LSMessageType #FK to(LSMessage), //uni-directionalmany-to-oneassociationtolsclientoperation:LSOperation #FK to(lsoperation), phonenumber:long, content:String, issent:boolean);
+
+lsagent(serialversionuid:long, agentid:long [PK], //uni-directionalmany-to-oneassociationtolsclientstatus:LSAgentStatus #FK to(LSAgent), managementbalance:float, creationtimestamp:LocalDateTime, name:String, nif:long);
+
+lsclient(serialversionuid:long, clientid:long [PK], name:String, nif:long, isprovider:boolean, address:String);
+
+lsmessagetype(serialversionuid:long, messagetypeid:long [PK], description:String);
+
+lscontestationstatus(serialversionuid:long, contestationstatusid:long [PK], description:String);
+
+lsclientconfiguration(serialversionuid:long, clientconfigurationid:long [PK], phonenumber:long, //uni-directionalmany-to-oneassociationto:LSClient #FK to(LSClient), //uni-directionalmany-to-oneassociationto:LSClientStatus #FK to(LSClientStatus), balance:float, creationtimestamp:LocalDateTime);
+
+lsagentstatus(serialversionuid:long, agentstatusid:long [PK], description:String);
+
+lstransactiontype(serialversionuid:long, transactiontypeid:long [PK], description:String);
+
+responsabilitycenter(serialversionuid:long, id:long [PK], descricao:String, siglas:String);
+
+lscontestation(serialversionuid:long, contestationid:long [PK], //uni-directionalmany-to-oneassociationtolsagentoperation:LSOperation #FK to(lsoperation), //uni-directionalmany-to-oneassociationto:LSContestationStatus #FK to(lscontestationstatus), disputemessage:String, resolvedmessage:String);
+
+colaboradores(serialversionuid:long, id:long [PK], datanascimento:Date, nome:String, vencimento:long, //bi-directionalmany-to-oneassociationtorc:ResponsabilityCenter #FK to(responsabilitycenter));
+
+lsoperation(serialversionuid:long, operationid:long [PK], //uni-directionalmany-to-oneassociationto:LSClientConfiguration #FK to(config), //uni-directionalmany-to-oneassociationtolsreceiverclientconfiguration:LSClientConfiguration #FK to(config), //uni-directionalmany-to-oneassociationto:LSTransactionType #FK to(lstransactiontype), //uni-directionalmany-to-oneassociationto:LSOperationStatus #FK to(LSOperationStatus), //uni-directionalmany-to-oneassociationtooperation:LSAgent #FK to(LSAgent), value:float, cost:float, timestamp:LocalDateTime, receiverphonenumber:long, pickupcode:String, fee:float, isfeepayed:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

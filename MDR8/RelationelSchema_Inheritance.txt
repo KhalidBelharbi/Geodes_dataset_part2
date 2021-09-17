@@ -1,0 +1,89 @@
+dataelement(domain:ValueDomain #FK to(valuedomain), meaning:DataElementConcept #FK to(DataElement), precision:Integer);
+
+assertion(assertor:ConceptSystem #FK to(ConceptSystem), formula:String);
+
+languageidentification(en_us:String, languageidentifier:String);
+
+definitioncontext(id:Long [PK], GeneratedName:Definition #FK to(definition), GeneratedName:Context #FK to(context));
+
+conceptsystem();
+
+itemlink(tag_history:String, tag_favourites:String, tag_update:String, id:Long [PK], target:String, created:Date, GeneratedName:User #FK to(user), tag:String);
+
+session(prime:BigInteger, max:BigInteger, current_session:ThreadLocal<Session>, id:Long [PK], publicid:String, subject:User #FK to(user));
+
+vote(rater:String [PK], target:String [PK], value:int);
+
+indexelement(remove_all:String, remove_by_element:String, token:String [PK], element:String [PK], type:String [PK], target:String);
+
+usergroup();
+
+usergroup_set<user>(usergroupID:usergroup [PK] #FK to usergroup,set<user>ID:set<user> [PK] #FK to set<user>);
+
+document(id:Long [PK], name:String, type:String, content:byte);
+
+user(identifier:String, email:String, fullname:String, passwordhash:String);
+
+designationcontext(GeneratedName:Designation [PK] #FK to(designation), GeneratedName:Context [PK] #FK to(context));
+
+linkend();
+
+characteristic();
+
+valuedomain(maximumcharacterquantity:Integer, GeneratedName:DataType #FK to(datatype), format:String, meaning:ConceptualDomain #FK to(conceptualdomain), GeneratedName:UnitOfMeasure #FK to(unitofmeasure));
+
+link(GeneratedName:Relation #FK to(relation));
+
+dimensionality(coordinateindicator:boolean);
+
+valuemeaning(begin:Date, end:Date);
+
+namespace(data:String, //naming_authorityonenameperitem:Boolean, oneitempername:Boolean, mandatorynamingconvention:Boolean, shorthandprefix:String, namespaceschemereference:String);
+
+conceptualdomain(description:String);
+
+permissiblevalue(meaning:ValueMeaning #FK to(valuemeaning), permittedvalue:String, begin:Date, end:Date);
+
+permissiblevalue_set<valuedomain>(permissiblevalueID:permissiblevalue [PK] #FK to permissiblevalue,set<valuedomain>ID:set<valuedomain> [PK] #FK to set<valuedomain>);
+
+context(log:Logger, mdr:String);
+
+objectclass();
+
+item(log:Logger);
+
+unitofmeasure(coordinate:Dimensionality #FK to(dimensionality), noncoordinate:Dimensionality #FK to(dimensionality));
+
+designation(id:Long [PK], sign:String, language:LanguageIdentification #FK to(LanguageIdentification), GeneratedName:Item #FK to(item));
+
+classification(id:Long [PK], classified:Item #FK to(item), classifier:Concept #FK to(concept));
+
+classification_ConceptSystem(classificationID:classification [PK] #FK to classification,ConceptSystemID:ConceptSystem [PK] #FK to ConceptSystem);
+
+scopedidentifier(id:Long [PK], identifier:String, fullexpansion:String, shorthandexpansion:String, scope:Namespace #FK to(namespace), GeneratedName:Item #FK to(item));
+
+definition(id:Long [PK], text:String, language:LanguageIdentification #FK to(LanguageIdentification), GeneratedName:Item #FK to(item), sourcereference:ReferenceDocument #FK to(referencedocument));
+
+concept(including:ConceptSystem #FK to(ConceptSystem));
+
+slot(id:Long [PK], name:String, type:String, value:String);
+
+relation();
+
+relationrole(source:Relation #FK to(relation));
+
+relationrole_collection<linkend>(relationroleID:relationrole [PK] #FK to relationrole,collection<linkend>ID:collection<linkend> [PK] #FK to collection<linkend>);
+
+assertionend(id:Long [PK], end:Concept #FK to(concept), GeneratedName:Assertion #FK to(Assertion));
+
+dataelementconcept(GeneratedName:ObjectClass #FK to(objectclass), GeneratedName:Characteristic #FK to(characteristic));
+
+datatype(name:String, description:String, schemereference:String);
+
+referencedocument(identifier:String, typedescription:String, language:LanguageIdentification #FK to(LanguageIdentification), title:String, uri:String);
+
+abstractentity(id:Long [PK]);
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

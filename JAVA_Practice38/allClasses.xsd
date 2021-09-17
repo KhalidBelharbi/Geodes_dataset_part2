@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="departmentaction" >
+      <xs:complexContent>
+       <xs:extension base="baseaction<department>">
+         <xs:sequence>
+          <xs:element name="" type="departmentservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dutyaction" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="dutyservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="forwardaction" >
+      <xs:complexContent>
+       <xs:extension base="actionsupport">
+         <xs:sequence>
+          <xs:element name="method" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseaction" >
+      <xs:sequence>
+        <xs:element name="t" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="listaciton" type="xs:string" />
+        <xs:element name="//��ת����ѯҳ��listaction" type="xs:string" />
+        <xs:element name="addui" type="xs:string" />
+        <xs:element name="//��ת�����ҳ��addui" type="xs:string" />
+        <xs:element name="updateui" type="xs:string" />
+        <xs:element name="//��ת������ҳ��updateui" type="xs:string" />
+        <xs:element name="action2action" type="xs:string" />
+        <xs:element name="//action��ת��actionaction2action" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="departmentservice" >
+      <xs:complexContent>
+       <xs:extension base="baseservice<department>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="personservice" >
+      <xs:complexContent>
+       <xs:extension base="baseservice<person>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dutyservice" >
+      <xs:complexContent>
+       <xs:extension base="baseservice<duty>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseserviceimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baseservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:complexContent>
+       <xs:extension base="baseservice<user>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dutyserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="baseserviceimpl<duty>">
+         <xs:sequence>
+          <xs:element name="" type="dutydao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="baseserviceimpl<user>">
+         <xs:sequence>
+          <xs:element name="" type="userdao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="departmentserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="baseserviceimpl<department>">
+         <xs:sequence>
+          <xs:element name="" type="departmentdao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="personserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="baseserviceimpl<person>">
+         <xs:sequence>
+          <xs:element name="" type="persondao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dutydao" >
+      <xs:complexContent>
+       <xs:extension base="basedao<duty>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basedaoimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="//����t��ʵ������t" type="xs:anyType" />
+        <xs:element name="metadata" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basedao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persondao" >
+      <xs:complexContent>
+       <xs:extension base="basedao<person>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userdao" >
+      <xs:complexContent>
+       <xs:extension base="basedao<user>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="departmentdao" >
+      <xs:complexContent>
+       <xs:extension base="basedao<department>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="persondaoimpl" >
+      <xs:complexContent>
+       <xs:extension base="basedaoimpl<person>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userdaoimpl" >
+      <xs:complexContent>
+       <xs:extension base="basedaoimpl<user>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dutydaoimpl" >
+      <xs:complexContent>
+       <xs:extension base="basedaoimpl<duty>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="departmentdaoimpl" >
+      <xs:complexContent>
+       <xs:extension base="basedaoimpl<department>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="duty" >
+      <xs:sequence>
+        <xs:element name="//����id" type="xs:long" />
+        <xs:element name="//���ڵ�idpid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="isparent" type="xs:anyType" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="users" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="sex" type="xs:string" />
+        <xs:element name="duties" type="duty" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="department" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="person" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="time" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="department" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="users" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="struts-department" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="struts-duty" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="struts-forward" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="struts" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

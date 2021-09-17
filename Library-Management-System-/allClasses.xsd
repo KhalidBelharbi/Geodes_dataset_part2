@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="testdbservlet" >
+      <xs:complexContent>
+       <xs:extension base="httpservlet">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bookdaoimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authordaoimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authordao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookloanrequest" >
+      <xs:sequence>
+        <xs:element name="isbn" type="xs:string" />
+        <xs:element name="borrowerid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="checkinbook" >
+      <xs:sequence>
+        <xs:element name="cardid" type="xs:string" />
+        <xs:element name="isbn" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fineresponse" >
+      <xs:sequence>
+        <xs:element name="cardid" type="xs:long" />
+        <xs:element name="amount" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="searchresult" >
+      <xs:sequence>
+        <xs:element name="borrower_id" type="xs:long" />
+        <xs:element name="isbn" type="xs:string" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="available" type="xs:anyType" />
+        <xs:element name="author" type="author" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="_out" type="xs:dateTime" />
+        <xs:element name="due_" type="xs:dateTime" />
+        <xs:element name="_in" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="borrower" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="searchquery" >
+      <xs:sequence>
+        <xs:element name="query" type="xs:string" />
+        <xs:element name="paid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="restresponse" >
+      <xs:sequence>
+        <xs:element name="error" type="xs:string" />
+        <xs:element name="success" type="xs:anyType" />
+        <xs:element name="result" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="borrowerdata" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="ssn" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authorcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="authordao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="homecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="authordao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="bookdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="author" >
+      <xs:sequence>
+        <xs:element name="author_id" type="xs:long" />
+        <xs:element name="bookauthor" type="bookauthor" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fine" >
+      <xs:sequence>
+        <xs:element name="fineid" type="xs:long" />
+        <xs:element name="GeneratedName" type="bookloan" nillable="true" minOccurs="0" />
+        <xs:element name="fineamount" type="xs:string" />
+        <xs:element name="paid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookloan" >
+      <xs:sequence>
+        <xs:element name="loanid" type="xs:long" />
+        <xs:element name="GeneratedName" type="book" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="borrower" nillable="true" minOccurs="0" />
+        <xs:element name="out" type="xs:dateTime" />
+        <xs:element name="in" type="xs:dateTime" />
+        <xs:element name="due" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="fine" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="book" >
+      <xs:sequence>
+        <xs:element name="isbn" type="xs:string" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="available" type="xs:anyType" />
+        <xs:element name="author" type="bookauthor" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="bookloan" type="bookloan" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookauthor" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="GeneratedName" type="author" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="book" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="borrower" >
+      <xs:sequence>
+        <xs:element name="cardid" type="xs:long" />
+        <xs:element name="ssn" type="xs:string" />
+        <xs:element name="bname" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="bookloans" type="bookloan" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="category" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<string>{">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="categorycode" type="xs:string" />
+          <xs:element name="" type="status" nillable="true" minOccurs="0" />
+          <xs:element name="categoryname" type="xs:string" />
+          <xs:element name="imageurl" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="displayorder" type="xs:anyType" />
+          <xs:element name="" type="category" nillable="true" minOccurs="0" />
+          <xs:element name="" type="catalog" nillable="true" minOccurs="0" />
+          <xs:element name="" type="store" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customerorderlineitem" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<string>">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="" type="customerorder" nillable="true" minOccurs="0" />
+          <xs:element name="quantity" type="xs:long" />
+          <xs:element name="totallineitemtax" type="xs:double" />
+          <xs:element name="totallineitemcharges" type="xs:double" />
+          <xs:element name="totallineitemprices" type="xs:double" />
+          <xs:element name="totallineitemamount" type="xs:double" />
+          <xs:element name="productprice" type="xs:double" />
+          <xs:element name="productid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="catalog" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<string>{">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="" type="status" nillable="true" minOccurs="0" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="catalogcode" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="address" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<string>">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="addressline1" type="xs:string" />
+          <xs:element name="addressline2" type="xs:string" />
+          <xs:element name="street" type="xs:string" />
+          <xs:element name="city" type="xs:string" />
+          <xs:element name="district" type="xs:string" />
+          <xs:element name="state" type="xs:string" />
+          <xs:element name="country" type="xs:string" />
+          <xs:element name="zipcode" type="xs:string" />
+          <xs:element name="" type="addresstype" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="loyaltycard" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<string>">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="loyaltycardcode" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="loyaltycardname" type="xs:string" />
+          <xs:element name="" type="currency" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customerorder" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<string>">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="storeid" type="xs:long" />
+          <xs:element name="customerid" type="xs:long" />
+          <xs:element name="" type="orderstatus" nillable="true" minOccurs="0" />
+          <xs:element name="orderrefernceid" type="xs:string" />
+          <xs:element name="totalproductprice" type="xs:double" />
+          <xs:element name="totaltaxprice" type="xs:double" />
+          <xs:element name="totalproductcharges" type="xs:double" />
+          <xs:element name="totalamount" type="xs:double" />
+          <xs:element name="status" type="xs:string" />
+          <xs:element name="orderlineitems" type="customerorderlineitem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="loyaltyledger" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<string>">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="points" type="xs:long" />
+          <xs:element name="pointsremaining" type="xs:long" />
+          <xs:element name="balance" type="xs:long" />
+          <xs:element name="remarks" type="xs:string" />
+          <xs:element name="type" type="ledgertype" nillable="true" minOccurs="0" />
+          <xs:element name="expiry" type="xs:dateTime" />
+          <xs:element name="details" type="xs:string" />
+          <xs:element name="" type="loyaltytransaction" nillable="true" minOccurs="0" />
+          <xs:element name="customerid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<string>">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="status" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productcategory" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<string>">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="" type="product" nillable="true" minOccurs="0" />
+          <xs:element name="" type="category" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="product" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<string>{/**">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="productcode" type="xs:string" />
+          <xs:element name="" type="status" nillable="true" minOccurs="0" />
+          <xs:element name="imageurl" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="productname" type="xs:string" />
+          <xs:element name="totalquantity" type="xs:anyType" />
+          <xs:element name="quantityperpack" type="xs:anyType" />
+          <xs:element name="" type="productunit" nillable="true" minOccurs="0" />
+          <xs:element name="sellingprice" type="xs:double" />
+          <xs:element name="mrpprice" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="loyaltytransaction" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<string>">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="pointsearned" type="xs:long" />
+          <xs:element name="pointsredeemed" type="xs:long" />
+          <xs:element name="loyaltyreferenceid" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="data" type="xs:string" />
+          <xs:element name="" type="customerloyalty" nillable="true" minOccurs="0" />
+          <xs:element name="loyaltytype" type="xs:string" />
+          <xs:element name="" type="loyaltystatus" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="currency" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<string>">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="currencycode" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="conversionratio" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customer" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<string>">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="mobilenumber" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="status" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="store" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<string>">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="imageurl" type="xs:string" />
+          <xs:element name="storecode" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="" type="status" nillable="true" minOccurs="0" />
+          <xs:element name="storetype" type="xs:string" />
+          <xs:element name="shortname" type="xs:string" />
+          <xs:element name="latitude" type="xs:string" />
+          <xs:element name="longitude" type="xs:string" />
+          <xs:element name="rating" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="" type="address" nillable="true" minOccurs="0" />
+          <xs:element name="storcheules" type="storeschedule" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseentity" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="createdby" type="xs:string" />
+        <xs:element name="createdtime" type="xs:dateTime" />
+        <xs:element name="modifiedby" type="xs:string" />
+        <xs:element name="modifiedtime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customerloyalty" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<string>">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="points" type="xs:long" />
+          <xs:element name="" type="customer" nillable="true" minOccurs="0" />
+          <xs:element name="" type="loyaltycard" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="storeschedule" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<string>">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="dayofweek" type="xs:string" />
+          <xs:element name="status" type="xs:string" />
+          <xs:element name="opentime" type="xs:string" />
+          <xs:element name="closetime" type="xs:string" />
+          <xs:element name="" type="store" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

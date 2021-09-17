@@ -1,0 +1,25 @@
+
+synthesizer(number_of_keys:int, type_of_keyboard:String, number_of_timbres:int);
+
+orderuserdrum();
+
+orderusersynthesizer();
+
+orderguitar(/***thefieldthatreferstotheusertowhichthisguitarisassociated.*@seejavax.persistence.id*@seejavax.persistence.manytoone*@seejavax.persistence.joincolumn*/order:OrderUserGuitar<OrderGuitar> [PK] #FK to(orderuserguitar<orderguitar>), /***inorder*@seejavax.persistence.id*@seejavax.persistence.manytoone*@seejavax.persistence.joincolumn*/:Guitar [PK] #FK to(guitar));
+
+guitar(/***numberofstrings*/number_of_strings:int, /***material*/material:String, /***type*/type:String);
+
+type(id:int [PK], name:String);
+
+user(id:int [PK], surname:String, email:String, login:String, password:String, /***theattributereferstotheobjectinwhichtheuserisstored.*/:Type #FK to(type));
+
+orderuserguitar();
+
+orderdrum(/***thefieldthatreferstotheusertowhichthisdrumisassociated.*@seejavax.persistence.id*@seejavax.persistence.manytoone*@seejavax.persistence.joincolumn*/order:OrderUserDrum<OrderDrum> [PK] #FK to(orderuserdrum<orderdrum>), /***inorder*@seejavax.persistence.id*@seejavax.persistence.manytoone*@seejavax.persistence.joincolumn*/:Drum [PK] #FK to(drum));
+
+drum(/***numberofdrums*@seejavax.persistence.column*/numberofdrum:int, /***color*/color:String, /***size*/size:String);
+
+ordersynthesizer(/***thefieldthatreferstotheusertowhichthissynthesizerisassociated.*@seejavax.persistence.id*@seejavax.persistence.manytoone*@seejavax.persistence.joincolumn*/order:OrderUserSynthesizer<OrderSynthesizer> [PK] #FK to(orderusersynthesizer<ordersynthesizer>), /***inorder*@seejavax.persistence.id*@seejavax.persistence.manytoone*@seejavax.persistence.joincolumn*/:Synthesizer [PK] #FK to(synthesizer));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

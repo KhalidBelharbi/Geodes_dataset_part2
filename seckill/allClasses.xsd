@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="seckillapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="banner" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rebel" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="index" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="seckillrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<seckill,long>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="successkilledrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<successkilled,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="redisconsumer" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="seckillservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="redissender" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="redissublistenerconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kafkasender" >
+      <xs:sequence>
+        <xs:element name="kafkatemplate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kafkaconsumer" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="seckillservice" nillable="true" minOccurs="0" />
+        <xs:element name="service" type="productservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="seckilleventproducer" >
+      <xs:sequence>
+        <xs:element name="translator" type="seckillevent" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="ringbuffer" type="seckillevent" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="seckillevent" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="seckillid" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="seckilleventconsumer" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="seckillservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="seckilleventfactory" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="disruptorutils" >
+      <xs:sequence>
+        <xs:element name="disruptor" type="seckillevent" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="seckillservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="seckillrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="successkilledrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="seckillserviceimpl" >
+      <xs:sequence>
+        <xs:element name="service" type="productservice" nillable="true" minOccurs="0" />
+        <xs:element name="number" type="xs:anyType" />
+        <xs:element name="isfirst" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="latch" type="xs:anyType" />
+        <xs:element name="queue" type="successkilled" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="lock" type="xs:anyType" />
+        <xs:element name="//为了在writecountdb对应的商品id设置其数目为0id" type="xs:long" />
+        <xs:element name="count" type="xs:long" />
+        <xs:element name="c" type="xs:anyType" />
+        <xs:element name="version" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="seckilllockserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="zk" type="zookeeperlock" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="seckillservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="seckilllockservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="simpleseckillcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="//根据硬件cpu核数线程数来返回信息corepoolsize" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="seckillcount" type="xs:long" />
+        <xs:element name="GeneratedName" type="seckillservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="productservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="distributeseckillcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="//根据硬件cpu核数线程数来返回信息corepoolsize" type="xs:long" />
+        <xs:element name="seckillcount" type="xs:long" />
+        <xs:element name="starttime" type="xs:long" />
+        <xs:element name="executor" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="redissender" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="kafkasender" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="seckillservice" nillable="true" minOccurs="0" />
+        <xs:element name="lockservice" type="seckilllockservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="productservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="trueseckillcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="//标志位1表示redis里库存还有0表示没有state" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="redisutil" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="kafkasender" nillable="true" minOccurs="0" />
+        <xs:element name="service" type="productservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="seckillapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="seckill" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="seckillid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="number" type="xs:long" />
+        <xs:element name="starttime" type="xs:anyType" />
+        <xs:element name="endtime" type="xs:anyType" />
+        <xs:element name="createtime" type="xs:anyType" />
+        <xs:element name="version" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="result" >
+      <xs:complexContent>
+       <xs:extension base="hashmap{">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="successkilled" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="seckillid" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="state" type="xs:long" />
+        <xs:element name="createtime" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="multikeysclass" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="seckillid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="servicelock" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="limitaspect" >
+      <xs:sequence>
+        <xs:element name="////每秒只发出5个令牌，此处是单进程服务的限流,内部采用令牌捅算法实现" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="servicelimit" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lockaspect" >
+      <xs:sequence>
+        <xs:element name="/***思考：为什么不用synchronized*service默认是单例的，并发下只有一个实例*///互斥锁参数默认false，不公平锁" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="springcontextutils" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="redisutil" >
+      <xs:sequence>
+        <xs:element name="redistemplate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jedislock" >
+      <xs:sequence>
+        <xs:element name="no_" type="xs:anyType" />
+        <xs:element name="one_second" type="xs:long" />
+        <xs:element name="default_expiry_time_millis" type="xs:long" />
+        <xs:element name="default_acquire_timeout_millis" type="xs:long" />
+        <xs:element name="default_acquiry_resolution_millis" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="lockkeypath" type="xs:string" />
+        <xs:element name="lockexpiryinmillis" type="xs:long" />
+        <xs:element name="acquirytimeoutinmillis" type="xs:long" />
+        <xs:element name="lock" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="redislockutils" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="redislock" type="jedislock" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="zookeeperlock" >
+      <xs:sequence>
+        <xs:element name="j" type="xs:anyType" />
+        <xs:element name="//zk客户端zk" type="xs:anyType" />
+        <xs:element name="//zk是一个目录结构，root为最外层目录root" type="xs:string" />
+        <xs:element name="//锁的名称lockname" type="xs:string" />
+        <xs:element name="//当前线程创建的序列nodenodeid" type="xs:anyType" />
+        <xs:element name="//用来同步等待zkclient链接到了服务端connectedsignal" type="xs:anyType" />
+        <xs:element name="sessiontimeout" type="xs:long" />
+        <xs:element name="data" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="beforeseckill" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="seckillrepository" nillable="true" minOccurs="0" />
+        <xs:element name="repository" type="successkilledrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="redisconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="swagger2config" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pagecontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kafkaconsumertest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dbtest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="servicetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="webtest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="servicetest" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="seckillrepository" nillable="true" minOccurs="0" />
+        <xs:element name="lockservice" type="seckilllockservice" nillable="true" minOccurs="0" />
+        <xs:element name="kafkatemplate" type="xs:anyType" />
+        <xs:element name="repository" type="successkilledrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

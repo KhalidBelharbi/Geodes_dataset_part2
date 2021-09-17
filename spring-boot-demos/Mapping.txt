@@ -1,0 +1,14 @@
+ClassDiagram.Class>> Book =>=>=> RelationalSchema.Table>> book;
+ClassDiagram.Class>> AuthorRef =>=>=> RelationalSchema.Table>> authorref;
+ClassDiagram.Class>> EventRecord =>=>=> RelationalSchema.Table>> eventrecord;
+ClassDiagram.Attribut>> Book.id:Long =>=>=> RelationalSchema.Column>> book.id PRIMARY KEY;
+ClassDiagram.Attribut>> Book.title:String =>=>=> RelationalSchema.Column>> book.title;
+ClassDiagram.Attribut>> AuthorRef.GeneratedName:Book =>=>=> RelationalSchema.Column>> authorref.GeneratedName PRIMARY KEY;
+ClassDiagram.Attribut>> AuthorRef.authorid:Long =>=>=> RelationalSchema.Column>> authorref.authorid PRIMARY KEY;
+ClassDiagram.Attribut>> EventRecord.mapper:ObjectMapper =>=>=> RelationalSchema.Column>> eventrecord.mapper;
+ClassDiagram.Attribut>> EventRecord.id:Long =>=>=> RelationalSchema.Column>> eventrecord.id PRIMARY KEY;
+ClassDiagram.Attribut>> EventRecord.event:String =>=>=> RelationalSchema.Column>> eventrecord.event;
+ClassDiagram.Attribut>> EventRecord.occuredat:Instant =>=>=> RelationalSchema.Column>> eventrecord.occuredat;
+ClassDiagram.Attribut>> EventRecord.data:String =>=>=> RelationalSchema.Column>> eventrecord.data;
+One-To-Many relationship from ClassDiagram.Class>>Book  to ClassDiagram.Class>>Set<AuthorRef>;
+Many-To-One relationship from ClassDiagram.Class>>AuthorRef  to ClassDiagram.Class>>book represented by ClassDiagram.Atrribute>>GeneratedName;

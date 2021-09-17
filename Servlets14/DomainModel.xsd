@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="vendorpart" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="vendorpartnumber" type="xs:long" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="price" type="xs:double" />
+        <xs:element name="GeneratedName" type="part" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="vendor" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="part" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="partnumber" type="xs:string" />
+        <xs:element name="revision" type="xs:long" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="revision" type="xs:dateTime" />
+        <xs:element name="drawing" type="xs:anyType" />
+        <xs:element name="specification" type="xs:string" />
+        <xs:element name="bom" type="part" nillable="true" minOccurs="0" />
+        <xs:element name="parts" type="part" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="vendorpart" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customerorder" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="orderid" type="xs:anyType" />
+        <xs:element name="status" type="xs:anyType" />
+        <xs:element name="lastup" type="xs:dateTime" />
+        <xs:element name="discount" type="xs:long" />
+        <xs:element name="shipmentinfo" type="xs:string" />
+        <xs:element name="lineitems" type="lineitem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lineitem" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="itemid" type="xs:long" />
+        <xs:element name="quantity" type="xs:long" />
+        <xs:element name="GeneratedName" type="vendorpart" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="customerorder" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vendor" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="vendorid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="contact" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="vendorparts" type="vendorpart" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

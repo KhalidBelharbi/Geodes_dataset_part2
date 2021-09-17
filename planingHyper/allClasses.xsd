@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="matlasapiapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="controleur" >
+      <xs:sequence>
+        <xs:element name="repomatiere" type="matiererepository" nillable="true" minOccurs="0" />
+        <xs:element name="reporole" type="rolerepository" nillable="true" minOccurs="0" />
+        <xs:element name="repoclasse" type="classerepository" nillable="true" minOccurs="0" />
+        <xs:element name="repouser" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="repoplanning" type="planningrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="planning" >
+      <xs:sequence>
+        <xs:element name="id_planning" type="xs:long" />
+        <xs:element name="debut" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nom" type="xs:string" />
+        <xs:element name="prenom" type="xs:string" />
+        <xs:element name="pseudo" type="xs:string" />
+        <xs:element name="telephone" type="xs:string" />
+        <xs:element name="role" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="classe" >
+      <xs:sequence>
+        <xs:element name="id_classe" type="xs:long" />
+        <xs:element name="section" type="xs:string" />
+        <xs:element name="specialite" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="matiere" >
+      <xs:sequence>
+        <xs:element name="id_matiere" type="xs:long" />
+        <xs:element name="nom" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="role" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vacance" >
+      <xs:sequence>
+        <xs:element name="id_vacance" type="xs:long" />
+        <xs:element name="debut" type="xs:dateTime" />
+        <xs:element name="fin" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datasourceconfig" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="matiererepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<matiere,integer>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rolerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<role,integer>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="vacancerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<vacance,integer>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,integer>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="planningrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<planning,integer>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="classerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<classe,integer>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="matlasapiapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

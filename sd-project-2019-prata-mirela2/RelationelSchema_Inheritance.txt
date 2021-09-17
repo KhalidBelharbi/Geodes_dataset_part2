@@ -1,0 +1,15 @@
+
+cartticket(idcarttickets:Integer [PK], GeneratedName:Shoppingcart #FK to(shoppingcart), GeneratedName:Ticket #FK to(ticket));
+
+admin(idadmin:Integer [PK], email:String, password:String);
+
+user(iduser:Integer [PK], email:String, password:String, name:String, address:String);
+
+ticket(idticket:Integer [PK], departuredata:Date, arrivaldata:Date, seat:String, price:Integer, GeneratedName:Destination #FK to(destination));
+
+destination(iddestination:Integer [PK], country:String, city:String);
+
+shoppingcart(idshoppingcart:Integer [PK], GeneratedName:User #FK to(user), totalprice:Integer);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

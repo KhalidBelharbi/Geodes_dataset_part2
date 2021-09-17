@@ -1,0 +1,17 @@
+
+lineitem(serialversionuid:long, /***<aname:PurchaseOrder [PK] #FK to(purchaseorder), index:int [PK], GeneratedName:Book #FK to(book), quantity:int);
+
+inventory(serialversionuid:long, GeneratedName:Book [PK] #FK to(book), supplied:int, sold:int, version:int);
+
+author(id:long [PK], name:String, version:int);
+
+purchaseorder(serialversionuid:long, /***<aname:long [PK], GeneratedName:Customer #FK to(customer), GeneratedName:Status, total:int, placedon:Timestamp, deliveredon:Timestamp);
+
+customer(serialversionuid:long, id:long [PK], name:String, email:String, version:int);
+
+book(serialversionuid:long, isbn:String [PK], title:String, price:double, GeneratedName:Inventory #FK to(inventory), version:int);
+
+book_list<author>(bookID:book [PK] #FK to book,list<author>ID:list<author> [PK] #FK to list<author>);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

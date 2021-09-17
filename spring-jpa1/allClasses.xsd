@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="addressrepositorytest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="addressrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="address" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="sex" type="sexenum" nillable="true" minOccurs="0" />
+        <xs:element name="age" type="xs:anyType" />
+        <xs:element name="createtime" type="xs:anyType" />
+        <xs:element name="updatetime" type="xs:anyType" />
+        <xs:element name="addresslist" type="address" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sexenum" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="addressrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<address,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dateformatconfig" >
+      <xs:sequence>
+        <xs:element name="/***date格式化字符串*/date_format" type="xs:string" />
+        <xs:element name="/***datetime格式化字符串*/datetime_format" type="xs:string" />
+        <xs:element name="/***time格式化字符串*/time_format" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jacksonconfig" >
+      <xs:sequence>
+        <xs:element name="mapper" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="qbeapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

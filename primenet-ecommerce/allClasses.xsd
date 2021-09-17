@@ -1,0 +1,1160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="ecoresattributetype" >
+      <xs:complexContent>
+       <xs:extension base="baseentityaudit">
+         <xs:sequence>
+          <xs:element name="datatype" type="xs:string" />
+          <xs:element name="isenumeration" type="xs:anyType" />
+          <xs:element name="typename" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ecoresgroupbyattribute" >
+      <xs:complexContent>
+       <xs:extension base="baseentityaudit">
+         <xs:sequence>
+          <xs:element name="attributegroupref" type="xs:long" />
+          <xs:element name="attributeref" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ecoresvalue" >
+      <xs:complexContent>
+       <xs:extension base="baseentityaudit">
+         <xs:sequence>
+          <xs:element name="relationtype" type="xs:long" />
+          <xs:element name="textvalue" type="xs:string" />
+          <xs:element name="intvalue" type="xs:anyType" />
+          <xs:element name="value" type="xs:anyType" />
+          <xs:element name="value" type="xs:double" />
+          <xs:element name="timevalue" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productattributesvaluesview" >
+      <xs:sequence>
+        <xs:element name="recid" type="xs:long" />
+        <xs:element name="productref" type="xs:long" />
+        <xs:element name="attributename" type="xs:string" />
+        <xs:element name="relationtype" type="xs:long" />
+        <xs:element name="textvalue" type="xs:string" />
+        <xs:element name="datetimevalue" type="xs:anyType" />
+        <xs:element name="value" type="xs:double" />
+        <xs:element name="value" type="xs:anyType" />
+        <xs:element name="initemcardfill" type="xs:anyType" />
+        <xs:element name="initemcardshow" type="xs:anyType" />
+        <xs:element name="isfilterbuild" type="xs:anyType" />
+        <xs:element name="isenumeration" type="xs:anyType" />
+        <xs:element name="attributetyperecid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ecoresproductattributevalue" >
+      <xs:complexContent>
+       <xs:extension base="baseentityaudit">
+         <xs:sequence>
+          <xs:element name="productref" type="xs:long" />
+          <xs:element name="ecoresvalueref" type="xs:long" />
+          <xs:element name="relationtype" type="xs:string" />
+          <xs:element name="attributeref" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="attributedatatypes2" >
+      <xs:sequence>
+        <xs:element name="_log" type="xs:anyType" />
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="label" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ecoresattributetypeconverter" >
+      <xs:sequence>
+        <xs:element name="_log" type="xs:anyType" />
+        <xs:element name="attributetypefacade" type="ecoresattributetypefacade" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="viewpk" >
+      <xs:sequence>
+        <xs:element name="attributerecid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getattributeenumlist" >
+      <xs:sequence>
+        <xs:element name="attributerecid" type="xs:long" />
+        <xs:element name="attributename" type="xs:string" />
+        <xs:element name="typerecid" type="xs:long" />
+        <xs:element name="typename" type="xs:string" />
+        <xs:element name="isenumeration" type="xs:anyType" />
+        <xs:element name="textvalue" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ecoresvalueenumeration" >
+      <xs:complexContent>
+       <xs:extension base="baseentityaudit">
+         <xs:sequence>
+          <xs:element name="instancerelationtype" type="xs:long" />
+          <xs:element name="textvalue" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="datatypeconverter" >
+      <xs:sequence>
+        <xs:element name="_log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ecorescategoryattributegroup" >
+      <xs:complexContent>
+       <xs:extension base="baseentityaudit">
+         <xs:sequence>
+          <xs:element name="attributegroupref" type="xs:long" />
+          <xs:element name="ecorescategoryref" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ecoresattributegroup" >
+      <xs:complexContent>
+       <xs:extension base="baseentityaudit">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ecoresattribute" >
+      <xs:complexContent>
+       <xs:extension base="baseentityaudit">
+         <xs:sequence>
+          <xs:element name="attributename" type="xs:string" />
+          <xs:element name="attributegroupref" type="xs:long" />
+          <xs:element name="attributetyperef" type="xs:long" />
+          <xs:element name="initemcardfill" type="xs:anyType" />
+          <xs:element name="initemcardshow" type="xs:anyType" />
+          <xs:element name="isfilterbuild" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="gender" >
+      <xs:sequence>
+        <xs:element name="label" type="xs:string" />
+        <xs:element name="code" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ecorescategoryattributegroupfacade" >
+      <xs:complexContent>
+       <xs:extension base="abstractfacade<ecorescategoryattributegroup>">
+         <xs:sequence>
+          <xs:element name="_log" type="xs:anyType" />
+          <xs:element name="em" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ecoresgroupbyattributefacade" >
+      <xs:complexContent>
+       <xs:extension base="abstractfacade<ecoresgroupbyattribute>">
+         <xs:sequence>
+          <xs:element name="_log" type="xs:anyType" />
+          <xs:element name="em" type="xs:anyType" />
+          <xs:element name="attributefacade" type="ecoresattributefacade" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="attributevaluecount" >
+      <xs:sequence>
+        <xs:element name="value" type="xs:string" />
+        <xs:element name="count" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ecoresvalueenumerationfacade" >
+      <xs:complexContent>
+       <xs:extension base="abstractfacade<ecoresvalueenumeration>">
+         <xs:sequence>
+          <xs:element name="_log" type="xs:anyType" />
+          <xs:element name="em" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ecoresattributetypefacade" >
+      <xs:complexContent>
+       <xs:extension base="abstractfacade<ecoresattributetype>">
+         <xs:sequence>
+          <xs:element name="_log" type="xs:anyType" />
+          <xs:element name="em" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="attributescontroller" >
+      <xs:sequence>
+        <xs:element name="_log" type="xs:anyType" />
+        <xs:element name="ecoresattributes" type="ecoresattribute" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="ecoresattributegroups" type="ecoresattributegroup" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="ecoresattributetypes" type="ecoresattributetype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="ecorescategoryattributegroups" type="ecorescategoryattributegroup" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="ecoresproductattributevalues" type="ecoresproductattributevalue" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="ecoresvalues" type="ecoresvalue" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="ecoresgroupbyattributelist" type="ecoresgroupbyattribute" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="ecoresvalueenumerationlist" type="ecoresvalueenumeration" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="ecoresattribute" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="ecoresattributegroup" nillable="true" minOccurs="0" />
+        <xs:element name=",selected" type="ecoresattributetype" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="ecorescategoryattributegroup" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="ecoresproductattributevalue" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="ecoresvalue" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="ecoresgroupbyattribute" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="ecoresvalueenumeration" nillable="true" minOccurs="0" />
+        <xs:element name="datatype" type="attributedatatypes2" nillable="true" minOccurs="0" />
+        <xs:element name="attributefacade" type="ecoresattributefacade" nillable="true" minOccurs="0" />
+        <xs:element name="attributegroupfacade" type="ecoresattributegroupfacade" nillable="true" minOccurs="0" />
+        <xs:element name="attributetypefacade" type="ecoresattributetypefacade" nillable="true" minOccurs="0" />
+        <xs:element name="categoryattributegroupfacade" type="ecorescategoryattributegroupfacade" nillable="true" minOccurs="0" />
+        <xs:element name="productattributevaluefacade" type="ecoresproductattributevaluefacade" nillable="true" minOccurs="0" />
+        <xs:element name="valuefacade" type="ecoresvaluefacade" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="ecoresgroupbyattributefacade" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="ecoresvalueenumerationfacade" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="getattributeenumlistfacade" nillable="true" minOccurs="0" />
+        <xs:element name="sselection" type="ecoresattribute" nillable="true" minOccurs="0" />
+        <xs:element name="selection" type="ecoresattributegroup" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ecoresattributefacade" >
+      <xs:complexContent>
+       <xs:extension base="abstractfacade<ecoresattribute>">
+         <xs:sequence>
+          <xs:element name="em" type="xs:anyType" />
+          <xs:element name="" type="ecoresattributetypefacade" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ecoresproductattributevaluefacade" >
+      <xs:complexContent>
+       <xs:extension base="abstractfacade<ecoresproductattributevalue>">
+         <xs:sequence>
+          <xs:element name="_log" type="xs:anyType" />
+          <xs:element name="em" type="xs:anyType" />
+          <xs:element name="" type="ecoresvaluefacade" nillable="true" minOccurs="0" />
+          <xs:element name="" type="ecoresattributetypefacade" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="getattributeenumlistfacade" >
+      <xs:complexContent>
+       <xs:extension base="abstractfacade<getattributeenumlist>">
+         <xs:sequence>
+          <xs:element name="_log" type="xs:anyType" />
+          <xs:element name="em" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="searchattributefacade" >
+      <xs:complexContent>
+       <xs:extension base="abstractfacade<productattributesvaluesview>">
+         <xs:sequence>
+          <xs:element name="_log" type="xs:anyType" />
+          <xs:element name="products" type="xs:anyType" />
+          <xs:element name="searchattributevalues" type="xs:anyType" />
+          <xs:element name="" type="ecoresvaluefacade" nillable="true" minOccurs="0" />
+          <xs:element name="em" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ecoresvaluefacade" >
+      <xs:complexContent>
+       <xs:extension base="abstractfacade<ecoresvalue>">
+         <xs:sequence>
+          <xs:element name="_log" type="xs:anyType" />
+          <xs:element name="em" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ecoresattributegroupfacade" >
+      <xs:complexContent>
+       <xs:extension base="abstractfacade<ecoresattributegroup>">
+         <xs:sequence>
+          <xs:element name="em" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ehcache" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="theme" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logeventsfacade" >
+      <xs:complexContent>
+       <xs:extension base="abstractfacade<logevents>">
+         <xs:sequence>
+          <xs:element name="_log" type="xs:anyType" />
+          <xs:element name="em" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="loginbean" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mysimpleurlauthenticationsuccesshandler" >
+      <xs:complexContent>
+       <xs:extension base="grantedauthority>">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="logeventsfacade" type="logeventsimpl" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="logeventsimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="facesutils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="blacklistfilter" >
+      <xs:complexContent>
+       <xs:extension base="the">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="loginerrorphaselistener" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mailfacade" >
+      <xs:sequence>
+        <xs:element name="_log" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="userfacade" nillable="true" minOccurs="0" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="subject" type="xs:string" />
+        <xs:element name="p" type="xs:anyType" />
+        <xs:element name="ve" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mailcontroller" >
+      <xs:sequence>
+        <xs:element name="_log" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="mailfacade" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ehcache" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ordersfacade" >
+      <xs:complexContent>
+       <xs:extension base="abstractfacade<orders>{">
+         <xs:sequence>
+          <xs:element name="_log" type="xs:anyType" />
+          <xs:element name="em" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bonusfacade" >
+      <xs:complexContent>
+       <xs:extension base="abstractfacade<bonustrans>{">
+         <xs:sequence>
+          <xs:element name="_log" type="xs:anyType" />
+          <xs:element name="em" type="xs:anyType" />
+          <xs:element name="setup" type="bonussetup" nillable="true" minOccurs="0" />
+          <xs:element name="message" type="xs:string" />
+          <xs:element name="" type="bonussumfacade" nillable="true" minOccurs="0" />
+          <xs:element name="" type="ordersfacade" nillable="true" minOccurs="0" />
+          <xs:element name="" type="bonussetupfacade" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userf" >
+      <xs:complexContent>
+       <xs:extension base="abstractfacade<users>{">
+         <xs:sequence>
+          <xs:element name="em" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ecoresproductcategoryfacade" >
+      <xs:complexContent>
+       <xs:extension base="abstractfacade<ecoresproductcategory>{">
+         <xs:sequence>
+          <xs:element name="em" type="xs:anyType" />
+          <xs:element name="log" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="relevantprodfacade" >
+      <xs:complexContent>
+       <xs:extension base="abstractfacade<relevantproducts>{">
+         <xs:sequence>
+          <xs:element name="_log" type="xs:anyType" />
+          <xs:element name="em" type="xs:anyType" />
+          <xs:element name="relevantproposals" type="proposal" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="proposalfacade" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="companyfacade" >
+      <xs:complexContent>
+       <xs:extension base="abstractfacade<company>{">
+         <xs:sequence>
+          <xs:element name="em" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="authoritesfacade" >
+      <xs:complexContent>
+       <xs:extension base="abstractfacade<authorites>{">
+         <xs:sequence>
+          <xs:element name="_log" type="xs:anyType" />
+          <xs:element name="em" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bonussetupfacade" >
+      <xs:complexContent>
+       <xs:extension base="abstractfacade<bonussetup>{">
+         <xs:sequence>
+          <xs:element name="_log" type="xs:anyType" />
+          <xs:element name="em" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userfacade" >
+      <xs:complexContent>
+       <xs:extension base="abstractfacade<userse>{">
+         <xs:sequence>
+          <xs:element name="_log" type="xs:anyType" />
+          <xs:element name="em" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bonussumfacade" >
+      <xs:complexContent>
+       <xs:extension base="abstractfacade<bonussum>{">
+         <xs:sequence>
+          <xs:element name="_log" type="xs:anyType" />
+          <xs:element name="em" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entityfacade" >
+      <xs:sequence>
+        <xs:element name="userfacade" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractfacade" >
+      <xs:sequence>
+        <xs:element name="entityclass" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iuserfacade" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customerfacade" >
+      <xs:complexContent>
+       <xs:extension base="abstractfacade<customer>{">
+         <xs:sequence>
+          <xs:element name="em" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productfacade" >
+      <xs:complexContent>
+       <xs:extension base="abstractfacade<product>{">
+         <xs:sequence>
+          <xs:element name="_log" type="xs:anyType" />
+          <xs:element name="em" type="xs:anyType" />
+          <xs:element name="" type="ecoresproductcategoryfacade" nillable="true" minOccurs="0" />
+          <xs:element name="" type="ecorescategoryattributegroupfacade" nillable="true" minOccurs="0" />
+          <xs:element name="" type="ecoresgroupbyattributefacade" nillable="true" minOccurs="0" />
+          <xs:element name="" type="ecoresattributefacade" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ecorescategoryfacade" >
+      <xs:complexContent>
+       <xs:extension base="abstractfacade<ecorescategory>{">
+         <xs:sequence>
+          <xs:element name="em" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="carouselfacade" >
+      <xs:complexContent>
+       <xs:extension base="abstractfacade<carousel>{">
+         <xs:sequence>
+          <xs:element name="em" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="proposalfacade" >
+      <xs:complexContent>
+       <xs:extension base="abstractfacade<proposal>{">
+         <xs:sequence>
+          <xs:element name="em" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="indexercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="productfacade" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="searchcontroller" >
+      <xs:sequence>
+        <xs:element name="_log" type="xs:anyType" />
+        <xs:element name="search" type="xs:string" />
+        <xs:element name="searchproposals" type="proposal" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="productlist" type="product" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="proposalfacade" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="productfacade" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="proposalcontroller" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logincontroller" >
+      <xs:sequence>
+        <xs:element name="_log" type="xs:anyType" />
+        <xs:element name="//полядляаутентификацииusername" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="//полядлярегистрацииname" type="xs:string" />
+        <xs:element name="surname" type="xs:string" />
+        <xs:element name="birth" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="pwd" type="xs:string" />
+        <xs:element name="//сообщениянаформеwarning" type="xs:string" />
+        <xs:element name="curuser" type="userse" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="authorites" nillable="true" minOccurs="0" />
+        <xs:element name="isauth" type="xs:anyType" />
+        <xs:element name="msg" type="xs:string" />
+        <xs:element name="menutxt" type="xs:string" />
+        <xs:element name="isadmin" type="xs:anyType" />
+        <xs:element name="isuser" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="customer" nillable="true" minOccurs="0" />
+        <xs:element name="activecustorders,histcustorders" type="orders" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="activeusers" type="xs:anyType" />
+        <xs:element name="userfacade" type="xs:anyType" />
+        <xs:element name="customerfacade" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="ordersfacade" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="mailfacade" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="authoritesfacade" nillable="true" minOccurs="0" />
+        <xs:element name="logeventsfacade" type="logeventsimpl" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="loginbean" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="uicontroller" >
+      <xs:sequence>
+        <xs:element name="_log" type="xs:anyType" />
+        <xs:element name="reference" type="xs:string" />
+        <xs:element name="previouspage,page" type="xs:string" />
+        <xs:element name="backurl" type="xs:string" />
+        <xs:element name="search" type="xs:string" />
+        <xs:element name="random" type="xs:anyType" />
+        <xs:element name="htmlrandomcolor" type="xs:string" />
+        <xs:element name="editform" type="xs:anyType" />
+        <xs:element name="count,countshop" type="xs:long" />
+        <xs:element name="admin" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="company" nillable="true" minOccurs="0" />
+        <xs:element name="proposalid" type="xs:string" />
+        <xs:element name="GeneratedName" type="itemcardcontroller" nillable="true" minOccurs="0" />
+        <xs:element name="[issue16]присозданииновойзаписиоткрыватьформуредактирования" type="itemcontroller" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="proposalcontroller" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="logincontroller" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="carouselfacade" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="proposalfacade" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ecorescategorycontroller" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="ecorescategories,searchcategories" type="ecorescategory" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="searchproposals" type="proposal" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="ecoresproductcategories" type="ecoresproductcategory" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="selectedproductcategories" type="ecoresproductcategory" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="ecoresproductcategory" nillable="true" minOccurs="0" />
+        <xs:element name="selectedproducts" type="selectedproduct" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="products" type="product" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="sselection" type="product" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="productsdatamodel" nillable="true" minOccurs="0" />
+        <xs:element name="selected" type="ecorescategory" nillable="true" minOccurs="0" />
+        <xs:element name="root" type="xs:anyType" />
+        <xs:element name="selectednode" type="xs:anyType" />
+        <xs:element name=",breadcrumbmodel" type="xs:anyType" />
+        <xs:element name="treeup" type="ecorescategory" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="minprice,maxprice" type="xs:long" />
+        <xs:element name="searchattributes" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="ecorescategoryfacade" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="ecoresproductcategoryfacade" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="productfacade" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="proposalfacade" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="searchattributefacade" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="proposalcontroller" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="uicontroller" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="attributescontroller" nillable="true" minOccurs="0" />
+        <xs:element name="component" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="itemcardcontroller" >
+      <xs:sequence>
+        <xs:element name="_log" type="xs:anyType" />
+        <xs:element name="current" type="proposal" nillable="true" minOccurs="0" />
+        <xs:element name="error" type="product" nillable="true" minOccurs="0" />
+        <xs:element name="relevantpropolsals" type="proposal" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="imgpos" type="xs:anyType" />
+        <xs:element name="productimages" type="xs:anyType" />
+        <xs:element name="rating" type="xs:anyType" />
+        <xs:element name="	добавлениевозможностивыбратьатрибутвкарточкетовараcurrentproductattributesvalues,currentproductattributesvaluefill" type="productattributesvaluesview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="currentproductattributesvariables" type="xs:string" />
+        <xs:element name="fillattributevalues" type="xs:anyType" />
+        <xs:element name="productconfiguration" type="xs:anyType" />
+        <xs:element name="//" type="productfacade" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="proposalfacade" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="relevantprodfacade" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="searchattributefacade" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="ecoresattributetypefacade" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="ecoresvalueenumerationfacade" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="proposalcontroller" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jsfutill" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="proposalcontroller" >
+      <xs:sequence>
+        <xs:element name="_log" type="xs:anyType" />
+        <xs:element name="proposallist,filteredproposals" type="proposal" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="availableproposals" type="proposal" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="droppedproposal" type="proposal" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="products" type="product" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="selected,error" type="product" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="shopingcart" nillable="true" minOccurs="0" />
+        <xs:element name="shoppingcartbalance" type="xs:double" />
+        <xs:element name="selected" type="proposal" nillable="true" minOccurs="0" />
+        <xs:element name="selected" type="shopingcartitem" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="itemcontroller" nillable="true" minOccurs="0" />
+        <xs:element name="selected" type="proposal" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="proposalfacade" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="productfacade" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="itemcontroller" >
+      <xs:complexContent>
+       <xs:extension base="lazydatamodel<product>">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+          <xs:element name="itemlist" type="items" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="selected" type="product" nillable="true" minOccurs="0" />
+          <xs:element name="products,filteredproducts" type="product" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="relevantproductes" type="relevantproducts" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="selectedrelevant" type="relevantproducts" nillable="true" minOccurs="0" />
+          <xs:element name="selectedproducts" type="selectedproduct" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="selectedproductsmodel" type="productdatamodel" nillable="true" minOccurs="0" />
+          <xs:element name="selectedsa" type="product" nillable="true" minOccurs="0" />
+          <xs:element name="images" type="xs:anyType" />
+          <xs:element name="productattributes" type="ecoresattribute" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="selectedattribute" type="ecoresattribute" nillable="true" minOccurs="0" />
+          <xs:element name="" type="ecoresvalue" nillable="true" minOccurs="0" />
+          <xs:element name="isattributevalueenum" type="xs:anyType" />
+          <xs:element name="attributeenumvalues" type="xs:anyType" />
+          <xs:element name="переменнаядляленивойзагрузкисправочниканоменклатурыproductlazydatalist" type="product" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="filters" type="xs:anyType" />
+          <xs:element name="" type="productfacade" nillable="true" minOccurs="0" />
+          <xs:element name="" type="relevantprodfacade" nillable="true" minOccurs="0" />
+          <xs:element name="" type="ecoresproductattributevaluefacade" nillable="true" minOccurs="0" />
+          <xs:element name="" type="ecoresvaluefacade" nillable="true" minOccurs="0" />
+          <xs:element name="" type="ecoresattributefacade" nillable="true" minOccurs="0" />
+          <xs:element name="" type="getattributeenumlistfacade" nillable="true" minOccurs="0" />
+          <xs:element name="" type="ecoresattributetypefacade" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bonuscontroller" >
+      <xs:sequence>
+        <xs:element name="_log" type="xs:anyType" />
+        <xs:element name="setup" type="bonussetup" nillable="true" minOccurs="0" />
+        <xs:element name="transactions" type="bonustrans" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="bsumlist" type="bonussum" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="selected" type="bonustrans" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="logincontroller" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="bonusfacade" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="bonussumfacade" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="customerfacade" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="bonussetupfacade" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="carouselcontroller" >
+      <xs:complexContent>
+       <xs:extension base="jsfutill{">
+         <xs:sequence>
+          <xs:element name="carousellist" type="carousel" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="images" type="xs:anyType" />
+          <xs:element name="idlist" type="xs:anyType" />
+          <xs:element name="selected" type="carousel" nillable="true" minOccurs="0" />
+          <xs:element name="" type="carouselfacade" nillable="true" minOccurs="0" />
+          <xs:element name="log" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usercontroller" >
+      <xs:sequence>
+        <xs:element name="userslistuserslist" type="userse" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="selected" type="userse" nillable="true" minOccurs="0" />
+        <xs:element name="customerlist" type="customer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="selected" type="customer" nillable="true" minOccurs="0" />
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="authoriteses" type="authorites" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="userfacade" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="customerfacade" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="authoritesfacade" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="companycontroller" >
+      <xs:sequence>
+        <xs:element name="companylist" type="company" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="selected" type="company" nillable="true" minOccurs="0" />
+        <xs:element name="content" type="xs:anyType" />
+        <xs:element name="utx" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="companyfacade" nillable="true" minOccurs="0" />
+        <xs:element name="log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderscontroller" >
+      <xs:sequence>
+        <xs:element name="_log" type="xs:anyType" />
+        <xs:element name="orderlist" type="orders" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//добавлениемножественноговыборастрокзаказовselectedorderlist,activecustorders,histcustorders,filteredorders" type="orders" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="selected" type="orders" nillable="true" minOccurs="0" />
+        <xs:element name="ordersmodel" type="orderdatamodel" nillable="true" minOccurs="0" />
+        <xs:element name="statusoptions,deliveryoptions" type="xs:anyType" />
+        <xs:element name="statusvalues,deliveryvalues" type="xs:string" />
+        <xs:element name="{добавитьобщийгруппирующийпризнакстрокзаказов:кодзаказа(salesid)}salesid" type="xs:anyType" />
+        <xs:element name="selected" type="order" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="proposalcontroller" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="usercontroller" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="logincontroller" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="loginbean" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="uicontroller" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="ordersfacade" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="mailfacade" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reportcontroller" >
+      <xs:sequence>
+        <xs:element name="_log" type="xs:anyType" />
+        <xs:element name="totalsales" type="xs:double" />
+        <xs:element name="totalsalesmonth" type="xs:double" />
+        <xs:element name="totalorders" type="xs:anyType" />
+        <xs:element name="totalcustomersqty" type="xs:anyType" />
+        <xs:element name="saleslinemodel" type="xs:anyType" />
+        <xs:element name="sales" type="xs:anyType" />
+        <xs:element name="model" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="ordersfacade" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="customerfacade" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="topproductreportfacade" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="saleslastmonthviewfacade" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="saleslastmonthviewfacade" >
+      <xs:complexContent>
+       <xs:extension base="abstractfacade<getsaleslastmonthview>">
+         <xs:sequence>
+          <xs:element name="_log" type="xs:anyType" />
+          <xs:element name="em" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="getsaleslastmonthview" >
+      <xs:sequence>
+        <xs:element name="salesid" type="xs:string" />
+        <xs:element name="processing_at" type="xs:dateTime" />
+        <xs:element name="product" type="xs:string" />
+        <xs:element name="total" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="topproductreportfacade" >
+      <xs:complexContent>
+       <xs:extension base="abstractfacade<gettopproductentity>">
+         <xs:sequence>
+          <xs:element name="_log" type="xs:anyType" />
+          <xs:element name="em" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="gettopproductentity" >
+      <xs:sequence>
+        <xs:element name="product" type="xs:string" />
+        <xs:element name="total" type="xs:double" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderdatamodel" >
+      <xs:complexContent>
+       <xs:extension base="listdatamodel<orders>">
+         <xs:sequence>
+          <xs:element name="" type="ordersfacade" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productslazydatamodel" >
+      <xs:complexContent>
+       <xs:extension base="lazydatamodel<product>">
+         <xs:sequence>
+          <xs:element name="filtersext" type="xs:anyType" />
+          <xs:element name="" type="productfacade" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productdatamodel" >
+      <xs:complexContent>
+       <xs:extension base="listdatamodel<product>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="relevantproductsmodel" >
+      <xs:complexContent>
+       <xs:extension base="listdatamodel<relevantproducts>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="velocitytest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testcompile" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="order" >
+      <xs:sequence>
+        <xs:element name="proposalid" type="xs:string" />
+        <xs:element name="GeneratedName" type="customer" nillable="true" minOccurs="0" />
+        <xs:element name="orderid" type="xs:double" />
+        <xs:element name="GeneratedName" type="product" nillable="true" minOccurs="0" />
+        <xs:element name="qty" type="xs:double" />
+        <xs:element name="price" type="xs:double" />
+        <xs:element name="amount" type="xs:double" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="order" type="xs:dateTime" />
+        <xs:element name="bonus" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="carousel" >
+      <xs:complexContent>
+       <xs:extension base="baseentityaudit{">
+         <xs:sequence>
+          <xs:element name="image" type="xs:anyType" />
+          <xs:element name="url" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="authorites" >
+      <xs:complexContent>
+       <xs:extension base="baseentityaudit{">
+         <xs:sequence>
+          <xs:element name="login" type="xs:string" />
+          <xs:element name="authority" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bonustrans" >
+      <xs:complexContent>
+       <xs:extension base="baseentityaudit{">
+         <xs:sequence>
+          <xs:element name="customer" type="xs:string" />
+          <xs:element name="amount" type="xs:double" />
+          <xs:element name="balls" type="xs:double" />
+          <xs:element name="ordernum" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="shopingcart" >
+      <xs:sequence>
+        <xs:element name="_log" type="xs:anyType" />
+        <xs:element name="shopingcartid" type="xs:anyType" />
+        <xs:element name="shopingcartitemlist" type="shopingcartitem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="user" type="users" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="shopingcartitem" nillable="true" minOccurs="0" />
+        <xs:element name="cartbalance" type="xs:double" />
+        <xs:element name="deliveryoptions" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="company" >
+      <xs:complexContent>
+       <xs:extension base="baseentityaudit">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="phone" type="xs:string" />
+          <xs:element name="logo" type="xs:anyType" />
+          <xs:element name="active" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ecorescategory" >
+      <xs:complexContent>
+       <xs:extension base="baseentityaudit{">
+         <xs:sequence>
+          <xs:element name="parentrecid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orders" >
+      <xs:complexContent>
+       <xs:extension base="baseentityaudit{">
+         <xs:sequence>
+          <xs:element name="salesid" type="xs:long" />
+          <xs:element name="proposal" type="xs:long" />
+          <xs:element name="product" type="xs:long" />
+          <xs:element name="price" type="xs:long" />
+          <xs:element name="minqty" type="xs:double" />
+          <xs:element name="qty" type="xs:double" />
+          <xs:element name="startqty" type="xs:double" />
+          <xs:element name="amount" type="xs:double" />
+          <xs:element name="deliveryterms" type="xs:string" />
+          <xs:element name="delivery" type="xs:dateTime" />
+          <xs:element name="paymentterms" type="xs:string" />
+          <xs:element name="status" type="xs:string" />
+          <xs:element name="blocked" type="xs:anyType" />
+          <xs:element name="bonus" type="xs:anyType" />
+          <xs:element name="fullfilled" type="xs:anyType" />
+          <xs:element name="promo" type="xs:anyType" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="customer" type="xs:string" />
+          <xs:element name="configuration" type="xs:string" />
+          <xs:element name="processingat" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bonussetup" >
+      <xs:complexContent>
+       <xs:extension base="baseentityaudit{">
+         <xs:sequence>
+          <xs:element name="balls" type="xs:double" />
+          <xs:element name="amount" type="xs:double" />
+          <xs:element name="parameter" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="selectedproduct" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="product" nillable="true" minOccurs="0" />
+        <xs:element name="selected" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="ecorescategory" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="users" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="login" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="role" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="proposal" >
+      <xs:complexContent>
+       <xs:extension base="baseentityaudit{">
+         <xs:sequence>
+          <xs:element name="product" type="xs:long" />
+          <xs:element name="price" type="xs:long" />
+          <xs:element name="minqty" type="xs:long" />
+          <xs:element name="qty" type="xs:long" />
+          <xs:element name="startqty" type="xs:long" />
+          <xs:element name="deliveryterms" type="xs:string" />
+          <xs:element name="delivery" type="xs:dateTime" />
+          <xs:element name="paymentterms" type="xs:string" />
+          <xs:element name="blocked" type="xs:anyType" />
+          <xs:element name="fullfilled" type="xs:anyType" />
+          <xs:element name="promo" type="xs:anyType" />
+          <xs:element name="description" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="relevantproducts" >
+      <xs:complexContent>
+       <xs:extension base="baseentityaudit{">
+         <xs:sequence>
+          <xs:element name="product" type="xs:long" />
+          <xs:element name="relevantprod" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="items" >
+      <xs:sequence>
+        <xs:element name="itemid" type="xs:string" />
+        <xs:element name="itemname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="product" >
+      <xs:complexContent>
+       <xs:extension base="baseentityaudit{">
+         <xs:sequence>
+          <xs:element name="image1" type="xs:anyType" />
+          <xs:element name="image2" type="xs:anyType" />
+          <xs:element name="image3" type="xs:anyType" />
+          <xs:element name="image4" type="xs:anyType" />
+          <xs:element name="preview" type="xs:string" />
+          <xs:element name="photo" type="xs:anyType" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="product" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userse" >
+      <xs:complexContent>
+       <xs:extension base="baseentityaudit">
+         <xs:sequence>
+          <xs:element name="//intuseridlogin" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="role" type="xs:string" />
+          <xs:element name="enabled" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bonussum" >
+      <xs:complexContent>
+       <xs:extension base="baseentityaudit{">
+         <xs:sequence>
+          <xs:element name="customer" type="xs:string" />
+          <xs:element name="balls" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="shopingcartitem" >
+      <xs:sequence>
+        <xs:element name="cartitemid" type="xs:double" />
+        <xs:element name="GeneratedName" type="proposal" nillable="true" minOccurs="0" />
+        <xs:element name="qty" type="xs:double" />
+        <xs:element name="price" type="xs:double" />
+        <xs:element name="amount" type="xs:double" />
+        <xs:element name="configuration" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ecoresproductcategory" >
+      <xs:complexContent>
+       <xs:extension base="baseentityaudit{">
+         <xs:sequence>
+          <xs:element name="category" type="xs:long" />
+          <xs:element name="product" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="logevents" >
+      <xs:complexContent>
+       <xs:extension base="baseentityaudit{">
+         <xs:sequence>
+          <xs:element name="user" type="xs:string" />
+          <xs:element name="actiondate" type="xs:anyType" />
+          <xs:element name="ipaddress" type="xs:string" />
+          <xs:element name="role" type="xs:string" />
+          <xs:element name="action" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customer" >
+      <xs:complexContent>
+       <xs:extension base="baseentityaudit{">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="surname" type="xs:string" />
+          <xs:element name="user" type="xs:string" />
+          <xs:element name="birth" type="xs:string" />
+          <xs:element name="phone" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseentity" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="dataareaid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productsdatamodel" >
+      <xs:complexContent>
+       <xs:extension base="listdatamodel<ecoresproductcategory>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseentityaudit" >
+      <xs:sequence>
+        <xs:element name="recid" type="xs:long" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="createdby" type="xs:string" />
+        <xs:element name="updat" type="xs:dateTime" />
+        <xs:element name="updatedby" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,41 @@
+
+tenderentity(id:Integer [PK], buyerid:Integer, status:String, currentstage:String, date:LocalDateTime, datepublished:LocalDateTime, periodstartdate:LocalDateTime, periodenddate:LocalDateTime, procurementmethodrationale:String, procurementmethoddetails:String, amount:Double, currency:String, guaranteeamount:Double, number:String, badquality:boolean, hasdocuments:boolean, release:ReleaseEntity #FK to(ReleaseEntity));
+
+tender_supplier(tender_id:TenderEntity [PK] #FK to TenderEntity,party_id:set<partyentity> [PK] #FK to set<partyentity>);
+
+releaseentity(ocid:String [PK], date:LocalDateTime, tender:TenderEntity #FK to(TenderEntity));
+
+complaintentity(id:Integer [PK], status:String, tender:TenderEntity #FK to(TenderEntity));
+
+bidentity(id:Integer [PK], status:String, bidderid:String, datedisclosed:LocalDateTime, tender:TenderEntity #FK to(TenderEntity));
+
+tendercpvlist(identity:TenderCpvListIdentity);
+
+awardentity(id:Integer [PK], date:LocalDateTime, status:String, valueamount:Double, valuecurrency:String, bid:BidEntity #FK to(BidEntity), lot:LotEntity #FK to(lotentity), tender:TenderEntity #FK to(TenderEntity));
+
+contactpointentity(id:Integer [PK], partyid:Integer [PK], tenderid:Integer, email:String, phone:String);
+
+partyentity(id:Integer [PK], outerid:String, identifierid:String, identifierscheme:String, identifierlegalname:String, identifierlegalnameru:String, identifierlegalnamekg:String, district:String, locality:String, streetaddress:String, region:String);
+
+enquiryentity(id:Integer [PK], date:LocalDateTime, dateanswered:LocalDateTime, tender:TenderEntity #FK to(TenderEntity));
+
+priceproposalentity(id:Integer [PK], unitid:Integer, unitname:String, unitvalueamount:Double, unitvaluecurrency:String, item:ItemEntity #FK to(itementity), lot:LotEntity #FK to(lotentity), bid:BidEntity #FK to(BidEntity));
+
+itementity(id:Integer [PK], classificationid:String, quantity:Double, unitid:Integer, unitname:String, unitvalueamount:Double, unitvaluecurrency:String, lot:LotEntity #FK to(lotentity), tender:TenderEntity #FK to(TenderEntity));
+
+tenderindicatorentity(tenderid:Integer [PK], indicatorid:Integer [PK], indicatorvalue:Integer);
+
+indicatorentity(id:Integer [PK], name:String, impact:Double);
+
+contractentity(id:Integer [PK], datesigned:LocalDateTime, status:String, valueamount:Double, tender:TenderEntity #FK to(TenderEntity));
+
+qualificationrequiremententity(id:Integer [PK], type:String, tender:TenderEntity #FK to(TenderEntity));
+
+relatedprocessentity(id:String [PK], identifier:Integer, relationship:String, tender:TenderEntity #FK to(TenderEntity));
+
+bidlotentity(bidid:Integer [PK], lotid:Integer [PK], amount:Double);
+
+lotentity(id:Integer [PK], status:String, valueamount:Double, valuecurrency:String, number:String, tender:TenderEntity #FK to(TenderEntity));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

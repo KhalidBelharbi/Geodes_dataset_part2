@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="gamehandlerservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usergameservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="gamerepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="usergamerepository" nillable="true" minOccurs="0" />
+        <xs:element name="gameentityandgametranslator" type="xs:anyType" />
+        <xs:element name="userappgameandentitytranslator" type="xs:anyType" />
+        <xs:element name="userappgameandgametranslator" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="gamehandlerservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="appuserdetailservice" >
+      <xs:sequence>
+        <xs:element name="applicationcontext" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gameconstant" >
+      <xs:sequence>
+        <xs:element name="max_rows" type="xs:long" />
+        <xs:element name="min_rows" type="xs:long" />
+        <xs:element name="max_cols" type="xs:long" />
+        <xs:element name="min_cols" type="xs:long" />
+        <xs:element name="max_mines" type="xs:long" />
+        <xs:element name="min_mines" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cellstate" >
+      <xs:sequence>
+        <xs:element name="value" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="minesweeperapiapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userappgame" >
+      <xs:sequence>
+        <xs:element name="gameid" type="xs:long" />
+        <xs:element name="gamename" type="xs:string" />
+        <xs:element name="rows" type="xs:long" />
+        <xs:element name="cols" type="xs:long" />
+        <xs:element name="mines" type="xs:long" />
+        <xs:element name="flags" type="xs:long" />
+        <xs:element name="playedboard" type="xs:anyType" />
+        <xs:element name="ended" type="xs:anyType" />
+        <xs:element name="lost" type="xs:anyType" />
+        <xs:element name="durationinseconds" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gamecreationrequest" >
+      <xs:sequence>
+        <xs:element name="rows" type="xs:long" />
+        <xs:element name="cols" type="xs:long" />
+        <xs:element name="mines" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="uncovercellrequest" >
+      <xs:sequence>
+        <xs:element name="gameid" type="xs:long" />
+        <xs:element name="row" type="xs:long" />
+        <xs:element name="col" type="xs:long" />
+        <xs:element name="flag" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="securityconfiguration" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="app" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="webapplicationconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userappgameandgametranslator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="translator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gameentityandgametranslator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userappgameandentitytranslator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="randomcontext" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="randomutils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jsonhelper" >
+      <xs:sequence>
+        <xs:element name="mapper" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gamerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<gameentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usergamerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<usergame,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usergamepk" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="gameid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gameentity" >
+      <xs:sequence>
+        <xs:element name="gameid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="rows" type="xs:long" />
+        <xs:element name="columns" type="xs:long" />
+        <xs:element name="mines" type="xs:long" />
+        <xs:element name="ended" type="xs:anyType" />
+        <xs:element name="lost" type="xs:anyType" />
+        <xs:element name="durationinseconds" type="xs:long" />
+        <xs:element name="fullboard" type="xs:string" />
+        <xs:element name="playedboard" type="xs:string" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usergame" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="gameid" type="xs:long" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="game" type="gameentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="displayname" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="enabled" type="xs:anyType" />
+        <xs:element name="authorities" type="authorities" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authorities" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="authority" type="role" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gameadjacenthelper" >
+      <xs:sequence>
+        <xs:element name="max_adjacent" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="game" >
+      <xs:sequence>
+        <xs:element name="rows" type="xs:long" />
+        <xs:element name="cols" type="xs:long" />
+        <xs:element name="mines" type="xs:long" />
+        <xs:element name="boardlen" type="xs:long" />
+        <xs:element name="fullboard" type="xs:anyType" />
+        <xs:element name="playedboard" type="xs:anyType" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="ended" type="xs:anyType" />
+        <xs:element name="lost" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gamehelper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userprincipal" >
+      <xs:complexContent>
+       <xs:extension base="grantedauthority>">
+         <xs:sequence>
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usercontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gamecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="usergameservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

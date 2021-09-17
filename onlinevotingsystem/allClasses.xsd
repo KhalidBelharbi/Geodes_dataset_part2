@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="validationandexceptionhandler" >
+      <xs:complexContent>
+       <xs:extension base="responseentityexceptionhandler">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cooperatesocietycontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="//cooperativesocietyserviceisadependencyofcooperatesocietycontrollerservice" type="icooperativesocietyservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="electionresultcontroller" >
+      <xs:sequence>
+        <xs:element name="//electionresultserviceisadependencyservice" type="electionresultserviceimpl" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="electionofficercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="rsocietyservices" type="iregisteredsocietyservice" nillable="true" minOccurs="0" />
+        <xs:element name="ncservices" type="inominatedcandidateservice" nillable="true" minOccurs="0" />
+        <xs:element name="voteservices" type="votedserviceimpl" nillable="true" minOccurs="0" />
+        <xs:element name="eofficerservice" type="ielectionofficerservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="registeredsocietyvotercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="//customerserviceisadependencyofcustomercontollerservice" type="iregisteredsocietyservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="userservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="nominatedcandidatecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="vlservice" type="votedlistservice" nillable="true" minOccurs="0" />
+        <xs:element name="service" type="inominatedcandidateservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="votedlistcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="votedlistrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="electionofficer" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="voters" type="registeredsocietyvoters" nillable="true" minOccurs="0" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="//@pattern(regexp" type="xs:string" />
+        <xs:element name="gender" type="xs:string" />
+        <xs:element name="mobileno" type="xs:long" />
+        <xs:element name="//@pattern(regexp" type="xs:string" />
+        <xs:element name="address1" type="xs:string" />
+        <xs:element name="//@column(name" type="xs:string" />
+        <xs:element name="pincode" type="xs:long" />
+        <xs:element name="//@onetomany(mappedby" type="nominatedcandidate" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="voter" type="registeredsocietyvoters" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="votedlist" >
+      <xs:sequence>
+        <xs:element name="//serialno.id" type="xs:long" />
+        <xs:element name="time" type="xs:dateTime" />
+        <xs:element name="//@column(name" type="registeredsocietyvoters" nillable="true" minOccurs="0" />
+        <xs:element name="society" type="cooperativesociety" nillable="true" minOccurs="0" />
+        <xs:element name="candidates" type="nominatedcandidate" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="nominatedcandidate" >
+      <xs:sequence>
+        <xs:element name="//@onetoone(targetentity" type="xs:long" />
+        <xs:element name="//@pattern(regexp" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="registeredsocietyvoters" >
+      <xs:sequence>
+        <xs:element name="voterid" type="xs:anyType" />
+        <xs:element name="voteridcardno" type="xs:string" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="gender" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="reservationcategory" type="xs:string" />
+        <xs:element name="mobileno" type="xs:string" />
+        <xs:element name="emailid" type="xs:string" />
+        <xs:element name="address1" type="xs:string" />
+        <xs:element name="address2" type="xs:string" />
+        <xs:element name="mandal" type="xs:string" />
+        <xs:element name="district" type="xs:string" />
+        <xs:element name="//@size(min" type="xs:anyType" />
+        <xs:element name="castedvote" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="electionresult" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="//@size(min" type="xs:string" />
+        <xs:element name="//@size(min" type="xs:string" />
+        <xs:element name="societyname" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="totalsocietyvotes" type="xs:anyType" />
+        <xs:element name="totalpolledvotes" type="xs:anyType" />
+        <xs:element name="totalpollingpercentage" type="xs:double" />
+        <xs:element name="totalcandidatesvotes" type="xs:anyType" />
+        <xs:element name="candidatevotespercentage" type="xs:double" />
+        <xs:element name="result" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cooperativesociety" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="societyname" type="xs:string" />
+        <xs:element name="headofsociety" type="xs:string" />
+        <xs:element name="village" type="xs:string" />
+        <xs:element name="mandal" type="xs:string" />
+        <xs:element name="district" type="xs:string" />
+        <xs:element name="pincode" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:anyType" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="contactno" type="xs:string" />
+        <xs:element name="GeneratedName" type="nominatedcandidate" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="electionresult" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="votedlistservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="votedserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="repository" type="votedlistrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="electionresultserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="repository" type="electionresultrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="electionofficerserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="repository" type="electionofficerepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cooperativesocietyserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="//repositoryisadependencyofcustomerserviceimplrepository" type="cooperativesocietyrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="registeredsocietyvotersserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="//repositoryisadependencyofregisteredsocietyvotersserviceimplrepository" type="registeredsocietyvotersrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="nominatedcandidateserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="repository" type="nominatedcandidaterepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ielectionofficerservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inominatedcandidateservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ielectionresultservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="icooperativesocietyservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userserviceclass" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="repository" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iregisteredsocietyservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="onlinevotingsystemapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usernotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="registeredvoternotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="votealreadycastexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="nominatedcandidatenotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="votedlistnotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="voteridnotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="electionofficerdetailsnotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="invalidcardexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cooperativesocietynotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="swaggerconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="electionofficerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<electionofficer,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="electionresultrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<electionresult,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="registeredsocietyvotersrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<registeredsocietyvoters,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cooperativesocietyrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<cooperativesociety,integer>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="nominatedcandidaterepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<nominatedcandidate,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="votedlistrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<votedlist,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrequest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userresponse" >
+      <xs:sequence>
+        <xs:element name="firstname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="onlinevotingsystemapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

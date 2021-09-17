@@ -1,0 +1,73 @@
+
+signdoc(//序号seqno:String, //订单号码orderno:String, //订单日期order:Date, GeneratedName:WorkOrder, //单证类型，采购单、订购单、托工单:DOCType, wostatus:WorkOrderStatus, techstr:String, //@filterfield(fname:String, //生产商联系电话producetele:String, //传真producefax:String, //地址proaddr:String, GeneratedName:Supplier, //联系人supcontactor:String, //供货商联系电话suptele:String, supfax:String, oper:String, //要goodslistgoodslist:List<Goods>);
+
+goods(//序号seqno:String, //货品名称,理论上是不应该为null的，但为了判断在非销售合同中，是否为来自库存货品的新建记录，来拿null排除，所以不设定默认的值""goodsname:String, //若是图面明细带过来的，则直接取图面明细的图号；若是在后来追加记录则为用户手动填写的图号。drawingcode:String, //非销售合同中有工艺重合的图面，用在非销售合同:SurfaceDetail, //若是原材料:Inventory, //数量amount:Double, //材料material:String, size:String, unitweight:Double, totalweight:Double, weight:Double, unitprice:Double, processcost:Double, totalprice:Double, deliver:Date, //备注remark:String, //小计subtotal:Double, //非销售合同和销售合同都有货品明细//对应的单证,销售单除外:SignDoc);
+
+surfacedetail(//序号seqno:String, //件号itemno:String, /*@displayfield(cname:GeneralElement, //数量amount:Double, /*@displayfield(cname:String, /*@displayfield(cname:String, //图面:Surface);
+
+surface(//序号seqno:String, //公司名称companyname:String, //名称name:String, //制表lister:String, //检查checker:String, //核准approver:String, /*@displayfield(cname:String, //复制的图面copy:Surface);
+
+accountpermission(//序号seqno:String, username:String, /*@displayfield(cname:Staff, //@displayfield(cname:String, datacodea:String, //格式如下：menu1:per1,per2,per3,per4menu2:per1,per2menu3:per1,per3...menupermission:String, //hash后的加密密码passwordhash:String, //bcryptpasswordmethod:String, passwordsalt:String);
+
+costconf(xccost:Double, mccost:Double, fdcost:Double, cnccost:Double, start:Date, end:Date);
+
+wocostdetail(seqno:String, goodname:String, /*@displayfield(cname:Double, xccb:Double, mcwh:Double, mccb:Double, fdwh:Double, fdcb:Double, cncwh:Double, cnccb:Double, totalwh:Double, totalwhcb:Double, acost:Double, pcost:Double, bcost:Double, outcost:Double);
+
+wocostgather(workorderno:String, xcwh:Double, xccb:Double, mcwh:Double, mccb:Double, fdwh:Double, fdcb:Double, cncwh:Double, cnccb:Double, whcbtotal:Double, //成品零件/*@displayfield(cname:Double, dgcost:Double, tgcost:Double, cbtotal:Double);
+
+workorderwhsum(//铣床预计工时xcyj:Double, //磨床预计工时mcyj:Double, //cnc预计工时cncyj:Double, //放电预计工时fdyj:Double, //预计总工时tyj:Double, //铣床实际工时xcsj:Double, //磨床实际工时mcsj:Double, //cnc实际工时cncsj:Double, //放电实际工时fdsj:Double, //实际总工时tsj:Double);
+
+workordertrace();
+
+workordertracedetail(//工单表:WorkOrder, //wotraceflowflow//工单跟踪流程//图面明细:SurfaceDetail, //第一行字段seqno:String, //@filterfield(fname:String, //@displayfield(cname:String, //备注remark:String, //@displayfield(cname:WOTraceDetailStatus, //@displayfield(cname:Integer, //显示标志showflag:boolean, //开启第二行字段//外协wxyjinfo:String, wxsjinfo:String, //下料xlyjinfo:String, xlsjinfo:String, //铣床xcyjinfo:String, xcyjwh:Double, xcsjinfo:String, xcsjwh:Double, //hthtyjinfo:String, htsjinfo:String, //磨床mcyjinfo:String, mcyjwh:Double, mcsjinfo:String, mcsjwh:Double, //cnccncyjinfo:String, cncyjwh:Double, cncsjinfo:String, cncsjwh:Double, //放电fdyjinfo:String, fdyjwh:Double, fdsjinfo:String, fdsjwh:Double, //wcwcyjinfo:String, wcsjinfo:String, //表面处理bmyjinfo:String, bmsjinfo:String, //qcqcyjinfo:String, qcsjinfo:String);
+
+workorder(//序号seqno:String, //工单号orderno:String, //品名name:String, //stringcompanyname:Client, //数量amount:Double, //@filterfield(fname:Date, //@filterfield(fname:Date, //预计交期predict:Date, //实际交期real:Date, //出货日期ship:Date, //图面:Surface, wostatus:WorkOrderStatus, assemble:Date, //备注remark:String, //工单跟踪明细wotracelist:List<WorkOrderTraceDetail>, //成本核算处要访问该list，故选双向链表sdlist:List<SignDoc>);
+
+authidentity();
+
+authinfo();
+
+abstractuser();
+
+authtoken();
+
+client(name:String, linkman:String, linktel:String, linkphone:String, linkfax:String, email:String, siteaddr:String, address:String, addrcode:String, linkbank:String, lbankno:String, //描述description:String);
+
+staff(name:String, //身份证号码nationid:String, //:UserGender, birth:Date, //籍贯nativeplace:String, //学历education:String, GeneratedName:Dept, //进场时间join:Date, linktel:String, email:String, remark:String);
+
+supplier(name:String, linkman:String, linktel:String, linkfax:String, linkemail:String, //描述description:String);
+
+dept(name:String, code:String, parent:Dept #FK to(dept));
+
+generalelement(seqno:String, //零件名称name:String, //零件编码code:String, //加工周期period:short, technologylist:String);
+
+notice(//序号seqno:String, title:String, //公告类型：内部，外部type:NoticeType, //发布时间publish:Date, content:String);
+
+device(//序号seqno:String, //设备名称dname:String, //设备简介dintro:String);
+
+product(//序号seqno:String, //产品名称pname:String, //产品简介pintro:String, //是否是快速报价，默认：不是:RapidOrNot);
+
+contact(address:String, tele:String, fax:String, cname:String, cqq:String, email:String, siteaddr:String);
+
+consult(//序号seqno:String, title:String, csname:String, csaddr:String, cscompany:String, csemail:String, cstele:String, csfax:String, content:String);
+
+quotation(//序号seqno:String, //报价类型：传统报价，mgp报价type:QuotaType, //模块数量modnum:Integer, //模座数量mobnum:Integer, //模窝镶条数量mxtnum:Integer, //模窝带球数量mdqnum:Integer, //总耗时totalday:Double, //总费用totalcost:Double, //客户名称cname:String, //联系方式ctele:String, //联系人clink:String, //邮箱cmail:String, //联系地址caddr:String);
+
+quotlibrary(//生产周期modpcycle:Double, //单位价格modunitprice:Double, //生产周期mxtpcycle:Double, //单位价格mxtunitprice:Double, //生产周期mdqpcycle:Double, //单位价格mdqunitprice:Double, //模块mobpcycle:Double, mobunitprice:Double, //报价类型：传统报价，mgp报价type:QuotaType);
+
+company(//信息内容content:String);
+
+repair(//序号seqno:String, //产品名称proname:String, //产品编号proid:String, //生产原料名称：matername:String, //模具名称modname:String, //模具编号modid:String, //需求完成日complete:Date, //修理原因repaircause:String, //其他要求otherrequest:String, //申请人applicant:String, //申请日期apply:Date);
+
+drawing(/*implementscloneable*///序号seqno:String, //@displayfield(cname:String, //作者author:String, GeneratedName:Surface, GeneratedName:GeneralElement);
+
+inventorybook(//序号seqno:String, GeneratedName:Inventory, invname:String, invno:String, //规格spec:String, //对应的工单,出库单:WorkOrder, //非销售合同，入库单sd:SignDoc, //入库，【工单管理】-执行“完结”操作，则该工单下所有跟踪明细记录被当做入库记录tracedetail:WorkOrderTraceDetail, //来往数量bookamt:Double, //来往日期book:Date, //记录员recorder:String, ibtype:IBookType, sc:StoreCategory);
+
+inventorywarn(name:String, spec:String, code:String, amt:Double, threshold:Double);
+
+inventorysum(name:String, spec:String, code:String, amt:Double, latestdate:String);
+
+inventory(//序号seqno:String, //产品名称name:String, //盘点日期check:Date, //产品数量amount:Double, //规格spec:String, code:String, threshold:Double, //产品计量单位unit:String, //厂商supplier:String, //publicstorecategoryallocation:String, /*@displayfield(cname:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="comanda" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="total" type="xs:double" />
+        <xs:element name="timestamp" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="adresa" nillable="true" minOccurs="0" />
+        <xs:element name="telefoane" type="xs:anyType" />
+        <xs:element name="produse" type="produs" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adresa" >
+      <xs:sequence>
+        <xs:element name="strada" type="xs:string" />
+        <xs:element name="numar" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="produs" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nume" type="xs:string" />
+        <xs:element name="pret" type="xs:double" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="produsconvertor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="comandaconvertor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="comandadao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="produsdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="comandadaoimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="produsdaoimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="comandaserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="unicastremoteobject">
+         <xs:sequence>
+          <xs:element name="" type="comandadao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="produsdao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="produsserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="unicastremoteobject">
+         <xs:sequence>
+          <xs:element name="" type="produsdao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="server" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

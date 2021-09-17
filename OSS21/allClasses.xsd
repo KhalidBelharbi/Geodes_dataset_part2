@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="extendednotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="notfoundexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="transactional" >
+      <xs:sequence>
+        <xs:element name="em" type="xs:anyType" />
+        <xs:element name="jointransaction" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="transactionmanager" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookmarkentitypk" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="bmid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookmarkentity" >
+      <xs:sequence>
+        <xs:element name="/***embeddedidprimarykeyfield*/" type="bookmarkentitypk" nillable="true" minOccurs="0" />
+        <xs:element name="uri" type="xs:string" />
+        <xs:element name="upd" type="xs:dateTime" />
+        <xs:element name="ldesc" type="xs:string" />
+        <xs:element name="sdesc" type="xs:string" />
+        <xs:element name="GeneratedName" type="userentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userentity" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="bookmarkentitycollection" type="bookmarkentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="myapplication" >
+      <xs:complexContent>
+       <xs:extension base="resourceconfig">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bookmarkresource" >
+      <xs:sequence>
+        <xs:element name="//actualuriinfoprovidedbyparentresource" type="xs:anyType" />
+        <xs:element name="//entitymanagerprovidedbyparentresourceem" type="xs:anyType" />
+        <xs:element name="//usertransactionprovidedbyparentresourceutx" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="bookmarkentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookmarksresource" >
+      <xs:sequence>
+        <xs:element name="//actualuriinfo" type="xs:anyType" />
+        <xs:element name="//entitymanagerprovidedbyparentresourceem" type="xs:anyType" />
+        <xs:element name="//usertransactionprovidedbyparentresourceutx" type="xs:anyType" />
+        <xs:element name="//parentuserresource" type="userresource" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usersresource" >
+      <xs:sequence>
+        <xs:element name="//injectedpropertyem" type="xs:anyType" />
+        <xs:element name="//injectedutx" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userresource" >
+      <xs:sequence>
+        <xs:element name="//useridfromurluserid" type="xs:string" />
+        <xs:element name="//appropriatejpauserentity" type="userentity" nillable="true" minOccurs="0" />
+        <xs:element name="//actualuriinfoprovidedbyparentresource" type="xs:anyType" />
+        <xs:element name="//entitymanagerprovidedbyparentresourceem" type="xs:anyType" />
+        <xs:element name="//usertransactionprovidedbyparentresourceutx" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookmarktest" >
+      <xs:complexContent>
+       <xs:extension base="jerseytest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

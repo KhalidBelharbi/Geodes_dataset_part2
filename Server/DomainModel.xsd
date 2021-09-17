@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="communitycomment" >
+      <xs:complexContent>
+       <xs:extension base="dateentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="detail" type="xs:string" />
+          <xs:element name="" type="community" nillable="true" minOccurs="0" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="animaluseradopt" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="gender" type="xs:string" />
+        <xs:element name="kind" type="xs:string" />
+        <xs:element name="age" type="xs:string" />
+        <xs:element name="weight" type="xs:string" />
+        <xs:element name="neuteryn" type="xs:anyType" />
+        <xs:element name="profileimg" type="xs:string" />
+        <xs:element name="inoculationarray" type="xs:string" />
+        <xs:element name="profileimgfile" type="xs:anyType" />
+        <xs:element name="animalcheckuplist" type="animalcheckup" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="registration" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cardnewscontents" >
+      <xs:complexContent>
+       <xs:extension base="dateentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="thumnailimg" type="xs:string" />
+          <xs:element name="cardnewscontentsimgfile" type="xs:anyType" />
+          <xs:element name="detail" type="xs:string" />
+          <xs:element name="//@joincolumn(name" type="cardnews" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hashtag" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="keyword" type="xs:string" />
+        <xs:element name="//@elementcollection//@orderby("animal.createat")hashtaganimallist" type="hashtaganimal" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercardnewseducate" >
+      <xs:complexContent>
+       <xs:extension base="dateentity">
+         <xs:sequence>
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="" type="cardnews" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="care" >
+      <xs:complexContent>
+       <xs:extension base="dateentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="careuserid" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="region" type="xs:string" />
+          <xs:element name="address" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="tel" type="xs:string" />
+          <xs:element name="status" type="xs:anyType" />
+          <xs:element name="animallist" type="animal" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="community" >
+      <xs:complexContent>
+       <xs:extension base="dateentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="detail" type="xs:string" />
+          <xs:element name="communityimglist" type="communityimg" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="removeimgarray" type="xs:long" />
+          <xs:element name="communityimgfiles" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hashtaganimal" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="hashtag" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="animal" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dateentity" >
+      <xs:sequence>
+        <xs:element name="//@temporal(temporaltype.timestamp)createdat" type="xs:anyType" />
+        <xs:element name="//@temporal(temporaltype.timestamp)updatedat" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="publicanimal" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="noticeno" type="xs:string" />
+        <xs:element name="age" type="xs:string" />
+        <xs:element name="careaddr" type="xs:string" />
+        <xs:element name="carenm" type="xs:string" />
+        <xs:element name="caretel" type="xs:string" />
+        <xs:element name="chargenm" type="xs:string" />
+        <xs:element name="colorcd" type="xs:string" />
+        <xs:element name="desertionno" type="xs:string" />
+        <xs:element name="filename" type="xs:string" />
+        <xs:element name="//profilehappendt" type="xs:string" />
+        <xs:element name="happenplace" type="xs:string" />
+        <xs:element name="kindcd" type="xs:string" />
+        <xs:element name="neuteryn" type="xs:string" />
+        <xs:element name="noticeedt" type="xs:string" />
+        <xs:element name="noticesdt" type="xs:string" />
+        <xs:element name="specialmark" type="xs:string" />
+        <xs:element name="//입양공고진행상태,notice:공고중,step:입양절차진행중,end:공고끝processstate" type="xs:string" />
+        <xs:element name="sexcd" type="xs:string" />
+        <xs:element name="weight" type="xs:string" />
+        <xs:element name="officetel" type="xs:string" />
+        <xs:element name="popfile" type="xs:string" />
+        <xs:element name="orgnm" type="xs:string" />
+        <xs:element name="noticecomment" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cardnews" >
+      <xs:complexContent>
+       <xs:extension base="dateentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="subtitle" type="xs:string" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="imgpath" type="xs:string" />
+          <xs:element name="complete" type="xs:anyType" />
+          <xs:element name="cardnewsimgfile" type="xs:anyType" />
+          <xs:element name="usercardnewseducatelist" type="usercardnewseducate" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="usercardnewsscraplist" type="usercardnewsscrap" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mailbox" >
+      <xs:complexContent>
+       <xs:extension base="dateentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="detail" type="xs:string" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="complete" type="xs:anyType" />
+          <xs:element name="//@jsonignore" type="user" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="registrationhistory" >
+      <xs:complexContent>
+       <xs:extension base="dateentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="animalcheckup" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="//code테이블것사용할예정접종한것의이름inoculation" type="xs:string" />
+        <xs:element name="//입양동물정보" type="animaluseradopt" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="dateentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="birth" type="xs:string" />
+          <xs:element name="phone" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="gender" type="xs:string" />
+          <xs:element name="devicetoken" type="xs:string" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="profileimg" type="xs:string" />
+          <xs:element name="pushallow" type="xs:anyType" />
+          <xs:element name="communitylist" type="community" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="registrationlist" type="registration" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="mailboxlist" type="mailbox" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="useranimallikelist" type="useranimallike" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="usercardnewsscraplist" type="usercardnewsscrap" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="usercardnewseducatedlist" type="usercardnewseducate" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="animaluseradoptlist" type="animaluseradopt" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="animalstory" >
+      <xs:complexContent>
+       <xs:extension base="dateentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="animal" nillable="true" minOccurs="0" />
+          <xs:element name="filepath" type="xs:string" />
+          <xs:element name="filepathaos" type="xs:string" />
+          <xs:element name="//privatestringoriginfilenameanimalstoryfiles" type="xs:anyType" />
+          <xs:element name="animalstoryfilesaos" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usercardnewsscrap" >
+      <xs:complexContent>
+       <xs:extension base="dateentity">
+         <xs:sequence>
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="" type="cardnews" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pushhistory" >
+      <xs:complexContent>
+       <xs:extension base="dateentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="code" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="codegroup" type="xs:string" />
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="codename" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="communityimg" >
+      <xs:complexContent>
+       <xs:extension base="dateentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="filepath" type="xs:string" />
+          <xs:element name="originfilename" type="xs:string" />
+          <xs:element name="" type="community" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="registration" >
+      <xs:complexContent>
+       <xs:extension base="dateentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="phone" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="address" type="xs:string" />
+          <xs:element name="job" type="xs:string" />
+          <xs:element name="havepet" type="xs:anyType" />
+          <xs:element name="petinfo" type="xs:string" />
+          <xs:element name="//adopt,tempadopttype" type="xs:string" />
+          <xs:element name="tempperiod" type="xs:string" />
+          <xs:element name="//deny,step0,step1,step2,completeregstatus" type="xs:string" />
+          <xs:element name="meetplace" type="xs:string" />
+          <xs:element name="meettime" type="xs:string" />
+          <xs:element name="meetmaterial" type="xs:string" />
+          <xs:element name="//true진행중,false종료validreg" type="xs:anyType" />
+          <xs:element name="//true유저가확인함,false유저가확인안함usercheck" type="xs:anyType" />
+          <xs:element name="코드테이블추가해야됨regtype" type="xs:string" />
+          <xs:element name="animalfileimgpath" type="xs:string" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="" type="animal" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="useranimallike" >
+      <xs:complexContent>
+       <xs:extension base="dateentity">
+         <xs:sequence>
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="" type="animal" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="animal" >
+      <xs:complexContent>
+       <xs:extension base="dateentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="//dog,cattype" type="xs:string" />
+          <xs:element name="//@temporal(temporaltype.date)noticeeddt" type="xs:anyType" />
+          <xs:element name="//입양공고진행상태,notice:공고중,step:입양절차진행중,adopt:입양됨,temp:임보됨,end:안락사processstate" type="xs:string" />
+          <xs:element name="sexcd" type="xs:string" />
+          <xs:element name="neuteryn" type="xs:anyType" />
+          <xs:element name="specialmark" type="xs:string" />
+          <xs:element name="happenplace" type="xs:string" />
+          <xs:element name="kindcd" type="xs:string" />
+          <xs:element name="age" type="xs:string" />
+          <xs:element name="weight" type="xs:string" />
+          <xs:element name="//@temporal(temporaltype.date)noticestdt" type="xs:anyType" />
+          <xs:element name="thumbnailimg" type="xs:string" />
+          <xs:element name="liked" type="xs:anyType" />
+          <xs:element name="" type="care" nillable="true" minOccurs="0" />
+          <xs:element name="animalstorylist" type="animalstory" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="animalstorylistaos" type="animalstory" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="thumbnailimgfile" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mailboxreservation" >
+      <xs:sequence>
+        <xs:element name="//예약에대해서id" type="xs:long" />
+        <xs:element name="time" type="xs:anyType" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="detail" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="state" type="xs:string" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

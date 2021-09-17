@@ -1,0 +1,19 @@
+
+linhkien(id:String [PK], ten:String, soluong:int, dongiagoc:double, dongiaban:double, mota:String, GeneratedName:Nhacungcap #FK to(Nhacungcap), GeneratedName:Xuatxu #FK to(Xuatxu), GeneratedName:Danhmuclinhkien #FK to(Linhkien), hinhanh:String);
+
+nhacungcap(id:String [PK], ten:String, diachi:String, sdt:String, email:String);
+
+danhmuclinhkien(id:String [PK], ten:String, mota:String);
+
+nhanvien(id:String [PK], ten:String, diachi:String, sdt:String, taikhoan:String, nguoiquanli:Nhanvien #FK to(Nhanvien));
+
+xuatxu(id:String [PK], quocgia:String);
+
+ct_hoadon(GeneratedName:Hoadon [PK] #FK to(Hoadon), GeneratedName:Linhkien [PK] #FK to(Linhkien), soluong:int);
+
+hoadon(id:String [PK], GeneratedName:Khachhang #FK to(khachhang), GeneratedName:Nhanvien #FK to(Nhanvien), luuy:String, ngaylap:LocalDate, tienkhachhangdua:double);
+
+khachhang(id:String [PK], ten:String, diachi:String, sdt:String, email:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

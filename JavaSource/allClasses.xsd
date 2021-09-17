@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="trackmanagertest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pagetransformer" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pageresult" >
+      <xs:sequence>
+        <xs:element name="pageno" type="xs:long" />
+        <xs:element name="pagesize" type="xs:long" />
+        <xs:element name="totalpage" type="xs:long" />
+        <xs:element name="totalsize" type="xs:long" />
+        <xs:element name="result" type="xs:anyType" />
+        <xs:element name="__paranamer_data" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="qwedumodule" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="advertmanager" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="platform" type="xs:string" />
+          <xs:element name="position" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="friendurl" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="friendkeyword" type="xs:string" />
+          <xs:element name="friendurl" type="xs:string" />
+          <xs:element name="sort" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="trackmanager" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="//parentnamegradephonenumparentname" type="xs:string" />
+          <xs:element name="grade" type="xs:string" />
+          <xs:element name="phonenum" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="honor" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="//idpicpic" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="category" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="//nameparent_idis_parentsortname" type="xs:string" />
+          <xs:element name="parent_id" type="xs:long" />
+          <xs:element name="//是否为父节点，0为否，1为是is_parent" type="xs:long" />
+          <xs:element name="//排序指数，越小越靠前sort" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pageobjectcontent" >
+      <xs:sequence>
+        <xs:element name="pageno" type="xs:long" />
+        <xs:element name="pagesize" type="xs:long" />
+        <xs:element name="categoryname" type="xs:string" />
+        <xs:element name="grade" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="advert" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="//idtitlead_idpositionstatustypestatusstart_dateend_dateurlplatformtitle" type="xs:string" />
+          <xs:element name="//与广告管理外键的关联adid" type="xs:string" />
+          <xs:element name="position" type="xs:string" />
+          <xs:element name="statustype" type="xs:long" />
+          <xs:element name="status" type="xs:string" />
+          <xs:element name="start" type="xs:dateTime" />
+          <xs:element name="end" type="xs:dateTime" />
+          <xs:element name="url" type="xs:string" />
+          <xs:element name="platform" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="school" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="//schoolnameschoolpositionphonenumschoolname" type="xs:string" />
+          <xs:element name="schoolposition" type="xs:string" />
+          <xs:element name="phonenum" type="xs:anyType" />
+          <xs:element name="sortnumber" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="teacher" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="//teachernamedescriptionphototeachername" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="photo" type="xs:string" />
+          <xs:element name="sortnumber" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pageobject" >
+      <xs:sequence>
+        <xs:element name="pageno" type="xs:long" />
+        <xs:element name="pagesize" type="xs:long" />
+        <xs:element name="schoolid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contentmanager" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="//categoryidcontentnamecontentdescriptiontagisrecommendweightdatestatusauthorcategoryid" type="xs:long" />
+          <xs:element name="categoryname" type="xs:string" />
+          <xs:element name="grade" type="xs:string" />
+          <xs:element name="contentname" type="xs:string" />
+          <xs:element name="areatext" type="xs:string" />
+          <xs:element name="contentdescription" type="xs:string" />
+          <xs:element name="tag" type="xs:string" />
+          <xs:element name="isrecommend" type="xs:long" />
+          <xs:element name="weight" type="xs:long" />
+          <xs:element name="" type="xs:dateTime" />
+          <xs:element name="picurl" type="xs:string" />
+          <xs:element name="status" type="xs:string" />
+          <xs:element name="author" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tdkmanager" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="position" type="xs:string" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="keyword" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="schoolpic" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="//schoolidpicurlschoolid" type="xs:long" />
+          <xs:element name="picurl" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="advertserviceimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shoolclient" >
+      <xs:sequence>
+        <xs:element name="schoolname" type="xs:string" />
+        <xs:element name="schoolposition" type="xs:string" />
+        <xs:element name="phonenum" type="xs:anyType" />
+        <xs:element name="picurl" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="advertclient" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tdkmanagerurlservice" >
+      <xs:sequence>
+        <xs:element name="//支持的文件类型suffixes" type="xs:anyType" />
+        <xs:element name="dao" type="tdkmanagerdao" nillable="true" minOccurs="0" />
+        <xs:element name="accesspath" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schoolpicservice" >
+      <xs:sequence>
+        <xs:element name="dao" type="schoolpicdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="batisschoolpicdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schoolservice" >
+      <xs:sequence>
+        <xs:element name="dao" type="schooldao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="trackmanagerservice" >
+      <xs:sequence>
+        <xs:element name="dao" type="trackmanagerdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="advertmanagerservice" >
+      <xs:sequence>
+        <xs:element name="dao" type="advertmanagerdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contentmanagerservice" >
+      <xs:sequence>
+        <xs:element name="dao" type="contentmanagerdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="contentmanagerquerydao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="teacherservice" >
+      <xs:sequence>
+        <xs:element name="dao" type="teacherdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="categoryservice" >
+      <xs:sequence>
+        <xs:element name="dao" type="categorydao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="advertservice" >
+      <xs:sequence>
+        <xs:element name="//支持的文件类型suffixes" type="xs:anyType" />
+        <xs:element name="dao" type="advertdao" nillable="true" minOccurs="0" />
+        <xs:element name="accesspath" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="friendurlservice" >
+      <xs:sequence>
+        <xs:element name="//支持的文件类型suffixes" type="xs:anyType" />
+        <xs:element name="dao" type="friendurldao" nillable="true" minOccurs="0" />
+        <xs:element name="accesspath" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="honorservice" >
+      <xs:sequence>
+        <xs:element name="dao" type="honordao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="advertmanagerform" >
+      <xs:sequence>
+        <xs:element name="platform" type="xs:string" />
+        <xs:element name="position" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contentmanagerform" >
+      <xs:sequence>
+        <xs:element name="categoryid" type="xs:long" />
+        <xs:element name="categoryname" type="xs:string" />
+        <xs:element name="contentname" type="xs:string" />
+        <xs:element name="grade" type="xs:string" />
+        <xs:element name="contentdescription" type="xs:string" />
+        <xs:element name="tag" type="xs:string" />
+        <xs:element name="areatext" type="xs:string" />
+        <xs:element name="isrecommend" type="xs:long" />
+        <xs:element name="weight" type="xs:long" />
+        <xs:element name="picurl" type="xs:string" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="author" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="teacherform" >
+      <xs:sequence>
+        <xs:element name="teachername" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="photo" type="xs:string" />
+        <xs:element name="sortnumber" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="teacherandschoolfrom" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="teachername" type="xs:string" />
+          <xs:element name="photo" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="schoolform" >
+      <xs:sequence>
+        <xs:element name="schoolname" type="xs:string" />
+        <xs:element name="schoolposition" type="xs:string" />
+        <xs:element name="phonenum" type="xs:anyType" />
+        <xs:element name="sortnumber" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tdkmanagerform" >
+      <xs:sequence>
+        <xs:element name="position" type="xs:string" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="keyword" type="xs:string" />
+        <xs:element name="pageno" type="xs:long" />
+        <xs:element name="pagesize" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="trackmanagerform" >
+      <xs:sequence>
+        <xs:element name="parentname" type="xs:string" />
+        <xs:element name="grade" type="xs:string" />
+        <xs:element name="phonenum" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="honorform" >
+      <xs:sequence>
+        <xs:element name="//idpicpicurl" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schoolpicform" >
+      <xs:sequence>
+        <xs:element name="schoolid" type="xs:long" />
+        <xs:element name="picurl" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="friendurlform" >
+      <xs:sequence>
+        <xs:element name="friendkeyword" type="xs:string" />
+        <xs:element name="friendurl" type="xs:string" />
+        <xs:element name="sort" type="xs:long" />
+        <xs:element name="pageno" type="xs:long" />
+        <xs:element name="pagesize" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="advertform" >
+      <xs:sequence>
+        <xs:element name="//enddate:"2020-6-9"//file:""//position:"pc"//startdate:"2020-05-04-2020-06-09"//status:"1"//title:"今天11"//url:"http://127.0.0.1:8081/upload/qq浏览器截图20190308114016.pngtitle" type="xs:string" />
+        <xs:element name="//与广告管理外键的关联adid" type="xs:string" />
+        <xs:element name="position" type="xs:string" />
+        <xs:element name="statustype" type="xs:long" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="start" type="xs:dateTime" />
+        <xs:element name="end" type="xs:dateTime" />
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="platform" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="advertcontroller" >
+      <xs:sequence>
+        <xs:element name="advertmanagerservice" type="advertservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="advertmanagercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="advertmanagerservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schoolpiccontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="schoolpicservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="categorycontroller" >
+      <xs:sequence>
+        <xs:element name="advertmanagerservice" type="categoryservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schoolcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="schoolservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="friendurlcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="friendurlservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="trackmanagercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="trackmanagerservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contentmanagercontroller" >
+      <xs:sequence>
+        <xs:element name="advertmanagerservice" type="contentmanagerservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="honorcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="honorservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tdkmanagercontroller" >
+      <xs:sequence>
+        <xs:element name="friendurlservice" type="tdkmanagerurlservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="teachercontroller" >
+      <xs:sequence>
+        <xs:element name="schoolservice" type="teacherservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tdkmanagerdao" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<tdkmanager,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="honordao" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<honor,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="teacherdao" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<teacher,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="contentmanagerquerydao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="friendurldao" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<friendurl,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="advertmanagerdao" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<advertmanager,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="contentmanagerdao" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<contentmanager,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="categorydao" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<category,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="schooldao" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<school,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="schoolpicdao" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<schoolpic,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="batisschoolpicdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="advertdao" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<advert,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="trackmanagerdao" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<trackmanager,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

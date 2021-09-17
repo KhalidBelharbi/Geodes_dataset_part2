@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="generator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tostringgenerator" >
+      <xs:complexContent>
+       <xs:extension base="abstractgenerator">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractgenerator" >
+      <xs:sequence>
+        <xs:element name="ger" type="xs:anyType" />
+        <xs:element name="targetpackage" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entityconstantgenerator" >
+      <xs:complexContent>
+       <xs:extension base="abstractgenerator">
+         <xs:sequence>
+          <xs:element name="prefix" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="filldefaultvaluesgenerator" >
+      <xs:complexContent>
+       <xs:extension base="abstractgenerator">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="springdatarepositorygenerator" >
+      <xs:complexContent>
+       <xs:extension base="abstractgenerator">
+         <xs:sequence>
+          <xs:element name="name_prefix" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="equalshashcodegenerator" >
+      <xs:complexContent>
+       <xs:extension base="abstractgenerator">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="allfieldmappingsgenerator" >
+      <xs:complexContent>
+       <xs:extension base="abstractgenerator">
+         <xs:sequence>
+          <xs:element name="name_prefix" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sequencehomegenerator" >
+      <xs:complexContent>
+       <xs:extension base="abstractgenerator">
+         <xs:sequence>
+          <xs:element name="name_prefix" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="primarykeygenerator" >
+      <xs:complexContent>
+       <xs:extension base="abstractgenerator">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entity2mapgenerator" >
+      <xs:complexContent>
+       <xs:extension base="abstractgenerator">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ermimporter" >
+      <xs:sequence>
+        <xs:element name="ger" type="xs:anyType" />
+        <xs:element name="fqjtinteger" type="xs:anyType" />
+        <xs:element name="fqjtbigdecimal" type="xs:anyType" />
+        <xs:element name="fqjtdate" type="xs:anyType" />
+        <xs:element name="fqjtblob" type="xs:anyType" />
+        <xs:element name="]*/hint" type="xs:anyType" />
+        <xs:element name="/***通过description表示指定的java类型，表达式模式，例如：!!!java.lang.boolean!!!*/javatype" type="xs:anyType" />
+        <xs:element name="*"uuid2","uuid.hex","net.engining.pg.support.db.id.generator.snowflakesequenceidgenerator"*/idgenerator" type="xs:anyType" />
+        <xs:element name="/***正则表达式$匹配输入字符串的结尾位置；要匹配$字符本身，请使用\$*通过description表示指定字段的审计支持，可以包含：@createdby,@createddate,@lastmodifiedby,@lastmodifieddate*/columnaudited" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pdmimporter" >
+      <xs:sequence>
+        <xs:element name="ger" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pdm2erm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="generalfilecontent" >
+      <xs:sequence>
+        <xs:element name="default_encoding" type="xs:string" />
+        <xs:element name="filename" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="encoding" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="generatorutils" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+          <xs:element name="javakeywords" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="frameworkmojo" >
+      <xs:complexContent>
+       <xs:extension base="abstractmojo">
+         <xs:sequence>
+          <xs:element name="groupid" type="xs:string" />
+          <xs:element name="/***默认使用groupid的最后一个词*/artifactprefix" type="xs:string" />
+          <xs:element name="version" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="template" type="xs:string" />
+          <xs:element name="namespace" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitymojo" >
+      <xs:complexContent>
+       <xs:extension base="abstractmojo">
+         <xs:sequence>
+          <xs:element name="designs" type="xs:string" />
+          <xs:element name="outputdirectory" type="xs:string" />
+          <xs:element name="tablepattern" type="xs:string" />
+          <xs:element name="targetmodule" type="xs:string" />
+          <xs:element name="maxsymbollength" type="xs:anyType" />
+          <xs:element name="/***使用新的基于sequencestylegenerator的id支持，同时要求hibernate版本4.1以上。如果为false，则使用nativegenerator，向下兼容。*/useenhancedsequencegenerator" type="xs:anyType" />
+          <xs:element name="/***是否在entity中加入常量table_name,以便于在客户端之类的环境下得到对应的表名*/tablenameconstant" type="xs:anyType" />
+          <xs:element name="project" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="generators" type="generator" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="interfacemojo" >
+      <xs:complexContent>
+       <xs:extension base="abstractmojo">
+         <xs:sequence>
+          <xs:element name="/***@parameter*@required*/interfacefiles" type="xs:anyType" />
+          <xs:element name="/***@parameter*@required*/basepackage" type="xs:string" />
+          <xs:element name="/***@parameterdefault-value" type="xs:string" />
+          <xs:element name=":projecttointeractwith.**@parameterproperty" type="xs:anyType" />
+          <xs:element name="ger" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ruleobjectmojo" >
+      <xs:complexContent>
+       <xs:extension base="abstractmojo">
+         <xs:sequence>
+          <xs:element name="/***@parameter*@required*/basepackage" type="xs:string" />
+          <xs:element name="/***@parameterdefault-value" type="xs:string" />
+          <xs:element name="ruleobjectpackages" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="relationship" >
+      <xs:sequence>
+        <xs:element name="parent" type="table" nillable="true" minOccurs="0" />
+        <xs:element name="child" type="table" nillable="true" minOccurs="0" />
+        <xs:element name="joincolumns" type="joincolumn" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="joincolumn" >
+      <xs:sequence>
+        <xs:element name="pk" type="column" nillable="true" minOccurs="0" />
+        <xs:element name="fk" type="column" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="database" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="source" type="xs:anyType" />
+        <xs:element name="tables" type="table" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="relationships" type="relationship" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="domains" type="domain" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="sequences" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="table" >
+      <xs:sequence>
+        <xs:element name="/***数据库的表名*/dbname" type="xs:string" />
+        <xs:element name="/***表的中文名称*/textname" type="xs:string" />
+        <xs:element name="/***/description" type="xs:string" />
+        <xs:element name="columns" type="column" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="primarykeycolumns" type="column" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="indexes" type="xs:anyType" />
+        <xs:element name="uniques" type="xs:anyType" />
+        <xs:element name="javaclass" type="xs:anyType" />
+        <xs:element name="javakeyclass" type="xs:anyType" />
+        <xs:element name="additionalproperties" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="column" >
+      <xs:sequence>
+        <xs:element name="//由importer填写/***数据库的字段名称*/dbname" type="xs:string" />
+        <xs:element name="/***中文名称logical-name*/textname" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="length" type="xs:long" />
+        <xs:element name="scale" type="xs:long" />
+        <xs:element name="/***是否不可为空*/mandatory" type="xs:anyType" />
+        <xs:element name="javatype" type="xs:anyType" />
+        <xs:element name="lob" type="xs:anyType" />
+        <xs:element name="lazy" type="xs:anyType" />
+        <xs:element name="identity" type="xs:anyType" />
+        <xs:element name="version" type="xs:anyType" />
+        <xs:element name="/***该字段是否到数据库表的映射*/istransient" type="xs:anyType" />
+        <xs:element name="/***用于客户端国际化指示使用，目前不生成u对象，可能不再需要*/hint" type="xs:string" />
+        <xs:element name="/***指定date型的具体分类，取值为{@linktemporaltype}中的值字符串*/temporal" type="xs:string" />
+        <xs:element name="GeneratedName" type="domain" nillable="true" minOccurs="0" />
+        <xs:element name="/***id生成策略*/idgenstrategy" type="xs:string" />
+        <xs:element name="/***字段审计注解类型*/auditedtype" type="xs:string" />
+        <xs:element name="/***用于指定当前类型为简单类型，而不是在解析类时出现的数组、collection等*/simpletype" type="xs:anyType" />
+        <xs:element name="//由总控填写propertyname" type="xs:string" />
+        <xs:element name="id" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="domain" >
+      <xs:sequence>
+        <xs:element name="/***字段在实体类中对应属性的类名，如：integer*/code" type="xs:string" />
+        <xs:element name="/***属性名*/name" type="xs:string" />
+        <xs:element name="/***对应的数据库字段类型*/dbtype" type="xs:string" />
+        <xs:element name="/***自身的全类型名，需由总控填写*/type" type="xs:anyType" />
+        <xs:element name="//todo不生成u对象，可以考虑去掉supportclienttype" type="xs:anyType" />
+        <xs:element name="valuemap" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

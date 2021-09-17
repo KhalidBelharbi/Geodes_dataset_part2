@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="coffee" >
+      <xs:sequence>
+        <xs:element name="coffeeid" type="xs:long" />
+        <xs:element name="coffeename" type="xs:string" />
+        <xs:element name="qty" type="xs:anyType" />
+        <xs:element name="price" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ordercanceled" >
+      <xs:complexContent>
+       <xs:extension base="abstractevent">
+         <xs:sequence>
+          <xs:element name="orderid" type="xs:long" />
+          <xs:element name="coffeeid" type="xs:long" />
+          <xs:element name="qty" type="xs:anyType" />
+          <xs:element name="coffeename" type="xs:string" />
+          <xs:element name="price" type="xs:double" />
+          <xs:element name="status" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="coffeecontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kafkaprocessor" >
+      <xs:sequence>
+        <xs:element name="input" type="xs:string" />
+        <xs:element name="output" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderplaced" >
+      <xs:complexContent>
+       <xs:extension base="abstractevent">
+         <xs:sequence>
+          <xs:element name="orderid" type="xs:long" />
+          <xs:element name="coffeeid" type="xs:long" />
+          <xs:element name="qty" type="xs:anyType" />
+          <xs:element name="coffeename" type="xs:string" />
+          <xs:element name="price" type="xs:double" />
+          <xs:element name="status" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="quantitychanged" >
+      <xs:complexContent>
+       <xs:extension base="abstractevent">
+         <xs:sequence>
+          <xs:element name="coffeeid" type="xs:long" />
+          <xs:element name="coffeename" type="xs:string" />
+          <xs:element name="qty" type="xs:anyType" />
+          <xs:element name="price" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="coffeereceived" >
+      <xs:complexContent>
+       <xs:extension base="abstractevent">
+         <xs:sequence>
+          <xs:element name="coffeeid" type="xs:long" />
+          <xs:element name="coffeename" type="xs:string" />
+          <xs:element name="qty" type="xs:anyType" />
+          <xs:element name="price" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="policyhandler" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="coffeerepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="coffeerepository" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<coffee,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractevent" >
+      <xs:sequence>
+        <xs:element name="eventtype" type="xs:string" />
+        <xs:element name="timestamp" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

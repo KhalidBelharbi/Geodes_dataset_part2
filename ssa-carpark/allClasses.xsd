@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="flatfileparser" >
+      <xs:complexContent>
+       <xs:extension base="genericparser">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="objectfactory" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="parsefields" >
+      <xs:sequence>
+        <xs:element name="parsefields" type="parsefields" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="classname" type="xs:string" />
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="mandatory" type="xs:string" />
+        <xs:element name="islist" type="xs:anyType" />
+        <xs:element name="padding" type="xs:string" />
+        <xs:element name="targetfieldlength" type="xs:anyType" />
+        <xs:element name="targetfieldname" type="xs:string" />
+        <xs:element name="targetfieldtype" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="parsemetaobject" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="parsefields" nillable="true" minOccurs="0" />
+        <xs:element name="type" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="genericparserinterface" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="genericparser" >
+      <xs:complexContent>
+       <xs:extension base="object>">
+         <xs:sequence>
+          <xs:element name="startpositing" type="xs:long" />
+          <xs:element name="array" type="xs:string" />
+          <xs:element name="list" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="excelparser" >
+      <xs:complexContent>
+       <xs:extension base="genericparser{">
+         <xs:sequence>
+          <xs:element name="date_format" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractparserresponsedto" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="employeedto" >
+      <xs:sequence>
+        <xs:element name="employeeid" type="xs:long" />
+        <xs:element name="employeename" type="xs:string" />
+        <xs:element name="address" type="addressdto" nillable="true" minOccurs="0" />
+        <xs:element name="account" type="accountdto" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="employeeparserresponsedto" >
+      <xs:complexContent>
+       <xs:extension base="abstractparserresponsedto">
+         <xs:sequence>
+          <xs:element name="" type="employeedto" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="homeaddressdto" >
+      <xs:sequence>
+        <xs:element name="addressline1" type="xs:string" />
+        <xs:element name="addressline2" type="xs:string" />
+        <xs:element name="addressline3" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ssaparkingparserresponsedto" >
+      <xs:complexContent>
+       <xs:extension base="abstractparserresponsedto">
+         <xs:sequence>
+          <xs:element name="ssaemployeedetails" type="ssaemployeedetailsdto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="ssaparkingspotsdetails" type="ssaparkingspotsdetailsdto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="accountdto" >
+      <xs:sequence>
+        <xs:element name="accountnumber" type="xs:long" />
+        <xs:element name="accountname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ssaparkingspotsdetailsdto" >
+      <xs:sequence>
+        <xs:element name="parkingnumber" type="xs:string" />
+        <xs:element name="isvisitorparking" type="xs:anyType" />
+        <xs:element name="originalowner" type="xs:string" />
+        <xs:element name="comments" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="employeeparserrequestdto" >
+      <xs:complexContent>
+       <xs:extension base="abstractparserrequestdto">
+         <xs:sequence>
+          <xs:element name="employeeid" type="xs:long" />
+          <xs:element name="employeename" type="xs:string" />
+          <xs:element name="address" type="addressdto" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractparserrequestdto" >
+      <xs:sequence>
+        <xs:element name="filepath" type="xs:string" />
+        <xs:element name="filetrfmxmlpath" type="xs:string" />
+        <xs:element name="filetype" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ssaparkingdetailsdto" >
+      <xs:sequence>
+        <xs:element name="employeeid" type="xs:string" />
+        <xs:element name="parkingspotid" type="xs:string" />
+        <xs:element name="availablefrom" type="xs:dateTime" />
+        <xs:element name="availableto" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="officeaddressdto" >
+      <xs:sequence>
+        <xs:element name="addressline1" type="xs:string" />
+        <xs:element name="addressline2" type="xs:string" />
+        <xs:element name="addressline3" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ssaparkingparserrequestdto" >
+      <xs:complexContent>
+       <xs:extension base="abstractparserrequestdto">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="addressdto" >
+      <xs:sequence>
+        <xs:element name="officeaddress" type="officeaddressdto" nillable="true" minOccurs="0" />
+        <xs:element name="homeaddress" type="homeaddressdto" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ssaemployeedetailsdto" >
+      <xs:sequence>
+        <xs:element name="employeeid" type="xs:string" />
+        <xs:element name="employeename" type="xs:string" />
+        <xs:element name="ofjoining" type="xs:dateTime" />
+        <xs:element name="absentfrom" type="xs:dateTime" />
+        <xs:element name="absentto" type="xs:dateTime" />
+        <xs:element name="employeeemailaddress" type="xs:string" />
+        <xs:element name="employeegroupemailaddress" type="xs:string" />
+        <xs:element name="needsparking" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ssabookparkingservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="excelparser" nillable="true" minOccurs="0" />
+        <xs:element name="ssaparkingdao" type="issaparkingdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="jpautil" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="issabookparkingservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="membercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="memberdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="memberrestcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="memberdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="member" >
+      <xs:sequence>
+        <xs:element name="/***defaultvalueincludedtoremovewarning.removeormodifyatwill.**/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="phonenumber" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="memberdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="memberdaoimpl" >
+      <xs:sequence>
+        <xs:element name="em" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="issaparkingdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ssaparkingdao" >
+      <xs:sequence>
+        <xs:element name="em" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ssaemployees" >
+      <xs:sequence>
+        <xs:element name="ssaemployeesid" type="xs:anyType" />
+        <xs:element name="ssaemployeename" type="xs:string" />
+        <xs:element name="ofjoining" type="xs:dateTime" />
+        <xs:element name="absentfrom" type="xs:dateTime" />
+        <xs:element name="absentto" type="xs:dateTime" />
+        <xs:element name="employeeemail" type="xs:string" />
+        <xs:element name="groupemail" type="xs:string" />
+        <xs:element name="ssaemployeefullname" type="xs:string" />
+        <xs:element name="needsparking" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="ssaparkingspots" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ssaparkingspots" >
+      <xs:sequence>
+        <xs:element name="ssaparkingspotsid" type="xs:anyType" />
+        <xs:element name="ssaparkingnumber" type="xs:string" />
+        <xs:element name="originalparkingownername" type="xs:string" />
+        <xs:element name="isvisitorparking" type="xs:anyType" />
+        <xs:element name="parkinglabel" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ssaemployeeparkingmapping" >
+      <xs:sequence>
+        <xs:element name="id" type="ssaemployeeparkingmappingid" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="ssaemployees" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="ssaparkingspots" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ssaemployeeparkingmappingid" >
+      <xs:sequence>
+        <xs:element name="ssaemployeeid" type="xs:anyType" />
+        <xs:element name="ssaparkingspotid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpautil" >
+      <xs:sequence>
+        <xs:element name="emf" type="xs:anyType" />
+        <xs:element name="em" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jboss-deployment-structure" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spring-quickstart-ds" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hibernate.cfg" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hibernate.reveng" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="employee_mapping" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="employee_parking_mapping" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="memberdaotest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="memberdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpautilunittest" >
+      <xs:complexContent>
+       <xs:extension base="testcase">
+         <xs:sequence>
+          <xs:element name="" type="jpautil" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ssabookparkingservicetest" >
+      <xs:complexContent>
+       <xs:extension base="testcase">
+         <xs:sequence>
+          <xs:element name="" type="ssabookparkingservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="flatfileparsertest" >
+      <xs:complexContent>
+       <xs:extension base="testcase">
+         <xs:sequence>
+          <xs:element name="" type="flatfileparser" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="excelparserunittest" >
+      <xs:complexContent>
+       <xs:extension base="testcase">
+         <xs:sequence>
+          <xs:element name="" type="excelparser" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="test-persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

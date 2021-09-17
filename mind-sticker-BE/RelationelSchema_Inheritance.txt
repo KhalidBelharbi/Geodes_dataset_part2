@@ -1,0 +1,13 @@
+
+user(id:Long [PK], firstname:String, lastname:String, enabled:boolean, username:String, email:String, birthday:Date, address:String, phonenumber:String, password:String, avatarfilename:String);
+
+user_roles(user_id:User [PK] #FK to User,role_id:set<role> [PK] #FK to set<role>);
+
+confirmationtoken(tokenid:long [PK], confirmationtoken:String, created:Date, GeneratedName:User #FK to(User));
+
+note(id:Long [PK], title:String, content:String, writer:User #FK to(User));
+
+role(id:Long [PK], name:RoleName);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

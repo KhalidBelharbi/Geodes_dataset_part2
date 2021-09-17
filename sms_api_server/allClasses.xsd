@@ -1,0 +1,688 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="apicontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="springboottomcat" >
+      <xs:complexContent>
+       <xs:extension base="springbootservletinitializer">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sockethandler" >
+      <xs:complexContent>
+       <xs:extension base="textwebsockethandler">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="sessions" type="xs:anyType" />
+          <xs:element name="active_sessions" type="xs:anyType" />
+          <xs:element name="closed_sessions" type="xs:anyType" />
+          <xs:element name="error_sessions" type="xs:anyType" />
+          <xs:element name="//@autowiredprovider" type="websocketserviceprovider" nillable="true" minOccurs="0" />
+          <xs:element name="ctx" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseconfig" >
+      <xs:sequence>
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="websocketconfig" >
+      <xs:sequence>
+        <xs:element name="ctx" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baseserviceimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="platformservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="smsconfiglogservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="heartbeatservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usablechannelservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="channelservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="smsservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="heartbeatserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="baseserviceimpl">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="platformserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="baseserviceimpl">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+          <xs:element name="" type="platformdao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="channelserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="baseserviceimpl">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+          <xs:element name="" type="smsdao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usablechannelserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="baseserviceimpl">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+          <xs:element name="" type="smsdao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="websocketserviceprovider" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="smsservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="platformservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="channelservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="heartbeatservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="usablechannelservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="smsserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="baseserviceimpl">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+          <xs:element name="emay" type="xs:anyType" />
+          <xs:element name="country_code_china" type="xs:string" />
+          <xs:element name="bdt360map" type="xs:anyType" />
+          <xs:element name="sphplatformmap" type="xs:anyType" />
+          <xs:element name="smsforhctmap" type="xs:anyType" />
+          <xs:element name="bulkmap" type="xs:anyType" />
+          <xs:element name="startswitchtime" type="xs:dateTime" />
+          <xs:element name="forcode" type="xs:anyType" />
+          <xs:element name="forname" type="xs:anyType" />
+          <xs:element name="" type="smsdao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="serverinfodao" nillable="true" minOccurs="0" />
+          <xs:element name="mailsender" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="smsconfiglogserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="smsdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="postfailedexception" >
+      <xs:complexContent>
+       <xs:extension base="genericexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="responsefailedexception" >
+      <xs:complexContent>
+       <xs:extension base="genericexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="genericexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="error" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jsonexemption" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jsonrequired" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="annotateddeserializer" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="constants" >
+      <xs:sequence>
+        <xs:element name="encoding" type="xs:string" />
+        <xs:element name="flag_true" type="xs:anyType" />
+        <xs:element name="flag_false" type="xs:anyType" />
+        <xs:element name="enable" type="xs:anyType" />
+        <xs:element name="disable" type="xs:anyType" />
+        <xs:element name="session_customerid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="smsmessages" >
+      <xs:sequence>
+        <xs:element name="idsms_msg" type="xs:anyType" />
+        <xs:element name="product" type="xs:string" />
+        <xs:element name="smsprovider" type="xs:string" />
+        <xs:element name="user_account" type="xs:string" />
+        <xs:element name="phonenumber" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="result" type="xs:string" />
+        <xs:element name="createtime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="serverinfo" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="serverip" type="xs:string" />
+        <xs:element name="platformid" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="remark" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="channel" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="smsconfiglog" >
+      <xs:sequence>
+        <xs:element name="//主键id" type="xs:anyType" />
+        <xs:element name="//操作人operator" type="xs:string" />
+        <xs:element name="//调用方法名称opername" type="xs:string" />
+        <xs:element name="//调用方法参数operparams" type="xs:string" />
+        <xs:element name="//操作结果（成功或失败）operesult" type="xs:string" />
+        <xs:element name="//结果消息resultmsg" type="xs:string" />
+        <xs:element name="//操作时间opertime" type="xs:dateTime" />
+        <xs:element name="//平台号platformids" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="smsmessages" >
+      <xs:sequence>
+        <xs:element name="idsms_msg" type="xs:anyType" />
+        <xs:element name="product" type="xs:string" />
+        <xs:element name="smsprovider" type="xs:string" />
+        <xs:element name="user_account" type="xs:string" />
+        <xs:element name="phonenumber" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="result" type="xs:string" />
+        <xs:element name="createtime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="smsads" >
+      <xs:sequence>
+        <xs:element name="channel" type="xs:anyType" />
+        <xs:element name="ads" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="nexmoresponse" >
+      <xs:sequence>
+        <xs:element name="//主键messageidmessageid" type="xs:string" />
+        <xs:element name="//打给的号码msisdn" type="xs:string" />
+        <xs:element name="//显示是谁打来的to" type="xs:string" />
+        <xs:element name="//网络标号network_code" type="xs:string" />
+        <xs:element name="price" type="xs:string" />
+        <xs:element name="//返回状态status" type="xs:string" />
+        <xs:element name="//whenthedlrwasrecievedfromthecarrierinthefollowingformatyymmddhhmmscts" type="xs:string" />
+        <xs:element name="err_code" type="xs:string" />
+        <xs:element name="message_timestamp" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="smsconfig" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="channel" type="xs:anyType" />
+        <xs:element name="flag" type="xs:anyType" />
+        <xs:element name="server" type="xs:string" />
+        <xs:element name="port" type="xs:anyType" />
+        <xs:element name="user" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="platformids" type="xs:string" />
+        <xs:element name="remark" type="xs:string" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="priority" type="xs:string" />
+        <xs:element name="switchtime" type="xs:dateTime" />
+        <xs:element name="totalcounts" type="xs:string" />
+        <xs:element name="areadycounts" type="xs:string" />
+        <xs:element name="flag1" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="smslog" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="platform" type="xs:string" />
+        <xs:element name="provider" type="xs:string" />
+        <xs:element name="smsname" type="xs:string" />
+        <xs:element name="phonenumber" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="apiresponse" type="xs:string" />
+        <xs:element name="createtime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="smsaccount" >
+      <xs:sequence>
+        <xs:element name="loginname" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="platformids" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="platform" >
+      <xs:sequence>
+        <xs:element name="platformid" type="xs:string" />
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="status" type="platformstatus" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sendmsgresp" >
+      <xs:complexContent>
+       <xs:extension base="abstractrespmsg">
+         <xs:sequence>
+          <xs:element name="stat" type="xs:string" />
+          <xs:element name="tel" type="xs:string" />
+          <xs:element name="platformid" type="xs:string" />
+          <xs:element name="needwaiting" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractrespmsg" >
+      <xs:sequence>
+        <xs:element name="status" type="xs:anyType" />
+        <xs:element name="//requestiderrormsg" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usablechannellistresp" >
+      <xs:complexContent>
+       <xs:extension base="abstractrespmsg{">
+         <xs:sequence>
+          <xs:element name="channels" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="channellistresp" >
+      <xs:complexContent>
+       <xs:extension base="abstractrespmsg">
+         <xs:sequence>
+          <xs:element name="queryid" type="xs:string" />
+          <xs:element name="channels" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="syncdataresp" >
+      <xs:complexContent>
+       <xs:extension base="abstractrespmsg">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractmessage" >
+      <xs:complexContent>
+       <xs:extension base="abstractreqmsg>">
+         <xs:sequence>
+          <xs:element name="service" type="xs:string" />
+          <xs:element name="functionname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="requestmessage" >
+      <xs:complexContent>
+       <xs:extension base="abstractmessage">
+         <xs:sequence>
+          <xs:element name="data" type="abstractreqmsg" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="responsemessage" >
+      <xs:complexContent>
+       <xs:extension base="abstractmessage">
+         <xs:sequence>
+          <xs:element name="data" type="abstractrespmsg" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usablechannellistreq" >
+      <xs:complexContent>
+       <xs:extension base="abstractreqmsg{">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="platformid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="channellistreq" >
+      <xs:complexContent>
+       <xs:extension base="abstractreqmsg">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="queryid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractreqmsg" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="heartbeatreq" >
+      <xs:complexContent>
+       <xs:extension base="abstractreqmsg">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="currenttime" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sendmsgreq" >
+      <xs:complexContent>
+       <xs:extension base="abstractreqmsg">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="channel" type="xs:string" />
+          <xs:element name="tel" type="xs:string" />
+          <xs:element name="platformid" type="xs:string" />
+          <xs:element name="message" type="xs:string" />
+          <xs:element name="delay" type="xs:anyType" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="templateid" type="xs:string" />
+          <xs:element name="templateparams" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sendplatformreq" >
+      <xs:complexContent>
+       <xs:extension base="abstractreqmsg{">
+         <xs:sequence>
+          <xs:element name="platformid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="syncdatareq" >
+      <xs:complexContent>
+       <xs:extension base="abstractreqmsg">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="platforms" type="platform" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractplatformreqmsg" >
+      <xs:complexContent>
+       <xs:extension base="abstractreqmsg">
+         <xs:sequence>
+          <xs:element name="platformid" type="xs:string" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="//@jsonrequireddescription" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="smsreq" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="server" type="xs:string" />
+        <xs:element name="port" type="xs:anyType" />
+        <xs:element name="user" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="msg" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="platform" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="platformstatus" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="errorcode" >
+      <xs:sequence>
+        <xs:element name="code" type="xs:long" />
+        <xs:element name="text" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="smstype" >
+      <xs:sequence>
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="text" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="platformdao" >
+      <xs:sequence>
+        <xs:element name="smsbasedao" type="universaldao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="smsdao" >
+      <xs:sequence>
+        <xs:element name="smsbasedao" type="universaldao" nillable="true" minOccurs="0" />
+        <xs:element name="bisdao" type="universaldao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="serverinfodao" >
+      <xs:sequence>
+        <xs:element name="smsbasedao" type="universaldao" nillable="true" minOccurs="0" />
+        <xs:element name="bisdao" type="universaldao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="universaldao" >
+      <xs:complexContent>
+       <xs:extension base="hibernatedaosupport">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="smsconfiglogger" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="platformlimit" >
+      <xs:sequence>
+        <xs:element name="phonenum" type="xs:string" />
+        <xs:element name="starttime" type="xs:dateTime" />
+        <xs:element name="count" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="httputilsgb2312" >
+      <xs:complexContent>
+       <xs:extension base="httputils">
+         <xs:sequence>
+          <xs:element name="ger" type="xs:anyType" />
+          <xs:element name="encode_type" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="specialenvironmentstringpbeconfig" >
+      <xs:complexContent>
+       <xs:extension base="environmentstringpbeconfig">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="encryptionutil" >
+      <xs:complexContent>
+       <xs:extension base="digestutils">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="encodingcharset" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="biznumberutil" >
+      <xs:sequence>
+        <xs:element name="curttno" type="xs:long" />
+        <xs:element name="dataformat" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="httputilsopenapi" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="openapi" >
+      <xs:sequence>
+        <xs:element name="//stringsopenurl" type="xs:long" />
+        <xs:element name="ncsid" type="xs:long" />
+        <xs:element name="openapimap" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="domoperator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="httpsutils" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="encode_type" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="md5" >
+      <xs:sequence>
+        <xs:element name="hexdigits" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ioconnutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dateutils" >
+      <xs:complexContent>
+       <xs:extension base="org.apache.commons.lang.time.dateutils">
+         <xs:sequence>
+          <xs:element name="standardfmt" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="page" >
+      <xs:sequence>
+        <xs:element name="page_begin_index" type="xs:anyType" />
+        <xs:element name="page_default_size" type="xs:anyType" />
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="pagenumber" type="xs:anyType" />
+        <xs:element name="totalpages" type="xs:anyType" />
+        <xs:element name="size" type="xs:anyType" />
+        <xs:element name="pagecontents" type="xs:anyType" />
+        <xs:element name="s1" type="xs:double" />
+        <xs:element name="s2" type="xs:double" />
+        <xs:element name="totalrecords" type="xs:anyType" />
+        <xs:element name="numberofrecordsshown" type="xs:anyType" />
+        <xs:element name="jspagecode" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pagequery" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pagenationutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="outerip" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sendsms" >
+      <xs:sequence>
+        <xs:element name="encode" type="xs:string" />
+        <xs:element name="//服务器请求地址(需要加密)servicesrequestaddress" type="xs:string" />
+        <xs:element name="//登录的用户名(需要加密)username" type="xs:string" />
+        <xs:element name="//登录的密码(需要加密)password" type="xs:string" />
+        <xs:element name="//短信发送方式smstype" type="xs:long" />
+        <xs:element name="//短信发送是否定时timerflag" type="xs:long" />
+        <xs:element name="//短信发送定时时间timervalue" type="xs:string" />
+        <xs:element name="//短信发送定时的类型timertype" type="xs:long" />
+        <xs:element name="//短信发送的编号(需要加密)timerid" type="xs:string" />
+        <xs:element name="//发送的手机号码(需要加密)mobiles" type="xs:string" />
+        <xs:element name="//发送的内容(需要加密)message" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="httputils" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="encode_type" type="xs:string" />
+        <xs:element name="time_out" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mysecureprotocolsocketfactory" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stringutil" >
+      <xs:complexContent>
+       <xs:extension base="stringutils">
+         <xs:sequence>
+          <xs:element name="p_url" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="om" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mail" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="applicationcontext-db-base" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

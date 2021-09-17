@@ -1,0 +1,37 @@
+
+grantedrole(pk:long [PK], id:String, pk:AccessConfiguration #FK to(accessconfiguration));
+
+preset(pk:long [PK], name:String, preset:String, guild:String, guildid:String, user:String, userid:String);
+
+playlist(pk:long [PK], name:String, createduser:String, createduserid:String, guild:String, guildid:String);
+
+spotifyredirectindexmodificationlock(pk:long [PK], creationtimestamp:LocalDateTime);
+
+userplaybackhistory(pk:long [PK], username:String, userid:String, pk:PlaybackHistory #FK to(playbackhistory));
+
+song(pk:long [PK], id:String, name:String);
+
+song_set<artist>(songID:song [PK] #FK to song,set<artist>ID:set<artist> [PK] #FK to set<artist>);
+
+urltrack(pk:long [PK], url:String, title:String);
+
+video(pk:long [PK], id:String, title:String, redirectedspotifyid:String, spotifytrackname:String);
+
+playbackhistory(pk:long [PK], timestamp:LocalDateTime, title:String, source:String, trackid:String, guild:String, guildid:String);
+
+playbackhistory_set<artist>(playbackhistoryID:playbackhistory [PK] #FK to playbackhistory,set<artist>ID:set<artist> [PK] #FK to set<artist>);
+
+guildspecification(pk:long [PK], guildname:String, guildid:String, botname:String, prefix:String, sendplaybacknotification:Boolean, color:String, enableautopause:Boolean, defaultsource:String, defaultlistsource:String, argumentprefix:Character, tempmessagetimeout:Integer, defaulttextchannelid:String);
+
+artist(artist_sync:MutexSync<String>, pk:long [PK], id:String, name:String);
+
+accessconfiguration(pk:long [PK], commandidentifier:String, pk:GuildSpecification #FK to(guildspecification));
+
+commandhistory(pk:long [PK], timestamp:LocalDateTime, startmillis:long, commandidentifier:String, iswidget:boolean, commandcontextid:String, commandbody:String, input:String, guild:String, guildid:String, user:String, userid:String, completedsuccessfully:boolean, //ifthecommandhasfailedbyexplicitlycallingsetfailed()failedmanually:boolean, durationms:long, unexpectedexception:boolean, errormessage:String);
+
+spotifyredirectindex(pk:long [PK], spotifyid:String, youtubeid:String, lastupdated:LocalDate, lastused:LocalDate);
+
+currentyoutubequotausage(pk:long [PK], quota:int, lastupdated:LocalDateTime);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

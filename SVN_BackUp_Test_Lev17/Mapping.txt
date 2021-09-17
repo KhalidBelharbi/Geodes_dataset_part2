@@ -1,0 +1,17 @@
+ClassDiagram.Class>> BookReview =>=>=> RelationalSchema.Table>> bookreview;
+ClassDiagram.Class>> Book =>=>=> RelationalSchema.Table>> book;
+ClassDiagram.Class>> Library =>=>=> RelationalSchema.Table>> library;
+ClassDiagram.Attribut>> BookReview.id:int =>=>=> RelationalSchema.Column>> bookreview.id PRIMARY KEY;
+ClassDiagram.Attribut>> BookReview.GeneratedName:Review =>=>=> RelationalSchema.Column>> bookreview.GeneratedName;
+ClassDiagram.Attribut>> BookReview.authors:List<String> =>=>=> RelationalSchema.Column>> bookreview.authors;
+ClassDiagram.Attribut>> BookReview.GeneratedName:Book =>=>=> RelationalSchema.Column>> bookreview.GeneratedName;
+ClassDiagram.Attribut>> Book.id:int =>=>=> RelationalSchema.Column>> book.id PRIMARY KEY;
+ClassDiagram.Attribut>> Book.booktitle:String =>=>=> RelationalSchema.Column>> book.booktitle;
+ClassDiagram.Attribut>> Book.address:OwnerAddress =>=>=> RelationalSchema.Column>> book.address;
+ClassDiagram.Attribut>> Book.GeneratedName:OwnerInfo =>=>=> RelationalSchema.Column>> book.GeneratedName;
+ClassDiagram.Attribut>> Book.GeneratedName:Library =>=>=> RelationalSchema.Column>> book.GeneratedName;
+ClassDiagram.Attribut>> Book.authors:List<String> =>=>=> RelationalSchema.Column>> book.authors;
+ClassDiagram.Attribut>> Library.id:int =>=>=> RelationalSchema.Column>> library.id PRIMARY KEY;
+ClassDiagram.Attribut>> Library.address:String =>=>=> RelationalSchema.Column>> library.address;
+One-To-Many relationship from ClassDiagram.Class>>Book  to ClassDiagram.Class>>List<BookReview>;
+One-To-Many relationship from ClassDiagram.Class>>Library  to ClassDiagram.Class>>List<Book>;

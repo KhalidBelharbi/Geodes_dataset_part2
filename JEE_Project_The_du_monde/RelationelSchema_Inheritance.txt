@@ -1,0 +1,19 @@
+
+commande(id_commande:Long [PK], GeneratedName:Date, montant:double, GeneratedName:Utilisateur #FK to(utilisateur));
+
+role(id_role:Long [PK], role:String);
+
+favoris(id_favoris:Long [PK], GeneratedName:Utilisateur #FK to(utilisateur));
+
+article(id_article:Long [PK], libelle:String, description:String, prixunitaire:double, image:String);
+
+lignecommande(id_lignecommande:Long [PK], quantite:int, prixligne:double, GeneratedName:Commande #FK to(commande), GeneratedName:Article #FK to(article));
+
+utilisateurrole(id_utilisateurrole:Long [PK], GeneratedName:Utilisateur #FK to(utilisateur), GeneratedName:Role #FK to(role));
+
+lignefavoris(id_lignefavoris:Long [PK], GeneratedName:Favoris #FK to(favoris), GeneratedName:Article #FK to(article));
+
+utilisateur(id_utilisateur:Long [PK], pseudo:String, motdepasse:String, nom:String, prenom:String, adresse:String, mail:String, tel:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="chartcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="chartservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="uploadcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="uploadfileservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="data" >
+      <xs:sequence>
+        <xs:element name="//0,2018-03-29,600721,buy!,price:9.54856,volume:853date" type="xs:string" />
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="buy" type="xs:anyType" />
+        <xs:element name="price" type="xs:long" />
+        <xs:element name="volume" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="readlog2csv" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="enddatadao" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<enddata,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="uploadrecorddao" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<uploadrecord,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="chartmodule" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="uploadrecord" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="realpath" type="xs:string" />
+          <xs:element name="/***文件大小*/size" type="xs:long" />
+          <xs:element name="/***文件包含的数据量*/datacount" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="enddata" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="/***关联的日志文件id*/recordid" type="xs:long" />
+          <xs:element name="date" type="xs:string" />
+          <xs:element name="volume" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entry" >
+      <xs:complexContent>
+       <xs:extension base="linkedhashmap<string,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="linebean" >
+      <xs:sequence>
+        <xs:element name="columns" type="xs:anyType" />
+        <xs:element name="rows" type="entry" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="uploadfileservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="uploadrecorddao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="enddatadao" nillable="true" minOccurs="0" />
+        <xs:element name="/***简单防止冲突（单机版）*/fileindex" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="chartservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="enddatadao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

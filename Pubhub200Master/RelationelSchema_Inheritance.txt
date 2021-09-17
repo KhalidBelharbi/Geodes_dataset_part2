@@ -1,0 +1,13 @@
+
+booksales(id:int [PK], noofcopies:int);
+
+user(id:Long [PK], name:String, email:String, password:String, active:Boolean);
+
+book(id:Long [PK], name:String, price:Integer, releaseddate:LocalDate);
+
+order(id:Long [PK], GeneratedName:User #FK to(User), //@formula("fn_get_order_amount(id)")totalprice:Integer, status:String, ordereddate:LocalDateTime, cancelleddate:LocalDate, delivereddate:LocalDate);
+
+orderitem(id:Long [PK], GeneratedName:Order #FK to(order), quantity:Integer, //@column(name:Book #FK to(book));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="moviesdatadao" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="moviesdatalayer" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="geodatadao" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="geodatalayer" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cinemadatadao" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="cinemadatalayer" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="moviesui" >
+      <xs:sequence>
+        <xs:element name="movietiming" type="xs:anyType" />
+        <xs:element name="totalseats" type="xs:long" />
+        <xs:element name="availableseats" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="moviedatapk" >
+      <xs:sequence>
+        <xs:element name="cinemaid" type="xs:string" />
+        <xs:element name="moviename" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="movies" >
+      <xs:sequence>
+        <xs:element name="state" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="cinemaname" type="xs:string" />
+        <xs:element name="moviename" type="xs:string" />
+        <xs:element name="movietiming" type="xs:anyType" />
+        <xs:element name="totalseats" type="xs:long" />
+        <xs:element name="availableseats" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="registercinema" >
+      <xs:sequence>
+        <xs:element name="state" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="cinemaname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookedseats" >
+      <xs:sequence>
+        <xs:element name="cityname" type="xs:string" />
+        <xs:element name="cinemaname" type="xs:string" />
+        <xs:element name="moviename" type="xs:string" />
+        <xs:element name="bookedseats" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="geodata" >
+      <xs:sequence>
+        <xs:element name="state" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="cinemaid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cinema" >
+      <xs:sequence>
+        <xs:element name="cinemaid" type="xs:string" />
+        <xs:element name="cinemaname" type="xs:string" />
+        <xs:element name="cityname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="moviesmodel" >
+      <xs:sequence>
+        <xs:element name="moviename" type="xs:string" />
+        <xs:element name="cityname" type="xs:string" />
+        <xs:element name="cinemaname" type="xs:string" />
+        <xs:element name="movietiming" type="xs:anyType" />
+        <xs:element name="totalseats" type="xs:long" />
+        <xs:element name="availableseats" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="moviedata" >
+      <xs:sequence>
+        <xs:element name="cinemaid" type="xs:string" />
+        <xs:element name="moviename" type="xs:string" />
+        <xs:element name="movietiming" type="xs:anyType" />
+        <xs:element name="totalseats" type="xs:long" />
+        <xs:element name="availableseats" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="moviescontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="moviesservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="geodatalayer" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<geodata,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="moviesdatalayer" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<moviedata,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cinemadatalayer" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<cinema,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="moviesservice" >
+      <xs:sequence>
+        <xs:element name="splitter" type="xs:string" />
+        <xs:element name="moviesdata" type="moviesdatadao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="cinemadatadao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="geodatadao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="moviesapiapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="moviesapiapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="moviesservicetest" >
+      <xs:sequence>
+        <xs:element name="movie_name" type="xs:string" />
+        <xs:element name="cinema_id" type="xs:string" />
+        <xs:element name="cinema_name" type="xs:string" />
+        <xs:element name="city_name" type="xs:string" />
+        <xs:element name="GeneratedName" type="moviesservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="moviesdatadao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="cinemadatadao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

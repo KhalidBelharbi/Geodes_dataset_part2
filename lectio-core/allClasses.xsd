@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="testlectiocontroltopics" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testlectiocontrolseeddata" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="seeddata" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="randomseeddata" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="teacher" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="student" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="studio" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="notebook" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="topic" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="lessonnote" nillable="true" minOccurs="0" />
+        <xs:element name="emailtopasswordmap" type="xs:anyType" />
+        <xs:element name="adminid" type="xs:long" />
+        <xs:element name="num_lessonnote_lines_max" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vorkosiganseeddata" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="aral" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="emailtopasswordmap" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="studio" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="notebook" nillable="true" minOccurs="0" />
+        <xs:element name="miles" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="topic" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="lessonnote" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cleardata" >
+      <xs:sequence>
+        <xs:element name="persistence_unit_name" type="xs:string" />
+        <xs:element name="em" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testlectiocontrolnotebooks" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testlectiorestlessonnoteresource" >
+      <xs:complexContent>
+       <xs:extension base="testrestresources">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testlectioresttopicresource" >
+      <xs:complexContent>
+       <xs:extension base="testrestresources">
+         <xs:sequence>
+          <xs:element name="" type="randomseeddata" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testlectiorestuserresource" >
+      <xs:complexContent>
+       <xs:extension base="testrestresources">
+         <xs:sequence>
+          <xs:element name="numnotebooks" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testlectiorestnotebookresources" >
+      <xs:complexContent>
+       <xs:extension base="testrestresources">
+         <xs:sequence>
+          <xs:element name="numtopics" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testrestresources" >
+      <xs:sequence>
+        <xs:element name="debug_connect_timeout_ms" type="xs:long" />
+        <xs:element name="debug_read_timeout_ms" type="xs:long" />
+        <xs:element name="appuri" type="xs:string" />
+        <xs:element name="apprule" type="lectiorestconfiguration" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="notebook" nillable="true" minOccurs="0" />
+        <xs:element name="teacher" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="seeddata" nillable="true" minOccurs="0" />
+        <xs:element name="savedtoken" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testuserlogin" >
+      <xs:complexContent>
+       <xs:extension base="testrestresources{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testuserauthnotebookactivetopicsandlessons" >
+      <xs:complexContent>
+       <xs:extension base="testuserauth">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testuserauth" >
+      <xs:complexContent>
+       <xs:extension base="testrestresources">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testuserauthnotebookactivetopics" >
+      <xs:complexContent>
+       <xs:extension base="testuserauth{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testlectiorestnotebookwithlessonsresources" >
+      <xs:complexContent>
+       <xs:extension base="testrestresources{">
+         <xs:sequence>
+          <xs:element name="numtopics" type="xs:long" />
+          <xs:element name="numlessonnotes" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testlectiocontrollessonnotes" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testalphabet" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testlectiokeystore" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="log4j2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="manifest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="appgensql" >
+      <xs:sequence>
+        <xs:element name="/***thepersistenceunitnameinpersistence.xmlspecificallysetup*justtogeneratethescripts.*/persistence_unit_name_script" type="xs:string" />
+        <xs:element name="/***thepersistenceunitnameinpersistence.xmlsetupfordroppingand*creatingtables.thedroppingandcreatingtablesisusedfor*developmentpurposestoquicklyrecreatetablesinnewschema.*notworkingrightnow.*/persistence_unit_name_tables" type="xs:string" />
+        <xs:element name="/***locationofthedrop-tablesqlfilesrelativetoworkingdirectory*/persistence_drop_target" type="xs:string" />
+        <xs:element name="/***locationofcreate-tablesqlfilesrelativetoworkingdirectory.*/persistence_create_target" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lectiopersistence" >
+      <xs:sequence>
+        <xs:element name="em" type="xs:anyType" />
+        <xs:element name="persistence_unit_name" type="xs:string" />
+        <xs:element name="GeneratedName" type="lectiocontrol" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lectionotimplementedexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="lectioexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="lectiosystemexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="lectioobjectnotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="lectioexception">
+         <xs:sequence>
+          <xs:element name="objectclassname" type="xs:string" />
+          <xs:element name="objectid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="lectioconstraintexception" >
+      <xs:complexContent>
+       <xs:extension base="lectioexception">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="lectioauthorizationexception" >
+      <xs:complexContent>
+       <xs:extension base="lectioexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="lectiocontrol" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="em" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notebookuserrole" >
+      <xs:sequence>
+        <xs:element name="unique_notebookuser" type="xs:string" />
+        <xs:element name="query_repuserrole_user" type="xs:string" />
+        <xs:element name="queryparam_repuserrole_user" type="xs:string" />
+        <xs:element name="query_repuserrole_notebook" type="xs:string" />
+        <xs:element name="queryparam_repuserrole_notebook" type="xs:string" />
+        <xs:element name="query_notebookuserrole_userid" type="xs:string" />
+        <xs:element name="query_notebookuserrole_notebookiduserid" type="xs:string" />
+        <xs:element name="queryparam_notebookuserrole_userid" type="xs:string" />
+        <xs:element name="queryparam_notebookuserrole_notebookid" type="xs:string" />
+        <xs:element name="query_notebookuserrole_useridlessonnoteid" type="xs:string" />
+        <xs:element name="queryparam_notebookuserrole_lessonnoteid" type="xs:string" />
+        <xs:element name="query_notebookuserrole_useridtopicid" type="xs:string" />
+        <xs:element name="queryparam_notebookuserrole_topicid" type="xs:string" />
+        <xs:element name="*@generated*@ordered*/id" type="xs:long" />
+        <xs:element name="*@generated*@ordered*/" type="role" nillable="true" minOccurs="0" />
+        <xs:element name="*@generated*@ordered*/" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="*@generated*@ordered*/" type="notebook" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="topic" >
+      <xs:sequence>
+        <xs:element name="query_findtopics_notebook" type="xs:string" />
+        <xs:element name="query_findtopics_notebookid" type="xs:string" />
+        <xs:element name="query_findtopicswithlessonnote_notebook" type="xs:string" />
+        <xs:element name="query_findtopicswithlessonnote_notebookid" type="xs:string" />
+        <xs:element name="//query_findmusicpieces" type="xs:string" />
+        <xs:element name="queryparam_topic_notebookid" type="xs:string" />
+        <xs:element name="query_countmusicpieces_notebook" type="xs:string" />
+        <xs:element name="query_maxorder_notebook" type="xs:string" />
+        <xs:element name="unique_topic_name" type="xs:string" />
+        <xs:element name="GeneratedName" type="topicstate" nillable="true" minOccurs="0" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="/*whenamusicpieceisactive,userhas	*specificallyputthemusicpiecelistin	*acertainorder.activeorderisthatorder.	*whenthepiecegoestoarchive,userorder	*isnolongermaained.	*/activeorder" type="xs:long" />
+        <xs:element name="*@generated*@ordered*/shortname" type="xs:string" />
+        <xs:element name="*@generated*@ordered*/datecreated" type="xs:anyType" />
+        <xs:element name="datearchived" type="xs:anyType" />
+        <xs:element name="information" type="xs:string" />
+        <xs:element name="graphic" type="xs:string" />
+        <xs:element name="GeneratedName" type="notebook" nillable="true" minOccurs="0" />
+        <xs:element name="/***thelastlessonofatopicisusually*retrievedwiththetopic.*/last" type="lessonnote" nillable="true" minOccurs="0" />
+        <xs:element name="uipreference" type="xs:string" />
+        <xs:element name="tag" type="tag" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="id" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="unique_name" type="xs:string" />
+        <xs:element name="unique_email" type="xs:string" />
+        <xs:element name="query_user_byname" type="xs:string" />
+        <xs:element name="//query_user_byid" type="xs:string" />
+        <xs:element name="queryparam_user_id" type="xs:string" />
+        <xs:element name="query_user_byemail" type="xs:string" />
+        <xs:element name="queryparam_user_email" type="xs:string" />
+        <xs:element name="*@generated*@ordered*/name" type="xs:string" />
+        <xs:element name="*@generated*@ordered*/email" type="xs:string" />
+        <xs:element name="*@generated*@ordered*/id" type="xs:long" />
+        <xs:element name="uipreference" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notebook" >
+      <xs:sequence>
+        <xs:element name="constraint_unique_notebook" type="xs:string" />
+        <xs:element name="query_notebook_id" type="xs:string" />
+        <xs:element name="queryparam_notebook_id" type="xs:string" />
+        <xs:element name="*@generated*@ordered*/name" type="xs:string" />
+        <xs:element name="*@generated*@ordered*/datecreated" type="xs:anyType" />
+        <xs:element name="*@generated*@ordered*/datearchived" type="xs:anyType" />
+        <xs:element name="*@generated*@ordered*/isactive" type="xs:anyType" />
+        <xs:element name="*@generated*@ordered*/activeorder" type="xs:long" />
+        <xs:element name="*@generated*@ordered*/archiveorder" type="xs:long" />
+        <xs:element name="uipreference" type="xs:string" />
+        <xs:element name="*@generated*@ordered*/" type="studio" nillable="true" minOccurs="0" />
+        <xs:element name="*@generated*@ordered*/id" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tag" >
+      <xs:sequence>
+        <xs:element name="*@generated*@ordered*/id" type="xs:long" />
+        <xs:element name="*@generated*@ordered*/name" type="xs:string" />
+        <xs:element name="*@generated*@ordered*/uipreference" type="uipreference" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="uipreference" >
+      <xs:sequence>
+        <xs:element name="*@generated*@ordered*/mapkey" type="xs:string" />
+        <xs:element name="*@generated*@ordered*/value" type="xs:string" />
+        <xs:element name="*@generated*@ordered*/id" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lessonnote" >
+      <xs:sequence>
+        <xs:element name="query_lastlessonnote" type="xs:string" />
+        <xs:element name="query_lessonnotes" type="xs:string" />
+        <xs:element name="query_countlessonnote" type="xs:string" />
+        <xs:element name="queryparam_lessonnote_topic" type="xs:string" />
+        <xs:element name="query_lastlessonnotebynotebook" type="xs:string" />
+        <xs:element name="queryparam_lessonnote_notebook" type="xs:string" />
+        <xs:element name="query_lessonnotes_bytopicid" type="xs:string" />
+        <xs:element name="queryparam_lessonnotes_bytopicid" type="xs:string" />
+        <xs:element name="date" type="xs:anyType" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="lastcontentupdate" type="xs:anyType" />
+        <xs:element name="author" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="*@generated*@ordered*/" type="topic" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="studio" >
+      <xs:sequence>
+        <xs:element name="query_findstudiosownedby" type="xs:string" />
+        <xs:element name="query_findstudiosownedby_ownerparam" type="xs:string" />
+        <xs:element name="query_findstudiobyid" type="xs:string" />
+        <xs:element name="queryparam_findstudiobyid" type="xs:string" />
+        <xs:element name="*@generated*@ordered*/name" type="xs:string" />
+        <xs:element name="owner" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="uipreference" type="xs:string" />
+        <xs:element name="*@generated*@ordered*/id" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="topicstate" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="comment" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="lessonnote" nillable="true" minOccurs="0" />
+        <xs:element name="date" type="xs:anyType" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="author" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="id" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="topictag" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="tag" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="topic" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="webtokenfilter" >
+      <xs:complexContent>
+       <xs:extension base="authfilter<string,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="useridentity" >
+      <xs:sequence>
+        <xs:element name="query_useridentity_byuserid" type="xs:string" />
+        <xs:element name="queryparam_useridentity_userid" type="xs:string" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="privileges" type="privilege" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="password" type="xs:anyType" />
+        <xs:element name="salt" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lectiotoken" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="stupidsecurityhole" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="emailpassword" >
+      <xs:sequence>
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="identityauthenticator" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lectioprincipal" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="privileges" type="privilege" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="privilegesetattributeconverter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lectiosigner" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="configuration" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="lectiosigner" nillable="true" minOccurs="0" />
+        <xs:element name="configuration_filename" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="webtokenverifier" type="xs:anyType" />
+        <xs:element name="signature_max_bytes" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="privilege" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="loginresponse" >
+      <xs:sequence>
+        <xs:element name="token" type="xs:string" />
+        <xs:element name="expiration" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="userid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lectioauthorizer" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tokenauthenticator" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="signer" type="lectiosigner" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notebookrep" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="notebook" nillable="true" minOccurs="0" />
+        <xs:element name="topiclist" type="topic" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="user" type="role" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="topicrep" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="graphic" type="xs:string" />
+        <xs:element name="lastlessonnote" type="lessonnoterep" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrep" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lessonnoterep" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="date" type="xs:anyType" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="author" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="topicresource" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="lectiocontrol" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="loginresource" >
+      <xs:sequence>
+        <xs:element name="login_cookie_name" type="xs:string" />
+        <xs:element name="//changethistoreadfromafilelogin_cookie_domain" type="xs:string" />
+        <xs:element name="authenticator" type="identityauthenticator" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="tokenauthenticator" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lessonnoteresource" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="lectiocontrol" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userresource" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="lectiocontrol" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="views" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notebookresource" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="lectiocontrol" nillable="true" minOccurs="0" />
+        <xs:element name="bogusid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lectioexceptionmappers" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lectiorestapplication" >
+      <xs:complexContent>
+       <xs:extension base="application<lectiorestconfiguration>">
+         <xs:sequence>
+          <xs:element name="ordinary_realm" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="lectiorestconfiguration" >
+      <xs:complexContent>
+       <xs:extension base="configuration">
+         <xs:sequence>
+          <xs:element name="studio" type="xs:string" />
+          <xs:element name="brandname" type="xs:string" />
+          <xs:element name="allowedorigins" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="brandnamehealthcheck" >
+      <xs:complexContent>
+       <xs:extension base="healthcheck">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

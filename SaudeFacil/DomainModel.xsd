@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="consultapaciente" >
+      <xs:sequence>
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="descricao" type="xs:string" />
+        <xs:element name="especialidade" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sintoma" >
+      <xs:sequence>
+        <xs:element name="sintomasid" type="xs:anyType" />
+        <xs:element name="descricao" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pessoa" >
+      <xs:sequence>
+        <xs:element name="pessoaid" type="xs:anyType" />
+        <xs:element name="cpf" type="xs:string" />
+        <xs:element name="rg" type="xs:string" />
+        <xs:element name="sexo" type="xs:string" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="datanascimento" type="xs:dateTime" />
+        <xs:element name="tiposanguineo" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="relatorio" >
+      <xs:sequence>
+        <xs:element name="clinica" type="xs:string" />
+        <xs:element name="especialidade" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="especialidades" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="especialidadeid" type="xs:anyType" />
+        <xs:element name="descricao" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="planosaude" >
+      <xs:sequence>
+        <xs:element name="planoid" type="xs:anyType" />
+        <xs:element name="descricao" type="xs:string" />
+        <xs:element name="statusplan" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="paciente" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="pacienteid" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="pessoa" nillable="true" minOccurs="0" />
+        <xs:element name="statuspaciente" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="profissional" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="credencial" type="xs:string" />
+        <xs:element name="GeneratedName" type="pessoa" nillable="true" minOccurs="0" />
+        <xs:element name="statusautonomo" type="xs:anyType" />
+        <xs:element name="atendeclinica" type="xs:anyType" />
+        <xs:element name="statusprofissional" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

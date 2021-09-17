@@ -1,0 +1,255 @@
+bid(name:String, account:BigDecimal, GeneratedName:Item #FK to(Item));
+
+item();
+
+cat(name:String);
+
+item(serialversionuid:long, name:String, price:BigDecimal);
+
+offer(serialversionuid:long, value:BigDecimal);
+
+address(serialversionuid:long, GeneratedName:User #FK to(user), street:String);
+
+productcustomer(serialversionuid:long, name:String);
+
+productresource(serialversionuid:long, name:String);
+
+part(serialversionuid:long, name:String, active:Boolean);
+
+product(serialversionuid:long, serialnumber:String, GeneratedName:ProductCustomer #FK to(productcustomer), resource:ProductResource #FK to(productresource));
+
+user(serialversionuid:long, login:String);
+
+cart(name:String);
+
+skill(serialversionuid:long, name:String, candidate:JobCandidate #FK to(jobcandidate), candidateid:Integer);
+
+jobcandidate(serialversionuid:long, fullname:String, age:Integer, salary:BigDecimal, a,b,c,w,r,t,y,u:String);
+
+address(serialversionuid:long, GeneratedName:User #FK to(user), street:String);
+
+user(serialversionuid:long, login:String);
+
+simpleproduct(name:String, price:Money);
+
+address(serialversionuid:long, street:String, city:String, state:String, zipcode:String, country:String);
+
+item(images:Collection<String>);
+
+embeddeduser(serialversionuid:long, images:Set<Address>);
+
+usercoll(serialversionuid:long, //@ordercolumnphones:Set<String>);
+
+usermap(phones:Map<String,String>, name:String);
+
+repository(name:String);
+
+commit(review:boolean, GeneratedName:Repository #FK to(repository), changes:List<Change>);
+
+item(serialversionuid:long, name:String, price:BigDecimal);
+
+offer(serialversionuid:long, value:BigDecimal);
+
+book(id:Long [PK], name:String);
+
+user(serialversionuid:long, //todo???all:Address #FK to(address), login:String);
+
+address(serialversionuid:long, street:String);
+
+emailmessage(serialversionuid:long, content:String, GeneratedName:Email #FK to(email));
+
+address(serialversionuid:long, street:String, GeneratedName:User #FK to(user));
+
+user(login:String, GeneratedName:Address #FK to(address));
+
+emailmessage(serialversionuid:long, content:String, GeneratedName:Email #FK to(email));
+
+email(id:Long [PK], from:String, to:String, topic:String, time:LocalDateTime);
+
+emailmessage(serialversionuid:long, id:Long [PK], content:String, GeneratedName:Email #FK to(email));
+
+email(serialversionuid:long, from:String, to:String, topic:String, time:LocalDateTime);
+
+company(serialversionuid:long, nip:String);
+
+category(serialversionuid:long, name:String, parent:Category #FK to(category));
+
+employee(serialversionuid:long, firstname:String, lastname:String, manager:Employee #FK to(employee), managerid:Long);
+
+person(serialversionuid:long, id:Long [PK], firstname:String, email:String, modify:LocalDate, effectivemodify:LocalDate, disable:Boolean, //todo//@formula("concat(disable,':',active)")///?filterproblemoverview:String, alluser:int, km:Double, active:Boolean, //@pastbirthday:ZonedDateTime, //todo//monetaryamountbasepriceversion:long);
+
+userconstrainttwo(serialversionuid:long, username:String);
+
+usertableconstraint(serialversionuid:long, email:String, username:String);
+
+user(serialversionuid:long, email:String);
+
+bidcheck(serialversionuid:long, bidstart:Date, bidend:Date);
+
+trip(id:int [PK], name:String);
+
+travel(id:int [PK], name:String);
+
+item(id:Long [PK], name:String, price:BigDecimal);
+
+address(serialversionuid:long, city:String, disable:Boolean);
+
+email_bi(serialversionuid:long, from:String, to:String, topic:String, time:LocalDateTime, email:EmailMessage_BI #FK to(emailmessage_bi));
+
+emailmessage_bi(serialversionuid:long, content:String, email:Email_BI #FK to(email_bi));
+
+address(serialversionuid:long, city:String);
+
+person(serialversionuid:long, firstname:String, lastname:String);
+
+phone(phonenumber:String);
+
+account(topicmap:Map<String,String>, emailaddresses:List<String>);
+
+customer(GeneratedName:UserId [PK], GeneratedName:User #FK to(user));
+
+user(id:UserId, age:Integer);
+
+customer(name:String, GeneratedName:Location #FK to(location));
+
+location(name:String);
+
+job(name:String);
+
+customskill(name:String);
+
+book(serialversionuid:long, title:String, indexmap:Map<String,String>);
+
+department(serialversionuid:long, name:String, ids:Long, subdepts:Map<String,String>, tasks:Map<Responsibility,Task>);
+
+person(serialversionuid:long, name:String, age:int, phonenumbers:Map<String,String>);
+
+phone(serialversionuid:long, phonenumber:String);
+
+company(serialversionuid:long, name:String);
+
+country(serialversionuid:long, name:String);
+
+state(serialversionuid:long, name:String);
+
+bookstore(address:String, invertory:Map<Book,Long>);
+
+book(name:String, isbn:String);
+
+custompeference(name:String);
+
+part(serialversionuid:long, name:String, active:Boolean);
+
+weapon(serialversionuid:long, quantity:Long, name:String, symbol:String);
+
+book(serialversionuid:long, title:String, name:String);
+
+project(name:String);
+
+project_employee(employees_id:Project [PK] #FK to Project,projects_id:collection<employee> [PK] #FK to collection<employee>);
+
+phone(serialversionuid:long, number:String, type:PhoneType, GeneratedName:Employee #FK to(employee));
+
+address(serialversionuid:long, street:String, city:String);
+
+department(name:String);
+
+employee(serialversionuid:long, name:String, salary:long, start:Date, GeneratedName:Address #FK to(address), dept:Department #FK to(department), manager:Employee #FK to(employee));
+
+creditaccountjoin(creditlimit:BigDecimal);
+
+debitaccountjoin(overdraftfee:BigDecimal);
+
+accountjoin(id:Long [PK], owner:String, balance:BigDecimal, interestrate:BigDecimal);
+
+debitaccount(serialversionuid:long, overdraftfee:BigDecimal);
+
+creditaccount(serialversionuid:long, creditlimit:BigDecimal);
+
+detailproduct(price:Money);
+
+product(serialversionuid:long, id:Long [PK], code:String, name:String);
+
+stockproduct(serialversionuid:long, currency:String);
+
+hperson(serialversionuid:long, id:Long [PK], firstname:String, email:String);
+
+javatask(refactoringname:String);
+
+groovytask(writenewrule:String);
+
+jpatask(additionalaction:String);
+
+task(name:String, hourscost:int, person:HPerson #FK to(hperson));
+
+crew(/***/serialversionuid:long, count:int);
+
+crewbi(serialversionuid:long, count:int);
+
+tank(/***/serialversionuid:long, name:String, serialnumber:String);
+
+tank_crew(tank_id:Tank [PK] #FK to Tank,crew_id:set<crew> [PK] #FK to set<crew>);
+
+tankbi(/***/serialversionuid:long, name:String, serialnumber:String);
+
+tank_crew(tank_id:TankBi [PK] #FK to TankBi,crew_id:set<crewbi> [PK] #FK to set<crewbi>);
+
+address(serialversionuid:long, street:String);
+
+user(serialversionuid:long, login:String);
+
+usersaddress(GeneratedName:Id, addedby:String, addedon:Date, GeneratedName:User #FK to(user), GeneratedName:Address #FK to(address));
+
+dog(name:String);
+
+persondog(GeneratedName:Person [PK] #FK to(person), GeneratedName:Dog [PK] #FK to(dog), adoption:Date);
+
+person(serialversionuid:long, name:String);
+
+tablegeneratorentity(tablegenname:String);
+
+generatorone(go:String);
+
+assignedentity(id:Long [PK], name:String);
+
+hiloentity(hiloname:String);
+
+note(id:String [PK], title:String);
+
+item(serialversionuid:long, name:String, owner:String, price:BigDecimal);
+
+offer(serialversionuid:long, GeneratedName:Item #FK to(Item), value:BigDecimal, auctionstart:LocalDate, auctionend:LocalDate);
+
+stringproperty(serialversionuid:long, name:String, value:String);
+
+charproperty(name:String, value:Character);
+
+propertymap(serialversionuid:long, name:String, properties:List<Property>);
+
+longproperty(serialversionuid:long, name:String, value:Long);
+
+pupil(serialversionuid:long, age:Integer, name:String, number:Integer);
+
+address(city:String, GeneratedName:Person #FK to(person), personid:Long);
+
+person(serialversionuid:long, firstname:String, lastname:String, email:String);
+
+company(serialversionuid:long, name:String, GeneratedName:Address);
+
+company_list<department>(companyID:company [PK] #FK to company,list<department>ID:list<department> [PK] #FK to list<department>);
+
+department(serialversionuid:long, name:String);
+
+employee(serialversionuid:long, firstname:String, lastname:String, salary:BigDecimal, age:int, GeneratedName:Company #FK to(company), pesel:String);
+
+todo(serialversionuid:long, summary:String, description:String);
+
+person(serialversionuid:long, id:Long [PK], firstname:String, email:String, modify:LocalDate, effectivemodify:LocalDate, disable:Boolean);
+
+personview(serialversionuid:long, id:Long [PK], email:String, disable:Boolean);
+
+task(serialversionuid:long, name:String, task_type: String);
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

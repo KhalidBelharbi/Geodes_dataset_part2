@@ -1,0 +1,19 @@
+
+account(accountid:Integer [PK], sum:Double, GeneratedName:Customer #FK to(customer));
+
+providerproduct(providerproductid:Integer [PK], GeneratedName:Provider #FK to(provider), GeneratedName:Product #FK to(product), qtyavailable:Integer);
+
+user(userid:Integer [PK], username:String, userpassword:String, iscustomer:Boolean, isprovider:Boolean, GeneratedName:Customer #FK to(customer), GeneratedName:Provider #FK to(provider), status:String, email:String, register:Date);
+
+customer(customerid:Integer [PK], customername:String, address:String, GeneratedName:User #FK to(user));
+
+billproviderproduct(billproviderproductid:Integer [PK], GeneratedName:Bill #FK to(bill), GeneratedName:ProviderProduct #FK to(providerproduct), qtyrequested:Integer);
+
+provider(providerid:Integer [PK], providername:String, GeneratedName:User #FK to(user));
+
+bill(billid:Integer [PK], bill:Date, ispaid:Boolean, GeneratedName:Customer #FK to(customer));
+
+product(productid:Integer [PK], productname:String, description:String, price:Double);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

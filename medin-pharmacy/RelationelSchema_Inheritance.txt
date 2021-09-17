@@ -1,0 +1,37 @@
+
+category(/***/serialversionuid:long, categorycode:String, GeneratedName:Status, categoryname:String, imageurl:String, description:String, displayorder:Integer, GeneratedName:Category #FK to(category), GeneratedName:Catalog #FK to(catalog), GeneratedName:Store #FK to(store));
+
+customerorderlineitem(/***/serialversionuid:long, GeneratedName:CustomerOrder #FK to(customerorder), quantity:Long, totallineitemtax:Double, totallineitemcharges:Double, totallineitemprices:Double, totallineitemamount:Double, productprice:Double, productid:String);
+
+catalog(/***/serialversionuid:long, name:String, GeneratedName:Status, description:String, catalogcode:String);
+
+address(/***/serialversionuid:long, addressline1:String, addressline2:String, street:String, city:String, district:String, state:String, country:String, zipcode:String, GeneratedName:AddressType);
+
+loyaltycard(/***/serialversionuid:long, loyaltycardcode:String, description:String, loyaltycardname:String, GeneratedName:Currency #FK to(currency));
+
+customerorder(/***/serialversionuid:long, storeid:Long, customerid:Long, GeneratedName:OrderStatus, orderrefernceid:String, totalproductprice:Double, totaltaxprice:Double, totalproductcharges:Double, totalamount:Double, status:String);
+
+loyaltyledger(/***/serialversionuid:long, points:Long, pointsremaining:Long, balance:Long, remarks:String, type:LedgerType, expiry:Date, details:String, GeneratedName:LoyaltyTransaction #FK to(loyaltytransaction), customerid:Long);
+
+user(/***/serialversionuid:long, username:String, password:String, email:String, status:String);
+
+productcategory(/***/serialversionuid:long, GeneratedName:Product #FK to(product), GeneratedName:Category #FK to(category));
+
+product(/***/serialversionuid:long, productcode:String, GeneratedName:Status, imageurl:String, description:String, productname:String, totalquantity:Integer, quantityperpack:Integer, GeneratedName:ProductUnit, sellingprice:Double, mrpprice:Double);
+
+loyaltytransaction(/***/serialversionuid:long, pointsearned:Long, pointsredeemed:Long, loyaltyreferenceid:String, description:String, data:String, GeneratedName:CustomerLoyalty #FK to(customerloyalty), loyaltytype:String, GeneratedName:LoyaltyStatus);
+
+currency(/***/serialversionuid:long, currencycode:String, name:String, conversionratio:Double);
+
+customer(/***/serialversionuid:long, mobilenumber:String, name:String, email:String, status:String);
+
+store(/***/serialversionuid:long, imageurl:String, storecode:String, name:String, GeneratedName:Status, storetype:String, shortname:String, latitude:String, longitude:String, rating:String, description:String, GeneratedName:Address #FK to(address));
+
+baseentity(/***/serialversionuid:long, id:Long [PK], createdby:String, createdtime:Date, modifiedby:String, modifiedtime:Date);
+
+customerloyalty(/***/serialversionuid:long, points:Long, GeneratedName:Customer #FK to(customer), GeneratedName:LoyaltyCard #FK to(loyaltycard));
+
+storeschedule(/***/serialversionuid:long, dayofweek:String, status:String, opentime:String, closetime:String, GeneratedName:Store #FK to(store));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

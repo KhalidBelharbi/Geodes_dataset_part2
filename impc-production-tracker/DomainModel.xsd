@@ -1,0 +1,1740 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="genelistrepositorytestconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reventity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="timestamp" type="xs:long" />
+        <xs:element name="createdby" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="report" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="report" type="xs:string" />
+          <xs:element name="" type="reporttype" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="reporttype" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="ispublic" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="historydetail" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="field" type="xs:string" />
+          <xs:element name="oldvalue" type="xs:string" />
+          <xs:element name="newvalue" type="xs:string" />
+          <xs:element name="referenceentity" type="xs:string" />
+          <xs:element name="oldvalueentityid" type="xs:string" />
+          <xs:element name="newvalueentityid" type="xs:string" />
+          <xs:element name="note" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="history" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="entityname" type="xs:string" />
+          <xs:element name="entityid" type="xs:long" />
+          <xs:element name="user" type="xs:string" />
+          <xs:element name="date" type="xs:anyType" />
+          <xs:element name="comment" type="xs:string" />
+          <xs:element name="historydetailset" type="historydetail" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="funder" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="plans" type="plan" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="workgroups" type="workgroup" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="workunit" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="fullname" type="xs:string" />
+          <xs:element name="ilarcode" type="xs:string" />
+          <xs:element name="consortia" type="consortium" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="workgroups" type="workgroup" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="workgroup" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="funders" type="funder" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="workunits" type="workunit" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="institute" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="projectconsortia" type="projectconsortium" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="person" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="authid" type="xs:string" />
+          <xs:element name="isactive" type="xs:anyType" />
+          <xs:element name="contactable" type="xs:anyType" />
+          <xs:element name="//thepasswordisnotsavedinthedatabase.transientpassword" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="ebiadmin" type="xs:anyType" />
+          <xs:element name="personrolesworkunits" type="personroleworkunit" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="personrolesconsortia" type="personroleconsortium" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="personroleworkunit" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="person" nillable="true" minOccurs="0" />
+          <xs:element name="" type="workunit" nillable="true" minOccurs="0" />
+          <xs:element name="" type="role" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="personroleconsortium" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="person" nillable="true" minOccurs="0" />
+          <xs:element name="" type="consortium" nillable="true" minOccurs="0" />
+          <xs:element name="" type="role" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="consortium" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="workunits" type="workunit" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseentity" >
+      <xs:sequence>
+        <xs:element name="createdat" type="xs:anyType" />
+        <xs:element name="lastmodified" type="xs:anyType" />
+        <xs:element name="createdby" type="xs:string" />
+        <xs:element name="lastmodifiedby" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sequencecategory" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sequence" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="sequence" type="xs:string" />
+          <xs:element name="" type="sequencetype" nillable="true" minOccurs="0" />
+          <xs:element name="" type="sequencecategory" nillable="true" minOccurs="0" />
+          <xs:element name="sequencelocations" type="sequencelocation" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="projectintentionsequences" type="projectintentionsequence" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sequencetype" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="location" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="chr" type="xs:string" />
+          <xs:element name="start" type="xs:long" />
+          <xs:element name="stop" type="xs:long" />
+          <xs:element name="strand" type="xs:string" />
+          <xs:element name="genomebuild" type="xs:string" />
+          <xs:element name="" type="species" nillable="true" minOccurs="0" />
+          <xs:element name="" type="strain" nillable="true" minOccurs="0" />
+          <xs:element name="sequencelocations" type="sequencelocation" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="targrepescellmutationtype" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="targrepescellmutation" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="escell" type="targrepescell" nillable="true" minOccurs="0" />
+          <xs:element name="alleleconfirmed" type="xs:anyType" />
+          <xs:element name="mgiallelesymbolwithoutimpcabbreviation" type="xs:anyType" />
+          <xs:element name="mgiallelesymbolsuperscript" type="xs:string" />
+          <xs:element name="allelesymbolsuperscripttemplate" type="xs:string" />
+          <xs:element name="mgialleleaccessionid" type="xs:string" />
+          <xs:element name="alleletype" type="targrepescellmutationtype" nillable="true" minOccurs="0" />
+          <xs:element name="genbankfile" type="targrepgenbankfile" nillable="true" minOccurs="0" />
+          <xs:element name="containslacz" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="targrepikmcproject" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="status" type="targrepikmcprojectstatus" nillable="true" minOccurs="0" />
+          <xs:element name="pipeline" type="targreppipeline" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="targrepikmcprojectstatus" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="productstatustype" type="targrepikmcprojectstatustype" nillable="true" minOccurs="0" />
+          <xs:element name="orderby" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="targrepikmcprojectstatustype" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="targreptargetingvector" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="allele" type="targrepallele" nillable="true" minOccurs="0" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="//namefortheikmcproject,ifit'sanewprojectnamethesystemcreatesanewentryin//thetarg_rep_ikmc_projecttable.ikmcprojectname" type="xs:string" />
+          <xs:element name="intermediatevector" type="xs:string" />
+          <xs:element name="reporttopublic" type="xs:anyType" />
+          <xs:element name="pipeline" type="targreppipeline" nillable="true" minOccurs="0" />
+          <xs:element name="ikmcproject" type="targrepikmcproject" nillable="true" minOccurs="0" />
+          <xs:element name="mgiallelenameprediction" type="xs:string" />
+          <xs:element name="alleletypeprediction" type="xs:string" />
+          <xs:element name="productioncentreautoupdate" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="targrepescellmutationsubtype" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="targrepescell" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="allele" type="targrepallele" nillable="true" minOccurs="0" />
+          <xs:element name="targetingvector" type="targreptargetingvector" nillable="true" minOccurs="0" />
+          <xs:element name="parentalcellline" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="comment" type="xs:string" />
+          <xs:element name="//namefortheikmcproject,ifit'sanewprojectnamethesystemcreatesanewentryin//thetarg_rep_ikmc_projecttable.ikmcprojectname" type="xs:string" />
+          <xs:element name="pipeline" type="targreppipeline" nillable="true" minOccurs="0" />
+          <xs:element name="reporttopublic" type="xs:anyType" />
+          <xs:element name="strain" type="targrepstrain" nillable="true" minOccurs="0" />
+          <xs:element name="userqcmaptest" type="xs:string" />
+          <xs:element name="userqckaryotype" type="xs:string" />
+          <xs:element name="userqctvbackboneassay" type="xs:string" />
+          <xs:element name="userqcloxpconfirmation" type="xs:string" />
+          <xs:element name="userqcsouthernblot" type="xs:string" />
+          <xs:element name="userqclossofwtallele" type="xs:string" />
+          <xs:element name="userqcneocountqpcr" type="xs:string" />
+          <xs:element name="userqclaczsrpcr" type="xs:string" />
+          <xs:element name="userqcmutantspecificsrpcr" type="xs:string" />
+          <xs:element name="userqcfiveprimecassetteintegrity" type="xs:string" />
+          <xs:element name="userqcneosrpcr" type="xs:string" />
+          <xs:element name="userqcfiveprimelrpcr" type="xs:string" />
+          <xs:element name="userqcthreeprimelrpcr" type="xs:string" />
+          <xs:element name="userqccomment" type="xs:string" />
+          <xs:element name="mutationsubtype" type="targrepescellmutationsubtype" nillable="true" minOccurs="0" />
+          <xs:element name="productioncentreautoupdate" type="xs:anyType" />
+          <xs:element name="userqcloxpsrpcrandsequencing" type="xs:string" />
+          <xs:element name="userqckaryotypespread" type="xs:string" />
+          <xs:element name="userqckaryotypepcr" type="xs:string" />
+          <xs:element name="userqcmouseclinic" type="targrepcentre" nillable="true" minOccurs="0" />
+          <xs:element name="userqcchr1" type="xs:string" />
+          <xs:element name="userqcchr11" type="xs:string" />
+          <xs:element name="userqcchr8" type="xs:string" />
+          <xs:element name="userqcchry" type="xs:string" />
+          <xs:element name="userqclaczqpcr" type="xs:string" />
+          <xs:element name="ikmcproject" type="targrepikmcproject" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="targrepstrain" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="mgistrainaccid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="targrepcentre" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="fullname" type="xs:string" />
+          <xs:element name="ilarcode" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="targreppipeline" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="reporttopublic" type="xs:anyType" />
+          <xs:element name="genetrap" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="targrepgene" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="symbol" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="genomebuild" type="xs:string" />
+          <xs:element name="entrezgeneid" type="xs:long" />
+          <xs:element name="ncbichromosome" type="xs:string" />
+          <xs:element name="ncbistart" type="xs:long" />
+          <xs:element name="ncbistop" type="xs:long" />
+          <xs:element name="ncbistrand" type="xs:string" />
+          <xs:element name="ensemblgeneid" type="xs:string" />
+          <xs:element name="ensemblchromosome" type="xs:string" />
+          <xs:element name="ensemblstart" type="xs:long" />
+          <xs:element name="ensemblstop" type="xs:long" />
+          <xs:element name="ensemblstrand" type="xs:string" />
+          <xs:element name="mgicm" type="xs:string" />
+          <xs:element name="mgichromosome" type="xs:string" />
+          <xs:element name="mgistart" type="xs:long" />
+          <xs:element name="mgistop" type="xs:long" />
+          <xs:element name="mgistrand" type="xs:string" />
+          <xs:element name="accid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="targrepdistributionqc" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="fiveprimesrpcr" type="xs:string" />
+          <xs:element name="threeprimesrpcr" type="xs:string" />
+          <xs:element name="karyotypelow" type="xs:double" />
+          <xs:element name="karyotypehigh" type="xs:double" />
+          <xs:element name="copynumber" type="xs:string" />
+          <xs:element name="fiveprimelrpcr" type="xs:string" />
+          <xs:element name="threeprimelrpcr" type="xs:string" />
+          <xs:element name="thawing" type="xs:string" />
+          <xs:element name="loa" type="xs:string" />
+          <xs:element name="loxp" type="xs:string" />
+          <xs:element name="lacz" type="xs:string" />
+          <xs:element name="chr1" type="xs:string" />
+          <xs:element name="chr8a" type="xs:string" />
+          <xs:element name="chr8b" type="xs:string" />
+          <xs:element name="chr11a" type="xs:string" />
+          <xs:element name="chr11b" type="xs:string" />
+          <xs:element name="chry" type="xs:string" />
+          <xs:element name="escell" type="targrepescell" nillable="true" minOccurs="0" />
+          <xs:element name="escelldistributioncentre" type="targrepescelldistributioncentre" nillable="true" minOccurs="0" />
+          <xs:element name="loxpsrpcr" type="xs:string" />
+          <xs:element name="neoqpcr" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="targrepescelldistributioncentre" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="targrepmutationsubtype" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="code" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="targrepallele" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="gene" type="targrepgene" nillable="true" minOccurs="0" />
+          <xs:element name="//@value("defaultgrcm38")assembly" type="xs:string" />
+          <xs:element name="chromosome" type="xs:string" />
+          <xs:element name="strand" type="xs:string" />
+          <xs:element name="homologyarmstart" type="xs:anyType" />
+          <xs:element name="homologyarmend" type="xs:anyType" />
+          <xs:element name="loxpstart" type="xs:anyType" />
+          <xs:element name="loxpend" type="xs:anyType" />
+          <xs:element name="cassettestart" type="xs:anyType" />
+          <xs:element name="cassetteend" type="xs:anyType" />
+          <xs:element name="cassette" type="xs:string" />
+          <xs:element name="backbone" type="xs:string" />
+          <xs:element name="subtypedescription" type="xs:string" />
+          <xs:element name="floxedstartexon" type="xs:string" />
+          <xs:element name="floxedendexon" type="xs:string" />
+          <xs:element name="projectdesignid" type="xs:anyType" />
+          <xs:element name="reporter" type="xs:string" />
+          <xs:element name="mutationmethod" type="targrepmutationmethod" nillable="true" minOccurs="0" />
+          <xs:element name="mutationtype" type="targrepmutationtype" nillable="true" minOccurs="0" />
+          <xs:element name="mutationsubtype" type="targrepmutationsubtype" nillable="true" minOccurs="0" />
+          <xs:element name="cassettetype" type="xs:string" />
+          <xs:element name="intron" type="xs:anyType" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="hasissue" type="xs:anyType" />
+          <xs:element name="issuedescription" type="xs:string" />
+          <xs:element name="sequence" type="xs:string" />
+          <xs:element name="taqmancriticaldelassayid" type="xs:string" />
+          <xs:element name="taqmanupstreamdelassayid" type="xs:string" />
+          <xs:element name="taqmandownstreamdelassayid" type="xs:string" />
+          <xs:element name="wildtypeoligossequence" type="xs:string" />
+          <xs:element name="allelegenbankfile" type="targrepgenbankfile" nillable="true" minOccurs="0" />
+          <xs:element name="vectorgenbankfile" type="targrepgenbankfile" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="targrepgenbankfile" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="host" type="xs:string" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="genbank_file_path" type="xs:string" />
+          <xs:element name="allele_image_path" type="xs:string" />
+          <xs:element name="cassette_image_path" type="xs:string" />
+          <xs:element name="simple_image_path" type="xs:string" />
+          <xs:element name="vector_image_path" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="targrepmutationtype" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="allelecode" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="targrepmutationmethod" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="alleleprefix" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="targrepallelesequenceannotationmutationtype" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="targrepallelesequenceannotation" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="mutationtype" type="targrepallelesequenceannotationmutationtype" nillable="true" minOccurs="0" />
+          <xs:element name="expected" type="xs:string" />
+          <xs:element name="actual" type="xs:string" />
+          <xs:element name="comment" type="xs:string" />
+          <xs:element name="oligosstartcoordinate" type="xs:anyType" />
+          <xs:element name="oligosendcoordinate" type="xs:anyType" />
+          <xs:element name="mutationlength" type="xs:anyType" />
+          <xs:element name="genomicstartcoordinate" type="xs:anyType" />
+          <xs:element name="genomicendcoordinate" type="xs:anyType" />
+          <xs:element name="allele" type="targrepallele" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="gene" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="symbol" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="genomebuild" type="xs:string" />
+          <xs:element name="entrezgeneid" type="xs:long" />
+          <xs:element name="ncbichromosome" type="xs:string" />
+          <xs:element name="ncbistart" type="xs:long" />
+          <xs:element name="ncbistop" type="xs:long" />
+          <xs:element name="ncbistrand" type="xs:string" />
+          <xs:element name="ensemblgeneid" type="xs:string" />
+          <xs:element name="ensemblchromosome" type="xs:string" />
+          <xs:element name="ensemblstart" type="xs:long" />
+          <xs:element name="ensemblstop" type="xs:long" />
+          <xs:element name="ensemblstrand" type="xs:string" />
+          <xs:element name="mgicm" type="xs:string" />
+          <xs:element name="mgichromosome" type="xs:string" />
+          <xs:element name="mgistart" type="xs:long" />
+          <xs:element name="mgistop" type="xs:long" />
+          <xs:element name="mgistrand" type="xs:string" />
+          <xs:element name="mutations" type="mutation" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="species" nillable="true" minOccurs="0" />
+          <xs:element name="geneflags" type="geneflag" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="accid" type="xs:string" />
+          <xs:element name="projectintentiongenes" type="projectintentiongene" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="geneflag" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="genes" type="gene" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="genelist" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="consortium" nillable="true" minOccurs="0" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="listrecords" type="listrecord" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="listrecord" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="genelist" nillable="true" minOccurs="0" />
+        <xs:element name="note" type="xs:string" />
+        <xs:element name="visible" type="xs:anyType" />
+        <xs:element name="genesbyrecord" type="genebylistrecord" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="listrecordtypes" type="listrecordtype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="listrecordtype" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="GeneratedName" type="genelist" nillable="true" minOccurs="0" />
+        <xs:element name="listrecords" type="listrecord" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="genebylistrecord" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="listrecord" nillable="true" minOccurs="0" />
+        <xs:element name="accid" type="xs:string" />
+        <xs:element name="transientinputsymbolvalue" type="xs:string" />
+        <xs:element name="index" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="status" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="ordering" type="xs:anyType" />
+          <xs:element name="isabortionstatus" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="molecularmutationtype" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="type" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mutation" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="//publicidentifierofthemutation.min" type="xs:string" />
+          <xs:element name="mgialleleid" type="xs:string" />
+          <xs:element name="symbol" type="xs:string" />
+          <xs:element name="mgiallelesymbolrequiresconstruction" type="xs:anyType" />
+          <xs:element name="mgiallelesymbolwithoutimpcabbreviation" type="xs:anyType" />
+          <xs:element name="alleleconfirmed" type="xs:anyType" />
+          <xs:element name="allelesymbolsuperscripttemplate" type="xs:string" />
+          <xs:element name="//thenexttwofieldsareforarturo'spipelinedescription" type="xs:string" />
+          <xs:element name="autodescription" type="xs:string" />
+          <xs:element name="imitsallele" type="xs:long" />
+          <xs:element name="" type="geneticmutationtype" nillable="true" minOccurs="0" />
+          <xs:element name="" type="molecularmutationtype" nillable="true" minOccurs="0" />
+          <xs:element name="" type="genbankfile" nillable="true" minOccurs="0" />
+          <xs:element name="bamfile" type="xs:anyType" />
+          <xs:element name="bamfileindex" type="xs:anyType" />
+          <xs:element name="vcffile" type="xs:anyType" />
+          <xs:element name="vcffileindex" type="xs:anyType" />
+          <xs:element name="genes" type="gene" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="outcomes" type="outcome" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="mutationcategorizations" type="mutationcategorization" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="mutationqcresults" type="mutationqcresult" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="mutationsequences" type="mutationsequence" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="geneticmutationtype" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mutationannotation" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="mutation" nillable="true" minOccurs="0" />
+          <xs:element name="chr" type="xs:string" />
+          <xs:element name="start" type="xs:long" />
+          <xs:element name="stop" type="xs:long" />
+          <xs:element name="refseq" type="xs:string" />
+          <xs:element name="altseq" type="xs:string" />
+          <xs:element name="exdels" type="xs:string" />
+          <xs:element name="partialexdels" type="xs:string" />
+          <xs:element name="txc" type="xs:string" />
+          <xs:element name="splicedonor" type="xs:anyType" />
+          <xs:element name="spliceacceptor" type="xs:anyType" />
+          <xs:element name="proteincodingregion" type="xs:anyType" />
+          <xs:element name="intronic" type="xs:anyType" />
+          <xs:element name="frameshift" type="xs:anyType" />
+          <xs:element name="linkedconsequence" type="xs:string" />
+          <xs:element name="downstreamofstop" type="xs:anyType" />
+          <xs:element name="stopgained" type="xs:anyType" />
+          <xs:element name="aminoacid" type="xs:string" />
+          <xs:element name="dupcoords" type="xs:string" />
+          <xs:element name="consequence" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="genbankfile" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="imitsgenbankfile" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mutationsequence" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="mutation" nillable="true" minOccurs="0" />
+          <xs:element name="" type="sequence" nillable="true" minOccurs="0" />
+          <xs:element name="index" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mutationcategorizationtype" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mutationcategorization" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="" type="mutationcategorizationtype" nillable="true" minOccurs="0" />
+          <xs:element name="projectintentions" type="projectintention" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="qcstatus" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="qctype" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mutationqcresult" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="mutation" nillable="true" minOccurs="0" />
+          <xs:element name="" type="qctype" nillable="true" minOccurs="0" />
+          <xs:element name="status" type="qcstatus" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="specimen" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="outcome" nillable="true" minOccurs="0" />
+          <xs:element name="" type="strain" nillable="true" minOccurs="0" />
+          <xs:element name="specimenexternalref" type="xs:string" />
+          <xs:element name="" type="specimentype" nillable="true" minOccurs="0" />
+          <xs:element name="" type="status" nillable="true" minOccurs="0" />
+          <xs:element name="specimenstatusstamps" type="specimenstatusstamp" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="specimenproperties" type="specimenproperty" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="transientevent" type="processevent" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="specimentype" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="propertytype" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="specimenproperty" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="specimen" nillable="true" minOccurs="0" />
+          <xs:element name="" type="propertytype" nillable="true" minOccurs="0" />
+          <xs:element name="value" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="specimenstatusstamp" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="specimen" nillable="true" minOccurs="0" />
+          <xs:element name="" type="status" nillable="true" minOccurs="0" />
+          <xs:element name="date" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="projectintention" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="project" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="molecularmutationtype" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="projectintentiongene" nillable="true" minOccurs="0" />
+        <xs:element name="projectintentionsequences" type="projectintentionsequence" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="mutationcategorizations" type="mutationcategorization" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="projectintentionsequence" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="projectintention" nillable="true" minOccurs="0" />
+          <xs:element name="" type="sequence" nillable="true" minOccurs="0" />
+          <xs:element name="index" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="projectintentiongene" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="projectintention" nillable="true" minOccurs="0" />
+          <xs:element name="" type="gene" nillable="true" minOccurs="0" />
+          <xs:element name="transientallorthologs" type="ortholog" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="transientbestorthologs" type="ortholog" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="distributionproduct" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="distributioncentre" type="workunit" nillable="true" minOccurs="0" />
+          <xs:element name="" type="producttype" nillable="true" minOccurs="0" />
+          <xs:element name="" type="colony" nillable="true" minOccurs="0" />
+          <xs:element name="" type="distributionnetwork" nillable="true" minOccurs="0" />
+          <xs:element name="startdate" type="xs:anyType" />
+          <xs:element name="enddate" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="distributionnetwork" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="producttype" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="colonystatusstamp" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="colony" nillable="true" minOccurs="0" />
+          <xs:element name="" type="status" nillable="true" minOccurs="0" />
+          <xs:element name="date" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="colony" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="outcome" nillable="true" minOccurs="0" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="legacymodification" type="xs:anyType" />
+          <xs:element name="legacywithoutsequence" type="xs:anyType" />
+          <xs:element name="" type="strain" nillable="true" minOccurs="0" />
+          <xs:element name="" type="status" nillable="true" minOccurs="0" />
+          <xs:element name="genotypingcomment" type="xs:string" />
+          <xs:element name="colonystatusstamps" type="colonystatusstamp" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="distributionproducts" type="distributionproduct" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="transientevent" type="processevent" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="species" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="taxonid" type="xs:anyType" />
+          <xs:element name="projects" type="project" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="excisiontype" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="strain" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="mgistrainaccid" type="xs:string" />
+          <xs:element name="" type="excisiontype" nillable="true" minOccurs="0" />
+          <xs:element name="straintypes" type="straintype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="straintype" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="strains" type="strain" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="projectcompletionnote" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="note" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="projecttype" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="assignmentstatus" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="ordering" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="assignmentstatusstamp" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="project" nillable="true" minOccurs="0" />
+          <xs:element name="" type="assignmentstatus" nillable="true" minOccurs="0" />
+          <xs:element name="date" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="privacy" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="project" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="transientisobjectrestricted" type="xs:anyType" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="tpn" type="xs:string" />
+          <xs:element name="imitsmiplan" type="xs:long" />
+          <xs:element name="" type="assignmentstatus" nillable="true" minOccurs="0" />
+          <xs:element name="summary" type="status" nillable="true" minOccurs="0" />
+          <xs:element name="assignmentstatusstamps" type="assignmentstatusstamp" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="summarystatusstamps" type="projectsummarystatusstamp" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="plans" type="plan" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="reactivationdate" type="xs:anyType" />
+          <xs:element name="recovery" type="xs:anyType" />
+          <xs:element name="escellqconly" type="xs:anyType" />
+          <xs:element name="comment" type="xs:string" />
+          <xs:element name="" type="privacy" nillable="true" minOccurs="0" />
+          <xs:element name="projectintentions" type="projectintention" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="species" type="species" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="projectconsortia" type="projectconsortium" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="projectescellqc" nillable="true" minOccurs="0" />
+          <xs:element name="" type="projecttype" nillable="true" minOccurs="0" />
+          <xs:element name="completionnote" type="projectcompletionnote" nillable="true" minOccurs="0" />
+          <xs:element name="completioncomment" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="projectsummarystatusstamp" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="project" nillable="true" minOccurs="0" />
+          <xs:element name="" type="status" nillable="true" minOccurs="0" />
+          <xs:element name="date" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="escellqccomment" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="escellcentrepipeline" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="centres" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="projectescellqc" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="project" nillable="true" minOccurs="0" />
+          <xs:element name="numberofescellsreceived" type="xs:anyType" />
+          <xs:element name="escellsreceivedfrom" type="escellcentrepipeline" nillable="true" minOccurs="0" />
+          <xs:element name="escellsreceivedon" type="xs:anyType" />
+          <xs:element name="numberofescellsstartingqc" type="xs:anyType" />
+          <xs:element name="numberofescellspassingqc" type="xs:anyType" />
+          <xs:element name="" type="escellqccomment" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="projectconsortium" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="project" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="consortium" nillable="true" minOccurs="0" />
+        <xs:element name="institutes" type="institute" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="plantype" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="protocol" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="plans" type="plan" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="protocoltype" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="protocolversion" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="protocol" nillable="true" minOccurs="0" />
+          <xs:element name="protocolurl" type="xs:string" />
+          <xs:element name="version" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="protocoltype" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="attempttype" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="phenotypingstagetype" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tissuedistribution" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="phenotypingstage" nillable="true" minOccurs="0" />
+          <xs:element name="startdate" type="xs:anyType" />
+          <xs:element name="enddate" type="xs:anyType" />
+          <xs:element name="" type="materialdepositedtype" nillable="true" minOccurs="0" />
+          <xs:element name="" type="workunit" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="phenotypingstagestatusstamp" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="phenotypingstage" nillable="true" minOccurs="0" />
+          <xs:element name="" type="status" nillable="true" minOccurs="0" />
+          <xs:element name="date" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="materialdepositedtype" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="phenotypingstage" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="psn" type="xs:string" />
+          <xs:element name="event" type="processevent" nillable="true" minOccurs="0" />
+          <xs:element name="" type="phenotypingattempt" nillable="true" minOccurs="0" />
+          <xs:element name="" type="phenotypingstagetype" nillable="true" minOccurs="0" />
+          <xs:element name="phenotypingexperimentsstarted" type="xs:anyType" />
+          <xs:element name="tissuedistributions" type="tissuedistribution" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="status" nillable="true" minOccurs="0" />
+          <xs:element name="initialdatareleasedate" type="xs:anyType" />
+          <xs:element name="phenotypingstagestatusstamps" type="phenotypingstagestatusstamp" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="phenotypingattempt" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="plan" nillable="true" minOccurs="0" />
+          <xs:element name="imitsphenotypeattempt" type="xs:long" />
+          <xs:element name="imitsphenotypingproduction" type="xs:long" />
+          <xs:element name="imitsparentcolony" type="xs:long" />
+          <xs:element name="donotcounttowardscompleteness" type="xs:anyType" />
+          <xs:element name="phenotypingexternalref" type="xs:string" />
+          <xs:element name="" type="strain" nillable="true" minOccurs="0" />
+          <xs:element name="cohort" type="workunit" nillable="true" minOccurs="0" />
+          <xs:element name="phenotypingstages" type="phenotypingstage" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="escellattempt" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="plan" nillable="true" minOccurs="0" />
+          <xs:element name="imitsmiattempt" type="xs:long" />
+          <xs:element name="//connectiontotarg_rep_es_cell//thisstorestheidbutisnotspecifiedasaforeignkey//theidisconvertedtotheescellnameintheserviceanddto.targrepescellid" type="xs:long" />
+          <xs:element name="midate" type="xs:anyType" />
+          <xs:element name="miexternalref" type="xs:string" />
+          <xs:element name="experimental" type="xs:anyType" />
+          <xs:element name="comment" type="xs:string" />
+          <xs:element name="blast" type="strain" nillable="true" minOccurs="0" />
+          <xs:element name="totalblastsinjected" type="xs:anyType" />
+          <xs:element name="totaltransferred" type="xs:anyType" />
+          <xs:element name="numbersurrogatesreceiving" type="xs:anyType" />
+          <xs:element name="totalpupsborn" type="xs:anyType" />
+          <xs:element name="totalfemalechimeras" type="xs:anyType" />
+          <xs:element name="totalmalechimeras" type="xs:anyType" />
+          <xs:element name="//calculatebythesystem:total_female_chimeras+total_male_chimerastotalchimeras" type="xs:anyType" />
+          <xs:element name="numberofmaleswith0to39percentchimerism" type="xs:anyType" />
+          <xs:element name="numberofmaleswith40to79percentchimerism" type="xs:anyType" />
+          <xs:element name="numberofmaleswith80to99percentchimerism" type="xs:anyType" />
+          <xs:element name="numberofmaleswith100percentchimerism" type="xs:anyType" />
+          <xs:element name="testcross" type="strain" nillable="true" minOccurs="0" />
+          <xs:element name="datechimerasmated" type="xs:anyType" />
+          <xs:element name="numberofchimeramatingsattempted" type="xs:anyType" />
+          <xs:element name="numberofchimeramatingssuccessful" type="xs:anyType" />
+          <xs:element name="numberofchimeraswithgltfromcct" type="xs:anyType" />
+          <xs:element name="numberofchimeraswithgltfromgenotyping" type="xs:anyType" />
+          <xs:element name="numberofchimeraswith0to9percentglt" type="xs:anyType" />
+          <xs:element name="numberofchimeraswith10to49percentglt" type="xs:anyType" />
+          <xs:element name="numberofchimeraswith50to99percentglt" type="xs:anyType" />
+          <xs:element name="numberofchimeraswith100percentglt" type="xs:anyType" />
+          <xs:element name="totalf1micefrommatings" type="xs:anyType" />
+          <xs:element name="numberofcctoffspring" type="xs:anyType" />
+          <xs:element name="//setbythesystemcassettetransmissionverified" type="xs:anyType" />
+          <xs:element name="//setbythesystemcassettetransmissionverifiedautocomplete" type="xs:anyType" />
+          <xs:element name="numberofhetoffspring" type="xs:anyType" />
+          <xs:element name="numberoflivegltoffspring" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="creallelemodificationattempt" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="plan" nillable="true" minOccurs="0" />
+        <xs:element name="imitsmouseallelemod" type="xs:long" />
+        <xs:element name="/*2021-05-26thisfieldthatstoresanidrelatingtothetargrepalleletablewasintheimitsdatabasetable,butwasnotobviouslyusedbyanycurrentimitscode,suchasthecontroller,andwasnotpresentintheimitswebinterface.therewasalsonoobviousreferencetoimitsallelemodificationdatainthecurrenttargrepwebinterface.thefieldprobablyrepresentsahistoricalartifact,butthelinkstothetargrepalleletablewhenspecifiedappearedcorrect.wehavemigratedthedataincaseitisrequiredlater,butdointendtoexposethefieldpublicly.*/targrepallele" type="xs:long" />
+        <xs:element name="numberofcrematingssuccessful" type="xs:anyType" />
+        <xs:element name="modificationexternalref" type="xs:string" />
+        <xs:element name="tatcre" type="xs:anyType" />
+        <xs:element name="deleter" type="strain" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="breedingtype" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="breedingattempt" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="plan" nillable="true" minOccurs="0" />
+          <xs:element name="imitsmouseallelemod" type="xs:long" />
+          <xs:element name="numberofcrematingsstarted" type="xs:anyType" />
+          <xs:element name="numberofcarematingssuccessful" type="xs:anyType" />
+          <xs:element name="creexcesion" type="xs:anyType" />
+          <xs:element name="tatcre" type="xs:anyType" />
+          <xs:element name="deleter" type="strain" nillable="true" minOccurs="0" />
+          <xs:element name="type" type="breedingtype" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="guideformat" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="guidesource" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="guide" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="crisprattempt" nillable="true" minOccurs="0" />
+          <xs:element name="sequence" type="xs:string" />
+          <xs:element name="guidesequence" type="xs:string" />
+          <xs:element name="pam" type="xs:string" />
+          <xs:element name="chr" type="xs:string" />
+          <xs:element name="start" type="xs:anyType" />
+          <xs:element name="stop" type="xs:anyType" />
+          <xs:element name="strand" type="xs:string" />
+          <xs:element name="genomebuild" type="xs:string" />
+          <xs:element name="grnaconcentration" type="xs:double" />
+          <xs:element name="truncatedguide" type="xs:anyType" />
+          <xs:element name="reversed" type="xs:anyType" />
+          <xs:element name="sangerservice" type="xs:anyType" />
+          <xs:element name="" type="guideformat" nillable="true" minOccurs="0" />
+          <xs:element name="" type="guidesource" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="nucleasetype" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="nucleaseclass" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="nuclease" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="crisprattempt" nillable="true" minOccurs="0" />
+          <xs:element name="concentration" type="xs:double" />
+          <xs:element name="" type="nucleasetype" nillable="true" minOccurs="0" />
+          <xs:element name="" type="nucleaseclass" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="reagent" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="crisprattemptreagent" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="crisprattempt" nillable="true" minOccurs="0" />
+          <xs:element name="" type="reagent" nillable="true" minOccurs="0" />
+          <xs:element name="concentration" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mutagenesisdonor" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="crisprattempt" nillable="true" minOccurs="0" />
+          <xs:element name="concentration" type="xs:double" />
+          <xs:element name="" type="preparationtype" nillable="true" minOccurs="0" />
+          <xs:element name="oligosequencefasta" type="xs:string" />
+          <xs:element name="//connectiontotarg_rep_targeting_vectorvectorname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="preparationtype" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="assay" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="crisprattempt" nillable="true" minOccurs="0" />
+          <xs:element name="" type="assaytype" nillable="true" minOccurs="0" />
+          <xs:element name="numfounderpups" type="xs:anyType" />
+          <xs:element name="numfounderselectedforbreeding" type="xs:anyType" />
+          <xs:element name="foundernumassays" type="xs:anyType" />
+          <xs:element name="numdeletiong0mutants" type="xs:anyType" />
+          <xs:element name="numg0wheremutationdetected" type="xs:anyType" />
+          <xs:element name="numhdrg0mutants" type="xs:anyType" />
+          <xs:element name="numhdrg0mutantsalldonorsinserted" type="xs:anyType" />
+          <xs:element name="numnhejg0mutants" type="xs:anyType" />
+          <xs:element name="numhrg0mutants" type="xs:anyType" />
+          <xs:element name="numhdrg0mutantssubsetdonorsinserted" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="assaytype" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="genotypeprimer" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="sequence" type="xs:string" />
+          <xs:element name="genomicstartcoordinate" type="xs:anyType" />
+          <xs:element name="genomicendcoordinate" type="xs:anyType" />
+          <xs:element name="" type="crisprattempt" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="crisprattempt" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="plan" nillable="true" minOccurs="0" />
+          <xs:element name="imitsmiattempt" type="xs:long" />
+          <xs:element name="midate" type="xs:anyType" />
+          <xs:element name="miexternalref" type="xs:string" />
+          <xs:element name="experimental" type="xs:anyType" />
+          <xs:element name="mutagenesisexternalref" type="xs:string" />
+          <xs:element name="totalembryosinjected" type="xs:anyType" />
+          <xs:element name="totalembryossurvived" type="xs:anyType" />
+          <xs:element name="embryo2cell" type="xs:string" />
+          <xs:element name="comment" type="xs:string" />
+          <xs:element name="embryotransferday" type="xs:string" />
+          <xs:element name="totaltransferred" type="xs:anyType" />
+          <xs:element name="" type="assay" nillable="true" minOccurs="0" />
+          <xs:element name="" type="strain" nillable="true" minOccurs="0" />
+          <xs:element name="guides" type="guide" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="primers" type="genotypeprimer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="crisprattemptreagents" type="crisprattemptreagent" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="nucleases" type="nuclease" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="mutagenesisdonors" type="mutagenesisdonor" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="planstartingpoint" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="plan" nillable="true" minOccurs="0" />
+          <xs:element name="" type="outcome" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="plan" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="event" type="processevent" nillable="true" minOccurs="0" />
+          <xs:element name="pin" type="xs:string" />
+          <xs:element name="" type="project" nillable="true" minOccurs="0" />
+          <xs:element name="funders" type="funder" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="workunit" nillable="true" minOccurs="0" />
+          <xs:element name="" type="workgroup" nillable="true" minOccurs="0" />
+          <xs:element name="" type="status" nillable="true" minOccurs="0" />
+          <xs:element name="planstatusstamps" type="planstatusstamp" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="plansummarystatusstamps" type="plansummarystatusstamp" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="summary" type="status" nillable="true" minOccurs="0" />
+          <xs:element name="" type="plantype" nillable="true" minOccurs="0" />
+          <xs:element name="comment" type="xs:string" />
+          <xs:element name="planflags" type="planflag" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="protocols" type="protocol" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="outcomes" type="outcome" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="planstartingpoints" type="planstartingpoint" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="attempttype" nillable="true" minOccurs="0" />
+          <xs:element name="" type="crisprattempt" nillable="true" minOccurs="0" />
+          <xs:element name="" type="phenotypingattempt" nillable="true" minOccurs="0" />
+          <xs:element name="" type="breedingattempt" nillable="true" minOccurs="0" />
+          <xs:element name="" type="creallelemodificationattempt" nillable="true" minOccurs="0" />
+          <xs:element name="" type="escellattempt" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="plansummarystatusstamp" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="plan" nillable="true" minOccurs="0" />
+          <xs:element name="" type="status" nillable="true" minOccurs="0" />
+          <xs:element name="date" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="planstatusstamp" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="plan" nillable="true" minOccurs="0" />
+          <xs:element name="" type="status" nillable="true" minOccurs="0" />
+          <xs:element name="date" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="planflag" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="plans" type="plan" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sequencelocation" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="sequence" nillable="true" minOccurs="0" />
+          <xs:element name="index" type="xs:anyType" />
+          <xs:element name="" type="location" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="outcome" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="tpo" type="xs:string" />
+          <xs:element name="" type="outcometype" nillable="true" minOccurs="0" />
+          <xs:element name="" type="plan" nillable="true" minOccurs="0" />
+          <xs:element name="mutations" type="mutation" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="colony" nillable="true" minOccurs="0" />
+          <xs:element name="" type="specimen" nillable="true" minOccurs="0" />
+          <xs:element name="planstartingpoints" type="planstartingpoint" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="outcometype" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

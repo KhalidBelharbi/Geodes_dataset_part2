@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="magazin" >
+      <xs:sequence>
+        <xs:element name="ind" type="xs:long" />
+        <xs:element name="emails" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="organizatie" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="adrese" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="produs" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="pret" type="xs:long" />
+        <xs:element name="nume" type="xs:string" />
+        <xs:element name="facturi" type="factura" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persoana" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="//acaruivaloarevafipusadreptcheieasociataadreseiadresa" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adresa" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="strada" type="xs:string" />
+        <xs:element name="GeneratedName" type="organizatie" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="persoana" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="depozit" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="firme" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="factura" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="dataemitere" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="status" nillable="true" minOccurs="0" />
+        <xs:element name="emails" type="xs:anyType" />
+        <xs:element name="produs" type="produs" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tricou" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="modele" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

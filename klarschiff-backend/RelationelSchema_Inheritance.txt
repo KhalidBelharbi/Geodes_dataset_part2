@@ -1,0 +1,65 @@
+
+server(/*---------------attribute----------------------------*//***rechnernamederserverinstanz*/name:String [PK], /***connectorportderserverinstanz*/connectorport:String [PK], /***listederipsderserverinstanz*/ip:String, derserverinstanz*/jvmroute:String, /***zeitpunktderletzenregistrierung/benachrichtungderserverinstanz.anhanddesdatumswerden*veralteteeinträgeinderdbgelöscht.*/datum:Date);
+
+d3(/***iddesd3-akte*/id:Long [PK], /***url*/url:String, /***dcc*/dcc:String);
+
+enumprioritaet();
+
+enumvorgangtyp();
+
+enumzustaendigkeitstatus();
+
+enumvorgangstatus();
+
+enumfreigabestatus();
+
+enumverlauftyp();
+
+stadtgrenze(/*---------------attribute----------------------------*//***idderstadtgrenze*/id:Integer [PK], /***stadtgrenze*/grenze:MultiPolygon);
+
+aussendienstkoordinator(/***aussendienst(cnderrollederartaussendienst)*/aussendienst:String [PK], /***koordinator(cndesnutzersderrollekoordinator)*/koordinator:String [PK]);
+
+auftrag(/*---------------attribute----------------------------*/id:Integer [PK], /***fürdenauftrag*/:Vorgang #FK to(vorgang), /***teamfürdenauftrag*/team:String, /***zeitpunktderbearbeitung*/datum:Date, /***priorität*/prioritaet:Integer, /***status*/status:EnumAuftragStatus);
+
+vorgang(/***iddesvorganges*/id:Long [PK], /***zeitpunktderletztenänderung*/version:Date, /***erstellungszeitpunkt*/datum:Date, /***zeitpunktderletztenstatusänderung*/statusdatum:Date, /***vorgangstyp*/typ:EnumVorgangTyp, /***adresse*/adresse:String, /***informationüberdaseigentumdesflürstücks,indemdervorgangliegt*/flurstueckseigentum:String, /***beschreibung*/beschreibung:String, /***freigabestatusderbeschreibung*/beschreibungfreigabestatus:EnumFreigabeStatus, /***geographischeposition/ort*/ovi:Point, /***e-mail-adressedeserstellers*/autoremail:String, trust:Integer, /***hashzumbestätigendesvorganges*/hash:String, /***vorgangsstatus*/status:EnumVorgangStatus, /***vorgangsstatusalsinteger.(daserlaubtdaseinfacheresortierendervorgängeinder*ergebnistabellemithilfeeinerangepasstendb-anfrage)*/statusordinal:EnumVorgangStatus, /***kommentarzumstatus*/statuskommentar:String, /***erstsichtungerfolgt*/erstsichtungerfolgt:boolean, /***foto*/fotogross:String, /***foto*/fotonormal:String, /***fotodesvorgangesalsvorschaubild*/fotothumb:String, /***freigabestatusdesfoto*/fotofreigabestatus:EnumFreigabeStatus, /***zuständigkeit(idderrolle)fürdenvorgang*/zustaendigkeit:String, /***zuständigkeit(idderrolle)fürdenvorgang*/initialeakzeptiertezustaendigkeit:String, /***statusderzuständigkeit*/zustaendigkeitstatus:EnumZustaendigkeitStatus, /***zuständigkeitfürfrontend(alsoausführlicherstandortbzw.namedesamteslocalityder*rolle)fürdenvorgang*/zustaendigkeitfrontend:String, /***delegiertan(idderrolle)*/delegiertan:String, /****/:Kategorie #FK to(kategorie), /***priorität*/prioritaet:EnumPrioritaet, /***prioritätalsinteger.(daserlaubtdaseinfacheresortierendervorgängeinder*ergebnistabellemithilfeeinerangepasstendb-anfrage)*/prioritaetordinal:EnumPrioritaet, /***flagzummarkierenarchiviertevorgänge*/archiviert:Boolean, /***einwunschnacheinemfotowurdegeäußert*/fotowunsch:Boolean, /***letzterbearbeiterdesvorgangs,fürsortierungbeilisten*/letzterbearbeiter:String, /***zudemvorgang*/:Auftrag #FK to(auftrag));
+
+jobrun(/*---------------attribute----------------------------*//***iddeshintergrundjobs*/id:String [PK], /***name/bezeichnungdesjobs*/name:String, /***startzeitdesjobs*/datum:Date, /***connectorportdesservers,derdenjobausführt*/serverport:String, /***ipsdesservers,derdenjobausführt*/serverip:String, /***rechnernamedesservers,derdenjobausführt*/servername:String, /***aktuellerstatusbzw.desjobs*/:Ergebnis, /***fehlermeldungdesjobs*/fehlermeldung:String);
+
+kommentar(/*---------------attribute----------------------------*//***iddeskommentars*/id:Long [PK], /***zudemderkommentargehört*/:Vorgang #FK to(vorgang), /***textdeskommentars*/text:String, /***erstellungszeitdeskommentars*/datum:Date, /***letztebearbeitungdeskommentars*/zuletztbearbeitet:Date, anzbearbeitet:Integer, /***iddesbenutzer,derdenkommentarerstellthat*/nutzer:String, geloescht:boolean);
+
+vorgangfeatures(/*---------------attribute----------------------------*//***fürdendiefeatureberechnetwurden*/:Vorgang [PK] #FK to(vorgang), features:Map<String,String>);
+
+lobhinweisekritik(/*---------------attribute----------------------------*//***id*/id:Long [PK], /***,zudemlob,hinweiseoderkritikgehören*/:Vorgang #FK to(vorgang), /***e-mail-adressedessenders*/autoremail:String, /***e-mail-adressedesempfängers*/empfaengeremail:String, /***freitext*/freitext:String, /***erstellungszeit*/datum:Date);
+
+benutzer(/*---------------attribute----------------------------*/id:Integer [PK], /***benutzername*/benutzername:String);
+
+benutzer_flaeche(benutzer_id:Benutzer [PK] #FK to Benutzer,flaeche_id:list<flaeche> [PK] #FK to list<flaeche>);
+
+redaktionempfaenger(/*---------------attribute----------------------------*//***iddesempfängersvonredaktionellene-mails*/id:Integer [PK], /***zugehörigkeitdesempfängerszueinerzuständigkeit*/zustaendigkeit:String, /***e-mail-adressedesempfängers*/email:String, /***eskalationsstufe,inderderempfängerredaktionellee-mailserhaltensoll*/stufe:Short, /***tage,diezwischendemversendenredaktionellere-mailsandenempfängerverstreichensollen*/tagezwischenmails:Short, /***zeitpunktdesletzenversandeseinerredaktionellene-mailandenempfänger*/letztemail:Date, /***sollempfängerauche-mailsmitlob,kritikundhinweisenempfangen?*/empfaengerlobhinweisekritik:Boolean);
+
+georss(/*---------------attribute----------------------------*//***iddesfeeds*/id:Long [PK], /***überwachtefläche*/ovi:MultiPolygon, /***problemeüberwachen?*/probleme:boolean, /***listederüberwachtenhauptkategorienbeidenproblemen*/problemehauptkategorien:String, /***listederüberwachtenunterkategorienbeidenproblemen*/problemeunterkategorien:String, /***ideenüberwachen?*/ideen:boolean, /***listederüberwachtenhauptkategorienbeidenideen*/ideenhauptkategorien:String, /***listederüberwachtenunterkategorienbeidenideen*/ideenunterkategorien:String);
+
+unterstuetzer(/*---------------attribute----------------------------*//***idderunterstützung*/id:Long [PK], /***zudemdieunterstützunggehört*/:Vorgang #FK to(vorgang), /***hashzumbestatigenderunterstützung*/hash:String, /***erstellungszeitderunterstützung*/datum:Date, /***bestätigungszeitderunterstützung*/datumbestaetigung:Date);
+
+flaeche(/*---------------attribute----------------------------*/id:Integer [PK], /***kurzname*/kurzname:String, /***langname*/langname:String, /***stadtteilgrenze*/flaeche:MultiPolygon);
+
+trashmail(/*---------------attribute----------------------------*//***iddertrash-e-mail*/id:Long [PK], /***patterndertrash-e-mail*/pattern:String);
+
+missbrauchsmeldung(/*---------------attribute----------------------------*//***iddermissbrauchsmeldung*/id:Long [PK], /***zudemdiemissbrauchsmeldunggehört*/:Vorgang #FK to(vorgang), /***hashzumbestätigendermissbrauchsmeldung*/hash:String, /***textdermissbrauchsmeldung*/text:String, /***erstellungszeitdermissbrauchsmeldung*/datum:Date, /***zeitpunktderbestätigungdermissbrauchsmeldung*/datumbestaetigung:Date, /***zeitpunktderabbarbeitungdermissbrauchsmeldung*/datumabarbeitung:Date, /***e-mail-adressedessenders*/autoremail:String);
+
+foto(/*---------------attribute----------------------------*//***iddesfotos*/id:Long [PK], /***zudemdasfotogehört*/:Vorgang #FK to(vorgang), /***hashzumbestätigendesfotos*/hash:String, /***foto*/fotogross:String, /***foto*/fotonormal:String, /***fotodesvorgangesalsvorschaubild*/fotothumb:String, /***erstellungszeitdesfotos*/datum:Date, /***zeitpunktderbestätigungdesfotos*/datumbestaetigung:Date, /***e-mail-adressedessenders*/autoremail:String);
+
+statuskommentarvorlage(/*---------------attribute----------------------------*//***iddervorlagenfürdenstatuskommentar*/id:Long [PK], /***titeldervorlagenfürdenstatuskommentar*/titel:String, /***textdervorlagenfürdenstatuskommentar*/text:String);
+
+kategorie(/***idderkategorie*/id:Long [PK], /***typderkategorie*/typ:EnumVorgangTyp, /***namederkategorie*/name:String, /***übergeordnete*/parent:Kategorie #FK to(kategorie), /***listevonintialenzuständigkeitenfürdievorgängemitderkategorie*/initialzustaendigkeiten:List<String>, geloescht:boolean, /***-akte*/:D3 #FK to(d3));
+
+redaktionkriterien(/***iddesredaktionskriteriums*/id:Integer [PK], /***eskalationsstufe*/stufe:Short, /***tage,dievorgängemitdemstatus'offen',diebishernichtakzeptiertwurden,mindestens*zugewiesenseinsollen*/tageoffennichtakzeptiert:Short, /***tage,dievorgängemitdemstatus'inbearbeitung',diebisherkeineöffentliche*statusinformationaufweisen,unverändertgebliebenseinsollen*/tageinbearbeitungohnestatuskommentar:Short, /***tage,dieideenmitdemstatus'offen',diebishernichtdiezahldernotwendigen*unterstützungenaufweisen,seitdererstsichtungüberdauerthabensollen*/tageideeoffenohneunterstuetzung:Short, /***tage,dievorgängemitdemstatus'inbearbeitung'sindundnichtabgeschlossenwurden*/tageinbearbeitung:Short, /***vorgängeausweisenmitdemstatus'nichtlösbar'/'wirdnichtbearbeitet',diebisherkeineöffentliche*statusinformationaufweisen?*/nichtloesbarohnestatuskommentar:Boolean, /***vorgängeausweisenmitdemstatus'offen',diebishernichtakzeptiertwurden?*/nichtmehroffennichtakzeptiert:Boolean, /***vorgängeausweisen,dieihreerstsichtungbereitshintersichhaben,derenbeschreibunng*und/oderfotoabernochnichtfreigegebenwurde?*/ohneredaktionellefreigaben:Boolean, /***vorgängeausweisen,dieaufgrundvonkommunikationsfehlernkeineeinträgeindendatenfeldern*'zustaendigkeit'und'zustaendigkeit_status'aufweisen?*/ohnezustaendigkeit:Boolean);
+
+vorganghistoryclasses(/*---------------attribute----------------------------*//***fürdiediebereitsverwendetenzuständigkeitenabgelegtwerden.*/:Vorgang [PK] #FK to(vorgang), /***listevonbereitsverwendetenzuständigkeiten*/historyclasses:Set<String>);
+
+verlauf(/*---------------attribute----------------------------*//***idderverlaufeintrages*/id:Long [PK], /***zudemderverlaufeintraggehört*/:Vorgang #FK to(vorgang), /***zeitpunktdesverlaufeintrages*/datum:Date, /***iddesbenutzers,derdenverlaufeintragverantwortet*/nutzer:String, /***typdesverlaufeintrages*/typ:EnumVerlaufTyp, /***alterwert(istabhängigvontypdesverlaufeintrages)*/wertalt:String, /***alterwert(istabhängigvontypdesverlaufeintrages)*/wertneu:String);
+
+stadtteilgrenze(/*---------------attribute----------------------------*//***iddesstadtteils*/id:Integer [PK], /***namedesstadtteils*/name:String, /***stadtteilgrenze*/grenze:MultiPolygon);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

@@ -1,0 +1,93 @@
+
+accountingtype(serialversionuid:long, id:long [PK], name:String, accountingmode:AccountingModeCode);
+
+region(serialversionuid:long, id:long [PK], name:String, parent:Region #FK to(region));
+
+log(serialversionuid:long, id:long [PK], event:LogEvent #FK to(logevent), usercreate:long, datecreate:Timestamp, comment:String);
+
+logevent(serialversionuid:long, id:long [PK], name:String, enabled:boolean);
+
+role(serialversionuid:long, id:long [PK], name:String, enabled:boolean);
+
+pc_role_authority(role_id:Role [PK] #FK to Role,authority_id:list<authority> [PK] #FK to list<authority>);
+
+authority(serialversionuid:long, id:long [PK], name:String, url:String, parent:Authority #FK to(authority), enabled:boolean);
+
+user(serialversionuid:long, id:long [PK], userid:String, pwd:String, passwordhint:String, admin:boolean, enabled:boolean, accountlocked:boolean, credentialsexpired:boolean, firstname:String, lastname:String, mobilephone:String, email:String, netcommunityid:String, birthday:Date, birthaddress:String, comments:String);
+
+pc_user_role(user_id:User [PK] #FK to User,role_id:list<role> [PK] #FK to list<role>);
+
+usersession(serialversionuid:long, sessionid:long [PK], sessionkey:String, GeneratedName:User, created:Date);
+
+contract(serialversionuid:long, id:long [PK], name:String, dealmoney:float, typecode:ContractTypeCode, source:String, created:Date, usercreatedby:long, comment:String, filepath:String);
+
+accounting(serialversionuid:long, id:long [PK], money:float, type:AccountingType #FK to(accountingtype), GeneratedName:PaymentAccount, /***对象，如供应商或客户*/customerid:String, /***来源，如入库单或出库单*/orderid:String, comment:String, created:Timestamp, updated:Timestamp, usercreatedby:long, userupdatedby:long);
+
+deliverycompany(serialversionuid:long, id:long [PK], name:String);
+
+goodstype(serialversionuid:long, id:long [PK], name:String, /***parenttype*/parent:GoodsType);
+
+goodsstoragetransfer(serialversionuid:long, id:long [PK], bid:String, GeneratedName:Goods, depository:GoodsDepository #FK to(goodsdepository), amountbeforetransfer:long, amountaftertransfer:long, created:Date, usercreatedby:long, comment:String);
+
+goodspicture(serialversionuid:long, id:long [PK], filename:String, contenttype:String, GeneratedName:Goods);
+
+goodsserialnumber(serialversionuid:long, id:long [PK], serialnumber:String, GeneratedName:Goods, GeneratedName:OrderInItem, GeneratedName:OrderOutItem);
+
+goodsunit(serialversionuid:long, id:long [PK], name:String);
+
+goodsstoragepricerevise(serialversionuid:long, id:long [PK], bid:String, GeneratedName:Goods, depository:GoodsDepository #FK to(goodsdepository), pricebeforerevise:float, priceafterrevise:float, created:Date, usercreatedby:long);
+
+goodsstoragecheck(serialversionuid:long, id:long [PK], bid:String, GeneratedName:Goods, depository:GoodsDepository #FK to(goodsdepository), amountbeforecheck:long, amountaftercheck:long, created:Date, usercreatedby:long);
+
+goodsissue(serialversionuid:long, id:long [PK], description:String, comment:String, statuscode:GoodsIssueStatusCode, /***谁负责处理*/signuser:long, userupdatedby:long, created:Date, /***最后一次更新的时间*/lastupd:Date, GeneratedName:Goods, goodsserial:String, GeneratedName:Customer, GeneratedName:Provider);
+
+goods(serialversionuid:long, id:long [PK], name:String, shortcode:String, specificationmodel:String, barcode:String, comment:String, /***成本价*/averageprice:float, /***预计进货价*/importprice:float, /***零售参考价*/retailprice:float, /***批发参考价*/tradeprice:float, /***最低库存*/minstock:long, /***最高库存*/maxstock:long, userupdatedby:long, lastupd:Date, unit:GoodsUnit #FK to(goodsunit), type:GoodsType #FK to(goodstype), prefereddepository:GoodsDepository #FK to(goodsdepository), /***库存*/storages:List<GoodsStorage>);
+
+goodsstorage(serialversionuid:long, id:long [PK], depository:GoodsDepository #FK to(goodsdepository), amount:long, price:float, worth:float, GeneratedName:Goods);
+
+goodsdepository(serialversionuid:long, id:long [PK], name:String, enabled:boolean);
+
+project(serialversionuid:long, id:long [PK], name:String, GeneratedName:Customer, start:Date, end:Date, comment:String, statuscode:ProjectStatusCode, /***施工费*/constructionfee:float, /***辅材及其他费*/otherfee:float, usercreatedby:long, userupdatedby:long, /***设备费*/orders:List<OrderOut>);
+
+providerpaymentrecord(serialversionuid:long, id:long [PK], paid:float, comment:String, GeneratedName:PaymentAccount, GeneratedName:PaymentWay, GeneratedName:OrderIn, payment:ProviderPayment #FK to(providerpayment));
+
+orderin(serialversionuid:long, id:long [PK], bid:String, /***交易额*/dealmoney:float, /***折扣率*/discount:float, /***应收款*/receivable:float, /***实收额*/paidmoney:float, /***操作员*/usercreatedby:long, userupdatedby:long, datecreated:Timestamp, lastupdated:Timestamp, comment:String, statuscode:OrderStatusCode, typecode:OrderTypeCode, GeneratedName:Provider);
+
+provider(serialversionuid:long, id:long [PK], shortname:String, shortcode:String, unpaymoney:float, sharable:boolean, deleted:boolean, comment:String, usersigned:long, GeneratedName:ProviderType);
+
+providertype(serialversionuid:long, id:long [PK], name:String);
+
+providercontact(serialversionuid:long, id:long [PK], name:String, mobilephone:String, fixedphone:String, netcommunityid:String, email:String, address:String, isprefered:boolean, GeneratedName:Provider);
+
+orderinitem(serialversionuid:long, id:long [PK], unitprice:float, amount:long, sum:float, comment:String, GeneratedName:Goods, depository:GoodsDepository #FK to(goodsdepository), GeneratedName:OrderIn);
+
+providerpayment(serialversionuid:long, id:long [PK], bid:String, typecode:PaymentTypeCode, receiptid:String, paiddate:Timestamp, addunpaid:float, remainunpaid:float, usercreatedby:long, comment:String, GeneratedName:Provider);
+
+paymentway(serialversionuid:long, id:long [PK], name:String);
+
+paymentaccount(serialversionuid:long, id:long [PK], name:String, accountid:String, remainmoney:float, accountmode:PaymentAccountMode);
+
+customertype(serialversionuid:long, id:long [PK], name:String);
+
+orderdelivery(serialversionuid:long, id:long [PK], company:DeliveryCompany #FK to(deliverycompany), number:String, amount:int, fee:float, paid:float, created:Date, usercreatedby:long, GeneratedName:OrderOut);
+
+orderoutitem(serialversionuid:long, id:long [PK], unitprice:float, amount:long, sum:float, comment:String, GeneratedName:Goods, depository:GoodsDepository #FK to(goodsdepository), GeneratedName:OrderOut);
+
+customerpaymentrecord(serialversionuid:long, id:long [PK], paid:float, comment:String, GeneratedName:PaymentAccount, GeneratedName:PaymentWay, GeneratedName:OrderOut, payment:CustomerPayment #FK to(customerpayment));
+
+orderout(serialversionuid:long, id:long [PK], bid:String, /***交易额*/dealmoney:float, /***折扣率*/discount:float, /***应收款*/receivable:float, /***实收额*/paidmoney:float, /***利润*/profit:float, /***操作员*/usercreatedby:long, userupdatedby:long, datecreated:Timestamp, lastupdated:Timestamp, comment:String, statuscode:OrderStatusCode, typecode:OrderTypeCode, GeneratedName:Customer, GeneratedName:OrderDelivery, GeneratedName:OrderReceipt, GeneratedName:Project);
+
+orderreceipt(serialversionuid:long, id:long [PK], title:String, type:ReceiptTypeCode, fee:float, paid:float, created:Date, usercreatedby:long, GeneratedName:OrderOut);
+
+customerpayment(serialversionuid:long, id:long [PK], bid:String, typecode:PaymentTypeCode, receiptid:String, paiddate:Timestamp, addunpaid:float, remainunpaid:float, usercreatedby:long, comment:String, GeneratedName:Customer);
+
+customerlevel(serialversionuid:long, id:long [PK], name:String, enabled:boolean, order:int, /***等级条件一：销售额*/salemoney:float, /***等级条件二：利润额*/profitmoney:float, /***优惠一：账期天数*/paymentdays:int, /***优惠二：最多允许欠账*/maxdebt:float, /***优惠三：价格折扣率*/pricerate:float);
+
+customercontact(serialversionuid:long, id:long [PK], name:String, mobilephone:String, fixedphone:String, netcommunityid:String, email:String, address:String, isprefered:boolean, GeneratedName:Customer);
+
+customer(serialversionuid:long, id:long [PK], shortname:String, shortcode:String, unpaymoney:float, sharable:boolean, deleted:boolean, usersigned:long, comment:String, GeneratedName:CustomerType, GeneratedName:CustomerLevel);
+
+paymenttransfer(serialversionuid:long, id:long [PK], targetaccount:PaymentAccount #FK to(paymentaccount), transfertypecode:PaymentTransferTypeCode, source:String, inmoney:float, outmoney:float, remainmoney:float, datecreated:Timestamp, usercreatedby:long, comment:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

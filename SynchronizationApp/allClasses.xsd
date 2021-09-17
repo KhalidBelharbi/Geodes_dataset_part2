@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="isyncservice" >
+      <xs:complexContent>
+       <xs:extension base="remote">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clientjframe" >
+      <xs:complexContent>
+       <xs:extension base="javax.swing.jframe">
+         <xs:sequence>
+          <xs:element name="" type="config" nillable="true" minOccurs="0" />
+          <xs:element name="client_root" type="xs:string" />
+          <xs:element name="//variablesdeclaration-donotmodify//gen-begin:variablesdirchooserbtn" type="xs:anyType" />
+          <xs:element name="dirlabel" type="xs:anyType" />
+          <xs:element name="dirtextfield" type="xs:anyType" />
+          <xs:element name="iplabel" type="xs:anyType" />
+          <xs:element name="iptextfield" type="xs:anyType" />
+          <xs:element name="portlabel" type="xs:anyType" />
+          <xs:element name="porttextfield" type="xs:anyType" />
+          <xs:element name="progressbar" type="xs:anyType" />
+          <xs:element name="saveconfigbtn" type="xs:anyType" />
+          <xs:element name="startsynchronizationbtn" type="xs:anyType" />
+          <xs:element name="status" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clientjframe" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filechooser" >
+      <xs:complexContent>
+       <xs:extension base="jframe">
+         <xs:sequence>
+          <xs:element name="frame" type="clientjframe" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="syncservice" >
+      <xs:complexContent>
+       <xs:extension base="unicastremoteobject">
+         <xs:sequence>
+          <xs:element name="authorizationpassed" type="xs:anyType" />
+          <xs:element name="toclientreplace,toclientremove,toserverreplace,toserverremove" type="fileproperties" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="serverdir" type="directory" nillable="true" minOccurs="0" />
+          <xs:element name="" type="server" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="syncthread" >
+      <xs:complexContent>
+       <xs:extension base="thread{">
+         <xs:sequence>
+          <xs:element name="" type="config" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="server" >
+      <xs:complexContent>
+       <xs:extension base="webmember">
+         <xs:sequence>
+          <xs:element name="serverdir,clientdir" type="directory" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="webmember" >
+      <xs:complexContent>
+       <xs:extension base="thread">
+         <xs:sequence>
+          <xs:element name="" type="config" nillable="true" minOccurs="0" />
+          <xs:element name="client_root" type="xs:string" />
+          <xs:element name="client_state" type="xs:string" />
+          <xs:element name="server_root" type="xs:string" />
+          <xs:element name="server_state" type="xs:string" />
+          <xs:element name="data" type="xs:anyType" />
+          <xs:element name="out" type="xs:anyType" />
+          <xs:element name="in" type="xs:anyType" />
+          <xs:element name="dataoutput" type="xs:anyType" />
+          <xs:element name="datainput" type="xs:anyType" />
+          <xs:element name="server" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="applicationuser" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="login" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="client" >
+      <xs:complexContent>
+       <xs:extension base="webmember{">
+         <xs:sequence>
+          <xs:element name="clientdir" type="directory" nillable="true" minOccurs="0" />
+          <xs:element name="frame" type="clientjframe" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="directory" >
+      <xs:sequence>
+        <xs:element name="root" type="xs:anyType" />
+        <xs:element name="laststate" type="fileproperties" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="synchronizationapp" >
+      <xs:sequence>
+        <xs:element name="config_path" type="xs:string" />
+        <xs:element name="GeneratedName" type="config" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="config" >
+      <xs:sequence>
+        <xs:element name="file" type="xs:string" />
+        <xs:element name="prop" type="xs:anyType" />
+        <xs:element name="status" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fileproperties" >
+      <xs:sequence>
+        <xs:element name="fath" type="xs:anyType" />
+        <xs:element name="fime" type="xs:anyType" />
+        <xs:element name="ftype" type="xs:anyType" />
+        <xs:element name="fullequals" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

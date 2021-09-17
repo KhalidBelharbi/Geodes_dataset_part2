@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="applicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="collectionvalueservicetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="collectionvaluerepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="collectionvalueservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="collectionvaluecontrollertest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="collectionvalueservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testdatafactory" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application-local" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="collectionvalue" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="minimum" type="xs:anyType" />
+          <xs:element name="median" type="xs:anyType" />
+          <xs:element name="maximum" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="creationdatetime" type="xs:anyType" />
+        <xs:element name="modifieddatetime" type="xs:anyType" />
+        <xs:element name="modifiedby" type="xs:string" />
+        <xs:element name="createdby" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="collectionvaluemapper" >
+      <xs:sequence>
+        <xs:element name="instance" type="collectionvaluemapper" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="collectionvaluedto" >
+      <xs:complexContent>
+       <xs:extension base="basedto">
+         <xs:sequence>
+          <xs:element name="median" type="xs:anyType" />
+          <xs:element name="minimum" type="xs:anyType" />
+          <xs:element name="maximum" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basedto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="creationdatetime" type="xs:anyType" />
+        <xs:element name="modifieddatetime" type="xs:anyType" />
+        <xs:element name="modifiedby" type="xs:string" />
+        <xs:element name="createdby" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="collectionvaluecontroller" >
+      <xs:complexContent>
+       <xs:extension base="crudcontroller<collectionvaluedto>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="crudcontroller" >
+      <xs:complexContent>
+       <xs:extension base="basedto>">
+         <xs:sequence>
+          <xs:element name="service" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="auditorawareimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="openapiconfig" >
+      <xs:sequence>
+        <xs:element name="applicationtitle" type="xs:string" />
+        <xs:element name="applicationdescription" type="xs:string" />
+        <xs:element name="swaggerpackages" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="collectionvalueservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="collectionvaluerepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="crudservice" >
+      <xs:complexContent>
+       <xs:extension base="basedto>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="collectionvaluerepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<collectionvalue,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpaauditingconfiguration" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="collectionvaluecontrolleritcase" >
+      <xs:complexContent>
+       <xs:extension base="crudcontrolleritcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="crudcontrolleritcase" >
+      <xs:sequence>
+        <xs:element name="port" type="xs:long" />
+        <xs:element name="baseurl" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="integrationtestconfig" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testdataprovider" >
+      <xs:sequence>
+        <xs:element name="collection_json_path" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="collectionvalueserviceitcase" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="collectionvalueservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="collectionvaluerepositoryitcase" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="collectionvaluerepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="collectionvalues" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

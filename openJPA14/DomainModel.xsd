@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="creator" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="images" type="image" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="albums" type="album" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="album" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="images" type="image" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="creator" type="creator" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="image" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="type" type="imagetype" nillable="true" minOccurs="0" />
+        <xs:element name="filename" type="xs:string" />
+        <xs:element name="data" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="location" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="creator" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

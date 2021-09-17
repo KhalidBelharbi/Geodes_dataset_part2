@@ -1,0 +1,261 @@
+ternarymapentity(id:Integer [PK]);
+
+ternarymapentity_map<inttestentity,strtestentity>(ternarymapentityID:ternarymapentity [PK] #FK to ternarymapentity,map<inttestentity,strtestentity>ID:map<inttestentity,strtestentity> [PK] #FK to map<inttestentity,strtestentity>);
+
+notauditedsubclassentity(id:Integer [PK], notauditedstr:String);
+
+notauditedsubclassentity(id:Integer [PK], notauditedstr:String);
+
+explicittransitivechildentity(child:String);
+
+implicittransitivechildentity(child:String);
+
+childmultipleparentsentity(child:String);
+
+babycompleteentity(baby:String);
+
+versionsjointabletestentity(id:Integer [PK], data:String);
+
+versionsjointablerangetestentity(value:String);
+
+joinmulidnamingrefedentity(id1:Integer [PK], id2:Integer [PK], data:String);
+
+joinmulidnamingrefingentity(id1:Integer [PK], id2:Integer [PK], data:String, id_2:JoinMulIdNamingRefEdEntity #FK to(JoinMulIdNamingRefEdEntity));
+
+joinembidnamingrefedentity(id:EmbIdNaming [PK], data:String);
+
+joinembidnamingrefingentity(id:EmbIdNaming [PK], data:String, xx:JoinEmbIdNamingRefEdEntity #FK to(JoinEmbIdNamingRefEdEntity));
+
+versionsjointablerangecomponenttestentity(id:Integer [PK], /***anembeddedcomponent,containingalistof*{@linkversionsjointablerangetestentity}-instances.*/component1:VersionsJoinTableRangeComponent<VersionsJoinTableRangeTestEntity>, /***anembeddedcomponent,containingalistof*{@linkversionsjointablerangetestalternateentity}-instances.*/component2:VersionsJoinTableRangeComponent<VersionsJoinTableRangeTestAlternateEntity>, /***anembeddedcomponent,containingalistofnotaudited*{@linkversionsjointablerangetestalternateentity}-instances.*/component3:Component1);
+
+versionsjointablerangetestalternateentity(alternatevalue:String);
+
+joinnamingrefingentity(id:Integer [PK], data:String, reference:JoinNamingRefEdEntity #FK to(JoinNaming));
+
+detachednamingtestentity(id:Integer [PK], data:String);
+
+namingtestentity1(id:Integer [PK], data:String);
+
+quotedfieldsentity(id:Long [PK], data1:String, data2:Integer);
+
+joinnamingrefedentity(id:Integer [PK], data:String);
+
+serializabletestentity(id:Integer [PK], obj:SerObject);
+
+enumtestentity(id:Integer [PK], enum1:E1, enum2:E2);
+
+datetestentity(id:Integer [PK], GeneratedName:Date);
+
+lobserializabletestentity(id:Integer [PK], obj:SerObject);
+
+lobtestentity(id:Integer [PK], lob:String, lob:byte, lob:char);
+
+basictestentity2(id:Integer [PK], str1:String, str2:String);
+
+basictestentity3(id:Integer [PK], str1:String, str2:String);
+
+basictestentity1(id:Integer [PK], str1:String, 1:long);
+
+basictestentity4(id:Integer [PK], str1:String, str2:String);
+
+childentity(number:Long);
+
+emptychildentity();
+
+parententity(id:Integer [PK], data:String);
+
+childprimarykeyjoinentity(number:Long);
+
+childingentity(id:Integer [PK] #FK to AbstractSetEntity, number:Long);
+
+abstractcontainedentity(id:Long [PK]);
+
+abstractsetentity(id:Integer [PK]);
+
+setentity();
+
+referencedentity(id:Integer [PK]);
+
+parententity(id:Integer [PK], data:String);
+
+address(id:Long [PK], address1:String, GeneratedName:Contact #FK to(Contact));
+
+contact(id:Long [PK], email:String);
+
+childingentity(number:Long, referenced:ReferencedEntity #FK to(ReferencedEntity));
+
+referencedentity(id:Integer [PK]);
+
+normalactivity();
+
+checkinactivity();
+
+abstractcheckactivity(durationinminutes:Integer, id:Activity #FK to(Activity));
+
+parententity(id:Integer [PK], data:String);
+
+personalcontact(firstname:String);
+
+address(id:Long [PK], address1:String, GeneratedName:Contact #FK to(Contact));
+
+contact(id:Long [PK], email:String);
+
+parentingentity(id:Integer [PK], data:String, referenced:ReferencedEntity #FK to(ReferencedEntity));
+
+childingentity(number:Long);
+
+referencedentity(id:Integer [PK]);
+
+childentity(number:Long);
+
+parentnotingentity(id:Integer [PK], data:String);
+
+referencedentity(id:Integer [PK]);
+
+childingentity(number:Long, referenced:ReferencedEntity #FK to(ReferencedEntity));
+
+childingentity(number:Long);
+
+referencedentity(id:Integer [PK]);
+
+parentingentity(id:Integer [PK], data:String, referenced:ReferencedEntity #FK to(ReferencedEntity));
+
+childentity(number:Long);
+
+parententity(id:Integer [PK], data:String);
+
+parententity(discriminator_query:String, id:Long [PK], typeid:Long, data:String);
+
+childentity(specificdata:String);
+
+classtypeentity(parent_type:String, child_type:String, id:Long [PK], type:String);
+
+referencedentity(id:Integer [PK]);
+
+parentnotingentity(id:Integer [PK], data:String);
+
+childingentity(number:Long, referenced:ReferencedEntity #FK to(ReferencedEntity));
+
+personalcontact(firstname:String);
+
+address(id:Long [PK], address1:String, GeneratedName:Contact #FK to(Contact));
+
+contact(id:Long [PK], email:String);
+
+setrefingentity(id:Integer [PK], data:String, reference:ISetRefEdEntity #FK to(isetrefedentity));
+
+setrefedentity(id:Integer [PK], data:String);
+
+componenttestentity(id:Integer [PK], comp1:IComponent);
+
+auditedtestentity(id:Integer [PK], str1:String);
+
+notauditedtestentity(id:Integer [PK], str1:String);
+
+sameidtestentity1(id:Integer [PK], str1:String);
+
+sameidtestentity2(id:Integer [PK], str1:String);
+
+longrevnumberreventity(customid:long [PK], customtimestamp:long);
+
+exceptionlistenerreventity(id:int [PK], timestamp:long);
+
+customboxedreventity(customid:Integer [PK], customtimestamp:Long);
+
+listenerreventity(id:int [PK], timestamp:long, data:String);
+
+inheritedreventity();
+
+staff(id:Integer [PK], sizeininches:double);
+
+propertiestestentity(id:Integer [PK], str:String);
+
+unversionedoptimisticlockingfieldentity(id:Integer [PK], str:String, optlocking:int);
+
+wikipage(id:Long [PK], title:String, content:String, links:Set<String>);
+
+wikiimage(id:Long [PK], name:String);
+
+secondarynamingtestentity(id:Integer [PK], s1:String, s2:String);
+
+secondarymulidtestentity(id1:Integer [PK], id2:Integer [PK], s1:String, s2:String);
+
+secondaryembidtestentity(id:EmbId [PK], s1:String, s2:String);
+
+secondarytestentity(id:Integer [PK], s1:String, s2:String);
+
+mixedaccesstypeentity(id:Integer [PK], data:String);
+
+country(code:Integer [PK], name:String);
+
+propertyaccesstypeentity(id:Integer [PK], data:String, idset:boolean, dataset:boolean);
+
+fieldaccesstypeentity(id:Integer [PK], data:String);
+
+refingmapkeyentity(id:Integer [PK], reference:RefEdMapKeyEntity #FK to(refedmapkeyentity), data:String);
+
+refedmapkeyentity(id:Integer [PK]);
+
+idmapkeyentity(id:Integer [PK]);
+
+idmapkeyentity_map<integer,strtestentity>(idmapkeyentityID:idmapkeyentity [PK] #FK to idmapkeyentity,map<integer,strtestentity>ID:map<integer,strtestentity> [PK] #FK to map<integer,strtestentity>);
+
+componentmapkeyentity(id:Integer [PK]);
+
+componentmapkeyentity_map<component1,componenttestentity>(componentmapkeyentityID:componentmapkeyentity [PK] #FK to componentmapkeyentity,map<component1,componenttestentity>ID:map<component1,componenttestentity> [PK] #FK to map<component1,componenttestentity>);
+
+name(id:Integer [PK], name:String, GeneratedName:Person #FK to(person));
+
+person(id:Integer [PK]);
+
+notinsertabletestentity(id:Integer [PK], data:String, datacopy:String);
+
+notinsertableentitytype(typeid:Integer [PK], type:String);
+
+manytoonenotinsertableentity(id:Integer [PK], number:Integer, type:NotInsertableEntityType #FK to(notinsertableentitytype));
+
+greetingsetpo(id:Long [PK], name:String);
+
+greetingpo(id:Long [PK], thegreeting:String, greetingset:GreetingSetPO #FK to(greetingsetpo));
+
+birefedentity(id:Integer [PK], data:String, referencing:BiRefIngEntity #FK to(birefingentity));
+
+birefingentity(id:Integer [PK], data:String, reference:BiRefEdEntity #FK to(birefedentity));
+
+biembidrefingentity(id:EmbId, data:String, reference:BiEmbIdRefEdEntity #FK to(biembidrefedentity));
+
+biembidrefedentity(id:EmbId, data:String, referencing:BiEmbIdRefIngEntity #FK to(biembidrefingentity));
+
+bimulidrefingentity(id1:Integer [PK], id2:Integer [PK], data:String, reference:BiMulIdRefEdEntity #FK to(bimulidrefedentity));
+
+bimulidrefedentity(id1:Integer [PK], id2:Integer [PK], data:String, referencing:BiMulIdRefIngEntity #FK to(bimulidrefingentity));
+
+unirefedentity(id:Integer [PK], data:String);
+
+unirefingmulidentity(id:Integer [PK], data:String, reference:EmbIdTestEntity #FK to(embidtestentity));
+
+unirefingentity(id:Integer [PK], data:String, reference:UniRefEdEntity #FK to(unirefedentity));
+
+childentity1(id:Long [PK], child1:ChildEntity2 #FK to(ChildEntity), child2:ChildEntity2 #FK to(ChildEntity), data1:String, data2:String);
+
+childentity2(id:Long [PK], data:String, number:Integer, strings:Set<String>);
+
+rootentity(id:Long [PK], data1:String, data2:String, number1:Integer, number2:Integer, 1:Date, child1:ChildEntity1 #FK to(ChildEntity), child2:ChildEntity1 #FK to(ChildEntity), child3:ChildEntity1 #FK to(ChildEntity));
+
+address(id:int [PK], streetname:String, housenumber:Integer, flatnumber:Integer);
+
+person(id:int [PK], name:String, surname:String, GeneratedName:Address #FK to(Address));
+
+abstractactivity(id:ActivityId, sequencenumber:Integer);
+
+parentingentity(id:Integer [PK] #FK to AbstractSetEntity, id:Integer [PK], data:String, referenced:ReferencedEntity #FK to(id:Integer [PK] #FK to AbstractSetEntity, ReferencedEntity), discriminator: String);
+
+parententity(child:String, discriminator: String);
+
+parentnotingentity(id:Integer [PK], data:String, discriminator: String);
+
+contact(firstname:String, contactType: String);
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

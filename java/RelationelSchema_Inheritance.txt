@@ -1,0 +1,71 @@
+fourwheeler20discriminator(steeringwheel:String);
+
+twowheeler20discriminator(steeringhandle:String);
+
+
+
+fourwheeler23subclasstable(id:int [PK], steeringwheel:String);
+
+twowheeler23subclasstable(id:int [PK], steeringhandle:String);
+
+fourwheeler21tableperclass(steeringwheel:String);
+
+twowheeler21tableperclass(steeringhandle:String);
+
+vehicle21tableperclass(vehicleid:int [PK], vehiclename:String, licensenumber:String);
+
+vehicle22join(vehicleid:int [PK], vehiclename:String, licensenumber:String);
+
+twowheeler22join(//@id@generatedvalue(strategy:String);
+
+fourwheeler22join(steeringwheel:String);
+
+userdetails01(userid:int [PK], username:String);
+
+vehicle14cascade(vehicleid:int [PK], vehiclename:String, user:UserDetails14Cascade #FK to(userdetails14cascade));
+
+userdetails12mappedby(userid:int [PK], //canbesetforgetterusername:String);
+
+vehicle12mappedby(vehicleid:int [PK], vehiclename:String, user:UserDetails12MappedBy #FK to(userdetails12mappedby));
+
+userdetails14cascade(userid:int [PK], //canbesetforgetterusername:String);
+
+userdetails13manytomany(userid:int [PK], //canbesetforgetterusername:String);
+
+userdetails13manytomany_collection<vehicle13manytomany>(userdetails13manytomanyID:userdetails13manytomany [PK] #FK to userdetails13manytomany,collection<vehicle13manytomany>ID:collection<vehicle13manytomany> [PK] #FK to collection<vehicle13manytomany>);
+
+vehicle13manytomany(vehicleid:int [PK], vehiclename:String);
+
+vehicle09(vehicleid:int [PK], vehiclename:String);
+
+userdetails09onetoonemapping(userid:int [PK], //canbesetforgetterusername:String, vehicle:Vehicle09 #FK to(vehicle09));
+
+vehicle11reversemapping(vehicleid:int [PK], vehiclename:String, user:UserDetails11OneToManyMappingReverse #FK to(userdetails11onetomanymappingreverse));
+
+userdetails10onetomanymapping(userid:int [PK], //canbesetforgetterusername:String);
+
+vehicle10(vehicleid:int [PK], vehiclename:String);
+
+userdetails11onetomanymappingreverse(userid:int [PK], //canbesetforgetterusername:String);
+
+userdetailsembedded(//useidifprimarykeysisobject//id//loginnameuserid//or//@id@generatedvalue(strategy:Address, officeaddress:Address2);
+
+userdetailspk();
+
+userdetailsannotation(userid:int [PK], username:String, joined:Date, address:String, description:String);
+
+userdetails(userid:int [PK], username:String, joined:Date, address:String, //@lob//usecloborblobfieldindbdescription:String);
+
+userdetailscriteria(userid:int [PK], username:String, joined:Date, address:String, //@lob//usecloborblobfieldindbdescription:String);
+
+userdetailscollection(//bagsemantic//bagsemanticwithid//@elementcollection//default-lazycollectionofadresses:Collection<Address>, //setsemantic//@collectionid//notsupportforset.exceptionoccurredsetofadresses:Set<Address>, //listsemanticwithpositionlistofadresses:List<Address>, mapofadresses:Map<Integer,Address>);
+
+userdetailsfetchtypeslazy(//@elementcollection//default-lazycollectionofadresses:Collection<Address>);
+
+userdetailsfetchtypeseager(//@elementcollection//default-lazycollectionofadresses:Collection<Address>);
+
+vehicle20discriminator(vehicleid:int [PK], vehiclename:String, licensenumber:String, VEHICLE_TYPE: String);
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

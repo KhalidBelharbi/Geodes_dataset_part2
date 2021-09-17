@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="messages" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="form" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="layout" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="paginator-nav" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="listar" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filtro" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="util" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="swaggerconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pageitem" >
+      <xs:sequence>
+        <xs:element name="numero" type="xs:long" />
+        <xs:element name="actual" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pagerender" >
+      <xs:sequence>
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="page" type="xs:anyType" />
+        <xs:element name="totalpaginas" type="xs:long" />
+        <xs:element name="numelementospagina" type="xs:long" />
+        <xs:element name="paginaactual" type="xs:long" />
+        <xs:element name="paginas" type="pageitem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ordercontrollermvc" >
+      <xs:sequence>
+        <xs:element name="orderservice" type="iorderservice" nillable="true" minOccurs="0" />
+        <xs:element name="customerservice" type="icustomerservice" nillable="true" minOccurs="0" />
+        <xs:element name="productservice" type="iproductservice" nillable="true" minOccurs="0" />
+        <xs:element name="orderdetailservice" type="iorderdetailservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderrestcontroller" >
+      <xs:sequence>
+        <xs:element name="orderservice" type="iorderservice" nillable="true" minOccurs="0" />
+        <xs:element name="customerservice" type="icustomerservice" nillable="true" minOccurs="0" />
+        <xs:element name="productservice" type="iproductservice" nillable="true" minOccurs="0" />
+        <xs:element name="orderdetailservice" type="iorderdetailservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="springbootbackendapirestapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iorderdao" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<order1,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="iorderdetaildao" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<orderdetail,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="iproductdao" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<product,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="icustomerdao" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<customer,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productserviceimpl" >
+      <xs:sequence>
+        <xs:element name="productdao" type="iproductdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="icustomerservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iproductservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iorderdetailservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderdetailserviceimpl" >
+      <xs:sequence>
+        <xs:element name="orderdetaildao" type="iorderdetaildao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iorderservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customerserviceimpl" >
+      <xs:sequence>
+        <xs:element name="customerdao" type="icustomerdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderserviceimpl" >
+      <xs:sequence>
+        <xs:element name="orderdao" type="iorderdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customer" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="customerid" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="productlist" type="product" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="order1list" type="order1" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderdetail" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="orderdetailid" type="xs:anyType" />
+        <xs:element name="productdescription" type="xs:string" />
+        <xs:element name="price" type="xs:double" />
+        <xs:element name="quantity" type="xs:long" />
+        <xs:element name="id" type="product" nillable="true" minOccurs="0" />
+        <xs:element name="orderid" type="order1" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="product" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="productid" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="productdescription" type="xs:string" />
+        <xs:element name="price" type="xs:double" />
+        <xs:element name="customerlist" type="customer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="orderdetaillist" type="orderdetail" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="order1" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="orderid" type="xs:anyType" />
+        <xs:element name="creation" type="xs:dateTime" />
+        <xs:element name="deliveryaddress" type="xs:string" />
+        <xs:element name="total" type="xs:double" />
+        <xs:element name="orderdetaillist" type="orderdetail" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="id" type="customer" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dto" >
+      <xs:sequence>
+        <xs:element name="creation" type="xs:dateTime" />
+        <xs:element name="total" type="xs:double" />
+        <xs:element name="orderid" type="xs:anyType" />
+        <xs:element name="deliveryaddress,orderdetail" type="xs:string" />
+        <xs:element name="producto1,producto2,producto3" type="xs:anyType" />
+        <xs:element name="listcustomer" type="customer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="orderdetail" type="orderdetail" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="productlist" type="product" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="order" type="order1" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="customer" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderdto" >
+      <xs:sequence>
+        <xs:element name="detalleproductos" type="xs:string" />
+        <xs:element name="listadodto" type="dto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

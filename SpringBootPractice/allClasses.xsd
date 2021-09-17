@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="gameapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gameapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ticketservicehelper" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="ticketrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="clientrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="clientservicehelper" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="stockservicehelper" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="stockservice" nillable="true" minOccurs="0" />
+        <xs:element name="cs" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clientservicehelper" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="clientrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shopservicehelper" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="shoprepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stockservicehelper" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="stockrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="gamerepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="shoprepository" nillable="true" minOccurs="0" />
+        <xs:element name="cs" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="gameservicehelper" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="shopservicehelper" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gameservicehelper" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="gamerepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gamekonewtitlenotvalid" >
+      <xs:complexContent>
+       <xs:extension base="gamekoexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="detail" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="gamenotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="notfoundexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="detail" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="gamehandlerexception" >
+      <xs:complexContent>
+       <xs:extension base="responseentityexceptionhandler">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ticketkonotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="stockkoexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="detail" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="stockkonotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="stockkoexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="detail" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clientkoalreadyaddedexception" >
+      <xs:complexContent>
+       <xs:extension base="stockkoexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="detail" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="notfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception{">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="detalle" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="stockkoexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="detalle" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="shopkoexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="detalle" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="genrekoexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="detalle" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="gamekoexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="detalle" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="nocontentexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception{">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="detalle" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clientkoexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="detalle" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ticketkoexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="detalle" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="shopkoalreadyaddedexception" >
+      <xs:complexContent>
+       <xs:extension base="shopkoexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="detail" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="gamekoalreadyaddedexception" >
+      <xs:complexContent>
+       <xs:extension base="gamekoexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="detail" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ticketkoalreadyaddedexception" >
+      <xs:complexContent>
+       <xs:extension base="stockkoexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="detail" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="stockkostockfinished" >
+      <xs:complexContent>
+       <xs:extension base="stockkoexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="detail" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="gamekonotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="gamekoexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="detail" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="genrekonotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="genrekoexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="detail" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="stockkoalreadyaddedexception" >
+      <xs:complexContent>
+       <xs:extension base="stockkoexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="detail" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="shopkonotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="shopkoexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="detail" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clientkonotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="stockkoexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="detail" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="genrerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<genre,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="stockrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<stock,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ticketrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<ticket,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clientrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<client,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="shoprepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<shop,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="gamerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<game,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="stockservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stockserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="stockservicehelper" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="stockrepository" nillable="true" minOccurs="0" />
+        <xs:element name="cs" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="genreserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="genrerepository" nillable="true" minOccurs="0" />
+        <xs:element name="cs" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shopserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="shopservicehelper" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="shoprepository" nillable="true" minOccurs="0" />
+        <xs:element name="cs" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ticketserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="ticketservicehelper" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="ticketrepository" nillable="true" minOccurs="0" />
+        <xs:element name="cs" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gameserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="gameservicehelper" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="genreservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="gamerepository" nillable="true" minOccurs="0" />
+        <xs:element name="cs" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clientserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="clientservicehelper" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="clientrepository" nillable="true" minOccurs="0" />
+        <xs:element name="cs" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ticketservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clientservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shopservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="genreservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gameservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gameapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shoprequesttoshopconverter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shoptoshopresponseconverter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tickettoticketresponse" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gametogameresponseconverter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ticketrequesttoticket" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clientrequesttoclient" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stockrequesttostock" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stocktostockresponse" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="genreenumtogenreconverter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clienttoclientresponse" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gamerequesttogameconverter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="errordto" >
+      <xs:sequence>
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="message" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stockresponse" >
+      <xs:sequence>
+        <xs:element name="quantity" type="xs:long" />
+        <xs:element name="game,shop" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ticketresponse" >
+      <xs:sequence>
+        <xs:element name="name,surname,card,title,shopname" type="xs:string" />
+        <xs:element name="id" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shopresponse" >
+      <xs:sequence>
+        <xs:element name="location,name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gameresponse" >
+      <xs:sequence>
+        <xs:element name="title,description" type="xs:string" />
+        <xs:element name="genre" type="genreenum" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="release" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clientresponse" >
+      <xs:sequence>
+        <xs:element name="name,surname,card" type="xs:string" />
+        <xs:element name="id" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stockrequest" >
+      <xs:sequence>
+        <xs:element name="quantity" type="xs:long" />
+        <xs:element name="game,shop" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shoprequest" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="location" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clientrequest" >
+      <xs:sequence>
+        <xs:element name="name,surname,card" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ticketrequest" >
+      <xs:sequence>
+        <xs:element name="client,game,shop" type="xs:string" />
+        <xs:element name="id" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gamerequest" >
+      <xs:sequence>
+        <xs:element name="title,description" type="xs:string" />
+        <xs:element name="genre" type="genreenum" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="release" type="xs:dateTime" />
+        <xs:element name="newtitle" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="converterconfig" >
+      <xs:sequence>
+        <xs:element name="converters" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ticketcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="ticketservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shopcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="shopservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gamecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="gameservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clientcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="clientservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stockcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="stockservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="genreenum" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="genre" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="genre" type="genreenum" nillable="true" minOccurs="0" />
+        <xs:element name="games" type="game" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stock" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="quantity" type="xs:long" />
+        <xs:element name="GeneratedName" type="shop" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="game" nillable="true" minOccurs="0" />
+        <xs:element name="tickets" type="ticket" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="client" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="card" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="surname" type="xs:string" />
+        <xs:element name="tickets" type="ticket" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ticket" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="client" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="stock" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shop" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="location" type="xs:string" />
+        <xs:element name="stocks" type="stock" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="game" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="genres" type="genre" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="release" type="xs:dateTime" />
+        <xs:element name="stocks" type="stock" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,1966 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="rollback" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="entityid" type="xs:string" />
+          <xs:element name="type" type="xs:anyType" />
+          <xs:element name="serialization" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="approlechildexport" >
+      <xs:complexContent>
+       <xs:extension base="approleparent">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="app" type="appchildexport" nillable="true" minOccurs="0" />
+          <xs:element name="childroles" type="approlechildexport" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="appusers" type="appuserchildexport" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ontologyuseraccess" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="ontologyuseraccesstype" nillable="true" minOccurs="0" />
+          <xs:element name="" type="ontology" nillable="true" minOccurs="0" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="i18nresources" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid{">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="i18n" type="internationalization" nillable="true" minOccurs="0" />
+          <xs:element name="" type="opresource" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="viewer" >
+      <xs:complexContent>
+       <xs:extension base="opresource">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="layers" type="layer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="ispublic" type="xs:anyType" />
+          <xs:element name="" type="baselayer" nillable="true" minOccurs="0" />
+          <xs:element name="js" type="xs:string" />
+          <xs:element name="latitude" type="xs:string" />
+          <xs:element name="longitude" type="xs:string" />
+          <xs:element name="height" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ontologykpi" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="cron" type="xs:string" />
+          <xs:element name="from" type="xs:dateTime" />
+          <xs:element name="to" type="xs:dateTime" />
+          <xs:element name="query" type="xs:string" />
+          <xs:element name="jobname" type="xs:string" />
+          <xs:element name="active" type="xs:anyType" />
+          <xs:element name="" type="ontology" nillable="true" minOccurs="0" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="postprocess" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="approlelistoauth" >
+      <xs:complexContent>
+       <xs:extension base="approleparent">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="app" type="applistoauth" nillable="true" minOccurs="0" />
+          <xs:element name="appusers" type="appuserlist" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="childroles" type="approlelistoauth" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="appuserlist" >
+      <xs:complexContent>
+       <xs:extension base="appuserparent">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="role" type="approlelist" nillable="true" minOccurs="0" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ontologyrestsecurity" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="config" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="datasetresource" >
+      <xs:complexContent>
+       <xs:extension base="opresource{">
+         <xs:sequence>
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="query" type="xs:string" />
+          <xs:element name="" type="ontology" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ontologyvirtualdatasource" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="ontologyvirtuals" type="ontologyvirtual" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="datasourcename" type="xs:string" />
+          <xs:element name="datasourcedomain" type="xs:string" />
+          <xs:element name="sgdb" type="xs:anyType" />
+          <xs:element name="connection" type="xs:string" />
+          <xs:element name="user" type="xs:string" />
+          <xs:element name="credentials" type="xs:string" />
+          <xs:element name="querylimit" type="xs:long" />
+          <xs:element name="poolsize" type="xs:string" />
+          <xs:element name="ispublic" type="xs:anyType" />
+          <xs:element name="validationquerytimeout" type="xs:anyType" />
+          <xs:element name="testonborrow" type="xs:anyType" />
+          <xs:element name="testwhileidle" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ksqlrelation" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="ksqlflow" nillable="true" minOccurs="0" />
+          <xs:element name="" type="ksqlresource" nillable="true" minOccurs="0" />
+          <xs:element name="predecessors" type="ksqlrelation" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="successors" type="ksqlrelation" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ontologyvirtual" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="ontology" nillable="true" minOccurs="0" />
+          <xs:element name="datasourceid" type="ontologyvirtualdatasource" nillable="true" minOccurs="0" />
+          <xs:element name="datasourcetablename" type="xs:string" />
+          <xs:element name="objectid" type="xs:string" />
+          <xs:element name="objectgeometry" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="approlechild" >
+      <xs:complexContent>
+       <xs:extension base="approleparent">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="" type="app" nillable="true" minOccurs="0" />
+          <xs:element name="childroles" type="approlechild" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="appusers" type="appuserchild" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="internationalization" >
+      <xs:complexContent>
+       <xs:extension base="opresource">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="jsoni18n" type="xs:string" />
+          <xs:element name="ispublic" type="xs:anyType" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="language" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ontologycategory" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="identification" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="subscription" >
+      <xs:complexContent>
+       <xs:extension base="opresource">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="" type="ontology" nillable="true" minOccurs="0" />
+          <xs:element name="queryfield" type="xs:string" />
+          <xs:element name="queryoperator" type="xs:string" />
+          <xs:element name="projection" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ontology" >
+      <xs:complexContent>
+       <xs:extension base="opresource">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="jsonschema" type="xs:string" />
+          <xs:element name="xmldiagram" type="xs:string" />
+          <xs:element name="ontologyclass" type="xs:string" />
+          <xs:element name="" type="datamodel" nillable="true" minOccurs="0" />
+          <xs:element name="active" type="xs:anyType" />
+          <xs:element name="rtdbclean" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="rtdbtohdb" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="ispublic" type="xs:anyType" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="metainf" type="xs:string" />
+          <xs:element name="datamodelversion" type="xs:string" />
+          <xs:element name="ontologyuseraccesses" type="ontologyuseraccess" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="ontologykpi" nillable="true" minOccurs="0" />
+          <xs:element name="" type="ontologytimeseries" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="allowscypherfields" type="xs:anyType" />
+          <xs:element name="allowscreatetopic" type="xs:anyType" />
+          <xs:element name="//@column(name" type="xs:anyType" />
+          <xs:element name="//@column(name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="categorizationuser" >
+      <xs:complexContent>
+       <xs:extension base="auditableentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="" type="categorization" nillable="true" minOccurs="0" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="active" type="xs:anyType" />
+          <xs:element name="authorizationtype" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="binaryfileaccess" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="binaryfile" nillable="true" minOccurs="0" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="access" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="videocapture" >
+      <xs:complexContent>
+       <xs:extension base="opresource">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="ip" type="xs:string" />
+          <xs:element name="port" type="xs:string" />
+          <xs:element name="path" type="xs:string" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="url" type="xs:string" />
+          <xs:element name="" type="ontology" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="samplinginterval" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="projectresourceaccessexport" >
+      <xs:complexContent>
+       <xs:extension base="projectresourceaccessparent">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="resource" type="opresource" nillable="true" minOccurs="0" />
+          <xs:element name="project" type="projectexport" nillable="true" minOccurs="0" />
+          <xs:element name="approle" type="approleexport" nillable="true" minOccurs="0" />
+          <xs:element name="user" type="userexport" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="migrationdata" >
+      <xs:complexContent>
+       <xs:extension base="opresource">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="type" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="filename" type="xs:string" />
+          <xs:element name="file" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="restplanner" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="identification" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="cron" type="xs:string" />
+          <xs:element name="from" type="xs:dateTime" />
+          <xs:element name="to" type="xs:dateTime" />
+          <xs:element name="url" type="xs:string" />
+          <xs:element name="method" type="xs:string" />
+          <xs:element name="jobname" type="xs:string" />
+          <xs:element name="active" type="xs:anyType" />
+          <xs:element name="body" type="xs:string" />
+          <xs:element name="headers" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="report" >
+      <xs:complexContent>
+       <xs:extension base="opresource">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="ispublic" type="xs:anyType" />
+          <xs:element name="active" type="xs:anyType" />
+          <xs:element name="file" type="xs:anyType" />
+          <xs:element name="datasourceurl" type="xs:string" />
+          <xs:element name="extension" type="xs:anyType" />
+          <xs:element name="resources" type="binaryfile" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="appuserexport" >
+      <xs:complexContent>
+       <xs:extension base="appuserparent">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="role" type="approleexport" nillable="true" minOccurs="0" />
+          <xs:element name="user" type="userexport" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="apioperation" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="api" nillable="true" minOccurs="0" />
+          <xs:element name="apiqueryparameters" type="apiqueryparameter" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="identification" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="operation" type="xs:anyType" />
+          <xs:element name="endpoint" type="xs:string" />
+          <xs:element name="basepath" type="xs:string" />
+          <xs:element name="path" type="xs:string" />
+          <xs:element name="postprocess" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clientconnection" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="clientplatform" nillable="true" minOccurs="0" />
+          <xs:element name="identification" type="xs:string" />
+          <xs:element name="lastip" type="xs:string" />
+          <xs:element name="ipstrict" type="xs:anyType" />
+          <xs:element name="lastconnection" type="xs:anyType" />
+          <xs:element name="ip" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ontologytimeseries" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="" type="ontology" nillable="true" minOccurs="0" />
+          <xs:element name="timeserieswindows" type="ontologytimeserieswindow" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="timeseriesproperties" type="ontologytimeseriesproperty" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="opresource" >
+      <xs:complexContent>
+       <xs:extension base="auditableentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="identification" type="xs:string" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="auditableentitywithuuid" >
+      <xs:complexContent>
+       <xs:extension base="auditableentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="auditableentity" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="updat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userexport" >
+      <xs:complexContent>
+       <xs:extension base="userparent">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="projects" type="projectexport" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="themes" >
+      <xs:complexContent>
+       <xs:extension base="auditableentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="identification" type="xs:string" />
+          <xs:element name="json" type="xs:string" />
+          <xs:element name="active" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ontologytimeserieswindow" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="" type="ontologytimeseries" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="frecuency" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="retentionbefore" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="bdh" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="gadgettemplate" >
+      <xs:complexContent>
+       <xs:extension base="opresource">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="ispublic" type="xs:anyType" />
+          <xs:element name="template" type="xs:string" />
+          <xs:element name="templatejs" type="xs:string" />
+          <xs:element name="headerlibs" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="digitaltwintype" >
+      <xs:complexContent>
+       <xs:extension base="opresource">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="propertydigitaltwintypes" type="propertydigitaltwintype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="actiondigitaltwintypes" type="actionsdigitaltwintype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="eventdigitaltwintypes" type="eventsdigitaltwintype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="digitaltwindevices" type="digitaltwindevice" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="json" type="xs:string" />
+          <xs:element name="logic" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cache" >
+      <xs:complexContent>
+       <xs:extension base="opresource">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="size" type="xs:long" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usertoken" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="token" type="xs:string" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ontologyuseraccesstype" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="ontologyuseraccess" type="ontologyuseraccess" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clientplatformontology" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="access" type="xs:anyType" />
+          <xs:element name="" type="clientplatform" nillable="true" minOccurs="0" />
+          <xs:element name="" type="ontology" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="odtypology" >
+      <xs:complexContent>
+       <xs:extension base="opresource">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="description" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="flownode" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="identification" type="xs:string" />
+          <xs:element name="" type="flow" nillable="true" minOccurs="0" />
+          <xs:element name="flownode" type="xs:anyType" />
+          <xs:element name="noderednodeid" type="xs:string" />
+          <xs:element name="partialurl" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="ontology" nillable="true" minOccurs="0" />
+          <xs:element name="retryonfailure" type="xs:anyType" />
+          <xs:element name="discardafterelapsedtime" type="xs:anyType" />
+          <xs:element name="maxretryelapsedtime" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="flowdomain" >
+      <xs:complexContent>
+       <xs:extension base="opresource">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="state" type="xs:string" />
+          <xs:element name="port" type="xs:anyType" />
+          <xs:element name="serviceport" type="xs:anyType" />
+          <xs:element name="home" type="xs:string" />
+          <xs:element name="active" type="xs:anyType" />
+          <xs:element name="accesstoken" type="xs:string" />
+          <xs:element name="autorecover" type="xs:anyType" />
+          <xs:element name="thresholds" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dashboard" >
+      <xs:complexContent>
+       <xs:extension base="opresource">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="jsoni18n" type="xs:string" />
+          <xs:element name="customcss" type="xs:string" />
+          <xs:element name="customjs" type="xs:string" />
+          <xs:element name="ispublic" type="xs:anyType" />
+          <xs:element name="model" type="xs:string" />
+          <xs:element name="image" type="xs:anyType" />
+          <xs:element name="headerlibs" type="xs:string" />
+          <xs:element name="type" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="projectresourceaccesslist" >
+      <xs:complexContent>
+       <xs:extension base="projectresourceaccessparent">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="resource" type="opresource" nillable="true" minOccurs="0" />
+          <xs:element name="" type="project" nillable="true" minOccurs="0" />
+          <xs:element name="approle" type="approlelist" nillable="true" minOccurs="0" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="approlelist" >
+      <xs:complexContent>
+       <xs:extension base="approleparent">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="app" type="applist" nillable="true" minOccurs="0" />
+          <xs:element name="appusers" type="appuserlist" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="datamodel" >
+      <xs:complexContent>
+       <xs:extension base="opresource">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="jsonschema" type="xs:string" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="labels" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="notebookuseraccesstype" >
+      <xs:complexContent>
+       <xs:extension base="auditableentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="notebookuseraccess" type="notebookuseraccess" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="eventsdigitaltwintype" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="typeid" type="digitaltwintype" nillable="true" minOccurs="0" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="status" type="xs:anyType" />
+          <xs:element name="type" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="project" >
+      <xs:complexContent>
+       <xs:extension base="projectparent">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="users" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="type" type="xs:anyType" />
+          <xs:element name="projectresourceaccesses" type="projectresourceaccess" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="app" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="projectresourceaccess" >
+      <xs:complexContent>
+       <xs:extension base="projectresourceaccessparent">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="resource" type="opresource" nillable="true" minOccurs="0" />
+          <xs:element name="" type="project" nillable="true" minOccurs="0" />
+          <xs:element name="" type="approle" nillable="true" minOccurs="0" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="binaryfile" >
+      <xs:complexContent>
+       <xs:extension base="opresource">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="filename" type="xs:string" />
+          <xs:element name="fileextension" type="xs:string" />
+          <xs:element name="metadata" type="xs:string" />
+          <xs:element name="path" type="xs:string" />
+          <xs:element name="mime" type="xs:string" />
+          <xs:element name="ispublic" type="xs:anyType" />
+          <xs:element name="repository" type="xs:anyType" />
+          <xs:element name="fileaccesses" type="binaryfileaccess" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="appchildexport" >
+      <xs:complexContent>
+       <xs:extension base="appparent">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="project" type="projectexport" nillable="true" minOccurs="0" />
+          <xs:element name="user" type="userexport" nillable="true" minOccurs="0" />
+          <xs:element name="approles" type="approlechildexport" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="childapps" type="appchildexport" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="microservice" >
+      <xs:complexContent>
+       <xs:extension base="opresource">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="port" type="xs:anyType" />
+          <xs:element name="contextpath" type="xs:string" />
+          <xs:element name="" type="jenkinsconfiguration" nillable="true" minOccurs="0" />
+          <xs:element name="jenkinsxml" type="xs:string" />
+          <xs:element name="jobname" type="xs:string" />
+          <xs:element name="joburl" type="xs:string" />
+          <xs:element name="" type="gitlabconfiguration" nillable="true" minOccurs="0" />
+          <xs:element name="gitlabrepository" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="rancherconfiguration" nillable="true" minOccurs="0" />
+          <xs:element name="openshiftconfiguration" type="caasopenshiftconfiguration" nillable="true" minOccurs="0" />
+          <xs:element name="rancherenv" type="xs:string" />
+          <xs:element name="rancherstack" type="xs:string" />
+          <xs:element name="openshiftnamespace" type="xs:string" />
+          <xs:element name="openshiftdeploymenturl" type="xs:string" />
+          <xs:element name="jenkinsqueueid" type="xs:anyType" />
+          <xs:element name="dockerimage" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="active" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="gadgettemplatetype" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="identification" type="xs:string" />
+          <xs:element name="template" type="xs:string" />
+          <xs:element name="templatejs" type="xs:string" />
+          <xs:element name="headerlibs" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="marketasset" >
+      <xs:complexContent>
+       <xs:extension base="opresource">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="ispublic" type="xs:anyType" />
+          <xs:element name="state" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="paymentmode" type="xs:anyType" />
+          <xs:element name="image" type="xs:anyType" />
+          <xs:element name="imagetype" type="xs:string" />
+          <xs:element name="content" type="xs:anyType" />
+          <xs:element name="contentid" type="xs:string" />
+          <xs:element name="jsondesc" type="xs:string" />
+          <xs:element name="rejectionreason" type="xs:string" />
+          <xs:element name="deletedat" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="projectexport" >
+      <xs:complexContent>
+       <xs:extension base="projectparent">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="users" type="userexport" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="type" type="xs:anyType" />
+          <xs:element name="projectresourceaccesses" type="projectresourceaccessexport" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="app" type="appexport" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="approleexport" >
+      <xs:complexContent>
+       <xs:extension base="approleparent">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="app" type="appexport" nillable="true" minOccurs="0" />
+          <xs:element name="childroles" type="approlechildexport" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="appusers" type="appuserexport" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="gadgetmeasure" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="gadget" nillable="true" minOccurs="0" />
+          <xs:element name="datasource" type="gadgetdatasource" nillable="true" minOccurs="0" />
+          <xs:element name="config" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="app" >
+      <xs:complexContent>
+       <xs:extension base="appparent">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="" type="project" nillable="true" minOccurs="0" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="approles" type="approle" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="childapps" type="appchild" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="configuration" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="ymlconfig" type="xs:string" />
+          <xs:element name="environment" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="suffix" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="appuserchildexport" >
+      <xs:complexContent>
+       <xs:extension base="appuserparent">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="role" type="approlechildexport" nillable="true" minOccurs="0" />
+          <xs:element name="user" type="userexport" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dashboarduseraccesstype" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="dashboarduseraccess" type="dashboarduseraccess" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="category" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="identification" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="api" >
+      <xs:complexContent>
+       <xs:extension base="opresource">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="ontology" nillable="true" minOccurs="0" />
+          <xs:element name="image" type="xs:anyType" />
+          <xs:element name="ssl_certificate" type="xs:anyType" />
+          <xs:element name="userapiaccesses" type="userapi" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="numversion" type="xs:anyType" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="category" type="xs:anyType" />
+          <xs:element name="endpointext" type="xs:string" />
+          <xs:element name="state" type="xs:anyType" />
+          <xs:element name="metainf" type="xs:string" />
+          <xs:element name="imagetype" type="xs:string" />
+          <xs:element name="ispublic" type="xs:anyType" />
+          <xs:element name="apicachetimeout" type="xs:anyType" />
+          <xs:element name="apilimit" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="assessment" type="xs:double" />
+          <xs:element name="swaggerjson" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="model" >
+      <xs:complexContent>
+       <xs:extension base="opresource">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="" type="notebook" nillable="true" minOccurs="0" />
+          <xs:element name="" type="dashboard" nillable="true" minOccurs="0" />
+          <xs:element name="outputparagraphid" type="xs:string" />
+          <xs:element name="inputparagraphid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dataflowinstance" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="identification" type="xs:string" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="admincredentials" type="xs:string" />
+        <xs:element name="usercredentials" type="xs:string" />
+        <xs:element name="guestcredentials" type="xs:string" />
+        <xs:element name="defaultinstance" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pipelineuseraccess" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="pipelineuseraccesstype" nillable="true" minOccurs="0" />
+          <xs:element name="" type="pipeline" nillable="true" minOccurs="0" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="flow" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="flowdomain" nillable="true" minOccurs="0" />
+          <xs:element name="identification" type="xs:string" />
+          <xs:element name="noderedflowid" type="xs:string" />
+          <xs:element name="active" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="appuser" >
+      <xs:complexContent>
+       <xs:extension base="appuserparent">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="role" type="approle" nillable="true" minOccurs="0" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:complexContent>
+       <xs:extension base="auditableentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="parent" type="role" nillable="true" minOccurs="0" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="notebook" >
+      <xs:complexContent>
+       <xs:extension base="opresource">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="idzep" type="xs:string" />
+          <xs:element name="ispublic" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ontologyrestoperation" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="ontologyrest" nillable="true" minOccurs="0" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="path" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="origin" type="xs:string" />
+          <xs:element name="type" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="parameters" type="ontologyrestoperationparam" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="droolsruledomain" >
+      <xs:complexContent>
+       <xs:extension base="opresource">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="active" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="applist" >
+      <xs:complexContent>
+       <xs:extension base="appparent">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="childapps" type="applist" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="approles" type="approlelist" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="project" type="projectlist" nillable="true" minOccurs="0" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="supportrequest" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="status" type="xs:string" />
+          <xs:element name="json" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="consolemenu" >
+      <xs:complexContent>
+       <xs:extension base="auditableentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="json" type="xs:string" />
+          <xs:element name="type" type="role" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dashboarduseraccess" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="dashboarduseraccesstype" nillable="true" minOccurs="0" />
+          <xs:element name="" type="dashboard" nillable="true" minOccurs="0" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="apiqueryparameter" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="apioperation" nillable="true" minOccurs="0" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="value" type="xs:string" />
+          <xs:element name="condition" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="gadgetdatasource" >
+      <xs:complexContent>
+       <xs:extension base="opresource">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="mode" type="xs:string" />
+          <xs:element name="query" type="xs:string" />
+          <xs:element name="dbtype" type="xs:string" />
+          <xs:element name="" type="ontology" nillable="true" minOccurs="0" />
+          <xs:element name="refresh" type="xs:anyType" />
+          <xs:element name="maxvalues" type="xs:anyType" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="config" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="gadgetfavorite" >
+      <xs:complexContent>
+       <xs:extension base="opresource">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="" type="gadget" nillable="true" minOccurs="0" />
+          <xs:element name="" type="gadgettemplate" nillable="true" minOccurs="0" />
+          <xs:element name="datasource" type="gadgetdatasource" nillable="true" minOccurs="0" />
+          <xs:element name="config" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ksqlresource" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="identification" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="ksqltype" type="xs:anyType" />
+          <xs:element name="resourcetype" type="xs:anyType" />
+          <xs:element name="" type="ontology" nillable="true" minOccurs="0" />
+          <xs:element name="statementtext" type="xs:string" />
+          <xs:element name="kafkatopic" type="xs:string" />
+          <xs:element name="iscreatedas" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="odtypologydataset" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="typologyid" type="xs:string" />
+        <xs:element name="datasetid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dashboardconf" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="identification" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="model" type="xs:string" />
+          <xs:element name="headerlibs" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="projectlist" >
+      <xs:complexContent>
+       <xs:extension base="projectparent">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="users" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="type" type="xs:anyType" />
+          <xs:element name="app" type="applist" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="appuserlistoauth" >
+      <xs:complexContent>
+       <xs:extension base="appuserparent">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="role" type="approlelistoauth" nillable="true" minOccurs="0" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="gadget" >
+      <xs:complexContent>
+       <xs:extension base="opresource">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="ispublic" type="xs:anyType" />
+          <xs:element name="config" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pipelineuseraccesstype" >
+      <xs:complexContent>
+       <xs:extension base="auditableentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="pipelineuseraccess" type="pipelineuseraccess" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="digitaltwindevice" >
+      <xs:complexContent>
+       <xs:extension base="opresource">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="typeid" type="digitaltwintype" nillable="true" minOccurs="0" />
+          <xs:element name="url" type="xs:string" />
+          <xs:element name="urlschema" type="xs:string" />
+          <xs:element name="digitalkey" type="xs:string" />
+          <xs:element name="intrface" type="xs:string" />
+          <xs:element name="ip" type="xs:string" />
+          <xs:element name="ipv6" type="xs:anyType" />
+          <xs:element name="port" type="xs:anyType" />
+          <xs:element name="contextpath" type="xs:string" />
+          <xs:element name="latitude" type="xs:string" />
+          <xs:element name="longitude" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ontologyrestheaders" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="config" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="token" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="clientplatform" nillable="true" minOccurs="0" />
+          <xs:element name="tokenname" type="xs:string" />
+          <xs:element name="lastconnection" type="xs:anyType" />
+          <xs:element name="active" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="webproject" >
+      <xs:complexContent>
+       <xs:extension base="opresource">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="mainfile" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ontologykafkatopic" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="ontology" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="identification" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="appchild" >
+      <xs:complexContent>
+       <xs:extension base="appparent">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="" type="project" nillable="true" minOccurs="0" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="approles" type="approle" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="childapps" type="appchild" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ontologytimeseriesproperty" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="" type="ontologytimeseries" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="propertyname" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="notebookuseraccess" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="notebookuseraccesstype" nillable="true" minOccurs="0" />
+          <xs:element name="" type="notebook" nillable="true" minOccurs="0" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="applistoauth" >
+      <xs:complexContent>
+       <xs:extension base="appparent">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="childapps" type="applistoauth" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="approles" type="approlelistoauth" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="project" type="projectlist" nillable="true" minOccurs="0" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ontologyrestoperationparam" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="operationid" type="ontologyrestoperation" nillable="true" minOccurs="0" />
+          <xs:element name="indexparam" type="xs:anyType" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="field" type="xs:string" />
+          <xs:element name="type" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="odbinaryfilesdataset" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="filesid" type="xs:string" />
+        <xs:element name="datasetid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="categorization" >
+      <xs:complexContent>
+       <xs:extension base="opresource">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="json" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ontologydataaccess" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="ontology" nillable="true" minOccurs="0" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="" type="approle" nillable="true" minOccurs="0" />
+          <xs:element name="rule" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="appexport" >
+      <xs:complexContent>
+       <xs:extension base="appparent">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="project" type="projectexport" nillable="true" minOccurs="0" />
+          <xs:element name="user" type="userexport" nillable="true" minOccurs="0" />
+          <xs:element name="approles" type="approleexport" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="childapps" type="appchildexport" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usercomment" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="marketasset" nillable="true" minOccurs="0" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="comment" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="subscriptor" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="subscription" nillable="true" minOccurs="0" />
+          <xs:element name="subscriptionid" type="xs:string" />
+          <xs:element name="subscriptiongw" type="xs:string" />
+          <xs:element name="callbackendpoint" type="xs:string" />
+          <xs:element name="queryvalue" type="xs:string" />
+          <xs:element name="clientid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="droolsrule" >
+      <xs:complexContent>
+       <xs:extension base="opresource">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="drl" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="target" type="ontology" nillable="true" minOccurs="0" />
+          <xs:element name="source" type="ontology" nillable="true" minOccurs="0" />
+          <xs:element name="active" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="querytemplate" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="queryselector" type="xs:string" />
+          <xs:element name="querygenerator" type="xs:string" />
+          <xs:element name="" type="ontology" nillable="true" minOccurs="0" />
+          <xs:element name="type" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="parametermodel" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="identification" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="rangefrom" type="xs:anyType" />
+          <xs:element name="rangeto" type="xs:anyType" />
+          <xs:element name="enumerators" type="xs:string" />
+          <xs:element name="" type="model" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="subcategory" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="category" nillable="true" minOccurs="0" />
+          <xs:element name="identification" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userapi" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="api" nillable="true" minOccurs="0" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clientplatforminstance" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="clientplatform" nillable="true" minOccurs="0" />
+          <xs:element name="identification" type="xs:string" />
+          <xs:element name="connected" type="xs:anyType" />
+          <xs:element name="status" type="xs:string" />
+          <xs:element name="jsonactions" type="xs:string" />
+          <xs:element name="protocol" type="xs:string" />
+          <xs:element name="disabled" type="xs:anyType" />
+          <xs:element name="tags" type="xs:string" />
+          <xs:element name="location" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ontologyrest" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="ontology" nillable="true" minOccurs="0" />
+          <xs:element name="baseurl" type="xs:string" />
+          <xs:element name="//@column(name" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="jsonschema" type="xs:string" />
+          <xs:element name="securityid" type="ontologyrestsecurity" nillable="true" minOccurs="0" />
+          <xs:element name="headerid" type="ontologyrestheaders" nillable="true" minOccurs="0" />
+          <xs:element name="operations" type="ontologyrestoperation" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ksqlflow" >
+      <xs:complexContent>
+       <xs:extension base="opresource">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="jsonflow" type="xs:string" />
+          <xs:element name="resourcesrelations" type="ksqlrelation" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="layer" >
+      <xs:complexContent>
+       <xs:extension base="opresource">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="" type="ontology" nillable="true" minOccurs="0" />
+          <xs:element name="geometrytype" type="xs:string" />
+          <xs:element name="geometryfield" type="xs:string" />
+          <xs:element name="symbol" type="xs:string" />
+          <xs:element name="innercolor" type="xs:string" />
+          <xs:element name="outercolor" type="xs:string" />
+          <xs:element name="size" type="xs:string" />
+          <xs:element name="outerthin" type="xs:string" />
+          <xs:element name="url" type="xs:string" />
+          <xs:element name="externaltype" type="xs:string" />
+          <xs:element name="layertypewms" type="xs:string" />
+          <xs:element name="infobox" type="xs:string" />
+          <xs:element name="filters" type="xs:string" />
+          <xs:element name="queryparams" type="xs:string" />
+          <xs:element name="query" type="xs:string" />
+          <xs:element name="ispublic" type="xs:anyType" />
+          <xs:element name="isvirtual" type="xs:anyType" />
+          <xs:element name="isheatmap" type="xs:anyType" />
+          <xs:element name="isfilter" type="xs:anyType" />
+          <xs:element name="weightfield" type="xs:string" />
+          <xs:element name="heatmapmin" type="xs:anyType" />
+          <xs:element name="refreshtime" type="xs:anyType" />
+          <xs:element name="heatmapmax" type="xs:anyType" />
+          <xs:element name="heatmapradius" type="xs:anyType" />
+          <xs:element name="east" type="xs:double" />
+          <xs:element name="west" type="xs:double" />
+          <xs:element name="north" type="xs:double" />
+          <xs:element name="south" type="xs:double" />
+          <xs:element name="viewers" type="viewer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userratings" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="marketasset" nillable="true" minOccurs="0" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="value" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="twitterlistening" >
+      <xs:complexContent>
+       <xs:extension base="opresource">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="ontology" nillable="true" minOccurs="0" />
+          <xs:element name="" type="configuration" nillable="true" minOccurs="0" />
+          <xs:element name="" type="token" nillable="true" minOccurs="0" />
+          <xs:element name="from" type="xs:dateTime" />
+          <xs:element name="to" type="xs:dateTime" />
+          <xs:element name="topics" type="xs:string" />
+          <xs:element name="cron" type="xs:string" />
+          <xs:element name="jobname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="approle" >
+      <xs:complexContent>
+       <xs:extension base="approleparent">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="" type="app" nillable="true" minOccurs="0" />
+          <xs:element name="childroles" type="approlechild" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="appusers" type="appuser" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="modelexecution" >
+      <xs:complexContent>
+       <xs:extension base="opresource">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="ideject" type="xs:string" />
+          <xs:element name="parameters" type="xs:string" />
+          <xs:element name="idzeppelin" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="" type="model" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="appuserchild" >
+      <xs:complexContent>
+       <xs:extension base="appuserparent">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="role" type="approlechild" nillable="true" minOccurs="0" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="userparent">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="projects" type="project" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clientplatforminstancesimulation" >
+      <xs:complexContent>
+       <xs:extension base="opresource">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="ontology" nillable="true" minOccurs="0" />
+          <xs:element name="" type="clientplatform" nillable="true" minOccurs="0" />
+          <xs:element name="" type="token" nillable="true" minOccurs="0" />
+          <xs:element name="json" type="xs:string" />
+          <xs:element name="from" type="xs:dateTime" />
+          <xs:element name="to" type="xs:dateTime" />
+          <xs:element name="cron" type="xs:string" />
+          <xs:element name="erval" type="xs:long" />
+          <xs:element name="active" type="xs:anyType" />
+          <xs:element name="jobname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="categoryrelation" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="typeid" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="category" type="xs:string" />
+          <xs:element name="subcategory" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="actionsdigitaltwintype" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid{">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="typeid" type="digitaltwintype" nillable="true" minOccurs="0" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="propertydigitaltwintype" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="typeid" type="digitaltwintype" nillable="true" minOccurs="0" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="unit" type="xs:string" />
+          <xs:element name="direction" type="xs:string" />
+          <xs:element name="href" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clientplatform" >
+      <xs:complexContent>
+       <xs:extension base="opresource">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="clientplatformontologies" type="clientplatformontology" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="tokens" type="token" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="clientconnections" type="clientconnection" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="devices" type="clientplatforminstance" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="encryptionkey" type="xs:string" />
+          <xs:element name="metadata" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pipeline" >
+      <xs:complexContent>
+       <xs:extension base="opresource">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="idstreamsets" type="xs:string" />
+          <xs:element name="ispublic" type="xs:anyType" />
+          <xs:element name="instance" type="dataflowinstance" nillable="true" minOccurs="0" />
+          <xs:element name="accesstype" type="xs:anyType" />
+          <xs:element name="type" type="xs:anyType" />
+          <xs:element name="status" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baselayer" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="identification" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="technology" type="xs:string" />
+          <xs:element name="url" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tenantlazy" >
+      <xs:complexContent>
+       <xs:extension base="tenantparent">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="users" type="masteruserlazy" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="verticals" type="verticallazy" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="verticallazy" >
+      <xs:complexContent>
+       <xs:extension base="verticalparent">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="tenants" type="tenantlazy" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="masteruserlazy" >
+      <xs:complexContent>
+       <xs:extension base="masteruserparent">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="tenant" type="tenantlazy" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="iotsession" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="sessionkey" type="xs:string" />
+          <xs:element name="clientplatform" type="xs:string" />
+          <xs:element name="clientplatformid" type="xs:string" />
+          <xs:element name="device" type="xs:string" />
+          <xs:element name="token" type="masterdevicetoken" nillable="true" minOccurs="0" />
+          <xs:element name="userid" type="xs:string" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="expiration" type="xs:long" />
+          <xs:element name="lastaccess" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="oauthrefreshtoken" >
+      <xs:sequence>
+        <xs:element name="tokenid" type="xs:string" />
+        <xs:element name="token" type="xs:anyType" />
+        <xs:element name="authentication" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tenant" >
+      <xs:complexContent>
+       <xs:extension base="tenantparent">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="users" type="masteruser" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="verticals" type="vertical" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="masterconfiguration" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="ymlconfig" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="description" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="masterdevicetoken" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="tokenname" type="xs:string" />
+          <xs:element name="tenant" type="xs:string" />
+          <xs:element name="verticalschema" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="masterdigitaltwindevicetoken" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="tokenname" type="xs:string" />
+          <xs:element name="tenant" type="xs:string" />
+          <xs:element name="verticalschema" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="oauthaccesstoken" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="tokenid" type="xs:string" />
+        <xs:element name="token" type="xs:anyType" />
+        <xs:element name="authenticationid" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="clientid" type="xs:string" />
+        <xs:element name="authentication" type="xs:anyType" />
+        <xs:element name="refreshtoken" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="oauthclienttoken" >
+      <xs:sequence>
+        <xs:element name="tokenid" type="xs:string" />
+        <xs:element name="token" type="xs:anyType" />
+        <xs:element name="authenticationid" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="clientid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vertical" >
+      <xs:complexContent>
+       <xs:extension base="verticalparent">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="tenants" type="tenant" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="oauthclientdetails" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="clientid" type="xs:string" />
+        <xs:element name="clientsecret" type="xs:string" />
+        <xs:element name="resourceids" type="xs:string" />
+        <xs:element name="scope" type="xs:string" />
+        <xs:element name="authorities" type="xs:string" />
+        <xs:element name="authorizedgranttypes" type="xs:string" />
+        <xs:element name="registeredredirecturi" type="xs:string" />
+        <xs:element name="accesstokenvalidityseconds" type="xs:anyType" />
+        <xs:element name="refreshtokenvalidityseconds" type="xs:anyType" />
+        <xs:element name="additionalinformation" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="masterusertoken" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="token" type="xs:string" />
+          <xs:element name="" type="masteruser" nillable="true" minOccurs="0" />
+          <xs:element name="" type="tenant" nillable="true" minOccurs="0" />
+          <xs:element name="" type="vertical" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="masteruser" >
+      <xs:complexContent>
+       <xs:extension base="masteruserparent">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="" type="tenant" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="masteruserhistoric" >
+      <xs:complexContent>
+       <xs:extension base="auditableentitywithuuid">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="" type="masteruser" nillable="true" minOccurs="0" />
+          <xs:element name="password" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="oauthcode" >
+      <xs:sequence>
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="authentication" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

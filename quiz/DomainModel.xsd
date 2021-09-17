@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="answertype" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="quizvisitor1" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="visitor" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="quiz" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="creation" type="xs:dateTime" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="imgname" type="xs:string" />
+          <xs:element name="imgdisplayname" type="xs:string" />
+          <xs:element name="ispublic" type="xs:anyType" />
+          <xs:element name="quizurl" type="xs:string" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="questions" type="question" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="ownerid" type="xs:long" />
+          <xs:element name="" type="owner" nillable="true" minOccurs="0" />
+          <xs:element name="externallink" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="questionanswerresult" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="isrightanswer" type="xs:anyType" />
+          <xs:element name="//bi-directionalmany-to-oneassociationto" type="answer" nillable="true" minOccurs="0" />
+          <xs:element name="//bi-directionalmany-to-oneassociationtoright" type="answer" nillable="true" minOccurs="0" />
+          <xs:element name="//@column(name" type="question" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="answer" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="answerimgurl" type="xs:string" />
+          <xs:element name="answertxt" type="xs:string" />
+          <xs:element name="//bi-directionalmany-to-oneassociationto" type="question" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="question" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="notes" type="xs:string" />
+          <xs:element name="questionorder" type="xs:long" />
+          <xs:element name="answertypeid" type="xs:long" />
+          <xs:element name="//@lobquestion" type="xs:string" />
+          <xs:element name="//bi-directionalmany-to-oneassociationto" type="quiz" nillable="true" minOccurs="0" />
+          <xs:element name="//bi-directionalmany-to-oneassociationtoansweranswers" type="answer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="owner" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="fullname" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lookuptype" >
+      <xs:complexContent>
+       <xs:extension base="baseobject">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="salary_opeation" type="lookuptype" nillable="true" minOccurs="0" />
+          <xs:element name="employee_status" type="lookuptype" nillable="true" minOccurs="0" />
+          <xs:element name="recid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="parentid" type="xs:long" />
+          <xs:element name="level" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="lookup" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="salary_opeation_plus" type="lookup" nillable="true" minOccurs="0" />
+        <xs:element name="salary_opeation_subtract" type="lookup" nillable="true" minOccurs="0" />
+        <xs:element name="//publiclookupemployee_status_inactive" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="lookuptypeid" type="xs:long" />
+        <xs:element name="GeneratedName" type="lookuptype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lookupmapping" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="recid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,2053 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="threadexecutionqueue" >
+      <xs:sequence>
+        <xs:element name="dummy" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="//thetimeoutraisedwhentheratelimitishitviolationtimeout" type="xs:anyType" />
+        <xs:element name="queue" type="queuedthread" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="currentpool" type="xs:anyType" />
+        <xs:element name="size" type="xs:long" />
+        <xs:element name="volatileclosed" type="xs:anyType" />
+        <xs:element name="volatiletimeoutnanostimestamp" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="guildtrackloadingexecutor" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="guildcontext" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="threadexecutionqueue" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="//registertrackloadingsheresothattheycanbeinterruptedwhenadifferentplaylistisbeingplayedtrackloading" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commandexecutionthread" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+          <xs:element name="" type="command" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="queuedthread" >
+      <xs:complexContent>
+       <xs:extension base="thread">
+         <xs:sequence>
+          <xs:element name="queue" type="threadexecutionqueue" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="grantedrole" >
+      <xs:sequence>
+        <xs:element name="pk" type="xs:long" />
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="GeneratedName" type="accessconfiguration" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="preset" >
+      <xs:sequence>
+        <xs:element name="pk" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="preset" type="xs:string" />
+        <xs:element name="guild" type="xs:string" />
+        <xs:element name="guildid" type="xs:string" />
+        <xs:element name="user" type="xs:string" />
+        <xs:element name="userid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="playlist" >
+      <xs:sequence>
+        <xs:element name="pk" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="createduser" type="xs:string" />
+        <xs:element name="createduserid" type="xs:string" />
+        <xs:element name="guild" type="xs:string" />
+        <xs:element name="guildid" type="xs:string" />
+        <xs:element name="songs" type="song" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="videos" type="video" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="urltracks" type="urltrack" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spotifyredirectindexmodificationlock" >
+      <xs:sequence>
+        <xs:element name="pk" type="xs:long" />
+        <xs:element name="creationtimestamp" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userplaybackhistory" >
+      <xs:sequence>
+        <xs:element name="pk" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="GeneratedName" type="playbackhistory" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="song" >
+      <xs:complexContent>
+       <xs:extension base="playlistitem">
+         <xs:sequence>
+          <xs:element name="pk" type="xs:long" />
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="artists" type="artist" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="urltrack" >
+      <xs:complexContent>
+       <xs:extension base="playlistitem">
+         <xs:sequence>
+          <xs:element name="pk" type="xs:long" />
+          <xs:element name="url" type="xs:string" />
+          <xs:element name="title" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="commandinterceptorcontribution" >
+      <xs:complexContent>
+       <xs:extension base="abstractxmlelement">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="commandcontribution" >
+      <xs:complexContent>
+       <xs:extension base="abstractxmlelement">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="widgetcontribution" >
+      <xs:complexContent>
+       <xs:extension base="genericclasscontribution<abstractwidget>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="genericclasscontribution" >
+      <xs:complexContent>
+       <xs:extension base="abstractxmlelement">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="httphandlercontribution" >
+      <xs:complexContent>
+       <xs:extension base="genericclasscontribution<httphandler>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="embeddocumentcontribution" >
+      <xs:complexContent>
+       <xs:extension base="abstractxmlelement">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cronjobcontribution" >
+      <xs:complexContent>
+       <xs:extension base="genericclasscontribution<abstractcrontask>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="startuptaskcontribution" >
+      <xs:complexContent>
+       <xs:extension base="genericclasscontribution<startuptask>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="guildpropertycontribution" >
+      <xs:complexContent>
+       <xs:extension base="genericclasscontribution<abstractguildproperty>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="version" >
+      <xs:complexContent>
+       <xs:extension base="abstractxmlelement">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="video" >
+      <xs:complexContent>
+       <xs:extension base="playlistitem">
+         <xs:sequence>
+          <xs:element name="pk" type="xs:long" />
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="redirectedspotifyid" type="xs:string" />
+          <xs:element name="spotifytrackname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="playbackhistory" >
+      <xs:sequence>
+        <xs:element name="pk" type="xs:long" />
+        <xs:element name="timestamp" type="xs:anyType" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="source" type="xs:string" />
+        <xs:element name="trackid" type="xs:string" />
+        <xs:element name="guild" type="xs:string" />
+        <xs:element name="guildid" type="xs:string" />
+        <xs:element name="artists" type="artist" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="userplaybackhistories" type="userplaybackhistory" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="guildspecification" >
+      <xs:sequence>
+        <xs:element name="accessconfigurations" type="accessconfiguration" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="pk" type="xs:long" />
+        <xs:element name="guildname" type="xs:string" />
+        <xs:element name="guildid" type="xs:string" />
+        <xs:element name="botname" type="xs:string" />
+        <xs:element name="prefix" type="xs:string" />
+        <xs:element name="sendplaybacknotification" type="xs:anyType" />
+        <xs:element name="color" type="xs:string" />
+        <xs:element name="enableautopause" type="xs:anyType" />
+        <xs:element name="defaultsource" type="xs:string" />
+        <xs:element name="defaultlistsource" type="xs:string" />
+        <xs:element name="argumentprefix" type="xs:anyType" />
+        <xs:element name="tempmessagetimeout" type="xs:anyType" />
+        <xs:element name="defaulttextchannelid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="artist" >
+      <xs:sequence>
+        <xs:element name="artist_sync" type="xs:anyType" />
+        <xs:element name="pk" type="xs:long" />
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="playlistitem" >
+      <xs:sequence>
+        <xs:element name="duration" type="xs:long" />
+        <xs:element name="addeduser" type="xs:string" />
+        <xs:element name="addeduserid" type="xs:string" />
+        <xs:element name="GeneratedName" type="playlist" nillable="true" minOccurs="0" />
+        <xs:element name="createdtimestamp" type="xs:dateTime" />
+        <xs:element name="index" type="xs:anyType" />
+        <xs:element name="transientordinal" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accessconfiguration" >
+      <xs:sequence>
+        <xs:element name="roles" type="grantedrole" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="pk" type="xs:long" />
+        <xs:element name="commandidentifier" type="xs:string" />
+        <xs:element name="GeneratedName" type="guildspecification" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commandhistory" >
+      <xs:sequence>
+        <xs:element name="pk" type="xs:long" />
+        <xs:element name="timestamp" type="xs:anyType" />
+        <xs:element name="startmillis" type="xs:long" />
+        <xs:element name="commandidentifier" type="xs:string" />
+        <xs:element name="iswidget" type="xs:anyType" />
+        <xs:element name="commandcontextid" type="xs:string" />
+        <xs:element name="commandbody" type="xs:string" />
+        <xs:element name="input" type="xs:string" />
+        <xs:element name="guild" type="xs:string" />
+        <xs:element name="guildid" type="xs:string" />
+        <xs:element name="user" type="xs:string" />
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="completedsuccessfully" type="xs:anyType" />
+        <xs:element name="//ifthecommandhasfailedbyexplicitlycallingsetfailed()failedmanually" type="xs:anyType" />
+        <xs:element name="durationms" type="xs:long" />
+        <xs:element name="unexpectedexception" type="xs:anyType" />
+        <xs:element name="errormessage" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spotifyredirectindex" >
+      <xs:sequence>
+        <xs:element name="pk" type="xs:long" />
+        <xs:element name="spotifyid" type="xs:string" />
+        <xs:element name="youtubeid" type="xs:string" />
+        <xs:element name="lastupdated" type="xs:anyType" />
+        <xs:element name="lastused" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="currentyoutubequotausage" >
+      <xs:sequence>
+        <xs:element name="pk" type="xs:long" />
+        <xs:element name="quota" type="xs:long" />
+        <xs:element name="lastupdated" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resetoutdatedyoutubequotatask" >
+      <xs:sequence>
+        <xs:element name="contribution" type="startuptaskcontribution" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="youtubeservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="versionupdatealerttask" >
+      <xs:sequence>
+        <xs:element name="//sincethetaskisrunforeachshardseparatelyandthelaunchedflaggetssettotruethefirsttime,//thisflagisusedtorememberwhethertherehasbeenanupdateupdated" type="xs:anyType" />
+        <xs:element name="offset" type="xs:long" />
+        <xs:element name="dispatch_lock" type="xs:anyType" />
+        <xs:element name="messages_per_second" type="xs:long" />
+        <xs:element name="message_dispatch" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="messageservice" nillable="true" minOccurs="0" />
+        <xs:element name="contribution" type="startuptaskcontribution" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="versionmanager" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="createpermissionaccessconfigurationtask" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="contribution" type="startuptaskcontribution" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="migrateguildspecificationstask" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="contribution" type="startuptaskcontribution" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="migrateplayliststask" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="contribution" type="startuptaskcontribution" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="setredirectedspotifytracknametask" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="contribution" type="startuptaskcontribution" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="setplaylistitemindextask" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="contribution" type="startuptaskcontribution" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="runliquibaseupdatetask" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="contribution" type="startuptaskcontribution" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="launcher" >
+      <xs:complexContent>
+       <xs:extension base="listeneradapter">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="versionmanager" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="startuptask" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bulkoperationservice" >
+      <xs:sequence>
+        <xs:element name="//theamountofitemsthatcanbeloadedwithinonerequestsize" type="xs:long" />
+        <xs:element name="loadfunc" type="xs:anyType" />
+        <xs:element name="//thekeysforallitemsthatwillbeloadedkeys" type="xs:anyType" />
+        <xs:element name="actionmap" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="isnowflakemap" >
+      <xs:complexContent>
+       <xs:extension base="abstractmap<isnowflake,">
+         <xs:sequence>
+          <xs:element name="entryset" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="table" >
+      <xs:sequence>
+        <xs:element name="verticaldelimiter" type="xs:string" />
+        <xs:element name="horizontaldelimiter" type="xs:string" />
+        <xs:element name="rowdelimiter" type="xs:string" />
+        <xs:element name="headdelimiter" type="xs:string" />
+        <xs:element name="width" type="xs:long" />
+        <xs:element name="padding" type="xs:long" />
+        <xs:element name="//addanemptylineatthethetopandbottomofeachrowverticalpadding" type="xs:anyType" />
+        <xs:element name="rows" type="xs:anyType" />
+        <xs:element name="tablehead" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="propertiesloadingservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cache" >
+      <xs:sequence>
+        <xs:element name="extractors" type="xs:anyType" />
+        <xs:element name="cached_objects" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="emojiconstants" >
+      <xs:sequence>
+        <xs:element name="play_pause" type="xs:string" />
+        <xs:element name="play" type="xs:string" />
+        <xs:element name="pause" type="xs:string" />
+        <xs:element name="rewind" type="xs:string" />
+        <xs:element name="skip" type="xs:string" />
+        <xs:element name="shuffle" type="xs:string" />
+        <xs:element name="repeat" type="xs:string" />
+        <xs:element name="repeat_one" type="xs:string" />
+        <xs:element name="volume" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="searchengine" >
+      <xs:sequence>
+        <xs:element name="max_levenshtein_distance" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="staticsessionprovider" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="util" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="table2" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="columns" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="loginhandler" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="spotifyapibuilder" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="loginmanager" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="loginmanager" >
+      <xs:sequence>
+        <xs:element name="logins" type="login" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="expectedlogins" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="login" >
+      <xs:sequence>
+        <xs:element name="refresh_service" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="nextrefresh" type="xs:anyType" />
+        <xs:element name="accesstoken" type="xs:string" />
+        <xs:element name="refreshtoken" type="xs:string" />
+        <xs:element name="expired" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cronjobservice" >
+      <xs:sequence>
+        <xs:element name="contribution" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractcrontask" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="invoker" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="playbackcleanuptask" >
+      <xs:complexContent>
+       <xs:extension base="abstractcrontask">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clearabandonedguildcontextstask" >
+      <xs:complexContent>
+       <xs:extension base="abstractcrontask">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="deletegrantedrolesfordeletedrolestask" >
+      <xs:complexContent>
+       <xs:extension base="abstractcrontask">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="refreshspotifyredirectindicestask" >
+      <xs:complexContent>
+       <xs:extension base="abstractcrontask">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="resetcurrentyoutubequotatask" >
+      <xs:complexContent>
+       <xs:extension base="abstractcrontask">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="checkedfunction" >
+      <xs:complexContent>
+       <xs:extension base="function<p,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="functioninvoker" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hibernateinvoker" >
+      <xs:complexContent>
+       <xs:extension base="baseinvoker">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="synchronisationlock" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="checkedconsumer" >
+      <xs:complexContent>
+       <xs:extension base="consumer<t>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="invoker" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spotifyinvoker" >
+      <xs:complexContent>
+       <xs:extension base="baseinvoker">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="login" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="recursionpreventionmode" >
+      <xs:complexContent>
+       <xs:extension base="abstractnestedmodewrapper">
+         <xs:sequence>
+          <xs:element name="is_running" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hibernatetransactionmode" >
+      <xs:complexContent>
+       <xs:extension base="abstractnestedmodewrapper">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="spotifyauthorizationmode" >
+      <xs:complexContent>
+       <xs:extension base="abstractnestedmodewrapper">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="spotifyuserauthorizationmode" >
+      <xs:complexContent>
+       <xs:extension base="abstractnestedmodewrapper">
+         <xs:sequence>
+          <xs:element name="" type="login" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="checkedrunnable" >
+      <xs:complexContent>
+       <xs:extension base="runnable">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="alertplaylistmodificationinterceptor" >
+      <xs:complexContent>
+       <xs:extension base="collectinginterceptor">
+         <xs:sequence>
+          <xs:element name="channel" type="xs:anyType" />
+          <xs:element name="" type="messageservice" nillable="true" minOccurs="0" />
+          <xs:element name="isfirstitemremoval" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="chainableinterceptor" >
+      <xs:complexContent>
+       <xs:extension base="emptyinterceptor">
+         <xs:sequence>
+          <xs:element name="next" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entityvalidationinterceptor" >
+      <xs:complexContent>
+       <xs:extension base="chainableinterceptor">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="interceptorchain" >
+      <xs:complexContent>
+       <xs:extension base="emptyinterceptor">
+         <xs:sequence>
+          <xs:element name="interceptors_muted" type="xs:anyType" />
+          <xs:element name="first" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="alertaccessconfigurationmodificationinterceptor" >
+      <xs:complexContent>
+       <xs:extension base="collectinginterceptor">
+         <xs:sequence>
+          <xs:element name="context" type="commandcontext" nillable="true" minOccurs="0" />
+          <xs:element name="" type="messageservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="alertpresetcreationinterceptor" >
+      <xs:complexContent>
+       <xs:extension base="collectinginterceptor">
+         <xs:sequence>
+          <xs:element name="channel" type="xs:anyType" />
+          <xs:element name="" type="messageservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="guildpropertyinterceptor" >
+      <xs:complexContent>
+       <xs:extension base="chainableinterceptor">
+         <xs:sequence>
+          <xs:element name="" type="commandcontext" nillable="true" minOccurs="0" />
+          <xs:element name="" type="guildpropertymanager" nillable="true" minOccurs="0" />
+          <xs:element name="changedproperties" type="xs:anyType" />
+          <xs:element name="" type="messageservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="verifyplaylistlistener" >
+      <xs:complexContent>
+       <xs:extension base="chainableinterceptor">
+         <xs:sequence>
+          <xs:element name="ordinal" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="collectinginterceptor" >
+      <xs:complexContent>
+       <xs:extension base="chainableinterceptor">
+         <xs:sequence>
+          <xs:element name="createdentities" type="xs:anyType" />
+          <xs:element name="deletedentities" type="xs:anyType" />
+          <xs:element name="updatedentities" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="playlistitemtimestamplistener" >
+      <xs:complexContent>
+       <xs:extension base="chainableinterceptor">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="botify" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="instance" type="botify" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="audiomanager" nillable="true" minOccurs="0" />
+        <xs:element name="executionqueuemanager" type="commandexecutionqueuemanager" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="commandmanager" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="guildmanager" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="guildpropertymanager" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="registeredlisteners" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="loginmanager" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="messageservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="securitymanager" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="spotifyapibuilder" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="versionmanager" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="playcommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractqueueloadingcommand">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="removecommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractcommand">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="propertycommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractcommand">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractsourcedecidingcommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractcommand">
+         <xs:sequence>
+          <xs:element name="default_fallback" type="xs:anyType" />
+          <xs:element name="default_list_fallback" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="addcommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractplayableloadingcommand">
+         <xs:sequence>
+          <xs:element name="definingargument" type="xs:string" />
+          <xs:element name="" type="playlist" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="loaddocumentcommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractadmincommand">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rebootcommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractadmincommand">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="updatecommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractadmincommand">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cleandbcommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractadmincommand">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="garbagecollectcommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractadmincommand">
+         <xs:sequence>
+          <xs:element name="memorybefore" type="xs:double" />
+          <xs:element name="memoryafter" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="quitcommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractadmincommand">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="youtubequotacommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractadmincommand">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="reloadcontextcommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractadmincommand">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="logoutcommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractcommand">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="exportcommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractcommand">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="volumecommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractcommand">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="answercommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractcommand">
+         <xs:sequence>
+          <xs:element name="targetcommand" type="abstractcommand" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rewindcommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractcommand">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="searchcommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractsourcedecidingcommand">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="uploadcommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractcommand">
+         <xs:sequence>
+          <xs:element name="uploadedplaylistname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="synchronisecommand" >
+      <xs:complexContent>
+       <xs:extension base="addcommand">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="shufflecommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractcommand">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="emptycommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractcommand">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="createcommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractcommand">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="helpcommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractcommand">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="deletecommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractcommand">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="stopcommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractcommand">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractplayableloadingcommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractsourcedecidingcommand">
+         <xs:sequence>
+          <xs:element name="mayinterrupt" type="xs:anyType" />
+          <xs:element name="loadedamount" type="xs:long" />
+          <xs:element name="loadedlocallist" type="playlist" nillable="true" minOccurs="0" />
+          <xs:element name="loaded" type="youtubeplaylist" nillable="true" minOccurs="0" />
+          <xs:element name="loadedspotifyplaylist" type="xs:anyType" />
+          <xs:element name="loadedtrack" type="playable" nillable="true" minOccurs="0" />
+          <xs:element name="loadedalbum" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="repeatcommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractcommand">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clearcommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractcommand">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="prefixcommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractcommand">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="presetcommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractcommand">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abortcommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractcommand">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="chartscommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractcommand">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="analyticscommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractcommand">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="permissioncommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractcommand">
+         <xs:sequence>
+          <xs:element name="comma" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractqueueloadingcommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractplayableloadingcommand">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="queuecommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractqueueloadingcommand">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="logincommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractcommand">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="renamecommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractcommand">
+         <xs:sequence>
+          <xs:element name="couldchangenickname" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="forwardcommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractcommand">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="insertcommand" >
+      <xs:complexContent>
+       <xs:extension base="addcommand">
+         <xs:sequence>
+          <xs:element name="toadd" type="xs:string" />
+          <xs:element name="targetindex" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="skipcommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractcommand">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pausecommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractcommand">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="movecommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractcommand">
+         <xs:sequence>
+          <xs:element name="successmessagebuilder" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="reversecommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractcommand">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clientquestioneventmanager" >
+      <xs:sequence>
+        <xs:element name="/***allunansweredquestions.questionsgetremovedafter5minutesorafterthesameuserentersadifferentcommand*thattriggersaquestion.*/pendingquestions" type="clientquestionevent" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractadmincommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractcommand">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="commandmanager" >
+      <xs:sequence>
+        <xs:element name="commandcontribution" type="xs:anyType" />
+        <xs:element name="commandinterceptor" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="/***thechainofinterceptorstoprocessthecommand*/interceptorchain" type="commandinterceptorchain" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="command" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commandparserinterceptor" >
+      <xs:complexContent>
+       <xs:extension base="abstractchainablecommandinterceptor">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="commandmonitoringinterceptor" >
+      <xs:complexContent>
+       <xs:extension base="abstractchainablecommandinterceptor">
+         <xs:sequence>
+          <xs:element name="" type="messageservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="commandverificationinterceptor" >
+      <xs:complexContent>
+       <xs:extension base="abstractchainablecommandinterceptor">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="securityinterceptor" >
+      <xs:complexContent>
+       <xs:extension base="abstractchainablecommandinterceptor">
+         <xs:sequence>
+          <xs:element name="" type="guildmanager" nillable="true" minOccurs="0" />
+          <xs:element name="" type="securitymanager" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="commandexecutioninterceptor" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="messageservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="historyinterceptor" >
+      <xs:complexContent>
+       <xs:extension base="abstractchainablecommandinterceptor">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="commandinterceptor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractchainablecommandinterceptor" >
+      <xs:sequence>
+        <xs:element name="contribution" type="commandinterceptorcontribution" nillable="true" minOccurs="0" />
+        <xs:element name="next" type="commandinterceptor" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commandinterceptorchain" >
+      <xs:complexContent>
+       <xs:extension base="commandinterceptor>">
+         <xs:sequence>
+          <xs:element name="first" type="commandinterceptor" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="commandcontext" >
+      <xs:complexContent>
+       <xs:extension base="commandcontext">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="guildcontext" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="commandbody" type="xs:string" />
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="commandhistory" nillable="true" minOccurs="0" />
+          <xs:element name="monitoring" type="xs:anyType" />
+          <xs:element name="registeredon" type="xs:anyType" />
+          <xs:element name="" type="spotifyservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clientquestionevent" >
+      <xs:complexContent>
+       <xs:extension base="timertask">
+         <xs:sequence>
+          <xs:element name="sourcecommand" type="abstractcommand" nillable="true" minOccurs="0" />
+          <xs:element name="destruction" type="xs:anyType" />
+          <xs:element name="options" type="xs:anyType" />
+          <xs:element name="questionmessage" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="argumentcontribution" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception>">
+         <xs:sequence>
+          <xs:element name="sourcecommand" type="abstractcommand" nillable="true" minOccurs="0" />
+          <xs:element name="definedarguments" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="commandparselistener" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commandinputbuildingmode" >
+      <xs:sequence>
+        <xs:element name="command" type="abstractcommand" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="commandparser" nillable="true" minOccurs="0" />
+        <xs:element name="argumentprefix" type="xs:anyType" />
+        <xs:element name="commandinputbuilder" type="xs:anyType" />
+        <xs:element name="last" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="argumentbuildingmode" >
+      <xs:sequence>
+        <xs:element name="command" type="abstractcommand" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="commandparser" nillable="true" minOccurs="0" />
+        <xs:element name="argumentprefix" type="xs:anyType" />
+        <xs:element name="isinline" type="xs:anyType" />
+        <xs:element name="conceptionindex" type="xs:long" />
+        <xs:element name="argumentbuilder" type="xs:anyType" />
+        <xs:element name="argumentvaluebuilder" type="xs:anyType" />
+        <xs:element name="isrecodingvalue" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commandparser" >
+      <xs:sequence>
+        <xs:element name="meta" type="xs:anyType" />
+        <xs:element name="command" type="abstractcommand" nillable="true" minOccurs="0" />
+        <xs:element name="argumentprefix" type="xs:anyType" />
+        <xs:element name="listeners" type="commandparselistener" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="s" type="xs:anyType" />
+        <xs:element name="currentposition" type="xs:long" />
+        <xs:element name="current" type="xs:anyType" />
+        <xs:element name="isescaped" type="xs:anyType" />
+        <xs:element name="isopenquotation" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="scanningmode" >
+      <xs:sequence>
+        <xs:element name="command" type="abstractcommand" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="commandparser" nillable="true" minOccurs="0" />
+        <xs:element name="argumentprefix" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="widgetmanager" >
+      <xs:complexContent>
+       <xs:extension base="abstractwidget>">
+         <xs:sequence>
+          <xs:element name="/***allwidgetsthatcurrentlylistenforreactions.onlyonewidgetofthesametypeperguildmaybeactive.*/activewidgets" type="abstractwidget" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="widgetconfiguration" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractwidgetaction" >
+      <xs:sequence>
+        <xs:element name="widget" type="abstractwidget" nillable="true" minOccurs="0" />
+        <xs:element name="context" type="commandcontext" nillable="true" minOccurs="0" />
+        <xs:element name="identifier" type="xs:string" />
+        <xs:element name="emojiunicode" type="xs:string" />
+        <xs:element name="event" type="xs:anyType" />
+        <xs:element name="resetrequired" type="xs:anyType" />
+        <xs:element name="thread" type="commandexecutionthread" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="nowplayingwidget" >
+      <xs:complexContent>
+       <xs:extension base="abstractwidget">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="shuffleaction" >
+      <xs:complexContent>
+       <xs:extension base="abstractwidgetaction">
+         <xs:sequence>
+          <xs:element name="" type="audioplayback" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="repeatallaction" >
+      <xs:complexContent>
+       <xs:extension base="abstractwidgetaction">
+         <xs:sequence>
+          <xs:element name="" type="audioplayback" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="repeatoneaction" >
+      <xs:complexContent>
+       <xs:extension base="abstractwidgetaction">
+         <xs:sequence>
+          <xs:element name="" type="audioplayback" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rewindaction" >
+      <xs:complexContent>
+       <xs:extension base="abstractwidgetaction">
+         <xs:sequence>
+          <xs:element name="" type="audioplayback" nillable="true" minOccurs="0" />
+          <xs:element name="" type="audiomanager" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="playpauseaction" >
+      <xs:complexContent>
+       <xs:extension base="abstractwidgetaction">
+         <xs:sequence>
+          <xs:element name="" type="audioplayback" nillable="true" minOccurs="0" />
+          <xs:element name="" type="audiomanager" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="skipaction" >
+      <xs:complexContent>
+       <xs:extension base="abstractwidgetaction">
+         <xs:sequence>
+          <xs:element name="" type="audioplayback" nillable="true" minOccurs="0" />
+          <xs:element name="" type="audiomanager" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="queuewidget" >
+      <xs:complexContent>
+       <xs:extension base="abstractwidget">
+         <xs:sequence>
+          <xs:element name="" type="audioplayback" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractcommand" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="commandcontribution" nillable="true" minOccurs="0" />
+        <xs:element name="context" type="commandcontext" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="commandmanager" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="argumentcontribution" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="messageservice" nillable="true" minOccurs="0" />
+        <xs:element name="commandbody" type="xs:string" />
+        <xs:element name="identifier" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="requiresinput" type="xs:anyType" />
+        <xs:element name="commandinput" type="xs:string" />
+        <xs:element name="//usedtopreventonsuccessbeingcalledwhennoexceptionhasbeenthrownbutthecommandfailedanywayisfailed" type="xs:anyType" />
+        <xs:element name="thread" type="commandexecutionthread" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractwidget" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="commandmanager" nillable="true" minOccurs="0" />
+        <xs:element name="executionqueuemanager" type="commandexecutionqueuemanager" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="widgetcontribution" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="widgetmanager" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="channel" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="guildid" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="//ifthemessagehasbeendeletedbyawidgetactionthatdoesnotalwaysrequirearesetmessagedeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="securitymanager" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="guildmanager" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="unavailableresourceexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="invalidargumentexception" >
+      <xs:complexContent>
+       <xs:extension base="additionalinformationexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="commandparseexception" >
+      <xs:complexContent>
+       <xs:extension base="userexception">
+         <xs:sequence>
+          <xs:element name="errormessage" type="xs:string" />
+          <xs:element name="command" type="xs:string" />
+          <xs:element name="cause" type="userexception" nillable="true" minOccurs="0" />
+          <xs:element name="index" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="invalidcommandexception" >
+      <xs:complexContent>
+       <xs:extension base="additionalinformationexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="additionalinformationexception" >
+      <xs:complexContent>
+       <xs:extension base="userexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="nospotifyresultsfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="additionalinformationexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="exceptionutils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="invalidrequestexception" >
+      <xs:complexContent>
+       <xs:extension base="userexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ratelimitexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="istimeout" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="trackloadingexceptionhandler" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="channel" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="commandcontext" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commandexceptionhandler" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="command" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="widgetexceptionhandler" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="loggingexceptionhandler" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="unclosedquotationsexception" >
+      <xs:complexContent>
+       <xs:extension base="additionalinformationexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ambiguouscommandexception" >
+      <xs:complexContent>
+       <xs:extension base="userexception">
+         <xs:sequence>
+          <xs:element name="options" type="xs:anyType" />
+          <xs:element name="displayfunc" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="commandruntimeexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="invalidpropertyvalueexception" >
+      <xs:complexContent>
+       <xs:extension base="userexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="illegalescapecharacterexception" >
+      <xs:complexContent>
+       <xs:extension base="additionalinformationexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="nologinexception" >
+      <xs:complexContent>
+       <xs:extension base="userexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="forbiddencommandexception" >
+      <xs:complexContent>
+       <xs:extension base="userexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="noresultsfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="userexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="completableplaceholdermessage" >
+      <xs:sequence>
+        <xs:element name="futuremessage" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commandexecutionqueuemanager" >
+      <xs:sequence>
+        <xs:element name="execution_queue_size" type="xs:long" />
+        <xs:element name="rate_limit_for_period" type="xs:long" />
+        <xs:element name="rate_limit_period" type="xs:anyType" />
+        <xs:element name="rate_limit_violation_timeout" type="xs:anyType" />
+        <xs:element name="guildexecutionqueues" type="threadexecutionqueue" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messageservice" >
+      <xs:sequence>
+        <xs:element name="recursion_prevention_" type="invoker" nillable="true" minOccurs="0" />
+        <xs:element name="recursion_prevention_" type="xs:anyType" />
+        <xs:element name="essential_permissions" type="xs:anyType" />
+        <xs:element name="limit" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractboolproperty" >
+      <xs:complexContent>
+       <xs:extension base="abstractguildproperty">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="guildpropertymanager" >
+      <xs:sequence>
+        <xs:element name="property" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="prefixproperty" >
+      <xs:complexContent>
+       <xs:extension base="abstractguildproperty">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="defaultlistsourceproperty" >
+      <xs:complexContent>
+       <xs:extension base="abstractguildproperty">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="autopauseproperty" >
+      <xs:complexContent>
+       <xs:extension base="abstractboolproperty">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="botnameproperty" >
+      <xs:complexContent>
+       <xs:extension base="abstractguildproperty">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="colorschemeproperty" >
+      <xs:complexContent>
+       <xs:extension base="abstractguildproperty">
+         <xs:sequence>
+          <xs:element name="default_fallback" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="defaultsourceproperty" >
+      <xs:complexContent>
+       <xs:extension base="abstractguildproperty">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="argumentprefixproperty" >
+      <xs:complexContent>
+       <xs:extension base="abstractguildproperty">
+         <xs:sequence>
+          <xs:element name="default" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="playbacknotificationproperty" >
+      <xs:complexContent>
+       <xs:extension base="abstractboolproperty">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="defaulttextchannelproperty" >
+      <xs:complexContent>
+       <xs:extension base="abstractguildproperty">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tempmessagetimeoutproperty" >
+      <xs:complexContent>
+       <xs:extension base="abstractguildproperty">
+         <xs:sequence>
+          <xs:element name="default_fallback" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractguildproperty" >
+      <xs:sequence>
+        <xs:element name="contribution" type="guildpropertycontribution" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="guildmanager" >
+      <xs:sequence>
+        <xs:element name="guildcontexts" type="guildcontext" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="audiomanager" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="guildcontext" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="playback" type="audioplayback" nillable="true" minOccurs="0" />
+        <xs:element name="specificationpk" type="xs:long" />
+        <xs:element name="trackloadingexecutor" type="guildtrackloadingexecutor" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="widgetmanager" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="clientquestioneventmanager" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persisttask" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="updateplaylistitemindicestask" >
+      <xs:sequence>
+        <xs:element name="playliststoupdate" type="playlist" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="sorter" type="playlistitem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hibernateplaylistmigrator" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="playlistviewhandler" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resourcehandler" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="queueviewhandler" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="audiomanager" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="serverutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="httpserverstarter" >
+      <xs:sequence>
+        <xs:element name="httphandlers" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractsoftcachedplayable" >
+      <xs:sequence>
+        <xs:element name="cachedtrack" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="playable" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="audioplayback" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="audioqueue" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="communicationchannel" type="xs:anyType" />
+        <xs:element name="lastplaybacknotification" type="xs:anyType" />
+        <xs:element name="current" type="queueiterator" nillable="true" minOccurs="0" />
+        <xs:element name="//timethebothasbeenaloneinthevoicechannelsincealonesince" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="audioqueue" >
+      <xs:sequence>
+        <xs:element name="currentqueue" type="playable" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="randomizedorder" type="xs:anyType" />
+        <xs:element name="maxsize" type="xs:anyType" />
+        <xs:element name="currenttrack" type="xs:long" />
+        <xs:element name="isshuffle" type="xs:anyType" />
+        <xs:element name="repeatone" type="xs:anyType" />
+        <xs:element name="repeatall" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="audiomanager" >
+      <xs:sequence>
+        <xs:element name="playermanager" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="youtubeservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="guildmanager" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="audiotrackloader" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="queueiterator" >
+      <xs:complexContent>
+       <xs:extension base="audioeventadapter">
+         <xs:sequence>
+          <xs:element name="audio_event_pool" type="xs:anyType" />
+          <xs:element name="playback" type="audioplayback" nillable="true" minOccurs="0" />
+          <xs:element name="queue" type="audioqueue" nillable="true" minOccurs="0" />
+          <xs:element name="" type="audiomanager" nillable="true" minOccurs="0" />
+          <xs:element name="" type="messageservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="audiotrackloader" nillable="true" minOccurs="0" />
+          <xs:element name="currentlyplaying" type="playable" nillable="true" minOccurs="0" />
+          <xs:element name="volatileisreplaced" type="xs:anyType" />
+          <xs:element name="//incrementedwhenattemptingtoplaythenexttrackandresetwhenatrackendssuccessfully.////fortheperspectiveofqueueiteratorinstancestracksareeitherfinishedcompletelyorfail//duetoanerror.iftheuserskipsatrackanewqueueiteratorinstanceiscreated.attemptcount" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="spotifyservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spotifyuri" >
+      <xs:sequence>
+        <xs:element name="uri_regex" type="xs:anyType" />
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="trackwrapper" >
+      <xs:complexContent>
+       <xs:extension base="abstractsoftcachedplayable">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="spotifyredirectservice" >
+      <xs:sequence>
+        <xs:element name="singe_thread_executor_service" type="xs:anyType" />
+        <xs:element name="invoker" type="hibernateinvoker" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="youtubeservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spotifytrackresulthandler" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spotifytrackbulkloadingservice" >
+      <xs:complexContent>
+       <xs:extension base="bulkoperationservice<string,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="audiotrackloader" >
+      <xs:sequence>
+        <xs:element name="playermanager" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="audioplayersendhandler" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="buffer" type="xs:anyType" />
+        <xs:element name="audioframe" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="urlplayable" >
+      <xs:sequence>
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="display" type="xs:string" />
+        <xs:element name="duration" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="youtubeservice" >
+      <xs:sequence>
+        <xs:element name="redirect_search_amount" type="xs:long" />
+        <xs:element name="artist_match_score_multiplier" type="xs:long" />
+        <xs:element name="view_score_multiplier" type="xs:long" />
+        <xs:element name="edit_distance_score_multiplier" type="xs:long" />
+        <xs:element name="index_score_multiplier" type="xs:long" />
+        <xs:element name="quota_cost_search" type="xs:long" />
+        <xs:element name="quota_cost_list" type="xs:long" />
+        <xs:element name="update_quota_service" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="apikey" type="xs:string" />
+        <xs:element name="quotathreshold" type="xs:long" />
+        <xs:element name="currentquota" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hollowyoutubevideo" >
+      <xs:complexContent>
+       <xs:extension base="abstractsoftcachedplayable">
+         <xs:sequence>
+          <xs:element name="" type="youtubeservice" nillable="true" minOccurs="0" />
+          <xs:element name="title" type="xs:anyType" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="duration" type="xs:anyType" />
+          <xs:element name="redirectedspotify" type="xs:anyType" />
+          <xs:element name="canceled" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="youtubevideoimpl" >
+      <xs:complexContent>
+       <xs:extension base="abstractsoftcachedplayable">
+         <xs:sequence>
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="duration" type="xs:long" />
+          <xs:element name="redirectedspotify" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="youtubeplaylist" >
+      <xs:sequence>
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="channeltitle" type="xs:string" />
+        <xs:element name="videos" type="hollowyoutubevideo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="youtubevideo" >
+      <xs:complexContent>
+       <xs:extension base="{@link">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="playablefactory" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="spotifyservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="audiotrackloader" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="youtubeservice" nillable="true" minOccurs="0" />
+        <xs:element name="trackloadingexecutor" type="guildtrackloadingexecutor" nillable="true" minOccurs="0" />
+        <xs:element name="invoker" type="spotifyinvoker" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="widgetlistener" >
+      <xs:complexContent>
+       <xs:extension base="listeneradapter">
+         <xs:sequence>
+          <xs:element name="" type="guildmanager" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="messageservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="commandlistener" >
+      <xs:complexContent>
+       <xs:extension base="listeneradapter">
+         <xs:sequence>
+          <xs:element name="executionqueuemanager" type="commandexecutionqueuemanager" nillable="true" minOccurs="0" />
+          <xs:element name="" type="commandmanager" nillable="true" minOccurs="0" />
+          <xs:element name="commandconceptionpool" type="xs:anyType" />
+          <xs:element name="" type="guildmanager" nillable="true" minOccurs="0" />
+          <xs:element name="" type="messageservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="spotifyapibuilder" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="guildmanagementlistener" >
+      <xs:complexContent>
+       <xs:extension base="listeneradapter">
+         <xs:sequence>
+          <xs:element name="executionqueuemanager" type="commandexecutionqueuemanager" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="guildeventhandler" type="xs:anyType" />
+          <xs:element name="" type="guildmanager" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="voicechannellistener" >
+      <xs:complexContent>
+       <xs:extension base="listeneradapter">
+         <xs:sequence>
+          <xs:element name="" type="audiomanager" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="liquibase" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="quartz" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ehcache" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

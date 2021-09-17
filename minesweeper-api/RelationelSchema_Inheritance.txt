@@ -1,0 +1,11 @@
+
+gameentity(gameid:Long [PK], name:String, rows:int, columns:int, mines:int, ended:boolean, lost:boolean, durationinseconds:long, fullboard:String, playedboard:String, GeneratedName:User #FK to(user));
+
+usergame(username:String [PK], gameid:long [PK], GeneratedName:User #FK to(user), game:GameEntity #FK to(gameentity));
+
+user(username:String [PK], displayname:String, password:String, enabled:boolean);
+
+authorities(username:String [PK], authority:Role, GeneratedName:User #FK to(user));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

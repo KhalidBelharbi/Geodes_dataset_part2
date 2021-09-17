@@ -1,0 +1,31 @@
+
+article(idchannel:Long, title:String, content:String, author:String, img:String);
+
+banner(url:String, title:String, type:String, idfile:String, page:String, param:String);
+
+user(avatar:String, account:String, password:String, salt:String, name:String, birthday:Date, sex:Integer, email:String, phone:String, roleid:String, deptid:Long, status:Integer, version:Integer);
+
+message(tplcode:String, content:String, receiver:String, type:Integer, state:Integer);
+
+attrval(idattrkey:Long, attrval:String, GeneratedName:AttrKey #FK to(attrkey));
+
+attrkey(attrname:String, idcategory:Long);
+
+favorite(iduser:Long, user:ShopUser #FK to(shopuser), idgoods:Long, GeneratedName:Goods #FK to(goods));
+
+topic(title:String, idarticle:Long, GeneratedName:Article #FK to(article), idgoodslist:String, pv:Long, disabled:boolean);
+
+shopuser(id:Long [PK], createtime:Date, mobile:String, salt:String, password:String, nickname:String, avatar:String, gender:String, lastlogintime:Date, wechatopenid:String, wechatnickname:String, wechatheadimgurl:String);
+
+goods(name:String, pic:String, gallery:String, idcategory:Long, GeneratedName:Category #FK to(category), descript:String, detail:String, /***如果商品是多规格，则存所有库存之和*/stock:Integer, /***如果商品是多规格，则存最低价*/price:BigDecimal, isdelete:Boolean, isonsale:Boolean, isnew:Boolean, ishot:Boolean, likenum:Integer);
+
+goodssku(code:String, codename:String, idgoods:Long, price:BigDecimal, marketingprice:BigDecimal, stock:Integer, isdeleted:Boolean);
+
+categorybannerrel(idcategory:Long, idbanner:Long, GeneratedName:Category #FK to(category), GeneratedName:Banner #FK to(banner));
+
+category(name:String, url:String, icon:String, pid:Long, descript:String, isdelete:Boolean, /***改字段只对一级菜单生效，也即：只有一级菜单可以显示在首页*/showindex:Boolean, sort:Integer);
+
+cart(iduser:Long, user:ShopUser #FK to(shopuser), idgoods:Long, GeneratedName:Goods #FK to(goods), idsku:Long, sku:GoodsSku #FK to(goodssku), count:Integer);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

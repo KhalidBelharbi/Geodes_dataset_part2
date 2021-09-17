@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="autoselectimpltest" >
+      <xs:complexContent>
+       <xs:extension base="testcase">
+         <xs:sequence>
+          <xs:element name="manager" type="jdbcmanagerimpl" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ddd" >
+      <xs:sequence>
+        <xs:element name="/***/id" type="xs:anyType" />
+        <xs:element name="/***/name" type="xs:string" />
+        <xs:element name="/***/bbbid" type="xs:anyType" />
+        <xs:element name="/***/" type="bbb" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sequence" >
+      <xs:sequence>
+        <xs:element name="/***/id" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="emp" >
+      <xs:sequence>
+        <xs:element name="/***/empno" type="xs:anyType" />
+        <xs:element name="/***/ename" type="xs:string" />
+        <xs:element name="/***/job" type="xs:string" />
+        <xs:element name="/***/mgr" type="xs:anyType" />
+        <xs:element name="/***/hire" type="xs:dateTime" />
+        <xs:element name="/***/sal" type="xs:anyType" />
+        <xs:element name="/***/comm" type="xs:anyType" />
+        <xs:element name="/***/deptno" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="aaa" >
+      <xs:sequence>
+        <xs:element name="/***/id" type="xs:anyType" />
+        <xs:element name="/***/name" type="xs:string" />
+        <xs:element name="/***/bbbid" type="xs:anyType" />
+        <xs:element name="/***/" type="bbb" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="identity" >
+      <xs:sequence>
+        <xs:element name="/***/id" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bbb" >
+      <xs:sequence>
+        <xs:element name="/***/id" type="xs:anyType" />
+        <xs:element name="/***/name" type="xs:string" />
+        <xs:element name="/***/cccid" type="xs:anyType" />
+        <xs:element name="/***/" type="ccc" nillable="true" minOccurs="0" />
+        <xs:element name="/***/" type="aaa" nillable="true" minOccurs="0" />
+        <xs:element name="/***/ddds" type="ddd" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="eee" >
+      <xs:sequence>
+        <xs:element name="/***/id" type="xs:anyType" />
+        <xs:element name="/***/name" type="xs:string" />
+        <xs:element name="/***/longtext" type="xs:string" />
+        <xs:element name="/***/fffid" type="xs:anyType" />
+        <xs:element name="/***/" type="fff" nillable="true" minOccurs="0" />
+        <xs:element name="/***/version" type="xs:long" />
+        <xs:element name="/***/lastupdated" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fff" >
+      <xs:sequence>
+        <xs:element name="/***/id" type="xs:anyType" />
+        <xs:element name="/***/name" type="xs:string" />
+        <xs:element name="/***/" type="eee" nillable="true" minOccurs="0" />
+        <xs:element name="/***/version" type="xs:long" />
+        <xs:element name="/***/lastupdated" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="table" >
+      <xs:sequence>
+        <xs:element name="/***/id" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ccc" >
+      <xs:sequence>
+        <xs:element name="/***/id" type="xs:anyType" />
+        <xs:element name="/***/name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="propertymetafactoryimpltest" >
+      <xs:complexContent>
+       <xs:extension base="testcase">
+         <xs:sequence>
+          <xs:element name="factory" type="propertymetafactoryimpl" nillable="true" minOccurs="0" />
+          <xs:element name="transienthoge" type="xs:string" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="illegalversion" type="xs:anyType" />
+          <xs:element name="" type="bbb" nillable="true" minOccurs="0" />
+          <xs:element name="2" type="bbb" nillable="true" minOccurs="0" />
+          <xs:element name="" type="entitymeta" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitymetafactoryimpltest" >
+      <xs:complexContent>
+       <xs:extension base="testcase">
+         <xs:sequence>
+          <xs:element name="factory" type="entitymetafactoryimpl" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="selectableentitymanagerproxytest" >
+      <xs:complexContent>
+       <xs:extension base="s2tigertestcase">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="entitymanagerprovider" nillable="true" minOccurs="0" />
+          <xs:element name="proxy" type="selectableentitymanagerproxy" nillable="true" minOccurs="0" />
+          <xs:element name="foo" type="xs:anyType" />
+          <xs:element name="bar" type="xs:anyType" />
+          <xs:element name="" type="query" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hoge" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

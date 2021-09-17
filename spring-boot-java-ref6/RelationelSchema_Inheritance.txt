@@ -1,0 +1,15 @@
+
+notes(id:Long [PK], GeneratedName:Recipe #FK to(recipe), recipenotes:String);
+
+category(id:Long [PK], description:String);
+
+recipe(id:Long [PK], description:String, preptime:Integer, cooktime:Integer, servings:Integer, source:String, url:String, directions:String, image:Byte, GeneratedName:Difficulty, GeneratedName:Notes #FK to(notes));
+
+recipe_category(recipe_id:Recipe [PK] #FK to Recipe,category_id:set<category> [PK] #FK to set<category>);
+
+unitofmeasure(id:Long [PK], description:String);
+
+ingredient(id:Long [PK], description:String, amount:BigDecimal, uom:UnitOfMeasure #FK to(unitofmeasure), GeneratedName:Recipe #FK to(recipe));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

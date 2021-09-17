@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="itemnumbercheckpoint" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="itemnumber" type="xs:long" />
+        <xs:element name="numitems" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="callrecord" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="time" type="xs:dateTime" />
+        <xs:element name="fromnumber" type="xs:string" />
+        <xs:element name="tonumber" type="xs:string" />
+        <xs:element name="minutes" type="xs:long" />
+        <xs:element name="seconds" type="xs:long" />
+        <xs:element name="price" type="xs:anyType" />
+        <xs:element name="serialversionuid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="phonebill" >
+      <xs:sequence>
+        <xs:element name="phonenumber" type="xs:string" />
+        <xs:element name="calls" type="callrecord" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="amountbase" type="xs:anyType" />
+        <xs:element name="taxrate" type="xs:anyType" />
+        <xs:element name="tax" type="xs:anyType" />
+        <xs:element name="amounttotal" type="xs:anyType" />
+        <xs:element name="serialversionuid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="billreader" >
+      <xs:sequence>
+        <xs:element name="firstitemvalue" type="xs:string" />
+        <xs:element name="numitemsvalue" type="xs:string" />
+        <xs:element name="checkpoint" type="itemnumbercheckpoint" nillable="true" minOccurs="0" />
+        <xs:element name="em" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="callrecordprocessor" >
+      <xs:sequence>
+        <xs:element name="jobctx" type="xs:anyType" />
+        <xs:element name="airprice" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="billprocessor" >
+      <xs:sequence>
+        <xs:element name="jobctx" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="callrecordreader" >
+      <xs:sequence>
+        <xs:element name="checkpoint" type="itemnumbercheckpoint" nillable="true" minOccurs="0" />
+        <xs:element name="filename" type="xs:string" />
+        <xs:element name="breader" type="xs:anyType" />
+        <xs:element name="jobctx" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="callrecordlogcreator" >
+      <xs:sequence>
+        <xs:element name="cal" type="xs:anyType" />
+        <xs:element name="rnd" type="xs:anyType" />
+        <xs:element name="srcnumbers" type="xs:string" />
+        <xs:element name="dstnumbers" type="xs:string" />
+        <xs:element name="records" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="callrecordwriter" >
+      <xs:sequence>
+        <xs:element name="em" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="billpartitionmapper" >
+      <xs:sequence>
+        <xs:element name="em" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="billwriter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jsfbean" >
+      <xs:sequence>
+        <xs:element name="logtool" type="callrecordlogcreator" nillable="true" minOccurs="0" />
+        <xs:element name="execid" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="em" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="serialversionuid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="web" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="phonebilling" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

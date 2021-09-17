@@ -1,0 +1,27 @@
+
+dosage(dosageid:int [PK], symptom:String, medicinetype:String, dosagevol:int, dosagecnt:int, dosagetime:String, storage:String, specialnote:String, create:Date, userid:String);
+
+user(userid:String [PK], password:String, username:String, usertel:String, type:int, refreshtoken:String, accept:int, create:Date, profileimg:String, statecode:int, kidname:String, classcode:String);
+
+kinder(kindercode:String [PK], kindername:String);
+
+kinderclass(classcode:String [PK], classname:String, kindercode:String, GeneratedName:Kinder #FK to(kinder));
+
+returnhome(rhid:int [PK], rhdate:String, rhtime:String, guardian:String, guardiantel:String, emergency:String, emergencytel:String, create:Date, userid:String);
+
+attend(userid:String [PK], GeneratedName:Date [PK], attend:int);
+
+album(albumid:int [PK], title:String, create:Date, thumbnailurl:String, downloadurl:String, classcode:String, writerid:String);
+
+schedule(scheduleid:int [PK], title:String, content:String, create:Date, scheduleimgurl:String, classcode:String, userid:String);
+
+notice(noticeid:int [PK], title:String, content:String, create:Date, noticeimgurl:String, classcode:String, userid:String);
+
+notebook(noteid:int [PK], title:String, content:String, create:Date, noteimgurl:String, writerid:String, targetid:String);
+
+albumimg(photoid:String [PK], albumid:int);
+
+menu(menuid:int [PK], amsnack:String, amsnackimgurl:String, lunch:String, lunchimgurl:String, pmsnack:String, pmsnackimgurl:String, create:Date, classcode:String, userid:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

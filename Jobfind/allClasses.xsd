@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="login" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobfinderapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="jobrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="companysizeservice" >
+      <xs:sequence>
+        <xs:element name="compagysizerepository" type="companysizerepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="countriesservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="countriesrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="securityserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="companyservice" >
+      <xs:sequence>
+        <xs:element name="em" type="xs:anyType" />
+        <xs:element name="sf" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="companyrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="websecurityconfig" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userdetailsserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="uservalidator" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="securityservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="rolerepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="industryservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="industryrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="companysize" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="value" type="xs:string" />
+        <xs:element name="companies" type="company" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="users" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="company" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="companyname" type="xs:string" />
+        <xs:element name="website" type="xs:string" />
+        <xs:element name="about" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="location" type="xs:long" />
+        <xs:element name="industryid" type="xs:long" />
+        <xs:element name="numbere" type="xs:long" />
+        <xs:element name="transient" type="industry" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="countries" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="companysize" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="passwordconfirm" type="xs:string" />
+        <xs:element name="roles" type="role" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="countries" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="company" type="company" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="industry" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="industryname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="job" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="position" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="minimumexperienceyears" type="xs:long" />
+        <xs:element name="category" type="xs:string" />
+        <xs:element name="minimumdegree" type="xs:string" />
+        <xs:element name="slots" type="xs:long" />
+        <xs:element name="companyid" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="contrat" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="country" type="xs:string" />
+        <xs:element name="published" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="company" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hibernateutil" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="companysizerepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<companysize,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="industryrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<industry,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jobrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<job,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="countriesrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<countries,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="companyrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<company,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rolerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<role,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="securityservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="uservalidator" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="maincontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="jobservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="companyservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="industryservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ctreatecompanycontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="countriesservice" nillable="true" minOccurs="0" />
+        <xs:element name="companysizesservice" type="companysizeservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="companyservice" nillable="true" minOccurs="0" />
+        <xs:element name="userservice" type="userserviceimpl" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="industryservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ctreatecontriescontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="countriesservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="companysizeservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="industryservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="restcontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobfinderapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

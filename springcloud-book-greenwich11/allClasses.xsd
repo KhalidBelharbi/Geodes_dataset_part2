@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="syslog" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="//用户名username" type="xs:string" />
+        <xs:element name="//用户操作operation" type="xs:string" />
+        <xs:element name="//请求方法method" type="xs:string" />
+        <xs:element name="//请求参数params" type="xs:string" />
+        <xs:element name="//ip地址ip" type="xs:string" />
+        <xs:element name="//创建时间create" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sender" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="receiver" >
+      <xs:sequence>
+        <xs:element name="latch" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="syslogservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logserviceapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="syslogservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="syslogdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resourceserverconfiguration" >
+      <xs:complexContent>
+       <xs:extension base="resourceserverconfigureradapter{">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jwtconfiguration" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rabbitconfig" >
+      <xs:sequence>
+        <xs:element name="queuename" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="globalmethodsecurityconfiguration" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="syslogdao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<syslog,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="public" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logserviceapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

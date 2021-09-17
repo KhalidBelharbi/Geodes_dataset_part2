@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="team" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="foundationyear" type="xs:long" />
+        <xs:element name="nickname" type="xs:string" />
+        <xs:element name="headcoach" type="xs:string" />
+        <xs:element name="fifarating" type="xs:long" />
+        <xs:element name="capitan" type="xs:string" />
+        <xs:element name="tourmanentgroups" type="tourmanentgroup" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="filestorage" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="matchitem" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="match" type="xs:dateTime" />
+        <xs:element name="country" type="xs:string" />
+        <xs:element name="host" type="team" nillable="true" minOccurs="0" />
+        <xs:element name="guest" type="team" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="stadium" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tournament" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="tournamentname" type="xs:string" />
+        <xs:element name="start" type="xs:dateTime" />
+        <xs:element name="end" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="tournamenttype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="playeramplua" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="//@column(unique" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="player" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="fname" type="xs:string" />
+        <xs:element name="lname" type="xs:string" />
+        <xs:element name="mname" type="xs:string" />
+        <xs:element name="birth" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="playeramplua" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="filestorage" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="score" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="gooaltime" type="xs:long" />
+        <xs:element name="GeneratedName" type="player" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="matchitem" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="goaltype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stadium" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="GeneratedName" type="filestorage" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tourmanentgroup" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="teams" type="team" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="tournament" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filestorage" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="filepath" type="xs:string" />
+        <xs:element name="filename" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="playerteams" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="player" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="team" nillable="true" minOccurs="0" />
+        <xs:element name="number" type="xs:long" />
+        <xs:element name="startwork" type="xs:anyType" />
+        <xs:element name="endwork" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

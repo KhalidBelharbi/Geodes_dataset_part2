@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="spuser" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="authorities" type="spauthority" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="enabled" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spauthority" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="authority" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistentlogins" >
+      <xs:sequence>
+        <xs:element name="series" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="token" type="xs:string" />
+        <xs:element name="lastused" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,13 @@
+
+employee(id:int [PK], name:String, salary:long, GeneratedName:Department #FK to(department), manager:Employee #FK to(employee));
+
+address(id:int [PK], street:String, city:String, state:String, zip:String);
+
+department(id:int [PK], name:String);
+
+project(id:int [PK], name:String);
+
+project_collection<employee>(projectID:project [PK] #FK to project,collection<employee>ID:collection<employee> [PK] #FK to collection<employee>);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

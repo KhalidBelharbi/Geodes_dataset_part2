@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="helloresponsedto" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="amount" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="postsupdaterequestdto" >
+      <xs:sequence>
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="postslistresponsedto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="author" type="xs:string" />
+        <xs:element name="modifieddate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="postsresponsedto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="author" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="postssaverequestdto" >
+      <xs:sequence>
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="author" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hellocontorller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="postsapicontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="postsservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="indexcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="postsservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sessionuser" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="picture" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="oauthattributes" >
+      <xs:sequence>
+        <xs:element name="attributes" type="xs:anyType" />
+        <xs:element name="nameattributekey" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="picture" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="securityconfig" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+          <xs:element name="" type="customoauth2userservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customoauth2userservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="key" type="xs:string" />
+        <xs:element name="title" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="basetimeentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="picture" type="xs:string" />
+          <xs:element name="//기본적으로int로된숫자가저장된다//숫자로저장되면db확인때무슨코드를의미하는지알수가없어stringtype으로선언" type="role" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,long>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="posts" >
+      <xs:complexContent>
+       <xs:extension base="basetimeentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="content" type="xs:string" />
+          <xs:element name="author" type="xs:string" />
+          <xs:element name="title" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="postsrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<posts,long>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basetimeentity" >
+      <xs:sequence>
+        <xs:element name="//entity가생성되어저장될떄자동저장createdate" type="xs:anyType" />
+        <xs:element name="//조회한entity의값을변경할때시간이자동저장modifieddate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="postsservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="postsrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="posts-view" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="posts-update" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="header" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="footer" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="posts-save" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="postsrepositorytest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="postsrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="postsapicontrollertest" >
+      <xs:sequence>
+        <xs:element name="port" type="xs:long" />
+        <xs:element name="resttemplate" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="postsrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="helloresponsedtotest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="indexcontrollertest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hellocontrollertest" >
+      <xs:sequence>
+        <xs:element name="//웹api테스트할떄사용//httpget,post등테스트가능mvc" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

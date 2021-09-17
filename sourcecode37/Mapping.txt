@@ -1,0 +1,9 @@
+ClassDiagram.Class>> SysUser =>=>=> RelationalSchema.Table>> sysuser;
+ClassDiagram.Class>> SysRole =>=>=> RelationalSchema.Table>> sysrole;
+ClassDiagram.Attribut>> SysUser.serialversionuid:long =>=>=> RelationalSchema.Column>> sysuser.serialversionuid;
+ClassDiagram.Attribut>> SysUser.id:Long =>=>=> RelationalSchema.Column>> sysuser.id PRIMARY KEY;
+ClassDiagram.Attribut>> SysUser.username:String =>=>=> RelationalSchema.Column>> sysuser.username;
+ClassDiagram.Attribut>> SysUser.password:String =>=>=> RelationalSchema.Column>> sysuser.password;
+ClassDiagram.Attribut>> SysRole.id:Long =>=>=> RelationalSchema.Column>> sysrole.id PRIMARY KEY;
+ClassDiagram.Attribut>> SysRole.name:String =>=>=> RelationalSchema.Column>> sysrole.name;
+list<sysrole>: sysuser_list<sysrole>(sysuserID:sysuser [PK] #FK to sysuser,list<sysrole>ID:list<sysrole> [PK] #FK to list<sysrole>);

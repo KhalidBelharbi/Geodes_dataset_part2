@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="log" >
+      <xs:sequence>
+        <xs:element name="objectid" type="xs:long" />
+        <xs:element name="text" type="xs:string" />
+        <xs:element name="level" type="loglevel" nillable="true" minOccurs="0" />
+        <xs:element name="date" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="anulacionbajaconsolidada" >
+      <xs:complexContent>
+       <xs:extension base="operation">
+         <xs:sequence>
+          <xs:element name="cca" type="contractaccount" nillable="true" minOccurs="0" />
+          <xs:element name="naf" type="xs:string" />
+          <xs:element name="ipf" type="xs:string" />
+          <xs:element name="ipt" type="xs:string" />
+          <xs:element name="frb" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="processstatus" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="status" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="consultanaf" >
+      <xs:complexContent>
+       <xs:extension base="consulta">
+         <xs:sequence>
+          <xs:element name="ipf" type="xs:string" />
+          <xs:element name="ipt" type="xs:string" />
+          <xs:element name="ap1" type="xs:string" />
+          <xs:element name="ap2" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="anulacionaltaprevia" >
+      <xs:complexContent>
+       <xs:extension base="operation">
+         <xs:sequence>
+          <xs:element name="cca" type="contractaccount" nillable="true" minOccurs="0" />
+          <xs:element name="naf" type="xs:string" />
+          <xs:element name="fra" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="contracttype" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="type" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="consultaipf" >
+      <xs:complexContent>
+       <xs:extension base="consulta">
+         <xs:sequence>
+          <xs:element name="naf" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="processtype" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="type" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contractkey" >
+      <xs:sequence>
+        <xs:element name="ckey" type="xs:long" />
+        <xs:element name="type" type="contracttype" nillable="true" minOccurs="0" />
+        <xs:element name="timetype" type="contracttimetype" nillable="true" minOccurs="0" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contractcoefficient" >
+      <xs:sequence>
+        <xs:element name="coefficient" type="xs:long" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="alta" >
+      <xs:complexContent>
+       <xs:extension base="operation">
+         <xs:sequence>
+          <xs:element name="cca" type="contractaccount" nillable="true" minOccurs="0" />
+          <xs:element name="//esteesunnuevocambionaf" type="xs:string" />
+          <xs:element name="ipf" type="xs:string" />
+          <xs:element name="ipt" type="xs:string" />
+          <xs:element name="fra" type="xs:anyType" />
+          <xs:element name="gco" type="xs:string" />
+          <xs:element name="sit" type="xs:string" />
+          <xs:element name="tco" type="contractkey" nillable="true" minOccurs="0" />
+          <xs:element name="coe" type="contractcoefficient" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="consultaaltasccc" >
+      <xs:complexContent>
+       <xs:extension base="consulta">
+         <xs:sequence>
+          <xs:element name="cca" type="contractaccount" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="anulacionaltaconsolidada" >
+      <xs:complexContent>
+       <xs:extension base="operation">
+         <xs:sequence>
+          <xs:element name="cca" type="contractaccount" nillable="true" minOccurs="0" />
+          <xs:element name="naf" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="anulacionbajaprevia" >
+      <xs:complexContent>
+       <xs:extension base="operation">
+         <xs:sequence>
+          <xs:element name="cca" type="contractaccount" nillable="true" minOccurs="0" />
+          <xs:element name="naf" type="xs:string" />
+          <xs:element name="frb" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="consultata" >
+      <xs:complexContent>
+       <xs:extension base="consulta">
+         <xs:sequence>
+          <xs:element name="cca" type="contractaccount" nillable="true" minOccurs="0" />
+          <xs:element name="naf" type="xs:string" />
+          <xs:element name="frc" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="consultaalta" >
+      <xs:complexContent>
+       <xs:extension base="consulta">
+         <xs:sequence>
+          <xs:element name="cca" type="contractaccount" nillable="true" minOccurs="0" />
+          <xs:element name="naf" type="xs:string" />
+          <xs:element name="frc" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="queue" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="dateadded" type="xs:anyType" />
+        <xs:element name="refid" type="xs:long" />
+        <xs:element name="GeneratedName" type="processtype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cambiocontratoconsolidado" >
+      <xs:complexContent>
+       <xs:extension base="operation">
+         <xs:sequence>
+          <xs:element name="cca" type="contractaccount" nillable="true" minOccurs="0" />
+          <xs:element name="naf" type="xs:string" />
+          <xs:element name="ipf" type="xs:string" />
+          <xs:element name="ipt" type="xs:string" />
+          <xs:element name="tco" type="contractkey" nillable="true" minOccurs="0" />
+          <xs:element name="frc" type="xs:anyType" />
+          <xs:element name="coe" type="contractcoefficient" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="contractaccount" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="ccc" type="xs:string" />
+        <xs:element name="reg" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cambiocontratoprevio" >
+      <xs:complexContent>
+       <xs:extension base="operation">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="contracttimetype" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="timetype" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baja" >
+      <xs:complexContent>
+       <xs:extension base="operation">
+         <xs:sequence>
+          <xs:element name="cca" type="contractaccount" nillable="true" minOccurs="0" />
+          <xs:element name="naf" type="xs:string" />
+          <xs:element name="ipf" type="xs:string" />
+          <xs:element name="ipt" type="xs:string" />
+          <xs:element name="frb" type="xs:anyType" />
+          <xs:element name="ffv" type="xs:anyType" />
+          <xs:element name="gco" type="xs:long" />
+          <xs:element name="sit" type="xs:string" />
+          <xs:element name="tco" type="contractkey" nillable="true" minOccurs="0" />
+          <xs:element name="coe" type="contractcoefficient" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

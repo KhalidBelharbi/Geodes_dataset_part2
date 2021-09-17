@@ -1,0 +1,117 @@
+
+deliveryorder(id:String [PK], /***订单发起人*/founderid:String, /***送件人姓名*/foundername:String, /***送件人手机号*/founderphonenumber:String, /***初始位置*/originaddress:String, /***出发地纬度*/olongitude:String, /***出发地经度*/odimension:String, /***目的地*/destination:String, /***目的地经度*/dlongitude:String, /***目的地维度*/ddimension:String, /***商品详细信息*/commodityid:String, /***订单创建时间*/odercreatetime:Timestamp, /***送出时间（立即送出或者指定时间）*/deliverytime:Timestamp, /***0发布1是取消2是正在进行3是完成4是已被抢单*/status:Integer, /***订单金额（起步价格6）*/amount:BigDecimal, /***收货人名字*/receivername:String, /***收货人手机号*/receiverphonenumber:String, /***备注*/remark:String, /***创建时间*/gmtcreate:Timestamp, /***修改时间*/gmtmodified:Timestamp, /***删除标志（0逻辑删除，1未删除）*///@jsonignoreisdeleted:Boolean);
+
+purchaseorder(id:String [PK], /***目的地*/destination:String, /***经度*/dlongitude:String, /***纬度*/ddimension:String, /***商品id*/commodityid:Long, /***金额*/amount:BigDecimal, /***购买时间*/purchasetime:Timestamp, /***是否取消*/iscancle:Integer, /***创建时间*///@jsonignoregmtcreate:Timestamp, /***修改时间*/gmtmodified:Timestamp, /***删除标志（0逻辑删除，1未删除）*///@jsonignoreisdeleted:Boolean);
+
+auditform(/***主键自增*/id:String [PK], /***结束时间*/endtime:Timestamp, /***申请人*/founderid:String, /***原因*/remark:String, /***审核人*/reviewerid:String, /***状态0是通过1是未通过*/stauts:Integer, /***创建时间*///@jsonignoregmtcreate:Timestamp, /***修改时间*/gmtmodified:Timestamp, /***删除标志（0逻辑删除，1未删除）*///@jsonignoreisdeleted:Boolean);
+
+commodity(/***主键自增*/id:String [PK], /***商品类型*/type:String, /***物品价格范围*/pricerang:String, /***创建时间*///@jsonignoregmtcreate:Timestamp, /***修改时间*/gmtmodified:Timestamp, /***删除标志（0逻辑删除，1未删除）*///@jsonignoreisdeleted:Boolean);
+
+transaction(id:String [PK], /***订单id*/orderid:String, /***交易创建时间+*/transactioncreate:Timestamp, /***跑腿人*/errandsid:String, /***完成时间根据完成后更改*/transactionend:Timestamp, /***状态0是抢单1是取货并且送货3是完成*/status:Integer, /***创建时间*///@jsonignoregmtcreate:Timestamp, /***修改时间*/gmtmodified:Timestamp, /***删除标志（0逻辑删除，1未删除）*///@jsonignoreisdeleted:Boolean);
+
+cancledeliveryorder(/***id*/id:String [PK], /***订单编号*/oderid:String, /***取消时间*/cancletime:Timestamp, /***创建时间*///@jsonignoregmtcreate:Timestamp, /***修改时间*/gmtmodified:Timestamp, /***删除标志（0逻辑删除，1未删除）*///@jsonignoreisdeleted:Boolean);
+
+reviewform(/***主键*/id:String [PK], /***申请人id*/requesterid:String, /***申请人正面身份证*/idcardfront:String, /***申请人背面身份证*/idcardback:String, /***申请人手机号*/requesterphonenumber:String, /***申请人手机号*/requestername:String, /***状态0是发布1是通过2是未通过*/status:Long, /***申请原因*/remark:String, /***创建时间*/gmtcreate:Timestamp, /***修改时间*/gmtmodified:Timestamp, /***删除标志（0逻辑删除，1未删除）*///@jsonignoreisdeleted:Boolean);
+
+thumb(/***主键，策略为自增*/pkthumbid:String [PK], /***动态id*/dynamicid:String, /***用户id*/userid:String, /***创建时间*/gmtcreate:Timestamp, /***修改时间*/gmtmodified:Timestamp, /***删除标志（0逻辑删除，1未删除）*/isdeleted:Boolean);
+
+sysorder(/***主键*/pkorderid:Long [PK], /***卡号*/jobnumber:String, /***类型*/ordertype:String, /***金额*/ordermoney:Double, /***订单号*/ordernumber:String, /***状态*/status:Boolean, /***缴费描述*/description:String, /***支付方式*/paymethod:String, /***创建时间*/gmtcreate:Timestamp, /***更新时间*/gmtmodified:Timestamp, /***删除标志*/isdeleted:Boolean);
+
+schedule(/***主键，策略为自增*/pkschooltimetableid:Long [PK], /***班级id*/clazzid:Long, /***学期id*/semesterid:Long, /***第几周（第一周、第二周...）*/week:Integer, /***课表名称*/name:String, /***创建时间*/gmtcreate:Timestamp, /***修改时间*/gmtmodified:Timestamp, /***删除标志（0逻辑删除，1未删除）*/isdeleted:Boolean);
+
+studentexam(/***主键，策略为自增*/pkstudentexamid:Long [PK], /***考务id*/examinationid:Long, /***真实姓名*/userjobnumber:String, /***创建时间*/gmtcreate:Timestamp, /***修改时间*/gmtmodified:Timestamp, /***删除标志（0逻辑删除，1未删除）*/isdeleted:Boolean);
+
+infotype(/***主键id*/pkinfotypeid:Long [PK], /***名称*/name:String, /***排序字段*/sort:Integer, /***创建时间*/gmtcreate:Timestamp, /***更新时间*/gmtmodified:Timestamp, /***删除标志（0未删除，1已删除）*/isdeleted:Boolean);
+
+fleatype(/***分类id*/pkfleatypeid:Long [PK], /***父级id*/parentid:Long, /***分类名称*/typename:String, /***分类封面*/typecoverurl:String, /***路径*/typeurl:String, /***删除标志*/isdeleted:Boolean);
+
+sysborrow(/***主键*/pkborrowid:Long [PK], /***借阅人姓名*/borrowusername:String, /***借阅人卡号*/borrowusernumber:String, /***借阅人手机号*/borrowuserphone:String, /***借阅图书名称*/borrowbookname:String, /***借阅图书编号*/borrowbookid:String, /***创建时间*/gmtcreate:Timestamp, /***归还标志*/isreturned:Boolean, /***还书时间*/gmtreturn:Timestamp, /***更新时间*/gmtmodified:Timestamp, /***删除标志*/isdeleted:Boolean);
+
+fleauser(/***用户id*/pkfleauserid:Long [PK], /***用户昵称*/nickname:String, /***用户名*/username:String, /***手机号*/phonenumber:String, /***用户头像*/avatar:String, /***性别*/sex:String, /***学号*/jobnumber:String, /***删除标志*/isdeleted:Boolean);
+
+replycomment(/***主键，策略为自增*/pkreplycommentid:String [PK], /***评论id*/commentid:String, /***用户id*/userid:String, /***评论内容*/content:String, /***创建时间*/gmtcreate:Timestamp, /***修改时间*/gmtmodified:Timestamp, /***删除标志（0逻辑删除，1未删除）*/isdeleted:Boolean);
+
+clazz(/***主键*/pkclazzid:Long [PK], /***名称*/name:String, /***年级*/grade:String, /***学院id*/collegeid:Long, /***班主任工号*/clazzheadmaster:String, /***更新时间*/gmtmodified:Timestamp, /***创建时间*/gmtcreate:Timestamp, /***删除标志*/isdeleted:Boolean);
+
+syssubject(/***主键*/pksubjectid:Long [PK], /***名称*/name:String, /***课程类型*/type:String, /***科目图片*/cover:String, /***背景颜色*/backgroundcolor:String, /***创建时间*/gmt_create:Timestamp, /***更新时间*/gmt_modified:Timestamp, /***删除标志*/isdeleted:Boolean);
+
+dynamic(/***主键，策略为自增*/pkdynamicid:String [PK], /***用户id*/userid:String, /***标题*/title:String, /***内容*/content:String, /***点赞数*/thumbs:Integer, /***评论数*/comments:Integer, /***类型标签*/type:String, /***创建时间*/gmtcreate:Timestamp, /***修改时间*/gmtmodified:Timestamp, /***删除标志（0逻辑删除，1未删除）*/isdeleted:Boolean);
+
+fleacollection(/***id*/pkfleacollectionid:Long [PK], /***用户id*/:FleaUser #FK to(fleauser), /***商品id*/:FleaGoods #FK to(fleagoods), /***收藏时间*/createtime:Timestamp, /***删除标志*/isdeleted:Boolean);
+
+addressbook(/***主键，策略为自增*/pkaddressbookid:Long [PK], /***用户id*/userid:String, /***手机号*/phonenumber:String, /***头像*/avatar:String, /***备注*/remark:String, /***创建时间*///@jsonignoregmtcreate:Timestamp, /***修改时间*/gmtmodified:Timestamp, /***删除标志（0逻辑删除，1未删除）*/isdeleted:Boolean);
+
+fleareward(/***悬赏id*/pkrewardid:Long [PK], /***描述*/description:String, /***图片地址*/imageurl:String, /***标题*/title:String, /***发布时间*/createtime:Timestamp, /***发布人*/:FleaUser #FK to(fleauser), /***删除标志*/isdeleted:Boolean);
+
+room(/***主键*/id:Long [PK], /***房间名*/name:String, /***楼栋id*/towerid:Long, /***寝室长学号*/roomleaderjobnumber:String, /***宿舍成员学号（逗号隔开，用户学号）*/roommemberjobnumber:String, /***创建时间*/gmtcreate:Timestamp, /***更新时间*/gmtmodified:Timestamp, /***删除标志*/isdeleted:Boolean, /***电费*/electricitybalance:Double, /***房间单元名*/unitid:Long);
+
+userrole(/***主键*/pkroleid:Long [PK], /***用户id*/sysuserid:String, /***角色id*/roleid:Long, /***创建时间*/gmtcreate:Timestamp, /***修改时间*/gmtmodified:Timestamp, /***是否删除（1逻辑删除，0未删除）*/isdeleted:Boolean);
+
+college(/***主键*/pkcollegeid:Long [PK], /***学院名称*/collegename:String, /***学院院长教工号*/deanjobnumber:String, /***创建时间*/gmtcreate:Timestamp, /***更新时间*/gmtmodified:Timestamp, /***删除标志*/isdeleted:Boolean);
+
+sysuser(//用户idpkuserid:String [PK], //用户名字sysusername:String, //用户密码syspassword:String, //手机号sysuserphonenumber:String, //头像sysuseravatar:String, //加密盐salt:String, //账户状态：0禁用1：启用isenabled:Boolean, //创建时间gmtcreate:Timestamp, //修改时间gmtmodified:Timestamp, //是否删除（1逻辑删除，0未删除）isdeleted:Boolean);
+
+infomangetype(/***主键id*/pkinfomanagetypeid:Long [PK], /***分类id*/typeid:Long, /***资讯类型id*/infoid:Long, /***创建时间*/gmtcreate:Timestamp, /***更新时间*/gmtmodified:Timestamp, /***删除标志（0未删除，1逻辑删除）*/isdeleted:Boolean);
+
+sysbook(/***主键*/pkbookid:Long [PK], /***作者*/author:String, /***封面*/cover:String, /***类型*/type:String, /***简介*/description:String, /***库存总数*/booknumber:Integer, /***库存剩余*/bookresiduenumber:Integer, /***状态*/status:Boolean, /***书名*/bookname:String, /***创建时间*/gmtcreate:Timestamp, /***更新时间*/gmtmodified:Timestamp, /***删除标志*/isdeleted:Boolean);
+
+reportloss(/***主键*/pkreportlossid:Long [PK], /***挂失备注*/remark:String, /***挂失卡密*/password:String, /***挂失状态*/lossstatus:Boolean, /***手机号*/lossphone:String, /***挂失人*/lossname:String, /***挂失卡号*/lossjobnumber:String, /***创建时间*/gmtcreate:Timestamp, /***更新时间*/gmtmodified:Timestamp, /***删除标志*/isdeleted:Boolean);
+
+jobtype(serialversionuid:long, /***主键*/pkjobtypeid:Long [PK], name:String, parentid:Long, /***删除标志*/isdeleted:Boolean, /***创建时间*/gmtcreate:Timestamp, /***更新时间*/gmtmodified:Timestamp);
+
+syssemester(/***主键*/pksemesterid:Long [PK], /***名称*/name:String, /***周次数*/weekcount:Integer, /***创建时间*/gmtcreate:Timestamp, /***更新时间*/gmtmodified:Timestamp, /***删除标志*/isdeleted:Boolean, openschooltime:Timestamp);
+
+useraccount(/***主键，策略为自增*/pkuseraccountid:String [PK], /***账号*nullable:String, /***真实姓名*/username:String, /***昵称*/nickname:String, /***教工号/学号*/jobnumber:String, /***密码*/password:String, /***头像*/avatar:String, /***角色*/role:String, /***手机号*/phonenumber:String, /***状态*/status:Boolean, /***所属班级id*/clazzid:Long, /***校园卡号*/cardnumber:String, /***创建时间*/gmtcreate:Timestamp, /***修改时间*/gmtmodified:Timestamp, /***删除标志（0逻辑删除，1未删除）*/isdeleted:Boolean, /***性别*/gender:String, /***地址*/address:String, birthday:Date);
+
+partjob(serialversionuid:long, /***主键*/pkpartjobid:Long [PK], name:String, description:String, bossid:String, bossname:String, bossphone:String, bossavatar:String, workplace:String, workingdate:String, workingtime:String, pay:BigDecimal, paytype:String, jobtype:String, number:Integer, have:Integer, need:Boolean, /***删除标志*/isdeleted:Boolean, /***创建时间*/gmtcreate:Timestamp, /***更新时间*/gmtmodified:Timestamp);
+
+syscourse(/***主键，策略为自增*/pkcourseid:Long [PK], /***课表id*nullable:Long, /***科目id*/subjectid:Long, /***教师工号*/userjobnumber:String, /***周次（例如1-5，8-13）*/weekduration:String, /***房间id*/roomid:Long, /***周几*/weekday:Integer, /***上课的时间段（**1→上午1-2节**2→上午3-4节**）*/time:Integer, /***创建时间*/gmtcreate:Timestamp, /***修改时间*/gmtmodified:Timestamp, /***删除标志（0逻辑删除，1未删除）*/isdeleted:Boolean);
+
+dynamicphoto(pkdynamicphotoid:String [PK], /***动态id*/dynamicid:String, /***图片地址*/picture:String, /***创建时间*/gmtcreate:Timestamp, /***修改时间*/gmtmodified:Timestamp, /***删除标志（0逻辑删除，1未删除）*/isdeleted:Boolean);
+
+job(/***主键*/pkjobid:Long [PK], name:String, description:String, boss:String, bossphone:String, bossavatar:String, companyid:Long, workplace:String, workingtime:String, pay:BigDecimal, min:Integer, max:Integer, experience:String, diploma:String, jobtypeid:Long, number:Integer, resumes:String, /***删除标志*/isdeleted:Boolean, /***创建时间*/gmtcreate:Timestamp, /***更新时间*/gmtmodified:Timestamp);
+
+fleacomment(/***评论id*/pkfleacommentid:Long [PK], /***评论人*/reviewer:FleaUser #FK to(fleauser), /***被评论人*/commentby:FleaUser #FK to(fleauser), /***评论内容*/comment:String, /***该评论位于哪个悬赏（帖子）下*/:FleaReward #FK to(fleareward), /***创建时间*/createtime:Timestamp, /***删除标志*/isdeleted:Boolean);
+
+sysrolemenu(//主键pkrolemenuid:Long [PK], //角色idpkroleid:Long, //权限idmenuid:Long, //创建时间gmtcreate:Timestamp, //修改时间gmtmodified:Timestamp, //是否删除（1逻辑删除，0未删除）isdeleted:Boolean);
+
+fleagoods(/***商品id*/pkfleagoodsid:Long [PK], /***商品名称*/goodsname:String, /***商品描述*/goodsdescription:String, /***商品图片*/goodsimgurl:String, /***商品价格*/goodsprice:Double, /***商品标签*/goodsmark:String, /***商品发布时间*/goodscreatetime:Timestamp, /***商品发布人id*/:FleaUser #FK to(fleauser), /***商品类型id*/:FleaType #FK to(fleatype), /***删除标志*/isdeleted:Boolean);
+
+sysstatement(/***主键*/pkstatementid:Long [PK], /***类型*/statementtype:String, /***标题*/statementtitle:String, /***内容*/statementcontent:String, /***创建时间*/gmtcreate:Timestamp, /***更新时间*/gmtmodified:Timestamp, /***删除标志（0未删除，1已删除）*/isdeleted:Boolean);
+
+sysfeedback(/***主键*/pkfeedbackid:Long [PK], /***标题*/title:String, /***内容*/content:String, /***联系方式*/contactway:String, /***处理状态（0未处理，1已处理）*/ishandled:Boolean, /***图片内容*/picinfo:String, /***创建时间*/gmtcreate:Timestamp, /***更新时间*/gmtmodified:Timestamp, /***删除标志（0未删除，1已删除）*/isdeleted:Boolean);
+
+towerandunit(pkid:Long [PK], towerid:Long, unitid:Long, /***创建时间*/gmtcreate:Timestamp, /***更新时间*/gmtmodified:Timestamp, /***删除标志*/isdeleted:Boolean);
+
+company(/***主键*/pkcompanyid:Long [PK], name:String, tag:String, logo:String, workers:Integer, type:String, description:String, workingtime:String, workingstatus:String, jobnumbers:Integer, vacation:String, address:String, longitude:String, latitude:String, /***删除标志*/isdeleted:Boolean, /***创建时间*/gmtcreate:Timestamp, /***更新时间*/gmtmodified:Timestamp);
+
+comment(/***主键，策略为自增*/pkcommentid:String [PK], /***动态id*/dynamicid:String, /***用户id*/userid:String, /***评论内容*/content:String, /***创建时间*/gmtcreate:Timestamp, /***修改时间*/gmtmodified:Timestamp, /***删除标志（0逻辑删除，1未删除）*///@jsonignoreisdeleted:Boolean);
+
+fleaorder(/***id*/pkfleaorderid:String [PK], /***商品id*/:FleaGoods #FK to(fleagoods), /***买方id*/buyer:FleaUser #FK to(fleauser), /***卖方id*/seller:FleaUser #FK to(fleauser), /***创建时间*/createtime:Timestamp, /***删除标志*/isdeleted:Boolean);
+
+logininfo(/***主键*/pkloginid:Long [PK], /***标题*/info:String, /***创建时间*/gmtcreate:Timestamp, /***更新时间*/gmtmodified:Timestamp, /***删除标志（0未删除，1已删除）*/isdeleted:Boolean);
+
+syscard(/***主键*/pkcardid:Long [PK], /***卡号*/cardnumber:String, /***卡密*/cardpassword:String, /***绑定账号*/jobnumber:String, /***余额*/cardbalance:Double, /***状态*/status:Boolean, /***创建时间*/gmtcreate:Timestamp, /***更新时间*/gmtmodified:Timestamp, /***删除标志*/isdeleted:Boolean);
+
+appversion(/***主键id*/pkappversionid:Long [PK], apptype:String, /***当前的版本号*/currentversion:String, /***最高版本号*/maxversion:String, /***最低版本号*/minversion:String, /***版本描述*/versiondescription:String, /***下载地址*/downloadlink:String, /***创建时间*/gmtcreate:Timestamp, /***更新时间*/gmtmodified:Timestamp, /***删除标志（0未删除，1已删除）*/isdeleted:Boolean);
+
+message(/***主键*/pkmessageid:Long [PK], /***消息内容*/content:String, /***阅读状态(0表示未读，1表示已读)*/isreaded:Boolean, /***创建时间*/gmtcreate:Timestamp, /***修改时间*/gmtmodified:Timestamp);
+
+infomanage(/***主键id*/pkinfomanageid:Long [PK], /***标题*/title:String, /***封面*/cover:String, /***内容*/text:String, /***置顶标志（0不置顶，1置顶）*/istop:Boolean, /***创建时间*/gmtcreate:Timestamp, /***更新时间*/gmtmodified:Timestamp, /***删除标志（0未删除，1逻辑删除）*/isdeleted:Boolean);
+
+collections(/***主键，策略为自增*/pkcollectionid:String [PK], /***动态id*/dynamicid:String, /***用户id*/userid:String, /***创建时间*/gmtcreate:Timestamp, /***修改时间*/gmtmodified:Timestamp, /***删除标志（0逻辑删除，1未删除）*/isdeleted:Boolean);
+
+sysmenu(//主键pkmenuid:Long [PK], //父类idparentid:Long, //类型（0目录，1菜单，2按钮）type:Integer, //名称name:String, //路径//@column(length:String, //图标icon:String, //排序sort:Integer, //创建时间gmtcreate:Timestamp, //修改时间gmtmodified:Timestamp, //是否删除（1逻辑删除，0未删除）isdeleted:Boolean);
+
+towerunit(/***主键id*/unitid:Long [PK], /***单元名称*/name:String, /***创建时间*/gmtcreate:Timestamp, /***更新时间*/gmtmodified:Timestamp, /***删除标志*/isdeleted:Boolean);
+
+sysrole(//角色idpkroleid:Long [PK], //角色名rolename:String, //角色描述roledescription:String, roledecoration:String, //排序字段sort:Integer, //创建时间gmtcreate:Timestamp, /***修改时间*/gmtmodified:Timestamp, //是否删除（1逻辑删除，0未删除）isdeleted:Boolean);
+
+examination(/***主键，策略为自增*/pkexaminationid:Long [PK], /***学期*nullable:String, /***科目id*/subjectid:Long, /***班级id*/clazzid:Long, /***监考老师*/teachername:String, /***监考老师用户id*/teacherid:String, /***地点*/area:String, /***试卷分数*/score:Integer, /***考试类型*/type:String, /***考生学号*/jobnumber:String, /***创建时间*/gmtcreate:Timestamp, /***修改时间*/gmtmodified:Timestamp, /***删除标志（0逻辑删除，1未删除）*/isdeleted:Boolean, /***是否参与（0未参与，1已参与）*/isjoin:Boolean, /***考试结束时间*/finishtime:Timestamp, /***考试开始时间*/starttime:Timestamp);
+
+loginfo(/***日志id*/pkloginfoid:Long [PK], /***执行时间*/executiontime:Timestamp, /***执行类*/classname:String, /***内容*/content:String, /***创建时间*/gmtcreate:Timestamp, /***更新时间*/gmtmodified:Timestamp, /***删除标志*/isdeleted:Boolean);
+
+tower(/***主键*/pktowerid:Long [PK], /***娄冬梅*/name:String, /***经度*/longitude:String, /***纬度*/latitude:String, /***类型（0教学1宿舍楼2食堂）*/type:Integer, /***创建时间*/gmtcreate:Timestamp, /***更新时间*/gmtmodified:Timestamp, /***删除标志*/isdeleted:Boolean);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

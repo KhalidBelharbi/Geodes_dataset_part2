@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="templete" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="faces-config-quiz" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="web" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name=".faces-config.xml" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="beans" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="faces-config" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="quiz-formatter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logintemplate" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="indextemplate" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sendquizresult" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="quizmenu" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="run" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="answertype" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="quizvisitor1" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="visitor" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="quiz" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="creation" type="xs:dateTime" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="imgname" type="xs:string" />
+          <xs:element name="imgdisplayname" type="xs:string" />
+          <xs:element name="ispublic" type="xs:anyType" />
+          <xs:element name="quizurl" type="xs:string" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="questions" type="question" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="ownerid" type="xs:long" />
+          <xs:element name="" type="owner" nillable="true" minOccurs="0" />
+          <xs:element name="externallink" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="questionanswerresult" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="isrightanswer" type="xs:anyType" />
+          <xs:element name="//bi-directionalmany-to-oneassociationto" type="answer" nillable="true" minOccurs="0" />
+          <xs:element name="//bi-directionalmany-to-oneassociationtoright" type="answer" nillable="true" minOccurs="0" />
+          <xs:element name="//@column(name" type="question" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="answer" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="answerimgurl" type="xs:string" />
+          <xs:element name="answertxt" type="xs:string" />
+          <xs:element name="//bi-directionalmany-to-oneassociationto" type="question" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="question" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="notes" type="xs:string" />
+          <xs:element name="questionorder" type="xs:long" />
+          <xs:element name="answertypeid" type="xs:long" />
+          <xs:element name="//@lobquestion" type="xs:string" />
+          <xs:element name="//bi-directionalmany-to-oneassociationto" type="quiz" nillable="true" minOccurs="0" />
+          <xs:element name="//bi-directionalmany-to-oneassociationtoansweranswers" type="answer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="owner" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="fullname" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="doquizbean" >
+      <xs:complexContent>
+       <xs:extension base="basebean">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="//@inject" type="quizservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="quiz" nillable="true" minOccurs="0" />
+          <xs:element name="questionlist" type="question" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="questionanswerlist" type="questionanswerresult" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="question" nillable="true" minOccurs="0" />
+          <xs:element name="current" type="questionanswerresult" nillable="true" minOccurs="0" />
+          <xs:element name="currentindex" type="xs:anyType" />
+          <xs:element name="isfinished" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sendquizresultbean" >
+      <xs:complexContent>
+       <xs:extension base="basebean">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="visitor" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="quizdetailsbean" >
+      <xs:complexContent>
+       <xs:extension base="basebean">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="//@inject" type="quizservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="quiz" nillable="true" minOccurs="0" />
+          <xs:element name="questionlist" type="question" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="answertypelist" type="answertype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="question" nillable="true" minOccurs="0" />
+          <xs:element name="file" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="visitorloginbean" >
+      <xs:complexContent>
+       <xs:extension base="basebean">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="quizsearchbean" >
+      <xs:complexContent>
+       <xs:extension base="basebean">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="//@inject" type="quizservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="quiz" nillable="true" minOccurs="0" />
+          <xs:element name="isdefault" type="xs:anyType" />
+          <xs:element name="selectedquizid" type="xs:long" />
+          <xs:element name="lazyload" type="quiz" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="answerconverter" >
+      <xs:complexContent>
+       <xs:extension base="baseconverter">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="quizdao" >
+      <xs:complexContent>
+       <xs:extension base="basedao{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="quizdaoimpl" >
+      <xs:complexContent>
+       <xs:extension base="basedaoimpl">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="quizservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="quizserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="quizdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="utility" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="enc" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mail" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="from" type="xs:string" />
+        <xs:element name="to" type="xs:string" />
+        <xs:element name="subject" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="imageservlet" >
+      <xs:complexContent>
+       <xs:extension base="httpservlet">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="constant" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="resources_images_path" type="xs:string" />
+        <xs:element name="//"redmond"//bootstrapdefault_theme" type="xs:string" />
+        <xs:element name="buffer_size" type="xs:long" />
+        <xs:element name="///-----mailsetting-----///smtp_host_name" type="xs:string" />
+        <xs:element name="smtp_host_port" type="xs:long" />
+        <xs:element name="smtp_auth_user" type="xs:string" />
+        <xs:element name="smtp_auth_pwd" type="xs:string" />
+        <xs:element name="protocol" type="xs:string" />
+        <xs:element name="auth" type="xs:string" />
+        <xs:element name="///-----accesssetting-----///access" type="xs:long" />
+        <xs:element name="no_access" type="xs:long" />
+        <xs:element name="default_locale" type="xs:string" />
+        <xs:element name="default_direction" type="xs:string" />
+        <xs:element name="///-----accesssetting-----///max_results" type="xs:long" />
+        <xs:element name="undefined" type="xs:string" />
+        <xs:element name="undefined_value" type="xs:long" />
+        <xs:element name="portal" type="xs:string" />
+        <xs:element name="ws" type="xs:string" />
+        <xs:element name="migration" type="xs:string" />
+        <xs:element name="resource_bundle_key" type="xs:string" />
+        <xs:element name="//tomcatjndi_context_name_tomcat" type="xs:string" />
+        <xs:element name="//jndi_context_name_jboss" type="xs:string" />
+        <xs:element name="//jboss1/tomcat2application_server" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filedirectory" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="themebean" >
+      <xs:complexContent>
+       <xs:extension base="basebean">
+         <xs:sequence>
+          <xs:element name="theme" type="xs:string" />
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="lookupconverter" >
+      <xs:complexContent>
+       <xs:extension base="baseconverter">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseconverter" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basebean" >
+      <xs:complexContent>
+       <xs:extension base="baseobject">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="indexbean" >
+      <xs:complexContent>
+       <xs:extension base="basebean">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basedaoimpl" >
+      <xs:complexContent>
+       <xs:extension base="baseobject">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basedao" >
+      <xs:complexContent>
+       <xs:extension base="baseentity>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="noneuniquexception" >
+      <xs:complexContent>
+       <xs:extension base="kshexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="employeeevaluationconfirmedexception" >
+      <xs:complexContent>
+       <xs:extension base="kshexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="kshexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="removeusedentityexception" >
+      <xs:complexContent>
+       <xs:extension base="kshexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="removedentity" type="xs:anyType" />
+          <xs:element name="errormessage" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="util" >
+      <xs:sequence>
+        <xs:element name="bundle" type="xs:anyType" />
+        <xs:element name="fileseparator" type="xs:string" />
+        <xs:element name="backslash" type="xs:string" />
+        <xs:element name="spcae" type="xs:string" />
+        <xs:element name="dash" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="utils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cdiapplicationcontext" >
+      <xs:sequence>
+        <xs:element name="java_comp_env_bean_manager" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="threadlocalusersession" >
+      <xs:sequence>
+        <xs:element name="usersessionholder" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="namedthreadlocal" >
+      <xs:complexContent>
+       <xs:extension base="threadlocal<t>">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="threadlocalusersessionutils" >
+      <xs:sequence>
+        <xs:element name="entity_manager" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datelevel" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baseobject" >
+      <xs:sequence>
+        <xs:element name="//protectedloggerlogger//logalltanciqiamessages.log_properties_file" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lookuptype" >
+      <xs:complexContent>
+       <xs:extension base="baseobject">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="salary_opeation" type="lookuptype" nillable="true" minOccurs="0" />
+          <xs:element name="employee_status" type="lookuptype" nillable="true" minOccurs="0" />
+          <xs:element name="recid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="parentid" type="xs:long" />
+          <xs:element name="level" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="lookup" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="salary_opeation_plus" type="lookup" nillable="true" minOccurs="0" />
+        <xs:element name="salary_opeation_subtract" type="lookup" nillable="true" minOccurs="0" />
+        <xs:element name="//publiclookupemployee_status_inactive" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="lookuptypeid" type="xs:long" />
+        <xs:element name="GeneratedName" type="lookuptype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baselookup" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baseentity" >
+      <xs:complexContent>
+       <xs:extension base="baseobject">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="lookupmapping" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="recid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="contextpersistenceaware" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="transactionalinterceptor" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitymanagerclass" >
+      <xs:sequence>
+        <xs:element name="entity_manager" type="xs:string" />
+        <xs:element name="get_entity_manager" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="transactional" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contextpersistenceawareinterceptor" >
+      <xs:complexContent>
+       <xs:extension base="baseobject">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="emf" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="registereduser" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="isadmin" type="xs:anyType" />
+        <xs:element name="direction" type="xs:string" />
+        <xs:element name="locale" type="xs:string" />
+        <xs:element name="ownerid" type="xs:long" />
+        <xs:element name="visitorid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="securityfilter" >
+      <xs:sequence>
+        <xs:element name="debug" type="xs:anyType" />
+        <xs:element name="//thefilterconfigurationobjectweareassociatedwith.if//thisvalueisnull,thisfilterinstanceisnotcurrently//configured." type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="queries" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jboss-deployment-structure" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

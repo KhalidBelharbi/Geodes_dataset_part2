@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="usnum" type="xs:long" />
+        <xs:element name="//아이디겸이메일usemail" type="xs:string" />
+        <xs:element name="//비밀번호uspasswd" type="xs:string" />
+        <xs:element name="//닉네임usnickname" type="xs:string" />
+        <xs:element name="//가입날자usjoindt" type="xs:dateTime" />
+        <xs:element name="//가입할때ipusjoinip" type="xs:string" />
+        <xs:element name="//아이디최종수정날usupdt" type="xs:dateTime" />
+        <xs:element name="//아이디최종수정아이피usupip" type="xs:string" />
+        <xs:element name="//해당유저권한usauth" type="xs:long" />
+        <xs:element name="//가입상태(탈퇴:t,신고차단:g,정상:s)usstate" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrole" >
+      <xs:sequence>
+        <xs:element name="uremail" type="xs:string" />
+        <xs:element name="urrole" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:sequence>
+        <xs:element name="userre" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="session" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="test" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrolerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<userrole,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="myauthenticaion" >
+      <xs:complexContent>
+       <xs:extension base="usernamepasswordauthenticationtoken">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hashutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sessioninterceptor" >
+      <xs:complexContent>
+       <xs:extension base="handlerinterceptoradapter">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="authprovider" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authsuccesshandler" >
+      <xs:complexContent>
+       <xs:extension base="simpleurlauthenticationsuccesshandler">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="authfailurehandler" >
+      <xs:complexContent>
+       <xs:extension base="simpleurlauthenticationfailurehandler">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="constant" >
+      <xs:sequence>
+        <xs:element name="result" type="xs:string" />
+        <xs:element name="result_data" type="xs:string" />
+        <xs:element name="//프로젝트명context_root" type="xs:string" />
+        <xs:element name="//로그인usemail" type="xs:string" />
+        <xs:element name="login" type="xs:string" />
+        <xs:element name="common" type="xs:string" />
+        <xs:element name="login_cookie" type="xs:string" />
+        <xs:element name="cookie_limit_time" type="xs:long" />
+        <xs:element name="logout_time" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="webconfig" >
+      <xs:complexContent>
+       <xs:extension base="webmvcconfigurationsupport">
+         <xs:sequence>
+          <xs:element name="resource_locations" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="securityconfiguration" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+          <xs:element name="" type="authprovider" nillable="true" minOccurs="0" />
+          <xs:element name="" type="authfailurehandler" nillable="true" minOccurs="0" />
+          <xs:element name="" type="authsuccesshandler" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="errorhandler" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ranayoapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="homecontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logincontroller" >
+      <xs:sequence>
+        <xs:element name="usersv" type="userservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="test" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="footer" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ranayoapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="demoapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="team" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="solverepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<solve,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="solve" >
+      <xs:sequence>
+        <xs:element name="problemid" type="xs:anyType" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="solvedate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="level" >
+      <xs:sequence>
+        <xs:element name="level" type="xs:anyType" />
+        <xs:element name="unsolved" type="xs:anyType" />
+        <xs:element name="solved" type="xs:anyType" />
+        <xs:element name="count" type="xs:anyType" />
+        <xs:element name="percentage" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="teammemberprimarykey" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="teamid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rankingprimarykey" >
+      <xs:sequence>
+        <xs:element name="weekid" type="xs:anyType" />
+        <xs:element name="id" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="teammember" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="teamid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dataparser" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="restapicaller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="teamrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<team,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="problemrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<problem,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="problem" >
+      <xs:sequence>
+        <xs:element name="problemid" type="xs:anyType" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="level" type="xs:anyType" />
+        <xs:element name="solvecount" type="xs:anyType" />
+        <xs:element name="averagetry" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="teammemberrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<teammember,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rankingrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<ranking,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ranking" >
+      <xs:sequence>
+        <xs:element name="weekid" type="xs:anyType" />
+        <xs:element name="rank" type="xs:anyType" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="score" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resulthandler" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="memberrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="problemrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="solverepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="teammemberrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="teamrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="rankingrepository" nillable="true" minOccurs="0" />
+        <xs:element name="key" type="xs:anyType" />
+        <xs:element name="search" type="xs:string" />
+        <xs:element name="userhandle" type="xs:string" />
+        <xs:element name="june26" type="xs:long" />
+        <xs:element name="week" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="memberrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<member,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="solveprimarykey" >
+      <xs:sequence>
+        <xs:element name="problemid" type="xs:anyType" />
+        <xs:element name="id" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="member" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="handle" type="xs:string" />
+        <xs:element name="rating" type="xs:anyType" />
+        <xs:element name="solvedclass" type="xs:string" />
+        <xs:element name="rank" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

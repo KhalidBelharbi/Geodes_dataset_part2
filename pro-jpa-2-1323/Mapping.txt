@@ -1,0 +1,10 @@
+ClassDiagram.Class>> Employee =>=>=> RelationalSchema.Table>> employee;
+ClassDiagram.Class>> Department =>=>=> RelationalSchema.Table>> department;
+ClassDiagram.Attribut>> Employee.id:int =>=>=> RelationalSchema.Column>> employee.id PRIMARY KEY;
+ClassDiagram.Attribut>> Employee.empname:EmployeeName =>=>=> RelationalSchema.Column>> employee.empname;
+ClassDiagram.Attribut>> Employee.fulltime:boolean =>=>=> RelationalSchema.Column>> employee.fulltime;
+ClassDiagram.Attribut>> Employee.GeneratedName:SecurityInfo =>=>=> RelationalSchema.Column>> employee.GeneratedName;
+ClassDiagram.Attribut>> Employee.homepage:URL =>=>=> RelationalSchema.Column>> employee.homepage;
+ClassDiagram.Attribut>> Department.id:int =>=>=> RelationalSchema.Column>> department.id PRIMARY KEY;
+ClassDiagram.Attribut>> Department.name:String =>=>=> RelationalSchema.Column>> department.name;
+map<employeename,employee>: department_map<employeename,employee>(departmentID:department [PK] #FK to department,map<employeename,employee>ID:map<employeename,employee> [PK] #FK to map<employeename,employee>);

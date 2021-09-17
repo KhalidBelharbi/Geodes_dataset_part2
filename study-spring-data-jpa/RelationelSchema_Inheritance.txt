@@ -1,0 +1,45 @@
+auditperson(personname:String);
+
+audituser(id:Long [PK], name:String, createddate:LocalDateTime, lastmodifieddate:LocalDateTime, createdby:AuditUser #FK to(audituser), lastmodifiedby:AuditUser #FK to(audituser));
+
+book(id:Long [PK], bookname:String, publishdate:LocalDate, id:Category #FK to(category));
+
+jpa_book_author(book_id:Book [PK] #FK to Book,author_id:list<author> [PK] #FK to list<author>);
+
+user(id:Long [PK], username:String, password:String, GeneratedName:Sex, age:int, birthday:LocalDate, phone:String, email:String);
+
+idclassdemo(idone:String [PK], idtwo:String [PK], context:String);
+
+author(id:Long [PK], authorname:String, birthday:LocalDate, GeneratedName:Sex, email:String, phone:String, /***&#064onetoone指定一对一关联关系*&#064joincolumnname本表中外键列的列名，referencedcolumnname，关联表中与name进行对应的列名*/:AuthorInfo #FK to(authorinfo), /***使用两个双向一对多/多对一来替代多对多*///@onetomany(mappedby:Map<String,Address>);
+
+organization(code:String, name:String);
+
+jpaannotationdemo(/***&#064id定义属性为数据库中的主键列，一个实体里面必须有一个。**&#064generatedvalue,主键生成策略。*属性strategy，id的生成策略，generationtype.table，通过表产生主键，框架由表模拟序列产生主键，使用该策略可以使应用更易于数据库移植；*generationtype.sequence，通过序列产生主键，通过@sequencegenerator注解指定序列名，mysql不支持这种方式；*generationtype.identity,数据库id自增长，多用于mysql；*generationtype.auto,jpa自动选择合适的策略，默认选项。*属性generator：通过sequence生成id，常见orcale数据库id生成，需要配合@sequencegenerator使用。*/id:Long [PK], /***&#064basic，表示属性是到数据库表字段的映射。如果实体的字段上没有任何注解，默认即为；*属性fetch，抓取方式，默认fetchtype.eager(立即加载)，fetchtype.lazy(延迟加载，主要应用在大字段上面)；*属性optional，设置这个字段是否可以为null，默认是true。*/name:String, xxx:String, /***&#064column,定义该属性对应数据库中的列名。*属性name，数据库中的列名。如果不写默认和实体属性名一致；*属性unique，是否唯一。默认false；*属性nullable，是否允许为空。默认为true；*属性insertable，执行insert操作的时候是否包含此字段，默认为true；*属性updatable，执行updatable操作的时候是否包含此字段，默认为true；*属性columndefinition，表示该字段在数据库中的实际类型。*属性length，数据库字段的长度，默认255；*属性table,precision，scale，一般不设置。*/ddd:Integer, /***&#064temporal:用来设置类型的属性映射到对应精度的字段。temporaltype.，映射为数据库，temporaltype.time映射为数据库time，temporaltype.timestamp，映射为time。*/create:Date, createtime:Date, createtime:Date, /***jdk8可以使用以下新的时间类型替代date*/:LocalDate, GeneratedName:LocalTime, GeneratedName:LocalDateTime, /***&#064enumerated：映射枚举字段。属性value，默认是enumtype.ordinal(枚举字段的下标)，enumtype.string枚举字段的name；*/:Sex, 、char和将被映射成clob类型。*blob（binarylargeobjects）类型是字节类型，java.sql.blob、byte、byte和实现了serializable接口的类型将被映射为blob类型。*clob、blob占用内存空间较大，一般配合@basic(fetch:String);
+
+ebook(/***格式*/format:String);
+
+category(id:Long [PK], categoryname:String, id:Category #FK to(category));
+
+abstractauditdomain(createddate:LocalDateTime, lastmodifieddate:LocalDateTime, createdbyuserid:Long, lastmodifieduserby:Long);
+
+order(orderno:String, GeneratedName:OrderStatus, price:BigDecimal);
+
+printbook(/***印刷时间*/printdate:LocalDate);
+
+student(id:Long [PK], name:String, age:Integer);
+
+role(id:Long [PK], rolename:String, GeneratedName:RoleCode);
+
+authorinfo(id:Long [PK], idcardnumber:String, /***如果在详情方需要获取作者，也添加@onetoone，并指定mappedby*/:Author #FK to(author));
+
+account(/***简单代表一下账户所属人*/accountname:String, balance:BigDecimal, /***乐观锁version*///@versionversion:Integer);
+
+admin(id:Long [PK], username:String, password:String, phone:String, createtime:LocalDate, age:Integer, GeneratedName:Address, GeneratedName:Role #FK to(role));
+
+bookauthor();
+
+userorder(id:Long [PK], ordername:String, userid:Long, createtime:LocalDate);
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

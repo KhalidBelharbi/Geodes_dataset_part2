@@ -1,0 +1,23 @@
+
+address(idaddress:Integer [PK], streetnumber:String, streetname:String, postcode:String, city:String, region:String, country:String);
+
+reservationinquiry(idinquiry:Long [PK], statut:String, message:String, lend:Date, GeneratedName:User #FK to(User), GeneratedName:Topo #FK to(Topo));
+
+sector(idsector:Long [PK], name:String, numberofpath:Integer, GeneratedName:Spot #FK to(Spot));
+
+spot(idspot:Integer [PK], name:String, numberofpath:Integer, difficultlevel:String, GeneratedName:Address #FK to(Address), tag:Boolean);
+
+topo(idtopo:Integer [PK], name:String, available:Boolean, description:String, location:String, publication:Date, GeneratedName:User #FK to(User));
+
+user(iduser:Integer [PK], name:String, lastname:String, email:String, login:String, password:String, GeneratedName:Role #FK to(Role));
+
+path(idpath:Long [PK], name:String, height:Float, cotation:String, pointnumber:Integer, numberoflengh:Integer, GeneratedName:Sector #FK to(Sector));
+
+lenght(idlenght:Long [PK], name:String, height:float, cotation:String, GeneratedName:Path #FK to(Path));
+
+role(code:Integer [PK], label:String);
+
+comment(idcomment:Long [PK], comment:String, publication:Date, GeneratedName:User #FK to(User), GeneratedName:Spot #FK to(Spot));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

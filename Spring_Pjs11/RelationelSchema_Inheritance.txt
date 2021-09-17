@@ -1,0 +1,23 @@
+delivery(id:Long [PK], GeneratedName:Order #FK to(order), GeneratedName:Address, status:DeliveryStatus);
+
+member(id:Long [PK], name:String, GeneratedName:Address);
+
+book(author:String, isbn:String);
+
+movie(director:String, actor:String);
+
+album(artist:String, etc:String);
+
+item(id:Long [PK], name:String, price:int, stockquantity:int);
+
+order(id:Long [PK], //newbytebuddyinterceptor(proxy):Member #FK to(member), //cascadetype.allorder를persist하면같이:Delivery #FK to(delivery), //order_dateorderdate:LocalDateTime, //주문상태status:OrderStatus);
+
+category(id:Long [PK], name:String, parent:Category #FK to(category));
+
+category_item(category_id:Category [PK] #FK to Category,item_id:list<item> [PK] #FK to list<item>);
+
+item(id:Long [PK], //xtoone기본fetch:Item #FK to(item), GeneratedName:Order #FK to(order), //주문가격orderprice:int, //주문수량count:int, dtype: String);
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

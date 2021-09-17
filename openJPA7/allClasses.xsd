@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testreplication" >
+      <xs:complexContent>
+       <xs:extension base="singleemftestcase">
+         <xs:sequence>
+          <xs:element name="child_count" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testquery" >
+      <xs:complexContent>
+       <xs:extension base="slicetestcase">
+         <xs:sequence>
+          <xs:element name="pobject_count" type="xs:long" />
+          <xs:element name="value_min" type="xs:long" />
+          <xs:element name="value_max" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testconfiguration" >
+      <xs:complexContent>
+       <xs:extension base="slicetestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testbulkdelete" >
+      <xs:complexContent>
+       <xs:extension base="slicetestcase">
+         <xs:sequence>
+          <xs:element name="slices" type="xs:long" />
+          <xs:element name="slice_names" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pobject" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="value" type="xs:long" />
+        <xs:element name="idcounter" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="country" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="population" type="xs:long" />
+        <xs:element name="version" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="singleemftestcase" >
+      <xs:complexContent>
+       <xs:extension base="persistencetestcase">
+         <xs:sequence>
+          <xs:element name="emf" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testquerymultithreaded" >
+      <xs:complexContent>
+       <xs:extension base="slicetestcase">
+         <xs:sequence>
+          <xs:element name="pobject_count" type="xs:long" />
+          <xs:element name="value_min" type="xs:long" />
+          <xs:element name="value_max" type="xs:long" />
+          <xs:element name="threads" type="xs:long" />
+          <xs:element name="max_timeout" type="xs:long" />
+          <xs:element name="group" type="xs:anyType" />
+          <xs:element name="s" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testquerytargetpolicy" >
+      <xs:complexContent>
+       <xs:extension base="slicetestcase">
+         <xs:sequence>
+          <xs:element name="pobject_count" type="xs:long" />
+          <xs:element name="value_min" type="xs:long" />
+          <xs:element name="querypersonbyname" type="xs:string" />
+          <xs:element name="querypersonbynameswap" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testtransaction" >
+      <xs:complexContent>
+       <xs:extension base="slicetestcase">
+         <xs:sequence>
+          <xs:element name="rng" type="xs:anyType" />
+          <xs:element name="s" type="manufacturer" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="car" >
+      <xs:sequence>
+        <xs:element name="vin" type="xs:string" />
+        <xs:element name="model" type="xs:string" />
+        <xs:element name="maker" type="manufacturer" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="person" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="GeneratedName" type="address" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testxa" >
+      <xs:complexContent>
+       <xs:extension base="slicetestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="samplefinderpolicy" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="evenodddistributionpolicy" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdistributionpolicy" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="uniformdistributionpolicy" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="samplequerytargetpolicy" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="slicetestcase" >
+      <xs:complexContent>
+       <xs:extension base="singleemftestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testbasic" >
+      <xs:complexContent>
+       <xs:extension base="slicetestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="replicatedchild" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="parent" type="replicatedparent" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistencetestcase" >
+      <xs:complexContent>
+       <xs:extension base="testcase">
+         <xs:sequence>
+          <xs:element name="/***markeryouanpassto{@link#setup}toindicatethatthe*databasetablesshouldbecleared.*/clear_tables" type="xs:anyType" />
+          <xs:element name="/***the{@link}instanceforthecurrenttestrun.*/" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="manufacturer" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="replicatedparent" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="children" type="replicatedchild" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="address" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="zip" type="xs:long" />
+        <xs:element name="GeneratedName" type="country" nillable="true" minOccurs="0" />
+        <xs:element name="owner" type="person" nillable="true" minOccurs="0" />
+        <xs:element name="version" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="distributedbrokerfactory" >
+      <xs:complexContent>
+       <xs:extension base="brokerfactory">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="slicethread" >
+      <xs:complexContent>
+       <xs:extension base="thread">
+         <xs:sequence>
+          <xs:element name="_parent" type="xs:anyType" />
+          <xs:element name="_pool" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="distributionpolicy" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="distributedpreparedstatement" >
+      <xs:complexContent>
+       <xs:extension base="distributedtemplate<preparedstatement>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="distributedjdbcconfigurationimpl" >
+      <xs:complexContent>
+       <xs:extension base="jdbcconfigurationimpl">
+         <xs:sequence>
+          <xs:element name="_slices" type="slice" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="_master" type="slice" nillable="true" minOccurs="0" />
+          <xs:element name="virtualdatasource" type="distributeddatasource" nillable="true" minOccurs="0" />
+          <xs:element name="lenientplugin" type="xs:anyType" />
+          <xs:element name="masterplugin" type="xs:anyType" />
+          <xs:element name="namesplugin" type="xs:anyType" />
+          <xs:element name="distributionpolicyplugin" type="xs:anyType" />
+          <xs:element name="replicationpolicyplugin" type="xs:anyType" />
+          <xs:element name="querytargetpolicyplugin" type="xs:anyType" />
+          <xs:element name="findertargetpolicyplugin" type="xs:anyType" />
+          <xs:element name="replicatedtypesplugin" type="xs:anyType" />
+          <xs:element name="_replicationrepos" type="xs:anyType" />
+          <xs:element name="dot" type="xs:string" />
+          <xs:element name="regex_dot" type="xs:string" />
+          <xs:element name="prefix_slice" type="xs:string" />
+          <xs:element name="prefix_openjpa" type="xs:string" />
+          <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="distributedstatement" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="distributedtemplate" >
+      <xs:complexContent>
+       <xs:extension base="statement>">
+         <xs:sequence>
+          <xs:element name="stmts" type="xs:anyType" />
+          <xs:element name="con" type="distributedconnection" nillable="true" minOccurs="0" />
+          <xs:element name="maser" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="distributedstorequery" >
+      <xs:complexContent>
+       <xs:extension base="jdbcstorequery">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="_queries" type="xs:anyType" />
+          <xs:element name="_parser" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="distributedjdbcconfiguration" >
+      <xs:complexContent>
+       <xs:extension base="jdbcconfiguration,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="distributedresultset" >
+      <xs:sequence>
+        <xs:element name="comps" type="xs:anyType" />
+        <xs:element name="current" type="xs:anyType" />
+        <xs:element name="cursor" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="slicestoremanager" >
+      <xs:complexContent>
+       <xs:extension base="jdbcstoremanager">
+         <xs:sequence>
+          <xs:element name="_" type="slice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="distributedconnection" >
+      <xs:sequence>
+        <xs:element name="real" type="xs:anyType" />
+        <xs:element name="master" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="targetfetchconfiguration" >
+      <xs:complexContent>
+       <xs:extension base="jdbcfetchconfigurationimpl">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="_explicittarget" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="distributeddatasource" >
+      <xs:complexContent>
+       <xs:extension base="decoratingdatasource">
+         <xs:sequence>
+          <xs:element name="real" type="xs:anyType" />
+          <xs:element name="master" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="uniqueresultobjectprovider" >
+      <xs:sequence>
+        <xs:element name="_rops" type="xs:anyType" />
+        <xs:element name="_query" type="xs:anyType" />
+        <xs:element name="_exps" type="xs:anyType" />
+        <xs:element name="_single" type="xs:anyType" />
+        <xs:element name="_opened" type="xs:anyType" />
+        <xs:element name="count" type="xs:string" />
+        <xs:element name="max" type="xs:string" />
+        <xs:element name="min" type="xs:string" />
+        <xs:element name="sum" type="xs:string" />
+        <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="distributedsqlstorequery" >
+      <xs:complexContent>
+       <xs:extension base="sqlstorequery">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="_queries" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="distributedjdbcbrokerfactory" >
+      <xs:complexContent>
+       <xs:extension base="jdbcbrokerfactory">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="distributedjdbcstoremanager" >
+      <xs:complexContent>
+       <xs:extension base="jdbcstoremanager">
+         <xs:sequence>
+          <xs:element name="_slices" type="slicestoremanager" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="_master" type="xs:anyType" />
+          <xs:element name="_conf" type="distributedjdbcconfiguration" nillable="true" minOccurs="0" />
+          <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="distributedbrokerimpl" >
+      <xs:complexContent>
+       <xs:extension base="finalizingbrokerimpl">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="transient_rootslice" type="xs:string" />
+          <xs:element name="transient_conf" type="distributedconfiguration" nillable="true" minOccurs="0" />
+          <xs:element name="_lock" type="reentrantslicelock" nillable="true" minOccurs="0" />
+          <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="findertargetpolicy" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sliceinfo" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="_isreplicated" type="xs:anyType" />
+        <xs:element name="_slices" type="xs:string" />
+        <xs:element name="transient_loc" type="localizer" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sliceimplhelper" >
+      <xs:sequence>
+        <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="querytargetpolicy" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="replicationpolicy" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reentrantslicelock" >
+      <xs:complexContent>
+       <xs:extension base="reentrantlock">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="distributedqueryimpl" >
+      <xs:complexContent>
+       <xs:extension base="queryimpl">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="_lock" type="reentrantslicelock" nillable="true" minOccurs="0" />
+          <xs:element name="_conf" type="distributedconfiguration" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productderivation" >
+      <xs:complexContent>
+       <xs:extension base="abstractproductderivation">
+         <xs:sequence>
+          <xs:element name="/***prefixforallslice-specificconfigurationproperties.*/prefix_slice" type="xs:string" />
+          <xs:element name="tospecifyasubsetof*slicesforquery.thevaluecorrespondingtothekeyiscomma-separated*listofsliceidentifiers.*/hint_target" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="distributedconfiguration" >
+      <xs:complexContent>
+       <xs:extension base="by">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="distributedstoremanager" >
+      <xs:complexContent>
+       <xs:extension base="storemanager">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="slicepersistence" >
+      <xs:sequence>
+        <xs:element name="/***thekeyforsettingthequeryhints.thevalueiscomma-separatedslice*names.ifthehintisspecifiedthenthequeryisexecutedonlyonthe*listedslices.*/hint_target" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="distributedbroker" >
+      <xs:complexContent>
+       <xs:extension base="broker">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="slice" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="transientconf" type="xs:anyType" />
+        <xs:element name="transient" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

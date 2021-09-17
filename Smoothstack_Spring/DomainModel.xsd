@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="flight" >
+      <xs:sequence>
+        <xs:element name="flightid" type="xs:anyType" />
+        <xs:element name="departtime" type="xs:anyType" />
+        <xs:element name="departcityid" type="xs:anyType" />
+        <xs:element name="arrivecityid" type="xs:anyType" />
+        <xs:element name="seatsavailable" type="xs:anyType" />
+        <xs:element name="price" type="xs:double" />
+        <xs:element name="bookings" type="booking" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="booking" >
+      <xs:sequence>
+        <xs:element name="bookingid" type="xs:anyType" />
+        <xs:element name="flightid" type="xs:anyType" />
+        <xs:element name="isactive" type="xs:anyType" />
+        <xs:element name="stripeid" type="xs:string" />
+        <xs:element name="bookerid" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="flight" nillable="true" minOccurs="0" />
+        <xs:element name="travelers" type="traveler" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="traveler" >
+      <xs:sequence>
+        <xs:element name="travelerid" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="dob" type="xs:anyType" />
+        <xs:element name="bookings" type="booking" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookingshastravelers" >
+      <xs:sequence>
+        <xs:element name="bookingsbookingid" type="xs:anyType" />
+        <xs:element name="bookingsflightid" type="xs:anyType" />
+        <xs:element name="travelertravelerid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

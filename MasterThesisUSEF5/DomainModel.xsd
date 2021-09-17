@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="congestionpointconnectiongroup" >
+      <xs:complexContent>
+       <xs:extension base="connectiongroup">
+         <xs:sequence>
+          <xs:element name="dsodomain" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ptustate" >
+      <xs:complexContent>
+       <xs:extension base="document">
+         <xs:sequence>
+          <xs:element name="regime" type="regimetype" nillable="true" minOccurs="0" />
+          <xs:element name="state" type="ptucontainerstate" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ptuflexrequest" >
+      <xs:complexContent>
+       <xs:extension base="exchange">
+         <xs:sequence>
+          <xs:element name="power" type="xs:anyType" />
+          <xs:element name="disposition" type="dispositionavailablerequested" nillable="true" minOccurs="0" />
+          <xs:element name="prognosissequence" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ptusettlement" >
+      <xs:complexContent>
+       <xs:extension base="document">
+         <xs:sequence>
+          <xs:element name="" type="flexordersettlement" nillable="true" minOccurs="0" />
+          <xs:element name="prognosispower" type="xs:anyType" />
+          <xs:element name="actualpower" type="xs:anyType" />
+          <xs:element name="orderedflexpower" type="xs:anyType" />
+          <xs:element name="deliveredflexpower" type="xs:anyType" />
+          <xs:element name="powerdeficiency" type="xs:anyType" />
+          <xs:element name="price" type="xs:anyType" />
+          <xs:element name="penalty" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="agrconnectiongroup" >
+      <xs:complexContent>
+       <xs:extension base="connectiongroup">
+         <xs:sequence>
+          <xs:element name="aggregatordomain" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="planboardmessage" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="creationtime" type="xs:dateTime" />
+        <xs:element name="/***thesequencenumberofthismessage.so,whenaflexrequestissent,itcontainsasequencenumberwhichissetinthis*field.*/sequence" type="xs:long" />
+        <xs:element name="/***thesequencenumberoftheoriginmessage.so,whenaflexofferissend,itreferstoaflexrequest.thesequencenumberof*theflexrequestissetintheoriginsequencenumber.incaseofaflexrequesttheprognosissequenceistheorigin*sequencenumber.*/originsequence" type="xs:long" />
+        <xs:element name="participantdomain" type="xs:string" />
+        <xs:element name="GeneratedName" type="documentstatus" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="connectiongroup" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="documenttype" nillable="true" minOccurs="0" />
+        <xs:element name="period" type="xs:dateTime" />
+        <xs:element name="expiration" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="exchange" >
+      <xs:complexContent>
+       <xs:extension base="document">
+         <xs:sequence>
+          <xs:element name="participantdomain" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="document" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="ptucontainer" nillable="true" minOccurs="0" />
+        <xs:element name="sequence" type="xs:long" />
+        <xs:element name="GeneratedName" type="connectiongroup" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ptuflexoffer" >
+      <xs:complexContent>
+       <xs:extension base="exchange">
+         <xs:sequence>
+          <xs:element name="power" type="xs:anyType" />
+          <xs:element name="price" type="xs:anyType" />
+          <xs:element name="flexrequestsequence" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="prognosissequence" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="flexordersettlement" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="period" type="xs:dateTime" />
+        <xs:element name="sequence" type="xs:long" />
+        <xs:element name="ptusettlements" type="ptusettlement" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="connectiongroup" nillable="true" minOccurs="0" />
+        <xs:element name="flexorder" type="planboardmessage" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="connectiongroupstate" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="connectiongroup" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="connection" nillable="true" minOccurs="0" />
+        <xs:element name="validfrom" type="xs:dateTime" />
+        <xs:element name="validuntil" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="connection" >
+      <xs:sequence>
+        <xs:element name="entityaddress" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ptuflexorder" >
+      <xs:complexContent>
+       <xs:extension base="exchange">
+         <xs:sequence>
+          <xs:element name="flexoffersequence" type="xs:long" />
+          <xs:element name="" type="acknowledgementstatus" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ptuprognosis" >
+      <xs:complexContent>
+       <xs:extension base="exchange">
+         <xs:sequence>
+          <xs:element name="type" type="prognosistype" nillable="true" minOccurs="0" />
+          <xs:element name="power" type="xs:anyType" />
+          <xs:element name="substitute" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="connectiongroup" >
+      <xs:sequence>
+        <xs:element name="usefidentifier" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="brpconnectiongroup" >
+      <xs:complexContent>
+       <xs:extension base="connectiongroup">
+         <xs:sequence>
+          <xs:element name="brpdomain" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ptucontainer" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="documents" type="document" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="ptu" type="xs:dateTime" />
+        <xs:element name="ptuindex" type="xs:anyType" />
+        <xs:element name="phase" type="phasetype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

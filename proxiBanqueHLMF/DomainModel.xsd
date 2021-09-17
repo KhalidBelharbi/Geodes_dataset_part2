@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="client" >
+      <xs:sequence>
+        <xs:element name="/***theid.*///attributsid" type="xs:long" />
+        <xs:element name="/***the.*/" type="adresse" nillable="true" minOccurs="0" />
+        <xs:element name="/***thenumtel.*/numtel" type="xs:string" />
+        <xs:element name="/***thecptec.*/cptec" type="comptecourant" nillable="true" minOccurs="0" />
+        <xs:element name="/***thecpteep.*/cpteep" type="compteepargne" nillable="true" minOccurs="0" />
+        <xs:element name="/***thevisap.*/visap" type="cartevisapremier" nillable="true" minOccurs="0" />
+        <xs:element name="/***thevisae.*/visae" type="cartevisaelectron" nillable="true" minOccurs="0" />
+        <xs:element name="/***theemail.*/email" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cartebancaire" >
+      <xs:sequence>
+        <xs:element name="/***thenumcarte.*/numcarte" type="xs:long" />
+        <xs:element name="/***thedatevalid.*/datevalid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="compteepargne" >
+      <xs:complexContent>
+       <xs:extension base="comptebancaire">
+         <xs:sequence>
+          <xs:element name="/***thetxinteret.*/txinteret" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="comptebancaire" >
+      <xs:sequence>
+        <xs:element name="/***thenumcompte.*/numcompte" type="xs:long" />
+        <xs:element name="/***thesoldecompte.*/soldecompte" type="xs:double" />
+        <xs:element name="/***thedate.*/date" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clientparticulier" >
+      <xs:complexContent>
+       <xs:extension base="client">
+         <xs:sequence>
+          <xs:element name="/***thenom.*/nom" type="xs:string" />
+          <xs:element name="/***theprenom.*/prenom" type="xs:string" />
+          <xs:element name="/***theconstantdecouvertautorise.*/decouvertautorise" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cartevisaelectron" >
+      <xs:complexContent>
+       <xs:extension base="cartebancaire{">
+         <xs:sequence>
+          <xs:element name="/***thetype.*/type" type="xs:string" />
+          <xs:element name="/***the.*/" type="client" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cartevisapremier" >
+      <xs:complexContent>
+       <xs:extension base="cartebancaire">
+         <xs:sequence>
+          <xs:element name="/***thetype.*/type" type="xs:string" />
+          <xs:element name="/***the.*/" type="client" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cliententreprise" >
+      <xs:complexContent>
+       <xs:extension base="client{">
+         <xs:sequence>
+          <xs:element name="/***theconstantdecouvertautorise.*/decouvertautorise" type="xs:double" />
+          <xs:element name="/***thenumsiret.*/numsiret" type="xs:long" />
+          <xs:element name="/***theraisonsociale.*/raisonsociale" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="comptecourant" >
+      <xs:complexContent>
+       <xs:extension base="comptebancaire{">
+         <xs:sequence>
+          <xs:element name="/***thedecouvertautorise.*/decouvertautorise" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

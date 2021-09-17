@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="penilaiandao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<penilaian,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="karyawandao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<karyawan,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jadwaldao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<jadwal,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="penilaiancontroller" >
+      <xs:sequence>
+        <xs:element name="penilaianmanager" type="penilaianmanagerimpl" nillable="true" minOccurs="0" />
+        <xs:element name="karyawanmanager" type="karyawanmanagerimpl" nillable="true" minOccurs="0" />
+        <xs:element name="jadwalmanager" type="jadwalmanagerimpl" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jadwalcontroller" >
+      <xs:sequence>
+        <xs:element name="jadwalmanager" type="jadwalmanagerimpl" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="karyawancontroller" >
+      <xs:sequence>
+        <xs:element name="karyawanmanager" type="karyawanmanagerimpl" nillable="true" minOccurs="0" />
+        <xs:element name="penilaianmanager" type="penilaianmanagerimpl" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="karyawanmanagerimpl" >
+      <xs:sequence>
+        <xs:element name="karyawanrepository" type="karyawandao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="karyawanmanager" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jadwalmanagerimpl" >
+      <xs:sequence>
+        <xs:element name="jadwalrepository" type="jadwaldao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="penilaianmanager" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jadwalmanager" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="penilaianmanagerimpl" >
+      <xs:sequence>
+        <xs:element name="penilaianrepository" type="penilaiandao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jadwal" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="materi" type="xs:string" />
+        <xs:element name="tanggal" type="xs:string" />
+        <xs:element name="lokasi" type="xs:string" />
+        <xs:element name="session" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="penilaian" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="kode_karyawan" type="xs:string" />
+        <xs:element name="materi" type="xs:string" />
+        <xs:element name="nilai" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="karyawan" >
+      <xs:sequence>
+        <xs:element name="kode_karyawan" type="xs:string" />
+        <xs:element name="nama" type="xs:string" />
+        <xs:element name="alamat" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pegadaianassignmentspringbootapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

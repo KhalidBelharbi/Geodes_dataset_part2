@@ -1,0 +1,14 @@
+ClassDiagram.Class>> Categories =>=>=> RelationalSchema.Table>> categories;
+ClassDiagram.Class>> Supplier =>=>=> RelationalSchema.Table>> supplier;
+ClassDiagram.Class>> Product =>=>=> RelationalSchema.Table>> product;
+ClassDiagram.Attribut>> Categories.categoryid:int =>=>=> RelationalSchema.Column>> categories.categoryid PRIMARY KEY;
+ClassDiagram.Attribut>> Categories.categoryname:String =>=>=> RelationalSchema.Column>> categories.categoryname;
+ClassDiagram.Attribut>> Categories.picture:byte =>=>=> RelationalSchema.Column>> categories.picture;
+ClassDiagram.Attribut>> Supplier.supplierid:int =>=>=> RelationalSchema.Column>> supplier.supplierid PRIMARY KEY;
+ClassDiagram.Attribut>> Supplier.companyname:String =>=>=> RelationalSchema.Column>> supplier.companyname;
+ClassDiagram.Attribut>> Product.productid:int =>=>=> RelationalSchema.Column>> product.productid PRIMARY KEY;
+ClassDiagram.Attribut>> Product.productname:String =>=>=> RelationalSchema.Column>> product.productname;
+ClassDiagram.Attribut>> Product.unitprice:double =>=>=> RelationalSchema.Column>> product.unitprice;
+One-To-Many relationship from ClassDiagram.Class>>Categories  to ClassDiagram.Class>>Set<Product>;
+Many-To-One relationship from ClassDiagram.Class>>Product  to ClassDiagram.Class>>Supplier represented by ClassDiagram.Atrribute>>s;
+Many-To-One relationship from ClassDiagram.Class>>Product  to ClassDiagram.Class>>Categories represented by ClassDiagram.Atrribute>>GeneratedName;

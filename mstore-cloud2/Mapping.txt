@@ -1,0 +1,18 @@
+ClassDiagram.Class>> User =>=>=> RelationalSchema.Table>> user;
+ClassDiagram.Class>> Client =>=>=> RelationalSchema.Table>> client;
+ClassDiagram.Class>> Authority =>=>=> RelationalSchema.Table>> authority;
+ClassDiagram.Attribut>> User.username:String =>=>=> RelationalSchema.Column>> user.username PRIMARY KEY;
+ClassDiagram.Attribut>> User.password:String =>=>=> RelationalSchema.Column>> user.password;
+ClassDiagram.Attribut>> User.email:String =>=>=> RelationalSchema.Column>> user.email;
+ClassDiagram.Attribut>> User.firstname:String =>=>=> RelationalSchema.Column>> user.firstname;
+ClassDiagram.Attribut>> User.lastname:String =>=>=> RelationalSchema.Column>> user.lastname;
+ClassDiagram.Attribut>> User.activated:boolean =>=>=> RelationalSchema.Column>> user.activated;
+ClassDiagram.Attribut>> User.activationkey:String =>=>=> RelationalSchema.Column>> user.activationkey;
+ClassDiagram.Attribut>> User.resetkey:String =>=>=> RelationalSchema.Column>> user.resetkey;
+ClassDiagram.Attribut>> User.reset:Date =>=>=> RelationalSchema.Column>> user.reset;
+ClassDiagram.Attribut>> Client.id:String =>=>=> RelationalSchema.Column>> client.id PRIMARY KEY;
+ClassDiagram.Attribut>> Client.secretkey:String =>=>=> RelationalSchema.Column>> client.secretkey;
+ClassDiagram.Attribut>> Client.redirecturi:String =>=>=> RelationalSchema.Column>> client.redirecturi;
+ClassDiagram.Attribut>> Authority.name:String =>=>=> RelationalSchema.Column>> authority.name PRIMARY KEY;
+Many-To-Many relationship between ClassDiagram.Class>>User  and ClassDiagram.Class>>set<authority>: user_authorities(username:User [PK] #FK to User,authority_name:set<authority> [PK] #FK to set<authority>);
+Many-To-Many relationship between ClassDiagram.Class>>Client  and ClassDiagram.Class>>set<authority>: client_authorities(client_id:Client [PK] #FK to Client,authority_name:set<authority> [PK] #FK to set<authority>);

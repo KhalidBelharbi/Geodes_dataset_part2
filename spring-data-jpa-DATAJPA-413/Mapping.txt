@@ -1,0 +1,15 @@
+ClassDiagram.Class>> SalesDevice =>=>=> RelationalSchema.Table>> salesdevice;
+ClassDiagram.Class>> Item =>=>=> RelationalSchema.Table>> item;
+ClassDiagram.Class>> Site =>=>=> RelationalSchema.Table>> site;
+ClassDiagram.Class>> ItemSite =>=>=> RelationalSchema.Table>> itemsite;
+ClassDiagram.Attribut>> SalesDevice./***theid.*/id:Integer =>=>=> RelationalSchema.Column>> salesdevice./***theid.*/id PRIMARY KEY;
+ClassDiagram.Attribut>> Item./***theid.*/id:Integer =>=>=> RelationalSchema.Column>> item./***theid.*/id PRIMARY KEY;
+ClassDiagram.Attribut>> Item./***thesalesdeviceid.*/:SalesDevice =>=>=> RelationalSchema.Column>> item./***thesalesdeviceid.*/ PRIMARY KEY;
+ClassDiagram.Attribut>> Site./***/serialversionuid:long =>=>=> RelationalSchema.Column>> site./***/serialversionuid;
+ClassDiagram.Attribut>> Site./***theid.*/id:Integer =>=>=> RelationalSchema.Column>> site./***theid.*/id PRIMARY KEY;
+ClassDiagram.Attribut>> ItemSite.GeneratedName:Item =>=>=> RelationalSchema.Column>> itemsite.GeneratedName PRIMARY KEY;
+ClassDiagram.Attribut>> ItemSite.GeneratedName:Site =>=>=> RelationalSchema.Column>> itemsite.GeneratedName PRIMARY KEY;
+Many-To-One relationship from ClassDiagram.Class>>SalesDevice  to ClassDiagram.Class>>site represented by ClassDiagram.Atrribute>>/***the.*/;
+Many-To-One relationship from ClassDiagram.Class>>Item  to ClassDiagram.Class>>SalesDevice represented by ClassDiagram.Atrribute>>/***thesalesdeviceid.*/;
+Many-To-One relationship from ClassDiagram.Class>>ItemSite  to ClassDiagram.Class>>Item represented by ClassDiagram.Atrribute>>GeneratedName;
+Many-To-One relationship from ClassDiagram.Class>>ItemSite  to ClassDiagram.Class>>site represented by ClassDiagram.Atrribute>>GeneratedName;

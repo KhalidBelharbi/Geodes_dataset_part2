@@ -1,0 +1,13 @@
+
+ask(serialversionuid:long, /***thewhohasmadetheoffer.*mustneverbenull.*/seller:Trader #FK to(trader));
+
+bid(serialversionuid:long, /***thewhohasmadetheoffer.*mustneverbenull.*/buyer:Trader #FK to(trader));
+
+trader(serialversionuid:long, name:String [PK], version:int);
+
+trade(serialversionuid:long, /***primaryidentityofacommittedtrade.*itsvalueisgeneratedbythepersistenceprovider.*theapplicationmustnotsetorchangethisvalue.*hencenosettermethodisprovided.*/id:Long [PK], price:double, volume:int, GeneratedName:Ask #FK to(ask), GeneratedName:Bid #FK to(bid));
+
+stock(serialversionuid:long, /***theprimaryidentityofastock.*theuniquenessoftheprimarykeysareoftenwarrantedbythepersistenceprovider.*inthiscase,uniqueofastocksymbolisensuredbyanexternalagency.*/symbol:String [PK], /***thenameofthecompanyrepresentedbythisfinancialinstrument.*/company:String, GeneratedName:Sector, price:double, lastprice:double);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

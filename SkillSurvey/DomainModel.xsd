@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="department" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="iddepartment" type="xs:long" />
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="////bi-directionalmany-to-oneassociationtoindividualindividuals" type="individual" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="individual" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="idindividual" type="xs:long" />
+        <xs:element name="gender" type="xs:string" />
+        <xs:element name="login" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="//longsupervisorid//longsupervisedid//bi-directionalmany-to-oneassociationto" type="department" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="function" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="occupation" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="level" nillable="true" minOccurs="0" />
+        <xs:element name="//bi-directionalmany-to-oneassociationtofunctionsurveyes" type="survey" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//bi-directionalmany-to-manyassociationtoindividualsubordinates" type="individual" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="idrole" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="claims" type="claim" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="individuals" type="individual" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pathway" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="idpathway" type="xs:long" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="selectable" type="xs:anyType" />
+        <xs:element name="//////bi-directionalmany-to-oneassociationtosurveysurveys" type="survey" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="////bi-directionalmany-to-oneassociationtouocgroupuocgroups" type="uocgroup" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="uocquestion" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="iduocquestion" type="xs:long" />
+        <xs:element name="//bi-directionalmany-to-oneassociationto" type="question" nillable="true" minOccurs="0" />
+        <xs:element name="//bi-directionalmany-to-oneassociationto" type="uoc" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="surveryanswer" >
+      <xs:sequence>
+        <xs:element name="surveyid" type="xs:long" />
+        <xs:element name="uocquestionid" type="xs:long" />
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="answeredat" type="xs:string" />
+        <xs:element name="value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="occupation" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="idoccupation" type="xs:long" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="//*****startupdation////bi-directionalmany-to-oneassociationtodapsscodapsscos" type="dapssco" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="individuals" type="individual" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="level" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="idlevel" type="xs:long" />
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="//bi-directionalmany-to-oneassociationtoindividualindividuals" type="individual" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//bi-directionalmany-to-manyassociationtodapsscodapsscos" type="dapssco" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="claimassignments" >
+      <xs:sequence>
+        <xs:element name="claimid" type="xs:long" />
+        <xs:element name="roleid" type="xs:long" />
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="need" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="idneed" type="xs:long" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="//bi-directionalmany-to-oneassociationtouocgroupuocgroups" type="uocgroup" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="claim" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="idclaim" type="xs:long" />
+        <xs:element name="code" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dapsscoskills" >
+      <xs:sequence>
+        <xs:element name="uocgroupid" type="xs:long" />
+        <xs:element name="dapsscoid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="survey" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="idsurvey" type="xs:long" />
+        <xs:element name="completedat" type="xs:dateTime" />
+        <xs:element name="startedat" type="xs:dateTime" />
+        <xs:element name="////bi-directionalmany-to-oneassociationtosurveryanswer//@onetomany(mappedby" type="individual" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="dapssco" nillable="true" minOccurs="0" />
+        <xs:element name="//bi-directionalmany-to-oneassociationto" type="pathway" nillable="true" minOccurs="0" />
+        <xs:element name="uocquestions" type="uocquestion" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="function" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="idfunction" type="xs:long" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="//bi-directionalmany-to-oneassociationtoindividualindividuals" type="individual" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="individuals){//this.individuals" type="occupation" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="uoc" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="////@generatedvalue(strategy" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="////bi-directionalmany-to-manyassociationtouocgroupuocgroups" type="uocgroup" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//bi-directionalmany-to-oneassociationtouocquestionuocquestions" type="uocquestion" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dapssco" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="iddepssco" type="xs:long" />
+        <xs:element name="id" type="level" nillable="true" minOccurs="0" />
+        <xs:element name="//bi-directionalmany-to-oneassociationto" type="occupation" nillable="true" minOccurs="0" />
+        <xs:element name="uocgroups" type="uocgroup" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//*************bysanjay//bi-directionalmany-to-manyassociationtouocgrouplevel" type="level" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//*****************endsanjay//bi-directionalmany-to-oneassociationtosurveysurveys" type="survey" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="supervisons" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="supervisorid" type="xs:long" />
+        <xs:element name="supervisedid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dapsscolevel" >
+      <xs:sequence>
+        <xs:element name="dapsscoid" type="xs:long" />
+        <xs:element name="levelid" type="xs:long" />
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="functionoccupations" >
+      <xs:sequence>
+        <xs:element name="occupationid" type="xs:long" />
+        <xs:element name="functionid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="uocgroupmembers" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="//longuoc_iduoc_id" type="xs:string" />
+        <xs:element name="uoc_groupid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="uocgroup" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="iduocgroup" type="xs:long" />
+        <xs:element name="notes" type="xs:string" />
+        <xs:element name="//bi-directionalmany-to-oneassociationto" type="need" nillable="true" minOccurs="0" />
+        <xs:element name="uocs" type="uoc" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//bi-directionalmany-to-oneassociationto" type="pathway" nillable="true" minOccurs="0" />
+        <xs:element name="//dapsscos" type="dapssco" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="question" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="idquestion" type="xs:long" />
+        <xs:element name="style" type="xs:string" />
+        <xs:element name="text" type="xs:string" />
+        <xs:element name="////bi-directionalmany-to-oneassociationtouocquestionuocquestions" type="uocquestion" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="roleassignment" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="//@embeddedid//roleassignmentpkidpkroleid" type="xs:long" />
+        <xs:element name="individualid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

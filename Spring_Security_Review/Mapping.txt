@@ -1,0 +1,14 @@
+ClassDiagram.Class>> SpUser =>=>=> RelationalSchema.Table>> spuser;
+ClassDiagram.Class>> SpAuthority =>=>=> RelationalSchema.Table>> spauthority;
+ClassDiagram.Class>> PersistentLogins =>=>=> RelationalSchema.Table>> persistentlogins;
+ClassDiagram.Attribut>> SpUser.userid:Long =>=>=> RelationalSchema.Column>> spuser.userid PRIMARY KEY;
+ClassDiagram.Attribut>> SpUser.email:String =>=>=> RelationalSchema.Column>> spuser.email;
+ClassDiagram.Attribut>> SpUser.password:String =>=>=> RelationalSchema.Column>> spuser.password;
+ClassDiagram.Attribut>> SpUser.enabled:boolean =>=>=> RelationalSchema.Column>> spuser.enabled;
+ClassDiagram.Attribut>> SpAuthority.userid:Long =>=>=> RelationalSchema.Column>> spauthority.userid PRIMARY KEY;
+ClassDiagram.Attribut>> SpAuthority.authority:String =>=>=> RelationalSchema.Column>> spauthority.authority PRIMARY KEY;
+ClassDiagram.Attribut>> PersistentLogins.series:String =>=>=> RelationalSchema.Column>> persistentlogins.series PRIMARY KEY;
+ClassDiagram.Attribut>> PersistentLogins.username:String =>=>=> RelationalSchema.Column>> persistentlogins.username;
+ClassDiagram.Attribut>> PersistentLogins.token:String =>=>=> RelationalSchema.Column>> persistentlogins.token;
+ClassDiagram.Attribut>> PersistentLogins.lastused:LocalDateTime =>=>=> RelationalSchema.Column>> persistentlogins.lastused;
+One-To-Many relationship from ClassDiagram.Class>>SpUser  to ClassDiagram.Class>>Set<SpAuthority>;

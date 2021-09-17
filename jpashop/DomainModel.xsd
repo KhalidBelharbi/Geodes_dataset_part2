@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="category" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="parent" type="category" nillable="true" minOccurs="0" />
+          <xs:element name="child" type="category" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="//category클래스내부에서다대일연관관계매핑을따로만들어줬다.items" type="item" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderitem" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="//@column(name" type="order" nillable="true" minOccurs="0" />
+          <xs:element name="//@column(name" type="item" nillable="true" minOccurs="0" />
+          <xs:element name="orderprice" type="xs:long" />
+          <xs:element name="count" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="order" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="//@column(name" type="member" nillable="true" minOccurs="0" />
+          <xs:element name="//가급적이면설계할때는단뱡향으로연관관계를매핑하자,양방향은나중에필요할때매핑해도늦지않다.//member-order관계와는반대로order-orderitem관계에서는양방향매핑이비즈니스적으로상당히가치있다고볼수있다.//하나의주문에서몇가지상품이주문되었는지내역을찾을경우가많기도하기때문orderitems" type="orderitem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="orderdate" type="xs:anyType" />
+          <xs:element name="status" type="orderstatus" nillable="true" minOccurs="0" />
+          <xs:element name="//주문-배송일대일연관관계매핑" type="delivery" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="member" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="" type="address" nillable="true" minOccurs="0" />
+          <xs:element name="//대부분의경우member에order클래스에객체를선언하여양방향매핑을하는것이그닥좋은설계가아니다.//테이블입장에서쿼리를사용한다고해도member_id와같은외래키를통해결과를얻던가하게된다.//그런데member를찾아서getorders를찾아주문내역을뿌리는식으로만들면설계를잘못했다고볼수도있다.//연관관계매핑을할때는끊어내야할관심사를잘끊어내는것이중요하다.orders" type="order" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="item" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="price" type="xs:long" />
+          <xs:element name="stockquantity" type="xs:long" />
+          <xs:element name="categories" type="category" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="book" >
+      <xs:complexContent>
+       <xs:extension base="item{">
+         <xs:sequence>
+          <xs:element name="author" type="xs:string" />
+          <xs:element name="isbn" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="delivery" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="//배송지주소status" type="deliberystatus" nillable="true" minOccurs="0" />
+          <xs:element name="" type="order" nillable="true" minOccurs="0" />
+          <xs:element name="" type="address" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="movie" >
+      <xs:complexContent>
+       <xs:extension base="item{">
+         <xs:sequence>
+          <xs:element name="director" type="xs:string" />
+          <xs:element name="actor" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="album" >
+      <xs:complexContent>
+       <xs:extension base="item{">
+         <xs:sequence>
+          <xs:element name="artist" type="xs:string" />
+          <xs:element name="etc" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

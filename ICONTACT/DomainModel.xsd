@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="dosage" >
+      <xs:sequence>
+        <xs:element name="dosageid" type="xs:long" />
+        <xs:element name="symptom" type="xs:string" />
+        <xs:element name="medicinetype" type="xs:string" />
+        <xs:element name="dosagevol" type="xs:long" />
+        <xs:element name="dosagecnt" type="xs:long" />
+        <xs:element name="dosagetime" type="xs:string" />
+        <xs:element name="storage" type="xs:string" />
+        <xs:element name="specialnote" type="xs:string" />
+        <xs:element name="create" type="xs:dateTime" />
+        <xs:element name="userid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="usertel" type="xs:string" />
+        <xs:element name="type" type="xs:long" />
+        <xs:element name="refreshtoken" type="xs:string" />
+        <xs:element name="accept" type="xs:long" />
+        <xs:element name="create" type="xs:dateTime" />
+        <xs:element name="profileimg" type="xs:string" />
+        <xs:element name="statecode" type="xs:long" />
+        <xs:element name="kidname" type="xs:string" />
+        <xs:element name="classcode" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kinder" >
+      <xs:sequence>
+        <xs:element name="kindercode" type="xs:string" />
+        <xs:element name="kindername" type="xs:string" />
+        <xs:element name="kinderclasses" type="kinderclass" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kinderclass" >
+      <xs:sequence>
+        <xs:element name="classcode" type="xs:string" />
+        <xs:element name="classname" type="xs:string" />
+        <xs:element name="kindercode" type="xs:string" />
+        <xs:element name="GeneratedName" type="kinder" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="returnhome" >
+      <xs:sequence>
+        <xs:element name="rhid" type="xs:long" />
+        <xs:element name="rhdate" type="xs:string" />
+        <xs:element name="rhtime" type="xs:string" />
+        <xs:element name="guardian" type="xs:string" />
+        <xs:element name="guardiantel" type="xs:string" />
+        <xs:element name="emergency" type="xs:string" />
+        <xs:element name="emergencytel" type="xs:string" />
+        <xs:element name="create" type="xs:dateTime" />
+        <xs:element name="userid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="attend" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:dateTime" />
+        <xs:element name="attend" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="album" >
+      <xs:sequence>
+        <xs:element name="albumid" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="create" type="xs:dateTime" />
+        <xs:element name="thumbnailurl" type="xs:string" />
+        <xs:element name="downloadurl" type="xs:string" />
+        <xs:element name="classcode" type="xs:string" />
+        <xs:element name="writerid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schedule" >
+      <xs:sequence>
+        <xs:element name="scheduleid" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="create" type="xs:dateTime" />
+        <xs:element name="scheduleimgurl" type="xs:string" />
+        <xs:element name="classcode" type="xs:string" />
+        <xs:element name="userid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notice" >
+      <xs:sequence>
+        <xs:element name="noticeid" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="create" type="xs:dateTime" />
+        <xs:element name="noticeimgurl" type="xs:string" />
+        <xs:element name="classcode" type="xs:string" />
+        <xs:element name="userid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notebook" >
+      <xs:sequence>
+        <xs:element name="noteid" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="create" type="xs:dateTime" />
+        <xs:element name="noteimgurl" type="xs:string" />
+        <xs:element name="writerid" type="xs:string" />
+        <xs:element name="targetid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="albumimg" >
+      <xs:sequence>
+        <xs:element name="photoid" type="xs:string" />
+        <xs:element name="albumid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="menu" >
+      <xs:sequence>
+        <xs:element name="menuid" type="xs:long" />
+        <xs:element name="amsnack" type="xs:string" />
+        <xs:element name="amsnackimgurl" type="xs:string" />
+        <xs:element name="lunch" type="xs:string" />
+        <xs:element name="lunchimgurl" type="xs:string" />
+        <xs:element name="pmsnack" type="xs:string" />
+        <xs:element name="pmsnackimgurl" type="xs:string" />
+        <xs:element name="create" type="xs:dateTime" />
+        <xs:element name="classcode" type="xs:string" />
+        <xs:element name="userid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

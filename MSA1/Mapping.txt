@@ -1,0 +1,10 @@
+ClassDiagram.Class>> BaseTimeEntity =>=>=> RelationalSchema.Table>> basetimeentity;
+ClassDiagram.Class>> ReviewEntity =>=>=> RelationalSchema.Table>> reviewentity;
+ClassDiagram.Attribut>> BaseTimeEntity.createddate:LocalDateTime =>=>=> RelationalSchema.Column>> basetimeentity.createddate;
+ClassDiagram.Attribut>> BaseTimeEntity.updateddate:LocalDateTime =>=>=> RelationalSchema.Column>> basetimeentity.updateddate;
+ClassDiagram.Attribut>> ReviewEntity.//xxx이후민:이부분비슷하게고민을좀했었는데reviewid가따로필요할까요?//mongodb는id가uuid로string으로들어가지만jpa는인id만있으면된다.//dto로변환할때서비스마다통일하면될것같다.id:long =>=>=> RelationalSchema.Column>> reviewentity.//xxx이후민:이부분비슷하게고민을좀했었는데reviewid가따로필요할까요?//mongodb는id가uuid로string으로들어가지만jpa는인id만있으면된다.//dto로변환할때서비스마다통일하면될것같다.id PRIMARY KEY;
+ClassDiagram.Attribut>> ReviewEntity.version:long =>=>=> RelationalSchema.Column>> reviewentity.version;
+ClassDiagram.Attribut>> ReviewEntity.userid:long =>=>=> RelationalSchema.Column>> reviewentity.userid;
+ClassDiagram.Attribut>> ReviewEntity.productid:long =>=>=> RelationalSchema.Column>> reviewentity.productid;
+ClassDiagram.Attribut>> ReviewEntity.//xxx이후민:내용을뜻하는거라면content가더명확해보여요contents:String =>=>=> RelationalSchema.Column>> reviewentity.//xxx이후민:내용을뜻하는거라면content가더명확해보여요contents;
+ClassDiagram.Attribut>> ReviewEntity.//xxx이후민:소수점처리도가능하도록바꾸는게좋아보여요rating:int =>=>=> RelationalSchema.Column>> reviewentity.//xxx이후민:소수점처리도가능하도록바꾸는게좋아보여요rating;

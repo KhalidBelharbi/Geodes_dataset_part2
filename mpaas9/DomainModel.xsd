@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="http" >
+      <xs:complexContent>
+       <xs:extension base="tablebase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="value" type="xs:string" />
+          <xs:element name="unit" type="xs:string" />
+          <xs:element name="seq" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cert" >
+      <xs:complexContent>
+       <xs:extension base="tablebase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="//域名domain" type="xs:string" />
+          <xs:element name="pem" type="xs:string" />
+          <xs:element name="key" type="xs:string" />
+          <xs:element name="//@initvalue("0")//获取方式0申请证书1手动上传type" type="xs:anyType" />
+          <xs:element name="//生成时间maketime" type="xs:long" />
+          <xs:element name="//@initvalue("0")//自动续签autorenew" type="xs:anyType" />
+          <xs:element name="pemstr" type="xs:string" />
+          <xs:element name="keystr" type="xs:string" />
+          <xs:element name="dnstype" type="xs:string" />
+          <xs:element name="dpid" type="xs:string" />
+          <xs:element name="dpkey" type="xs:string" />
+          <xs:element name="alikey" type="xs:string" />
+          <xs:element name="alisecret" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basic" >
+      <xs:complexContent>
+       <xs:extension base="tablebase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="value" type="xs:string" />
+          <xs:element name="seq" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="upstream" >
+      <xs:complexContent>
+       <xs:extension base="tablebase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="//负载策略tactics" type="xs:string" />
+          <xs:element name="//代理类型//@initvalue("0")//0http1tcpproxytype" type="xs:anyType" />
+          <xs:element name="//@initvalue("0")monitor" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="location" >
+      <xs:complexContent>
+       <xs:extension base="tablebase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="serverid" type="xs:string" />
+          <xs:element name="//监控路径path" type="xs:string" />
+          <xs:element name="//0http1root2负载均衡3空白type" type="xs:anyType" />
+          <xs:element name="//额外参数locationparamjson" type="xs:string" />
+          <xs:element name="//http代理value" type="xs:string" />
+          <xs:element name="//负载均衡代理upstreamid" type="xs:string" />
+          <xs:element name="upstreampath" type="xs:string" />
+          <xs:element name="//静态页面代理rootpath" type="xs:string" />
+          <xs:element name="rootpage" type="xs:string" />
+          <xs:element name="roottype" type="xs:string" />
+          <xs:element name="//是否设置header参数header" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="upstreamserver" >
+      <xs:complexContent>
+       <xs:extension base="tablebase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="upstreamid" type="xs:string" />
+          <xs:element name="server" type="xs:string" />
+          <xs:element name="port" type="xs:anyType" />
+          <xs:element name="weight" type="xs:anyType" />
+          <xs:element name="//失败超时failtimeout" type="xs:anyType" />
+          <xs:element name="//失败次数maxfails" type="xs:anyType" />
+          <xs:element name="//状态策略status" type="xs:string" />
+          <xs:element name="//监控状态0不通1monitorstatus" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="setting" >
+      <xs:complexContent>
+       <xs:extension base="tablebase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="key" type="xs:string" />
+          <xs:element name="value" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="www" >
+      <xs:complexContent>
+       <xs:extension base="tablebase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="dir" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="templateparam" >
+      <xs:complexContent>
+       <xs:extension base="tablebase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="templateid" type="xs:string" />
+          <xs:element name="paramid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="param" >
+      <xs:complexContent>
+       <xs:extension base="tablebase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="serverid" type="xs:string" />
+          <xs:element name="locationid" type="xs:string" />
+          <xs:element name="upstreamid" type="xs:string" />
+          <xs:element name="templateid" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="value" type="xs:string" />
+          <xs:element name="templatevalue" type="xs:string" />
+          <xs:element name="templatename" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="loginfo" >
+      <xs:complexContent>
+       <xs:extension base="tablebase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="remoteaddr" type="xs:string" />
+          <xs:element name="remoteuser" type="xs:string" />
+          <xs:element name="timelocal" type="xs:string" />
+          <xs:element name="request" type="xs:string" />
+          <xs:element name="httphost" type="xs:string" />
+          <xs:element name="status" type="xs:string" />
+          <xs:element name="requestlength" type="xs:string" />
+          <xs:element name="bodybytesdent" type="xs:string" />
+          <xs:element name="httpreferer" type="xs:string" />
+          <xs:element name="httpuseragent" type="xs:string" />
+          <xs:element name="requesttime" type="xs:string" />
+          <xs:element name="upstreamresponsetime" type="xs:string" />
+          <xs:element name="hour" type="xs:string" />
+          <xs:element name="minute" type="xs:string" />
+          <xs:element name="second" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="credit" >
+      <xs:complexContent>
+       <xs:extension base="tablebase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="key" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="stream" >
+      <xs:complexContent>
+       <xs:extension base="tablebase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="value" type="xs:string" />
+          <xs:element name="seq" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="remote" >
+      <xs:complexContent>
+       <xs:extension base="tablebase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="protocol" type="xs:string" />
+          <xs:element name="ip" type="xs:string" />
+          <xs:element name="port" type="xs:anyType" />
+          <xs:element name="//0掉线1在线status" type="xs:anyType" />
+          <xs:element name="creditkey" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="pass" type="xs:string" />
+          <xs:element name="version" type="xs:string" />
+          <xs:element name="system" type="xs:string" />
+          <xs:element name="descr" type="xs:string" />
+          <xs:element name="monitor" type="xs:anyType" />
+          <xs:element name="parentid" type="xs:string" />
+          <xs:element name="//0服务器1分组type" type="xs:anyType" />
+          <xs:element name="//0未运行1在运行2未知nginx" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="server" >
+      <xs:complexContent>
+       <xs:extension base="tablebase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="servername" type="xs:string" />
+          <xs:element name="listen" type="xs:string" />
+          <xs:element name="def" type="xs:anyType" />
+          <xs:element name="//@initvalue("0")//0否1是rewrite" type="xs:anyType" />
+          <xs:element name="//@initvalue("0")//0否1是ssl" type="xs:anyType" />
+          <xs:element name="//@initvalue("0")//0否1是http2" type="xs:anyType" />
+          <xs:element name="pem" type="xs:string" />
+          <xs:element name="key" type="xs:string" />
+          <xs:element name="//代理类型//@initvalue("0")//0http1tcpproxytype" type="xs:anyType" />
+          <xs:element name="proxyupstreamid" type="xs:string" />
+          <xs:element name="pemstr" type="xs:string" />
+          <xs:element name="keystr" type="xs:string" />
+          <xs:element name="//@initvalue("true")//是否启用enable" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="template" >
+      <xs:complexContent>
+       <xs:extension base="tablebase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="log" >
+      <xs:complexContent>
+       <xs:extension base="tablebase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="//@singleindexdate" type="xs:string" />
+          <xs:element name="json" type="xs:string" />
+          <xs:element name="path" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,2242 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="conversionexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="serviceexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="//regularerrorexceptiontype" type="xs:long" />
+          <xs:element name="exception_validation" type="xs:long" />
+          <xs:element name="exception_payment_declined" type="xs:long" />
+          <xs:element name="exception_transaction_declined" type="xs:long" />
+          <xs:element name="messagecode" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="measureunit" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schemaconstant" >
+      <xs:sequence>
+        <xs:element name="//salesmanager_schema" type="xs:string" />
+        <xs:element name="//salesmanager_schema" type="xs:string" />
+        <xs:element name="/***allregions*/all_regions" type="xs:string" />
+        <xs:element name="shipping_distance_config" type="xs:string" />
+        <xs:element name="country_iso_code" type="xs:string" />
+        <xs:element name="locales" type="xs:anyType" />
+        <xs:element name="currency_map" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="homepageoffers" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="categoryname" type="xs:string" />
+          <xs:element name="sectionname" type="xs:string" />
+          <xs:element name="subcategoryname" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="categorytitle" type="xs:string" />
+          <xs:element name="discount" type="xs:anyType" />
+          <xs:element name="/*@column(name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customizations" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="customizationid" type="xs:string" />
+          <xs:element name="header" type="xs:string" />
+          <xs:element name="subheader" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="workerrating" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<integer,workerrating>">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="rating" type="xs:anyType" />
+          <xs:element name="ratingdesc" type="xs:string" />
+          <xs:element name="servicesworker" type="companyservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="customer" nillable="true" minOccurs="0" />
+          <xs:element name="create" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="services" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<integer,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="default_store" type="xs:string" />
+          <xs:element name="serviceworkers" type="companyservice" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="servicetype" type="xs:string" />
+          <xs:element name="imageurl1" type="xs:string" />
+          <xs:element name="imageurl2" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="companyservice" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<integer,">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="" type="services" nillable="true" minOccurs="0" />
+          <xs:element name="workerrating" type="workerrating" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/*@column(name" type="xs:string" />
+          <xs:element name="housenumber" type="xs:string" />
+          <xs:element name="street" type="xs:string" />
+          <xs:element name="area" type="xs:string" />
+          <xs:element name="city" type="xs:string" />
+          <xs:element name="state" type="xs:string" />
+          <xs:element name="pincode" type="xs:string" />
+          <xs:element name="country" type="xs:string" />
+          <xs:element name="imageurl" type="xs:string" />
+          <xs:element name="websitename" type="xs:string" />
+          <xs:element name="contactnumber" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="postrequirement" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,postrequirement>">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="state" type="xs:string" />
+          <xs:element name="query" type="xs:string" />
+          <xs:element name="customerid" type="xs:long" />
+          <xs:element name="categoryid" type="xs:long" />
+          <xs:element name="responsemessage" type="xs:string" />
+          <xs:element name="posted" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="product" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="auditsection" nillable="true" minOccurs="0" />
+          <xs:element name="descriptions" type="productdescription" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="availabilities" type="productavailability" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="attributes" type="productattribute" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="images" type="productimage" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="relationships" type="productrelationship" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="productreview" type="productreview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="merchantstore" nillable="true" minOccurs="0" />
+          <xs:element name="categories" type="category" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="filters" type="filtertype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="available" type="xs:dateTime" />
+          <xs:element name="available" type="xs:anyType" />
+          <xs:element name="preorder" type="xs:anyType" />
+          <xs:element name="" type="manufacturer" nillable="true" minOccurs="0" />
+          <xs:element name="type" type="producttype" nillable="true" minOccurs="0" />
+          <xs:element name="" type="taxclass" nillable="true" minOccurs="0" />
+          <xs:element name="productvirtual" type="xs:anyType" />
+          <xs:element name="productshipeable" type="xs:anyType" />
+          <xs:element name="productisfree" type="xs:anyType" />
+          <xs:element name="productlength" type="xs:anyType" />
+          <xs:element name="productwidth" type="xs:anyType" />
+          <xs:element name="productheight" type="xs:anyType" />
+          <xs:element name="productweight" type="xs:anyType" />
+          <xs:element name="productreviewavg" type="xs:anyType" />
+          <xs:element name="productreviewcount" type="xs:anyType" />
+          <xs:element name="productordered" type="xs:anyType" />
+          <xs:element name="sortorder" type="xs:anyType" />
+          <xs:element name="sku" type="xs:string" />
+          <xs:element name="/***externalsystemreferencesku/id*/refsku" type="xs:string" />
+          <xs:element name="vendorproduct" type="vendorproduct" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productreview" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="audit" type="auditsection" nillable="true" minOccurs="0" />
+          <xs:element name="reviewrating" type="xs:double" />
+          <xs:element name="reviewread" type="xs:long" />
+          <xs:element name="review" type="xs:dateTime" />
+          <xs:element name="status" type="xs:anyType" />
+          <xs:element name="" type="customer" nillable="true" minOccurs="0" />
+          <xs:element name="" type="product" nillable="true" minOccurs="0" />
+          <xs:element name="descriptionname" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="descriptions" type="productreviewdescription" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productreviewdescription" >
+      <xs:complexContent>
+       <xs:extension base="description">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="productreview" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productlist" >
+      <xs:complexContent>
+       <xs:extension base="entitylist">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="products" type="product" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productcriteria" >
+      <xs:complexContent>
+       <xs:extension base="criteria">
+         <xs:sequence>
+          <xs:element name="productname" type="xs:string" />
+          <xs:element name="attributecriteria" type="attributecriteria" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="available" type="xs:anyType" />
+          <xs:element name="categoryids" type="xs:anyType" />
+          <xs:element name="availabilities" type="xs:anyType" />
+          <xs:element name="productids" type="xs:anyType" />
+          <xs:element name="manufacturerid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productimagedescription" >
+      <xs:complexContent>
+       <xs:extension base="description">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="productimage" nillable="true" minOccurs="0" />
+          <xs:element name="alttag" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productimage" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="descriptions" type="productimagedescription" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="productimage" type="xs:string" />
+          <xs:element name="defaultimage" type="xs:anyType" />
+          <xs:element name="/***defaultto0forimagesmanagedbythesystem*/imagetype" type="xs:long" />
+          <xs:element name="/***referstoimagesnotaccessiblethroughthesystem.itmayalsobeavideo.*/productimageurl" type="xs:string" />
+          <xs:element name="imagecrop" type="xs:anyType" />
+          <xs:element name="" type="product" nillable="true" minOccurs="0" />
+          <xs:element name="image" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productavailability" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="product" nillable="true" minOccurs="0" />
+          <xs:element name="productquantity" type="xs:anyType" />
+          <xs:element name="productavailable" type="xs:dateTime" />
+          <xs:element name="region" type="xs:string" />
+          <xs:element name="regionvariant" type="xs:string" />
+          <xs:element name="productstatus" type="xs:anyType" />
+          <xs:element name="productisalwaysfreeshipping" type="xs:anyType" />
+          <xs:element name="productquantityordermin" type="xs:anyType" />
+          <xs:element name="productquantityordermax" type="xs:anyType" />
+          <xs:element name="prices" type="productprice" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productpricetype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productprice" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="default_price_code" type="xs:string" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="descriptions" type="productpricedescription" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="productpriceamount" type="xs:anyType" />
+          <xs:element name="" type="productpricetype" nillable="true" minOccurs="0" />
+          <xs:element name="defaultprice" type="xs:anyType" />
+          <xs:element name="productpricespecialstart" type="xs:dateTime" />
+          <xs:element name="productpricespecialend" type="xs:dateTime" />
+          <xs:element name="productpricespecialamount" type="xs:anyType" />
+          <xs:element name="productdiscountpercentage" type="xs:anyType" />
+          <xs:element name="" type="productavailability" nillable="true" minOccurs="0" />
+          <xs:element name="dealofday" type="xs:string" />
+          <xs:element name="featuredproduct" type="xs:string" />
+          <xs:element name="recentlybought" type="xs:string" />
+          <xs:element name="newproduct" type="xs:string" />
+          <xs:element name="recommendedproduct" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productpricedescription" >
+      <xs:complexContent>
+       <xs:extension base="description">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="default_price_description" type="xs:string" />
+          <xs:element name="" type="productprice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="finalprice" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="//priceifadiscountisapplieddiscountedprice" type="xs:anyType" />
+        <xs:element name="//originalpriceoriginalprice" type="xs:anyType" />
+        <xs:element name="//pricediscountornotprice" type="xs:anyType" />
+        <xs:element name="discounted" type="xs:anyType" />
+        <xs:element name="discountpercent" type="xs:long" />
+        <xs:element name="discountend" type="xs:dateTime" />
+        <xs:element name="defaultprice" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="productprice" nillable="true" minOccurs="0" />
+        <xs:element name="additionalprices" type="finalprice" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="producttype" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="general_type" type="xs:string" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="auditsection" nillable="true" minOccurs="0" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="allowaddtocart" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testfilter" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="filtername" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="filter" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="filtertypes" type="filtertype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="category" nillable="true" minOccurs="0" />
+          <xs:element name="filtername" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="filtertype" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="filter" nillable="true" minOccurs="0" />
+          <xs:element name="filtertypename" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productrelationshiptype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productrelationship" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="store" type="merchantstore" nillable="true" minOccurs="0" />
+          <xs:element name="" type="product" nillable="true" minOccurs="0" />
+          <xs:element name="related" type="product" nillable="true" minOccurs="0" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="active" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productoption" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="productoptionsortorder" type="xs:anyType" />
+          <xs:element name="productoptiontype" type="xs:string" />
+          <xs:element name="descriptions" type="productoptiondescription" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="descriptionslist" type="productoptiondescription" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="merchantstore" nillable="true" minOccurs="0" />
+          <xs:element name="readonly" type="xs:anyType" />
+          <xs:element name="//@index(name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="attributecriteria" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="attributecode" type="xs:string" />
+        <xs:element name="attributevalue" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productoptionvaluedescription" >
+      <xs:complexContent>
+       <xs:extension base="description">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="productoptionvalue" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productattribute" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="productattributeprice" type="xs:anyType" />
+          <xs:element name="productoptionsortorder" type="xs:anyType" />
+          <xs:element name="productattributeisfree" type="xs:anyType" />
+          <xs:element name="productattributeweight" type="xs:anyType" />
+          <xs:element name="attributedefault" type="xs:anyType" />
+          <xs:element name="attributerequired" type="xs:anyType" />
+          <xs:element name="/***areadonlyattributeisconsideredasacoreattributeaddition*/attributedisplayonly" type="xs:anyType" />
+          <xs:element name="attributediscounted" type="xs:anyType" />
+          <xs:element name="" type="productoption" nillable="true" minOccurs="0" />
+          <xs:element name="" type="productoptionvalue" nillable="true" minOccurs="0" />
+          <xs:element name="/***thistransientobjectproperty*isautilityusedonlytosubmitfromafreetext*/attributeprice" type="xs:string" />
+          <xs:element name="/***thistransientobjectproperty*isautilityusedonlytosubmitfromafreetext*/attributesortorder" type="xs:string" />
+          <xs:element name="/***thistransientobjectproperty*isautilityusedonlytosubmitfromafreetext*/attributeadditionalweight" type="xs:string" />
+          <xs:element name="" type="product" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productoptiondescription" >
+      <xs:complexContent>
+       <xs:extension base="description">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="productoption" nillable="true" minOccurs="0" />
+          <xs:element name="productoptioncomment" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productoptiontype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productoptionvalue" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="productoptionvaluesortorder" type="xs:anyType" />
+          <xs:element name="productoptionvalueimage" type="xs:string" />
+          <xs:element name="productoptiondisplayonly" type="xs:anyType" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="descriptions" type="productoptionvaluedescription" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="image" type="xs:anyType" />
+          <xs:element name="descriptionslist" type="productoptionvaluedescription" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="merchantstore" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="manufacturerdescription" >
+      <xs:complexContent>
+       <xs:extension base="description">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="manufacturer" nillable="true" minOccurs="0" />
+          <xs:element name="url" type="xs:string" />
+          <xs:element name="urlclicked" type="xs:anyType" />
+          <xs:element name="lastclick" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="manufacturer" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="auditsection" nillable="true" minOccurs="0" />
+          <xs:element name="descriptions" type="manufacturerdescription" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="image" type="xs:string" />
+          <xs:element name="order" type="xs:anyType" />
+          <xs:element name="" type="merchantstore" nillable="true" minOccurs="0" />
+          <xs:element name="code" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productdescription" >
+      <xs:complexContent>
+       <xs:extension base="description">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="product" nillable="true" minOccurs="0" />
+          <xs:element name="producthighlight" type="xs:string" />
+          <xs:element name="productexternaldl" type="xs:string" />
+          <xs:element name="seurl" type="xs:string" />
+          <xs:element name="metatagtitle" type="xs:string" />
+          <xs:element name="metatagkeywords" type="xs:string" />
+          <xs:element name="metatagdescription" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productimagesize" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="digitalproduct" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="product" nillable="true" minOccurs="0" />
+          <xs:element name="productfilename" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="category" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="auditsection" nillable="true" minOccurs="0" />
+          <xs:element name="descriptions" type="categorydescription" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="merchantstore" nillable="true" minOccurs="0" />
+          <xs:element name="parent" type="category" nillable="true" minOccurs="0" />
+          <xs:element name="//checkwithshiva,howhehandeledsessionoutofservicecategories" type="category" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="categoryimage" type="xs:string" />
+          <xs:element name="categoryimage1" type="xs:string" />
+          <xs:element name="sortorder" type="xs:anyType" />
+          <xs:element name="categorystatus" type="xs:anyType" />
+          <xs:element name="visible" type="xs:anyType" />
+          <xs:element name="depth" type="xs:anyType" />
+          <xs:element name="lineage" type="xs:string" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="preferenceorder" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="subcategoryimage" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="subcategoryimageurl" type="xs:string" />
+          <xs:element name="" type="category" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="categorydescription" >
+      <xs:complexContent>
+       <xs:extension base="description">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="category" nillable="true" minOccurs="0" />
+          <xs:element name="seurl" type="xs:string" />
+          <xs:element name="categoryhighlight" type="xs:string" />
+          <xs:element name="metatagtitle" type="xs:string" />
+          <xs:element name="metatagkeywords" type="xs:string" />
+          <xs:element name="metatagdescription" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="historymanagement" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,historymanagement>{">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="productid" type="xs:long" />
+          <xs:element name="productname" type="xs:string" />
+          <xs:element name="productprice" type="xs:anyType" />
+          <xs:element name="productdiscountprice" type="xs:anyType" />
+          <xs:element name="productpricestart" type="xs:dateTime" />
+          <xs:element name="productpriceend" type="xs:dateTime" />
+          <xs:element name="enablefor" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="language" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<integer,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="" type="auditsection" nillable="true" minOccurs="0" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="sortorder" type="xs:anyType" />
+          <xs:element name="storesdefaultlanguage" type="merchantstore" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="stores" type="merchantstore" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="geozone" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="descriptions" type="geozonedescription" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="countries" type="country" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="code" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="geozonedescription" >
+      <xs:complexContent>
+       <xs:extension base="description">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="geozone" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="zone" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="descriptions" type="zonedescription" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="country" nillable="true" minOccurs="0" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="code" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="zonedescription" >
+      <xs:complexContent>
+       <xs:extension base="description">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="zone" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="country" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<integer,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="descriptions" type="countrydescription" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="zones" type="zone" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="geozone" nillable="true" minOccurs="0" />
+          <xs:element name="supported" type="xs:anyType" />
+          <xs:element name="isocode" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="countrydescription" >
+      <xs:complexContent>
+       <xs:extension base="description">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="country" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="currency" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="currency" type="xs:anyType" />
+          <xs:element name="supported" type="xs:anyType" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="vendorproduct" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="product" nillable="true" minOccurs="0" />
+          <xs:element name="" type="customer" nillable="true" minOccurs="0" />
+          <xs:element name="created" type="xs:dateTime" />
+          <xs:element name="adminactivated" type="xs:anyType" />
+          <xs:element name="adminactivated" type="xs:dateTime" />
+          <xs:element name="vendorwishlisted" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderchannel" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderstatushistory" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="order" nillable="true" minOccurs="0" />
+        <xs:element name="status" type="orderstatus" nillable="true" minOccurs="0" />
+        <xs:element name="added" type="xs:dateTime" />
+        <xs:element name="customernotified" type="xs:anyType" />
+        <xs:element name="comments" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderstatus" >
+      <xs:sequence>
+        <xs:element name="value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ordertotalvariation" >
+      <xs:sequence>
+        <xs:element name="variations" type="ordertotal" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="order" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="status" type="orderstatus" nillable="true" minOccurs="0" />
+          <xs:element name="lastmodified" type="xs:dateTime" />
+          <xs:element name="//thecustomerobjectcanbedetached.anordercanexistandthecustomerdeletedcustomerid" type="xs:long" />
+          <xs:element name="purchased" type="xs:dateTime" />
+          <xs:element name="//usedforanorderpayableonmultipleinstallmentorderfinished" type="xs:dateTime" />
+          <xs:element name="//whatwastheexchangerate//default1-1currencyvalue" type="xs:anyType" />
+          <xs:element name="total" type="xs:anyType" />
+          <xs:element name="ipaddress" type="xs:string" />
+          <xs:element name="channel" type="orderchannel" nillable="true" minOccurs="0" />
+          <xs:element name="" type="ordertype" nillable="true" minOccurs="0" />
+          <xs:element name="" type="paymenttype" nillable="true" minOccurs="0" />
+          <xs:element name="paymentmodulecode" type="xs:string" />
+          <xs:element name="shippingmodulecode" type="xs:string" />
+          <xs:element name="customeragreement" type="xs:anyType" />
+          <xs:element name="confirmedaddress" type="xs:anyType" />
+          <xs:element name="" type="delivery" nillable="true" minOccurs="0" />
+          <xs:element name="" type="billing" nillable="true" minOccurs="0" />
+          <xs:element name="" type="creditcard" nillable="true" minOccurs="0" />
+          <xs:element name="" type="currency" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="merchant" type="merchantstore" nillable="true" minOccurs="0" />
+          <xs:element name="//@onetomany(mappedby" type="orderproduct" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="ordertotal" type="ordertotal" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="orderhistory" type="orderstatushistory" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="shippingcharges" type="xs:long" />
+          <xs:element name="customeremailaddress" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ordertotalsummary" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="//onetimepriceforitemssubtotal" type="xs:anyType" />
+        <xs:element name="//pricetotal" type="xs:anyType" />
+        <xs:element name="//totaloftaxestaxtotal" type="xs:anyType" />
+        <xs:element name="//totalofdiscounttotaldiscount" type="xs:anyType" />
+        <xs:element name="shippingcharges" type="xs:anyType" />
+        <xs:element name="//allotherfees(tax,shipping....)totals" type="ordertotal" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderaccount" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="order" nillable="true" minOccurs="0" />
+          <xs:element name="orderaccountstart" type="xs:dateTime" />
+          <xs:element name="orderaccountend" type="xs:dateTime" />
+          <xs:element name="orderaccountbillday" type="xs:anyType" />
+          <xs:element name="orderaccountproducts" type="orderaccountproduct" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderaccountproduct" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="orderaccountproductid" type="xs:long" />
+        <xs:element name="GeneratedName" type="orderaccount" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="orderproduct" nillable="true" minOccurs="0" />
+        <xs:element name="orderaccountproductstart" type="xs:dateTime" />
+        <xs:element name="orderaccountproductend" type="xs:dateTime" />
+        <xs:element name="orderaccountproducteot" type="xs:dateTime" />
+        <xs:element name="orderaccountproductaccounted" type="xs:dateTime" />
+        <xs:element name="orderaccountproductlaststatus" type="xs:dateTime" />
+        <xs:element name="orderaccountproductlasttransactionstatus" type="xs:anyType" />
+        <xs:element name="orderaccountproductpaymentfrequencytype" type="xs:anyType" />
+        <xs:element name="orderaccountproductstatus" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ordersummarytype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ordersummary" >
+      <xs:sequence>
+        <xs:element name="/***/" type="ordersummarytype" nillable="true" minOccurs="0" />
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="GeneratedName" type="shippingsummary" nillable="true" minOccurs="0" />
+        <xs:element name="products" type="shoppingcartitem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderproductdownload" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="default_download_max_days" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="orderproduct" nillable="true" minOccurs="0" />
+          <xs:element name="orderproductfilename" type="xs:string" />
+          <xs:element name="maxdays" type="xs:anyType" />
+          <xs:element name="downloadcount" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderproductattribute" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="productattributeprice" type="xs:anyType" />
+        <xs:element name="productattributeisfree" type="xs:anyType" />
+        <xs:element name="productattributeweight" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="orderproduct" nillable="true" minOccurs="0" />
+        <xs:element name="productoptionid" type="xs:long" />
+        <xs:element name="productoptionvalueid" type="xs:long" />
+        <xs:element name="productattributename" type="xs:string" />
+        <xs:element name="productattributevaluename" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderproductprice" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="orderproduct" nillable="true" minOccurs="0" />
+        <xs:element name="productpricecode" type="xs:string" />
+        <xs:element name="productprice" type="xs:anyType" />
+        <xs:element name="productpricespecial" type="xs:anyType" />
+        <xs:element name="productpricespecialstart" type="xs:dateTime" />
+        <xs:element name="productpricespecialend" type="xs:dateTime" />
+        <xs:element name="defaultprice" type="xs:anyType" />
+        <xs:element name="productpricename" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderproduct" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="sku" type="xs:string" />
+          <xs:element name="productname" type="xs:string" />
+          <xs:element name="productquantity" type="xs:long" />
+          <xs:element name="onetimecharge" type="xs:anyType" />
+          <xs:element name="" type="order" nillable="true" minOccurs="0" />
+          <xs:element name="orderattributes" type="orderproductattribute" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="prices" type="orderproductprice" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="downloads" type="orderproductdownload" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="vendorid" type="xs:long" />
+          <xs:element name="//addedspecifictoproductslikewallpapersproductcategory" type="xs:string" />
+          <xs:element name="productid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderlist" >
+      <xs:complexContent>
+       <xs:extension base="entitylist">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="orders" type="order" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="creditcard" >
+      <xs:sequence>
+        <xs:element name="cardtype" type="creditcardtype" nillable="true" minOccurs="0" />
+        <xs:element name="ccowner" type="xs:string" />
+        <xs:element name="ccnumber" type="xs:string" />
+        <xs:element name="ccexpires" type="xs:string" />
+        <xs:element name="cccvv" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rebatesordertotalvariation" >
+      <xs:complexContent>
+       <xs:extension base="ordertotalvariation">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ordercriteria" >
+      <xs:complexContent>
+       <xs:extension base="criteria">
+         <xs:sequence>
+          <xs:element name="customername" type="xs:string" />
+          <xs:element name="paymentmethod" type="xs:string" />
+          <xs:element name="customerid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ordertotalitem" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="itemprice" type="xs:anyType" />
+        <xs:element name="itemcode" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ordertype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ordertotal" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="//shipping,taxordertotalcode" type="xs:string" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="text" type="xs:string" />
+          <xs:element name="value" type="xs:anyType" />
+          <xs:element name="module" type="xs:string" />
+          <xs:element name="" type="ordervaluetype" nillable="true" minOccurs="0" />
+          <xs:element name="" type="ordertotaltype" nillable="true" minOccurs="0" />
+          <xs:element name="sortorder" type="xs:long" />
+          <xs:element name="" type="order" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ordervaluetype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filehistory" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="store" type="merchantstore" nillable="true" minOccurs="0" />
+        <xs:element name="fileid" type="xs:long" />
+        <xs:element name="filesize" type="xs:anyType" />
+        <xs:element name="added" type="xs:dateTime" />
+        <xs:element name="deleted" type="xs:dateTime" />
+        <xs:element name="accounted" type="xs:dateTime" />
+        <xs:element name="downloadcount" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ordertotaltype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="taxrate" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="auditsection" nillable="true" minOccurs="0" />
+          <xs:element name="taxpriority" type="xs:anyType" />
+          <xs:element name="taxrate" type="xs:anyType" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="piggyback" type="xs:anyType" />
+          <xs:element name="" type="taxclass" nillable="true" minOccurs="0" />
+          <xs:element name="" type="merchantstore" nillable="true" minOccurs="0" />
+          <xs:element name="descriptions" type="taxratedescription" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="country" nillable="true" minOccurs="0" />
+          <xs:element name="" type="zone" nillable="true" minOccurs="0" />
+          <xs:element name="stateprovince" type="xs:string" />
+          <xs:element name="parent" type="taxrate" nillable="true" minOccurs="0" />
+          <xs:element name="taxrates" type="taxrate" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="ratetext" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="taxratedescription" >
+      <xs:complexContent>
+       <xs:extension base="description">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="taxrate" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="taxclass" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="default_tax_class" type="xs:string" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="products" type="product" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/*	@manytomany(fetch" type="merchantstore" nillable="true" minOccurs="0" />
+          <xs:element name="taxrates" type="taxrate" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="taxitem" >
+      <xs:complexContent>
+       <xs:extension base="ordertotalitem">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="label" type="xs:string" />
+          <xs:element name="" type="taxrate" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="taxconfiguration" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="taxbasiscalculation" nillable="true" minOccurs="0" />
+        <xs:element name="collecttaxifdifferentprovinceofstorecountry" type="xs:anyType" />
+        <xs:element name="collecttaxifdifferentcountryofstorecountry" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="taxbasiscalculation" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shoppingcart" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="auditsection" nillable="true" minOccurs="0" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="/***willbeusedtofetchshoppingcartmodelfromthecontroller*thisisauniquecodethatshouldbeattributedfromtheclient(ui)*/shoppingcartcode" type="xs:string" />
+          <xs:element name="lineitems" type="shoppingcartitem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="merchantstore" nillable="true" minOccurs="0" />
+          <xs:element name="customerid" type="xs:long" />
+          <xs:element name="shippingcharges" type="xs:long" />
+          <xs:element name="//whenallitemsareobsoleteobsolete" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="shoppingcartitem" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="shoppingcart" nillable="true" minOccurs="0" />
+          <xs:element name="quantity" type="xs:anyType" />
+          <xs:element name="" type="auditsection" nillable="true" minOccurs="0" />
+          <xs:element name="productid" type="xs:long" />
+          <xs:element name="productvirtual" type="xs:anyType" />
+          <xs:element name="//@onetomany(fetch" type="shoppingcartattributeitem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="//itempriceincludingallrebatesitemprice" type="xs:anyType" />
+          <xs:element name="//itemprice*quantitysubtotal" type="xs:anyType" />
+          <xs:element name="//containspricedetails(rawprices)" type="finalprice" nillable="true" minOccurs="0" />
+          <xs:element name="vendorid" type="xs:long" />
+          <xs:element name="" type="product" nillable="true" minOccurs="0" />
+          <xs:element name="" type="wallpaperportfolio" nillable="true" minOccurs="0" />
+          <xs:element name="obsolete" type="xs:anyType" />
+          <xs:element name="//addedspecifictoproductslikewallpapersproductcategory" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="shoppingcartattributeitem" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="auditsection" nillable="true" minOccurs="0" />
+          <xs:element name="productattributeid" type="xs:long" />
+          <xs:element name="" type="productattribute" nillable="true" minOccurs="0" />
+          <xs:element name="" type="shoppingcartitem" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="contentdescription" >
+      <xs:complexContent>
+       <xs:extension base="description">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="" type="content" nillable="true" minOccurs="0" />
+          <xs:element name="seurl" type="xs:string" />
+          <xs:element name="metatagkeywords" type="xs:string" />
+          <xs:element name="metatagtitle" type="xs:string" />
+          <xs:element name="metatagdescription" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="outputcontentfile" >
+      <xs:complexContent>
+       <xs:extension base="staticcontentfile">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="file" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="staticcontentfile" >
+      <xs:complexContent>
+       <xs:extension base="contentfile">
+         <xs:sequence>
+          <xs:element name="" type="filecontenttype" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="filecontenttype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contentfile" >
+      <xs:sequence>
+        <xs:element name="filename" type="xs:string" />
+        <xs:element name="mimetype" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="imagecontentfile" >
+      <xs:complexContent>
+       <xs:extension base="inputcontentfile">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="contenttype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contentposition" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inputcontentfile" >
+      <xs:complexContent>
+       <xs:extension base="staticcontentfile">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="file" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="content" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="auditsection" nillable="true" minOccurs="0" />
+          <xs:element name="descriptions" type="contentdescription" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="merchantstore" nillable="true" minOccurs="0" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="visible" type="xs:anyType" />
+          <xs:element name="" type="contentposition" nillable="true" minOccurs="0" />
+          <xs:element name="//usedforgrouping//box,section,page" type="contenttype" nillable="true" minOccurs="0" />
+          <xs:element name="sortorder" type="xs:anyType" />
+          <xs:element name="//apagecancontainoneproductlistingproductgroup" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="adminname" type="xs:string" />
+          <xs:element name="groups" type="group" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="adminemail" type="xs:string" />
+          <xs:element name="adminpassword" type="xs:string" />
+          <xs:element name="" type="merchantstore" nillable="true" minOccurs="0" />
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="active" type="xs:anyType" />
+          <xs:element name="lastname" type="xs:string" />
+          <xs:element name="default" type="language" nillable="true" minOccurs="0" />
+          <xs:element name="question1" type="xs:string" />
+          <xs:element name="question2" type="xs:string" />
+          <xs:element name="question3" type="xs:string" />
+          <xs:element name="answer1" type="xs:string" />
+          <xs:element name="answer2" type="xs:string" />
+          <xs:element name="answer3" type="xs:string" />
+          <xs:element name="" type="auditsection" nillable="true" minOccurs="0" />
+          <xs:element name="lastaccess" type="xs:dateTime" />
+          <xs:element name="logintime" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="grouptype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="permissioncriteria" >
+      <xs:complexContent>
+       <xs:extension base="criteria">
+         <xs:sequence>
+          <xs:element name="permissionname" type="xs:string" />
+          <xs:element name="available" type="xs:anyType" />
+          <xs:element name="groupids" type="xs:anyType" />
+          <xs:element name="availabilities" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="permission" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<integer,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="permissionname" type="xs:string" />
+          <xs:element name="groups" type="group" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="auditsection" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="group" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<integer,">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="" type="grouptype" nillable="true" minOccurs="0" />
+          <xs:element name="groupname" type="xs:string" />
+          <xs:element name="permissions" type="permission" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="auditsection" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userupdates" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="emailaddress" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="permissionlist" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="totalcount" type="xs:long" />
+        <xs:element name="permissions" type="permission" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="salesmanagerentity" >
+      <xs:complexContent>
+       <xs:extension base="serializable">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="default_string_" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basicpayment" >
+      <xs:complexContent>
+       <xs:extension base="payment">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="creditcardpayment" >
+      <xs:complexContent>
+       <xs:extension base="payment">
+         <xs:sequence>
+          <xs:element name="creditcardnumber" type="xs:string" />
+          <xs:element name="credidcardvalidationnumber" type="xs:string" />
+          <xs:element name="expirationmonth" type="xs:string" />
+          <xs:element name="expirationyear" type="xs:string" />
+          <xs:element name="cardowner" type="xs:string" />
+          <xs:element name="creditcard" type="creditcardtype" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="creditcardtype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="paymentmethod" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="paymentmethodcode" type="xs:string" />
+        <xs:element name="GeneratedName" type="paymenttype" nillable="true" minOccurs="0" />
+        <xs:element name="defaultselected" type="xs:anyType" />
+        <xs:element name="module" type="integrationmodule" nillable="true" minOccurs="0" />
+        <xs:element name="informations" type="integrationconfiguration" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="payment" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="paymenttype" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="transactiontype" nillable="true" minOccurs="0" />
+        <xs:element name="modulename" type="xs:string" />
+        <xs:element name="GeneratedName" type="currency" nillable="true" minOccurs="0" />
+        <xs:element name="paymentmetadata" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="transaction" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="auditsection" nillable="true" minOccurs="0" />
+          <xs:element name="" type="order" nillable="true" minOccurs="0" />
+          <xs:element name="amount" type="xs:anyType" />
+          <xs:element name="transaction" type="xs:dateTime" />
+          <xs:element name="" type="transactiontype" nillable="true" minOccurs="0" />
+          <xs:element name="" type="paymenttype" nillable="true" minOccurs="0" />
+          <xs:element name="details" type="xs:string" />
+          <xs:element name="transactiondetails" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="paymenttype" >
+      <xs:sequence>
+        <xs:element name="paymenttype" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="paypalpayment" >
+      <xs:complexContent>
+       <xs:extension base="payment">
+         <xs:sequence>
+          <xs:element name="//expresscheckoutpayerid" type="xs:string" />
+          <xs:element name="paymenttoken" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="transactiontype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="searchkeywords" >
+      <xs:sequence>
+        <xs:element name="keywords" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="searchfacet" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="key" type="xs:string" />
+        <xs:element name="count" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="searchentry" >
+      <xs:sequence>
+        <xs:element name="//productassavedintheindex" type="indexproduct" nillable="true" minOccurs="0" />
+        <xs:element name="highlights" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="searchresponse" >
+      <xs:sequence>
+        <xs:element name="//totalnumberofentriestotalcount" type="xs:long" />
+        <xs:element name="//numberofentriesaskedentrycount" type="xs:long" />
+        <xs:element name="entries" type="searchentry" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="facets" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="indexproduct" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="price" type="xs:double" />
+        <xs:element name="//categorycodecategories" type="xs:anyType" />
+        <xs:element name="//idofthemanufacturermanufacturer" type="xs:string" />
+        <xs:element name="available" type="xs:anyType" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="//keywords?tags" type="xs:anyType" />
+        <xs:element name="highlight" type="xs:string" />
+        <xs:element name="store" type="xs:string" />
+        <xs:element name="lang" type="xs:string" />
+        <xs:element name="//requiredbythesearchframeworkid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="secondarydelivery" >
+      <xs:sequence>
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="company" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="postalcode" type="xs:string" />
+        <xs:element name="state" type="xs:string" />
+        <xs:element name="telephone" type="xs:string" />
+        <xs:element name="GeneratedName" type="country" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="zone" nillable="true" minOccurs="0" />
+        <xs:element name="latitude" type="xs:string" />
+        <xs:element name="longitude" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitylist" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="totalcount" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vendorattributes" >
+      <xs:sequence>
+        <xs:element name="vendorname" type="xs:string" />
+        <xs:element name="vendorofficeaddress" type="xs:string" />
+        <xs:element name="vendormobile" type="xs:string" />
+        <xs:element name="vendortelephone" type="xs:string" />
+        <xs:element name="vendorfax" type="xs:string" />
+        <xs:element name="vendorconstfirm" type="xs:string" />
+        <xs:element name="vendorcompanynature" type="xs:string" />
+        <xs:element name="vendorregistrationno" type="xs:string" />
+        <xs:element name="vendorpan" type="xs:string" />
+        <xs:element name="vendorlicense" type="xs:string" />
+        <xs:element name="vendorauthcert" type="xs:string" />
+        <xs:element name="vendorexpline" type="xs:string" />
+        <xs:element name="vendormajorcust" type="xs:string" />
+        <xs:element name="/*	@column(name" type="xs:string" />
+        <xs:element name="vendortinnumber" type="xs:string" />
+        <xs:element name="vendordescription" type="xs:string" />
+        <xs:element name="vendorshortdescription" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="criteria" >
+      <xs:sequence>
+        <xs:element name="startindex" type="xs:long" />
+        <xs:element name="maxcount" type="xs:long" />
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="orderby" type="criteriaorderby" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="delivery" >
+      <xs:sequence>
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="company" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="postalcode" type="xs:string" />
+        <xs:element name="state" type="xs:string" />
+        <xs:element name="telephone" type="xs:string" />
+        <xs:element name="GeneratedName" type="country" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="zone" nillable="true" minOccurs="0" />
+        <xs:element name="latitude" type="xs:string" />
+        <xs:element name="longitude" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="description" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="auditsection" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="language" nillable="true" minOccurs="0" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="billing" >
+      <xs:sequence>
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="company" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="postalcode" type="xs:string" />
+        <xs:element name="telephone" type="xs:string" />
+        <xs:element name="state" type="xs:string" />
+        <xs:element name="GeneratedName" type="country" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="zone" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="address" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="postalcode" type="xs:string" />
+        <xs:element name="stateprovince" type="xs:string" />
+        <xs:element name="//codezone" type="xs:string" />
+        <xs:element name="//codecountry" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="criteriaorderby" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="auditsection" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="created" type="xs:dateTime" />
+        <xs:element name="modified" type="xs:dateTime" />
+        <xs:element name="modifiedby" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="auditlistener" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="auditable" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="brandimage" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="image" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="status" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="merchantstore" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<integer,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="default_store" type="xs:string" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="storename" type="xs:string" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="storephone" type="xs:string" />
+          <xs:element name="storeaddress" type="xs:string" />
+          <xs:element name="storecity" type="xs:string" />
+          <xs:element name="storepostalcode" type="xs:string" />
+          <xs:element name="" type="country" nillable="true" minOccurs="0" />
+          <xs:element name="" type="zone" nillable="true" minOccurs="0" />
+          <xs:element name="storestateprovince" type="xs:string" />
+          <xs:element name="weightunitcode" type="xs:string" />
+          <xs:element name="seizeunitcode" type="xs:string" />
+          <xs:element name="inbusinesssince" type="xs:dateTime" />
+          <xs:element name="datebusinesssince" type="xs:string" />
+          <xs:element name="default" type="language" nillable="true" minOccurs="0" />
+          <xs:element name="languages" type="language" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="usecache" type="xs:anyType" />
+          <xs:element name="storetemplate" type="xs:string" />
+          <xs:element name="invoicetemplate" type="xs:string" />
+          <xs:element name="domainname" type="xs:string" />
+          <xs:element name="continueshoppingurl" type="xs:string" />
+          <xs:element name="storeemailaddress" type="xs:string" />
+          <xs:element name="storelogo" type="xs:string" />
+          <xs:element name="" type="currency" nillable="true" minOccurs="0" />
+          <xs:element name="currencyformatnational" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="servicesbooking" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="booking" type="xs:dateTime" />
+          <xs:element name="" type="customer" nillable="true" minOccurs="0" />
+          <xs:element name="service" type="customer" nillable="true" minOccurs="0" />
+          <xs:element name="servicetype" type="services" nillable="true" minOccurs="0" />
+          <xs:element name="comment" type="xs:string" />
+          <xs:element name="status" type="xs:string" />
+          <xs:element name="contactinfo" type="xs:string" />
+          <xs:element name="appointment" type="xs:dateTime" />
+          <xs:element name="query" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customerlist" >
+      <xs:complexContent>
+       <xs:extension base="entitylist">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="customers" type="customer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customercriteria" >
+      <xs:complexContent>
+       <xs:extension base="criteria">
+         <xs:sequence>
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="lastname" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="country" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="machineryportfolio" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="create" type="xs:dateTime" />
+          <xs:element name="" type="customer" nillable="true" minOccurs="0" />
+          <xs:element name="portfolioname" type="xs:string" />
+          <xs:element name="imageurl" type="xs:string" />
+          <xs:element name="status" type="xs:string" />
+          <xs:element name="equipmentname" type="xs:string" />
+          <xs:element name="equipmentprice" type="xs:anyType" />
+          <xs:element name="hiringtype" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="servicesrating" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="create" type="xs:dateTime" />
+          <xs:element name="rating" type="xs:anyType" />
+          <xs:element name="reviewdescription" type="xs:string" />
+          <xs:element name="reviewtitle" type="xs:string" />
+          <xs:element name="" type="customer" nillable="true" minOccurs="0" />
+          <xs:element name="service" type="customer" nillable="true" minOccurs="0" />
+          <xs:element name="servicetype" type="services" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="vendorrating" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="create" type="xs:dateTime" />
+          <xs:element name="rating" type="xs:anyType" />
+          <xs:element name="reviewdescription" type="xs:string" />
+          <xs:element name="reviewtitle" type="xs:string" />
+          <xs:element name="" type="customer" nillable="true" minOccurs="0" />
+          <xs:element name="vendor" type="customer" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="vendorbooking" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="booking" type="xs:dateTime" />
+          <xs:element name="" type="customer" nillable="true" minOccurs="0" />
+          <xs:element name="vendor" type="customer" nillable="true" minOccurs="0" />
+          <xs:element name="comment" type="xs:string" />
+          <xs:element name="status" type="xs:string" />
+          <xs:element name="appointment" type="xs:dateTime" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="address" type="xs:string" />
+          <xs:element name="closing" type="xs:dateTime" />
+          <xs:element name="portfolioid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customergender" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="architectsportfolio" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="create" type="xs:dateTime" />
+          <xs:element name="" type="customer" nillable="true" minOccurs="0" />
+          <xs:element name="portfolioname" type="xs:string" />
+          <xs:element name="imageurl" type="xs:string" />
+          <xs:element name="status" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customer" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="//@onetomany(fetch" type="customerattribute" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="gender" type="customergender" nillable="true" minOccurs="0" />
+          <xs:element name="ofbirth" type="xs:dateTime" />
+          <xs:element name="emailaddress" type="xs:string" />
+          <xs:element name="nick" type="xs:string" />
+          <xs:element name="company" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="anonymous" type="xs:anyType" />
+          <xs:element name="customertype" type="xs:string" />
+          <xs:element name="activated" type="xs:string" />
+          <xs:element name="ofid" type="xs:string" />
+          <xs:element name="userprofile" type="xs:string" />
+          <xs:element name="default" type="language" nillable="true" minOccurs="0" />
+          <xs:element name="reviews" type="productreview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="merchantstore" nillable="true" minOccurs="0" />
+          <xs:element name="" type="delivery" nillable="true" minOccurs="0" />
+          <xs:element name="" type="secondarydelivery" nillable="true" minOccurs="0" />
+          <xs:element name="" type="billing" nillable="true" minOccurs="0" />
+          <xs:element name="vendorattrs" type="vendorattributes" nillable="true" minOccurs="0" />
+          <xs:element name="groups" type="group" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="services" type="services" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="categories" type="category" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="vendorproduct" type="vendorproduct" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="showcustomerstatelist" type="xs:string" />
+          <xs:element name="showbillingstatelist" type="xs:string" />
+          <xs:element name="showdeliverystatelist" type="xs:string" />
+          <xs:element name="area" type="xs:string" />
+          <xs:element name="isadmin" type="xs:string" />
+          <xs:element name="issuperadmin" type="xs:string" />
+          <xs:element name="isvendoractivated" type="xs:string" />
+          <xs:element name="gst" type="xs:string" />
+          <xs:element name="avgreview" type="xs:anyType" />
+          <xs:element name="file1" type="xs:string" />
+          <xs:element name="file2" type="xs:string" />
+          <xs:element name="file3" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customeroptiondescription" >
+      <xs:complexContent>
+       <xs:extension base="description">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="customeroption" nillable="true" minOccurs="0" />
+          <xs:element name="customeroptioncomment" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customeroptionset" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="customeroption" nillable="true" minOccurs="0" />
+          <xs:element name="" type="customeroptionvalue" nillable="true" minOccurs="0" />
+          <xs:element name="sortorder" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customeroptionvaluedescription" >
+      <xs:complexContent>
+       <xs:extension base="description">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="customeroptionvalue" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customeroption" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="sortorder" type="xs:anyType" />
+          <xs:element name="customeroptiontype" type="xs:string" />
+          <xs:element name="//@index(name" type="xs:string" />
+          <xs:element name="active" type="xs:anyType" />
+          <xs:element name="publicoption" type="xs:anyType" />
+          <xs:element name="descriptions" type="customeroptiondescription" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="descriptionslist" type="customeroptiondescription" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="merchantstore" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customerattribute" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="customeroption" nillable="true" minOccurs="0" />
+          <xs:element name="" type="customeroptionvalue" nillable="true" minOccurs="0" />
+          <xs:element name="textvalue" type="xs:string" />
+          <xs:element name="" type="customer" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customeroptiontype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customeroptionvalue" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="sortorder" type="xs:anyType" />
+          <xs:element name="customeroptionvalueimage" type="xs:string" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="descriptions" type="customeroptionvaluedescription" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="descriptionslist" type="customeroptionvaluedescription" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="merchantstore" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customertestimonial" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="descriptiontitle" type="xs:string" />
+          <xs:element name="" type="customer" nillable="true" minOccurs="0" />
+          <xs:element name="status" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="wallpaperportfolio" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="create" type="xs:dateTime" />
+          <xs:element name="" type="customer" nillable="true" minOccurs="0" />
+          <xs:element name="portfolioname" type="xs:string" />
+          <xs:element name="imageurl" type="xs:string" />
+          <xs:element name="price" type="xs:anyType" />
+          <xs:element name="size" type="xs:string" />
+          <xs:element name="thickness" type="xs:string" />
+          <xs:element name="brand" type="xs:string" />
+          <xs:element name="status" type="xs:string" />
+          <xs:element name="servicecharges" type="xs:anyType" />
+          <xs:element name="quantity" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="shippingpackagetype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shippingdescription" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shippingproduct" >
+      <xs:sequence>
+        <xs:element name="quantity" type="xs:long" />
+        <xs:element name="GeneratedName" type="product" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="finalprice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shippingoptionpricetype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shippingsummary" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="shipping" type="xs:anyType" />
+        <xs:element name="handling" type="xs:anyType" />
+        <xs:element name="shippingmodule" type="xs:string" />
+        <xs:element name="shippingoption" type="xs:string" />
+        <xs:element name="shippingoptioncode" type="xs:string" />
+        <xs:element name="freeshipping" type="xs:anyType" />
+        <xs:element name="taxonshipping" type="xs:anyType" />
+        <xs:element name="address" type="delivery" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shippingtype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shippingoption" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="optionprice" type="xs:anyType" />
+        <xs:element name="optionname" type="xs:string" />
+        <xs:element name="optioncode" type="xs:string" />
+        <xs:element name="optiondeliverydate" type="xs:string" />
+        <xs:element name="optionshippingdate" type="xs:string" />
+        <xs:element name="optionpricetext" type="xs:string" />
+        <xs:element name="optionid" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="shippingmodulecode" type="xs:string" />
+        <xs:element name="note" type="xs:string" />
+        <xs:element name="estimatednumberofdays" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="packagedetails" >
+      <xs:sequence>
+        <xs:element name="shippingweight" type="xs:double" />
+        <xs:element name="shippingmaxweight" type="xs:double" />
+        <xs:element name="shippinglength" type="xs:double" />
+        <xs:element name="shippingheight" type="xs:double" />
+        <xs:element name="shippingwidth" type="xs:double" />
+        <xs:element name="shippingquantity" type="xs:long" />
+        <xs:element name="treshold" type="xs:long" />
+        <xs:element name="itemname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shippingquote" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="no_shipping_to_selected_country" type="xs:string" />
+        <xs:element name="no_shipping_module_configured" type="xs:string" />
+        <xs:element name="no_postal_code" type="xs:string" />
+        <xs:element name="error" type="xs:string" />
+        <xs:element name="/***shippingmoduleused**/shippingmodulecode" type="xs:string" />
+        <xs:element name="shippingoptions" type="shippingoption" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="/***ifanerroroccurs,thisfieldwillbepopulatedfromconstantsdefinedabove**///no_shipping...orno_shipping_module...orno_postal_...shippingreturncode" type="xs:string" />
+        <xs:element name="/***indicatesifthisquoteisconfiguredwithfreeshipping**/freeshipping" type="xs:anyType" />
+        <xs:element name="/***thethresholdamountforbeingfreeshipping**/freeshippingamount" type="xs:anyType" />
+        <xs:element name="/***handlingfeestobeaddedontopofshippingfees**/handlingfees" type="xs:anyType" />
+        <xs:element name="/***applytaxonshipping**/applytaxonshipping" type="xs:anyType" />
+        <xs:element name="/***address*/address" type="delivery" nillable="true" minOccurs="0" />
+        <xs:element name="warnings" type="xs:anyType" />
+        <xs:element name="selected" type="shippingoption" nillable="true" minOccurs="0" />
+        <xs:element name="currentshippingmodule" type="integrationmodule" nillable="true" minOccurs="0" />
+        <xs:element name="quoteerror" type="xs:string" />
+        <xs:element name="quoteinformations" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shippingorigin" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="active" type="xs:anyType" />
+          <xs:element name="" type="merchantstore" nillable="true" minOccurs="0" />
+          <xs:element name="address" type="xs:string" />
+          <xs:element name="city" type="xs:string" />
+          <xs:element name="postalcode" type="xs:string" />
+          <xs:element name="state" type="xs:string" />
+          <xs:element name="" type="country" nillable="true" minOccurs="0" />
+          <xs:element name="" type="zone" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="shippingconfiguration" >
+      <xs:sequence>
+        <xs:element name="//enums" type="shippingtype" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="shippingbasistype" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="shippingoptionpricetype" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="shippingpackagetype" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="shippingdescription" nillable="true" minOccurs="0" />
+        <xs:element name="free" type="shippingtype" nillable="true" minOccurs="0" />
+        <xs:element name="boxwidth" type="xs:long" />
+        <xs:element name="boxheight" type="xs:long" />
+        <xs:element name="boxlength" type="xs:long" />
+        <xs:element name="boxweight" type="xs:double" />
+        <xs:element name="maxweight" type="xs:double" />
+        <xs:element name="//freeshippingfreeshippingenabled" type="xs:anyType" />
+        <xs:element name="ordertotalfreeshipping" type="xs:anyType" />
+        <xs:element name="handlingfees" type="xs:anyType" />
+        <xs:element name="taxonshipping" type="xs:anyType" />
+        <xs:element name="//jsonbindingsshiptype" type="xs:string" />
+        <xs:element name="shipbasetype" type="xs:string" />
+        <xs:element name="shipoptionpricetype" type="xs:string" />
+        <xs:element name="shippackagetype" type="xs:string" />
+        <xs:element name="shipdescription" type="xs:string" />
+        <xs:element name="shipfreetype" type="xs:string" />
+        <xs:element name="//transientordertotalfreeshippingtext" type="xs:string" />
+        <xs:element name="handlingfeestext" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shippingmetadata" >
+      <xs:sequence>
+        <xs:element name="modules" type="xs:anyType" />
+        <xs:element name="preprocessors" type="xs:anyType" />
+        <xs:element name="postprocessors" type="xs:anyType" />
+        <xs:element name="shiptocountry" type="country" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="usedistancemodule" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shippingbasistype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="module" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="environment" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="merchantconfiguration" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="merchantstore" nillable="true" minOccurs="0" />
+          <xs:element name="" type="auditsection" nillable="true" minOccurs="0" />
+          <xs:element name="key" type="xs:string" />
+          <xs:element name="value" type="xs:string" />
+          <xs:element name="" type="merchantconfigurationtype" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="systemconfiguration" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="key" type="xs:string" />
+          <xs:element name="value" type="xs:string" />
+          <xs:element name="" type="auditsection" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="moduleconfig" >
+      <xs:sequence>
+        <xs:element name="scheme" type="xs:string" />
+        <xs:element name="host" type="xs:string" />
+        <xs:element name="port" type="xs:string" />
+        <xs:element name="uri" type="xs:string" />
+        <xs:element name="env" type="xs:string" />
+        <xs:element name="config1" type="xs:string" />
+        <xs:element name="config2" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="integrationconfiguration" >
+      <xs:sequence>
+        <xs:element name="test_environment" type="xs:string" />
+        <xs:element name="production_environment" type="xs:string" />
+        <xs:element name="modulecode" type="xs:string" />
+        <xs:element name="active" type="xs:anyType" />
+        <xs:element name="defaultselected" type="xs:anyType" />
+        <xs:element name="integrationkeys" type="xs:anyType" />
+        <xs:element name="integrationoptions" type="xs:anyType" />
+        <xs:element name="environment" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="merchantconfigurationtype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="merchantconfig" >
+      <xs:sequence>
+        <xs:element name="/***todo*addagenerickeyvalueinordertoallowthecreationofconfiguration*ontheflyfromtheclientapplicationandreadfromakeyvaluemap*/serialversionuid" type="xs:long" />
+        <xs:element name="displaycustomersection" type="xs:anyType" />
+        <xs:element name="displaycontactus" type="xs:anyType" />
+        <xs:element name="displaystoreaddress" type="xs:anyType" />
+        <xs:element name="displayaddtocartonfeatureditems" type="xs:anyType" />
+        <xs:element name="displaycustomeragreement" type="xs:anyType" />
+        <xs:element name="allowpurchaseitems" type="xs:anyType" />
+        <xs:element name="displaysearchbox" type="xs:anyType" />
+        <xs:element name="testmode" type="xs:anyType" />
+        <xs:element name="debugmode" type="xs:anyType" />
+        <xs:element name="usedefaultsearchconfig" type="xs:anyType" />
+        <xs:element name="defaultsearchconfigpath" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customintegrationconfiguration" >
+      <xs:complexContent>
+       <xs:extension base="jsonaware{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customeroptin" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="optin" type="xs:dateTime" />
+          <xs:element name="" type="optin" nillable="true" minOccurs="0" />
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="lastname" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="value" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="optin" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="start" type="xs:dateTime" />
+          <xs:element name="end" type="xs:dateTime" />
+          <xs:element name="merchant" type="merchantstore" nillable="true" minOccurs="0" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="merchantlog" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="store" type="merchantstore" nillable="true" minOccurs="0" />
+          <xs:element name="module" type="xs:string" />
+          <xs:element name="log" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="integrationmodule" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="module" type="xs:string" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="regions" type="xs:string" />
+          <xs:element name="configuration" type="xs:string" />
+          <xs:element name="configdetails" type="xs:string" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="image" type="xs:string" />
+          <xs:element name="custommodule" type="xs:anyType" />
+          <xs:element name="regionsset" type="xs:anyType" />
+          <xs:element name="moduleconfigs" type="xs:anyType" />
+          <xs:element name="details" type="xs:anyType" />
+          <xs:element name="" type="auditsection" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="systemnotification" >
+      <xs:complexContent>
+       <xs:extension base="salesmanagerentity<long,">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="key" type="xs:string" />
+          <xs:element name="value" type="xs:string" />
+          <xs:element name="" type="merchantstore" nillable="true" minOccurs="0" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="start" type="xs:dateTime" />
+          <xs:element name="end" type="xs:dateTime" />
+          <xs:element name="" type="auditsection" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cloneutils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

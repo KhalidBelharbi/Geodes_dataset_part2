@@ -1,0 +1,21 @@
+
+state(serialversionuid:long, abreviation:String);
+
+productsubgroup(serialversionuid:long, product_group_id:ProductGroup #FK to(productgroup));
+
+user(serialversionuid:long, id:Long [PK], username:String, address:String, email:String);
+
+city(serialversionuid:long, state_id:State #FK to(state));
+
+customer(serialversionuid:long, district_id:District #FK to(district), address:String);
+
+product(serialversionuid:long, code:String, product_sub_group_id:ProductSubGroup #FK to(productsubgroup));
+
+district(serialversionuid:long, city_id:City #FK to(city));
+
+productgroup(serialversionuid:long);
+
+customercontact(serialversionuid:long, id:Long [PK], contactname:String, GeneratedName:ContactType, GeneratedName:Customer #FK to(customer));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

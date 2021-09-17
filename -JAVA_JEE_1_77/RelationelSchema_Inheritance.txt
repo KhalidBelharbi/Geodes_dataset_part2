@@ -1,0 +1,11 @@
+
+person(serialversionuid:long, id:Long [PK], firstname:String, lastname:String);
+
+response(serialversionuid:long, id:Long [PK], GeneratedName:Event #FK to(event), GeneratedName:Person #FK to(person), response:ResponseEnum);
+
+event(serialversionuid:long, id:Long [PK], name:String, owner:Person #FK to(person), location:String, event:Date);
+
+event_list<person>(eventID:event [PK] #FK to event,list<person>ID:list<person> [PK] #FK to list<person>);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

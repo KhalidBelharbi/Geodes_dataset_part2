@@ -1,0 +1,15 @@
+
+category(serialversionuid:long, id:Integer [PK], name:String, description:String, imageurl:String);
+
+user(serialversionuid:long, id:Integer [PK], username:String, password:String, firstname:String, lastname:String, enable:Boolean);
+
+userrole(serialversionuid:long, GeneratedName:Role [PK] #FK to(role), GeneratedName:User [PK] #FK to(User), other:String);
+
+order(serialversionuid:long, id:Integer [PK], status:Integer, statusname:String);
+
+product(serialversionuid:long, id:Integer [PK], name:String, price:Double, imageurl1:String, imageurl2:String, imageurl3:String, imageurl4:String, imageurl5:String, GeneratedName:Category #FK to(Category));
+
+role(serialversionuid:long, id:Integer [PK], name:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

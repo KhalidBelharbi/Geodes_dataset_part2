@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="synchronisationcongestionpoint" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="entityaddress" type="xs:string" />
+        <xs:element name="lastsynchronisationtime" type="xs:dateTime" />
+        <xs:element name="lastmodificationtime" type="xs:dateTime" />
+        <xs:element name="statusses" type="synchronisationcongestionpointstatus" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="connections" type="synchronisationconnection" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="nonaggregatorforecast" >
+      <xs:complexContent>
+       <xs:extension base="document">
+         <xs:sequence>
+          <xs:element name="power" type="xs:long" />
+          <xs:element name="maxload" type="xs:long" />
+          <xs:element name="creation" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="gridsafetyanalysis" >
+      <xs:complexContent>
+       <xs:extension base="document">
+         <xs:sequence>
+          <xs:element name="power" type="xs:long" />
+          <xs:element name="disposition" type="xs:anyType" />
+          <xs:element name="prognoses" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="commonreferenceoperator" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="domain" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ptugridmonitor" >
+      <xs:complexContent>
+       <xs:extension base="document">
+         <xs:sequence>
+          <xs:element name="actualpower" type="xs:long" />
+          <xs:element name="limitedpower" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="synchronisationconnection" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="entityaddress" type="xs:string" />
+        <xs:element name="congestionpoint" type="synchronisationcongestionpoint" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="meterdatacompany" >
+      <xs:sequence>
+        <xs:element name="domain" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="aggregatoronconnectiongroupstate" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="aggregator" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="connectioncount" type="xs:anyType" />
+        <xs:element name="validfrom" type="xs:dateTime" />
+        <xs:element name="validuntil" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="prognosisupdatedeviation" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="prognosissequence" type="xs:long" />
+        <xs:element name="ptu" type="xs:dateTime" />
+        <xs:element name="ptuindex" type="xs:anyType" />
+        <xs:element name="aggregatordomain" type="xs:string" />
+        <xs:element name="orderedpower" type="xs:anyType" />
+        <xs:element name="previousprognosedpower" type="xs:anyType" />
+        <xs:element name="prognosedpower" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="aggregator" >
+      <xs:sequence>
+        <xs:element name="domain" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="synchronisationcongestionpointstatus" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="commonreferenceoperator" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="synchronisationcongestionpoint" nillable="true" minOccurs="0" />
+        <xs:element name="status" type="synchronisationconnectionstatustype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="connectionmeterevent" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="eventtype" nillable="true" minOccurs="0" />
+        <xs:element name="time" type="xs:dateTime" />
+        <xs:element name="capacity" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="connectioncapacitylimitationperiod" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="starttime" type="xs:dateTime" />
+        <xs:element name="endtime" type="xs:dateTime" />
+        <xs:element name="totaloutage" type="xs:anyType" />
+        <xs:element name="capacityreduction" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

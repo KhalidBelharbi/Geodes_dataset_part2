@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="employer" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="company" nillable="true" minOccurs="0" />
+        <xs:element name="position" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="phonenum" type="xs:string" />
+        <xs:element name="isbanned" type="xs:anyType" />
+        <xs:element name="roles" type="role" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resume" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="employee" nillable="true" minOccurs="0" />
+        <xs:element name="desiredposition" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="workexperience" type="xs:string" />
+        <xs:element name="skills" type="xs:string" />
+        <xs:element name="jobs" type="job" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="company" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="codeedrpou" type="xs:long" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="industry" type="xs:string" />
+        <xs:element name="employeesnum" type="xs:anyType" />
+        <xs:element name="//@onetomany(mappedby" type="job" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="job" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="jobtitle" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="postedon" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="employer" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="company" nillable="true" minOccurs="0" />
+        <xs:element name="industry" type="xs:string" />
+        <xs:element name="status" type="jobstatus" nillable="true" minOccurs="0" />
+        <xs:element name="location" type="xs:string" />
+        <xs:element name="skills" type="xs:string" />
+        <xs:element name="salary" type="xs:anyType" />
+        <xs:element name="employmenttype" type="xs:string" />
+        <xs:element name="resumes" type="resume" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="role" type="xs:string" />
+        <xs:element name="users" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="employee" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="resumes" type="resume" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

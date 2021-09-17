@@ -1,0 +1,2900 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="tracklocationapicontroller" >
+      <xs:sequence>
+        <xs:element name="module" type="xs:string" />
+        <xs:element name="GeneratedName" type="geopointcache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="securitygroupservice" nillable="true" minOccurs="0" />
+        <xs:element name="gmap_api_key" type="xs:string" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="tracklocationsservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="tracklocationpagingrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tracklocationpagingrepo" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tracklocationsrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<tracklocations,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="postlocationinputmodel" >
+      <xs:sequence>
+        <xs:element name="lat" type="xs:double" />
+        <xs:element name="lng" type="xs:double" />
+        <xs:element name="timepoint" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tracklocationsoutputmodel" >
+      <xs:sequence>
+        <xs:element name="tracklocationid" type="xs:anyType" />
+        <xs:element name="partyid" type="xs:string" />
+        <xs:element name="location" type="xs:string" />
+        <xs:element name="timepoint" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userlocationmodel" >
+      <xs:sequence>
+        <xs:element name="userloginid" type="xs:string" />
+        <xs:element name="lat" type="xs:double" />
+        <xs:element name="lng" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getuserlocationsinputmodel" >
+      <xs:sequence>
+        <xs:element name="lat1" type="xs:double" />
+        <xs:element name="lng1" type="xs:double" />
+        <xs:element name="lat2" type="xs:double" />
+        <xs:element name="lng2" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getlocationinputmodel" >
+      <xs:sequence>
+        <xs:element name="userloginid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tracklocations" >
+      <xs:sequence>
+        <xs:element name="tracklocationid" type="xs:anyType" />
+        <xs:element name="//@joincolumn(name" type="xs:anyType" />
+        <xs:element name="location" type="xs:string" />
+        <xs:element name="timepoint" type="xs:dateTime" />
+        <xs:element name="createdstamp" type="xs:dateTime" />
+        <xs:element name="lastupdstamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schema_geo_location" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tracklocationsserviceimpl" >
+      <xs:sequence>
+        <xs:element name="module" type="xs:string" />
+        <xs:element name="//publicstringgroup" type="tracklocationsrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tracklocationsservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="facility" >
+      <xs:sequence>
+        <xs:element name="facilityid" type="xs:string" />
+        <xs:element name="facilityname" type="xs:string" />
+        <xs:element name="GeneratedName" type="postaladdress" nillable="true" minOccurs="0" />
+        <xs:element name="createdstamp" type="xs:dateTime" />
+        <xs:element name="lastupdstamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="uomtype" >
+      <xs:sequence>
+        <xs:element name="uomtypeid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="compositeproductfacilityid" >
+      <xs:sequence>
+        <xs:element name="productid" type="xs:string" />
+        <xs:element name="facilityid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="product" >
+      <xs:sequence>
+        <xs:element name="productid" type="xs:string" />
+        <xs:element name="productname" type="xs:string" />
+        <xs:element name="//quantity" type="xs:double" />
+        <xs:element name="GeneratedName" type="uom" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="producttype" nillable="true" minOccurs="0" />
+        <xs:element name="//kho,lanh,dongproducttransportcategoryid" type="xs:string" />
+        <xs:element name="createdstamp" type="xs:dateTime" />
+        <xs:element name="lastupdstamp" type="xs:dateTime" />
+        <xs:element name="uomdescription" type="xs:string" />
+        <xs:element name="producttypedescription" type="xs:string" />
+        <xs:element name="hsthu" type="xs:anyType" />
+        <xs:element name="hspal" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="producttype" >
+      <xs:sequence>
+        <xs:element name="producttypeid" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="createdstamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inventoryitem" >
+      <xs:sequence>
+        <xs:element name="inventoryitemid" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="product" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="facility" nillable="true" minOccurs="0" />
+        <xs:element name="lotid" type="xs:string" />
+        <xs:element name="uomid" type="xs:string" />
+        <xs:element name="quantityonhandtotal" type="xs:long" />
+        <xs:element name="createdstamp" type="xs:dateTime" />
+        <xs:element name="lastupdstamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="uom" >
+      <xs:sequence>
+        <xs:element name="uomid" type="xs:string" />
+        <xs:element name="GeneratedName" type="uomtype" nillable="true" minOccurs="0" />
+        <xs:element name="abbreviation" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inventoryitemdetail" >
+      <xs:sequence>
+        <xs:element name="inventoryitemdetailid" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="inventoryitem" nillable="true" minOccurs="0" />
+        <xs:element name="effective" type="xs:dateTime" />
+        <xs:element name="quantityonhanddiff" type="xs:long" />
+        <xs:element name="orderid" type="xs:string" />
+        <xs:element name="orderitemseqid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rptdayimportrevenue" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productfacility" >
+      <xs:sequence>
+        <xs:element name="productid" type="xs:string" />
+        <xs:element name="facilityid" type="xs:string" />
+        <xs:element name="lastinventorycount" type="xs:anyType" />
+        <xs:element name="atpinventorycount" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productprice" >
+      <xs:sequence>
+        <xs:element name="productpriceid" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="product" nillable="true" minOccurs="0" />
+        <xs:element name="currency" type="uom" nillable="true" minOccurs="0" />
+        <xs:element name="price" type="xs:anyType" />
+        <xs:element name="taxinprice" type="xs:string" />
+        <xs:element name="from" type="xs:dateTime" />
+        <xs:element name="thru" type="xs:dateTime" />
+        <xs:element name="createdby" type="userlogin" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productpricerepo" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<productprice,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="facilityrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<facility,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<product,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="producttyperepo" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<producttype,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="uomrepo" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<uom,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="inventoryitemdetailrepo" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productpagingrepo" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<product,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productpricejparepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<productprice,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="uomtyperepo" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<uomtype,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productfacilityrepo" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<productfacility,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="inventoryitemrepo" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<inventoryitem,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productpriceservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inventoryitemdetailservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logisticsservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productfacilityservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="facilityservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="facilityserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="facilityrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="postaladdressrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="geopointrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="producttypeserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="producttyperepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="uomservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="productrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="uomrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="uomservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productfacilityserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="productfacilityrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inventoryitemserviceimpl" >
+      <xs:sequence>
+        <xs:element name="module" type="xs:string" />
+        <xs:element name="GeneratedName" type="inventoryitemrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="facilityservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="productservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="productfacilityrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="inventoryitemdetailservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="orderheaderpagerepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="orderheaderrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="orderitemrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="orderrolerepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partycustomerrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="inventoryitemdetailrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productpriceserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="productpricerepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="productpricejparepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="productrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="uomrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="uomserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="uomrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="uomtyperepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inventoryitemservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="producttypeservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inventoryitemdetailserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="inventoryitemdetailrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="inventoryitemrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="importinventoryitemsinputmodel" >
+      <xs:sequence>
+        <xs:element name="inventoryitems" type="importinventoryiteminputmodel" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="exportinventoryiteminputmodel" >
+      <xs:sequence>
+        <xs:element name="productid" type="xs:string" />
+        <xs:element name="facilityid" type="xs:string" />
+        <xs:element name="quantity" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getlistfacilityinputmodel" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getlistfacilityoutputmodel" >
+      <xs:sequence>
+        <xs:element name="facilities" type="facility" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getlistproducttypeoutputmodel" >
+      <xs:sequence>
+        <xs:element name="producttypes" type="producttype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="importinventoryiteminputmodel" >
+      <xs:sequence>
+        <xs:element name="productid" type="xs:string" />
+        <xs:element name="facilityid" type="xs:string" />
+        <xs:element name="lotid" type="xs:string" />
+        <xs:element name="uomid" type="xs:string" />
+        <xs:element name="quantityonhandtotal" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getlistproductinputmodel" >
+      <xs:sequence>
+        <xs:element name="statusid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="modelcreateproductinput" >
+      <xs:sequence>
+        <xs:element name="productid" type="xs:string" />
+        <xs:element name="quantityuomid" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="productname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="facilitymodel" >
+      <xs:sequence>
+        <xs:element name="facilityid" type="xs:string" />
+        <xs:element name="facilityname" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inputmodel" >
+      <xs:sequence>
+        <xs:element name="statusid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="exportinventoryitemsinputmodel" >
+      <xs:sequence>
+        <xs:element name="inventoryitems" type="exportinventoryiteminputmodel" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inventorymodel" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getlistuomoutputmodel" >
+      <xs:sequence>
+        <xs:element name="uoms" type="uom" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getlistproductoutputmodel" >
+      <xs:sequence>
+        <xs:element name="products" type="product" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="setproductpriceinputmodel" >
+      <xs:sequence>
+        <xs:element name="productid" type="xs:string" />
+        <xs:element name="price" type="xs:anyType" />
+        <xs:element name="taxinprice" type="xs:string" />
+        <xs:element name="currencyuomid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="createproductinputmodel" >
+      <xs:sequence>
+        <xs:element name="productid" type="xs:string" />
+        <xs:element name="productname" type="xs:string" />
+        <xs:element name="weight" type="xs:double" />
+        <xs:element name="uomid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getproductpriceinputmodel" >
+      <xs:sequence>
+        <xs:element name="productid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="delete_product" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schema_product" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="delete_inventory_item" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="uomservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="producttypeservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="productservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="producttyperepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="productpagingrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logisticsapicontroller" >
+      <xs:sequence>
+        <xs:element name="module" type="xs:string" />
+        <xs:element name="GeneratedName" type="productservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="facilityservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="productpriceservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inventoryitemapicontroller" >
+      <xs:sequence>
+        <xs:element name="module" type="xs:string" />
+        <xs:element name="GeneratedName" type="inventoryitemservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="subjectrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<subject,string>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="instituterepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<institute,string>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="subject" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="day" type="xs:string" />
+        <xs:element name="instituteid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="institute" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getinstituteinpulmodel" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getsubjectinputmodel" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="scheduleapicontroller" >
+      <xs:sequence>
+        <xs:element name="addressservice" type="scheduleservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="scheduleserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="instituterepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="subjectrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="scheduleservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="createenglishinputmodel" >
+      <xs:sequence>
+        <xs:element name="englishname" type="xs:string" />
+        <xs:element name="pronounce" type="xs:string" />
+        <xs:element name="vietnamname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inputname" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="english" >
+      <xs:sequence>
+        <xs:element name="englishid" type="xs:anyType" />
+        <xs:element name="englishname" type="xs:string" />
+        <xs:element name="pronounce" type="xs:string" />
+        <xs:element name="vietnamname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="englishrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<english,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="englishservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="englishserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="englishrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="englishapicontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="englishservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="salesmancheckinhistoryrepo" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="salesrouteconfigcustomerrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<salesrouteconfigcustomer,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="psalesroutedetailrepo" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<salesroutedetail,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="salesroutedetailrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<salesroutedetail,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="psalesrouteplanningperiodrepo" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="psalesrouteconfigrepo" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<salesrouteconfig,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="psalesrouteconfigcustomerrepo" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="salesmancheckinhistory" >
+      <xs:sequence>
+        <xs:element name="salesmancheckinhistoryid" type="xs:anyType" />
+        <xs:element name="//@joincolumn(name" type="xs:string" />
+        <xs:element name="GeneratedName" type="partycustomer" nillable="true" minOccurs="0" />
+        <xs:element name="//y(check-in)orn(check-out)checkinaction" type="xs:string" />
+        <xs:element name="location" type="xs:string" />
+        <xs:element name="timepoint" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="salesrouteconfig" >
+      <xs:sequence>
+        <xs:element name="salesrouteconfigid" type="xs:anyType" />
+        <xs:element name="days" type="xs:string" />
+        <xs:element name="repeatweek" type="xs:long" />
+        <xs:element name="statusid" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="salesroutedetail" >
+      <xs:sequence>
+        <xs:element name="salesroutedetailid" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="partysalesman" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partycustomer" nillable="true" minOccurs="0" />
+        <xs:element name="sequence" type="xs:long" />
+        <xs:element name="//formatyyyy-mm-ddexecutedate" type="xs:string" />
+        <xs:element name="GeneratedName" type="salesrouteconfigcustomer" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="salesrouteplanningperiod" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="salesrouteplanningperiod" >
+      <xs:sequence>
+        <xs:element name="salesrouteplanningperiodid" type="xs:anyType" />
+        <xs:element name="from" type="xs:dateTime" />
+        <xs:element name="to" type="xs:dateTime" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="createdby" type="userlogin" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="salesrouteconfigcustomer" >
+      <xs:sequence>
+        <xs:element name="salesrouteconfigcustomerid" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="salesrouteconfig" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partycustomer" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partysalesman" nillable="true" minOccurs="0" />
+        <xs:element name="from" type="xs:dateTime" />
+        <xs:element name="thru" type="xs:dateTime" />
+        <xs:element name="startexecutedate" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="salesrouteconfigcustomerserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="psalesrouteconfigcustomerrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partycustomerrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partysalesmanrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="psalesrouteconfigrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="salesrouteconfigserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="psalesrouteconfigrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="salesrouteconfigcustomerservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="salesmancheckinhistoryserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="salesmancheckinhistoryrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partycustomerservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partycustomerrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="salesrouteplanningperiodserviceimpl" >
+      <xs:sequence>
+        <xs:element name="salesrouteplanningperiodrepo" type="psalesrouteplanningperiodrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="salesrouteplanningperiodservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="salesrouteconfigservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="salesroutedetailserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="psalesrouteconfigcustomerrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="psalesrouteplanningperiodrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="salesrouteconfigcustomerrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partysalesmanrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partycustomerrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="psalesroutedetailrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="salesroutedetailrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="salesroutedetailservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="salesmancheckinhistoryservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="createsalesrouteconfiginputmodel" >
+      <xs:sequence>
+        <xs:element name="//listofdaysinaweek,i.e.,2,5or4,7days" type="xs:string" />
+        <xs:element name="repeatweek" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="createsalesrouteplanningperiodinputmodel" >
+      <xs:sequence>
+        <xs:element name="//formatyyyy-mm-ddfromdate" type="xs:string" />
+        <xs:element name="//formatyyyy-mm-ddtodate" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="createsalesrouteconfigcustomerinputmodel" >
+      <xs:sequence>
+        <xs:element name="salesrouteconfigid" type="xs:anyType" />
+        <xs:element name="partycustomerid" type="xs:anyType" />
+        <xs:element name="partysalesmanid" type="xs:anyType" />
+        <xs:element name="//formatyyyy-mm-ddstartexecutedate" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="generatesalesroutedetailinputmodel" >
+      <xs:sequence>
+        <xs:element name="partysalesmanid" type="xs:anyType" />
+        <xs:element name="salesrouteplanningperiodid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getcustomersvisiteddayofuserlogin" >
+      <xs:sequence>
+        <xs:element name="//formatyyyy-mm-dddate" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getcustomersvisitedbysalesmandayinputmodel" >
+      <xs:sequence>
+        <xs:element name="partysalesmanid" type="xs:anyType" />
+        <xs:element name="date" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="salesmancheckinoutinputmodel" >
+      <xs:sequence>
+        <xs:element name="partycustomerid" type="xs:anyType" />
+        <xs:element name="latitude" type="xs:double" />
+        <xs:element name="longitude" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="salesrouteapicontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="salesrouteconfigservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="salesrouteconfigcustomerservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="salesrouteplanningperiodservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="salesroutedetailservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="salesmancheckinservice" type="salesmancheckinhistoryservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schema_salesroutes" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partycontactmechpurposerepo" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customerrepo" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="distributorrepo" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<partydistributor,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customerapicontroller" >
+      <xs:sequence>
+        <xs:element name="module" type="xs:string" />
+        <xs:element name="GeneratedName" type="customerrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="customerservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="distributorrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="distributorservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schema_customer" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="delete_customer" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getdistributorsofuserlogininputmodel" >
+      <xs:sequence>
+        <xs:element name="statusid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="createdistributorinputmodel" >
+      <xs:sequence>
+        <xs:element name="distributorcode" type="xs:string" />
+        <xs:element name="distributorname" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="latitude" type="xs:string" />
+        <xs:element name="longitude" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="createcustomerinputmodel" >
+      <xs:sequence>
+        <xs:element name="customercode" type="xs:string" />
+        <xs:element name="customername" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="latitude" type="xs:string" />
+        <xs:element name="longitude" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="compositepartycontactmechpurposeid" >
+      <xs:sequence>
+        <xs:element name="partyid" type="xs:anyType" />
+        <xs:element name="contactmechid" type="xs:anyType" />
+        <xs:element name="contactmechpurposetypeid" type="xs:string" />
+        <xs:element name="from" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partycontactmechpurpose" >
+      <xs:sequence>
+        <xs:element name="partyid" type="xs:anyType" />
+        <xs:element name="contactmechid" type="xs:anyType" />
+        <xs:element name="contactmechpurposetypeid" type="xs:string" />
+        <xs:element name="from" type="xs:dateTime" />
+        <xs:element name="thru" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partydistributor" >
+      <xs:sequence>
+        <xs:element name="partyid" type="xs:anyType" />
+        <xs:element name="//@joincolumn(name" type="partytype" nillable="true" minOccurs="0" />
+        <xs:element name="distributorcode" type="xs:string" />
+        <xs:element name="distributorname" type="xs:string" />
+        <xs:element name="postaladdress" type="postaladdress" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partycustomer" >
+      <xs:sequence>
+        <xs:element name="partyid" type="xs:anyType" />
+        <xs:element name="//@joincolumn(name" type="partytype" nillable="true" minOccurs="0" />
+        <xs:element name="customercode" type="xs:string" />
+        <xs:element name="customername" type="xs:string" />
+        <xs:element name="postaladdress" type="postaladdress" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="type" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="distributorservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customerservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customerserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="customerrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="geopointrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="postaladdressrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partyrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partytyperepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="statusrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partycontactmechpurposerepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="distributorserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="geopointrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="postaladdressrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partyrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partytyperepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="statusrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partycontactmechpurposerepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="distributorrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="crawler" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getorderdetailinputmodel" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getlistpartycustomerinputmodel" >
+      <xs:sequence>
+        <xs:element name="statusid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gettotalrevenueoutputmodel" >
+      <xs:sequence>
+        <xs:element name="revenues" type="gettotalrevenueitemoutputmodel" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderitemdetailview" >
+      <xs:sequence>
+        <xs:element name="orderitemid" type="xs:string" />
+        <xs:element name="productid" type="xs:string" />
+        <xs:element name="productname" type="xs:string" />
+        <xs:element name="quantity" type="xs:long" />
+        <xs:element name="uom" type="xs:string" />
+        <xs:element name="unitprice" type="xs:anyType" />
+        <xs:element name="totalitemprice" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gettotalrevenueitemoutputmodel" >
+      <xs:sequence>
+        <xs:element name="date" type="xs:string" />
+        <xs:element name="revenue" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="modelcreateorderoutput" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gettotalrevenueinputmodel" >
+      <xs:sequence>
+        <xs:element name="fromdate" type="xs:string" />
+        <xs:element name="todate" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getlistsalesmaninputmodel" >
+      <xs:sequence>
+        <xs:element name="statusid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="modelcreateorderinputorderitem" >
+      <xs:sequence>
+        <xs:element name="productid" type="xs:string" />
+        <xs:element name="quantity" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="modelcreateorderinput" >
+      <xs:sequence>
+        <xs:element name="//party_idtocustomerid" type="xs:anyType" />
+        <xs:element name="//party_idfromvendorid" type="xs:anyType" />
+        <xs:element name="orderitems" type="modelcreateorderinputorderitem" nillable="true" minOccurs="0" />
+        <xs:element name="saleschannelid" type="xs:string" />
+        <xs:element name="facilityid" type="xs:string" />
+        <xs:element name="//user_login_idsalesmanid" type="xs:string" />
+        <xs:element name="orderdate" type="xs:string" />
+        <xs:element name="shiptoaddressid" type="xs:anyType" />
+        <xs:element name="shiptoaddress" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderdetailview" >
+      <xs:sequence>
+        <xs:element name="orderid" type="xs:string" />
+        <xs:element name="order" type="xs:dateTime" />
+        <xs:element name="customerid" type="xs:anyType" />
+        <xs:element name="customername" type="xs:string" />
+        <xs:element name="vendorid" type="xs:anyType" />
+        <xs:element name="vendorname" type="xs:string" />
+        <xs:element name="salesmanloginid" type="xs:string" />
+        <xs:element name="salesmanname" type="xs:string" />
+        <xs:element name="total" type="xs:anyType" />
+        <xs:element name="orderitems" type="orderitemdetailview" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getlistpartycustomeroutputmodel" >
+      <xs:sequence>
+        <xs:element name="customers" type="partycustomer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ordercutbackupservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partycustomerserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="partycustomerrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="salesmanservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partycustomerservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderserviceimpl" >
+      <xs:sequence>
+        <xs:element name="module" type="xs:string" />
+        <xs:element name="GeneratedName" type="userloginrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="orderheaderrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="orderitemrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="orderrolerepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="orderstatusrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="ordertyperepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="productrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="facilityrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="saleschannelrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="productpriceservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="postaladdressrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="orderheaderpagerepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partysalesmanrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partycustomerrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partyrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partysalesmanservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ordertype" >
+      <xs:sequence>
+        <xs:element name="ordertypeid" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="createdstamp" type="xs:dateTime" />
+        <xs:element name="lastupdstamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="saleschannel" >
+      <xs:sequence>
+        <xs:element name="saleschannelid" type="xs:string" />
+        <xs:element name="saleschannelname" type="xs:string" />
+        <xs:element name="createdstamp" type="xs:dateTime" />
+        <xs:element name="lastupdstamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="compositeorderroleid" >
+      <xs:sequence>
+        <xs:element name="orderid" type="xs:string" />
+        <xs:element name="partyid" type="xs:anyType" />
+        <xs:element name="roletypeid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderitemtype" >
+      <xs:sequence>
+        <xs:element name="orderitemtypeid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderheader" >
+      <xs:sequence>
+        <xs:element name="orderid" type="xs:string" />
+        <xs:element name="GeneratedName" type="ordertype" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="saleschannel" nillable="true" minOccurs="0" />
+        <xs:element name="order" type="xs:dateTime" />
+        <xs:element name="grandtotal" type="xs:anyType" />
+        <xs:element name="shipto" type="postaladdress" nillable="true" minOccurs="0" />
+        <xs:element name="createdstamp" type="xs:dateTime" />
+        <xs:element name="lastupdstamp" type="xs:dateTime" />
+        <xs:element name="orderitems" type="orderitem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//@jointable(name" type="orderrole" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderitem" >
+      <xs:sequence>
+        <xs:element name="orderid" type="xs:string" />
+        <xs:element name="orderitemseqid" type="xs:string" />
+        <xs:element name="GeneratedName" type="facility" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="product" nillable="true" minOccurs="0" />
+        <xs:element name="unitprice" type="xs:anyType" />
+        <xs:element name="quantity" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderrole" >
+      <xs:sequence>
+        <xs:element name="orderid" type="xs:string" />
+        <xs:element name="partyid" type="xs:anyType" />
+        <xs:element name="roletypeid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="compositeorderitemid" >
+      <xs:sequence>
+        <xs:element name="orderid" type="xs:string" />
+        <xs:element name="orderitemseqid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rptdayrevenue" >
+      <xs:sequence>
+        <xs:element name="date" type="xs:string" />
+        <xs:element name="revenue" type="xs:anyType" />
+        <xs:element name="numberorders" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderstatus" >
+      <xs:sequence>
+        <xs:element name="orderstatusid" type="xs:string" />
+        <xs:element name="order" type="orderheader" nillable="true" minOccurs="0" />
+        <xs:element name="//@joincolumn(name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="query" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="trigger_order" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="drop_table_order" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="delete_order" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schema_order" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderheaderrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<orderheader,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="partycustomerrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<partycustomer,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ordertyperepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<ordertype,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderrolerepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<orderrole,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderheaderpagerepo" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<orderheader,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="saleschannelrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<saleschannel,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderitemrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<orderitem,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderstatusrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<orderstatus,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderapicontroller" >
+      <xs:sequence>
+        <xs:element name="module" type="xs:string" />
+        <xs:element name="GeneratedName" type="revenueordercache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="orderservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partycustomerservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partysalesmanservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="orderheaderpagerepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="revenueordercache" >
+      <xs:sequence>
+        <xs:element name="module" type="xs:string" />
+        <xs:element name="mdate2revenue" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partydepartmentserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="partydepartmentrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="departmentrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partyrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="departmentservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partydepartmentservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="departmentserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="departmentrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="department" >
+      <xs:sequence>
+        <xs:element name="departmentid" type="xs:string" />
+        <xs:element name="departmentname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partydepartment" >
+      <xs:sequence>
+        <xs:element name="partydepartmentid" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="department" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="party" nillable="true" minOccurs="0" />
+        <xs:element name="from" type="xs:dateTime" />
+        <xs:element name="thru" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="createdepartmentmodelinput" >
+      <xs:sequence>
+        <xs:element name="departmentname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="addparty2departmentinputmodel" >
+      <xs:sequence>
+        <xs:element name="partyid" type="xs:anyType" />
+        <xs:element name="departmentid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partydepartmentrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<partydepartment,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="departmentrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<department,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="departmentapicontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="departmentservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partydepartmentservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="studentservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="studentserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="studentrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="studentapicontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="studentservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="studentrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<student,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="student" >
+      <xs:sequence>
+        <xs:element name="studentid" type="xs:anyType" />
+        <xs:element name="studentname" type="xs:string" />
+        <xs:element name="birthdate" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="gender" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="createstudentinputmodel" >
+      <xs:sequence>
+        <xs:element name="studentname" type="xs:string" />
+        <xs:element name="birthdate" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="gender" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inputnamefind" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="province" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="district" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="provinceid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shippingorder" >
+      <xs:sequence>
+        <xs:element name="shippingorderid" type="xs:anyType" />
+        <xs:element name="sendername" type="xs:string" />
+        <xs:element name="senderphonenumber" type="xs:string" />
+        <xs:element name="senderaddress" type="xs:string" />
+        <xs:element name="sendercommuneid" type="xs:string" />
+        <xs:element name="receivername" type="xs:string" />
+        <xs:element name="receiverphonenumber" type="xs:string" />
+        <xs:element name="receiveraddress" type="xs:string" />
+        <xs:element name="receivercommuneid" type="xs:string" />
+        <xs:element name="weight" type="xs:long" />
+        <xs:element name="packagename" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commune" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="districtid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="addressserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="provincerepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="districtrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="communerepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="addressservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shippingorderserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="shippingorderrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shippingorderservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shippingorderapicontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="shippingorderservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="addressservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="districtrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<district,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="communerepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<commune,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="provincerepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<com.hust.baseweb.applications.shippingorder.entity.province,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="shippingorderrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<shippingorder,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="getcommuneinputmodel" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getdistrictinputmodel" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="createshippingorderinputmodel" >
+      <xs:sequence>
+        <xs:element name="sendername" type="xs:string" />
+        <xs:element name="senderphonenumber" type="xs:string" />
+        <xs:element name="senderaddress" type="xs:string" />
+        <xs:element name="sendercommuneid" type="xs:string" />
+        <xs:element name="receivername" type="xs:string" />
+        <xs:element name="receiverphonenumber" type="xs:string" />
+        <xs:element name="receiveraddress" type="xs:string" />
+        <xs:element name="receivercommuneid" type="xs:string" />
+        <xs:element name="weight" type="xs:long" />
+        <xs:element name="packagename" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deliverytripdetailserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="deliverytripdetailrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="shipmentitemrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="productrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="deliverytriprepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="deliverytripservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="statusitemrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="statisticdeliverytripserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="deliverytriprepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="statisticdeliverytripservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shipmentitemservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deliverytripserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="deliverytriprepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="deliveryplanrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="vehiclerepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="vehiclemaintenancehistoryrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="shipmentitemdeliveryplanrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="shipmentitemrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="deliverytripdetailrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="distancetraveltimegeopointrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="productrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userloginrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partyrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partydriverservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partydriverrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deliverytripservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="distancetraveltimeserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="geopointrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="distancetraveltimegeopointrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deliverytripdetailservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partydriverserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="ppartydriverrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partydriverrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shipmentitemserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="shipmentitemdeliveryplanrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="shipmentitemrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="productrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="deliverytriprepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="deliverytripdetailrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="distancetraveltimegeopointrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deliveryplanservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="solverservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partydriverservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vehicleservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="solverserviceimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vehicleserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="vehiclerepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="postaladdressrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="vehicledeliveryplanrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="vehiclemaintenancehistoryrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="vehiclelocationpriorityrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deliveryplanserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="deliveryplanrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="facilityrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shipmentservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shipmentserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="shipmentrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="shipmentitemrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partycustomerrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="postaladdressrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="geopointrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="productrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="orderheaderrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="orderitemrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="orderrolerepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="customerservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="productservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="postaladdressservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partyrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partytyperepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="statusrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="customerrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partycontactmechpurposerepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="distancetraveltimeservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vehicletyperepo" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<vehicletype,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="distancetraveltimegeopointrepo" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<distancetraveltimegeopoint,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="vehiclerepo" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="partydriverrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<partydriver,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="deliverytriprepo" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<deliverytrip,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="deliverytripdetailrepo" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="vehicledeliveryplanrepo" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<vehicledeliveryplan,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ppartydriverrepo" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<partydriver,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="shipmentrepo" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<shipment,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="shipmentitemdeliveryplanrepo" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<shipmentitemdeliveryplan,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="vehiclemaintenancehistoryrepo" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<vehiclemaintenancehistory,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="deliveryplanrepo" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<deliveryplan,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="vehiclelocationpriorityrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<vehiclelocationpriority,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="shipmentitemrepo" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<shipmentitem,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="partydriver" >
+      <xs:sequence>
+        <xs:element name="partyid" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="person" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="compositeshipmentitemdeliveryplanid" >
+      <xs:sequence>
+        <xs:element name="shipmentitemid" type="xs:anyType" />
+        <xs:element name="deliveryplanid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="compositeshipmentitemid" >
+      <xs:sequence>
+        <xs:element name="shipmentid" type="xs:anyType" />
+        <xs:element name="shipmentitemseqid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deliverytrip" >
+      <xs:sequence>
+        <xs:element name="deliverytripid" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="deliveryplan" nillable="true" minOccurs="0" />
+        <xs:element name="deliveryplansolutionseqid" type="xs:string" />
+        <xs:element name="GeneratedName" type="vehicle" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partydriver" nillable="true" minOccurs="0" />
+        <xs:element name="execute" type="xs:dateTime" />
+        <xs:element name="distance" type="xs:double" />
+        <xs:element name="totalweight" type="xs:double" />
+        <xs:element name="totalpallet" type="xs:double" />
+        <xs:element name="external" type="vehicletype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vehicletype" >
+      <xs:sequence>
+        <xs:element name="vehicletypeid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vehicledeliveryplan" >
+      <xs:sequence>
+        <xs:element name="vehicleid" type="xs:string" />
+        <xs:element name="deliveryplanid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deliveryplan" >
+      <xs:sequence>
+        <xs:element name="deliveryplanid" type="xs:anyType" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="createdbyuserloginid" type="xs:string" />
+        <xs:element name="delivery" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deliveryplansolution" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shipmentitemdeliveryplan" >
+      <xs:sequence>
+        <xs:element name="shipmentitemid" type="xs:anyType" />
+        <xs:element name="deliveryplanid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shipmentitem" >
+      <xs:sequence>
+        <xs:element name="shipmentitemid" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="shipment" nillable="true" minOccurs="0" />
+        <xs:element name="//@id//@column(name" type="xs:long" />
+        <xs:element name="pallet" type="xs:double" />
+        <xs:element name="GeneratedName" type="orderitem" nillable="true" minOccurs="0" />
+        <xs:element name="customer" type="partycustomer" nillable="true" minOccurs="0" />
+        <xs:element name="shiptolocation" type="postaladdress" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vehiclemaintenancehistory" >
+      <xs:sequence>
+        <xs:element name="vehiclemaintenancehistoryid" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="vehicle" nillable="true" minOccurs="0" />
+        <xs:element name="maintenance" type="xs:dateTime" />
+        <xs:element name="thru" type="xs:dateTime" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shipment" >
+      <xs:sequence>
+        <xs:element name="shipmentid" type="xs:anyType" />
+        <xs:element name="shipmenttypeid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deliverytripdetail" >
+      <xs:sequence>
+        <xs:element name="deliverytripdetailid" type="xs:anyType" />
+        <xs:element name="deliverytripid" type="xs:anyType" />
+        <xs:element name="sequence" type="xs:anyType" />
+        <xs:element name="//@joincolumn(name" type="shipmentitem" nillable="true" minOccurs="0" />
+        <xs:element name="deliveryquantity" type="xs:long" />
+        <xs:element name="GeneratedName" type="statusitem" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vehiclelocationpriority" >
+      <xs:sequence>
+        <xs:element name="vehiclelocationpriorityid" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="vehicle" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="postaladdress" nillable="true" minOccurs="0" />
+        <xs:element name="priority" type="xs:anyType" />
+        <xs:element name="from" type="xs:dateTime" />
+        <xs:element name="thru" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vehicledriver" >
+      <xs:sequence>
+        <xs:element name="vehicledriverid" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="vehicle" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partydriver" nillable="true" minOccurs="0" />
+        <xs:element name="from" type="xs:dateTime" />
+        <xs:element name="thru" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vehicle" >
+      <xs:sequence>
+        <xs:element name="vehicleid" type="xs:string" />
+        <xs:element name="capacity" type="xs:double" />
+        <xs:element name="length" type="xs:anyType" />
+        <xs:element name="width" type="xs:anyType" />
+        <xs:element name="height" type="xs:anyType" />
+        <xs:element name="pallet" type="xs:double" />
+        <xs:element name="statusid" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="//kho,lanh,dongproducttransportcategoryid" type="xs:string" />
+        <xs:element name="priority" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="compositevehicledeliveryplanid" >
+      <xs:sequence>
+        <xs:element name="vehicleid" type="xs:string" />
+        <xs:element name="deliveryplanid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="distancetraveltimegeopoint" >
+      <xs:sequence>
+        <xs:element name="fromgeopointid" type="xs:anyType" />
+        <xs:element name="togeopointid" type="xs:anyType" />
+        <xs:element name="distance" type="xs:double" />
+        <xs:element name="traveltime" type="xs:double" />
+        <xs:element name="fromgeopointid" type="xs:anyType" />
+        <xs:element name="togeopointid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="compositedeliverytripdetailid" >
+      <xs:sequence>
+        <xs:element name="deliverytripid" type="xs:anyType" />
+        <xs:element name="deliverytripitemseqid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="drivermodel" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deliverytripdetailmodel" >
+      <xs:sequence>
+        <xs:element name="sequence" type="xs:anyType" />
+        <xs:element name="deliverytripdetailid" type="xs:anyType" />
+        <xs:element name="deliverytripid" type="xs:anyType" />
+        <xs:element name="customercode" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="lat" type="xs:double" />
+        <xs:element name="lng" type="xs:double" />
+        <xs:element name="productid" type="xs:string" />
+        <xs:element name="productname" type="xs:string" />
+        <xs:element name="shipmentquantity" type="xs:anyType" />
+        <xs:element name="deliveryquantity" type="xs:anyType" />
+        <xs:element name="weight" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shipmentitemmodel" >
+      <xs:sequence>
+        <xs:element name="shipmentitemid" type="xs:string" />
+        <xs:element name="quantity" type="xs:anyType" />
+        <xs:element name="pallet" type="xs:double" />
+        <xs:element name="productid" type="xs:string" />
+        <xs:element name="customercode" type="xs:string" />
+        <xs:element name="locationcode" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="lat" type="xs:string" />
+        <xs:element name="lng" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="completedeliveryshipmentiteminputmodel" >
+      <xs:sequence>
+        <xs:element name="deliverytripdetailid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getdeliverytripassignedtodriverinputmodel" >
+      <xs:sequence>
+        <xs:element name="driveruserloginid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="completedeliveryshipmentitemsinputmodel" >
+      <xs:sequence>
+        <xs:element name="items" type="completedeliveryshipmentiteminputmodel" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getdeliverytripassignedtodriveroutputmodel" >
+      <xs:sequence>
+        <xs:element name="deliverytripheaders" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vehiclemodel" >
+      <xs:sequence>
+        <xs:element name="vehicleid" type="xs:string" />
+        <xs:element name="capacity" type="xs:double" />
+        <xs:element name="length" type="xs:anyType" />
+        <xs:element name="width" type="xs:anyType" />
+        <xs:element name="height" type="xs:anyType" />
+        <xs:element name="pallet" type="xs:double" />
+        <xs:element name="statusid" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="locationmodel" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deliveryplanmodel" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deliverytripmodel" >
+      <xs:sequence>
+        <xs:element name="deliveryplansolutionseqid" type="xs:string" />
+        <xs:element name="deliverytripid" type="xs:string" />
+        <xs:element name="executedate" type="xs:string" />
+        <xs:element name="totaldistance" type="xs:double" />
+        <xs:element name="totalweight" type="xs:double" />
+        <xs:element name="totalpallet" type="xs:double" />
+        <xs:element name="vehicleid" type="xs:string" />
+        <xs:element name="maxvehiclecapacity" type="xs:double" />
+        <xs:element name="driverid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shipmentmodel" >
+      <xs:sequence>
+        <xs:element name="shipmentid" type="xs:string" />
+        <xs:element name="shipmenttypeid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deliverycustomermodel" >
+      <xs:sequence>
+        <xs:element name="customer" type="partycustomer" nillable="true" minOccurs="0" />
+        <xs:element name="deliveryitems" type="deliveryitemmodel" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deliveryitemmodel" >
+      <xs:sequence>
+        <xs:element name="orderid" type="xs:string" />
+        <xs:element name="orderitemseqid" type="xs:string" />
+        <xs:element name="productid" type="xs:string" />
+        <xs:element name="quantity" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getassigned2shipperdeliveryrouteoutputmodel" >
+      <xs:sequence>
+        <xs:element name="deliverycustomers" type="deliverycustomermodel" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schema_driver" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="delete_shipmentitem" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="delete_delivery_trip" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="drop_table_vehicle" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="drop_table_delivery_plan" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="query" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schema_vehicle" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="delete_vehicle" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="drop_table_shipment_item" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schema_shipment" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tmsapicontroller" >
+      <xs:sequence>
+        <xs:element name="module" type="xs:string" />
+        <xs:element name="GeneratedName" type="customerrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="orderheaderrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="orderrolerepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userloginrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="deliverytripservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="distancetraveltimeservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="deliverytripdetailservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="statisticdeliverytripservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="solverservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="driverapicontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="partydriverservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partydriverrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="deliverytriprepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shipmentorderapicontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="shipmentservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="shipmentitemservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="deliveryplanservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="deliverytripservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="deliverytripdetailservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vehicleapicontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="vehicleservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tmsconstants" >
+      <xs:sequence>
+        <xs:element name="shipment_trip_created" type="xs:string" />
+        <xs:element name="shipment_trip_cancelled" type="xs:string" />
+        <xs:element name="shipment_trip_completed" type="xs:string" />
+        <xs:element name="shipment_item_on_trip" type="xs:string" />
+        <xs:element name="shipment_item_delivered" type="xs:string" />
+        <xs:element name="shipment_item_not_delivered" type="xs:string" />
+        <xs:element name="shipment_item_cancelled" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="salesapicontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="customersalesmanservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partysalesmanservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partysalesman" >
+      <xs:sequence>
+        <xs:element name="partyid" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="person" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customersalesman" >
+      <xs:sequence>
+        <xs:element name="customersalesmanid" type="xs:anyType" />
+        <xs:element name="partycustomerid" type="xs:anyType" />
+        <xs:element name="partysalesmanid" type="xs:anyType" />
+        <xs:element name="from" type="xs:dateTime" />
+        <xs:element name="thru" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getcustomersofsalesmaninputmodel" >
+      <xs:sequence>
+        <xs:element name="partysalesman" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getsalesmanoutputmodel" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="partysalesman" nillable="true" minOccurs="0" />
+        <xs:element name="userloginid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="assigncustomer2salesmaninputmodel" >
+      <xs:sequence>
+        <xs:element name="partycustomerid" type="xs:anyType" />
+        <xs:element name="partysalesmanid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partysalesmanrepo" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<partysalesman,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customersalesmanrepo" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<customersalesman,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="query" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schema_sales" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partysalesmanserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="partysalesmanrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userloginrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partyrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="personrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customersalesmanservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partysalesmanservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customersalesmanserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="customersalesmanrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partycustomerrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="geopointrepo" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<geopoint,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="postaladdressrepo" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<postaladdress,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="geopoint" >
+      <xs:sequence>
+        <xs:element name="geopointid" type="xs:anyType" />
+        <xs:element name="latitude" type="xs:string" />
+        <xs:element name="longitude" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="postaladdress" >
+      <xs:sequence>
+        <xs:element name="contactmechid" type="xs:anyType" />
+        <xs:element name="locationcode" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="GeneratedName" type="geopoint" nillable="true" minOccurs="0" />
+        <xs:element name="maxloadweight" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schema_geo_address" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="delete_geo_point_address" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="query" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="postaladdressserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="postaladdressrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="geopointrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="postaladdressservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="geopointcache" >
+      <xs:sequence>
+        <xs:element name="module" type="xs:string" />
+        <xs:element name="mappartyid2geopoint" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partyrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<party,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="statusrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<status,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="personrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<person,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="statusitemrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<statusitem,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="applicationtyperepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<applicationtype,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="applicationrepo" >
+      <xs:complexContent>
+       <xs:extension base="repository<application,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userloginrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<userlogin,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="partytyperepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<partytype,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="securitygrouprepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<securitygroup,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="predicatebuilder" >
+      <xs:sequence>
+        <xs:element name="params" type="searchcriteria" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dperson" >
+      <xs:sequence>
+        <xs:element name="password_encoder" type="xs:anyType" />
+        <xs:element name="partyid" type="xs:anyType" />
+        <xs:element name="partycode" type="xs:string" />
+        <xs:element name="type" type="partytype" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="person" nillable="true" minOccurs="0" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="GeneratedName" type="status" nillable="true" minOccurs="0" />
+        <xs:element name="userlogin" type="dpersonuserlogin" nillable="true" minOccurs="0" />
+        <xs:element name="isunread" type="xs:anyType" />
+        <xs:element name="createdby" type="xs:string" />
+        <xs:element name="modifiedby" type="xs:string" />
+        <xs:element name="created" type="xs:dateTime" />
+        <xs:element name="createdstamp" type="xs:dateTime" />
+        <xs:element name="lastupdstamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrestrepository" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<dperson,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usercontroller" >
+      <xs:sequence>
+        <xs:element name="edit_rel" type="xs:string" />
+        <xs:element name="delete_rel" type="xs:string" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partyservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dusercombineentity" >
+      <xs:sequence>
+        <xs:element name="password_encoder" type="xs:anyType" />
+        <xs:element name="userloginid" type="xs:string" />
+        <xs:element name="partyid" type="xs:anyType" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="middlename" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="gender" type="xs:string" />
+        <xs:element name="birth" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sortbuilder" >
+      <xs:sequence>
+        <xs:element name="fullnamepath" type="xs:string" />
+        <xs:element name="firstnamepath" type="xs:string" />
+        <xs:element name="middlenamepath" type="xs:string" />
+        <xs:element name="lastnamepath" type="xs:string" />
+        <xs:element name="sort" type="sortcriteria" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrestbriefprojection" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="predicate" >
+      <xs:sequence>
+        <xs:element name="fullnamepath" type="xs:string" />
+        <xs:element name="firstnamepath" type="xs:string" />
+        <xs:element name="middlenamepath" type="xs:string" />
+        <xs:element name="lastnamepath" type="xs:string" />
+        <xs:element name="criteria" type="searchcriteria" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dpersonuserlogin" >
+      <xs:sequence>
+        <xs:element name="userloginid" type="xs:string" />
+        <xs:element name="issystem" type="xs:anyType" />
+        <xs:element name="enabled" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="party" nillable="true" minOccurs="0" />
+        <xs:element name="roles" type="securitygroup" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="disabledtime" type="xs:dateTime" />
+        <xs:element name="createdstamp" type="xs:dateTime" />
+        <xs:element name="lastupdstamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userserviceimpl" >
+      <xs:sequence>
+        <xs:element name="module" type="xs:string" />
+        <xs:element name="GeneratedName" type="userloginrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userrestrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partyservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partytyperepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partyrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="statusrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="personrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="securitygrouprepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partyserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="partyrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partytyperepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="statusrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="securitygroupserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="securitygrouprepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partyservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="applicationservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basewebuserdetailservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userloginrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="applicationserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="applicationrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="applicationtyperepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="securitygroupservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="applicationtypeconstant" >
+      <xs:sequence>
+        <xs:element name="menu" type="xs:string" />
+        <xs:element name="screen" type="xs:string" />
+        <xs:element name="module" type="xs:string" />
+        <xs:element name="service" type="xs:string" />
+        <xs:element name="entity" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pageutils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datetimeutils" >
+      <xs:sequence>
+        <xs:element name="start_date_time" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="config" >
+      <xs:sequence>
+        <xs:element name="logger" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="config" nillable="true" minOccurs="0" />
+        <xs:element name="googleapikey" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="latlngutils" >
+      <xs:sequence>
+        <xs:element name="logger" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="constant" >
+      <xs:sequence>
+        <xs:element name="date_format" type="xs:anyType" />
+        <xs:element name="order_excel_date_format" type="xs:anyType" />
+        <xs:element name="ggmap_api_key_file" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="googlemaputils" >
+      <xs:sequence>
+        <xs:element name="logger" type="xs:anyType" />
+        <xs:element name="geo_api_context" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commonutils" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="seq_id_len" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="distanceutils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tspsolver" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testmongodb" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="test" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="login" >
+      <xs:sequence>
+        <xs:element name="client" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="httppostexecutor" >
+      <xs:sequence>
+        <xs:element name="module" type="xs:string" />
+        <xs:element name="client" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="constants" >
+      <xs:sequence>
+        <xs:element name="json" type="xs:anyType" />
+        <xs:element name="//url_root" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="simulator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="createorderagent" >
+      <xs:complexContent>
+       <xs:extension base="thread">
+         <xs:sequence>
+          <xs:element name="module" type="xs:string" />
+          <xs:element name="//okhttpclientclient" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="token" type="xs:string" />
+          <xs:element name="//publicmediatypejson" type="httppostexecutor" nillable="true" minOccurs="0" />
+          <xs:element name="nbiters" type="xs:long" />
+          <xs:element name="maxtime" type="xs:double" />
+          <xs:element name="id" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testjdbcpostgresconnector" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getuserloginoutputmodel" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="partyid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getdetailuserloginoutputmodel" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="partyid" type="xs:string" />
+        <xs:element name="allsecuritygroups" type="securitygroupoutputmodel" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="securitygroupoutputmodel" >
+      <xs:sequence>
+        <xs:element name="groupid" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="personupdatemodel" >
+      <xs:sequence>
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="middlename" type="xs:string" />
+        <xs:element name="birth" type="xs:dateTime" />
+        <xs:element name="partycode" type="xs:string" />
+        <xs:element name="roles" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getdetailuserlogininputmodel" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dpersondetailmodel" >
+      <xs:complexContent>
+       <xs:extension base="representationmodel<dpersondetailmodel>">
+         <xs:sequence>
+          <xs:element name="partyid" type="xs:anyType" />
+          <xs:element name="fullname" type="xs:string" />
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="middlename" type="xs:string" />
+          <xs:element name="lastname" type="xs:string" />
+          <xs:element name="status" type="xs:string" />
+          <xs:element name="partytype" type="xs:string" />
+          <xs:element name="created" type="xs:dateTime" />
+          <xs:element name="birth" type="xs:dateTime" />
+          <xs:element name="userloginid" type="xs:string" />
+          <xs:element name="partycode" type="xs:string" />
+          <xs:element name="roles" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dtoperson" >
+      <xs:sequence>
+        <xs:element name="mapdto2entity" type="xs:anyType" />
+        <xs:element name="mapdto2recursive" type="xs:anyType" />
+        <xs:element name="mappair" type="xs:anyType" />
+        <xs:element name="partyid" type="xs:anyType" />
+        <xs:element name="fullname" type="xs:string" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="partytype" type="xs:string" />
+        <xs:element name="created" type="xs:dateTime" />
+        <xs:element name="userloginid" type="xs:string" />
+        <xs:element name="partycode" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sortcriteria" >
+      <xs:sequence>
+        <xs:element name="field" type="xs:string" />
+        <xs:element name="isasc" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="searchcriteria" >
+      <xs:sequence>
+        <xs:element name="key" type="xs:string" />
+        <xs:element name="operation" type="xs:string" />
+        <xs:element name="value" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sortandfiltersinput" >
+      <xs:sequence>
+        <xs:element name="filters" type="searchcriteria" nillable="true" minOccurs="0" />
+        <xs:element name="sort" type="sortcriteria" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="personmodel" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="roles" type="xs:anyType" />
+        <xs:element name="partycode" type="xs:string" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="middlename" type="xs:string" />
+        <xs:element name="gender" type="xs:string" />
+        <xs:element name="birth" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="menucontroller" >
+      <xs:sequence>
+        <xs:element name="module" type="xs:string" />
+        <xs:element name="GeneratedName" type="applicationservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="apicontroller" >
+      <xs:sequence>
+        <xs:element name="module" type="xs:string" />
+        <xs:element name="GeneratedName" type="securitygroupservice" nillable="true" minOccurs="0" />
+        <xs:element name="//tracklocationsservicetracklocationsservice" type="userservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basewebapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schema" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="trigger" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="delete_delivery_plan" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="delete_product" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="requestagent" >
+      <xs:complexContent>
+       <xs:extension base="thread">
+         <xs:sequence>
+          <xs:element name="module" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="json" type="xs:anyType" />
+          <xs:element name="urlroot" type="xs:string" />
+          <xs:element name="//publicstringurl_root" type="xs:anyType" />
+          <xs:element name="rand" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="token" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="httprequesttester" >
+      <xs:sequence>
+        <xs:element name="client" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="webmvcconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="securityconfig" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+          <xs:element name="userdetailsservice" type="basewebuserdetailservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="basicauthenticationendpoint" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="springsecurityauditoraware" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basicauthenticationendpoint" >
+      <xs:complexContent>
+       <xs:extension base="basicauthenticationentrypoint">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpaauditconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="restconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sessionconfig" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="statusitem" >
+      <xs:sequence>
+        <xs:element name="statusid" type="xs:string" />
+        <xs:element name="type" type="statustype" nillable="true" minOccurs="0" />
+        <xs:element name="statuscode" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="applicationtype" >
+      <xs:sequence>
+        <xs:element name="applicationtypeid" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="createdstamp" type="xs:dateTime" />
+        <xs:element name="lastupdstamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="status" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="type" type="statustype" nillable="true" minOccurs="0" />
+        <xs:element name="statuscode" type="xs:string" />
+        <xs:element name="sequenceid" type="xs:string" />
+        <xs:element name="//@column(name" type="xs:string" />
+        <xs:element name="createdstamp" type="xs:dateTime" />
+        <xs:element name="lastupdstamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="person" >
+      <xs:sequence>
+        <xs:element name="partyid" type="xs:anyType" />
+        <xs:element name="//@column(name" type="xs:string" />
+        <xs:element name="//@column(name" type="xs:string" />
+        <xs:element name="//@column(name" type="xs:string" />
+        <xs:element name="//@column(name" type="xs:string" />
+        <xs:element name="//@column(name" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="statustype" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="parenttype" type="statustype" nillable="true" minOccurs="0" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="createdstamp" type="xs:dateTime" />
+        <xs:element name="lastupdstamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="securitypermission" >
+      <xs:sequence>
+        <xs:element name="permissionid" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="createdstamp" type="xs:dateTime" />
+        <xs:element name="lastupdstamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+        <xs:element name="applicationid" type="xs:string" />
+        <xs:element name="type" type="applicationtype" nillable="true" minOccurs="0" />
+        <xs:element name="module" type="application" nillable="true" minOccurs="0" />
+        <xs:element name="permission" type="securitypermission" nillable="true" minOccurs="0" />
+        <xs:element name="createdstamp" type="xs:dateTime" />
+        <xs:element name="lastupdstamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="party" >
+      <xs:sequence>
+        <xs:element name="partyid" type="xs:anyType" />
+        <xs:element name="partycode" type="xs:string" />
+        <xs:element name="type" type="partytype" nillable="true" minOccurs="0" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="party" type="status" nillable="true" minOccurs="0" />
+        <xs:element name="created" type="xs:dateTime" />
+        <xs:element name="lastmodified" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="userlogin" nillable="true" minOccurs="0" />
+        <xs:element name="isunread" type="xs:anyType" />
+        <xs:element name="createdby" type="xs:string" />
+        <xs:element name="modifiedby" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partytype" >
+      <xs:sequence>
+        <xs:element name="//idpartytypeid" type="xs:string" />
+        <xs:element name="parenttype" type="partytype" nillable="true" minOccurs="0" />
+        <xs:element name="hastable" type="xs:anyType" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="createdstamp" type="xs:dateTime" />
+        <xs:element name="lastupdstamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userlogin" >
+      <xs:sequence>
+        <xs:element name="password_encoder" type="xs:anyType" />
+        <xs:element name="userloginid" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="passwordhint" type="xs:string" />
+        <xs:element name="otpsecret" type="xs:string" />
+        <xs:element name="issystem" type="xs:anyType" />
+        <xs:element name="enabled" type="xs:anyType" />
+        <xs:element name="hasloggedout" type="xs:anyType" />
+        <xs:element name="requirepasswordchange" type="xs:anyType" />
+        <xs:element name="successivefailedlogins" type="xs:anyType" />
+        <xs:element name="clienttoken" type="xs:string" />
+        <xs:element name="otpresendnumber" type="xs:long" />
+        <xs:element name="GeneratedName" type="party" nillable="true" minOccurs="0" />
+        <xs:element name="roles" type="securitygroup" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="disabledtime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="securitygroup" >
+      <xs:sequence>
+        <xs:element name="groupid" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="permissions" type="securitypermission" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="createdstamp" type="xs:dateTime" />
+        <xs:element name="lastupdstamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schema" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="addinputmodel" >
+      <xs:sequence>
+        <xs:element name="a" type="xs:long" />
+        <xs:element name="b" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sorderheader" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testcontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sorderapicontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logback-prod" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logback-dev" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basewebapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,23 @@
+
+listing(id:int [PK], GeneratedName:Host #FK to(host), longitude:double, latitude:double, type:String, street_num:int, street_name:String, unit:String, city:String, postal_code_area:String, postal_code_num:String, country:String, listed_on:Date, active:boolean, name:String);
+
+listing_list<amenity>(listingID:listing [PK] #FK to listing,list<amenity>ID:list<amenity> [PK] #FK to list<amenity>);
+
+renter(card_num:Long, exp_:Date);
+
+rentercommentlisting(//:Booking #FK to(booking));
+
+rentercommenthost(////:Booking #FK to(booking));
+
+availability(GeneratedName:Date [PK], price:double, GeneratedName:Listing [PK] #FK to(listing));
+
+booking(id:int [PK], GeneratedName:Status, start_:Date, end_:Date, cost:double, cancelled_by:String, GeneratedName:Renter #FK to(renter), GeneratedName:Listing #FK to(listing), GeneratedName:Host #FK to(host), rch:RenterCommentHost #FK to(renter), rcl:RenterCommentListing #FK to(renter), hcr:HostCommentRenter #FK to(renter));
+
+hostcommentrenter(//:Booking #FK to(booking));
+
+host();
+
+amenity(GeneratedName:Name [PK]);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

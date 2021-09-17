@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="bufferedlog" >
+      <xs:sequence>
+        <xs:element name="_history" type="xs:long" />
+        <xs:element name="_diagctx" type="xs:string" />
+        <xs:element name="_conf" type="xs:anyType" />
+        <xs:element name="sql_markers" type="xs:string" />
+        <xs:element name="jpql_markers" type="xs:string" />
+        <xs:element name="channels" type="xs:anyType" />
+        <xs:element name="_messagemodel" type="logstatement" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sectordistributionpolicy" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sectorbasedquerytargetpolicy" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="exchange" >
+      <xs:complexContent>
+       <xs:extension base="persistenceservice">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="log" type="bufferedlog" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="marketfeed" >
+      <xs:complexContent>
+       <xs:extension base="timertask">
+         <xs:sequence>
+          <xs:element name="/***aquerytofindsymbolsofallstocks.*/get_all_stocks" type="xs:string" />
+          <xs:element name="rng" type="xs:anyType" />
+          <xs:element name="max_change" type="xs:long" />
+          <xs:element name="_service" type="persistenceservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mocktradingservice" >
+      <xs:sequence>
+        <xs:element name="_asks" type="ask" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="_bids" type="bid" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="_trades" type="trade" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="_stocks" type="stock" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="_traders" type="trader" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="_logs" type="logstatement" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="counter" type="xs:long" />
+        <xs:element name="rng" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tradeevent" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="time" type="xs:long" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tradingservice" >
+      <xs:sequence>
+        <xs:element name="/***aquerytofindsymbolsofallstocks.*/get_all_stocks" type="xs:string" />
+        <xs:element name="/***aquerytomatchaskstoagivenbid.*/match_bid" type="xs:string" />
+        <xs:element name="//+"orderbya.priceasc"/***aquerytomatchbidsofagivenask.*/match_ask" type="xs:string" />
+        <xs:element name="//+"orderbyb.pricedesc"/***aquerytofindatraderbyhis/hername.*/query_trader_by_name" type="xs:string" />
+        <xs:element name="/***aquerytofindalltradesinagivenperiod.*/query_trade_by_period" type="xs:string" />
+        <xs:element name="default_unit_name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistenceservice" >
+      <xs:complexContent>
+       <xs:extension base="observable">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="emf" type="xs:anyType" />
+          <xs:element name="unitname" type="xs:string" />
+          <xs:element name="ismanaged" type="xs:anyType" />
+          <xs:element name="scope" type="xs:anyType" />
+          <xs:element name="thread" type="xs:anyType" />
+          <xs:element name="lock" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tradable" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="/***primaryidentityofatradedentity.*itsvalueisgeneratedbythepersistenceprovider.*theapplicationmustnotsetorchangethisvalue.*hencenosettermethodisprovided.*/id" type="xs:long" />
+        <xs:element name="/***thepriceatwhichtheunderlyinginstrumentbetraded.*mustalwaysbepositive.*/price" type="xs:double" />
+        <xs:element name="/***thevolumeordiscreetnumberofunderlyinginstrumentbetraded.*mustalwaysbepositive.*/volume" type="xs:long" />
+        <xs:element name="/***theunderlyinginstrument.*mustneverbenull.*/" type="stock" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="trade" nillable="true" minOccurs="0" />
+        <xs:element name="/***aversionidentifier.*important(andalmostmandatory)foranypersistententitytobepartof*simultaneoustransaction.thepersistenceprovideruses/updatesthe*versiontodetectconcurrentmodificationofanentityinsimultaneous*transaction.*/version" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ask" >
+      <xs:complexContent>
+       <xs:extension base="tradable">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="/***thewhohasmadetheoffer.*mustneverbenull.*/seller" type="trader" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sector" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bid" >
+      <xs:complexContent>
+       <xs:extension base="tradable">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="/***thewhohasmadetheoffer.*mustneverbenull.*/buyer" type="trader" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="trader" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="version" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="match" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="GeneratedName" type="ask" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="bid" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="trade" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="/***primaryidentityofacommittedtrade.*itsvalueisgeneratedbythepersistenceprovider.*theapplicationmustnotsetorchangethisvalue.*hencenosettermethodisprovided.*/id" type="xs:long" />
+        <xs:element name="price" type="xs:double" />
+        <xs:element name="volume" type="xs:long" />
+        <xs:element name="GeneratedName" type="ask" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="bid" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stock" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="/***theprimaryidentityofastock.*theuniquenessoftheprimarykeysareoftenwarrantedbythepersistenceprovider.*inthiscase,uniqueofastocksymbolisensuredbyanexternalagency.*/symbol" type="xs:string" />
+        <xs:element name="/***thenameofthecompanyrepresentedbythisfinancialinstrument.*/company" type="xs:string" />
+        <xs:element name="GeneratedName" type="sector" nillable="true" minOccurs="0" />
+        <xs:element name="price" type="xs:double" />
+        <xs:element name="lastprice" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logstatement" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="level" type="xs:string" />
+        <xs:element name="context" type="xs:string" />
+        <xs:element name="thread" type="xs:string" />
+        <xs:element name="channel" type="xs:string" />
+        <xs:element name="message" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="exceptionadapter" >
+      <xs:sequence>
+        <xs:element name="exceptiontypes" type="xs:anyType" />
+        <xs:element name="_printstacktrace" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tradingserviceadapterimpl" >
+      <xs:complexContent>
+       <xs:extension base="remoteserviceservlet">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="_del" type="tradingservice" nillable="true" minOccurs="0" />
+          <xs:element name="_translator" type="exceptionadapter" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="errordialog" >
+      <xs:complexContent>
+       <xs:extension base="popuppanel">
+         <xs:sequence>
+          <xs:element name="table" type="xs:anyType" />
+          <xs:element name="header" type="xs:anyType" />
+          <xs:element name="close" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="_instance" type="errordialog" nillable="true" minOccurs="0" />
+          <xs:element name="style_caption" type="xs:string" />
+          <xs:element name="style_message" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="helplink" >
+      <xs:complexContent>
+       <xs:extension base="anchor">
+         <xs:sequence>
+          <xs:element name="url" type="xs:string" />
+          <xs:element name="window" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="scrollabletable" >
+      <xs:complexContent>
+       <xs:extension base="composite">
+         <xs:sequence>
+          <xs:element name="_main" type="xs:anyType" />
+          <xs:element name="_caption" type="xs:anyType" />
+          <xs:element name="_header" type="xs:anyType" />
+          <xs:element name="_scroll" type="xs:anyType" />
+          <xs:element name="_renderers" type="xs:anyType" />
+          <xs:element name="_rows" type="xs:anyType" />
+          <xs:element name="_striperows" type="xs:anyType" />
+          <xs:element name="style_caption" type="xs:string" />
+          <xs:element name="style_header" type="xs:string" />
+          <xs:element name="style_main" type="xs:string" />
+          <xs:element name="row_even" type="xs:string" />
+          <xs:element name="row_odd" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fadeeffect" >
+      <xs:complexContent>
+       <xs:extension base="timer">
+         <xs:sequence>
+          <xs:element name="opacity" type="xs:string" />
+          <xs:element name="elem" type="xs:anyType" />
+          <xs:element name="html" type="xs:anyType" />
+          <xs:element name="opacity" type="xs:double" />
+          <xs:element name="delta" type="xs:double" />
+          <xs:element name="sign" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="progressmonitor" >
+      <xs:complexContent>
+       <xs:extension base="timer">
+         <xs:sequence>
+          <xs:element name="opacity" type="xs:string" />
+          <xs:element name="highopacity" type="xs:string" />
+          <xs:element name="lowopacity" type="xs:string" />
+          <xs:element name="volatilecurrent" type="xs:long" />
+          <xs:element name="bar" type="xs:anyType" />
+          <xs:element name="header" type="xs:anyType" />
+          <xs:element name="n" type="xs:long" />
+          <xs:element name="popup" type="xs:anyType" />
+          <xs:element name="_instance" type="progressmonitor" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="gridcellrenderer" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messagebox" >
+      <xs:complexContent>
+       <xs:extension base="popuppanel">
+         <xs:sequence>
+          <xs:element name="_popup" type="messagebox" nillable="true" minOccurs="0" />
+          <xs:element name="header" type="xs:anyType" />
+          <xs:element name="message" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="serverlogpanel" >
+      <xs:complexContent>
+       <xs:extension base="scrollabletable<logstatement>">
+         <xs:sequence>
+          <xs:element name="session" type="opentrader" nillable="true" minOccurs="0" />
+          <xs:element name="markers_and_styles" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="marketdatapanel" >
+      <xs:complexContent>
+       <xs:extension base="scrollabletable<stock>">
+         <xs:sequence>
+          <xs:element name="session" type="opentrader" nillable="true" minOccurs="0" />
+          <xs:element name="refresh" type="xs:anyType" />
+          <xs:element name="refresherval" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="opentradeimagebundle" >
+      <xs:complexContent>
+       <xs:extension base="clientbundle">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="opentrader" >
+      <xs:complexContent>
+       <xs:extension base="eventhandler>">
+         <xs:sequence>
+          <xs:element name="//eventmanagementeventbus" type="xs:anyType" />
+          <xs:element name="//themainwidgetcomponents//themarketpricesstockpanel" type="marketdatapanel" nillable="true" minOccurs="0" />
+          <xs:element name="//createsaask/bidrequestorderpanel" type="tradeorderwindow" nillable="true" minOccurs="0" />
+          <xs:element name="//issuesatradeordertradepanel" type="tradingwindow" nillable="true" minOccurs="0" />
+          <xs:element name="//displayscommittedtradessoldtradepanel" type="trade" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="//displayscommittedtradesboughttradepanel" type="trade" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="//displaysserverlogsserverpanel" type="serverlogpanel" nillable="true" minOccurs="0" />
+          <xs:element name="//server-statevariablesassessionidentifier" type="trader" nillable="true" minOccurs="0" />
+          <xs:element name="_serviceuri" type="xs:string" />
+          <xs:element name="//thehandletotheremoteservice.tradingservice" type="tradingserviceadapterasync" nillable="true" minOccurs="0" />
+          <xs:element name="//resourcebundleforimagesetc.bundle" type="opentradeimagebundle" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tradingserviceadapter" >
+      <xs:complexContent>
+       <xs:extension base="remoteservice">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="matchwindow" >
+      <xs:complexContent>
+       <xs:extension base="popuppanel">
+         <xs:sequence>
+          <xs:element name="session" type="opentrader" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tradehistorypanel" >
+      <xs:complexContent>
+       <xs:extension base="scrollabletable<trade>">
+         <xs:sequence>
+          <xs:element name="session" type="opentrader" nillable="true" minOccurs="0" />
+          <xs:element name="_type" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tradingwindow" >
+      <xs:complexContent>
+       <xs:extension base="scrollabletable<tradable>">
+         <xs:sequence>
+          <xs:element name="session" type="opentrader" nillable="true" minOccurs="0" />
+          <xs:element name="refresh" type="xs:anyType" />
+          <xs:element name="refresherval" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="logindialog" >
+      <xs:complexContent>
+       <xs:extension base="popuppanel">
+         <xs:sequence>
+          <xs:element name="" type="trader" nillable="true" minOccurs="0" />
+          <xs:element name="serveruri" type="xs:string" />
+          <xs:element name="session" type="opentrader" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tradingserviceadapterasync" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tradeorderwindow" >
+      <xs:complexContent>
+       <xs:extension base="flextable">
+         <xs:sequence>
+          <xs:element name="session" type="opentrader" nillable="true" minOccurs="0" />
+          <xs:element name="symbols" type="xs:anyType" />
+          <xs:element name="ask" type="xs:anyType" />
+          <xs:element name="bid" type="xs:anyType" />
+          <xs:element name="marketprice" type="xs:anyType" />
+          <xs:element name="userprice" type="xs:anyType" />
+          <xs:element name="uservolume" type="xs:anyType" />
+          <xs:element name="margin" type="xs:anyType" />
+          <xs:element name="gain" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="serviceevent" >
+      <xs:complexContent>
+       <xs:extension base="eventhandler>">
+         <xs:sequence>
+          <xs:element name="payload" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="serviceeventhandler" >
+      <xs:complexContent>
+       <xs:extension base="eventhandler">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="formatutil" >
+      <xs:sequence>
+        <xs:element name="priceformat" type="xs:anyType" />
+        <xs:element name="changeformat" type="xs:anyType" />
+        <xs:element name="volumeformat" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="web" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="polling" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="marketdata" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

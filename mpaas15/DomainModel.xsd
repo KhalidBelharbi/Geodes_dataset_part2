@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="moduleentity" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="/***模块id*/moduleid" type="xs:string" />
+        <xs:element name="/***包组*/groupid" type="xs:string" />
+        <xs:element name="/***包id**@return*/artifactid" type="xs:string" />
+        <xs:element name="/***包版本**@return*/version" type="xs:string" />
+        <xs:element name="/***创建时间*/createtime" type="xs:dateTime" />
+        <xs:element name="status" type="xs:long" />
+        <xs:element name="/***模块描述*/description" type="xs:string" />
+        <xs:element name="/***模块属性*/attributesentity" type="moduleattributesentity" nillable="true" minOccurs="0" />
+        <xs:element name="/***模块数据*/dataentity" type="moduledataentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mavenrepositoryentity" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="/***模块id*/mavenrepositoryid" type="xs:string" />
+        <xs:element name="/***仓库地址*/url" type="xs:string" />
+        <xs:element name="/***仓库类型*/type" type="xs:string" />
+        <xs:element name="/***仓库id*/id" type="xs:string" />
+        <xs:element name="/***仓库帐号。*/username" type="xs:string" />
+        <xs:element name="/***仓库密码。*/password" type="xs:string" />
+        <xs:element name="/***创建时间*/createtime" type="xs:dateTime" />
+        <xs:element name="/***仓库状态*/status" type="xs:long" />
+        <xs:element name="/***仓库描述*/description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="moduledataentity" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="/***模块id*/moduleid" type="xs:string" />
+        <xs:element name="/***jar包大小*/size" type="xs:long" />
+        <xs:element name="data" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="repositorymoduleentity" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="/***模块id*/moduleid" type="xs:string" />
+        <xs:element name="/***包组*/groupid" type="xs:string" />
+        <xs:element name="/***包id**@return*/artifactid" type="xs:string" />
+        <xs:element name="/***包版本**@return*/version" type="xs:string" />
+        <xs:element name="/***创建时间*/createtime" type="xs:dateTime" />
+        <xs:element name="status" type="xs:long" />
+        <xs:element name="/***模块描述*/description" type="xs:string" />
+        <xs:element name="/***模块属性*/attributesentity" type="repositorymoduleattributesentity" nillable="true" minOccurs="0" />
+        <xs:element name="/***模块数据*/dataentity" type="repositorymoduledataentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pluginattributesentity" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="/***插件属性id*/pluginattributesid" type="xs:string" />
+        <xs:element name="/***插件id*/pluginid" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="plugindataentity" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="/***插件id*/pluginid" type="xs:string" />
+        <xs:element name="/***jar包大小*/size" type="xs:long" />
+        <xs:element name="data" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="moduleattributesentity" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="/***插件属性id*/moduleattributesid" type="xs:string" />
+        <xs:element name="/***插件id*/moduleid" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="repositorymoduleattributesentity" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="/***插件属性id*/moduleattributesid" type="xs:string" />
+        <xs:element name="/***插件id*/moduleid" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="repositorymoduledataentity" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="/***模块id*/moduleid" type="xs:string" />
+        <xs:element name="/***jar包大小*/size" type="xs:long" />
+        <xs:element name="data" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pluginentity" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="/***插件id*/pluginid" type="xs:string" />
+        <xs:element name="/***包组*/groupid" type="xs:string" />
+        <xs:element name="/***包id**@return*/artifactid" type="xs:string" />
+        <xs:element name="/***包版本**@return*/version" type="xs:string" />
+        <xs:element name="/***创建时间*/createtime" type="xs:dateTime" />
+        <xs:element name="status" type="xs:long" />
+        <xs:element name="/***模块描述*/description" type="xs:string" />
+        <xs:element name="/***插件属性*/attributesentity" type="pluginattributesentity" nillable="true" minOccurs="0" />
+        <xs:element name="/***插件数据*/dataentity" type="plugindataentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,55 @@
+
+applicationdata(id:int [PK], application:String);
+
+reportinterval();
+
+application(GeneratedName:Organisation #FK to(organisation), GeneratedName:Assignment #FK to(assignment), GeneratedName:BusinessAssignment #FK to(businessassignment));
+
+reporttemplate();
+
+operatingsystem();
+
+reportperiod();
+
+state();
+
+serverreport(GeneratedName:Logger, server_report_interval_daily:String, server_report_interval_weekly:String, server_report_run_until_date:String, //:java.util.Date, suspended:boolean, lastrundate:java.util.Date, lastrunfeedback:String, GeneratedName:ReportGenerationInterval #FK to(reportgenerationinterval), GeneratedName:ReportReportingPeriod #FK to(reportreportingperiod), GeneratedName:ReportInterval #FK to(reportinterval), GeneratedName:ReportPeriod #FK to(reportperiod), GeneratedName:ReportTemplate #FK to(reporttemplate), createdby:String, updatedby:String, servername:String, email:String, serverdescription:String);
+
+sur_server_report_to_application(fk_server_report_id:ServerReport [PK] #FK to ServerReport,fk_application_id:application [PK] #FK to application);sur_server_removed_from_server_report(fk_server_report_id:ServerReport [PK] #FK to ServerReport,fk_server_id:list<server> [PK] #FK to list<server>);
+
+servertype();
+
+token(token:String, username:String, fullname:String, commaseparatedroles:String, updatedate:java.util.Date, organisationid:int);
+
+organisation(domain:String, providerurl:String);
+
+technicalapplication(contactperson:String);
+
+server(GeneratedName:Application #FK to(application));
+
+user(GeneratedName:Logger, username:String, fullname:String, password:String, organisation:String, commaseparatedroles:String);
+
+tape(GeneratedName:Organisation #FK to(organisation), GeneratedName:Environment #FK to(environment), GeneratedName:Application #FK to(application));
+
+assignment(GeneratedName:Organisation #FK to(organisation), contactperson:String);
+
+importprogresslog(id:int [PK], executor:String, file:String, start:Date, finish:Date, status:ImportState, message:String);
+
+reportreportingperiod();
+
+platform();
+
+automaticexecutionlog(id:int [PK], user:String, organisation:String, report:String, GeneratedName:Date);
+
+grouprole(id:int [PK], name:String, admin:boolean, importer:boolean, reportsetup:boolean);
+
+businessassignment(GeneratedName:Organisation #FK to(organisation));
+
+environment(GeneratedName:Organisation #FK to(organisation));
+
+manualexecutionlog(id:int [PK], user:String, organisation:String, report:String, GeneratedName:Date);
+
+reportgenerationinterval();
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

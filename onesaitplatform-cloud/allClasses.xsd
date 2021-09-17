@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="batchgenericjob" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="batchgenericexecutor" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="batchgenericexecutor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobparamnames" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="scheduler_type" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schedulertypeargumentresolver" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="defaultbatchscheduler" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="autowiringspringbeanjobfactory" >
+      <xs:complexContent>
+       <xs:extension base="springbeanjobfactory">
+         <xs:sequence>
+          <xs:element name="transientbeanfactory" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="defaultbatchexecutor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dbconfigpropertynames" >
+      <xs:sequence>
+        <xs:element name="jpa_property" type="xs:string" />
+        <xs:element name="datasource_property" type="xs:string" />
+        <xs:element name="scheduler_parent_property" type="xs:string" />
+        <xs:element name="scheduler_jpa_property" type="xs:string" />
+        <xs:element name="scheduler_datasource_property" type="xs:string" />
+        <xs:element name="scheduler_datasource_name" type="xs:string" />
+        <xs:element name="scheduler_entity_manager_factory_name" type="xs:string" />
+        <xs:element name="scheduler_transaction_manager_name" type="xs:string" />
+        <xs:element name="scheduler_base_package" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="quartzjobfactoryconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schedulerconfig" >
+      <xs:sequence>
+        <xs:element name="autostartupschedulers" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schedulerdbconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="quartzconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dateutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="scheduledjob" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="jobname" type="xs:string" />
+        <xs:element name="groupname" type="xs:string" />
+        <xs:element name="schedulerid" type="xs:string" />
+        <xs:element name="singleton" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="propertynames" >
+      <xs:sequence>
+        <xs:element name="scheduler_properties" type="xs:string" />
+        <xs:element name="scheduler_properties_location" type="xs:string" />
+        <xs:element name="scheduler_prefix" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="securityconfiguration" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="schedulerstarterautoconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="scheduledjobrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<scheduledjob,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="schedulertype" >
+      <xs:sequence>
+        <xs:element name="schedulername" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schedulerapplication" >
+      <xs:complexContent>
+       <xs:extension base="webmvcconfigureradapter">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="okpiquartzconfig" >
+      <xs:complexContent>
+       <xs:extension base="genericquartzconfig">
+         <xs:sequence>
+          <xs:element name="scheduler_bean_factory_name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="expirationusersquartzconfig" >
+      <xs:complexContent>
+       <xs:extension base="genericquartzconfig">
+         <xs:sequence>
+          <xs:element name="scheduler_bean_factory_name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="restplannerquartzconfig" >
+      <xs:complexContent>
+       <xs:extension base="genericquartzconfig">
+         <xs:sequence>
+          <xs:element name="scheduler_bean_factory_name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="simulationquartzconfig" >
+      <xs:complexContent>
+       <xs:extension base="genericquartzconfig">
+         <xs:sequence>
+          <xs:element name="scheduler_bean_factory_name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="batchquartzconfig" >
+      <xs:complexContent>
+       <xs:extension base="genericquartzconfig">
+         <xs:sequence>
+          <xs:element name="scheduler_bean_factory_name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="scriptquartzconfig" >
+      <xs:complexContent>
+       <xs:extension base="genericquartzconfig">
+         <xs:sequence>
+          <xs:element name="scheduler_bean_factory_name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="twitterquartzconfig" >
+      <xs:complexContent>
+       <xs:extension base="genericquartzconfig">
+         <xs:sequence>
+          <xs:element name="scheduler_bean_factory_name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="schedulernames" >
+      <xs:sequence>
+        <xs:element name="script_scheduler_name" type="xs:string" />
+        <xs:element name="twitter_scheduler_name" type="xs:string" />
+        <xs:element name="simulation_scheduler_name" type="xs:string" />
+        <xs:element name="batch_scheduler_name" type="xs:string" />
+        <xs:element name="okpi_scheduler_name" type="xs:string" />
+        <xs:element name="rest_planner_scheduler_name" type="xs:string" />
+        <xs:element name="expiration_users_name" type="xs:string" />
+        <xs:element name="expiration_reset_users_name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="expirationresetusersquartzconfig" >
+      <xs:complexContent>
+       <xs:extension base="genericquartzconfig">
+         <xs:sequence>
+          <xs:element name="scheduler_bean_factory_name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jobgenerator" >
+      <xs:complexContent>
+       <xs:extension base="job">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="triggergenerator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="triggergeneratorimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobgeneratorimpl" >
+      <xs:complexContent>
+       <xs:extension base="job>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="schedulerdefaultcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="taskservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="responseinfo" >
+      <xs:sequence>
+        <xs:element name="success" type="xs:anyType" />
+        <xs:element name="text" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="scheduleresponseinfo" >
+      <xs:complexContent>
+       <xs:extension base="responseinfo">
+         <xs:sequence>
+          <xs:element name="jobname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="listtaskinfo" >
+      <xs:sequence>
+        <xs:element name="jobname" type="xs:string" />
+        <xs:element name="jobgroup" type="xs:string" />
+        <xs:element name="jobdescription" type="xs:string" />
+        <xs:element name="jobstatus" type="xs:string" />
+        <xs:element name="cronexpression" type="xs:string" />
+        <xs:element name="createtime" type="xs:string" />
+        <xs:element name="nextfiretime" type="xs:string" />
+        <xs:element name="previousfiretime" type="xs:string" />
+        <xs:element name="schedulertype" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="taskoperation" >
+      <xs:sequence>
+        <xs:element name="jobname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="taskinfo" >
+      <xs:sequence>
+        <xs:element name="jobname" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="cronexpression" type="xs:string" />
+        <xs:element name="GeneratedName" type="schedulertype" nillable="true" minOccurs="0" />
+        <xs:element name="data" type="xs:anyType" />
+        <xs:element name="issingleton" type="xs:anyType" />
+        <xs:element name="startat" type="xs:dateTime" />
+        <xs:element name="endat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="genericquartzconfig" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="quartz" type="xs:anyType" />
+        <xs:element name="quartzdatasourceconfig" type="schedulerconfig" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="batchscheduler" >
+      <xs:complexContent>
+       <xs:extension base="scheduler{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="taskservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="batchfactoryimpl" >
+      <xs:sequence>
+        <xs:element name="schedulers" type="batchscheduler" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="schedulermap" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="scheduledjobserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="scheduledjobrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="taskserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="trigger>">
+         <xs:sequence>
+          <xs:element name="not_found" type="xs:string" />
+          <xs:element name="job_with_name" type="xs:string" />
+          <xs:element name="group_name" type="xs:string" />
+          <xs:element name="" type="batchschedulerfactory" nillable="true" minOccurs="0" />
+          <xs:element name="" type="triggergenerator" nillable="true" minOccurs="0" />
+          <xs:element name="" type="jobgenerator" nillable="true" minOccurs="0" />
+          <xs:element name="" type="scheduledjobservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="batchschedulerfactory" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="scheduledjobservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="genericbatchscheduler" >
+      <xs:complexContent>
+       <xs:extension base="trigger>">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="batchschedulerexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bootstrap" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="quartz-schema" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="defaultviewconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="asyncconfiguration" >
+      <xs:sequence>
+        <xs:element name="/***@valuelogswhensomethreadstarts*/" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sessionutils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="synthesizerservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="synthesizerrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="guitarservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="guitarrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="drumservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="drumrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderservice" >
+      <xs:sequence>
+        <xs:element name="orderdrumrep" type="orderdrumrepository" nillable="true" minOccurs="0" />
+        <xs:element name="orderguitarrep" type="orderguitarrepository" nillable="true" minOccurs="0" />
+        <xs:element name="ordersynthesizerrep" type="ordersynthesizerrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="drumservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="guitarservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="synthesizerservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="registrationform" >
+      <xs:sequence>
+        <xs:element name="surname" type="xs:string" />
+        <xs:element name="login" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="confirmpassword" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="synthesizer" >
+      <xs:complexContent>
+       <xs:extension base="product">
+         <xs:sequence>
+          <xs:element name="number_of_keys" type="xs:long" />
+          <xs:element name="type_of_keyboard" type="xs:string" />
+          <xs:element name="number_of_timbres" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderuserdrum" >
+      <xs:complexContent>
+       <xs:extension base="orderuser">
+         <xs:sequence>
+          <xs:element name="/***thelistofproductsthisuserisassociatedwithinthetablewithdrumorders.*@seejavax.persistence.onetomany*/list" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderusersynthesizer" >
+      <xs:complexContent>
+       <xs:extension base="orderuser{">
+         <xs:sequence>
+          <xs:element name="/***thelistofproductsthisuserisassociatedwithinthetablewithsynthesizerorders.*@seejavax.persistence.onetomany*/list" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderguitar" >
+      <xs:complexContent>
+       <xs:extension base="order">
+         <xs:sequence>
+          <xs:element name="/***thefieldthatreferstotheusertowhichthisguitarisassociated.*@seejavax.persistence.id*@seejavax.persistence.manytoone*@seejavax.persistence.joincolumn*/order" type="orderguitar" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***inorder*@seejavax.persistence.id*@seejavax.persistence.manytoone*@seejavax.persistence.joincolumn*/" type="guitar" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="guitar" >
+      <xs:complexContent>
+       <xs:extension base="product">
+         <xs:sequence>
+          <xs:element name="/***numberofstrings*/number_of_strings" type="xs:long" />
+          <xs:element name="/***material*/material" type="xs:string" />
+          <xs:element name="/***type*/type" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderuser" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="/***useridintheorder*/loginid" type="xs:long" />
+        <xs:element name="address" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="type" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="surname" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="login" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="/***theattributereferstotheobjectinwhichtheuserisstored.*/" type="type" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="product" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="feature" type="xs:string" />
+        <xs:element name="price" type="xs:double" />
+        <xs:element name="photo" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderuserguitar" >
+      <xs:complexContent>
+       <xs:extension base="orderuser{">
+         <xs:sequence>
+          <xs:element name="/***thelistofproductsthisuserisassociatedwithinthetablewithguitarorders.*@seejavax.persistence.onetomany*/list" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderdrum" >
+      <xs:complexContent>
+       <xs:extension base="order">
+         <xs:sequence>
+          <xs:element name="/***thefieldthatreferstotheusertowhichthisdrumisassociated.*@seejavax.persistence.id*@seejavax.persistence.manytoone*@seejavax.persistence.joincolumn*/order" type="orderdrum" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***inorder*@seejavax.persistence.id*@seejavax.persistence.manytoone*@seejavax.persistence.joincolumn*/" type="drum" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cart" >
+      <xs:sequence>
+        <xs:element name="/***totalpriceattribute*/totalprice" type="xs:double" />
+        <xs:element name="/***productlistincart*/list" type="order" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="drum" >
+      <xs:complexContent>
+       <xs:extension base="product">
+         <xs:sequence>
+          <xs:element name="/***numberofdrums*@seejavax.persistence.column*/numberofdrum" type="xs:long" />
+          <xs:element name="/***color*/color" type="xs:string" />
+          <xs:element name="/***size*/size" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ordersynthesizer" >
+      <xs:complexContent>
+       <xs:extension base="order{">
+         <xs:sequence>
+          <xs:element name="/***thefieldthatreferstotheusertowhichthissynthesizerisassociated.*@seejavax.persistence.id*@seejavax.persistence.manytoone*@seejavax.persistence.joincolumn*/order" type="ordersynthesizer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***inorder*@seejavax.persistence.id*@seejavax.persistence.manytoone*@seejavax.persistence.joincolumn*/" type="synthesizer" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="order" >
+      <xs:sequence>
+        <xs:element name="/***quantityofproductsofonetype*/count" type="xs:long" />
+        <xs:element name="/***totalprice*/totalprice" type="xs:double" />
+        <xs:element name="GeneratedName" type="product" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="responsewrapper" >
+      <xs:sequence>
+        <xs:element name="status" type="xs:anyType" />
+        <xs:element name="message" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="admincontroller" >
+      <xs:sequence>
+        <xs:element name="/***fieldwhereisinjected*@seeorg.springframework.beans.factory.annotation.autowired*/" type="drumservice" nillable="true" minOccurs="0" />
+        <xs:element name="/***fieldwhereisinjected*@seeorg.springframework.beans.factory.annotation.autowired*/" type="guitarservice" nillable="true" minOccurs="0" />
+        <xs:element name="/***fieldwhereisinjected*@seeorg.springframework.beans.factory.annotation.autowired*/" type="synthesizerservice" nillable="true" minOccurs="0" />
+        <xs:element name="/***fieldwhereisinjected*@seeorg.springframework.beans.factory.annotation.autowired*/" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="/***fieldwhereisinjected*@seeorg.springframework.beans.factory.annotation.autowired*/" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="itemcontroller" >
+      <xs:sequence>
+        <xs:element name="/***fieldwhereisinjected*@seeorg.springframework.beans.factory.annotation.autowired*/" type="productservice" nillable="true" minOccurs="0" />
+        <xs:element name="/***fieldwhereisinjected*@seeorg.springframework.beans.factory.annotation.autowired*/" type="drumservice" nillable="true" minOccurs="0" />
+        <xs:element name="/***fieldwhereisinjected*@seeorg.springframework.beans.factory.annotation.autowired*/" type="guitarservice" nillable="true" minOccurs="0" />
+        <xs:element name="/***fieldwhereisinjected*@seeorg.springframework.beans.factory.annotation.autowired*/" type="synthesizerservice" nillable="true" minOccurs="0" />
+        <xs:element name="/***fieldwhereisinjected*@seeorg.springframework.beans.factory.annotation.autowired*/" type="xs:anyType" />
+        <xs:element name="/***fieldwhereisinjected*@seeorg.springframework.beans.factory.annotation.autowired*/" type="orderservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercontroller" >
+      <xs:sequence>
+        <xs:element name="/***fieldwhereisinjected*@seeorg.springframework.beans.factory.annotation.autowired*/" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="/***fieldwhereisinjected*@seeorg.springframework.beans.factory.annotation.autowired*/" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="idrum" >
+      <xs:complexContent>
+       <xs:extension base="iproduct">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="iorder" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iguitar" >
+      <xs:complexContent>
+       <xs:extension base="iproduct">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="isynthesizer" >
+      <xs:complexContent>
+       <xs:extension base="iproduct">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="iorderuser" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iproduct" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="drumrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<drum,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="guitarrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<guitar,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderguitarrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<orderuserguitar,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="synthesizerrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<synthesizer,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderdrumrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<orderuserdrum,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ordersynthesizerrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<orderusersynthesizer,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userdataexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="musicstoreapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="index" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderpage" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="order" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bower" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="license" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name=".travis" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jquery.serializeobject.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="serializeobject.jquery" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="header" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="signup-css" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="musicstoreapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

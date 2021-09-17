@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="actor" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="dob" type="xs:dateTime" />
+        <xs:element name="partner" type="actor" nillable="true" minOccurs="0" />
+        <xs:element name="movies" type="movie" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="movie" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="year" type="xs:long" />
+        <xs:element name="actors" type="actor" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dataloader" >
+      <xs:sequence>
+        <xs:element name="actor_data" type="xs:anyType" />
+        <xs:element name="movie_data" type="xs:anyType" />
+        <xs:element name="movie_actors" type="xs:long" />
+        <xs:element name="partners" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testjest" >
+      <xs:complexContent>
+       <xs:extension base="testcase">
+         <xs:sequence>
+          <xs:element name="container" type="xs:anyType" />
+          <xs:element name="baseuri" type="xs:string" />
+          <xs:element name="default_web_xml" type="xs:string" />
+          <xs:element name="default_base_uri" type="xs:string" />
+          <xs:element name="_xmlparser" type="xs:anyType" />
+          <xs:element name="_" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="json" >
+      <xs:sequence>
+        <xs:element name="field_separator" type="xs:anyType" />
+        <xs:element name="member_separator" type="xs:anyType" />
+        <xs:element name="value_separator" type="xs:anyType" />
+        <xs:element name="ior_separtor" type="xs:anyType" />
+        <xs:element name="quote" type="xs:anyType" />
+        <xs:element name="space" type="xs:anyType" />
+        <xs:element name="object_start" type="xs:anyType" />
+        <xs:element name="object_end" type="xs:anyType" />
+        <xs:element name="array_start" type="xs:anyType" />
+        <xs:element name="array_end" type="xs:anyType" />
+        <xs:element name="newline" type="xs:string" />
+        <xs:element name="null_literal" type="xs:string" />
+        <xs:element name="ref_marker" type="xs:string" />
+        <xs:element name="id_marker" type="xs:string" />
+        <xs:element name="array_empty" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jestservlet" >
+      <xs:complexContent>
+       <xs:extension base="httpservlet">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="/***servletinitializationparametermonikers*/init_para_unit" type="xs:string" />
+          <xs:element name="init_para_standalone" type="xs:string" />
+          <xs:element name="_unit" type="xs:string" />
+          <xs:element name="_debug" type="xs:anyType" />
+          <xs:element name="_emf" type="xs:anyType" />
+          <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="exceptionformatter" >
+      <xs:complexContent>
+       <xs:extension base="xmlformatter">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jestcontext" >
+      <xs:sequence>
+        <xs:element name="_unit" type="xs:string" />
+        <xs:element name="_emf" type="xs:anyType" />
+        <xs:element name="_em" type="xs:anyType" />
+        <xs:element name="_request" type="xs:anyType" />
+        <xs:element name="_response" type="xs:anyType" />
+        <xs:element name="_repos" type="xs:anyType" />
+        <xs:element name="_rootresource" type="xs:string" />
+        <xs:element name="_" type="xs:anyType" />
+        <xs:element name="_cf" type="xs:anyType" />
+        <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+        <xs:element name="one_year_from_now" type="xs:string" />
+        <xs:element name="query_separator" type="xs:anyType" />
+        <xs:element name="context_root" type="xs:string" />
+        <xs:element name="jest_template" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="closure" >
+      <xs:sequence>
+        <xs:element name="_visited" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="metamodelhelper" >
+      <xs:sequence>
+        <xs:element name="dash" type="xs:anyType" />
+        <xs:element name="underscore" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jsonobject" >
+      <xs:complexContent>
+       <xs:extension base="beyond">
+         <xs:sequence>
+          <xs:element name="_type" type="xs:string" />
+          <xs:element name="_id" type="xs:string" />
+          <xs:element name="_ref" type="xs:anyType" />
+          <xs:element name="_values" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="xmlformatter" >
+      <xs:sequence>
+        <xs:element name="_xsd" type="xs:anyType" />
+        <xs:element name="_builder" type="xs:anyType" />
+        <xs:element name="_" type="xs:anyType" />
+        <xs:element name="empty_text" type="xs:string" />
+        <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="processingexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="ctx" type="jpaservletcontext" nillable="true" minOccurs="0" />
+          <xs:element name="_errorcode" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tokenreplacedstream" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpaservletcontext" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="findcommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractcommand">
+         <xs:sequence>
+          <xs:element name="arg_type" type="xs:string" />
+          <xs:element name="_mandatoryargs" type="xs:anyType" />
+          <xs:element name="_validqualifiers" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="querycommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractcommand">
+         <xs:sequence>
+          <xs:element name="arg_query" type="xs:string" />
+          <xs:element name="qualifier_maxresult" type="xs:string" />
+          <xs:element name="qualifier_firstresult" type="xs:string" />
+          <xs:element name="qualifier_named" type="xs:string" />
+          <xs:element name="qualifier_single" type="xs:string" />
+          <xs:element name="_mandatoryargs" type="xs:anyType" />
+          <xs:element name="_validqualifiers" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jsonobjectformatter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="constants" >
+      <xs:sequence>
+        <xs:element name="/***commoncommandqualifiers*/qualifier_format" type="xs:string" />
+        <xs:element name="qualifier_plan" type="xs:string" />
+        <xs:element name="/***mimetypes*/mime_type_plain" type="xs:string" />
+        <xs:element name="mime_type_js" type="xs:string" />
+        <xs:element name="mime_type_css" type="xs:string" />
+        <xs:element name="mime_type_xml" type="xs:string" />
+        <xs:element name="mime_type_json" type="xs:string" />
+        <xs:element name="/***dojotoolkiturlandthemes*/dojo_base_url" type="xs:string" />
+        <xs:element name="dojo_theme" type="xs:string" />
+        <xs:element name="/***rootelementofxmlinstances.mustmatchthenamedefinedin<ahref" type="xs:string" />
+        <xs:element name="attr_id" type="xs:string" />
+        <xs:element name="attr_rel" type="xs:string" />
+        <xs:element name="attr_src" type="xs:string" />
+        <xs:element name="attr_type" type="xs:string" />
+        <xs:element name="attr_name" type="xs:string" />
+        <xs:element name="attr_version" type="xs:string" />
+        <xs:element name="attr_class" type="xs:string" />
+        <xs:element name="attr_href" type="xs:string" />
+        <xs:element name="attr_style" type="xs:string" />
+        <xs:element name="attr_null" type="xs:string" />
+        <xs:element name="attr_member_type" type="xs:string" />
+        <xs:element name="attr_key_type" type="xs:string" />
+        <xs:element name="attr_value_type" type="xs:string" />
+        <xs:element name="/***elementsandattributesinpropertiesxml.*/root_element_properties" type="xs:string" />
+        <xs:element name="element_property" type="xs:string" />
+        <xs:element name="attr_property_key" type="xs:string" />
+        <xs:element name="attr_property_value" type="xs:string" />
+        <xs:element name="root_element_error" type="xs:string" />
+        <xs:element name="element_error_header" type="xs:string" />
+        <xs:element name="element_error_message" type="xs:string" />
+        <xs:element name="element_error_trace" type="xs:string" />
+        <xs:element name="/***rootelementofxmlmeta-model.mustmatchthenamedefinedin<ahref" type="xs:string" />
+        <xs:element name="element_instance" type="xs:string" />
+        <xs:element name="element_uri" type="xs:string" />
+        <xs:element name="element_description" type="xs:string" />
+        <xs:element name="element_ref" type="xs:string" />
+        <xs:element name="element_null_ref" type="xs:string" />
+        <xs:element name="element_member" type="xs:string" />
+        <xs:element name="element_entry" type="xs:string" />
+        <xs:element name="element_entry_key" type="xs:string" />
+        <xs:element name="element_entry_value" type="xs:string" />
+        <xs:element name="/***jestresources*/jest_instance_xsd" type="xs:string" />
+        <xs:element name="jaxp_schema_source" type="xs:string" />
+        <xs:element name="jaxp_schema_language" type="xs:string" />
+        <xs:element name="null_value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="prototypefactory" >
+      <xs:complexContent>
+       <xs:extension base="t>>">
+         <xs:sequence>
+          <xs:element name="_registry" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractcommand" >
+      <xs:sequence>
+        <xs:element name="equal" type="xs:anyType" />
+        <xs:element name="path_separator" type="xs:string" />
+        <xs:element name="empty_list" type="xs:anyType" />
+        <xs:element name="_formatter" type="xs:anyType" />
+        <xs:element name="_qualifiers" type="xs:anyType" />
+        <xs:element name="_args" type="xs:anyType" />
+        <xs:element name="_margs" type="xs:anyType" />
+        <xs:element name="_ctx" type="jpaservletcontext" nillable="true" minOccurs="0" />
+        <xs:element name="_formatterfactory" type="xs:anyType" />
+        <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="objectformatter" >
+      <xs:sequence>
+        <xs:element name="dateformat" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ior" >
+      <xs:sequence>
+        <xs:element name="dash" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jestcommand" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="propertiesformatter" >
+      <xs:complexContent>
+       <xs:extension base="xmlformatter">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="domaincommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractcommand">
+         <xs:sequence>
+          <xs:element name="_validqualifiers" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="propertiescommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractcommand">
+         <xs:sequence>
+          <xs:element name="dot" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jsonobject" >
+      <xs:complexContent>
+       <xs:extension base="beyond">
+         <xs:sequence>
+          <xs:element name="_type" type="xs:string" />
+          <xs:element name="_id" type="xs:string" />
+          <xs:element name="_ref" type="xs:anyType" />
+          <xs:element name="_values" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="json" >
+      <xs:sequence>
+        <xs:element name="field_separator" type="xs:anyType" />
+        <xs:element name="member_separator" type="xs:anyType" />
+        <xs:element name="value_separator" type="xs:anyType" />
+        <xs:element name="ior_separtor" type="xs:anyType" />
+        <xs:element name="quote" type="xs:anyType" />
+        <xs:element name="space" type="xs:anyType" />
+        <xs:element name="object_start" type="xs:anyType" />
+        <xs:element name="object_end" type="xs:anyType" />
+        <xs:element name="array_start" type="xs:anyType" />
+        <xs:element name="array_end" type="xs:anyType" />
+        <xs:element name="newline" type="xs:string" />
+        <xs:element name="null_literal" type="xs:string" />
+        <xs:element name="ref_marker" type="xs:string" />
+        <xs:element name="id_marker" type="xs:string" />
+        <xs:element name="array_empty" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fetch-plan" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entity-name" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="response-format" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jest-instance" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="partyuser" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="picture" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="picture" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="file" type="xs:anyType" />
+        <xs:element name="//filefileuploader" type="partyuser" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="party" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="song" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="party" nillable="true" minOccurs="0" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="GeneratedName" type="album" nillable="true" minOccurs="0" />
+        <xs:element name="location" type="xs:anyType" />
+        <xs:element name="lyrics" type="xs:string" />
+        <xs:element name="votes" type="vote" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="listposition" type="xs:long" />
+        <xs:element name="//@manytoone//partyuserproposer//@type(type" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="songstatus" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="artist" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="picture" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vote" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="vote" type="xs:long" />
+        <xs:element name="voter" type="partyuser" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="album" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="picture" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="artist" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="party" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

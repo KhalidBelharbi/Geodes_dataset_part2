@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="commande" >
+      <xs:sequence>
+        <xs:element name="id_commande" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:dateTime" />
+        <xs:element name="montant" type="xs:double" />
+        <xs:element name="GeneratedName" type="utilisateur" nillable="true" minOccurs="0" />
+        <xs:element name="lignecommande" type="lignecommande" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="id_role" type="xs:long" />
+        <xs:element name="role" type="xs:string" />
+        <xs:element name="utilisateurrole" type="utilisateurrole" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="favoris" >
+      <xs:sequence>
+        <xs:element name="id_favoris" type="xs:long" />
+        <xs:element name="GeneratedName" type="utilisateur" nillable="true" minOccurs="0" />
+        <xs:element name="lignefavoris" type="lignefavoris" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="article" >
+      <xs:sequence>
+        <xs:element name="id_article" type="xs:long" />
+        <xs:element name="libelle" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="prixunitaire" type="xs:double" />
+        <xs:element name="image" type="xs:string" />
+        <xs:element name="commandeassocie" type="lignecommande" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lignecommande" >
+      <xs:sequence>
+        <xs:element name="id_lignecommande" type="xs:long" />
+        <xs:element name="quantite" type="xs:long" />
+        <xs:element name="prixligne" type="xs:double" />
+        <xs:element name="GeneratedName" type="commande" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="article" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="utilisateurrole" >
+      <xs:sequence>
+        <xs:element name="id_utilisateurrole" type="xs:long" />
+        <xs:element name="GeneratedName" type="utilisateur" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="role" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lignefavoris" >
+      <xs:sequence>
+        <xs:element name="id_lignefavoris" type="xs:long" />
+        <xs:element name="GeneratedName" type="favoris" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="article" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="utilisateur" >
+      <xs:sequence>
+        <xs:element name="id_utilisateur" type="xs:long" />
+        <xs:element name="pseudo" type="xs:string" />
+        <xs:element name="motdepasse" type="xs:string" />
+        <xs:element name="nom" type="xs:string" />
+        <xs:element name="prenom" type="xs:string" />
+        <xs:element name="adresse" type="xs:string" />
+        <xs:element name="mail" type="xs:string" />
+        <xs:element name="tel" type="xs:string" />
+        <xs:element name="commande" type="commande" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="utilisateurrole" type="utilisateurrole" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

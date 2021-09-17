@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="sysmenus" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="iconstyle" type="xs:string" />
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="menuindex" type="xs:anyType" />
+        <xs:element name="deep" type="xs:long" />
+        <xs:element name="roleid" type="xs:string" />
+        <xs:element name="sys" type="xs:anyType" />
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="parent" type="sysmenus" nillable="true" minOccurs="0" />
+        <xs:element name="children" type="sysmenus" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="rescources" type="sysresources" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sysroles" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="rolename" type="xs:string" />
+        <xs:element name="roledesc" type="xs:string" />
+        <xs:element name="isenabled" type="xs:anyType" />
+        <xs:element name="create" type="xs:dateTime" />
+        <xs:element name="createuserid" type="xs:string" />
+        <xs:element name="issys" type="xs:anyType" />
+        <xs:element name="datalevel" type="xs:anyType" />
+        <xs:element name="role_users" type="sysusers" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="role_authorities" type="sysauthorities" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sysresources" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="/***theid.*/id" type="xs:string" />
+        <xs:element name="/***theresourcename.*/resourcename" type="xs:string" />
+        <xs:element name="/***theresourcedesc.*/resourcedesc" type="xs:string" />
+        <xs:element name="/***theresourcetype.*/resourcetype" type="xs:anyType" />
+        <xs:element name="/***theresourcepath.*/resourcepath" type="xs:string" />
+        <xs:element name="/***theisenabled.*/isenabled" type="xs:anyType" />
+        <xs:element name="/***thepriority.*/priority" type="xs:string" />
+        <xs:element name="/***theissys.*/issys" type="xs:anyType" />
+        <xs:element name="/***theresource_authorities.*/resource_authorities" type="sysauthorities" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="/***theparent.*/parent" type="sysresources" nillable="true" minOccurs="0" />
+        <xs:element name="/***thechildren.*/children" type="sysresources" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sysauthorities" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="authorityname" type="xs:string" />
+        <xs:element name="authoritydesc" type="xs:string" />
+        <xs:element name="authoritycode" type="xs:string" />
+        <xs:element name="isenabled" type="xs:anyType" />
+        <xs:element name="create" type="xs:dateTime" />
+        <xs:element name="createuserid" type="xs:string" />
+        <xs:element name="sys" type="xs:anyType" />
+        <xs:element name="authority_roles" type="sysroles" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="authority_resources" type="sysresources" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sysusers" >
+      <xs:complexContent>
+       <xs:extension base="grantedauthority>">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="useraccount" type="xs:string" />
+          <xs:element name="userpassword" type="xs:string" />
+          <xs:element name="usertype" type="xs:long" />
+          <xs:element name="isaccountnonexpired" type="xs:anyType" />
+          <xs:element name="authorities" type="xs:anyType" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="isaccountnonlocked" type="xs:anyType" />
+          <xs:element name="iscredentialsnonexpired" type="xs:anyType" />
+          <xs:element name="isenabled" type="xs:anyType" />
+          <xs:element name="issys" type="xs:anyType" />
+          <xs:element name="user_roles" type="sysroles" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="job" type="xs:string" />
+          <xs:element name="creatorid" type="xs:string" />
+          <xs:element name="create" type="xs:dateTime" />
+          <xs:element name="maxdatalevel" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sysrolemenus" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="ind" type="xs:anyType" />
+        <xs:element name="enable" type="xs:anyType" />
+        <xs:element name="menu" type="sysmenus" nillable="true" minOccurs="0" />
+        <xs:element name="role" type="sysroles" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

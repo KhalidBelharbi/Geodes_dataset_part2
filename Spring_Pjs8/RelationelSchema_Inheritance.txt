@@ -1,0 +1,23 @@
+delivery(id:Long [PK], GeneratedName:Order #FK to(Order), GeneratedName:Address, //ready,compstatus:DeliveryStatus);
+
+book(isbn:String, author:String);
+
+album(artist:String, etc:String);
+
+movie(actor:String, director:String);
+
+order(id:Long [PK], GeneratedName:Member #FK to(member), GeneratedName:Delivery #FK to(Delivery), //order_date,springphysicalnamingstrategyorderdate:LocalDateTime, status:OrderStatus);
+
+orderitem(id:Long [PK], GeneratedName:Item #FK to(Item), GeneratedName:Order #FK to(Order), orderprice:int, count:int);
+
+category(id:Long [PK], name:String, parent:Category #FK to(category));
+
+category_item(category_id:Category [PK] #FK to Category,item_id:Item [PK] #FK to Item);
+
+member(id:Long [PK], name:String, GeneratedName:Address);
+
+item(id:Long [PK], name:String, price:int, stockquantity:int, dtype: String);
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

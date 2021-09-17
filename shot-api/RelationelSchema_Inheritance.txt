@@ -1,0 +1,69 @@
+
+shotbatch(serialversionuid:long, shotbatchid:Long [PK], batchid:String, orderid:String, customerid:String, orddeliverydate:Timestamp, treatmentdatetime:Timestamp, ordno:String, orddeliverylocationname:String, orddeliverylocation:String, patientfirstname:String, patientlastname:String, patientdob:Timestamp, patientur:String, patientid:String, price:String, productdescription2:String, dose2:BigDecimal, doseunit2:String, productdescription3:String, dose3:BigDecimal, doseunit3:String, productdescription:String, dose:BigDecimal, doseunit:String, deliverymechanismkey:String, deliverymechanismdescription:String, closedsystem:Boolean, specifiedvolume:BigDecimal, exact:String, comments:String, routeid:String, routename:String, quantity:Integer, infusionduration:String, expirydate:Timestamp, status:String, ordbillto:String, isdeliveryrunrestricted:Boolean, hasdeliveryrunincentive:Boolean, createddate:Timestamp, createdby:int, updateddate:Timestamp, updatedby:Integer, batentkey:String, batdispatchdatetime:String);
+
+customer(cuskey:String [PK], cusname:String, cusbillto:Customer #FK to(customer), cusbillto2:Customer #FK to(customer), cusbillto3:Customer #FK to(customer), cusbillto4:Customer #FK to(customer), cusparentkey:String, cuscategory:String, timezone:String, cusactive:String);
+
+urlrolemapping(id:Integer [PK], url:String, role:Roles #FK to(roles), isactive:Boolean, createdby:String, created:Date, updatedby:String, upd:Date);
+
+administrationroute(serialversionuid:long, codekey:String [PK], code:String, codetype:String, description:String, active:String);
+
+unitofmeasure(serialversionuid:long, key:String [PK], code:String, type:String, description:String, active:String);
+
+roles(/***/serialversionuid:long, roleid:int [PK], rolename:String, description:String, hasbillingright:Boolean);
+
+users(/***/serialversionuid:long, userid:Long [PK], firstname:String, lastname:String, email:String, isactive:Boolean, isdeleted:Boolean, defaultcustomersite:String, defaultorderview:OrderViewType, createdby:String, created:Date, updatedby:String, upd:Date, version:Long, isshotadmin:Boolean, lastlogin:Date);
+
+trialline(serialversionuid:long, key:String [PK], stkkey:String, delkey:String, active:String, cuskey:String, GeneratedName:Trial #FK to(trial));
+
+order(serialversionuid:long, ordkey:String [PK], ordcuskey:String, ordno:String, ordstatus:String, orddate:Timestamp, ordsenddate:Timestamp, ordrecdate:Timestamp, ordentdate:Timestamp, ordadminfrom:String, ordadminto:String, ordlastupdwhen:Timestamp, ordlastupdaction:String, ordpriority:String, ordentkey:String, ordlastupdby:int, ordbillto:String, orddeliverylocation:String, orddeliverydate:Timestamp);
+
+customerlocation(locationid:Long [PK], customerkey:String, name:String);
+
+shottempbatch(serialversionuid:long, batkey:long [PK], GeneratedName:Order, batinvkey:String, batpatkey:String, batshpkey:String, batadminroutecode:String, batassemblyinstructions:String, batassistedby:int, batbillto:String, batbilltocus:String, batcabinetno:int, batcompounded:String, batconfirmedby:int, batcontainervarfactor:BigDecimal, batdateassisted:Timestamp, batdatecompounded:Timestamp, batdateentered:Timestamp, batdatepacked:Timestamp, batdatepicked:Timestamp, batdeliverylocation:String, batdelmechkey:String, batdescription:String, batdiluentvarfactor:BigDecimal, batdispatched:String, batdose:BigDecimal, xxxdoseunits:String, batdrtkey:String, batdrugkey:String, batdsukey:String, batenteredby:int, batentkey:String, batexact:String, batexpirychanged:String, batexpirydate:Timestamp, batexpiryperiod:BigDecimal, batextendedprice:BigDecimal, batvolume:BigDecimal, batweight:BigDecimal, batformulation:String, batftp:String, batinfusionrate:String, batinvquantity:int, batlabelinstructions:String, batlastupdaction:String, batlastupdby:int, batoperator:int, batotherfee:BigDecimal, batpackedby:int, batpatclass:String, batpatfirstname:String, batpatientname:String, batpatienturno:String, batpatlastname:String, batpickedby:int, batprepdate:Timestamp, batpredby:int, batpriority:String, batproductid:String, batpump:String, batpumpretentionvol:BigDecimal, batqed:String, batquantity:short, batrejectnotes:String, batrejectreason:String, batreleasespecs:String, batriva:String, batscore:BigDecimal, batsenttompx:String, batsession:int, batshipdate:Timestamp, batspecificgravity:BigDecimal, batspecifiedvolume:BigDecimal, batstatus:String, batstockonly:String, battestcode:String, battheoreticalwastage:BigDecimal, battreatdate:Timestamp, battrlkey:String, bat_unitprice:BigDecimal, batlastupdwhen:Timestamp, batdrug2key:String, batdsu2key:String, batdose2:BigDecimal, batdrug3key:String, batdsu3key:String, batdose3:BigDecimal, batcsoverride:Boolean, batprepdtoverride:String, xxxdoseunits2:String, xxxdoseunits3:String);
+
+facilityholiday(facilityholidayid:Integer [PK], GeneratedName:Facility #FK to(facility), holiday:Date, createddate:Timestamp);
+
+facility(entitykey:String [PK], name:String, phoneno:String, /***itcanhavethefollowingvalues("australia/*")dependingonwherethefacilityislocated:*australia/queensland:+10*australia/nsw:+10/+11*australia/act:+10/+11*australia/victoria:+10/+11*australia/tasmania:+10/+11*australia/adelaide:+09:30/+10:30*australia/perth:+08*australia/darwin:+09:30*mentionedaboveareallgmtoffsetsforthezone.*/statename:String, timezone:String);
+
+homepageactions(id:int [PK], webpageurl:String, webpagename:String, isactive:boolean, iconname:String, createdby:String, created:Date, updatedby:String, upd:Date);
+
+axisingredient(serialversionuid:long, GeneratedName:Batch #FK to(batch), ingkey:String [PK], ingstkkey:String, ingstatus:String, ingqtyordered:double, ingchargeable:String, xxxtype:String, inglastupdwhen:Timestamp, inglastupdaction:String, inglastupdby:int, ingitemsequence:int);
+
+logistic(id:Long [PK], //@manytoone//customercustomercustomer:String, GeneratedName:OrderType, GeneratedName:Facility #FK to(facility), //relativetodispatchdayincentivedayoffset:Integer, //relativetodispatchdayincentivetimeoffset:Integer, //relativetodispatchdaycutoff1dayoffset:int, //relativetodispatchdaycutoff1timeoffset:int, //relativetodispatchdaycutoff2dayoffset:int, //relativetodispatchdaycutoff2timeoffset:int, cutoff2quantitylimit:int, dispatchtime:int, //relativetodispatchdaydeliverydayoffset:int, //customerlocaldeliverytimedeliverytime:int, dispatchdayslist:String, courier:String);
+
+amountunits(serialversionuid:long, codekey:String [PK], code:String, codetype:String, description:String, active:String);
+
+patient(serialversionuid:long, patientid:Long [PK], customerkey:String, firstname:String, surname:String, dob:Date, ur:String, trialid:String, trialkey:String, isactive:Boolean, createdby:int, createddate:Timestamp, updatedby:int, updateddate:Timestamp);
+
+batch(serialversionuid:long, GeneratedName:ShotBatch #FK to(shotbatch), batkey:String [PK], GeneratedName:Order #FK to(order), batinvkey:String, batpatkey:String, batshpkey:String, batadminroutecode:String, batassemblyinstructions:String, batassistedby:int, batbillto:String, batbilltocus:String, batcabinetno:int, batcompounded:String, batconfirmedby:int, batcontainervarfactor:BigDecimal, batdateassisted:Timestamp, batdatecompounded:Timestamp, batdateentered:Timestamp, batdatepacked:Timestamp, batdatepicked:Timestamp, batdeliverylocation:String, batdelmechkey:String, batdescription:String, batdiluentvarfactor:BigDecimal, batdispatched:String, batdose:BigDecimal, xxxdoseunits:String, batdrtkey:String, batdrugkey:String, batdsukey:String, batenteredby:int, batentkey:String, batexact:String, batexpirychanged:String, batexpirydate:Timestamp, batexpiryperiod:BigDecimal, batextendedprice:BigDecimal, batvolume:BigDecimal, batweight:BigDecimal, batformulation:String, batftp:String, batinfusionrate:String, batinvquantity:int, batlabelinstructions:String, batlastupdaction:String, batlastupdby:int, batoperator:int, batotherfee:BigDecimal, batpackedby:int, batpatclass:String, batpatfirstname:String, batpatientname:String, batpatienturno:String, batpatlastname:String, batpickedbby:int, batprepdate:Timestamp, batpredby:int, batpriority:String, batproductid:String, batpump:String, batpumpretentionvol:BigDecimal, batqed:String, batquantity:short, batrejectnotes:String, batrejectreason:String, batreleasespecs:String, batriva:String, batscore:BigDecimal, batsenttompx:String, batsession:int, batshipdate:Timestamp, batspecificgravity:BigDecimal, batspecifiedvolume:BigDecimal, batstatus:String, batstockonly:String, battestcode:String, battheoreticalwastage:BigDecimal, battreatdate:Timestamp, battrlkey:String, bat_unitprice:BigDecimal, batlastupdwhen:Timestamp, xxxdoseunits2:String, xxxdoseunits3:String, batonhold:String, batdrug2key:String, batdsu2key:String, batdose2:BigDecimal, batdrug3key:String, batdsu3key:String, batdose3:BigDecimal, batcsoverride:Boolean, batprepdtoverride:String, batcomments:String, batreplacementbatkey:String, hasdeliveryrunincentive:Boolean);
+
+stock(serialversionuid:long, key:String [PK], active:String, type:String, code:String, description:String, amountunits:String);
+
+newsfeed(id:Long [PK], header:String, postedby:String, shortdesc:String, longdesc:String, isactive:Boolean, createdby:String, created:Date, updatedby:String, upd:Date, version:Long);
+
+container(serialversionuid:long, stockkey:String [PK], stockdescription:String, stocktype:String, stockcode:String, stockactive:String);
+
+customerpreference(serialversionuid:long, prefid:int [PK], customerkey:String, customername:String, productdescription:String, producttype:String, batdrugkey:String, batdsukey:String, trikey:String, msoingstkkey:String, batformulation:String, dosefrom:Double, doseto:Double, unitofmeasure:String, deliverymechanism:DeliveryMechanisms #FK to(deliverymechanisms), volume:Double, exact:char, quantity:Integer, cod_code:AdministrationRoute #FK to(administrationroute), infusionduration:Double, rank:Integer, comments:String, createdby:Integer, createddate:Timestamp, updatedby:Integer, updateddate:Timestamp);
+
+axisbatchaudit(serialversionuid:long, GeneratedName:AxisBatchAuditIdentity, shotbatchkey:Long, userid:CombinedAxisAndShotUsers #FK to(combinedaxisandshotusers), batdescription:String, batquantity:Integer, batdose:BigDecimal, cod_code:AmountUnits #FK to(amountunits), batdose2:BigDecimal, cod_code:AmountUnits #FK to(amountunits), batdose3:BigDecimal, cod_code:AmountUnits #FK to(amountunits), batspecifiedvolume:BigDecimal, cod_code:AdministrationRoute #FK to(administrationroute), battreatdate:String, batstatus:String, batshipdate:String, batcomments:String, batexact:String);
+
+webpagerolemapping(id:int [PK], webpagename:String, roleid:int, isactive:boolean, createdby:String, created:Date, updatedby:String, upd:Date);
+
+diluent(serialversionuid:long, stockkey:String [PK], stockdescription:String, stocktype:String, stockcode:String, stockactive:String);
+
+deliverymechanisms(serialversionuid:long, key:String [PK], ////@joincolumn(name:Diluent #FK to(diluent), GeneratedName:Container #FK to(container), active:String);
+
+shotorder(serialversionuid:long, /*@onetomany(mappedby:String [PK], ordcuskey:String, ordno:String, billto:String);
+
+userroles(/***/serialversionuid:long, userroleid:Long [PK], user:Users #FK to(users), GeneratedName:Customer #FK to(customer), customername:String, role:Roles #FK to(roles), isactive:Boolean, createdby:String, created:Date, updatedby:String, upd:Date, billto1:Customer #FK to(customer), billto2:Customer #FK to(customer), billto3:Customer #FK to(customer), billto4:Customer #FK to(customer), version:Long);
+
+shottempingredient(serialversionuid:long, GeneratedName:ShotTempBatch #FK to(shottempbatch), ingkey:long [PK], ingstkkey:String, ingstatus:String, ingqtyordered:double, ingchargeable:String, xxxtype:String, inglastupdwhen:Timestamp, inglastupdaction:String, inglastupdby:int, ingitemsequence:int);
+
+trial(serialversionuid:long, key:String [PK], name:String, active:String);
+
+productadministrationroutes(serialversionuid:long, key:String [PK], GeneratedName:Stock #FK to(stock), cod_code:AdministrationRoute #FK to(administrationroute), active:String, lastupdwhen:Timestamp, lastupdby:int, lastupdaction:String);
+
+combinedaxisandshotusers(serialversionuid:long, userid:Long [PK], firtname:String, lastname:String, system:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

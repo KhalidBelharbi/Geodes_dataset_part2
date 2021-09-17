@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="order" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="orderdate" type="xs:anyType" />
+        <xs:element name="orderstatus" type="xs:long" />
+        <xs:element name="//todo:addrelationtopaymenttablepaymentid" type="xs:long" />
+        <xs:element name="//todo:addrelationtodeliverytabledeliveryid" type="xs:long" />
+        <xs:element name="GeneratedName" type="customer" nillable="true" minOccurs="0" />
+        <xs:element name="totalcost" type="xs:anyType" />
+        <xs:element name="products" type="orderproducts" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="payment" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="payment_type" type="xs:string" />
+        <xs:element name="amount" type="xs:double" />
+        <xs:element name="card_num" type="xs:long" />
+        <xs:element name="payment_" type="xs:dateTime" />
+        <xs:element name="cust_name" type="xs:string" />
+        <xs:element name="cust_id" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inventory" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="quantity" type="xs:long" />
+        <xs:element name="brand" type="xs:string" />
+        <xs:element name="count" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="department" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="GeneratedName" type="store" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="product" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="product_brand" type="xs:string" />
+        <xs:element name="product_name" type="xs:string" />
+        <xs:element name="product_description" type="xs:string" />
+        <xs:element name="price" type="xs:anyType" />
+        <xs:element name="dept" type="department" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="store" nillable="true" minOccurs="0" />
+        <xs:element name="imglist" type="productimg" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accountprofiles" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="payment" type="xs:string" />
+        <xs:element name="phone" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="admin" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="user_name" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderproducts" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="order" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="product" nillable="true" minOccurs="0" />
+        <xs:element name="count" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="store" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="store_name" type="xs:string" />
+        <xs:element name="street_address" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="state" type="xs:string" />
+        <xs:element name="zip" type="xs:string" />
+        <xs:element name="deptlist" type="department" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="prodlist" type="product" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customer" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="middlename" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="dob" type="xs:anyType" />
+        <xs:element name="//usermaynotwanttoregisterpassword" type="xs:string" />
+        <xs:element name="telno" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="address1" type="xs:string" />
+        <xs:element name="address2" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cartproducts" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="cart" type="shoppingcart" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="product" nillable="true" minOccurs="0" />
+        <xs:element name="count" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="runner" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productimg" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="prod" type="product" nillable="true" minOccurs="0" />
+        <xs:element name="imgpath" type="xs:string" />
+        <xs:element name="desc" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shoppingcart" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="customer" nillable="true" minOccurs="0" />
+        <xs:element name="products" type="cartproducts" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="totalcost" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,17 @@
+
+owner(address:String, city:String, telephone:String);
+
+vet();
+
+vet_specialties(vet_id:Vet [PK] #FK to Vet,speciality_id:set<speciality> [PK] #FK to set<speciality>);
+
+visit(date:LocalDate, description:String, GeneratedName:Pet #FK to(pet));
+
+pettype(name:String);
+
+pet(name:String, GeneratedName:PetType #FK to(pettype), GeneratedName:Owner #FK to(owner), birthdate:LocalDate);
+
+speciality(description:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

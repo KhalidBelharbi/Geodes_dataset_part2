@@ -1,0 +1,21 @@
+
+magazin(ind:int [PK], emails:Map<String,String>);
+
+organizatie(id:int [PK]);
+
+produs(id:int [PK], pret:int, nume:String);
+
+produs_Factura(produsID:produs [PK] #FK to produs,FacturaID:Factura [PK] #FK to Factura);
+
+persoana(id:int [PK]);
+
+adresa(id:int [PK], strada:String, GeneratedName:Organizatie #FK to(Organizatie), GeneratedName:Persoana #FK to(Persoana));
+
+depozit(id:int [PK], firme:Map<Adresa,String>);
+
+factura(id:int [PK], dataemitere:LocalDate, GeneratedName:Status, emails:Collection<String>);
+
+tricou(id:int [PK], modele:Map<Marime,String>);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

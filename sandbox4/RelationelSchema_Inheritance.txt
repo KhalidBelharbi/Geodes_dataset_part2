@@ -1,0 +1,15 @@
+
+employeeproject(id:int [PK], GeneratedName:Employee #FK to(employee), GeneratedName:Project #FK to(project), workedfrom:Date);
+
+skill(skillid:int [PK], skillname:String);
+
+project(projectid:int [PK], name:String, start:Date);
+
+employee(employeeid:int [PK], employeename:String, employee:Address #FK to(address));
+
+employeeskills(empid:Employee [PK] #FK to Employee,skillid:set<skill> [PK] #FK to set<skill>);
+
+address(addressid:int [PK], street:String, city:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

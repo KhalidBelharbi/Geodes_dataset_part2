@@ -1,0 +1,33 @@
+
+passwordresettoken(//1dayexpiration:int, id:long [PK], token:String, GeneratedName:Person #FK to(person), exipration:Date);
+
+attribute(id:long [PK], name:String, subcategory:AttributeSubcategory #FK to(attributesubcategory), description:String, reputation:int, isenabled:boolean, isdeleted:boolean, isupdateable:boolean);
+
+consumer(id:long [PK], identifier:String, name:String, description:String, isenabled:boolean, isdeleted:boolean);
+
+attributemap(id:long [PK], providerattributename:String, lmpattributename:String, attributenameinresponse:String, GeneratedName:Provider #FK to(provider), GeneratedName:Attribute #FK to(attribute));
+
+organization(id:long [PK], identifier:String, name:String, email:String, description:String);
+
+entity_has_consumers(entity_id:Organization [PK] #FK to Organization,consumer_id:list<consumer> [PK] #FK to list<consumer>);entity_has_providers(entity_id:Organization [PK] #FK to Organization,provider_id:list<provider> [PK] #FK to list<provider>);
+
+person(id:long [PK], name:String, surname:String, phone:String, email:String, password:String, identifier:String, address:String, postalcode:String, city:String, country:String, description:String, company:String, jobposition:String, legal:boolean, clientrole:boolean, providerrole:boolean, activated:boolean);
+
+person_has_consumers(person_id:Person [PK] #FK to Person,consumer_id:set<consumer> [PK] #FK to set<consumer>);person_has_providers(person_id:Person [PK] #FK to Person,provider_id:set<provider> [PK] #FK to set<provider>);
+
+sphere(id:Long [PK], identifier:String, name:String, description:String, type:String, isenabled:boolean, isdeleted:boolean, isdataextracted:boolean, GeneratedName:Person #FK to(person));
+
+sphere_has_consumers(sphere_id:Sphere [PK] #FK to Sphere,consumer_id:list<consumer> [PK] #FK to list<consumer>);sphere_has_attributes(sphere_id:Sphere [PK] #FK to Sphere,attribute_id:list<attribute> [PK] #FK to list<attribute>);
+
+provider(id:long [PK], identifier:String, name:String, description:String, type:String, url:String, isoauth:boolean, oauthurl:String, isenabled:boolean, isdeleted:boolean);
+
+personentityrelationship(//state:administrator,associated,requested_from_user,requested_from_entityid:long [PK], GeneratedName:Person #FK to(person), GeneratedName:Organization #FK to(organization), state:String);
+
+attributecategory(id:long [PK], name:String);
+
+attributesubcategory(id:long [PK], name:String, category:AttributeCategory #FK to(attributecategory));
+
+token(id:long [PK], GeneratedName:Person #FK to(person), GeneratedName:Provider #FK to(provider), token:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

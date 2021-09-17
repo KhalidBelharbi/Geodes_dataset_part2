@@ -1,0 +1,12 @@
+ClassDiagram.Class>> Employee =>=>=> RelationalSchema.Table>> employee;
+ClassDiagram.Class>> Department =>=>=> RelationalSchema.Table>> department;
+ClassDiagram.Attribut>> Employee.id:Long =>=>=> RelationalSchema.Column>> employee.id PRIMARY KEY;
+ClassDiagram.Attribut>> Employee.firstname:String =>=>=> RelationalSchema.Column>> employee.firstname;
+ClassDiagram.Attribut>> Employee.lastname:String =>=>=> RelationalSchema.Column>> employee.lastname;
+ClassDiagram.Attribut>> Employee.salary:Integer =>=>=> RelationalSchema.Column>> employee.salary;
+ClassDiagram.Attribut>> Employee.GeneratedName:Audit =>=>=> RelationalSchema.Column>> employee.GeneratedName;
+ClassDiagram.Attribut>> Department.id:Long =>=>=> RelationalSchema.Column>> department.id PRIMARY KEY;
+ClassDiagram.Attribut>> Department.name:String =>=>=> RelationalSchema.Column>> department.name;
+ClassDiagram.Attribut>> Department.GeneratedName:Audit =>=>=> RelationalSchema.Column>> department.GeneratedName;
+Many-To-One relationship from ClassDiagram.Class>>Employee  to ClassDiagram.Class>>department represented by ClassDiagram.Atrribute>>GeneratedName;
+One-To-Many relationship from ClassDiagram.Class>>Department  to ClassDiagram.Class>>List<Employee>;

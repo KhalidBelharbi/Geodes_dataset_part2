@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="applicationdata" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="application" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reportinterval" >
+      <xs:complexContent>
+       <xs:extension base="defaultedparameter">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:complexContent>
+       <xs:extension base="basedata">
+         <xs:sequence>
+          <xs:element name="organisationid" type="xs:long" />
+          <xs:element name="assignmentid" type="xs:long" />
+          <xs:element name="businessassignmentid" type="xs:long" />
+          <xs:element name="" type="organisation" nillable="true" minOccurs="0" />
+          <xs:element name="" type="assignment" nillable="true" minOccurs="0" />
+          <xs:element name="" type="businessassignment" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="reporttemplate" >
+      <xs:complexContent>
+       <xs:extension base="defaultedparameter">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="operatingsystem" >
+      <xs:complexContent>
+       <xs:extension base="basedata">
+         <xs:sequence>
+          <xs:element name="servers" type="server" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="reportperiod" >
+      <xs:complexContent>
+       <xs:extension base="defaultedparameter">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="state" >
+      <xs:complexContent>
+       <xs:extension base="basedata">
+         <xs:sequence>
+          <xs:element name="servers" type="server" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="serverreport" >
+      <xs:complexContent>
+       <xs:extension base="component">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="server_report_interval_daily" type="xs:string" />
+          <xs:element name="server_report_interval_weekly" type="xs:string" />
+          <xs:element name="server_report_run_until_date" type="xs:string" />
+          <xs:element name="//" type="application" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="applicationids" type="xs:anyType" />
+          <xs:element name="//" type="xs:anyType" />
+          <xs:element name="suspended" type="xs:anyType" />
+          <xs:element name="lastrundate" type="xs:anyType" />
+          <xs:element name="lastrunfeedback" type="xs:string" />
+          <xs:element name="reportgenerationervalid" type="xs:long" />
+          <xs:element name="reportgenerationdayid" type="xs:long" />
+          <xs:element name="reportreportingperiodid" type="xs:long" />
+          <xs:element name="reportervalid" type="xs:long" />
+          <xs:element name="reportperiodid" type="xs:long" />
+          <xs:element name="reporttemplateid" type="xs:long" />
+          <xs:element name="" type="reportgenerationinterval" nillable="true" minOccurs="0" />
+          <xs:element name="" type="reportreportingperiod" nillable="true" minOccurs="0" />
+          <xs:element name="" type="reportinterval" nillable="true" minOccurs="0" />
+          <xs:element name="" type="reportperiod" nillable="true" minOccurs="0" />
+          <xs:element name="" type="reporttemplate" nillable="true" minOccurs="0" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="updatedby" type="xs:string" />
+          <xs:element name="servername" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="serverdescription" type="xs:string" />
+          <xs:element name="excludedservers" type="server" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="excludedserversids" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="servertype" >
+      <xs:complexContent>
+       <xs:extension base="basedata">
+         <xs:sequence>
+          <xs:element name="servers" type="server" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="token" >
+      <xs:sequence>
+        <xs:element name="token" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="fullname" type="xs:string" />
+        <xs:element name="commaseparatedroles" type="xs:string" />
+        <xs:element name="updatedate" type="xs:anyType" />
+        <xs:element name="organisationid" type="xs:long" />
+        <xs:element name="roles" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="organisation" >
+      <xs:complexContent>
+       <xs:extension base="basedata">
+         <xs:sequence>
+          <xs:element name="used" type="xs:anyType" />
+          <xs:element name="referrersinfos" type="referrersinfo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="servers" type="server" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="applications" type="application" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="environments" type="environment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="domain" type="xs:string" />
+          <xs:element name="providerurl" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="technicalapplication" >
+      <xs:complexContent>
+       <xs:extension base="basedata">
+         <xs:sequence>
+          <xs:element name="servers" type="server" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="contactperson" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="server" >
+      <xs:complexContent>
+       <xs:extension base="component">
+         <xs:sequence>
+          <xs:element name="excluded" type="xs:anyType" />
+          <xs:element name="applicationid" type="xs:long" />
+          <xs:element name="applicationname" type="xs:string" />
+          <xs:element name="" type="application" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="fullname" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="organisation" type="xs:string" />
+        <xs:element name="commaseparatedroles" type="xs:string" />
+        <xs:element name="roles" type="userrole" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tape" >
+      <xs:complexContent>
+       <xs:extension base="basedata">
+         <xs:sequence>
+          <xs:element name="" type="organisation" nillable="true" minOccurs="0" />
+          <xs:element name="" type="environment" nillable="true" minOccurs="0" />
+          <xs:element name="" type="application" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="assignment" >
+      <xs:complexContent>
+       <xs:extension base="basedata">
+         <xs:sequence>
+          <xs:element name="" type="organisation" nillable="true" minOccurs="0" />
+          <xs:element name="organisationid" type="xs:long" />
+          <xs:element name="contactperson" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="importprogresslog" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="executor" type="xs:string" />
+        <xs:element name="file" type="xs:string" />
+        <xs:element name="start" type="xs:dateTime" />
+        <xs:element name="finish" type="xs:dateTime" />
+        <xs:element name="status" type="importstate" nillable="true" minOccurs="0" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="hangingtoolong" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reportreportingperiod" >
+      <xs:complexContent>
+       <xs:extension base="defaultedparameter">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="platform" >
+      <xs:complexContent>
+       <xs:extension base="basedata">
+         <xs:sequence>
+          <xs:element name="servers" type="server" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="automaticexecutionlog" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="user" type="xs:string" />
+        <xs:element name="organisation" type="xs:string" />
+        <xs:element name="report" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="grouprole" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="admin" type="xs:anyType" />
+        <xs:element name="importer" type="xs:anyType" />
+        <xs:element name="reportsetup" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="businessassignment" >
+      <xs:complexContent>
+       <xs:extension base="basedata">
+         <xs:sequence>
+          <xs:element name="" type="organisation" nillable="true" minOccurs="0" />
+          <xs:element name="organisationid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="environment" >
+      <xs:complexContent>
+       <xs:extension base="basedata">
+         <xs:sequence>
+          <xs:element name="servers" type="server" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="organisation" nillable="true" minOccurs="0" />
+          <xs:element name="organisationid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="manualexecutionlog" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="user" type="xs:string" />
+        <xs:element name="organisation" type="xs:string" />
+        <xs:element name="report" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reportgenerationinterval" >
+      <xs:complexContent>
+       <xs:extension base="defaultedparameter">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

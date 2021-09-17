@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="project" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="projectname" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="releases" type="release" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="gitrepository" nillable="true" minOccurs="0" />
+        <xs:element name="status" type="projectstatus" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="release" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="branchname" type="xs:string" />
+        <xs:element name="extreleaseid" type="xs:string" />
+        <xs:element name="releasename" type="xs:string" />
+        <xs:element name="GeneratedName" type="project" nillable="true" minOccurs="0" />
+        <xs:element name="enoviaentities" type="enoviaentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tagtype" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="color" type="xs:string" />
+        <xs:element name="tags" type="tag" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="GeneratedName" type="role" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="project" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="permission" >
+      <xs:sequence>
+        <xs:element name="mnemonic" type="xs:string" />
+        <xs:element name="permission" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gitrepository" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="uri" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="GeneratedName" type="project" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tag" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="enoviaentities" type="enoviaentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="type" type="tagtype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="enoviaentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="entityname" type="xs:string" />
+        <xs:element name="GeneratedName" type="release" nillable="true" minOccurs="0" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="GeneratedName" type="ematrix" nillable="true" minOccurs="0" />
+        <xs:element name="ematrixhtml" type="xs:string" />
+        <xs:element name="filename" type="xs:string" />
+        <xs:element name="tags" type="tag" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="child" type="enoviaentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="mnemonic" type="xs:string" />
+        <xs:element name="rolename" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="permissions" type="permission" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

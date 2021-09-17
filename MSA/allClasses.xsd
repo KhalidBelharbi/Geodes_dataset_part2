@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="ordersentityserviceapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ordergoodsrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<ordergoodsentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ordersrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<ordersentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ordershistoryrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<ordershistoryentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderserviceapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baseentity" >
+      <xs:sequence>
+        <xs:element name="createddate" type="xs:anyType" />
+        <xs:element name="lastmodifieddate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ordersentity" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="/*주문번호에해당하는회원은변경불가*/memberid" type="xs:long" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="originalprice" type="xs:anyType" />
+          <xs:element name="discountpercent" type="xs:anyType" />
+          <xs:element name="discountedprice" type="xs:anyType" />
+          <xs:element name="cancelyn" type="xs:anyType" />
+          <xs:element name="cancelreason" type="xs:string" />
+          <xs:element name="ordergoodentities" type="ordergoodsentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ordershistoryentity" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="orderid" type="xs:long" />
+          <xs:element name="/*주문번호에해당하는회원은변경불가*/memberid" type="xs:long" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="originalprice" type="xs:anyType" />
+          <xs:element name="discountpercent" type="xs:anyType" />
+          <xs:element name="discountedprice" type="xs:anyType" />
+          <xs:element name="cancelyn" type="xs:anyType" />
+          <xs:element name="ordergoodentities" type="ordergoodsentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ordergoodsentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="menuid" type="xs:long" />
+        <xs:element name="parentmenuid" type="xs:long" />
+        <xs:element name="//xxx이후민:@embedded사용해보는건어때요?originalprice" type="xs:anyType" />
+        <xs:element name="discountpercent" type="xs:anyType" />
+        <xs:element name="discountedprice" type="xs:anyType" />
+        <xs:element name="options" type="ordergoodsentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ordermapper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="ordersrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="ordershistoryrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="ordermapper" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schedulerconfig" >
+      <xs:sequence>
+        <xs:element name="pool_size" type="xs:long" />
+        <xs:element name="thread_name_prefix" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

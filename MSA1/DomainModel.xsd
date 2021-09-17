@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="basetimeentity" >
+      <xs:sequence>
+        <xs:element name="createddate" type="xs:anyType" />
+        <xs:element name="updateddate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reviewentity" >
+      <xs:complexContent>
+       <xs:extension base="basetimeentity{">
+         <xs:sequence>
+          <xs:element name="//xxx이후민:이부분비슷하게고민을좀했었는데reviewid가따로필요할까요?//mongodb는id가uuid로string으로들어가지만jpa는인id만있으면된다.//dto로변환할때서비스마다통일하면될것같다.id" type="xs:long" />
+          <xs:element name="version" type="xs:long" />
+          <xs:element name="userid" type="xs:long" />
+          <xs:element name="productid" type="xs:long" />
+          <xs:element name="//xxx이후민:내용을뜻하는거라면content가더명확해보여요contents" type="xs:string" />
+          <xs:element name="//xxx이후민:소수점처리도가능하도록바꾸는게좋아보여요rating" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

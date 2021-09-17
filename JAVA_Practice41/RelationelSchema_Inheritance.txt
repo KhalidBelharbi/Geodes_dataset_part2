@@ -1,0 +1,15 @@
+
+role(//主键roleid:long, //父节点idpid:long, name:String, isparent:Boolean, description:String);
+
+role_set<privilege>(roleID:role [PK] #FK to role,set<privilege>ID:set<privilege> [PK] #FK to set<privilege>);
+
+department(departmentid:long [PK], departmentname:String, description:String);
+
+privilege(privilegeid:Long [PK], privilegename:String, pid:Long, icon:String, isparent:Boolean, url:String, target:String, type:int);
+
+user(userid:long [PK], loginname:String, username:String, password:String, phone:String, email:String, sex:String, GeneratedName:Department);
+
+user_set<role>(userID:user [PK] #FK to user,set<role>ID:set<role> [PK] #FK to set<role>);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

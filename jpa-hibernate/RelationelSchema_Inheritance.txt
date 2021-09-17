@@ -1,0 +1,13 @@
+
+orderitem(id:Long [PK], GeneratedName:Order #FK to(order), GeneratedName:Item #FK to(Item), orderprice:Long, count:int);
+
+item(id:Long [PK], name:String, price:int, stockquantity:int);
+
+order(id:Long [PK], GeneratedName:Member #FK to(member), orderdate:LocalDateTime, status:OrderStatus);
+
+locker(id:Long [PK], name:String);
+
+member(id:Long [PK], name:String, GeneratedName:Locker #FK to(locker));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

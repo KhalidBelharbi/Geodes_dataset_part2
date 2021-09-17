@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="cacheentity" >
+      <xs:sequence>
+        <xs:element name="uri" type="xs:string" />
+        <xs:element name="GeneratedName" type="uid" nillable="true" minOccurs="0" />
+        <xs:element name="content" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="topic" >
+      <xs:complexContent>
+       <xs:extension base="uid">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="lang" type="language" nillable="true" minOccurs="0" />
+          <xs:element name="createdat" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="item" >
+      <xs:complexContent>
+       <xs:extension base="uid">
+         <xs:sequence>
+          <xs:element name="ns" type="xs:string" />
+          <xs:element name="number" type="xs:string" />
+          <xs:element name="content" type="xs:string" />
+          <xs:element name="taggedcontent" type="xs:string" />
+          <xs:element name="//@column(columndefinition" type="xs:string" />
+          <xs:element name="//fieldforoptimizationorderoperationondatabaseorderindex" type="xs:double" />
+          <xs:element name="upsat" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="record" >
+      <xs:complexContent>
+       <xs:extension base="uid{">
+         <xs:sequence>
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="previousname" type="xs:string" />
+          <xs:element name="recorderat" type="xs:dateTime" />
+          <xs:element name="createdat" type="xs:dateTime" />
+          <xs:element name="audiourl" type="xs:string" />
+          <xs:element name="altaudiogid" type="xs:string" />
+          <xs:element name="text" type="xs:string" />
+          <xs:element name="duration" type="xs:anyType" />
+          <xs:element name="description" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="term" >
+      <xs:complexContent>
+       <xs:extension base="uid">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="shortdescription" type="xs:string" />
+          <xs:element name="taggedshortdescription" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="taggeddescription" type="xs:string" />
+          <xs:element name="//googledocisdescriptiongid" type="xs:string" />
+          <xs:element name="//googledocetagdescriptiongversion" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="uid" >
+      <xs:sequence>
+        <xs:element name="uri" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="itemsrangeseq" >
+      <xs:sequence>
+        <xs:element name="seq" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="accesstoken" type="xs:string" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="picture" type="xs:string" />
+        <xs:element name="timezone" type="xs:string" />
+        <xs:element name="thumbnail" type="xs:string" />
+        <xs:element name="GeneratedName" type="oauthprovider" nillable="true" minOccurs="0" />
+        <xs:element name="role" type="userrole" nillable="true" minOccurs="0" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="lastvisitat" type="xs:dateTime" />
+        <xs:element name="providerid" type="xs:long" />
+        <xs:element name="hiddenactioneventid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="articleseq" >
+      <xs:sequence>
+        <xs:element name="seq" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="category" >
+      <xs:complexContent>
+       <xs:extension base="uid">
+         <xs:sequence>
+          <xs:element name="//paragraph_name" type="xs:string" />
+          <xs:element name="paragraph_sign" type="xs:string" />
+          <xs:element name="//todorenametocodename" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="parent" type="xs:string" />
+          <xs:element name="next" type="xs:string" />
+          <xs:element name="start" type="xs:string" />
+          <xs:element name="end" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pendingaction" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="initiatedby" type="xs:anyType" />
+        <xs:element name="command" type="xs:string" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="action" nillable="true" minOccurs="0" />
+        <xs:element name="confirmedat" type="xs:dateTime" />
+        <xs:element name="confirmedby" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="actionevent" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="createdby" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="action" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="videoresource" >
+      <xs:complexContent>
+       <xs:extension base="uid">
+         <xs:sequence>
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="lang" type="language" nillable="true" minOccurs="0" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="publishedat" type="xs:dateTime" />
+          <xs:element name="createdat" type="xs:dateTime" />
+          <xs:element name="createdby" type="xs:anyType" />
+          <xs:element name="official" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="article" >
+      <xs:complexContent>
+       <xs:extension base="uid">
+         <xs:sequence>
+          <xs:element name="sequence" type="xs:anyType" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="content" type="xs:string" />
+          <xs:element name="taggedcontent" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="termmorph" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="termuri" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="translation" >
+      <xs:sequence>
+        <xs:element name="origin" type="xs:string" />
+        <xs:element name="translated" type="xs:string" />
+        <xs:element name="lang" type="language" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lightlink" >
+      <xs:sequence>
+        <xs:element name="linkid" type="xs:anyType" />
+        <xs:element name="type" type="linktype" nillable="true" minOccurs="0" />
+        <xs:element name="source" type="xs:string" />
+        <xs:element name="quote" type="xs:string" />
+        <xs:element name="taggedquote" type="xs:string" />
+        <xs:element name="comment" type="xs:string" />
+        <xs:element name="rate" type="xs:double" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="createdby" type="xs:anyType" />
+        <xs:element name="uid1" type="xs:string" />
+        <xs:element name="uid2" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="itemsrange" >
+      <xs:complexContent>
+       <xs:extension base="uid">
+         <xs:sequence>
+          <xs:element name="name_space" type="xs:string" />
+          <xs:element name="sequence" type="xs:anyType" />
+          <xs:element name="//from:5.0001//to:5.0002(определилпоследующейстроке)//code:5.17.1.1(том.раздел.глава.параграф)//description:"ииссиидиологиянепризнаётсянаукой,котораявсвоюочередьнеможетответитьнавопросыоструктуресамосознания.поэтомупредставлениялюдейо"своейдуше"туманныинадуманы."//uri:ии:пункты:5.17.1.1from" type="xs:string" />
+          <xs:element name="to" type="xs:string" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="//uriofparentcategorycategory" type="xs:string" />
+          <xs:element name="createdat" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="link" >
+      <xs:sequence>
+        <xs:element name="linkid" type="xs:anyType" />
+        <xs:element name="type" type="linktype" nillable="true" minOccurs="0" />
+        <xs:element name="source" type="xs:string" />
+        <xs:element name="quote" type="xs:string" />
+        <xs:element name="taggedquote" type="xs:string" />
+        <xs:element name="comment" type="xs:string" />
+        <xs:element name="rate" type="xs:double" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="createdby" type="xs:anyType" />
+        <xs:element name="1" type="uid" nillable="true" minOccurs="0" />
+        <xs:element name="2" type="uid" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="termparagraph" >
+      <xs:sequence>
+        <xs:element name="term" type="xs:string" />
+        <xs:element name="paragraph" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="document" >
+      <xs:complexContent>
+       <xs:extension base="uid">
+         <xs:sequence>
+          <xs:element name="*/id" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="annotation" type="xs:string" />
+          <xs:element name="author" type="xs:string" />
+          <xs:element name="thumbnail" type="xs:string" />
+          <xs:element name="mimetype" type="xs:string" />
+          <xs:element name="icon" type="xs:string" />
+          <xs:element name="downloadurl" type="xs:string" />
+          <xs:element name="createdat" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="resource" >
+      <xs:complexContent>
+       <xs:extension base="uid">
+         <xs:sequence>
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="type" type="resourcetype" nillable="true" minOccurs="0" />
+          <xs:element name="comments" type="xs:string" />
+          <xs:element name="createdat" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="image" >
+      <xs:complexContent>
+       <xs:extension base="uid">
+         <xs:sequence>
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="mimetype" type="xs:string" />
+          <xs:element name="downloadurl" type="xs:string" />
+          <xs:element name="thumbnail" type="xs:string" />
+          <xs:element name="createdat" type="xs:dateTime" />
+          <xs:element name="comment" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,23 @@
+
+user(GeneratedName:UserProduct, username:String [PK], cash:float, defaultcard:CreditCard #FK to(creditcard), registration:Date, lastlogin:Date, GeneratedName:Profile #FK to(profile));
+
+competition(competitionnumber:Integer [PK], name:String, GeneratedName:Country, GeneratedName:Sport, starting:Date, ending:Date);
+
+feedback(fbnumber:Integer [PK], fbtype:FeedbackType, email:String, name:String, summary:String, details:String, submission:Date, filename:String, extension:String, filesize:int, filedata:byte);
+
+profile(id:String [PK], name:String, surname:String, email:String, address:String, phonenumber:String, nationality:Country, city:String, birth:Date, profilepic:String, GeneratedName:User #FK to(user));
+
+event(eventnumber:Integer [PK], description:String, event:Date, ending:Date, GeneratedName:Sport, GeneratedName:Competition #FK to(competition));
+
+feedbackrecord(fbrecordnumber:Integer [PK], administrator:User, GeneratedName:Feedback, read:boolean);
+
+prediction(predictionnumber:Integer [PK], GeneratedName:Question, answer:String, odds:float, outcome:Boolean);
+
+creditcard(cardnumber:String [PK], due:Date, balance:double, limit:double, GeneratedName:CardType, GeneratedName:Status, owner:User #FK to(user), default_balance:double, default_limit:double);
+
+question(questionnumber:Integer [PK], question:String, betminimum:float, result:int, GeneratedName:Event #FK to(event));
+
+bet(betnumber:Integer [PK], bettor:User #FK to(user), type:BetType, status:BetStatus, stake:float, placement:Date, starting:Date, resolving:Date, winnings:float);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

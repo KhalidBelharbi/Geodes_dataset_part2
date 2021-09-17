@@ -1,0 +1,718 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="s2jdbcgenmessages_ja" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="s2jdbc-gen-task" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="javafilegeneratorimpl" >
+      <xs:sequence>
+        <xs:element name="/***javaファイルの拡張子*/extension" type="xs:string" />
+        <xs:element name="/***ロガー*/" type="xs:anyType" />
+        <xs:element name="/***freemarkerの設定*/" type="xs:anyType" />
+        <xs:element name="/***基盤となるディレクトリ*/basedir" type="xs:anyType" />
+        <xs:element name="/***エンコーディング*/encoding" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="javafilegenerator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="primarykeymodelconverter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitiesreader" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="uniquekeymodelconverter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="columnmodelconverter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="javacode" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rowmodel" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="primarykeymodel" nillable="true" minOccurs="0" />
+        <xs:element name="valuelist" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitymodel" >
+      <xs:sequence>
+        <xs:element name="/***名前*/name" type="xs:string" />
+        <xs:element name="/***複合idをもつならば{@codetrue}*/compositeid" type="xs:anyType" />
+        <xs:element name="/***プロパティモデルのリスト*/propertymodellist" type="propertymodel" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="/***idであるプロパティモデルのリスト*/idpropertymodellist" type="propertymodel" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dbcolumndesc" >
+      <xs:sequence>
+        <xs:element name="/***名前*/name" type="xs:string" />
+        <xs:element name="/***sql型*/sqltype" type="xs:long" />
+        <xs:element name="/***型名*/typename" type="xs:string" />
+        <xs:element name="/***長さ*/length" type="xs:long" />
+        <xs:element name="/***スケール*/scale" type="xs:long" />
+        <xs:element name="/***null可能ならば{@codetrue}*/nullable" type="xs:anyType" />
+        <xs:element name="/***主キーの場合{@codetrue}*/primarykey" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="key" >
+      <xs:sequence>
+        <xs:element name="values" type="xs:anyType" />
+        <xs:element name="hashcode" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="propertymodel" >
+      <xs:sequence>
+        <xs:element name="/***名前*/name" type="xs:string" />
+        <xs:element name="/***プロパティのクラス*/propertyclass" type="xs:anyType" />
+        <xs:element name="/***識別子であれば{@codetrue}*/id" type="xs:anyType" />
+        <xs:element name="/***時制の種別*/" type="xs:anyType" />
+        <xs:element name="/***バージョンであれば{@codetrue}*/version" type="xs:anyType" />
+        <xs:element name="/***一時的であれば{@codetrue}*/trnsient" type="xs:anyType" />
+        <xs:element name="/***{@codelob}であれば{@codetrue}*/lob" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="uniquekeymodel" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="columnnamelist" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dbtabledesc" >
+      <xs:sequence>
+        <xs:element name="/***名前*/name" type="xs:string" />
+        <xs:element name="/***スキーマ名*/schema" type="xs:string" />
+        <xs:element name="/***カラム記述のリスト*/columndesclist" type="dbcolumndesc" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tablemodelfactoryimpl" >
+      <xs:sequence>
+        <xs:element name="tablemodelcache" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tablemodel" >
+      <xs:sequence>
+        <xs:element name="schema" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="columnmodellist" type="columnmodel" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="columnmodelmap" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="primarykeymodel" nillable="true" minOccurs="0" />
+        <xs:element name="foreignkeymodellist" type="foreignkeymodel" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="foreignkeymodemap" type="xs:anyType" />
+        <xs:element name="uniquekeymodellist" type="uniquekeymodel" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="uniquekeymodelmap" type="xs:anyType" />
+        <xs:element name="rowmodellist" type="rowmodel" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="rowmodelmap" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="columnmodel" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="GeneratedName" type="sqltype" nillable="true" minOccurs="0" />
+        <xs:element name="definition" type="xs:string" />
+        <xs:element name="nullable" type="xs:anyType" />
+        <xs:element name="unique" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="foreignkeymodel" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="columnnamelist" type="xs:anyType" />
+        <xs:element name="referencedcolumnnamelist" type="xs:anyType" />
+        <xs:element name="referencedschemaname" type="xs:string" />
+        <xs:element name="referencedtablename" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sequencemodel" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="primarykeymodel" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="identity" type="xs:anyType" />
+        <xs:element name="columnnamelist" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="propertymodelconverterimpl" >
+      <xs:sequence>
+        <xs:element name="/***永続化層の命名規約*/" type="xs:anyType" />
+        <xs:element name="/***方言*/dialect" type="gendialect" nillable="true" minOccurs="0" />
+        <xs:element name="/***バージョンカラム*/versioncolumn" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="idgenerationtablemodelconverterimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="tablemodelfactory" nillable="true" minOccurs="0" />
+        <xs:element name="dialect" type="gendialect" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="uniquekeymodelconverterimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="columnmodelconverterimpl" >
+      <xs:sequence>
+        <xs:element name="default_" type="xs:anyType" />
+        <xs:element name="dialect" type="gendialect" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitymodelconverterimpl" >
+      <xs:sequence>
+        <xs:element name="/***永続化層の命名規約*/" type="xs:anyType" />
+        <xs:element name="/***プロパティモデルへのコンバータ*/" type="propertymodelconverter" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="primarykeymodelconverterimpl" >
+      <xs:sequence>
+        <xs:element name="dialect" type="gendialect" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="foreignkeymodelconverterimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tablemodelconverterimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="tablemodelfactory" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="columnmodelconverter" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="primarykeymodelconverter" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="foreignkeymodelconverter" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="uniquekeymodelconverter" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="beanutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="templateutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="configurationutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="closeableutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqltype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="templateruntimeexception" >
+      <xs:complexContent>
+       <xs:extension base="sruntimeexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tablemodelconverter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="oraclegendialect" >
+      <xs:complexContent>
+       <xs:extension base="standardgendialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="postgregendialect" >
+      <xs:complexContent>
+       <xs:extension base="standardgendialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="interbasegendialect" >
+      <xs:complexContent>
+       <xs:extension base="standardgendialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="db2400gendialect" >
+      <xs:complexContent>
+       <xs:extension base="db2390gendialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hsqlgendialect" >
+      <xs:complexContent>
+       <xs:extension base="standardgendialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="gendialectmanager" >
+      <xs:complexContent>
+       <xs:extension base="gendialect>}のクラスを値とするマップ">
+         <xs:sequence>
+          <xs:element name="/***db2390用の{@codegendialect}の実装クラス*/db2_390" type="db2390gendialect" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***db2400用の{@codegendialect}の実装クラス*/db2_400" type="db2400gendialect" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***db2用の{@codegendialect}の実装クラス*/db2" type="db2gendialect" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***derby用の{@codegendialect}の実装クラス*/derby" type="derbygendialect" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***firebird用の{@codegendialect}の実装クラス*/firebird" type="firebirdgendialect" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***h2用の{@codegendialect}の実装クラス*/h2" type="h2gendialect" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***hsqldb用の{@codegendialect}の実装クラス*/hsql" type="hsqlgendialect" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***interbase用の{@codegendialect}の実装クラス*/interbase" type="interbasegendialect" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***maxdb用の{@codegendialect}の実装クラス*/maxdb" type="maxdbgendialect" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***mssqlserver2005用の{@codegendialect}の実装クラス*/mssql_2005" type="mssql2005gendialect" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***mssqlserver用の{@codegendialect}の実装クラス*/mssql" type="mssqlgendialect" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***mysql用の{@codegendialect}の実装クラス*/mysql" type="mysqlgendialect" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***oracle用の{@codegendialect}の実装クラス*/oracle" type="oraclegendialect" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***postgresql用の{@codegendialect}の実装クラス*/postgre" type="postgregendialect" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***sybase用の{@codegendialect}の実装クラス*/sybase" type="sybasegendialect" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***標準の{@codegendialect}の実装クラス*/standard" type="standardgendialect" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="getdialectclassmap" type="xs:anyType" />
+          <xs:element name="gendialectcache" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="maxdbgendialect" >
+      <xs:complexContent>
+       <xs:extension base="standardgendialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="derbygendialect" >
+      <xs:complexContent>
+       <xs:extension base="standardgendialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mssqlgendialect" >
+      <xs:complexContent>
+       <xs:extension base="standardgendialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sybasegendialect" >
+      <xs:complexContent>
+       <xs:extension base="standardgendialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="firebirdgendialect" >
+      <xs:complexContent>
+       <xs:extension base="standardgendialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mysqlgendialect" >
+      <xs:complexContent>
+       <xs:extension base="standardgendialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="standardgendialect" >
+      <xs:sequence>
+        <xs:element name="javatypemap" type="xs:anyType" />
+        <xs:element name="sqltypemap" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="h2gendialect" >
+      <xs:complexContent>
+       <xs:extension base="standardgendialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="db2gendialect" >
+      <xs:complexContent>
+       <xs:extension base="standardgendialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="db2390gendialect" >
+      <xs:complexContent>
+       <xs:extension base="db2gendialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mssql2005gendialect" >
+      <xs:complexContent>
+       <xs:extension base="mssqlgendialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="schemareader" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="propertymodelconverter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gendialect" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="idgenerationtablemodelconverter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="foreignkeymodelconverter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitiesreaderimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schemareaderimpl" >
+      <xs:sequence>
+        <xs:element name="/***データソース*/" type="xs:anyType" />
+        <xs:element name="/***方言*/dialect" type="gendialect" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tablemodelfactory" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gencommand" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entityjavacode" >
+      <xs:complexContent>
+       <xs:extension base="abstractjavacode">
+         <xs:sequence>
+          <xs:element name="/***エンティティモデル*/" type="entitymodel" nillable="true" minOccurs="0" />
+          <xs:element name="/***インポートパッケージ名の名前*/importpackagenames" type="xs:anyType" />
+          <xs:element name="/***基底クラス名*/baseclassname" type="xs:string" />
+          <xs:element name="/***パッケージ名を除いた基底クラス名*/shortbaseclassname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitybasejavacode" >
+      <xs:complexContent>
+       <xs:extension base="abstractjavacode">
+         <xs:sequence>
+          <xs:element name="/***エンティティモデル*/" type="entitymodel" nillable="true" minOccurs="0" />
+          <xs:element name="/***インポートパッケージ名のセット*/importpackagenames" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractjavacode" >
+      <xs:sequence>
+        <xs:element name="/***クラス名*/classname" type="xs:string" />
+        <xs:element name="/***パッケージ名*/packagename" type="xs:string" />
+        <xs:element name="/***パッケージ名を除いたクラス名*/shortclassname" type="xs:string" />
+        <xs:element name="/***テンプレート名*/templatename" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitymodelconverter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="genschematask" >
+      <xs:complexContent>
+       <xs:extension base="gentask">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="gentask" >
+      <xs:complexContent>
+       <xs:extension base="task">
+         <xs:sequence>
+          <xs:element name="/***このタスクから実行するコマンドクラスの名前*/commandclassname" type="xs:string" />
+          <xs:element name="/***クラスパス*/class" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="genentitiestask" >
+      <xs:complexContent>
+       <xs:extension base="gentask">
+         <xs:sequence>
+          <xs:element name="/***diconファイル*/diconfile" type="xs:string" />
+          <xs:element name="/***{@linkjdbcmanager}のコンポーネント名*/jdbcmanagername" type="xs:string" />
+          <xs:element name="/***ルートパッケージ名*/rootpackagename" type="xs:string" />
+          <xs:element name="/***エンティティパッケージ名*/entitypackagename" type="xs:string" />
+          <xs:element name="/***エンティティ基底クラスのパッケージ名*/entitybasepackagename" type="xs:string" />
+          <xs:element name="/***エンティティ基底クラス名のプレフィックス*/entitybaseclassnameprefix" type="xs:string" />
+          <xs:element name="/***テンプレートファイルを格納するディレクトリ*/templatedir" type="xs:anyType" />
+          <xs:element name="/***エンティティクラスのテンプレート名*/entitytemplatename" type="xs:string" />
+          <xs:element name="/***エンティティ基底クラスのテンプレート名*/entitybasetemplatename" type="xs:string" />
+          <xs:element name="/***テンプレートファイルのエンコーディング*/templatefileencoding" type="xs:string" />
+          <xs:element name="/***生成するjavaファイルの出力先ディレクトリ*/destdir" type="xs:anyType" />
+          <xs:element name="/***javaファイルのエンコーディング*/javafileencoding" type="xs:string" />
+          <xs:element name="/***スキーマの名前*/schemaname" type="xs:string" />
+          <xs:element name="/***バージョン用カラムの名前*/versioncolumnname" type="xs:string" />
+          <xs:element name="/***テーブル名のパターン*/tablenamepattern" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="genentitiescommand" >
+      <xs:sequence>
+        <xs:element name="/***ロガー*/" type="xs:anyType" />
+        <xs:element name="/***diconファイル*/diconfile" type="xs:string" />
+        <xs:element name="/***{@linkjdbcmanager}のコンポーネント名*/jdbcmanagername" type="xs:string" />
+        <xs:element name="/***ルートパッケージ名*/rootpackagename" type="xs:string" />
+        <xs:element name="/***エンティティパッケージ名*/entitypackagename" type="xs:string" />
+        <xs:element name="/***エンティティ基底クラスのパッケージ名*/entitybasepackagename" type="xs:string" />
+        <xs:element name="/***エンティティ基底クラスのプレフィックス*/entitybaseclassnameprefix" type="xs:string" />
+        <xs:element name="/***生成するjavaファイルの出力先ディレクトリ*/destdir" type="xs:anyType" />
+        <xs:element name="/***javaファイルのエンコーディング*/javafileencoding" type="xs:string" />
+        <xs:element name="/***テンプレートファイルを格納するディレクトリ*/templatedir" type="xs:anyType" />
+        <xs:element name="/***エンティティクラスのテンプレート名*/entitytemplatename" type="xs:string" />
+        <xs:element name="/***エンティティ基底クラスのテンプレート名*/entitybasetemplatename" type="xs:string" />
+        <xs:element name="/***テンプレートファイルのエンコーディング*/templatefileencoding" type="xs:string" />
+        <xs:element name="/***スキーマ名*/schemaname" type="xs:string" />
+        <xs:element name="/***正規表現で表されるテーブル名のパターン*/tablenamepattern" type="xs:string" />
+        <xs:element name="/***バージョンカラムの名前*/versioncolumnname" type="xs:string" />
+        <xs:element name="/***このインスタンスで{@linksingletons2containerfactory}が初期化されたら{@codetrue}*/initialized" type="xs:anyType" />
+        <xs:element name="/***データソース*/" type="xs:anyType" />
+        <xs:element name="/***方言*/dialect" type="gendialect" nillable="true" minOccurs="0" />
+        <xs:element name="/***永続化層の命名規約*/" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="genschemacommand" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="javafilegeneratorimpltest_entity" >
+      <xs:complexContent>
+       <xs:extension base="abstractfoo">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="javafilegeneratorimpltest_entitybase" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="lob" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:dateTime" />
+        <xs:element name="temp" type="xs:string" />
+        <xs:element name="version" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="javafilegeneratorimpltest_entitybase_compositeid" >
+      <xs:sequence>
+        <xs:element name="id1" type="xs:long" />
+        <xs:element name="id2" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="javafilegeneratorimpltest_hoge" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mockdatabasemetadata" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schemareaderimpltest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ggg" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="id2" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ddd" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bbb" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="aaa" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="bbbid" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="bbb" nillable="true" minOccurs="0" />
+        <xs:element name="bbb2id" type="xs:anyType" />
+        <xs:element name="2" type="bbb" nillable="true" minOccurs="0" />
+        <xs:element name="cccid1" type="xs:anyType" />
+        <xs:element name="cccid2" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="ccc" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fff" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="eee" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hhh" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="id2" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ccc" >
+      <xs:sequence>
+        <xs:element name="id1" type="xs:anyType" />
+        <xs:element name="id2" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="genentitiescommandtest" >
+      <xs:sequence>
+        <xs:element name="command" type="genentitiescommand" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tablemodelfactoryimpltest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="keytest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitybasejavacodetest" >
+      <xs:sequence>
+        <xs:element name="model" type="entitymodel" nillable="true" minOccurs="0" />
+        <xs:element name="code" type="entitybasejavacode" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entityjavacodetest" >
+      <xs:sequence>
+        <xs:element name="model" type="entitymodel" nillable="true" minOccurs="0" />
+        <xs:element name="code" type="entityjavacode" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstjavacodetest" >
+      <xs:sequence>
+        <xs:element name="code" type="abstractjavacode" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="beanutiltest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gendialectmanagertest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gentasktest" >
+      <xs:complexContent>
+       <xs:extension base="classloader">
+         <xs:sequence>
+          <xs:element name="commandclassname" type="xs:string" />
+          <xs:element name="task" type="gentask" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="primarykeymodelconverterimpltest" >
+      <xs:sequence>
+        <xs:element name="factory" type="xs:anyType" />
+        <xs:element name="converter" type="primarykeymodelconverterimpl" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="idgenerationtablemodelconverterimpltest" >
+      <xs:sequence>
+        <xs:element name="factory" type="xs:anyType" />
+        <xs:element name="converter" type="idgenerationtablemodelconverterimpl" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="columnmodelconverterimpltest" >
+      <xs:sequence>
+        <xs:element name="factory" type="xs:anyType" />
+        <xs:element name="converter" type="columnmodelconverterimpl" nillable="true" minOccurs="0" />
+        <xs:element name="hoge" type="xs:string" />
+        <xs:element name="foo" type="xs:string" />
+        <xs:element name="timestamp" type="xs:dateTime" />
+        <xs:element name="bar" type="xs:string" />
+        <xs:element name="GeneratedName" type="bbb" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="foreignkeymodelconverterimpltest" >
+      <xs:sequence>
+        <xs:element name="factory" type="xs:anyType" />
+        <xs:element name="converter" type="foreignkeymodelconverterimpl" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="uniquekeymodelconverterimpltest" >
+      <xs:sequence>
+        <xs:element name="factory" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitymodelconverterimpltest" >
+      <xs:sequence>
+        <xs:element name="converter" type="entitymodelconverterimpl" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tablemodelconverterimpltest" >
+      <xs:sequence>
+        <xs:element name="factory" type="xs:anyType" />
+        <xs:element name="converter" type="tablemodelconverterimpl" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="propertymodelconverterimpltest" >
+      <xs:sequence>
+        <xs:element name="converter" type="propertymodelconverterimpl" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="javafilegeneratorimpltest" >
+      <xs:complexContent>
+       <xs:extension base="abstractjavacode">
+         <xs:sequence>
+          <xs:element name="generator" type="javafilegeneratorimpl" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

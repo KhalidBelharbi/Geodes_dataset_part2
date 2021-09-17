@@ -1,0 +1,18 @@
+ClassDiagram.Class>> OrderItem =>=>=> RelationalSchema.Table>> orderitem;
+ClassDiagram.Class>> Order =>=>=> RelationalSchema.Table>> order;
+ClassDiagram.Attribut>> OrderItem.linenumber:int =>=>=> RelationalSchema.Column>> orderitem.linenumber PRIMARY KEY;
+ClassDiagram.Attribut>> OrderItem.orderid:String =>=>=> RelationalSchema.Column>> orderitem.orderid PRIMARY KEY;
+ClassDiagram.Attribut>> OrderItem.itemid:String =>=>=> RelationalSchema.Column>> orderitem.itemid;
+ClassDiagram.Attribut>> OrderItem.quantity:int =>=>=> RelationalSchema.Column>> orderitem.quantity;
+ClassDiagram.Attribut>> OrderItem.unitprice:long =>=>=> RelationalSchema.Column>> orderitem.unitprice;
+ClassDiagram.Attribut>> Order.id:String =>=>=> RelationalSchema.Column>> order.id PRIMARY KEY;
+ClassDiagram.Attribut>> Order.userid:String =>=>=> RelationalSchema.Column>> order.userid;
+ClassDiagram.Attribut>> Order.order:Date =>=>=> RelationalSchema.Column>> order.order;
+ClassDiagram.Attribut>> Order.subtotal:long =>=>=> RelationalSchema.Column>> order.subtotal;
+ClassDiagram.Attribut>> Order.taxrate:double =>=>=> RelationalSchema.Column>> order.taxrate;
+ClassDiagram.Attribut>> Order.shippingfee:long =>=>=> RelationalSchema.Column>> order.shippingfee;
+ClassDiagram.Attribut>> Order.shippingaddressid:String =>=>=> RelationalSchema.Column>> order.shippingaddressid;
+ClassDiagram.Attribut>> Order.billingaddressid:String =>=>=> RelationalSchema.Column>> order.billingaddressid;
+ClassDiagram.Attribut>> Order.shippingaddress:UserService.Address =>=>=> NOT MAPPED -Explanation: Transient Field ;
+ClassDiagram.Attribut>> Order.billingaddress:UserService.Address =>=>=> NOT MAPPED -Explanation: Transient Field ;
+ClassDiagram.Attribut>> Order.details:List<OrderItem> =>=>=> NOT MAPPED -Explanation: Transient Field ;

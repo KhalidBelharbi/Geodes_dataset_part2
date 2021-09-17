@@ -1,0 +1,25 @@
+
+answertype(serialversionuid:long, id:Long [PK], name:String);
+
+quizvisitor1();
+
+visitor(serialversionuid:long, id:Long [PK], password:String, username:String, email:String);
+
+quiz(serialversionuid:long, id:Long [PK], creation:Date, description:String, imgname:String, imgdisplayname:String, ispublic:Boolean, quizurl:String, code:String, ownerid:Long, GeneratedName:Owner #FK to(owner), externallink:String);
+
+questionanswerresult(serialversionuid:long, id:Long [PK], isrightanswer:Boolean, //bi-directionalmany-to-oneassociationto:Answer #FK to(answer), //bi-directionalmany-to-oneassociationtoright:Answer #FK to(answer), //@column(name:Question #FK to(question));
+
+answer(serialversionuid:long, id:Long [PK], answerimgurl:String, answertxt:String, //bi-directionalmany-to-oneassociationto:Question #FK to(question));
+
+question(serialversionuid:long, id:Long [PK], notes:String, questionorder:Long, answertypeid:Long, //@lobquestion:String, //bi-directionalmany-to-oneassociationto:Quiz #FK to(quiz));
+
+owner(serialversionuid:long, id:Long [PK], email:String, fullname:String, password:String, username:String);
+
+lookuptype(/***/serialversionuid:long, salary_opeation:LookupType, employee_status:LookupType, recid:Long [PK], name:String, parentid:Long, level:Long);
+
+lookup(serialversionuid:long, salary_opeation_plus:Lookup, salary_opeation_subtract:Lookup, //publiclookupemployee_status_inactive:Long [PK], name:String, lookuptypeid:Long, GeneratedName:LookupType #FK to(lookuptype));
+
+lookupmapping(serialversionuid:long, recid:Long [PK], name:String, description:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

@@ -1,0 +1,17 @@
+
+informe(numexpedicion:int [PK], tareas:String, dnitrabajadorinforme:String, GeneratedName:Factura #FK to(factura), GeneratedName:Trabajador #FK to(trabajador));
+
+trabajador(dni:String [PK], nombre:String, apellido1:String, apellido2:String, funcion:String);
+
+trabajador_set<repuestos>(trabajadorID:trabajador [PK] #FK to trabajador,set<repuestos>ID:set<repuestos> [PK] #FK to set<repuestos>);
+
+obd(id:int [PK], rpm_inst:int, temp_aceite:double, temp_agua:double, cod_salida:String, sensores:String, bastidorvehiculoobd:String, GeneratedName:Vehiculo #FK to(vehiculo));
+
+factura(numfactura:int [PK], precio:double, lineafactura:String, numexpedicioninforme:String, GeneratedName:Informe #FK to(Informe));
+
+vehiculo(bastidor:String [PK], matricula:String, marca:String, modelo:String, motor:String, potenciacv:String, carburante:String, aceite:String, consumo:String, fechaentrada:Date, tiempodedicado:String, dnitrabajador:String, GeneratedName:Trabajador #FK to(trabajador), GeneratedName:Obd #FK to(obd));
+
+repuestos(numserie:String [PK], referencia:String, nombre:String, marca:String, uso:String, tienda:String, fechacompra:Date, bastidorvehiculorepuestos:String, numfacturarepuestos:String, GeneratedName:Vehiculo #FK to(vehiculo), GeneratedName:Factura #FK to(factura));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

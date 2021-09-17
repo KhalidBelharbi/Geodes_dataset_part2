@@ -1,0 +1,21 @@
+
+articlemodel(id:Integer [PK], title:String, description:String, categoryid:Integer, tag:String, authorid:Integer, commentcount:Integer, viewcount:Integer, likecount:Integer, createtime:Date, uptime:Date);
+
+usermodel(id:Integer [PK], account:String, name:String, password:String, token:String, createtime:Date, uptime:Date);
+
+noticemodel(id:Integer [PK], notifierid:Integer, receiverid:Integer, //1(commentid)，2(articleid),3(commentid)type:Integer, parentid:Integer, state:Integer, createtime:Date);
+
+commentfavormodel(commentid:Integer [PK], userid:Integer [PK], articleid:Integer, //点赞状态：0表示取消点赞，1表示已点赞state:Integer, uptime:Date);
+
+categorymodel(id:Integer [PK], type:String);
+
+commentmodel(id:Integer [PK], articleid:Integer, commentatorid:Integer, content:String, likecount:Integer, createtime:Date, uptime:Date);
+
+articlefavormodel(articleid:Integer [PK], userid:Integer [PK], //点赞状态：0表示取消点赞，1表示已点赞state:Integer, uptime:Date);
+
+recommendmodel(userid:Integer [PK], recommendids:String);
+
+relatedarticlemodel(articleid:Integer [PK], relatedids:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

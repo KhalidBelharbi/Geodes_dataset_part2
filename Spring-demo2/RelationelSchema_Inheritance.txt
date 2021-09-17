@@ -1,0 +1,13 @@
+
+user(serialversionuid:long, id:Long [PK], account:String, password:String, nickname:String);
+
+cmsuserrole(userid:User [PK] #FK to User,roleid:collection<role> [PK] #FK to collection<role>);
+
+role(serialversionuid:long, id:Long [PK], name:String, description:String);
+
+cmsrolepms(roleid:Role [PK] #FK to Role,pmsid:collection<permission> [PK] #FK to collection<permission>);
+
+permission(serialversionuid:long, id:Long [PK], name:String, description:String, permission:String, parent:Permission #FK to(permission));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

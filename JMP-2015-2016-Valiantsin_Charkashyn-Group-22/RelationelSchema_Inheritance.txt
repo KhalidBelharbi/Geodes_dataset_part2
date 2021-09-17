@@ -1,0 +1,13 @@
+
+currency(idcurrency:int [PK], shortname:String);
+
+account(idaccount:int, description:String, startdate:String, enddate:String, value:double, curr:Currency #FK to(currency), man:Person #FK to(person));
+
+exchangerate(idrate:int, from:String, to:String, rate:double, exchangeday:String);
+
+person(idperson:int, name:String, surname:String, dateofbirth:String, passportnumber:String);
+
+exchangeticket(idticket:int, client:Person #FK to(person), fromcurr:String, tocurr:String, tocurramount:double, status:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

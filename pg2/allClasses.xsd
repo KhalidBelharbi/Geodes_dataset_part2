@@ -1,0 +1,703 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="batchtestapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testcase" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstracttestcase" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpa4h2contextconfig" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="statelessprocessor" >
+      <xs:sequence>
+        <xs:element name="em" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="statelessreader" >
+      <xs:complexContent>
+       <xs:extension base="abstractkeybasedreader<keybasedreaderentitykey,">
+         <xs:sequence>
+          <xs:element name="em" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testwriter" >
+      <xs:complexContent>
+       <xs:extension base="keybasedreaderentity>">
+         <xs:sequence>
+          <xs:element name="em" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testreader" >
+      <xs:complexContent>
+       <xs:extension base="abstractkeybasedstreamreader<keybasedreaderentitykey,">
+         <xs:sequence>
+          <xs:element name="em" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="keybasedreaderentity" >
+      <xs:sequence>
+        <xs:element name="data1" type="xs:string" />
+        <xs:element name="data2" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="breakdownprocessor" >
+      <xs:sequence>
+        <xs:element name="breakdowncounter" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="keybasedreadertest" >
+      <xs:complexContent>
+       <xs:extension base="abstracttestcase{">
+         <xs:sequence>
+          <xs:element name="em" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="processor" type="breakdownprocessor" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="keybasedreaderentitykey" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="data1" type="xs:string" />
+        <xs:element name="data2" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="breakdownexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="inputitem" >
+      <xs:sequence>
+        <xs:element name="org" type="xs:string" />
+        <xs:element name="data1" type="xs:string" />
+        <xs:element name="data2" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filereaderentity" >
+      <xs:sequence>
+        <xs:element name="data1" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testwriter" >
+      <xs:complexContent>
+       <xs:extension base="lineitem<inputitem>>">
+         <xs:sequence>
+          <xs:element name="em" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="flatinputitem" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="org" type="xs:string" />
+        <xs:element name="data1" type="xs:string" />
+        <xs:element name="data2" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pgfilereadertest" >
+      <xs:complexContent>
+       <xs:extension base="abstracttestcase{">
+         <xs:sequence>
+          <xs:element name="input" type="xs:anyType" />
+          <xs:element name="em" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="combinetestconfiguration" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="batchjobloggedlistener" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="batchstepflatfileerroredlistener" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="em" type="xs:anyType" />
+        <xs:element name="biz" type="xs:dateTime" />
+        <xs:element name="batchseq" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="batchsteploggedlistener" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="batchbean" >
+      <xs:complexContent>
+       <xs:extension base="baserequestbean{">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="/***连续运行次数*/count" type="xs:long" />
+          <xs:element name="/***启动参数项*/s" type="actionrunneroption" nillable="true" minOccurs="0" />
+          <xs:element name="/***启动附加参数项*/" type="additionalrunneroption" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="actionrunneroption" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="additionalrunneroption" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractbatchjobrunner" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="operator" type="xs:anyType" />
+        <xs:element name="explorer" type="xs:anyType" />
+        <xs:element name="batchjobhandler" type="abstractbatchjobhandler" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="repeatableanytimebatchjobrunner" >
+      <xs:complexContent>
+       <xs:extension base="abstractbatchjobrunner{">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="unrepeatable4onetermbatchjobrunner" >
+      <xs:complexContent>
+       <xs:extension base="abstractbatchjobrunner{">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fileheader" >
+      <xs:sequence>
+        <xs:element name="filename" type="xs:string" />
+        <xs:element name="/***明细记录长度字节数，含行尾换行*/detailsize" type="xs:long" />
+        <xs:element name="recordcount" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractpgcursorqueryreader" >
+      <xs:sequence>
+        <xs:element name="em" type="xs:anyType" />
+        <xs:element name="cursorhelper" type="xs:anyType" />
+        <xs:element name="lasiem" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpaitempersistwriter" >
+      <xs:complexContent>
+       <xs:extension base="t>">
+         <xs:sequence>
+          <xs:element name="em" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="lineitem" >
+      <xs:sequence>
+        <xs:element name="lineobjec" type="xs:anyType" />
+        <xs:element name="valid" type="xs:anyType" />
+        <xs:element name="linenumber" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pghibernatecursorreader" >
+      <xs:complexContent>
+       <xs:extension base="abstractitemcountingitemstreamitemreader<t>">
+         <xs:sequence>
+          <xs:element name="em" type="xs:anyType" />
+          <xs:element name="query" type="xs:string" />
+          <xs:element name="cursor" type="xs:anyType" />
+          <xs:element name="clearonupdate" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="batchlistenermock" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractkeybasedstreamreader" >
+      <xs:complexContent>
+       <xs:extension base="abstractitemcountingitemstreamitemreader<info>">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="allkeys" type="xs:anyType" />
+          <xs:element name="/***为了能够线程安全的遍历allkeys，将list转换为vector进行遍历*/allkeysvector" type="xs:anyType" />
+          <xs:element name="keyiterator" type="xs:anyType" />
+          <xs:element name="key_context_key" type="xs:string" />
+          <xs:element name="em" type="xs:anyType" />
+          <xs:element name="minpartitionsize" type="xs:long" />
+          <xs:element name="/***默认不限制分片大小*/maxpartitionsize" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="compositeitemstreamreader" >
+      <xs:sequence>
+        <xs:element name="readers" type="xs:anyType" />
+        <xs:element name="execution_key" type="xs:string" />
+        <xs:element name="readerindex" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pgfileitemwriter" >
+      <xs:complexContent>
+       <xs:extension base="fileheader,">
+         <xs:sequence>
+          <xs:element name="state_key" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="output" type="xs:anyType" />
+          <xs:element name="outputtemp" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="fileheaderclass" type="xs:anyType" />
+          <xs:element name="filedetailclass" type="xs:anyType" />
+          <xs:element name="/***使用cstruct输出时的编码*/charset" type="xs:string" />
+          <xs:element name="detailstruct" type="xs:anyType" />
+          <xs:element name="headerstruct" type="xs:anyType" />
+          <xs:element name="detailbuffer" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pgbatchsteplistener" >
+      <xs:sequence>
+        <xs:element name="transactionmanager" type="pgbatchtransactionmanager" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resourcewaitingtask" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="waitresources" type="xs:anyType" />
+        <xs:element name="pollerval" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jsonfileheaderlinecallbackhandler" >
+      <xs:complexContent>
+       <xs:extension base="flatfileheader>">
+         <xs:sequence>
+          <xs:element name="fileheaderclass" type="xs:anyType" />
+          <xs:element name="eader" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="flatfileheader" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="/***明细记录总行数*/totallines" type="xs:long" />
+        <xs:element name="headcontent" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pgflatfileresourcemock" >
+      <xs:complexContent>
+       <xs:extension base="resourcemock">
+         <xs:sequence>
+          <xs:element name="fileheaderclass" type="xs:anyType" />
+          <xs:element name="filedetailclass" type="xs:anyType" />
+          <xs:element name="headerlines" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fastjsonobjectlinemapper" >
+      <xs:sequence>
+        <xs:element name="detailclass" type="xs:anyType" />
+        <xs:element name="etailobject" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pgflatfileitemreader" >
+      <xs:complexContent>
+       <xs:extension base="flatfileheader,">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="/***defaultencodingforinputfiles*/default_charset" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="reader" type="xs:anyType" />
+          <xs:element name="/***跟踪当前处理的行号*/linecount" type="xs:long" />
+          <xs:element name="comments" type="xs:string" />
+          <xs:element name="noinput" type="xs:anyType" />
+          <xs:element name="encoding" type="xs:string" />
+          <xs:element name="linemapper" type="xs:anyType" />
+          <xs:element name="/***首部跳过的行，通常都是header对应的行数*/linestoskip" type="xs:long" />
+          <xs:element name="skippedlinescallback" type="xs:anyType" />
+          <xs:element name="strict" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="fileheaderclass" type="xs:anyType" />
+          <xs:element name="filedetailclass" type="xs:anyType" />
+          <xs:element name="eader" type="xs:anyType" />
+          <xs:element name="/***最小分片size*/minpartitionsize" type="xs:long" />
+          <xs:element name="/***最大分片size*/maxpartitionsize" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pgjsonflatfileitemreader" >
+      <xs:complexContent>
+       <xs:extension base="flatfileheader,">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="/***defaultencodingforinputfiles*/default_charset" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="reader" type="xs:anyType" />
+          <xs:element name="/***跟踪当前处理的行号*/linecount" type="xs:long" />
+          <xs:element name="comments" type="xs:string" />
+          <xs:element name="noinput" type="xs:anyType" />
+          <xs:element name="encoding" type="xs:string" />
+          <xs:element name="/***跳过header所包含的line数可以没有；*json类型的交互文件应该只有第一行为header*/linestoskip" type="xs:long" />
+          <xs:element name="skippedlinescallback" type="xs:anyType" />
+          <xs:element name="strict" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="fileheaderclass" type="xs:anyType" />
+          <xs:element name="filedetailclass" type="xs:anyType" />
+          <xs:element name="newline" type="xs:string" />
+          <xs:element name="newlinebuff" type="xs:anyType" />
+          <xs:element name="eader" type="xs:anyType" />
+          <xs:element name="/***最小分片size*/minpartitionsize" type="xs:long" />
+          <xs:element name="/***最大分片size*/maxpartitionsize" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractkeybasedreader" >
+      <xs:sequence>
+        <xs:element name="keyiterator" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="btsyschecklistinterface" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="btsyschecklistservice" >
+      <xs:sequence>
+        <xs:element name="parametercachefacility" type="xs:anyType" />
+        <xs:element name="em" type="xs:anyType" />
+        <xs:element name="inspectioncds" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="checklistcriterion" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pgfilefacilityexporter" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="filenames" type="xs:string" />
+        <xs:element name="em" type="xs:anyType" />
+        <xs:element name="chunksize" type="xs:long" />
+        <xs:element name="charset" type="xs:string" />
+        <xs:element name="batchnumber" type="xs:string" />
+        <xs:element name="outputdir" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pgbatchtransactionmanager" >
+      <xs:complexContent>
+       <xs:extension base="jpatransactionmanager">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="emproxy" type="xs:anyType" />
+          <xs:element name="emtarget" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="nullitemwriter" >
+      <xs:complexContent>
+       <xs:extension base="t>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fileoperationtype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fileoperateactionbean" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="src" type="xs:anyType" />
+        <xs:element name="dest" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="fileoperationtype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fileheaderlinecallbackhandler" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="em" type="xs:anyType" />
+        <xs:element name="/***header数据包含的行数*/headerlinenumber" type="xs:long" />
+        <xs:element name="/***支持多个文件情况下，headerlinenumber的乘数*/mult" type="xs:long" />
+        <xs:element name="/***已读行数*/readlines" type="xs:long" />
+        <xs:element name="delimiter" type="xs:string" />
+        <xs:element name="batchseq" type="xs:string" />
+        <xs:element name="inspectioncd" type="xs:string" />
+        <xs:element name="biz" type="xs:dateTime" />
+        <xs:element name="headertype" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="fileheaderlineparser" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="extmultiresourceitemreader" >
+      <xs:complexContent>
+       <xs:extension base="multiresourceitemreader<t>">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="/***获取文件资源的路径pattern*/locationpattern" type="xs:string" />
+          <xs:element name="inspectioncd" type="xs:string" />
+          <xs:element name="headerlinescallback" type="fileheaderlinecallbackhandler" nillable="true" minOccurs="0" />
+          <xs:element name="flatfileitemreader" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="partitionhandlerutils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fileoperationutils" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="batchjobparameterkeys" >
+      <xs:sequence>
+        <xs:element name="bizdate" type="xs:string" />
+        <xs:element name="bizdate" type="xs:string" />
+        <xs:element name="batchdate" type="xs:string" />
+        <xs:element name="batchdate" type="xs:string" />
+        <xs:element name="lastbatchdate" type="xs:string" />
+        <xs:element name="lastbatchdate" type="xs:string" />
+        <xs:element name="batchseq" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractbatchdateincrementer" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="batchseqprefix" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="extflatfileitemreader" >
+      <xs:complexContent>
+       <xs:extension base="flatfileitemreader<t>{">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="/***检查项代码，参数编码，用于标识检查项*/inspectioncd" type="xs:string" />
+          <xs:element name="headerlinescallback" type="fileheaderlinecallbackhandler" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mutithreadmessagechannelpartitionhandler" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="gridsize" type="xs:long" />
+        <xs:element name="messaginggateway" type="xs:anyType" />
+        <xs:element name="stepname" type="xs:string" />
+        <xs:element name="pollinterval" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="pollrepositoryforresults" type="xs:anyType" />
+        <xs:element name="timeout" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="/***pollablechannelforthereplies*/replychannel" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fileokchecktasklet" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="ok" type="xs:anyType" />
+        <xs:element name="data" type="xs:anyType" />
+        <xs:element name="strict" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="batchjobtype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fileoperatetasklet" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="/***获取文件资源的路径pattern*/locationpattern" type="xs:string" />
+        <xs:element name="/***检查项代码，参数编码，用于标识检查项*/inspectioncd" type="xs:string" />
+        <xs:element name="fileoperateactions" type="fileoperateactionbean" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="batchtaskproperties" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="multifilesokchecktasklet" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="/***获取ok标识文件resource的路径pattern*/okresourcepattern" type="xs:string" />
+        <xs:element name="/***获取dat标识文件resource的路径pattern*/dataresourcepattern" type="xs:string" />
+        <xs:element name="oks" type="xs:anyType" />
+        <xs:element name="datas" type="xs:anyType" />
+        <xs:element name="/***检查项类型*/inspectioncd" type="xs:string" />
+        <xs:element name="strict" type="xs:anyType" />
+        <xs:element name="batchtaskproperties" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractbatchjobhandler" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="/***连续行次数*/count" type="xs:long" />
+        <xs:element name="/***启动参数项*/s" type="actionrunneroption" nillable="true" minOccurs="0" />
+        <xs:element name="/***启动附加参数项*/" type="additionalrunneroption" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fileheaderlineparser" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pgfileresourcemock" >
+      <xs:complexContent>
+       <xs:extension base="resourcemock">
+         <xs:sequence>
+          <xs:element name="fileheaderclass" type="xs:anyType" />
+          <xs:element name="filedetailclass" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="debugsupportlistener" >
+      <xs:complexContent>
+       <xs:extension base="stepexecutionlistenersupport">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractpgsubcursorhelper" >
+      <xs:complexContent>
+       <xs:extension base="abstractpgcursorhelper<info>">
+         <xs:sequence>
+          <xs:element name="lastentity" type="xs:anyType" />
+          <xs:element name="ended" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="propertydelegatewriter" >
+      <xs:complexContent>
+       <xs:extension base="t>">
+         <xs:sequence>
+          <xs:element name="writers" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pgfileitemreader" >
+      <xs:complexContent>
+       <xs:extension base="fileheader,">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="/***可以为空，表明没有文件头*/fileheaderclass" type="xs:anyType" />
+          <xs:element name="filedetailclass" type="xs:anyType" />
+          <xs:element name="/***使用cstruct解析时的编码*/charset" type="xs:string" />
+          <xs:element name="newline" type="xs:string" />
+          <xs:element name="newlinebuff" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="eader" type="xs:anyType" />
+          <xs:element name="detailstruct" type="xs:anyType" />
+          <xs:element name="headerstruct" type="xs:anyType" />
+          <xs:element name="detailbyteslength" type="xs:long" />
+          <xs:element name="headerbyteslength" type="xs:long" />
+          <xs:element name="detailbuffer" type="xs:anyType" />
+          <xs:element name="minpartitionsize" type="xs:long" />
+          <xs:element name="maxpartitionsize" type="xs:long" />
+          <xs:element name="/***跟踪当前处理的行号，仅用于显示，且首行数据为0行*/currentlineno" type="xs:long" />
+          <xs:element name="skip" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="resourcemock" >
+      <xs:complexContent>
+       <xs:extension base="abstractresource">
+         <xs:sequence>
+          <xs:element name="beanname" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="deleteonexit" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pgfilefacilitywriter" >
+      <xs:complexContent>
+       <xs:extension base="t>">
+         <xs:sequence>
+          <xs:element name="em" type="xs:anyType" />
+          <xs:element name="filename" type="xs:string" />
+          <xs:element name="detailstruct" type="xs:anyType" />
+          <xs:element name="detailbuffer" type="xs:anyType" />
+          <xs:element name="filedetailclass" type="xs:anyType" />
+          <xs:element name="/***转换目标代码*/charset" type="xs:string" />
+          <xs:element name="batchnumber" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractpgcursorhelper" >
+      <xs:sequence>
+        <xs:element name="cursor" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resourcefactorybean" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitymanagerclearwriter" >
+      <xs:complexContent>
+       <xs:extension base="t>">
+         <xs:sequence>
+          <xs:element name="em" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="simpleextractorprocessor" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="throwinvalidexception" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tabletruncatetasklet" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="entities" type="xs:anyType" />
+        <xs:element name="em" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

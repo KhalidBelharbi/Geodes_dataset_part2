@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="job" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="company" nillable="true" minOccurs="0" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="stat" type="xs:string" />
+          <xs:element name="date" type="xs:string" />
+          <xs:element name="link" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="company" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="//@column(unique" type="xs:string" />
+          <xs:element name="detail" type="xs:string" />
+          <xs:element name="logo" type="xs:string" />
+          <xs:element name="link" type="xs:string" />
+          <xs:element name="joblist" type="job" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseentity" >
+      <xs:sequence>
+        <xs:element name="regdate" type="xs:anyType" />
+        <xs:element name="moddate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

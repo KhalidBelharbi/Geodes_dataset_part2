@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="linhkien" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="ten" type="xs:string" />
+        <xs:element name="soluong" type="xs:long" />
+        <xs:element name="dongiagoc" type="xs:double" />
+        <xs:element name="dongiaban" type="xs:double" />
+        <xs:element name="mota" type="xs:string" />
+        <xs:element name="GeneratedName" type="nhacungcap" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xuatxu" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="danhmuclinhkien" nillable="true" minOccurs="0" />
+        <xs:element name="dscthd" type="ct_hoadon" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="hinhanh" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="nhacungcap" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="ten" type="xs:string" />
+        <xs:element name="diachi" type="xs:string" />
+        <xs:element name="sdt" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="dslk" type="linhkien" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="danhmuclinhkien" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="ten" type="xs:string" />
+        <xs:element name="mota" type="xs:string" />
+        <xs:element name="dslk" type="linhkien" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="nhanvien" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="ten" type="xs:string" />
+        <xs:element name="diachi" type="xs:string" />
+        <xs:element name="sdt" type="xs:string" />
+        <xs:element name="taikhoan" type="xs:string" />
+        <xs:element name="nguoiquanli" type="nhanvien" nillable="true" minOccurs="0" />
+        <xs:element name="dshd" type="hoadon" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="xuatxu" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="quocgia" type="xs:string" />
+        <xs:element name="dslk" type="linhkien" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ct_hoadon" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="hoadon" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="linhkien" nillable="true" minOccurs="0" />
+        <xs:element name="soluong" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hoadon" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="GeneratedName" type="khachhang" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="nhanvien" nillable="true" minOccurs="0" />
+        <xs:element name="dscthd" type="ct_hoadon" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="luuy" type="xs:string" />
+        <xs:element name="ngaylap" type="xs:anyType" />
+        <xs:element name="tienkhachhangdua" type="xs:double" />
+        <xs:element name="thue" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="khachhang" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="ten" type="xs:string" />
+        <xs:element name="diachi" type="xs:string" />
+        <xs:element name="sdt" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="dshd" type="hoadon" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

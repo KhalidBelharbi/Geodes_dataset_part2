@@ -1,0 +1,17 @@
+
+glumac(id:Long [PK], ime:String, prezime:String);
+
+jezik(id:Long [PK], naziv:String);
+
+film(id:Long [PK], naziv:String, opis:String, //trajanjeuminutimatrajanje:int, datumpremijere:Date, ocena:int, sumaocena:int, brojac:int, prosecnaocena:float, jezik_id:Jezik #FK to(jezik), reditelj_id:Reditelj #FK to(reditelj), kategorija_id:Kategorija #FK to(kategorija));
+
+film_glumci(film_id:Film [PK] #FK to Film,glumac_id:set<glumac> [PK] #FK to set<glumac>);
+
+reditelj(id:Long [PK], ime:String, prezime:String);
+
+kategorija(id:Long [PK], naziv:String);
+
+ocjena(id:long [PK], film_id:Film #FK to(film), username:String, ocjena:float);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="estateserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="estaterepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="imagesrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="estateservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwtuserdetailsservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="estaterepository" nillable="true" minOccurs="0" />
+        <xs:element name="brcyptencoder" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="websecurityconfig" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+          <xs:element name="" type="jwtauthenticationentrypoint" nillable="true" minOccurs="0" />
+          <xs:element name="jwt" type="xs:anyType" />
+          <xs:element name="" type="jwtrequestfilter" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jwtauthenticationentrypoint" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwttokenutil" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="jwt_token_validity" type="xs:long" />
+        <xs:element name="secret" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwtrequestfilter" >
+      <xs:complexContent>
+       <xs:extension base="onceperrequestfilter">
+         <xs:sequence>
+          <xs:element name="" type="jwtuserdetailsservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="jwttokenutil" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="emsauditconfiguration" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="auditorawareimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="estatecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="jwttokenutil" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="jwtuserdetailsservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="estateservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="realestateapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="address" >
+      <xs:sequence>
+        <xs:element name="addressline" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="state" type="xs:string" />
+        <xs:element name="pincode" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwtrequest" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="useremail" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdetailsimpl" >
+      <xs:complexContent>
+       <xs:extension base="grantedauthority>">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="useremail" type="xs:string" />
+          <xs:element name="userpassword" type="xs:string" />
+          <xs:element name="authorities" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="estate" >
+      <xs:sequence>
+        <xs:element name="estateid" type="xs:anyType" />
+        <xs:element name="estatename" type="xs:string" />
+        <xs:element name="estate" type="address" nillable="true" minOccurs="0" />
+        <xs:element name="estatearea" type="xs:anyType" />
+        <xs:element name="estateprice" type="xs:anyType" />
+        <xs:element name="estateowner" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="imagelist" type="images" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="createdby" type="xs:string" />
+        <xs:element name="creation" type="xs:dateTime" />
+        <xs:element name="lastmodifiedby" type="xs:string" />
+        <xs:element name="lastmodifieddate" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:anyType" />
+        <xs:element name="useremail" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="userpassword" type="xs:string" />
+        <xs:element name="userrole" type="xs:string" />
+        <xs:element name="usercontact" type="xs:string" />
+        <xs:element name="birthdate" type="xs:anyType" />
+        <xs:element name="ownedproperties" type="estate" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="interestedlist" type="estate" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="offer" type="estate" nillable="true" minOccurs="0" />
+        <xs:element name="createdby" type="xs:string" />
+        <xs:element name="creation" type="xs:dateTime" />
+        <xs:element name="lastmodifiedby" type="xs:string" />
+        <xs:element name="lastmodifieddate" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwtresponse" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="jwttoken" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="images" >
+      <xs:sequence>
+        <xs:element name="imageid" type="xs:anyType" />
+        <xs:element name="imagename" type="xs:string" />
+        <xs:element name="imagetype" type="xs:string" />
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="data" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="generatepdf" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="errormessages" >
+      <xs:sequence>
+        <xs:element name="usererrorsecret" type="xs:string" />
+        <xs:element name="usererrorusername" type="xs:string" />
+        <xs:element name="usererrorcontactno" type="xs:string" />
+        <xs:element name="usererrorcontactnolength" type="xs:string" />
+        <xs:element name="usererroremailid" type="xs:string" />
+        <xs:element name="usererroruserage" type="xs:string" />
+        <xs:element name="usererrorusergender" type="xs:string" />
+        <xs:element name="usererrorinvalidcenterid" type="xs:string" />
+        <xs:element name="usererrorinvalidtestid" type="xs:string" />
+        <xs:element name="usererrorinvalidappointmentid" type="xs:string" />
+        <xs:element name="usererroraddtestfailed" type="xs:string" />
+        <xs:element name="usererrorinvaliduserid" type="xs:string" />
+        <xs:element name="usererrorinvaliddateformat" type="xs:string" />
+        <xs:element name="usererrorpastdate" type="xs:string" />
+        <xs:element name="usererrorinvalidtimeformat" type="xs:string" />
+        <xs:element name="usererrornonworkinghours" type="xs:string" />
+        <xs:element name="usererrornocenteradded" type="xs:string" />
+        <xs:element name="usererrornocenterdeleted" type="xs:string" />
+        <xs:element name="usererrornotestadded" type="xs:string" />
+        <xs:element name="usererrornotestdeleted" type="xs:string" />
+        <xs:element name="usererrorduplicateemail" type="xs:string" />
+        <xs:element name="usererrorduplicatephonenumber" type="xs:string" />
+        <xs:element name="usererrorinvalidemailid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="validationexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="existinguserexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="imagesrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<images,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="estaterepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<estate,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="logback" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="realestateapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

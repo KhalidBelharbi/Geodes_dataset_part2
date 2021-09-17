@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="struts" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="struts-department" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="struts-forward" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="struts-user" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="struts-role" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="roleserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="baseserviceimpl<role>">
+         <xs:sequence>
+          <xs:element name="" type="roledao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="baseserviceimpl<user>">
+         <xs:sequence>
+          <xs:element name="" type="userdao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="privilegeserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="baseserviceimpl<privilege>">
+         <xs:sequence>
+          <xs:element name="" type="privilegedao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="departmentserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="baseserviceimpl<department>">
+         <xs:sequence>
+          <xs:element name="" type="departmentdao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="privilegeservice" >
+      <xs:complexContent>
+       <xs:extension base="baseservice<privilege>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="roleservice" >
+      <xs:complexContent>
+       <xs:extension base="baseservice<role>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:complexContent>
+       <xs:extension base="baseservice<user>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="departmentservice" >
+      <xs:complexContent>
+       <xs:extension base="baseservice<department>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baseserviceimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="departmentaction" >
+      <xs:complexContent>
+       <xs:extension base="baseaction">
+         <xs:sequence>
+          <xs:element name="ds" type="departmentservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="department" nillable="true" minOccurs="0" />
+          <xs:element name="departments" type="department" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="departmentid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="roleaction" >
+      <xs:complexContent>
+       <xs:extension base="baseaction">
+         <xs:sequence>
+          <xs:element name="rs" type="roleservice" nillable="true" minOccurs="0" />
+          <xs:element name="roles" type="role" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="pid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="roleid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="forwardaction" >
+      <xs:complexContent>
+       <xs:extension base="actionsupport">
+         <xs:sequence>
+          <xs:element name="method" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseaction" >
+      <xs:complexContent>
+       <xs:extension base="actionsupport">
+         <xs:sequence>
+          <xs:element name="listaction" type="xs:string" />
+          <xs:element name="listaction" type="xs:string" />
+          <xs:element name="addui" type="xs:string" />
+          <xs:element name="addui" type="xs:string" />
+          <xs:element name="updateui" type="xs:string" />
+          <xs:element name="updateui" type="xs:string" />
+          <xs:element name="action2action" type="xs:string" />
+          <xs:element name="action2action" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="useraction" >
+      <xs:complexContent>
+       <xs:extension base="baseaction">
+         <xs:sequence>
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="userid" type="xs:long" />
+          <xs:element name="ds" type="departmentservice" nillable="true" minOccurs="0" />
+          <xs:element name="roles" type="role" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="roleid" type="xs:long" />
+          <xs:element name="" type="department" nillable="true" minOccurs="0" />
+          <xs:element name="rs" type="roleservice" nillable="true" minOccurs="0" />
+          <xs:element name="us" type="userservice" nillable="true" minOccurs="0" />
+          <xs:element name="users" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="departments" type="department" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="//主键roleid" type="xs:long" />
+        <xs:element name="//父节点idpid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="isparent" type="xs:anyType" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="users" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="privileges" type="privilege" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="checked" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="department" >
+      <xs:sequence>
+        <xs:element name="departmentid" type="xs:long" />
+        <xs:element name="departmentname" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="users" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="privilege" >
+      <xs:sequence>
+        <xs:element name="privilegeid" type="xs:long" />
+        <xs:element name="privilegename" type="xs:string" />
+        <xs:element name="pid" type="xs:long" />
+        <xs:element name="icon" type="xs:string" />
+        <xs:element name="isparent" type="xs:anyType" />
+        <xs:element name="roles" type="role" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="checked" type="xs:anyType" />
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="target" type="xs:string" />
+        <xs:element name="type" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="loginname" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="sex" type="xs:string" />
+        <xs:element name="roles" type="role" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="department" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="roledaoimpl" >
+      <xs:complexContent>
+       <xs:extension base="basedaoimpl<role>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userdaoimpl" >
+      <xs:complexContent>
+       <xs:extension base="basedaoimpl<user>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="privilegedaoimpl" >
+      <xs:complexContent>
+       <xs:extension base="basedaoimpl<privilege>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="departmentdaoimpl" >
+      <xs:complexContent>
+       <xs:extension base="basedaoimpl<department>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userdao" >
+      <xs:complexContent>
+       <xs:extension base="basedao<user>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="roledao" >
+      <xs:complexContent>
+       <xs:extension base="basedao<role>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="privilegedao" >
+      <xs:complexContent>
+       <xs:extension base="basedao<privilege>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="departmentdao" >
+      <xs:complexContent>
+       <xs:extension base="basedao<department>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basedao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basedaoimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="metadata" type="xs:anyType" />
+        <xs:element name="t" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

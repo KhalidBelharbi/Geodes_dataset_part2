@@ -1,0 +1,12 @@
+ClassDiagram.Class>> Comanda =>=>=> RelationalSchema.Table>> comanda;
+ClassDiagram.Class>> Produs =>=>=> RelationalSchema.Table>> produs;
+ClassDiagram.Attribut>> Comanda.id:int =>=>=> RelationalSchema.Column>> comanda.id PRIMARY KEY;
+ClassDiagram.Attribut>> Comanda.total:double =>=>=> RelationalSchema.Column>> comanda.total;
+ClassDiagram.Attribut>> Comanda.timestamp:Instant =>=>=> RelationalSchema.Column>> comanda.timestamp;
+ClassDiagram.Attribut>> Comanda.GeneratedName:Adresa =>=>=> RelationalSchema.Column>> comanda.GeneratedName;
+ClassDiagram.Attribut>> Comanda.telefoane:Set<String> =>=>=> RelationalSchema.Column>> comanda.telefoane;
+ClassDiagram.Attribut>> Produs.id:int =>=>=> RelationalSchema.Column>> produs.id PRIMARY KEY;
+ClassDiagram.Attribut>> Produs.nume:String =>=>=> RelationalSchema.Column>> produs.nume;
+ClassDiagram.Attribut>> Produs.pret:double =>=>=> RelationalSchema.Column>> produs.pret;
+ClassDiagram.Attribut>> Produs.GeneratedName:Categorie =>=>=> RelationalSchema.Column>> produs.GeneratedName;
+set<produs>: comanda_set<produs>(comandaID:comanda [PK] #FK to comanda,set<produs>ID:set<produs> [PK] #FK to set<produs>);

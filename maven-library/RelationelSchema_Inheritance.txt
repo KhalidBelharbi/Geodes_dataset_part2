@@ -1,0 +1,45 @@
+
+maintenance(id:long [PK], tenantid:String, landlordid:String, contractid:long, rentalentityid:long, category:String, subcategory:String, description:String, imageurl:String, landlordapproved:LandlordStatus, //usetostorethe3rdpartymaintenanceproviderstatusstatus:ResponseStatus, outsourceid:String, cost:double, created_at:Date, approvedon:Date, finishon:Date);
+
+contractpayments(contractpaymentid:String [PK], type:String, amount:double, paymentdate:LocalDateTime, source:String, payee:String, payer:String, contractid:long, status:String);
+
+rentalsubcription(id:Long [PK], tenant:String, contractid:long, subsciptionid:String);
+
+userbankaccount(id:Long [PK], user:String, bankaccountid:String);
+
+viewingtime(id:long [PK], contractid:long, GeneratedName:Date);
+
+checkinout(id:long [PK], contractid:long, place:String, item:String, movein:String, moveindescription:String, moveout:String, moveoutdescription:String, cost:String);
+
+contract(contractid:long [PK], tenantid:String, rentalentityid:long, applicationid:long, start:Date, end:Date, rent:double, rentcollectiondate:int, securitydeposit:double, moveinchecklist:String, moveoutchecklist:String, status:ContractStatus, parkingacce:boolean, indoorsmoking:boolean, moveearly:boolean, indoorvaping:boolean, bankname:String, bankbranch:String, bankaddress:String, improvement:boolean, sublease:boolean, keylosepayment:boolean, isinspection:boolean, ispetcharge:boolean, GeneratedName:PetChargeMethod, petamount:double, utilityresposible:boolean, istenantmaintenance:boolean, istenantinsurance:boolean, islatefee:boolean, GeneratedName:LateFeeCharging, graceperiod:int, latefeeamount:double, issecuritydeposit:boolean, subscription:boolean, landlordid:String, createdat:Date, updat:Date);
+
+notificationusersettings(username:String [PK], event:Events [PK], subscribed:boolean);
+
+notification(id:long [PK], catogory:Events, rentalenitiyaddress:String, rentalenitiyid:long, actionby:String, actionid:long, notificationto:String, seen:boolean, deleted:boolean, createdat:Date);
+
+permission(id:Integer [PK], name:String);
+
+user(username:String [PK], password:String, enabled:boolean, accountnonexpired:boolean, credentialsnonexpired:boolean, accountnonlocked:boolean, firstname:String, lastname:String, middlename:String, GeneratedName:Address, mobilenumber:String, stripecustomerid:String, stripeaccountid:String, provider:AuthProvider, coverimage:String);
+
+role_user(user_name:User [PK] #FK to User,role_id: [PK] #FK to );
+
+leaddata(id:long [PK], name:String, email:String, mobile:String, property:String, rentalentity:String, createdat:Date, transfer:boolean, updat:Date);
+
+role(id:Integer [PK], name:String);
+
+permission_role(role_id:Role [PK] #FK to Role,permission_id: [PK] #FK to );
+
+rentalentity(id:Long [PK], GeneratedName:Property #FK to(), unitname:String, unittype:String, GeneratedName:Status, listingheading:String, fullrooms:int, halfrooms:int, bedrooms:int, bathroomsattach:int, bathroomsseparate:int, sqfeet:int, description:String, petpolicy:String, furnisher:boolean, parkinggarage:boolean, parkingonstreet:boolean, parkingdriveway:boolean, parkinglot:boolean, parkingdedicatedspot:boolean, parkingcovered:boolean, outdoorsharedyard:boolean, outdooryard:boolean, outdoorpatio:boolean, outdoorbalcony:boolean, outdoorgarden:boolean, washerdrier:String, basement:String, wheelchair:boolean, gym:boolean, airconditioner:boolean, hardwoodfloors:boolean, fireplace:boolean, dishwasher:boolean, walkincloset:boolean, pool:boolean, hottub:boolean, storage:boolean, walkintime:String, walkindate:String, amenities:String, rent:double, securitydeposit:double, leaseperiod:int, securitychk:boolean, backgroundchk:boolean, imagelink:String, link:String, createdat:Date, updat:Date);
+
+viewingtime(id:Long [PK], GeneratedName:RentalEntity #FK to(), GeneratedName:Date, GeneratedName:DayOfWeek, GeneratedName:Time);
+
+property(id:Long [PK], name:String, type:PropertyType, GeneratedName:Address, aptunit:String, coverimage:String, createdat:Date, updat:Date);
+
+landlordproperty(GeneratedName:LandLordPropID, ownertype:String, share:double);
+
+application(id:long [PK], applicant:String, rentalentityid:long, status:ApplicationStatus, drivinglicno:String, totaloccupants:int, emergencyno:String, ssn:String, dob:Date, othernames:String, pets:boolean, creditcheck:String, securitycheck:String, respresentcity:String, respresentstate:String, respresentzip:String, respresentrent:double, respresentfrom:Date, respresentto:Date, respresentownrent:String, respresentlandlord:String, respresentlandlordemail:String, respresentlandlordtp:String, respresentlandlordfax:String, respresentapartment:String, respresentmortgage:boolean, respreviouscity:String, respreviousstate:String, respreviouszip:String, respreviousrent:double, respreviousfrom:Date, respreviousto:Date, respreviousownrent:String, respreviouslandlord:String, respreviouslandlordemail:String, respreviouslandlordtp:String, respreviouslandlordfax:String, respreviousapartment:String, respreviousmortgage:boolean, emppresentemployer:String, emppresentemployed:String, emppresentcity:String, emppresentstate:String, emppresentzip:String, emppresentphone:String, emppresentsalary:double, emppresentfrom:Date, emppresentto:Date, emppresentposition:String, emppreviousemployer:String, emppreviousemployed:String, emppreviouscity:String, emppreviousstate:String, emppreviouszip:String, emppreviousphone:String, empprevioussalary:double, emppreviousfrom:Date, emppreviousto:Date, emppreviousposition:String, occupentsname:String, createdat:Date, updat:Date);
+
+viewingrequest(id:Long [PK], viewingtimeid:Long, landlordid:String, tenantid:String, status:ApplicationStatus);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

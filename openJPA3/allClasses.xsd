@@ -1,0 +1,2230 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="rollbackexception" >
+      <xs:complexContent>
+       <xs:extension base="javax.persistence.rollbackexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="transient_failed" type="xs:anyType" />
+          <xs:element name="_nested" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fetchattribute" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="detachstatetype" >
+      <xs:sequence>
+        <xs:element name="detachstateconstant" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="openjpaentitymanager" >
+      <xs:complexContent>
+       <xs:extension base="{@link">
+         <xs:sequence>
+          <xs:element name="/***usethe{@linkconnectionretainmode}enuminstead.*/conn_retain_demand" type="xs:long" />
+          <xs:element name="/***usethe{@linkconnectionretainmode}enuminstead.*/conn_retain_trans" type="xs:long" />
+          <xs:element name="/***usethe{@linkconnectionretainmode}enuminstead.*/conn_retain_always" type="xs:long" />
+          <xs:element name="/***usethe{@linkdetachstatetype}enuminstead.*/detach_fetch_groups" type="xs:long" />
+          <xs:element name="/***usethe{@linkdetachstatetype}enuminstead.*/detach_fgs" type="xs:long" />
+          <xs:element name="/***usethe{@linkdetachstatetype}enuminstead.*/detach_loaded" type="xs:long" />
+          <xs:element name="/***usethe{@linkdetachstatetype}enuminstead.*/detach_all" type="xs:long" />
+          <xs:element name="/***usethe{@linkrestorestatetype}enuminstead.*/restore_none" type="xs:long" />
+          <xs:element name="/***usethe{@linkrestorestatetype}enuminstead.*/restore_immutable" type="xs:long" />
+          <xs:element name="/***usethe{@linkrestorestatetype}enuminstead.*/restore_all" type="xs:long" />
+          <xs:element name="/***usethe{@linkautodetachtype}enuminstead.*/detach_close" type="xs:long" />
+          <xs:element name="/***usethe{@linkautodetachtype}enuminstead.*/detach_commit" type="xs:long" />
+          <xs:element name="/***usethe{@linkautodetachtype}enuminstead.*/detach_nontxread" type="xs:long" />
+          <xs:element name="/***usethe{@linkautodetachtype}enuminstead.*/detach_rollback" type="xs:long" />
+          <xs:element name="/***usethe{@linkautocleartype}enuminstead.*/clear_datastore" type="xs:long" />
+          <xs:element name="/***usethe{@linkautocleartype}enuminstead.*/clear_all" type="xs:long" />
+          <xs:element name="/***usethe{@linkcallbackmode}enuminstead.*/callback_fail_fast" type="xs:long" />
+          <xs:element name="/***usethe{@linkcallbackmode}enuminstead.*/callback_ignore" type="xs:long" />
+          <xs:element name="/***usethe{@linkcallbackmode}enuminstead.*/callback_log" type="xs:long" />
+          <xs:element name="/***usethe{@linkcallbackmode}enuminstead.*/callback_rethrow" type="xs:long" />
+          <xs:element name="/***usethe{@linkcallbackmode}enuminstead.*/callback_rollback" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="type" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="xmlpersistencemetadataparser" >
+      <xs:complexContent>
+       <xs:extension base="cfmetadataparser">
+         <xs:sequence>
+          <xs:element name="//parseconstantselem_pkg" type="xs:string" />
+          <xs:element name="elem_access" type="xs:string" />
+          <xs:element name="elem_attrs" type="xs:string" />
+          <xs:element name="elem_listener" type="xs:string" />
+          <xs:element name="elem_cascade" type="xs:string" />
+          <xs:element name="elem_cascade_all" type="xs:string" />
+          <xs:element name="elem_cascade_per" type="xs:string" />
+          <xs:element name="elem_cascade_mer" type="xs:string" />
+          <xs:element name="elem_cascade_rem" type="xs:string" />
+          <xs:element name="elem_cascade_ref" type="xs:string" />
+          <xs:element name="elem_cascade_det" type="xs:string" />
+          <xs:element name="elem_pu_meta" type="xs:string" />
+          <xs:element name="elem_pu_def" type="xs:string" />
+          <xs:element name="elem_xml_map_meta_complete" type="xs:string" />
+          <xs:element name="elem_delim_ids" type="xs:string" />
+          <xs:element name="_elems" type="xs:anyType" />
+          <xs:element name="_embeddables" type="xs:anyType" />
+          <xs:element name="_embeddableaccess" type="xs:anyType" />
+          <xs:element name="_fgs" type="xs:anyType" />
+          <xs:element name="_fglist" type="xs:anyType" />
+          <xs:element name="_referencedfglist" type="xs:anyType" />
+          <xs:element name="_currentfg" type="xs:anyType" />
+          <xs:element name="_fetchattrlist" type="xs:anyType" />
+          <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+          <xs:element name="_conf" type="xs:anyType" />
+          <xs:element name="_repos" type="xs:anyType" />
+          <xs:element name="_parser" type="annotationpersistencemetadataparser" nillable="true" minOccurs="0" />
+          <xs:element name="_envloader" type="xs:anyType" />
+          <xs:element name="_mode" type="xs:long" />
+          <xs:element name="_override" type="xs:anyType" />
+          <xs:element name="_elements" type="xs:anyType" />
+          <xs:element name="_parents" type="xs:anyType" />
+          <xs:element name="_externalvalues" type="xs:anyType" />
+          <xs:element name="_cls" type="xs:anyType" />
+          <xs:element name="//listofclassescurrentlybeingparsed_parselist" type="xs:anyType" />
+          <xs:element name="_fieldpos" type="xs:long" />
+          <xs:element name="_clspos" type="xs:long" />
+          <xs:element name="_access" type="xs:long" />
+          <xs:element name="_strategy" type="persistencestrategy" nillable="true" minOccurs="0" />
+          <xs:element name="_cascades" type="xs:anyType" />
+          <xs:element name="_pkgcascades" type="xs:anyType" />
+          <xs:element name="_listener" type="xs:anyType" />
+          <xs:element name="_callbacks" type="xs:anyType" />
+          <xs:element name="_listeners" type="xs:anyType" />
+          <xs:element name="_highs" type="xs:long" />
+          <xs:element name="_isxmlmappingmetadatacomplete" type="xs:anyType" />
+          <xs:element name="_ormversion" type="xs:string" />
+          <xs:element name="_schemalocation" type="xs:string" />
+          <xs:element name="orm_xsd_1_0" type="xs:string" />
+          <xs:element name="orm_xsd_2_0" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="openjpaentitymanagerfactory" >
+      <xs:complexContent>
+       <xs:extension base="entitymanagerfactory,">
+         <xs:sequence>
+          <xs:element name="/***use{@linkconnectionretainmode}enumsinstead.*/conn_retain_demand" type="xs:long" />
+          <xs:element name="/***use{@linkconnectionretainmode}enumsinstead.*/conn_retain_trans" type="xs:long" />
+          <xs:element name="/***use{@linkconnectionretainmode}enumsinstead.*/conn_retain_always" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="elementdependent" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datastoreid" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="openjpapersistence" >
+      <xs:sequence>
+        <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+        <xs:element name="/***use{@linkjpafacadehelper}instead.thismethodpierces*thepublished-apiboundary,asdoesthejpafacadehelperutilization.*/em_key" type="xs:string" />
+        <xs:element name="/***use{@linkjpafacadehelper}instead.thismethodpierces*thepublished-apiboundary,asdoesthejpafacadehelperutilization.*/emf_key" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="locktimeoutexception" >
+      <xs:complexContent>
+       <xs:extension base="javax.persistence.locktimeoutexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="transient_fatal" type="xs:anyType" />
+          <xs:element name="transient_failed" type="xs:anyType" />
+          <xs:element name="_nested" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fetchplan" >
+      <xs:sequence>
+        <xs:element name="/***fetchgrouprepresentingallfields.*/group_all" type="xs:string" />
+        <xs:element name="/***thedefaultfetchgroup.*/group_default" type="xs:string" />
+        <xs:element name="/***infinitefetchdepth.*/depth_infinite" type="xs:long" />
+        <xs:element name="/***constanttorevertanysettingtoitsdefaultvalue.*/default" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="externalizer" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistencelisteneradapter" >
+      <xs:sequence>
+        <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+        <xs:element name="_callbacks" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitymanagerfactoryimpl" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+        <xs:element name="_factory" type="xs:anyType" />
+        <xs:element name="transient_plan" type="fetchplan" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="transient_cache" type="storecache" nillable="true" minOccurs="0" />
+        <xs:element name="transient_querycache" type="queryresultcache" nillable="true" minOccurs="0" />
+        <xs:element name="transient_metamodel" type="metamodelimpl" nillable="true" minOccurs="0" />
+        <xs:element name="properties" type="xs:anyType" />
+        <xs:element name="ememptypropsproperties" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hintvalueconverter" >
+      <xs:complexContent>
+       <xs:extension base="enum<?>>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="lockscopeshelper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="nonuniqueresultexception" >
+      <xs:complexContent>
+       <xs:extension base="javax.persistence.nonuniqueresultexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="transient_fatal" type="xs:anyType" />
+          <xs:element name="transient_failed" type="xs:anyType" />
+          <xs:element name="_nested" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="types" >
+      <xs:complexContent>
+       <xs:extension base="basetype<x>">
+         <xs:sequence>
+          <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractmanagedtype" >
+      <xs:complexContent>
+       <xs:extension base="types.basetype<x>">
+         <xs:sequence>
+          <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+          <xs:element name="model" type="metamodelimpl" nillable="true" minOccurs="0" />
+          <xs:element name="meta" type="xs:anyType" />
+          <xs:element name="attrs" type="xs:anyType" />
+          <xs:element name="declaredattributefilter" type="xs:anyType" />
+          <xs:element name="singularattributefilter" type="xs:anyType" />
+          <xs:element name="pluralattributefilter" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="metadataprocessor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="annotationprocessor6" >
+      <xs:complexContent>
+       <xs:extension base="abstractprocessor">
+         <xs:sequence>
+          <xs:element name="handler" type="sourceannotationhandler" nillable="true" minOccurs="0" />
+          <xs:element name="factory" type="xs:anyType" />
+          <xs:element name="generatedsourceversion" type="xs:long" />
+          <xs:element name="logger" type="compiletimelogger" nillable="true" minOccurs="0" />
+          <xs:element name="header" type="xs:anyType" />
+          <xs:element name="active" type="xs:anyType" />
+          <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+          <xs:element name="supported" type="xs:anyType" />
+          <xs:element name="/***enumeratesavailablejava.util.*collectionclassestocategorizethem*intocorrespondingjpameta-modelmembertype.*/classnames_list" type="xs:anyType" />
+          <xs:element name="classnames_set" type="xs:anyType" />
+          <xs:element name="classnames_map" type="xs:anyType" />
+          <xs:element name="classnames_collection" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="metamodelimpl" >
+      <xs:complexContent>
+       <xs:extension base="managedtype<?>>">
+         <xs:sequence>
+          <xs:element name="repos" type="xs:anyType" />
+          <xs:element name="_basics" type="xs:anyType" />
+          <xs:element name="_entities" type="xs:anyType" />
+          <xs:element name="_entitiesonlyset" type="xs:anyType" />
+          <xs:element name="_embeddables" type="xs:anyType" />
+          <xs:element name="_mappedsupers" type="xs:anyType" />
+          <xs:element name="_pseudos" type="xs:anyType" />
+          <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="members" >
+      <xs:complexContent>
+       <xs:extension base="member<x,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="compiletimelogger" >
+      <xs:sequence>
+        <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+        <xs:element name="default_" type="xs:anyType" />
+        <xs:element name="loglevel" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sourceannotationhandler" >
+      <xs:complexContent>
+       <xs:extension base="annotation>>">
+         <xs:sequence>
+          <xs:element name="processingenv" type="xs:anyType" />
+          <xs:element name="typeutility" type="types" nillable="true" minOccurs="0" />
+          <xs:element name="logger" type="compiletimelogger" nillable="true" minOccurs="0" />
+          <xs:element name="/***setofinclusionfiltersbasedonmembertype,accesstypeortransient*annotations.usedtodeterminethesubsetofavailablefield/methodthat*arepersistent.*/property" type="xs:anyType" />
+          <xs:element name="field" type="xs:anyType" />
+          <xs:element name="fieldfilter" type="xs:anyType" />
+          <xs:element name="methodfilter" type="xs:anyType" />
+          <xs:element name="non" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="mappingannos" type="xs:anyType" />
+          <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="persistencemetadatadefaults" >
+      <xs:complexContent>
+       <xs:extension base="abstractmetadatadefaults">
+         <xs:sequence>
+          <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+          <xs:element name="_strats" type="xs:anyType" />
+          <xs:element name="_ignoredannos" type="xs:anyType" />
+          <xs:element name="/***setofinclusionfiltersbasedonmembertype,accesstypeortransient*annotations.usedtodeterminethepersistentfield/methods.*/property" type="xs:anyType" />
+          <xs:element name="field" type="xs:anyType" />
+          <xs:element name="fieldfilter" type="xs:anyType" />
+          <xs:element name="methodfilter" type="xs:anyType" />
+          <xs:element name="non" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="_isabstractmappingunidirectional" type="xs:anyType" />
+          <xs:element name="_isnondefaultmappingallowed" type="xs:anyType" />
+          <xs:element name="_defaultschema" type="xs:string" />
+          <xs:element name="_iscascadepersistpersistenceunitdefaultenabled" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="persistentcollection" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="openjpaentitymanagerspi" >
+      <xs:complexContent>
+       <xs:extension base="openjpaentitymanager">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="keydependent" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="storecache" >
+      <xs:complexContent>
+       <xs:extension base="cache">
+         <xs:sequence>
+          <xs:element name="name_default" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="keytype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="metadataparsers" >
+      <xs:sequence>
+        <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tuplefactory" >
+      <xs:sequence>
+        <xs:element name="elements" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="updateaction" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="autodetachtype" >
+      <xs:sequence>
+        <xs:element name="autodetachconstant" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="openjpapersistenceutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="parameterimpl" >
+      <xs:sequence>
+        <xs:element name="_name" type="xs:string" />
+        <xs:element name="_position" type="xs:anyType" />
+        <xs:element name="_expectedvaluetype" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hinthandler" >
+      <xs:sequence>
+        <xs:element name="owner" type="xs:anyType" />
+        <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+        <xs:element name="_supportedhints" type="xs:anyType" />
+        <xs:element name="prefix_openjpa" type="xs:string" />
+        <xs:element name="prefix_jdbc" type="xs:string" />
+        <xs:element name="prefix_fetchplan" type="xs:string" />
+        <xs:element name="_hints" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="restorestatetype" >
+      <xs:sequence>
+        <xs:element name="restorestateconstant" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="extentimpl" >
+      <xs:sequence>
+        <xs:element name="_em" type="entitymanagerimpl" nillable="true" minOccurs="0" />
+        <xs:element name="_extent" type="xs:anyType" />
+        <xs:element name="_fetch" type="fetchplan" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fetchplanimpl" >
+      <xs:sequence>
+        <xs:element name="_fetch" type="xs:anyType" />
+        <xs:element name="_precedence" type="xs:anyType" />
+        <xs:element name="_hints" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inverselogical" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="queryimpl" >
+      <xs:complexContent>
+       <xs:extension base="abstractquery<x>">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+          <xs:element name="transient_fetch" type="fetchplan" nillable="true" minOccurs="0" />
+          <xs:element name="_id" type="xs:string" />
+          <xs:element name="transient_lock" type="xs:anyType" />
+          <xs:element name="_" type="hinthandler" nillable="true" minOccurs="0" />
+          <xs:element name="_query" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="queryoperationtype" >
+      <xs:sequence>
+        <xs:element name="queryoperationconstant" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistentmap" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dependent" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistent" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="openjpaquery" >
+      <xs:complexContent>
+       <xs:extension base="typedquery<x>">
+         <xs:sequence>
+          <xs:element name="/***hintkeyforspecifyingthenumberofrowstooptimizefor.*/hint_result_count" type="xs:string" />
+          <xs:element name="/***usethe{@linkqueryoperationtype}instead.*/op_select" type="xs:long" />
+          <xs:element name="/***usethe{@linkqueryoperationtype}instead.*/op_delete" type="xs:long" />
+          <xs:element name="/***usethe{@linkqueryoperationtype}instead.*/op_update" type="xs:long" />
+          <xs:element name="/***usethe{@linkflushmodetype}enuminstead.*/flush_true" type="xs:long" />
+          <xs:element name="/***usethe{@linkflushmodetype}enuminstead.*/flush_false" type="xs:long" />
+          <xs:element name="/***usethe{@linkflushmodetype}enuminstead.*/flush_with_connection" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="detachedstate" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="queryresultcacheimpl" >
+      <xs:sequence>
+        <xs:element name="_cache" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="extent" >
+      <xs:complexContent>
+       <xs:extension base="iterable<t>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="annotationpersistencemetadataserializer" >
+      <xs:complexContent>
+       <xs:extension base="annotation>">
+         <xs:sequence>
+          <xs:element name="//note:orderisimportant!theseconstantsmustbemaainedin//serializationorder.constantsarespacedsothatsubclassescan//sliptagsin-betweentype_seq" type="xs:long" />
+          <xs:element name="type_query" type="xs:long" />
+          <xs:element name="type_meta" type="xs:long" />
+          <xs:element name="type_class_seqs" type="xs:long" />
+          <xs:element name="type_class_queries" type="xs:long" />
+          <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+          <xs:element name="_" type="xs:anyType" />
+          <xs:element name="_conf" type="xs:anyType" />
+          <xs:element name="_metas" type="xs:anyType" />
+          <xs:element name="_queries" type="xs:anyType" />
+          <xs:element name="_seqs" type="xs:anyType" />
+          <xs:element name="_mode" type="xs:long" />
+          <xs:element name="_comp" type="xs:anyType" />
+          <xs:element name="_clsannos" type="xs:anyType" />
+          <xs:element name="_fldannos" type="xs:anyType" />
+          <xs:element name="_seqannos" type="xs:anyType" />
+          <xs:element name="_qryannos" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="annotationbuilder" >
+      <xs:complexContent>
+       <xs:extension base="annotation>">
+         <xs:sequence>
+          <xs:element name="type" type="xs:anyType" />
+          <xs:element name="components" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="transactionrequiredexception" >
+      <xs:complexContent>
+       <xs:extension base="javax.persistence.transactionrequiredexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="transient_fatal" type="xs:anyType" />
+          <xs:element name="transient_failed" type="xs:anyType" />
+          <xs:element name="_nested" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="minexpression" >
+      <xs:complexContent>
+       <xs:extension base="unaryoperatorexpression">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="keyexpression" >
+      <xs:complexContent>
+       <xs:extension base="operatorpath">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rootpath" >
+      <xs:complexContent>
+       <xs:extension base="abstractdomainobject">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="varargsexpression" >
+      <xs:complexContent>
+       <xs:extension base="expressionimpl">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="_values" type="expression" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entryexpression" >
+      <xs:complexContent>
+       <xs:extension base="operatorpath">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="anyexpression" >
+      <xs:complexContent>
+       <xs:extension base="unaryoperatorexpression">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="squarerootexpression" >
+      <xs:complexContent>
+       <xs:extension base="unaryoperatorexpression">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="querydefinitionimpl" >
+      <xs:complexContent>
+       <xs:extension base="expressionimpl">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="_builder" type="querybuilderimpl" nillable="true" minOccurs="0" />
+          <xs:element name="_domains" type="abstractdomainobject" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="_groupbys" type="pathexpression" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="_orderbys" type="orderableitem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="_projections" type="selectitem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="_distinct" type="xs:anyType" />
+          <xs:element name="_where" type="predicate" nillable="true" minOccurs="0" />
+          <xs:element name="_having" type="predicate" nillable="true" minOccurs="0" />
+          <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="querybuilder" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="expression" >
+      <xs:complexContent>
+       <xs:extension base="selectitem,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="aggregate" >
+      <xs:complexContent>
+       <xs:extension base="expression">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="betweenexpression" >
+      <xs:complexContent>
+       <xs:extension base="binaryexpressionpredicate">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="caseexpression" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="countexpression" >
+      <xs:complexContent>
+       <xs:extension base="unaryoperatorexpression">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="concatexpression" >
+      <xs:complexContent>
+       <xs:extension base="unaryoperatorexpression">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="newinstance" >
+      <xs:complexContent>
+       <xs:extension base="abstractvisitable">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="_cls" type="xs:anyType" />
+          <xs:element name="_args" type="selectitem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="aliascontext" >
+      <xs:sequence>
+        <xs:element name="_operating" type="xs:anyType" />
+        <xs:element name="_aliases" type="xs:anyType" />
+        <xs:element name="_repos" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractvisitable" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="space" type="xs:string" />
+        <xs:element name="open_brace" type="xs:string" />
+        <xs:element name="close_brace" type="xs:string" />
+        <xs:element name="comma" type="xs:string" />
+        <xs:element name="empty" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="maxexpression" >
+      <xs:complexContent>
+       <xs:extension base="unaryoperatorexpression">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderby" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="plusexpression" >
+      <xs:complexContent>
+       <xs:extension base="binaryoperatorexpression">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="allexpression" >
+      <xs:complexContent>
+       <xs:extension base="queryexpression">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="andpredicate" >
+      <xs:complexContent>
+       <xs:extension base="logicalpredicate">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractpath" >
+      <xs:complexContent>
+       <xs:extension base="expressionimpl">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="_parent" type="abstractpath" nillable="true" minOccurs="0" />
+          <xs:element name="_part2" type="xs:anyType" />
+          <xs:element name="_operator" type="pathoperator" nillable="true" minOccurs="0" />
+          <xs:element name="_owner" type="querydefinitionimpl" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pathoperator" >
+      <xs:sequence>
+        <xs:element name="_symbol" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="existsexpression" >
+      <xs:complexContent>
+       <xs:extension base="unaryexpressionpredicate">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="selectitem" >
+      <xs:complexContent>
+       <xs:extension base="orderbyitem">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="greaterequalexpression" >
+      <xs:complexContent>
+       <xs:extension base="binaryexpressionpredicate">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpqlhelper" >
+      <xs:sequence>
+        <xs:element name="single_quote" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="substringexpression" >
+      <xs:complexContent>
+       <xs:extension base="unaryoperatorexpression">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="_start" type="expression" nillable="true" minOccurs="0" />
+          <xs:element name="_length" type="expression" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="unaryfunctionaloperator" >
+      <xs:sequence>
+        <xs:element name="_symbol" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sizeexpression" >
+      <xs:complexContent>
+       <xs:extension base="unaryoperatorexpression">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="unaryexpressionpredicate" >
+      <xs:complexContent>
+       <xs:extension base="abstractvisitable">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="_e" type="expression" nillable="true" minOccurs="0" />
+          <xs:element name="_op" type="unaryconditionaloperator" nillable="true" minOccurs="0" />
+          <xs:element name="_nop" type="unaryconditionaloperator" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="parameterexpression" >
+      <xs:complexContent>
+       <xs:extension base="expressionimpl">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="_name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="valueexpression" >
+      <xs:complexContent>
+       <xs:extension base="operatorpath">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="typeexpression" >
+      <xs:complexContent>
+       <xs:extension base="unaryoperatorexpression">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderableitem" >
+      <xs:complexContent>
+       <xs:extension base="abstractvisitable">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="_asc" type="xs:anyType" />
+          <xs:element name="_e" type="expressionimpl" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="binaryconditionaloperator" >
+      <xs:sequence>
+        <xs:element name="_symbol" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="unaryminusexpression" >
+      <xs:complexContent>
+       <xs:extension base="unaryoperatorexpression">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="modexpression" >
+      <xs:complexContent>
+       <xs:extension base="binaryoperatorexpression">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="notequalexpression" >
+      <xs:complexContent>
+       <xs:extension base="binaryexpressionpredicate">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="timesexpression" >
+      <xs:complexContent>
+       <xs:extension base="binaryoperatorexpression">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="isemptyexpression" >
+      <xs:complexContent>
+       <xs:extension base="unaryexpressionpredicate">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="unaryoperatorexpression" >
+      <xs:complexContent>
+       <xs:extension base="expressionimpl">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="_e" type="expression" nillable="true" minOccurs="0" />
+          <xs:element name="_op" type="unaryfunctionaloperator" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orpredicate" >
+      <xs:complexContent>
+       <xs:extension base="logicalpredicate">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="memberofexpression" >
+      <xs:complexContent>
+       <xs:extension base="binaryexpressionpredicate">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="navigationpath" >
+      <xs:complexContent>
+       <xs:extension base="abstractdomainobject">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dividedbyexpression" >
+      <xs:complexContent>
+       <xs:extension base="binaryoperatorexpression">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fetchjoinobject" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="predicate" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="binaryfunctionaloperator" >
+      <xs:sequence>
+        <xs:element name="_symbol" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sumexpression" >
+      <xs:complexContent>
+       <xs:extension base="unaryoperatorexpression">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="conditionaloperator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="likeexpression" >
+      <xs:complexContent>
+       <xs:extension base="binaryexpressionpredicate">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="_echar" type="xs:anyType" />
+          <xs:element name="_escaped" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="averageexpression" >
+      <xs:complexContent>
+       <xs:extension base="unaryoperatorexpression">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fetchpath" >
+      <xs:complexContent>
+       <xs:extension base="abstractdomainobject">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="expressionimpl" >
+      <xs:complexContent>
+       <xs:extension base="abstractvisitable">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="unaryconditionaloperator" >
+      <xs:sequence>
+        <xs:element name="_symbol" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="joinpath" >
+      <xs:complexContent>
+       <xs:extension base="abstractdomainobject">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="predicateoperand" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="someexpression" >
+      <xs:complexContent>
+       <xs:extension base="unaryoperatorexpression">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="indexexpression" >
+      <xs:complexContent>
+       <xs:extension base="unaryoperatorexpression">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="visitable" >
+      <xs:complexContent>
+       <xs:extension base="serializable">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="binaryoperatorexpression" >
+      <xs:complexContent>
+       <xs:extension base="expressionimpl">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="_e1" type="expression" nillable="true" minOccurs="0" />
+          <xs:element name="_e2" type="expression" nillable="true" minOccurs="0" />
+          <xs:element name="_op" type="binaryfunctionaloperator" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="binaryexpressionpredicate" >
+      <xs:complexContent>
+       <xs:extension base="abstractvisitable">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="_e1" type="expression" nillable="true" minOccurs="0" />
+          <xs:element name="_e2" type="expression" nillable="true" minOccurs="0" />
+          <xs:element name="_op" type="binaryconditionaloperator" nillable="true" minOccurs="0" />
+          <xs:element name="_nop" type="binaryconditionaloperator" nillable="true" minOccurs="0" />
+          <xs:element name="space" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="isnullexpression" >
+      <xs:complexContent>
+       <xs:extension base="unaryexpressionpredicate">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="trimexpression" >
+      <xs:complexContent>
+       <xs:extension base="unaryoperatorexpression">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="_trimchar" type="expression" nillable="true" minOccurs="0" />
+          <xs:element name="_" type="trimspec" nillable="true" minOccurs="0" />
+          <xs:element name="default_trim_char" type="xs:string" />
+          <xs:element name="default_trim_spec" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="lengthexpression" >
+      <xs:complexContent>
+       <xs:extension base="unaryoperatorexpression">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="trimspec" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="unaryoperator" >
+      <xs:sequence>
+        <xs:element name="_symbol" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="locateexpression" >
+      <xs:complexContent>
+       <xs:extension base="binaryoperatorexpression">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="_start" type="expression" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="arrayexpression" >
+      <xs:complexContent>
+       <xs:extension base="expressionimpl">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="_values" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="greaterthanexpression" >
+      <xs:complexContent>
+       <xs:extension base="binaryexpressionpredicate">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="constantexpression" >
+      <xs:complexContent>
+       <xs:extension base="expressionimpl">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="_value" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderbyitem" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pathexpression" >
+      <xs:complexContent>
+       <xs:extension base="expression">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="lessthanexpression" >
+      <xs:complexContent>
+       <xs:extension base="binaryexpressionpredicate">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="lowerexpression" >
+      <xs:complexContent>
+       <xs:extension base="unaryoperatorexpression">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="querybuilderimpl" >
+      <xs:sequence>
+        <xs:element name="_emf" type="openjpaentitymanagerfactoryspi" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rangeexpression" >
+      <xs:complexContent>
+       <xs:extension base="binaryoperatorexpression">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="absexpression" >
+      <xs:complexContent>
+       <xs:extension base="unaryoperatorexpression">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="elseexpression" >
+      <xs:complexContent>
+       <xs:extension base="expressionimpl">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="_caseclause" type="caseexpressionimpl" nillable="true" minOccurs="0" />
+          <xs:element name="_elseclause" type="expression" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="currenttimeexpression" >
+      <xs:complexContent>
+       <xs:extension base="expressionimpl">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="_type" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="domainobject" >
+      <xs:complexContent>
+       <xs:extension base="pathexpression,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="inexpression" >
+      <xs:complexContent>
+       <xs:extension base="binaryexpressionpredicate">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="distinctexpression" >
+      <xs:complexContent>
+       <xs:extension base="unaryoperatorexpression">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="querydefinition" >
+      <xs:complexContent>
+       <xs:extension base="subquery">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="queryexpression" >
+      <xs:complexContent>
+       <xs:extension base="unaryoperatorexpression">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="openjpaquerybuilder" >
+      <xs:complexContent>
+       <xs:extension base="querybuilder">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractdomainobject" >
+      <xs:complexContent>
+       <xs:extension base="abstractpath">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="lessequalexpression" >
+      <xs:complexContent>
+       <xs:extension base="binaryexpressionpredicate">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="subquery" >
+      <xs:complexContent>
+       <xs:extension base="predicateoperand">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="equalexpression" >
+      <xs:complexContent>
+       <xs:extension base="binaryexpressionpredicate">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="caseexpressionimpl" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="_whens" type="whenclause" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="_caseoperand" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="minusexpression" >
+      <xs:complexContent>
+       <xs:extension base="binaryoperatorexpression">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="literalexpression" >
+      <xs:complexContent>
+       <xs:extension base="constantexpression">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="logicalpredicate" >
+      <xs:complexContent>
+       <xs:extension base="abstractvisitable">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="_p1" type="predicate" nillable="true" minOccurs="0" />
+          <xs:element name="_p2" type="predicate" nillable="true" minOccurs="0" />
+          <xs:element name="_op" type="conditionaloperator" nillable="true" minOccurs="0" />
+          <xs:element name="_nop" type="conditionaloperator" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="operatorpath" >
+      <xs:complexContent>
+       <xs:extension base="abstractdomainobject">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="upperexpression" >
+      <xs:complexContent>
+       <xs:extension base="unaryoperatorexpression">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="whenclause" >
+      <xs:sequence>
+        <xs:element name="when" type="xs:anyType" />
+        <xs:element name="then" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entityexistsexception" >
+      <xs:complexContent>
+       <xs:extension base="javax.persistence.entityexistsexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="transient_fatal" type="xs:anyType" />
+          <xs:element name="transient_failed" type="xs:anyType" />
+          <xs:element name="_nested" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="persistenceproductderivation" >
+      <xs:complexContent>
+       <xs:extension base="abstractproductderivation">
+         <xs:sequence>
+          <xs:element name="spec_jpa" type="xs:anyType" />
+          <xs:element name="alias_ejb" type="xs:anyType" />
+          <xs:element name="rsrc_global" type="xs:string" />
+          <xs:element name="rsrc_default" type="xs:string" />
+          <xs:element name="version_1_0" type="xs:anyType" />
+          <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+          <xs:element name="_punamecollisions" type="xs:anyType" />
+          <xs:element name="prefix" type="xs:string" />
+          <xs:element name="_invalidpersistenceproperties" type="xs:string" />
+          <xs:element name="_hints" type="xs:anyType" />
+          <xs:element name="//providernametofilteroutpusthatdon'tbelongtothisderivation._providerimplname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="generatorimpl" >
+      <xs:sequence>
+        <xs:element name="_seq" type="xs:anyType" />
+        <xs:element name="_name" type="xs:string" />
+        <xs:element name="_ctx" type="xs:anyType" />
+        <xs:element name="_meta" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="annotationpersistencexmlmetadataparser" >
+      <xs:complexContent>
+       <xs:extension base="annotation>)">
+         <xs:sequence>
+          <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+          <xs:element name="_conf" type="xs:anyType" />
+          <xs:element name="_" type="xs:anyType" />
+          <xs:element name="_repos" type="xs:anyType" />
+          <xs:element name="//cachethejaxbxml...esiftheyarepresentsowedonot//haveahard-wireddependencyonjaxbherexmltype" type="xs:anyType" />
+          <xs:element name="xmlrootelement" type="xs:anyType" />
+          <xs:element name="xmlaccessortype" type="xs:anyType" />
+          <xs:element name="xmlattribute" type="xs:anyType" />
+          <xs:element name="xmlelement" type="xs:anyType" />
+          <xs:element name="xmltypename" type="xs:anyType" />
+          <xs:element name="xmltypenamespace" type="xs:anyType" />
+          <xs:element name="xmlrootname" type="xs:anyType" />
+          <xs:element name="xmlrootnamespace" type="xs:anyType" />
+          <xs:element name="xmlattributename" type="xs:anyType" />
+          <xs:element name="xmlattributenamespace" type="xs:anyType" />
+          <xs:element name="xmlelementname" type="xs:anyType" />
+          <xs:element name="xmlelementnamespace" type="xs:anyType" />
+          <xs:element name="xmlaccessorvalue" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="datacache" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fetchgroups" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistenceactivator" >
+      <xs:sequence>
+        <xs:element name="//followingissoariescanfindandextendusforosgirfc143persistence_provider_aries" type="xs:string" />
+        <xs:element name="//followingwouldbesetbyariestoexposetheirosgienabledproviderpersistence_provider" type="xs:string" />
+        <xs:element name="osgi_persistence_provider" type="xs:string" />
+        <xs:element name="ctx" type="xs:anyType" />
+        <xs:element name="svcreg" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bundledelegatingclassloader" >
+      <xs:complexContent>
+       <xs:extension base="classloader">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bundleutils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="readonly" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="autocleartype" >
+      <xs:sequence>
+        <xs:element name="autoclearconstant" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitynotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="javax.persistence.entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="transient_fatal" type="xs:anyType" />
+          <xs:element name="transient_failed" type="xs:anyType" />
+          <xs:element name="_nested" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="metadatatag" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="factory" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="argumentexception" >
+      <xs:complexContent>
+       <xs:extension base="illegalargumentexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="transient_fatal" type="xs:anyType" />
+          <xs:element name="transient_failed" type="xs:anyType" />
+          <xs:element name="_nested" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="queryresultcache" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistenceexceptions" >
+      <xs:complexContent>
+       <xs:extension base="exceptions">
+         <xs:sequence>
+          <xs:element name="translator" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="storecacheimpl" >
+      <xs:sequence>
+        <xs:element name="_repos" type="xs:anyType" />
+        <xs:element name="_cache" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="managedinterface" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitymanagerimpl" >
+      <xs:complexContent>
+       <xs:extension base="abstractbrokerfactory.">
+         <xs:sequence>
+          <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+          <xs:element name="empty_s" type="xs:anyType" />
+          <xs:element name="get_lock_mode" type="xs:string" />
+          <xs:element name="lock" type="xs:string" />
+          <xs:element name="refresh" type="xs:string" />
+          <xs:element name="_broker" type="xs:anyType" />
+          <xs:element name="_emf" type="entitymanagerfactoryimpl" nillable="true" minOccurs="0" />
+          <xs:element name="_plans" type="xs:anyType" />
+          <xs:element name="_ret" type="xs:anyType" />
+          <xs:element name="_convertpositionalparams" type="xs:anyType" />
+          <xs:element name="_isjoinedtotransaction" type="xs:anyType" />
+          <xs:element name="properties" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="persistenceexception" >
+      <xs:complexContent>
+       <xs:extension base="javax.persistence.persistenceexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="transient_fatal" type="xs:anyType" />
+          <xs:element name="transient_failed" type="xs:anyType" />
+          <xs:element name="_nested" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="persistenceproviderimpl" >
+      <xs:sequence>
+        <xs:element name="class_transformer_options" type="xs:string" />
+        <xs:element name="emf_pool" type="xs:string" />
+        <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+        <xs:element name="_" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractquery" >
+      <xs:sequence>
+        <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+        <xs:element name="_relaxbindparametertypechecking" type="xs:anyType" />
+        <xs:element name="_convertpositionalparams" type="xs:anyType" />
+        <xs:element name="//willbenullifthisisn'tanamedquery_qmd" type="xs:anyType" />
+        <xs:element name="transient_em" type="entitymanagerimpl" nillable="true" minOccurs="0" />
+        <xs:element name="_boundparams" type="xs:anyType" />
+        <xs:element name="_declaredparams" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="connectionretainmode" >
+      <xs:sequence>
+        <xs:element name="connectionretainconstant" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpafacadehelper" >
+      <xs:sequence>
+        <xs:element name="em_key" type="xs:string" />
+        <xs:element name="emf_key" type="xs:string" />
+        <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="invalidstateexception" >
+      <xs:complexContent>
+       <xs:extension base="illegalstateexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="transient_fatal" type="xs:anyType" />
+          <xs:element name="transient_failed" type="xs:anyType" />
+          <xs:element name="_nested" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="externalvalues" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="annotationpersistencemetadataparser" >
+      <xs:sequence>
+        <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+        <xs:element name="_tags" type="xs:anyType" />
+        <xs:element name="_conf" type="xs:anyType" />
+        <xs:element name="_" type="xs:anyType" />
+        <xs:element name="_repos" type="xs:anyType" />
+        <xs:element name="_envloader" type="xs:anyType" />
+        <xs:element name="_override" type="xs:anyType" />
+        <xs:element name="_mode" type="xs:long" />
+        <xs:element name="_pkgs" type="xs:anyType" />
+        <xs:element name="//theclasswewereinvokedtoparse_cls" type="xs:anyType" />
+        <xs:element name="_stack" type="xs:anyType" />
+        <xs:element name="_" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="openjpaqueryspi" >
+      <xs:complexContent>
+       <xs:extension base="openjpaquery<x>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="generator" >
+      <xs:sequence>
+        <xs:element name="uuid_hex" type="xs:string" />
+        <xs:element name="uuid_" type="xs:string" />
+        <xs:element name="uuid_type4_" type="xs:string" />
+        <xs:element name="uuid_type4_hex" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="noresultexception" >
+      <xs:complexContent>
+       <xs:extension base="javax.persistence.noresultexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="transient_fatal" type="xs:anyType" />
+          <xs:element name="transient_failed" type="xs:anyType" />
+          <xs:element name="_nested" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="openjpaenum" >
+      <xs:complexContent>
+       <xs:extension base="enum<?>>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mixedlocklevelshelper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tupleimpl" >
+      <xs:sequence>
+        <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+        <xs:element name="factory" type="tuplefactory" nillable="true" minOccurs="0" />
+        <xs:element name="values" type="xs:anyType" />
+        <xs:element name="put" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpaproperties" >
+      <xs:complexContent>
+       <xs:extension base="enum<e>>">
+         <xs:sequence>
+          <xs:element name="regex_dot" type="xs:string" />
+          <xs:element name="prefix" type="xs:string" />
+          <xs:element name="provider" type="xs:string" />
+          <xs:element name="transaction_type" type="xs:string" />
+          <xs:element name="datasource" type="xs:string" />
+          <xs:element name="datasource_jta" type="xs:string" />
+          <xs:element name="datasource_nonjta" type="xs:string" />
+          <xs:element name="jdbc_driver" type="xs:string" />
+          <xs:element name="jdbc_url" type="xs:string" />
+          <xs:element name="jdbc_user" type="xs:string" />
+          <xs:element name="jdbc_password" type="xs:string" />
+          <xs:element name="lock_scope" type="xs:string" />
+          <xs:element name="lock_timeout" type="xs:string" />
+          <xs:element name="query_timeout" type="xs:string" />
+          <xs:element name="cache_mode" type="xs:string" />
+          <xs:element name="cache_store_mode" type="xs:string" />
+          <xs:element name="cache_retrieve_mode" type="xs:string" />
+          <xs:element name="validate_factory" type="xs:string" />
+          <xs:element name="validate_mode" type="xs:string" />
+          <xs:element name="validate_pre_persist" type="xs:string" />
+          <xs:element name="validate_pre_remove" type="xs:string" />
+          <xs:element name="validate_pre_update" type="xs:string" />
+          <xs:element name="validate_group_default" type="xs:string" />
+          <xs:element name="_names" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="lrs" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pessimisticlockexception" >
+      <xs:complexContent>
+       <xs:extension base="javax.persistence.pessimisticlockexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="transient_fatal" type="xs:anyType" />
+          <xs:element name="transient_failed" type="xs:anyType" />
+          <xs:element name="_nested" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="elementtype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="openjpaentitymanagerfactoryspi" >
+      <xs:complexContent>
+       <xs:extension base="openjpaentitymanagerfactory">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="persistencemetadatafactory" >
+      <xs:complexContent>
+       <xs:extension base="abstractcfmetadatafactory">
+         <xs:sequence>
+          <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+          <xs:element name="_def" type="persistencemetadatadefaults" nillable="true" minOccurs="0" />
+          <xs:element name="_annoparser" type="annotationpersistencemetadataparser" nillable="true" minOccurs="0" />
+          <xs:element name="_annoxmlparser" type="annotationpersistencexmlmetadataparser" nillable="true" minOccurs="0" />
+          <xs:element name="_xmlparser" type="xmlpersistencemetadataparser" nillable="true" minOccurs="0" />
+          <xs:element name="_xml" type="xs:anyType" />
+          <xs:element name="//xmlrsrc_unparsed" type="xs:anyType" />
+          <xs:element name="_fieldoverride" type="xs:anyType" />
+          <xs:element name="_stack" type="xmlpersistencemetadataparser" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="underscore" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="storedprocedurequeryimpl" >
+      <xs:sequence>
+        <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+        <xs:element name="_name" type="xs:string" />
+        <xs:element name="_delegate" type="xs:anyType" />
+        <xs:element name="_meta" type="xs:anyType" />
+        <xs:element name="_callback" type="xs:anyType" />
+        <xs:element name="//mainlyaflagfornow(nullornot)_declaredparams" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="callbackmode" >
+      <xs:sequence>
+        <xs:element name="callbackmode" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistencestrategy" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistenceunitinfoimpl" >
+      <xs:sequence>
+        <xs:element name="persistence_version" type="xs:string" />
+        <xs:element name="s_loc" type="localizer" nillable="true" minOccurs="0" />
+        <xs:element name="_name" type="xs:string" />
+        <xs:element name="_props" type="xs:anyType" />
+        <xs:element name="_transtype" type="xs:anyType" />
+        <xs:element name="_providerclassname" type="xs:string" />
+        <xs:element name="_mappingfilenames" type="xs:anyType" />
+        <xs:element name="_entityclassnames" type="xs:anyType" />
+        <xs:element name="_jarfiles" type="xs:anyType" />
+        <xs:element name="_jarfilenames" type="xs:anyType" />
+        <xs:element name="_jtadatasourcename" type="xs:string" />
+        <xs:element name="_jta" type="xs:anyType" />
+        <xs:element name="_nonjtadatasourcename" type="xs:string" />
+        <xs:element name="_nonjta" type="xs:anyType" />
+        <xs:element name="_excludeunlisted" type="xs:anyType" />
+        <xs:element name="_persistencexmlfile" type="xs:anyType" />
+        <xs:element name="_schemaversion" type="xs:string" />
+        <xs:element name="_" type="xs:anyType" />
+        <xs:element name="_" type="xs:anyType" />
+        <xs:element name="//-ajarfileintheweb-inf/libdirectoryofawarfile//-ajarfileintherootoftheear//-ajarfileintheearlibrarydirectory//-anapplicationclientjarfile_root" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="openjpaentitytransaction" >
+      <xs:complexContent>
+       <xs:extension base="entitytransaction">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="xmlpersistencemetadataserializer" >
+      <xs:complexContent>
+       <xs:extension base="cfmetadataserializer">
+         <xs:sequence>
+          <xs:element name="//note:orderisimportant!theseconstantsmustbemaainedin//serializationorder.constantsarespacedsothatsubclassescan//sliptagsin-betweentype_seq" type="xs:long" />
+          <xs:element name="type_query" type="xs:long" />
+          <xs:element name="type_meta" type="xs:long" />
+          <xs:element name="type_class_seqs" type="xs:long" />
+          <xs:element name="type_class_queries" type="xs:long" />
+          <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+          <xs:element name="_conf" type="xs:anyType" />
+          <xs:element name="_metas" type="xs:anyType" />
+          <xs:element name="_queries" type="xs:anyType" />
+          <xs:element name="_seqs" type="xs:anyType" />
+          <xs:element name="_mode" type="xs:long" />
+          <xs:element name="_annos" type="xs:anyType" />
+          <xs:element name="_comp" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="traversableresolverimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="validatorimpl" >
+      <xs:complexContent>
+       <xs:extension base="abstractvalidator">
+         <xs:sequence>
+          <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+          <xs:element name="_" type="xs:anyType" />
+          <xs:element name="_" type="xs:anyType" />
+          <xs:element name="_mode" type="xs:anyType" />
+          <xs:element name="_conf" type="xs:anyType" />
+          <xs:element name="transient_" type="xs:anyType" />
+          <xs:element name="_validationgroups" type="xs:anyType" />
+          <xs:element name="_vgmapping" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="validationutils" >
+      <xs:sequence>
+        <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="querytimeoutexception" >
+      <xs:complexContent>
+       <xs:extension base="javax.persistence.querytimeoutexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="transient_fatal" type="xs:anyType" />
+          <xs:element name="transient_failed" type="xs:anyType" />
+          <xs:element name="_nested" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sourcecode" >
+      <xs:complexContent>
+       <xs:extension base="element<class>">
+         <xs:sequence>
+          <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+          <xs:element name="/***listofjavakeywordsandprimitivetypes.populatedally.*/reserved" type="xs:anyType" />
+          <xs:element name="knowntypes" type="xs:anyType" />
+          <xs:element name="tabsize" type="xs:long" />
+          <xs:element name="space" type="xs:string" />
+          <xs:element name="blank" type="xs:string" />
+          <xs:element name="semicolon" type="xs:string" />
+          <xs:element name="comma" type="xs:string" />
+          <xs:element name="dot" type="xs:string" />
+          <xs:element name="equal" type="xs:string" />
+          <xs:element name="quote" type="xs:string" />
+          <xs:element name="block_" type="xs:anyType" />
+          <xs:element name="args_" type="xs:anyType" />
+          <xs:element name="params_" type="xs:anyType" />
+          <xs:element name="comments" type="xs:anyType" />
+          <xs:element name="pkg" type="package" nillable="true" minOccurs="0" />
+          <xs:element name="cls" type="xs:anyType" />
+          <xs:element name="imports" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="reservedwords" >
+      <xs:sequence>
+        <xs:element name="keywords" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fetchgroup" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitymanagerfactoryvalue" >
+      <xs:complexContent>
+       <xs:extension base="pluginvalue">
+         <xs:sequence>
+          <xs:element name="/***configurationpropertykey.*/key" type="xs:string" />
+          <xs:element name="aliases" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="optimisticlockexception" >
+      <xs:complexContent>
+       <xs:extension base="javax.persistence.optimisticlockexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="transient_fatal" type="xs:anyType" />
+          <xs:element name="transient_failed" type="xs:anyType" />
+          <xs:element name="_nested" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="loadfetchgroup" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="aliascontext" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="comparisonstyle" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="openjpacriteriaquery" >
+      <xs:complexContent>
+       <xs:extension base="criteriaquery<t>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="predicateimpl" >
+      <xs:complexContent>
+       <xs:extension base="expressionimpl<boolean>">
+         <xs:sequence>
+          <xs:element name="true_constant" type="xs:anyType" />
+          <xs:element name="false_constant" type="xs:anyType" />
+          <xs:element name="true" type="predicate" nillable="true" minOccurs="0" />
+          <xs:element name="false" type="predicate" nillable="true" minOccurs="0" />
+          <xs:element name="_exps" type="predicate" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="_op" type="xs:anyType" />
+          <xs:element name="_negated" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bindableparameter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="subqueryimpl" >
+      <xs:complexContent>
+       <xs:extension base="expressionimpl<t>">
+         <xs:sequence>
+          <xs:element name="_parent" type="xs:anyType" />
+          <xs:element name="_delegate" type="xs:anyType" />
+          <xs:element name="_model" type="metamodelimpl" nillable="true" minOccurs="0" />
+          <xs:element name="_subq" type="xs:anyType" />
+          <xs:element name="_corrjoins" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rootimpl" >
+      <xs:complexContent>
+       <xs:extension base="fromimpl<x,x>">
+         <xs:sequence>
+          <xs:element name="_entity" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fetchpathimpl" >
+      <xs:complexContent>
+       <xs:extension base="pathimpl<z,x>">
+         <xs:sequence>
+          <xs:element name="_fetches" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="expressions" >
+      <xs:complexContent>
+       <xs:extension base="expressionimpl<x>">
+         <xs:sequence>
+          <xs:element name="open_brace" type="xs:string" />
+          <xs:element name="close_brace" type="xs:string" />
+          <xs:element name="comma" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="openjpacriteriabuilder" >
+      <xs:complexContent>
+       <xs:extension base="criteriabuilder">
+         <xs:sequence>
+          <xs:element name="/***themnemonictoidentifythequerylanguage.*/lang_criteria" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="criteriaexpression" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pathimpl" >
+      <xs:complexContent>
+       <xs:extension base="expressionimpl<x>">
+         <xs:sequence>
+          <xs:element name="_parent" type="xs:anyType" />
+          <xs:element name="_member" type="xs:anyType" />
+          <xs:element name="isembedded" type="xs:anyType" />
+          <xs:element name="_correlatedpath" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="comparebyexample" >
+      <xs:complexContent>
+       <xs:extension base="predicateimpl">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="criteriabuilderimpl" >
+      <xs:complexContent>
+       <xs:extension base="number>">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="_model" type="metamodelimpl" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="criteriaexpressionbuilder" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="parameterexpressionimpl" >
+      <xs:complexContent>
+       <xs:extension base="expressionimpl<t>">
+         <xs:sequence>
+          <xs:element name="_name" type="xs:string" />
+          <xs:element name="//indexoftheparameterasseenbythekernel,notposition_index" type="xs:long" />
+          <xs:element name="value" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="criteriaqueryimpl" >
+      <xs:complexContent>
+       <xs:extension base="t>">
+         <xs:sequence>
+          <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+          <xs:element name="_model" type="metamodelimpl" nillable="true" minOccurs="0" />
+          <xs:element name="_roots" type="xs:anyType" />
+          <xs:element name="_where" type="predicateimpl" nillable="true" minOccurs="0" />
+          <xs:element name="_orders" type="xs:anyType" />
+          <xs:element name="_params" type="xs:anyType" />
+          <xs:element name="_selection" type="xs:anyType" />
+          <xs:element name="_selections" type="xs:anyType" />
+          <xs:element name="_groups" type="xs:anyType" />
+          <xs:element name="_having" type="predicateimpl" nillable="true" minOccurs="0" />
+          <xs:element name="_subqueries" type="xs:anyType" />
+          <xs:element name="_distinct" type="xs:anyType" />
+          <xs:element name="_delegator" type="xs:anyType" />
+          <xs:element name="_resultclass" type="xs:anyType" />
+          <xs:element name="_compiled" type="xs:anyType" />
+          <xs:element name="//aliascontextaliascount" type="xs:long" />
+          <xs:element name="alias_base" type="xs:string" />
+          <xs:element name="_variables" type="xs:anyType" />
+          <xs:element name="_values" type="xs:anyType" />
+          <xs:element name="_aliases" type="xs:anyType" />
+          <xs:element name="_rootvariables" type="xs:anyType" />
+          <xs:element name="//subquerycontext_contexts" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderimpl" >
+      <xs:sequence>
+        <xs:element name="_ascending" type="xs:anyType" />
+        <xs:element name="e" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="expressionimpl" >
+      <xs:complexContent>
+       <xs:extension base="selectionimpl<x>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="selectionimpl" >
+      <xs:sequence>
+        <xs:element name="_cls" type="xs:anyType" />
+        <xs:element name="_alias" type="xs:string" />
+        <xs:element name="_autoaliased" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fromimpl" >
+      <xs:complexContent>
+       <xs:extension base="pathimpl<z,x>">
+         <xs:sequence>
+          <xs:element name="_joins" type="xs:anyType" />
+          <xs:element name="_fetches" type="xs:anyType" />
+          <xs:element name="type" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="joins" >
+      <xs:complexContent>
+       <xs:extension base="fromimpl<z,x>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="criteriaexpressionvisitor" >
+      <xs:complexContent>
+       <xs:extension base="abstractvisitor">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="compoundselections" >
+      <xs:complexContent>
+       <xs:extension base="selectionimpl<x>">
+         <xs:sequence>
+          <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="extendable-orm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="openjpa-orm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="javax.persistence.spi" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testpersistenceproductderivation" >
+      <xs:complexContent>
+       <xs:extension base="urlclassloader">
+         <xs:sequence>
+          <xs:element name="source" type="xs:anyType" />
+          <xs:element name="target" type="xs:anyType" />
+          <xs:element name="originalloader" type="xs:anyType" />
+          <xs:element name="temploader" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testenumtokernelconstantmappings" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence-2_0" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

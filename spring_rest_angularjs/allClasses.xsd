@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="enderecoscontrollermockstest" >
+      <xs:complexContent>
+       <xs:extension base="abstractcontrollertest">
+         <xs:sequence>
+          <xs:element name="service" type="enderecosservice" nillable="true" minOccurs="0" />
+          <xs:element name="controller" type="enderecoscontroller" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pessoascontrollermockstest" >
+      <xs:complexContent>
+       <xs:extension base="abstractcontrollertest">
+         <xs:sequence>
+          <xs:element name="service" type="pessoasservice" nillable="true" minOccurs="0" />
+          <xs:element name="controller" type="pessoascontroller" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="enderecosservicetest" >
+      <xs:complexContent>
+       <xs:extension base="abstracttest">
+         <xs:sequence>
+          <xs:element name="service" type="enderecosservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pessoasservicetest" >
+      <xs:complexContent>
+       <xs:extension base="abstracttest">
+         <xs:sequence>
+          <xs:element name="service" type="pessoasservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="xmedikaapplicationtests" >
+      <xs:complexContent>
+       <xs:extension base="abstracttest{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstracttest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractcontrollertest" >
+      <xs:complexContent>
+       <xs:extension base="abstracttest">
+         <xs:sequence>
+          <xs:element name="mvc" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pessoas" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="sexo" type="xs:anyType" />
+        <xs:element name="datanasc" type="xs:dateTime" />
+        <xs:element name="cpf" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pessoaenderecopk" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="pessoas" type="xs:long" />
+        <xs:element name="enderecos" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pessoaendereco" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="pessoas" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="enderecos" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="enderecos" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="logradouro" type="xs:string" />
+        <xs:element name="numero" type="xs:long" />
+        <xs:element name="complemento" type="xs:string" />
+        <xs:element name="bairro" type="xs:string" />
+        <xs:element name="cidade" type="xs:string" />
+        <xs:element name="cep" type="xs:long" />
+        <xs:element name="estado" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pessoasenderecosdto" >
+      <xs:sequence>
+        <xs:element name="pessoa" type="pessoas" nillable="true" minOccurs="0" />
+        <xs:element name="listenderecos" type="enderecos" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pessoasenderecoshealthindicator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pessoahealthindicator" >
+      <xs:sequence>
+        <xs:element name="service" type="pessoasservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="exceptionattributes" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="defaultexceptionattributes" >
+      <xs:sequence>
+        <xs:element name="timestamp" type="xs:string" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="error" type="xs:string" />
+        <xs:element name="exception" type="xs:string" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="path" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="swaggerconfiguration" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pessoaenderecorepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<pessoaendereco,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="enderecosrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<enderecos,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pessoasrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<pessoas,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pessoascontroller" >
+      <xs:complexContent>
+       <xs:extension base="basecontroller">
+         <xs:sequence>
+          <xs:element name="service" type="pessoasservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="enderecoscontroller" >
+      <xs:complexContent>
+       <xs:extension base="basecontroller">
+         <xs:sequence>
+          <xs:element name="service" type="enderecosservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="xmedikaapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="enderecosservice" >
+      <xs:sequence>
+        <xs:element name="repository" type="enderecosrepository" nillable="true" minOccurs="0" />
+        <xs:element name="repositorype" type="pessoaenderecorepository" nillable="true" minOccurs="0" />
+        <xs:element name="repositorypessoas" type="pessoasrepository" nillable="true" minOccurs="0" />
+        <xs:element name="conterservice" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pessoasservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="repository" type="pessoasrepository" nillable="true" minOccurs="0" />
+        <xs:element name="repositoryendereco" type="enderecosrepository" nillable="true" minOccurs="0" />
+        <xs:element name="conterservice" type="xs:anyType" />
+        <xs:element name="repositorype" type="pessoaenderecorepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

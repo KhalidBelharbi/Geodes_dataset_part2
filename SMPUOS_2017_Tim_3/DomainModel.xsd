@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="adresa" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nazivnaseljenogmesta" type="xs:string" />
+        <xs:element name="nazivulice" type="xs:string" />
+        <xs:element name="broj" type="xs:long" />
+        <xs:element name="geoduzina" type="xs:double" />
+        <xs:element name="geosirina" type="xs:double" />
+        <xs:element name="//morazbogpregledabioskopanaosnovukoordinatabioskopi" type="bioskop" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bioskop" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="naziv" type="xs:string" />
+        <xs:element name="bioskopa" type="adresa" nillable="true" minOccurs="0" />
+        <xs:element name="ocena" type="xs:long" />
+        <xs:element name="prosecnaocena" type="xs:double" />
+        <xs:element name="brojac" type="xs:long" />
+        <xs:element name="sumaocena" type="xs:double" />
+        <xs:element name="ocjene" type="ocjena" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//bioskopimasalesale" type="sala" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sala" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="oznakasale" type="xs:string" />
+        <xs:element name="kapacitet" type="xs:long" />
+        <xs:element name="brojsedistaredovi" type="xs:long" />
+        <xs:element name="brojsedistakolone" type="xs:long" />
+        <xs:element name="tip" type="salatip" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="bioskop" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ocjena" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="bioskop" nillable="true" minOccurs="0" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="ocjena" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

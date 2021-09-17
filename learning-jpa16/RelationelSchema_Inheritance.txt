@@ -1,0 +1,23 @@
+order(id:Long [PK], //주문회원:Member #FK to(member), //배송정보:Delivery #FK to(delivery), //주문시간order:Date, //주문상태status:OrderStatus);
+
+category(id:Long [PK], name:String, parent:Category #FK to(category));
+
+delivery(id:Long [PK], GeneratedName:Order #FK to(order), GeneratedName:Address, status:DeliveryStatus);
+
+item(id:Long [PK], name:String, price:int, stockquantity:int);
+
+book(author:String, isbn:String);
+
+album(artist:String, etc:String);
+
+movie(director:String, actor:String);
+
+member(id:Long [PK], name:String, GeneratedName:Address);
+
+orderitem(id:Long [PK], //주문상품:Item #FK to(item), //주문:Order #FK to(order), //주문가격orderprice:int, //주문수량count:int);
+
+item(category_id:Category [PK] #FK to Category,item_id:list<item> [PK] #FK to list<item>, DTYPE: String);
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

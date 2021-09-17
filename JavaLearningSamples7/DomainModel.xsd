@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="post" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="postedat" type="xs:dateTime" />
+        <xs:element name="lastupdat" type="xs:dateTime" />
+        <xs:element name="tags" type="tag" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tag" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="posts" type="post" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="outcomes" >
+      <xs:sequence>
+        <xs:element name="ship" type="xs:string" />
+        <xs:element name="battle" type="xs:string" />
+        <xs:element name="result" type="xs:string" />
+        <xs:element name="GeneratedName" type="battles" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ships" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="launched" type="xs:string" />
+        <xs:element name="GeneratedName" type="classes" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="classes" >
+      <xs:sequence>
+        <xs:element name="classes" type="xs:string" />
+        <xs:element name="type" type="rating" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="priority" nillable="true" minOccurs="0" />
+        <xs:element name="priorityvalue" type="xs:long" />
+        <xs:element name="country" type="xs:string" />
+        <xs:element name="numguns" type="xs:long" />
+        <xs:element name="bore" type="xs:long" />
+        <xs:element name="desplacement" type="xs:long" />
+        <xs:element name="//этополесохранитсякакvarchar" type="category" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="battles" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:dateTime" />
+        <xs:element name="battles" type="outcomes" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,1567 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="buyerclubapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="telegramwebclient" >
+      <xs:sequence>
+        <xs:element name="api_telegram_bot" type="xs:string" />
+        <xs:element name="api_telegram_file" type="xs:string" />
+        <xs:element name="client" type="xs:anyType" />
+        <xs:element name="configuration" type="telegramconfiguration" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="organizationcontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="organizationservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="checkcontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="checkservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="telegramuseroperations" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cashieroperations" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shopoperations" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productcontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="productservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="productpriceservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productpriceoperations" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="checkoperations" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="telegramusercontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="telegramuserservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="organizationoperations" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productpricecontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="productpriceservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productoperations" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cashiercontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="cashierservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shopcontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="shopservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="webclientconfiguration" >
+      <xs:sequence>
+        <xs:element name="max_in_memory_size" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="telegrambotapiconfiguration" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpaauditingconfiguration" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messagesconfiguration" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="telegramconfiguration" >
+      <xs:sequence>
+        <xs:element name="token" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productgrouprepo" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<productgroup,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="shoprepo" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<shop,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="organizationrepo" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<organization,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productpricerepo" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<productprice,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="telegramuserrepo" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<telegramuser,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productrepo" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<product,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="checkrepo" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<cashcheck,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cashierrepo" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<cashier,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="checklinerepo" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<cashcheckline,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cashierserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="cashierrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="shoprepo" nillable="true" minOccurs="0" />
+        <xs:element name="todtomapper" type="cashiertodto" nillable="true" minOccurs="0" />
+        <xs:element name="toentitymapper" type="dtotocashier" nillable="true" minOccurs="0" />
+        <xs:element name="addtoentitymapper" type="adddtotocashier" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shopserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="shoprepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="organizationrepo" nillable="true" minOccurs="0" />
+        <xs:element name="todtomapper" type="shoptodto" nillable="true" minOccurs="0" />
+        <xs:element name="toshopmapper" type="dtotoshop" nillable="true" minOccurs="0" />
+        <xs:element name="addtoentitymapper" type="adddtotoshop" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="localeserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="localeservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="telegrammessageservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="telegramrequesttype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="telegramquery" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="telegramrequesttype" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="telegramfile" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="telegramrequesttype" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="telegrammessage" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="telegramcallback" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="telegramrequesttype" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="telegramcommand" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="telegramrequesttype" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="telegramfileserviceimpl" >
+      <xs:sequence>
+        <xs:element name="client" type="telegramwebclient" nillable="true" minOccurs="0" />
+        <xs:element name="ofdcheckservice" type="ofdcheckserviceimpl" nillable="true" minOccurs="0" />
+        <xs:element name="mapper" type="ofdcheckexcerpttoofdcheck" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="telegramfileservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="telegrammessageserviceimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productgroupservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ofdcheckservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="productrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="productgrouprepo" nillable="true" minOccurs="0" />
+        <xs:element name="todtomapper" type="producttodto" nillable="true" minOccurs="0" />
+        <xs:element name="toentitymapper" type="dtotoproduct" nillable="true" minOccurs="0" />
+        <xs:element name="addtoentitymapper" type="adddtotoproduct" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="checkservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productpriceserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="productpricerepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="productrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="shoprepo" nillable="true" minOccurs="0" />
+        <xs:element name="todtomapper" type="productpricetodto" nillable="true" minOccurs="0" />
+        <xs:element name="toinfodtomapper" type="productpricetoinfodto" nillable="true" minOccurs="0" />
+        <xs:element name="toentitymapper" type="dtotoproductprice" nillable="true" minOccurs="0" />
+        <xs:element name="addtoentitymapper" type="adddtotoproductprice" nillable="true" minOccurs="0" />
+        <xs:element name="totelegramdtomapper" type="productpricetotelegramdto" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="organizationserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="organizationrepo" nillable="true" minOccurs="0" />
+        <xs:element name="todtomapper" type="organizationtodto" nillable="true" minOccurs="0" />
+        <xs:element name="toentitymapper" type="dtotoorganization" nillable="true" minOccurs="0" />
+        <xs:element name="addtoentitymapper" type="adddtotoorganization" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cashierservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adddtotoshop" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shoptodto" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dtotoshop" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ofdcheckexcerpttoofdcheck" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="datetimeservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cashiertodto" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adddtotocashier" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dtotocashier" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adddtotoproductgroup" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productgrouptodto" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dtotoproductgroup" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cashchecktoinfodto" >
+      <xs:sequence>
+        <xs:element name="linemapper" type="cashchecklinetoinfodto" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="telegramusertodto" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cashchecktodto" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dtotocashcheck" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adddtotocashcheck" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dtotoproduct" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adddtotoproduct" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="producttodto" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productdtotoinfodto" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adddtotoorganization" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dtotoorganization" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="organizationtodto" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dtotoproductprice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adddtotoproductprice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productpricetodto" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productpricetoinfodto" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="telegramorganizationdtotostring" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productpricetotelegramdto" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="telegramshopdtotostring" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cashcheckdtototelegramfileprocessresult" >
+      <xs:sequence>
+        <xs:element name="service" type="datetimeservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="telegramproductpricedtotostring" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adddtotocashcheckline" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="itemtoaddchecklinedto" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cashchecklinetoinfodto" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mapper" >
+      <xs:complexContent>
+       <xs:extension base="function<i,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fromtoaddtelegramuser" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="telegramusertodto" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adddtototelegramuser" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="checkserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="checkrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="cashierrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="productrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="telegramuserrepo" nillable="true" minOccurs="0" />
+        <xs:element name="todtomapper" type="cashchecktodto" nillable="true" minOccurs="0" />
+        <xs:element name="toinfodtomapper" type="cashchecktoinfodto" nillable="true" minOccurs="0" />
+        <xs:element name="toentitymapper" type="dtotocashcheck" nillable="true" minOccurs="0" />
+        <xs:element name="addtoentitymapper" type="adddtotocashcheck" nillable="true" minOccurs="0" />
+        <xs:element name="addlinetoentitymapper" type="adddtotocashcheckline" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="telegramuserserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="telegramuserrepo" nillable="true" minOccurs="0" />
+        <xs:element name="todtomapper" type="telegramusertodto" nillable="true" minOccurs="0" />
+        <xs:element name="addtoentitymapper" type="adddtototelegramuser" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productpriceservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datetimeserviceimpl" >
+      <xs:sequence>
+        <xs:element name="default_zone_id" type="xs:anyType" />
+        <xs:element name="date_time_formatter" type="xs:anyType" />
+        <xs:element name="ofd_date_time_formatter" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shopservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productgroupserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="productgrouprepo" nillable="true" minOccurs="0" />
+        <xs:element name="todtomapper" type="productgrouptodto" nillable="true" minOccurs="0" />
+        <xs:element name="toentitymapper" type="dtotoproductgroup" nillable="true" minOccurs="0" />
+        <xs:element name="addtoentitymapper" type="adddtotoproductgroup" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ticket" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="document" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ofdcheckexcerpt" >
+      <xs:sequence>
+        <xs:element name="user" type="xs:string" />
+        <xs:element name="retailplaceaddress" type="xs:string" />
+        <xs:element name="userinn" type="xs:string" />
+        <xs:element name="requestnumber" type="xs:string" />
+        <xs:element name="shiftnumber" type="xs:string" />
+        <xs:element name="operator" type="xs:string" />
+        <xs:element name="operationtype" type="xs:long" />
+        <xs:element name="totalsum" type="xs:long" />
+        <xs:element name="cashtotalsum" type="xs:long" />
+        <xs:element name="ecashtotalsum" type="xs:long" />
+        <xs:element name="kktregid" type="xs:string" />
+        <xs:element name="fiscaldrivenumber" type="xs:string" />
+        <xs:element name="fiscaldocumentnumber" type="xs:string" />
+        <xs:element name="fiscalsign" type="xs:string" />
+        <xs:element name="nds10" type="xs:long" />
+        <xs:element name="nds18" type="xs:long" />
+        <xs:element name="datetime" type="xs:string" />
+        <xs:element name="taxationtype" type="xs:long" />
+        <xs:element name="items" type="item" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="discount" type="xs:string" />
+        <xs:element name="discountsum" type="xs:string" />
+        <xs:element name="kktnumber" type="xs:string" />
+        <xs:element name="markup" type="xs:string" />
+        <xs:element name="markupsum" type="xs:string" />
+        <xs:element name="nds0" type="xs:string" />
+        <xs:element name="ndscalculated10" type="xs:string" />
+        <xs:element name="ndscalculated18" type="xs:string" />
+        <xs:element name="ndsno" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="excerpt" >
+      <xs:sequence>
+        <xs:element name="claims" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="ticket" nillable="true" minOccurs="0" />
+        <xs:element name="createdat" type="xs:string" />
+        <xs:element name="timelastaccess" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="document" >
+      <xs:sequence>
+        <xs:element name="ofdcheck" type="ofdcheckexcerpt" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="item" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="price" type="xs:long" />
+        <xs:element name="quantity" type="xs:double" />
+        <xs:element name="sum" type="xs:long" />
+        <xs:element name="storno" type="xs:anyType" />
+        <xs:element name="nds0" type="xs:long" />
+        <xs:element name="nds10" type="xs:long" />
+        <xs:element name="nds18" type="xs:long" />
+        <xs:element name="ndscalculated10" type="xs:string" />
+        <xs:element name="ndscalculated18" type="xs:string" />
+        <xs:element name="ndsno" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ofdcheck" >
+      <xs:sequence>
+        <xs:element name="user" type="xs:string" />
+        <xs:element name="retailplaceaddress" type="xs:string" />
+        <xs:element name="userinn" type="xs:string" />
+        <xs:element name="requestnumber" type="xs:string" />
+        <xs:element name="shiftnumber" type="xs:string" />
+        <xs:element name="operator" type="xs:string" />
+        <xs:element name="operationtype" type="xs:long" />
+        <xs:element name="totalsum" type="xs:long" />
+        <xs:element name="cashtotalsum" type="xs:long" />
+        <xs:element name="ecashtotalsum" type="xs:long" />
+        <xs:element name="kktregid" type="xs:string" />
+        <xs:element name="fiscaldrivenumber" type="xs:string" />
+        <xs:element name="fiscaldocumentnumber" type="xs:string" />
+        <xs:element name="fiscalsign" type="xs:string" />
+        <xs:element name="nds10" type="xs:long" />
+        <xs:element name="nds18" type="xs:long" />
+        <xs:element name="datetime" type="xs:long" />
+        <xs:element name="taxationtype" type="xs:long" />
+        <xs:element name="items" type="item" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="discount" type="xs:string" />
+        <xs:element name="discountsum" type="xs:string" />
+        <xs:element name="kktnumber" type="xs:string" />
+        <xs:element name="markup" type="xs:string" />
+        <xs:element name="markupsum" type="xs:string" />
+        <xs:element name="nds0" type="xs:string" />
+        <xs:element name="ndscalculated10" type="xs:string" />
+        <xs:element name="ndscalculated18" type="xs:string" />
+        <xs:element name="ndsno" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="telegramuserservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ofdcheckserviceimpl" >
+      <xs:sequence>
+        <xs:element name="undefined_cashier" type="xs:string" />
+        <xs:element name="GeneratedName" type="organizationservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="shopservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="cashierservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="productservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="checkservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="datetimeservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="productpriceservice" nillable="true" minOccurs="0" />
+        <xs:element name="itemtoaddcheckline" type="itemtoaddchecklinedto" nillable="true" minOccurs="0" />
+        <xs:element name="mapper" type="cashcheckdtototelegramfileprocessresult" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datetimeservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="organizationservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="addtelegramuserdto" >
+      <xs:sequence>
+        <xs:element name="/***идентификатор.*/id" type="xs:long" />
+        <xs:element name="/***этобот.*/isbot" type="xs:anyType" />
+        <xs:element name="/***наименование.*/username" type="xs:string" />
+        <xs:element name="/***имя.*/firstname" type="xs:string" />
+        <xs:element name="/***фамилия.*/lastname" type="xs:string" />
+        <xs:element name="/***можетприсоединитсякгруппе.толькодлябота.*/canjoingroups" type="xs:anyType" />
+        <xs:element name="/***можетприсоединитсякгруппе.*/canreadallgroupmessages" type="xs:anyType" />
+        <xs:element name="/***.*/supportinlinequeries" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="telegramuserdto" >
+      <xs:sequence>
+        <xs:element name="/***идентификатор.*/id" type="xs:long" />
+        <xs:element name="/***этобот.*/isbot" type="xs:anyType" />
+        <xs:element name="/***наименование.*/username" type="xs:string" />
+        <xs:element name="/***имя.*/firstname" type="xs:string" />
+        <xs:element name="/***фамилия.*/lastname" type="xs:string" />
+        <xs:element name="/***можетприсоединитсякгруппе.толькодлябота.*/canjoingroups" type="xs:anyType" />
+        <xs:element name="/***можетприсоединитсякгруппе.*/canreadallgroupmessages" type="xs:anyType" />
+        <xs:element name="/***.*/supportinlinequeries" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cashcheckinfodto" >
+      <xs:sequence>
+        <xs:element name="/***идентификатор.*/id" type="xs:long" />
+        <xs:element name="/***идентификаторкассира.*/cashierid" type="xs:long" />
+        <xs:element name="/***имякассира.*/cashiername" type="xs:string" />
+        <xs:element name="/***позициивчеке.*/checklines" type="cashchecklineinfodto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="/***номерчека(???).*/requestnumber" type="xs:string" />
+        <xs:element name="/***номерсмены(???).*/shiftnumber" type="xs:string" />
+        <xs:element name="/***рег.номеркассовогоаппарата(имяатрибутаоригинальное).*/kktregid" type="xs:string" />
+        <xs:element name="/***номерплаты.*/fiscaldrivenumber" type="xs:string" />
+        <xs:element name="/***номердокумента.*/fiscaldocumentnumber" type="xs:string" />
+        <xs:element name="/***сумма.*/totalsum" type="xs:anyType" />
+        <xs:element name="/***сумманаличные.*/cashsum" type="xs:anyType" />
+        <xs:element name="/***суммабезналичные.*/ecashsum" type="xs:anyType" />
+        <xs:element name="/***дата-время.*/checkdate" type="xs:anyType" />
+        <xs:element name="/***идентификаторtelegram-пользователядобавивишегочек.*/telegramuser" type="telegramuserdto" nillable="true" minOccurs="0" />
+        <xs:element name="/***создан.*/createdat" type="xs:anyType" />
+        <xs:element name="/***обновлен.*/updatedat" type="xs:anyType" />
+        <xs:element name="/***пометканаудаление.*/deleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="addcashcheckdto" >
+      <xs:sequence>
+        <xs:element name="/***идентификаторкассира.*/cashierid" type="xs:long" />
+        <xs:element name="/***номерчека(???).*/requestnumber" type="xs:string" />
+        <xs:element name="/***номерсмены(???).*/shiftnumber" type="xs:string" />
+        <xs:element name="/***рег.номеркассовогоаппарата(имяатрибутаоригинальное).*/kktregid" type="xs:string" />
+        <xs:element name="/***номерплаты.*/fiscaldrivenumber" type="xs:string" />
+        <xs:element name="/***номердокумента.*/fiscaldocumentnumber" type="xs:string" />
+        <xs:element name="/***сумма.*/totalsum" type="xs:anyType" />
+        <xs:element name="/***сумманаличные.*/cashsum" type="xs:anyType" />
+        <xs:element name="/***суммабезналичные.*/ecashsum" type="xs:anyType" />
+        <xs:element name="/***дата-время.*/checkdate" type="xs:anyType" />
+        <xs:element name="/***товарычека.*/checklines" type="addcashchecklinedto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="/***идентификаторtelegram-пользователядобавивишегочек.*/telegramuserid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cashcheckdto" >
+      <xs:sequence>
+        <xs:element name="/***идентификатор.*/id" type="xs:long" />
+        <xs:element name="/***идентификаторкассира.*/cashierid" type="xs:long" />
+        <xs:element name="/***номерчека(???).*/requestnumber" type="xs:string" />
+        <xs:element name="/***номерсмены(???).*/shiftnumber" type="xs:string" />
+        <xs:element name="/***рег.номеркассовогоаппарата(имяатрибутаоригинальное).*/kktregid" type="xs:string" />
+        <xs:element name="/***номерплаты.*/fiscaldrivenumber" type="xs:string" />
+        <xs:element name="/***номердокумента.*/fiscaldocumentnumber" type="xs:string" />
+        <xs:element name="/***сумма.*/totalsum" type="xs:anyType" />
+        <xs:element name="/***сумманаличные.*/cashsum" type="xs:anyType" />
+        <xs:element name="/***суммабезналичные.*/ecashsum" type="xs:anyType" />
+        <xs:element name="/***дата-время.*/checkdate" type="xs:anyType" />
+        <xs:element name="/***идентификаторtelegram-пользователядобавивишегочек.*/telegramuserid" type="xs:long" />
+        <xs:element name="/***создан.*/createdat" type="xs:anyType" />
+        <xs:element name="/***обновлен.*/updatedat" type="xs:anyType" />
+        <xs:element name="/***пометканаудаление.*/deleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productpriceinfodto" >
+      <xs:sequence>
+        <xs:element name="/***идентификатор.*/id" type="xs:long" />
+        <xs:element name="/***идентификатормагазина.*/shopid" type="xs:long" />
+        <xs:element name="/***наименованиемагазина.*/shopname" type="xs:string" />
+        <xs:element name="/***идентификатортовара.*/productid" type="xs:long" />
+        <xs:element name="/***наименованиетовара.*/productname" type="xs:string" />
+        <xs:element name="/***цена.*/price" type="xs:anyType" />
+        <xs:element name="/***дата-время.*/pricedate" type="xs:anyType" />
+        <xs:element name="/***пометканаудаление.*/deleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productpricedto" >
+      <xs:sequence>
+        <xs:element name="/***идентификатор.*/id" type="xs:long" />
+        <xs:element name="/***идентификатормагазина.*/shopid" type="xs:long" />
+        <xs:element name="/***идентификатортовара.*/productid" type="xs:long" />
+        <xs:element name="/***цена.*/price" type="xs:anyType" />
+        <xs:element name="/***дата-время.*/pricedate" type="xs:anyType" />
+        <xs:element name="/***пометканаудаление.*/deleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="addproductpricedto" >
+      <xs:sequence>
+        <xs:element name="/***идентификатормагазина.*/shopid" type="xs:long" />
+        <xs:element name="/***идентификатортовара.*/productid" type="xs:long" />
+        <xs:element name="/***цена.*/price" type="xs:anyType" />
+        <xs:element name="/***дата-время.*/pricedate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="organizationdto" >
+      <xs:sequence>
+        <xs:element name="/***идентификатор.*/id" type="xs:long" />
+        <xs:element name="/***наименование.*/name" type="xs:string" />
+        <xs:element name="/***инн.*/inn" type="xs:string" />
+        <xs:element name="/***создан.*/createdat" type="xs:anyType" />
+        <xs:element name="/***обновлен.*/updatedat" type="xs:anyType" />
+        <xs:element name="/***пометканаудаление.*/deleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="addorganizationdto" >
+      <xs:sequence>
+        <xs:element name="/***наименование.*/name" type="xs:string" />
+        <xs:element name="/***инн.*/inn" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shopdto" >
+      <xs:sequence>
+        <xs:element name="/***идентификатор.*/id" type="xs:long" />
+        <xs:element name="/***наименование.*/name" type="xs:string" />
+        <xs:element name="/***адрес.*/address" type="xs:string" />
+        <xs:element name="/***идентификаторорганизации.*/organizationid" type="xs:long" />
+        <xs:element name="/***создан.*/createdat" type="xs:anyType" />
+        <xs:element name="/***обновлен.*/updatedat" type="xs:anyType" />
+        <xs:element name="/***пометканаудаление.*/deleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="addshopdto" >
+      <xs:sequence>
+        <xs:element name="/***наименование.*/name" type="xs:string" />
+        <xs:element name="/***адрес.*/address" type="xs:string" />
+        <xs:element name="/***идентификаторорганизации.*/organizationid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="addcashierdto" >
+      <xs:sequence>
+        <xs:element name="/***наименование.*/name" type="xs:string" />
+        <xs:element name="/***идентификатормагазина.*/shopid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cashierdto" >
+      <xs:sequence>
+        <xs:element name="/***идентификатор.*/id" type="xs:long" />
+        <xs:element name="/***наименование.*/name" type="xs:string" />
+        <xs:element name="/***идентификатормагазина.*/shopid" type="xs:long" />
+        <xs:element name="/***создан.*/createdat" type="xs:anyType" />
+        <xs:element name="/***обновлен.*/updatedat" type="xs:anyType" />
+        <xs:element name="/***пометканаудаление.*/deleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productgroupdto" >
+      <xs:sequence>
+        <xs:element name="/***идентификатор.*/id" type="xs:long" />
+        <xs:element name="/***наименование.*/name" type="xs:string" />
+        <xs:element name="/***создан.*/createdat" type="xs:anyType" />
+        <xs:element name="/***обновлен.*/updatedat" type="xs:anyType" />
+        <xs:element name="/***пометканаудаление.*/deleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="addproductgroupdto" >
+      <xs:sequence>
+        <xs:element name="/***наименование.*/name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="telegramproductpricedto" >
+      <xs:sequence>
+        <xs:element name="productid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="price" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="telegramfileprocessresult" >
+      <xs:sequence>
+        <xs:element name="checkinfo" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="addproductdto" >
+      <xs:sequence>
+        <xs:element name="/***наименование.*/name" type="xs:string" />
+        <xs:element name="/***идентификаторгруппытоваров.*/productgroupid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productdto" >
+      <xs:sequence>
+        <xs:element name="/***идентификатор.*/id" type="xs:long" />
+        <xs:element name="/***наименование.*/name" type="xs:string" />
+        <xs:element name="/***идентификаторгруппытоваров.*/productgroupid" type="xs:long" />
+        <xs:element name="/***создан.*/createdat" type="xs:anyType" />
+        <xs:element name="/***обновлен.*/updatedat" type="xs:anyType" />
+        <xs:element name="/***пометканаудаление.*/deleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productinfodto" >
+      <xs:sequence>
+        <xs:element name="/***идентификатор.*/id" type="xs:long" />
+        <xs:element name="/***наименование.*/name" type="xs:string" />
+        <xs:element name="/***идентификаторгруппытоваров.*/productgroupid" type="xs:long" />
+        <xs:element name="/***наименованиегруппытоваров.*/productgroupname" type="xs:string" />
+        <xs:element name="/***создан.*/createdat" type="xs:anyType" />
+        <xs:element name="/***обновлен.*/updatedat" type="xs:anyType" />
+        <xs:element name="/***цена.*/price" type="productpricedto" nillable="true" minOccurs="0" />
+        <xs:element name="/***пометканаудаление.*/deleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="addcashchecklinedto" >
+      <xs:sequence>
+        <xs:element name="/***идентификатортовара.*/productid" type="xs:long" />
+        <xs:element name="/***цена.*/price" type="xs:anyType" />
+        <xs:element name="/***количество.*/quantity" type="xs:anyType" />
+        <xs:element name="/***сумма.*/totalsum" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cashchecklinedto" >
+      <xs:sequence>
+        <xs:element name="/***идентификатор.*/id" type="xs:long" />
+        <xs:element name="/***идентификатортовара.*/productid" type="xs:long" />
+        <xs:element name="/***цена.*/price" type="xs:anyType" />
+        <xs:element name="/***количество.*/quantity" type="xs:anyType" />
+        <xs:element name="/***сумма.*/totalsum" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cashchecklineinfodto" >
+      <xs:sequence>
+        <xs:element name="/***идентификатор.*/id" type="xs:long" />
+        <xs:element name="/***идентификатортовара.*/productid" type="xs:long" />
+        <xs:element name="/***наименованиетовара.*/productname" type="xs:string" />
+        <xs:element name="/***цена.*/price" type="xs:anyType" />
+        <xs:element name="/***количество.*/quantity" type="xs:anyType" />
+        <xs:element name="/***сумма.*/totalsum" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="organization" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="/***наименование.*/name" type="xs:string" />
+        <xs:element name="/***инн.*/inn" type="xs:string" />
+        <xs:element name="/***создан.*/createdat" type="xs:anyType" />
+        <xs:element name="/***обновлен.*/updatedat" type="xs:anyType" />
+        <xs:element name="/***пометканаудаление.*/deleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="telegramuser" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="/***этобот.*/isbot" type="xs:anyType" />
+        <xs:element name="/***наименование.*/username" type="xs:string" />
+        <xs:element name="/***имя.*/firstname" type="xs:string" />
+        <xs:element name="/***фамилия.*/lastname" type="xs:string" />
+        <xs:element name="/***можетприсоединитсякгруппе.толькодлябота.*/canjoingroups" type="xs:anyType" />
+        <xs:element name="/***можетприсоединитсякгруппе.*/canreadallgroupmessages" type="xs:anyType" />
+        <xs:element name="/***.*/supportinlinequeries" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shop" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="/***наименование.*/name" type="xs:string" />
+        <xs:element name="/***адрес.*/address" type="xs:string" />
+        <xs:element name="/***организация.*/" type="organization" nillable="true" minOccurs="0" />
+        <xs:element name="/***создан.*/createdat" type="xs:anyType" />
+        <xs:element name="/***обновлен.*/updatedat" type="xs:anyType" />
+        <xs:element name="/***пометканаудаление.*/deleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cashier" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="/***наименование.*/name" type="xs:string" />
+        <xs:element name="/***магазин.*/" type="shop" nillable="true" minOccurs="0" />
+        <xs:element name="/***создан.*/createdat" type="xs:anyType" />
+        <xs:element name="/***обновлен.*/updatedat" type="xs:anyType" />
+        <xs:element name="/***пометканаудаление.*/deleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="product" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="/***наименование.*/name" type="xs:string" />
+        <xs:element name="/***группа.*/" type="productgroup" nillable="true" minOccurs="0" />
+        <xs:element name="/***создан.*/createdat" type="xs:anyType" />
+        <xs:element name="/***обновлен.*/updatedat" type="xs:anyType" />
+        <xs:element name="/***пометканаудаление.*/deleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productgroup" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="/***наименование.*/name" type="xs:string" />
+        <xs:element name="/***создан.*/createdat" type="xs:anyType" />
+        <xs:element name="/***обновлен.*/updatedat" type="xs:anyType" />
+        <xs:element name="/***пометканаудаление.*/deleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cashcheckline" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="/***товар.*/" type="product" nillable="true" minOccurs="0" />
+        <xs:element name="/***цена.*/price" type="xs:anyType" />
+        <xs:element name="/***количество.*/quantity" type="xs:anyType" />
+        <xs:element name="/***сумма.*/totalsum" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cashcheck" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="/***кассир.*/" type="cashier" nillable="true" minOccurs="0" />
+        <xs:element name="/***номерчека(???).*/requestnumber" type="xs:string" />
+        <xs:element name="/***номерсмены(???).*/shiftnumber" type="xs:string" />
+        <xs:element name="/***рег.номеркассовогоаппарата(имяатрибутаоригинальное).*/kktregid" type="xs:string" />
+        <xs:element name="/***номерплаты.*/fiscaldrivenumber" type="xs:string" />
+        <xs:element name="/***номердокумента.*/fiscaldocumentnumber" type="xs:string" />
+        <xs:element name="/***сумма.*/totalsum" type="xs:anyType" />
+        <xs:element name="/***сумманаличные.*/cashsum" type="xs:anyType" />
+        <xs:element name="/***суммабезналичные.*/ecashsum" type="xs:anyType" />
+        <xs:element name="/***дата-время.*/checkdate" type="xs:anyType" />
+        <xs:element name="/***товары.*/checklines" type="cashcheckline" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="/***telegram-пользовательдобавивишийчек.*/" type="telegramuser" nillable="true" minOccurs="0" />
+        <xs:element name="/***создан.*/createdat" type="xs:anyType" />
+        <xs:element name="/***обновлен.*/updatedat" type="xs:anyType" />
+        <xs:element name="/***пометканаудаление.*/deleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productprice" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="/***магазин.*/" type="shop" nillable="true" minOccurs="0" />
+        <xs:element name="/***товар.*/" type="product" nillable="true" minOccurs="0" />
+        <xs:element name="/***цена.*/price" type="xs:anyType" />
+        <xs:element name="/***дата-время.*/pricedate" type="xs:anyType" />
+        <xs:element name="/***пометканаудаление.*/deleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fileinforesult" >
+      <xs:sequence>
+        <xs:element name="fileid" type="xs:string" />
+        <xs:element name="fileuniqueid" type="xs:string" />
+        <xs:element name="filesize" type="xs:string" />
+        <xs:element name="filepath" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fileinfo" >
+      <xs:sequence>
+        <xs:element name="ok" type="xs:anyType" />
+        <xs:element name="result" type="fileinforesult" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="chatbutton" >
+      <xs:sequence>
+        <xs:element name="text" type="xs:string" />
+        <xs:element name="data" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="keyboardbuilder" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="chatkeyboardbuilder" >
+      <xs:sequence>
+        <xs:element name="buttons" type="chatbutton" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="replykeyboardbuilder" >
+      <xs:sequence>
+        <xs:element name="buttons" type="chatbutton" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inlinekeyboardbuilder" >
+      <xs:sequence>
+        <xs:element name="buttons" type="chatbutton" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="chat" >
+      <xs:sequence>
+        <xs:element name="/***responselinedelimiterinchat.*/line_delimiter" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="chatfactory" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productchat" >
+      <xs:sequence>
+        <xs:element name="chatid" type="xs:string" />
+        <xs:element name="GeneratedName" type="productpriceservice" nillable="true" minOccurs="0" />
+        <xs:element name="tostringmapper" type="telegramproductpricedtotostring" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="organizationchat" >
+      <xs:sequence>
+        <xs:element name="chatid" type="xs:string" />
+        <xs:element name="GeneratedName" type="organizationservice" nillable="true" minOccurs="0" />
+        <xs:element name="tostringmapper" type="telegramorganizationdtotostring" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="chattype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="chatfactoryimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="productpriceservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="organizationservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="shopservice" nillable="true" minOccurs="0" />
+        <xs:element name="shoptostringmapper" type="telegramshopdtotostring" nillable="true" minOccurs="0" />
+        <xs:element name="organizationtostringmapper" type="telegramorganizationdtotostring" nillable="true" minOccurs="0" />
+        <xs:element name="productpricetostringmapper" type="telegramproductpricedtotostring" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shopchat" >
+      <xs:sequence>
+        <xs:element name="chatid" type="xs:string" />
+        <xs:element name="GeneratedName" type="shopservice" nillable="true" minOccurs="0" />
+        <xs:element name="tostringmapper" type="telegramshopdtotostring" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="chatpool" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="chatpoolimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="chatfactory" nillable="true" minOccurs="0" />
+        <xs:element name="pool" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="queryprocessor" >
+      <xs:sequence>
+        <xs:element name="message" type="telegrammessage" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="chatpool" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="localeservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messagedispatcherimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="telegramfileservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="chatpool" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="localeservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="telegramuserservice" nillable="true" minOccurs="0" />
+        <xs:element name="telegramusermapper" type="fromtoaddtelegramuser" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="callbackprocessor" >
+      <xs:sequence>
+        <xs:element name="message" type="telegrammessage" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="localeservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commandprocessor" >
+      <xs:sequence>
+        <xs:element name="message" type="telegrammessage" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="localeservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messageprocessor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messagedispatcher" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fileprocessor" >
+      <xs:sequence>
+        <xs:element name="message" type="telegrammessage" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="telegramfileservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="localeservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="irkbuyersclubbot" >
+      <xs:complexContent>
+       <xs:extension base="telegramlongpollingbot">
+         <xs:sequence>
+          <xs:element name="reconnect_pause" type="xs:long" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="localeservice" nillable="true" minOccurs="0" />
+          <xs:element name="configuration" type="telegramconfiguration" nillable="true" minOccurs="0" />
+          <xs:element name="" type="messagedispatcher" nillable="true" minOccurs="0" />
+          <xs:element name="telegrammessageservice" type="telegrammessageserviceimpl" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="messages_ru" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messages" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logback" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application-dev" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-integration-test" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application-integration-test" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-integration-test" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="buyerclubapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpaauditingconfigurationtest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="webclientconfigurationtest" >
+      <xs:sequence>
+        <xs:element name="configuration" type="webclientconfiguration" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="telegrambotapiconfigurationtest" >
+      <xs:sequence>
+        <xs:element name="configuration" type="telegrambotapiconfiguration" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="telegramconfigurationtest" >
+      <xs:sequence>
+        <xs:element name="configuration" type="telegramconfiguration" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messagesconfigurationtest" >
+      <xs:sequence>
+        <xs:element name="configuration" type="messagesconfiguration" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productcontrollertest" >
+      <xs:sequence>
+        <xs:element name="now" type="xs:anyType" />
+        <xs:element name="client" type="xs:anyType" />
+        <xs:element name="service" type="productservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="productpriceservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shopcontrollertest" >
+      <xs:sequence>
+        <xs:element name="now" type="xs:anyType" />
+        <xs:element name="client" type="xs:anyType" />
+        <xs:element name="service" type="shopservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cashiercontrollertest" >
+      <xs:sequence>
+        <xs:element name="client" type="xs:anyType" />
+        <xs:element name="service" type="cashierservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="testentitiesproducer" nillable="true" minOccurs="0" />
+        <xs:element name="now" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="organizationcontrollertest" >
+      <xs:sequence>
+        <xs:element name="client" type="xs:anyType" />
+        <xs:element name="service" type="organizationservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productpricecontrollertest" >
+      <xs:sequence>
+        <xs:element name="now" type="xs:anyType" />
+        <xs:element name="client" type="xs:anyType" />
+        <xs:element name="service" type="productpriceservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="checkcontrollertest" >
+      <xs:sequence>
+        <xs:element name="now" type="xs:anyType" />
+        <xs:element name="client" type="xs:anyType" />
+        <xs:element name="service" type="checkservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="checkservicetest" >
+      <xs:sequence>
+        <xs:element name="now" type="xs:anyType" />
+        <xs:element name="service" type="checkservice" nillable="true" minOccurs="0" />
+        <xs:element name="repo" type="checkrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="cashierrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="productrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="telegramuserrepo" nillable="true" minOccurs="0" />
+        <xs:element name="todtomapper" type="cashchecktodto" nillable="true" minOccurs="0" />
+        <xs:element name="toinfodtomapper" type="cashchecktoinfodto" nillable="true" minOccurs="0" />
+        <xs:element name="toentitymapper" type="dtotocashcheck" nillable="true" minOccurs="0" />
+        <xs:element name="addtoentitymapper" type="adddtotocashcheck" nillable="true" minOccurs="0" />
+        <xs:element name="addlinetoentitymapper" type="adddtotocashcheckline" nillable="true" minOccurs="0" />
+        <xs:element name="linemapper" type="cashchecklinetoinfodto" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="telegramusertodto" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="testentitiesproducer" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="organizationserviceit" >
+      <xs:sequence>
+        <xs:element name="service" type="organizationservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shopserviceimpltest" >
+      <xs:sequence>
+        <xs:element name="service" type="shopservice" nillable="true" minOccurs="0" />
+        <xs:element name="repo" type="shoprepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="organizationrepo" nillable="true" minOccurs="0" />
+        <xs:element name="todtomapper" type="shoptodto" nillable="true" minOccurs="0" />
+        <xs:element name="toshopmapper" type="dtotoshop" nillable="true" minOccurs="0" />
+        <xs:element name="addtoentitymapper" type="adddtotoshop" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="testentitiesproducer" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adddtotocashchecklinetest" >
+      <xs:sequence>
+        <xs:element name="mapper" type="adddtotocashcheckline" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cashchecklinetoinfodtotest" >
+      <xs:sequence>
+        <xs:element name="mapper" type="cashchecklinetoinfodto" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="itemtoaddchecklinedtotest" >
+      <xs:sequence>
+        <xs:element name="mapper" type="itemtoaddchecklinedto" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cashcheckdtototelegramfileprocessresulttest" >
+      <xs:sequence>
+        <xs:element name="mapper" type="cashcheckdtototelegramfileprocessresult" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="datetimeservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="telegramshopdtotostringtest" >
+      <xs:sequence>
+        <xs:element name="mapper" type="telegramshopdtotostring" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="telegramproductpricedtotostringtest" >
+      <xs:sequence>
+        <xs:element name="mapper" type="telegramproductpricedtotostring" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productpricetotelegramdtotest" >
+      <xs:sequence>
+        <xs:element name="mapper" type="productpricetotelegramdto" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="telegramorganizationdtotostringtest" >
+      <xs:sequence>
+        <xs:element name="mapper" type="telegramorganizationdtotostring" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adddtotocashchecktest" >
+      <xs:sequence>
+        <xs:element name="mapper" type="adddtotocashcheck" nillable="true" minOccurs="0" />
+        <xs:element name="now" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dtotocashchecktest" >
+      <xs:sequence>
+        <xs:element name="mapper" type="dtotocashcheck" nillable="true" minOccurs="0" />
+        <xs:element name="now" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cashchecktodtotest" >
+      <xs:sequence>
+        <xs:element name="mapper" type="cashchecktodto" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="testentitiesproducer" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cashchecktoinfodtotest" >
+      <xs:sequence>
+        <xs:element name="linemapper" type="cashchecklinetoinfodto" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="telegramusertodto" nillable="true" minOccurs="0" />
+        <xs:element name="mapper" type="cashchecktoinfodto" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="testentitiesproducer" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adddtotoproducttest" >
+      <xs:sequence>
+        <xs:element name="mapper" type="adddtotoproduct" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dtotoproducttest" >
+      <xs:sequence>
+        <xs:element name="mapper" type="dtotoproduct" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="producttodtotest" >
+      <xs:sequence>
+        <xs:element name="mapper" type="producttodto" nillable="true" minOccurs="0" />
+        <xs:element name="now" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productdtotoinfodtotest" >
+      <xs:sequence>
+        <xs:element name="mapper" type="productdtotoinfodto" nillable="true" minOccurs="0" />
+        <xs:element name="now" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dtotoproductgrouptest" >
+      <xs:sequence>
+        <xs:element name="mapper" type="dtotoproductgroup" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productgrouptodtotest" >
+      <xs:sequence>
+        <xs:element name="mapper" type="productgrouptodto" nillable="true" minOccurs="0" />
+        <xs:element name="now" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adddtotoproductgrouptest" >
+      <xs:sequence>
+        <xs:element name="mapper" type="adddtotoproductgroup" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ofdcheckexcerpttoofdchecktest" >
+      <xs:sequence>
+        <xs:element name="_date_time" type="xs:string" />
+        <xs:element name="GeneratedName" type="datetimeservice" nillable="true" minOccurs="0" />
+        <xs:element name="mapper" type="ofdcheckexcerpttoofdcheck" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cashiertodtotest" >
+      <xs:sequence>
+        <xs:element name="mapper" type="cashiertodto" nillable="true" minOccurs="0" />
+        <xs:element name="now" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adddtotocashiertest" >
+      <xs:sequence>
+        <xs:element name="mapper" type="adddtotocashier" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dtotocashiertest" >
+      <xs:sequence>
+        <xs:element name="mapper" type="dtotocashier" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dtotoorganizationtest" >
+      <xs:sequence>
+        <xs:element name="mapper" type="dtotoorganization" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="organizationtodtotest" >
+      <xs:sequence>
+        <xs:element name="mapper" type="organizationtodto" nillable="true" minOccurs="0" />
+        <xs:element name="now" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adddtotoorganizationtest" >
+      <xs:sequence>
+        <xs:element name="mapper" type="adddtotoorganization" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adddtotoproductpricetest" >
+      <xs:sequence>
+        <xs:element name="mapper" type="adddtotoproductprice" nillable="true" minOccurs="0" />
+        <xs:element name="now" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productpricetodtotest" >
+      <xs:sequence>
+        <xs:element name="mapper" type="productpricetodto" nillable="true" minOccurs="0" />
+        <xs:element name="now" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dtotoproductpricetest" >
+      <xs:sequence>
+        <xs:element name="mapper" type="dtotoproductprice" nillable="true" minOccurs="0" />
+        <xs:element name="now" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productpricetoinfodtotest" >
+      <xs:sequence>
+        <xs:element name="mapper" type="productpricetoinfodto" nillable="true" minOccurs="0" />
+        <xs:element name="now" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adddtotoshoptest" >
+      <xs:sequence>
+        <xs:element name="mapper" type="adddtotoshop" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dtotoshoptest" >
+      <xs:sequence>
+        <xs:element name="mapper" type="dtotoshop" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shoptodtotest" >
+      <xs:sequence>
+        <xs:element name="mapper" type="shoptodto" nillable="true" minOccurs="0" />
+        <xs:element name="now" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adddtototelegramusertest" >
+      <xs:sequence>
+        <xs:element name="mapper" type="adddtototelegramuser" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="telegramusertodtotest" >
+      <xs:sequence>
+        <xs:element name="mapper" type="telegramusertodto" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fromtoaddtelegramusertest" >
+      <xs:sequence>
+        <xs:element name="mapper" type="fromtoaddtelegramuser" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productpriceserviceimpltest" >
+      <xs:sequence>
+        <xs:element name="now" type="xs:anyType" />
+        <xs:element name="service" type="productpriceserviceimpl" nillable="true" minOccurs="0" />
+        <xs:element name="repo" type="productpricerepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="productrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="shoprepo" nillable="true" minOccurs="0" />
+        <xs:element name="todtomapper" type="productpricetodto" nillable="true" minOccurs="0" />
+        <xs:element name="toinfodtomapper" type="productpricetoinfodto" nillable="true" minOccurs="0" />
+        <xs:element name="toentitymapper" type="dtotoproductprice" nillable="true" minOccurs="0" />
+        <xs:element name="addtoentitymapper" type="adddtotoproductprice" nillable="true" minOccurs="0" />
+        <xs:element name="totelegramdtomapper" type="productpricetotelegramdto" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="testentitiesproducer" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="telegramuserserviceimpltest" >
+      <xs:sequence>
+        <xs:element name="service" type="telegramuserserviceimpl" nillable="true" minOccurs="0" />
+        <xs:element name="repo" type="telegramuserrepo" nillable="true" minOccurs="0" />
+        <xs:element name="todtomapper" type="telegramusertodto" nillable="true" minOccurs="0" />
+        <xs:element name="addtoentitymapper" type="adddtototelegramuser" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="testentitiesproducer" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="organizationservicetest" >
+      <xs:sequence>
+        <xs:element name="service" type="organizationservice" nillable="true" minOccurs="0" />
+        <xs:element name="repo" type="organizationrepo" nillable="true" minOccurs="0" />
+        <xs:element name="todtomapper" type="organizationtodto" nillable="true" minOccurs="0" />
+        <xs:element name="toentitymapper" type="dtotoorganization" nillable="true" minOccurs="0" />
+        <xs:element name="addtoentitymapper" type="adddtotoorganization" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="testentitiesproducer" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="localeserviceimpltest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="localeserviceimpl" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productservicetest" >
+      <xs:sequence>
+        <xs:element name="service" type="productservice" nillable="true" minOccurs="0" />
+        <xs:element name="repo" type="productrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="productgrouprepo" nillable="true" minOccurs="0" />
+        <xs:element name="todtomapper" type="producttodto" nillable="true" minOccurs="0" />
+        <xs:element name="toentitymapper" type="dtotoproduct" nillable="true" minOccurs="0" />
+        <xs:element name="addtoentitymapper" type="adddtotoproduct" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="testentitiesproducer" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ofdcheckservicetest" >
+      <xs:sequence>
+        <xs:element name="now" type="xs:anyType" />
+        <xs:element name="_date_time" type="xs:string" />
+        <xs:element name="service" type="ofdcheckservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="organizationservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="shopservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="cashierservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="productservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="checkservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="productpriceservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="datetimeservice" nillable="true" minOccurs="0" />
+        <xs:element name="itemtoaddcheckline" type="itemtoaddchecklinedto" nillable="true" minOccurs="0" />
+        <xs:element name="mapper" type="cashcheckdtototelegramfileprocessresult" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="testentitiesproducer" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productgroupservicetest" >
+      <xs:sequence>
+        <xs:element name="service" type="productgroupservice" nillable="true" minOccurs="0" />
+        <xs:element name="repo" type="productgrouprepo" nillable="true" minOccurs="0" />
+        <xs:element name="todtomapper" type="productgrouptodto" nillable="true" minOccurs="0" />
+        <xs:element name="toentitymapper" type="dtotoproductgroup" nillable="true" minOccurs="0" />
+        <xs:element name="addtoentitymapper" type="adddtotoproductgroup" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="testentitiesproducer" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datetimeservicetest" >
+      <xs:sequence>
+        <xs:element name="service" type="datetimeservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cashierservicetest" >
+      <xs:sequence>
+        <xs:element name="service" type="cashierservice" nillable="true" minOccurs="0" />
+        <xs:element name="repo" type="cashierrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="shoprepo" nillable="true" minOccurs="0" />
+        <xs:element name="todtomapper" type="cashiertodto" nillable="true" minOccurs="0" />
+        <xs:element name="toentitymapper" type="dtotocashier" nillable="true" minOccurs="0" />
+        <xs:element name="addtoentitymapper" type="adddtotocashier" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="testentitiesproducer" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testconfiguration" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="telegramwebclienttest" >
+      <xs:sequence>
+        <xs:element name="client" type="xs:anyType" />
+        <xs:element name="configuration" type="telegramconfiguration" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="telegramwebclient" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testentitiesproducer" >
+      <xs:sequence>
+        <xs:element name="now" type="xs:anyType" />
+        <xs:element name="_date_time" type="xs:string" />
+        <xs:element name="GeneratedName" type="datetimeservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

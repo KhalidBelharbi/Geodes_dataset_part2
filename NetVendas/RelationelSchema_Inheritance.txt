@@ -1,0 +1,13 @@
+
+fornecedor(id:Integer [PK], nome:String, cnome:String, cnpj:String, telefone:String, endereco:String);
+
+cliente(id:Integer [PK], nome:String, cpf:String, datanascimento:String, endereco:String);
+
+pedido(id:Integer [PK], GeneratedName:Cliente #FK to(Cliente));
+
+produto(id:Integer [PK], nome:String, GeneratedName:Fornecedor #FK to(Fornecedor), descricao:String, valor:double, quantidade:int);
+
+item(id:Integer [PK], GeneratedName:Produto #FK to(Produto), quant:Integer, valor:double, tvalor:double);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

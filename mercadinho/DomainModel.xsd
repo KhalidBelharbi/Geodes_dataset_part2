@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="loja" >
+      <xs:sequence>
+        <xs:element name="codigo" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="inativo" type="xs:anyType" />
+        <xs:element name="estoque" type="estoque" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="estoque" >
+      <xs:sequence>
+        <xs:element name="quantidade" type="xs:anyType" />
+        <xs:element name="codigo" type="produto" nillable="true" minOccurs="0" />
+        <xs:element name="codigofilial" type="loja" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="produto" >
+      <xs:sequence>
+        <xs:element name="codigo" type="xs:anyType" />
+        <xs:element name="descricao" type="xs:string" />
+        <xs:element name="datavalidade" type="xs:anyType" />
+        <xs:element name="ean" type="xs:string" />
+        <xs:element name="inativo" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

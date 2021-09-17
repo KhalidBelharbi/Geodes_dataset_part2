@@ -1,0 +1,29 @@
+checknumber(checknumber:String);
+
+creditcard(cardnumber:String);
+
+payment(id:int [PK], amount:double);
+
+programmer(id:int [PK], name:String, sal:int);
+
+programmers_projects(programmer_id:Programmer [PK] #FK to Programmer,project_id:set<project> [PK] #FK to set<project>);
+
+project(id:int [PK], name:String);
+
+license(id:Long [PK], type:String, GeneratedName:Person #FK to(person));
+
+person(id:Long [PK], firstname:String, lastname:String, age:int, GeneratedName:License #FK to(license));
+
+phonenumber(id:long [PK], number:String, type:String, GeneratedName:Customer #FK to(customer));
+
+customer(id:long [PK], name:String);
+
+image(id:long [PK], name:String, data:byte);
+
+employee(serialversionuid:long, name:String, score:int);
+
+employee2(id:int [PK], name:String, GeneratedName:Address);
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

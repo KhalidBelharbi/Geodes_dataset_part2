@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="boardcomment" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="board" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="comment" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="boardtag" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="board" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="tag" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="boardcategory" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="board" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="category" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="board" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="authorid" type="xs:long" />
+        <xs:element name="recommendcount" type="xs:long" />
+        <xs:element name="viewscount" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="uploadtime" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="category" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="board" type="boardcategory" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="categorytype" type="xs:string" />
+        <xs:element name="parent" type="category" nillable="true" minOccurs="0" />
+        <xs:element name="childlist" type="category" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tag" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="information" type="xs:string" />
+        <xs:element name="board" type="boardtag" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="comment" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="board" type="boardcomment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="parent" type="comment" nillable="true" minOccurs="0" />
+        <xs:element name="childlist" type="comment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

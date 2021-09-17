@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="hibernate.cfg" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hibernatetest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="valormetrica" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="source" type="xs:string" />
+        <xs:element name="pack" type="xs:string" />
+        <xs:element name="valor" type="xs:double" />
+        <xs:element name="GeneratedName" type="metrica" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="document" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="projeto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="descricao" type="xs:string" />
+        <xs:element name="gerente" type="usuario" nillable="true" minOccurs="0" />
+        <xs:element name="equipe" type="usuario" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="atualizacoes" type="atualizacao" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tipometrica" >
+      <xs:sequence>
+        <xs:element name="descricao" type="xs:string" />
+        <xs:element name="descricaoport" type="xs:string" />
+        <xs:element name="relations" type="xs:anyType" />
+        <xs:element name="relations2" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="metrica" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="tipo" type="tipometrica" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="atualizacao" nillable="true" minOccurs="0" />
+        <xs:element name="valores" type="valormetrica" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="atualizacao" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="data" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="projeto" nillable="true" minOccurs="0" />
+        <xs:element name="metricas" type="metrica" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuario" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="login" type="xs:string" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="senha" type="xs:string" />
+        <xs:element name="habilitado" type="xs:anyType" />
+        <xs:element name="autorizacoes" type="autorizacao" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="autorizacao" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="usuarios" type="usuario" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="atualizacaodao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="projetodao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuariodao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="metricadao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="autorizacaodao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="valormetricadao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="atualizacaodaoimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="autorizacaodaoimpl" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="classe" type="autorizacao" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="t" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="metricadaoimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuariodaoimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="projetodaoimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="valormetricadaoimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="documentservice" >
+      <xs:sequence>
+        <xs:element name="dao" type="projetodao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="projeto" nillable="true" minOccurs="0" />
+        <xs:element name="arvore" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="meterview" >
+      <xs:sequence>
+        <xs:element name="metergaugemodel2" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="selectionview" >
+      <xs:sequence>
+        <xs:element name="selectednode" type="xs:anyType" />
+        <xs:element name="service" type="documentservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="metricascontroller" >
+      <xs:sequence>
+        <xs:element name="root" type="xs:anyType" />
+        <xs:element name="selectednode" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="projeto" nillable="true" minOccurs="0" />
+        <xs:element name="pacotesproj" type="xs:anyType" />
+        <xs:element name="classesproj" type="xs:anyType" />
+        <xs:element name="dao" type="projetodao" nillable="true" minOccurs="0" />
+        <xs:element name="metricas" type="xs:anyType" />
+        <xs:element name="valoresmetricas" type="xs:anyType" />
+        <xs:element name="model" type="xs:anyType" />
+        <xs:element name="valoresselection" type="valormetrica" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="metricasfile" type="tipometrica" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="file" type="xs:string" />
+        <xs:element name="metrica" type="xs:string" />
+        <xs:element name="valores" type="valormetrica" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="arvoreprojeto" type="xs:anyType" />
+        <xs:element name="selected" type="document" nillable="true" minOccurs="0" />
+        <xs:element name="service" type="documentservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="projetocontroller" >
+      <xs:sequence>
+        <xs:element name="/**/" type="projeto" nillable="true" minOccurs="0" />
+        <xs:element name="listaprojetos" type="xs:anyType" />
+        <xs:element name="ultimaprojeto" type="atualizacao" nillable="true" minOccurs="0" />
+        <xs:element name="selecionado" type="projeto" nillable="true" minOccurs="0" />
+        <xs:element name="/*daos*/dao" type="projetodao" nillable="true" minOccurs="0" />
+        <xs:element name="daousu" type="usuariodao" nillable="true" minOccurs="0" />
+        <xs:element name="daoatualiz" type="atualizacaodao" nillable="true" minOccurs="0" />
+        <xs:element name="daoval" type="valormetricadao" nillable="true" minOccurs="0" />
+        <xs:element name="daomet" type="metricadao" nillable="true" minOccurs="0" />
+        <xs:element name="/*usuário*/loginusuario" type="xs:string" />
+        <xs:element name="logado" type="usuario" nillable="true" minOccurs="0" />
+        <xs:element name="opcoes" type="xs:anyType" />
+        <xs:element name="opcao" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuariocontroller" >
+      <xs:sequence>
+        <xs:element name="logado" type="usuario" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="usuario" nillable="true" minOccurs="0" />
+        <xs:element name="listausuarios" type="xs:anyType" />
+        <xs:element name="usuario" type="autorizacao" nillable="true" minOccurs="0" />
+        <xs:element name="//mensagenscontrollermsg" type="xs:anyType" />
+        <xs:element name="disabledincluir" type="xs:anyType" />
+        <xs:element name="selecionado" type="usuario" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="designpatterns" >
+      <xs:sequence>
+        <xs:element name="sufixo_usuario" type="xs:string" />
+        <xs:element name="sufixo_autorizacao" type="xs:string" />
+        <xs:element name="sufixo_projeto" type="xs:string" />
+        <xs:element name="sufixo_atualizacao" type="xs:string" />
+        <xs:element name="sufixo_metrica" type="xs:string" />
+        <xs:element name="sufixo_parametro" type="xs:string" />
+        <xs:element name="sufixo_tipo_metrica" type="xs:string" />
+        <xs:element name="sufixo_tipo_parametro" type="xs:string" />
+        <xs:element name="sufixo_valor_metrica" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="parsermetrics" >
+      <xs:complexContent>
+       <xs:extension base="defaulthandler">
+         <xs:sequence>
+          <xs:element name="metricas" type="metrica" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="metrica" nillable="true" minOccurs="0" />
+          <xs:element name="values" type="valormetrica" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="valor" type="valormetrica" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hibernateutil" >
+      <xs:sequence>
+        <xs:element name="session_factory" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="manifest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="salesdevice" >
+      <xs:sequence>
+        <xs:element name="/***theid.*/id" type="xs:anyType" />
+        <xs:element name="/***the.*/" type="site" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="item" >
+      <xs:sequence>
+        <xs:element name="/***theid.*/id" type="xs:anyType" />
+        <xs:element name="/***thesalesdeviceid.*/" type="salesdevice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="siterepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<site,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="salesdevicerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<salesdevice,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="itemsiterepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<itemsite,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="itemrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<item,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="itemid" >
+      <xs:sequence>
+        <xs:element name="/***theconstantserialversionuid.*/serialversionuid" type="xs:long" />
+        <xs:element name="/***theid.*/id" type="xs:anyType" />
+        <xs:element name="/***thesalesdevice.*/salesdevice" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="site" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="/***theid.*/id" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="itemsiteid" >
+      <xs:sequence>
+        <xs:element name="/***theconstantserialversionuid.*/serialversionuid" type="xs:long" />
+        <xs:element name="/***theitem.*/item" type="itemid" nillable="true" minOccurs="0" />
+        <xs:element name="site" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="itemsite" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="item" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="site" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="itemrepositorytest" >
+      <xs:complexContent>
+       <xs:extension base="abstracttransactionaljunit4springcontexttests">
+         <xs:sequence>
+          <xs:element name="" type="siterepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="salesdevicerepository" nillable="true" minOccurs="0" />
+          <xs:element name="/***theitemrepository.*/" type="itemrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="itemsiterepository" nillable="true" minOccurs="0" />
+          <xs:element name="/***the.*/" type="item" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="log4j" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

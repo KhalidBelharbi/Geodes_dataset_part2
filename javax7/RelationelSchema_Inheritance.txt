@@ -1,0 +1,11 @@
+
+mealassingleentity(id:Long [PK], name:String, description:String, price:BigDecimal, peanuts:boolean, celery:boolean, sesameseeds:boolean);
+
+mealwithembeddedallergens(id:Long [PK], name:String, description:String, price:BigDecimal, allergens:AllergensAsEmbeddable);
+
+mealwithmultipleentities(id:Long [PK], name:String, description:String, price:BigDecimal, allergens:AllergensAsEntity #FK to(allergensasentity));
+
+allergensasentity(mealid:Long [PK], meal:MealAsSingleEntity #FK to(MealAsSingleEntity), peanuts:boolean, celery:boolean, sesameseeds:boolean);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

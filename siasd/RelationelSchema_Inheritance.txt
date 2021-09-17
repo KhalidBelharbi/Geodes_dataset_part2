@@ -1,0 +1,53 @@
+
+ekskulentity(idsekolah:int, idekskul:int [PK], namaekskul:String, active:String, usercreated:Integer, created:Timestamp, userupdated:Integer, update:Timestamp);
+
+nilaiekskulentity(idsekolah:int, idnilaiekskul:int [PK], idsiswa:int, idekskul:int, nilai:Integer, active:String, usercreated:Integer, created:Timestamp, userupdated:Integer, update:Timestamp);
+
+jenisnilai(idsekolah:int, idjenisnilai:int [PK], namajenisnilai:String, active:String, usercreated:Integer, created:Timestamp, userupdated:Integer, updated:Timestamp, update:Timestamp);
+
+kabupatenentity(idkabupaten:int [PK], idprovinsi:Integer, kodekabupaten:String, namakabupaten:String, active:String, usercreated:Integer, created:Timestamp, userupdated:Integer, update:Timestamp);
+
+nilaimapelentity(idsekolah:int, idnilaimapel:int [PK], idmapel:int, idguru:int, idsiswa:int, kkm:Integer, ki12:Integer, ki3:Integer, ki4:Integer, active:String, usercreated:Integer, created:Timestamp, userupdated:Integer, update:Timestamp);
+
+kelasentity(idsekolah:int, idkelas:int [PK], namakelas:String, active:String, usercreated:Integer, created:Timestamp, userupdated:Integer, update:Timestamp);
+
+sekolahentity(idsekolah:int [PK], kodesekolah:String, namasekolah:String, tipesekolah:Integer, nomorizinsekolah:String, akreditasi:String, alamat:String, telepon:String, active:String, usercreated:Integer, created:Timestamp, userupdated:Integer, update:Timestamp);
+
+role(id:int [PK], role:String);
+
+kkm(idkkm:int [PK], idmapel:int, idkelas:int, nilaikkm:int, predikat:String, idsekolah:int, active:String, usercreated:Integer, created:Timestamp, userupdated:Integer, update:Timestamp);
+
+guruentity(idsekolah:int, idguru:int [PK], nip:String, namaguru:String, jeniskelamin:String, alamat:String, telepon:String, email:String, active:String, usercreated:Integer, created:Timestamp, userupdated:Integer, update:Timestamp);
+
+kelassiswaentity(idsekolah:int, idkelassiswa:int [PK], idkelas:int, idsiswa:int, active:String, usercreated:Integer, created:Timestamp, userupdated:Integer, update:Timestamp);
+
+walikelasentity(idsekolah:int, idwakel:int [PK], idkelas:Integer, idguru:Integer, tahunajaran:String, semester:Integer, active:String, usercreated:Integer, created:Timestamp, userupdated:Integer, update:Timestamp);
+
+mengajarentity(idsekolah:int, idmengajar:int [PK], idguru:int, idkelas:int, idmapel:int, tahunajaran:String, semester:int, active:String, usercreated:Integer, created:Timestamp, userupdated:Integer, update:Timestamp);
+
+randomcity(id:int [PK], name:String);
+
+mapelentity(idsekolah:int, idmapel:int [PK], kodemapel:String, namamapel:String, active:String, usercreated:Integer, created:Timestamp, userupdated:Integer, update:Timestamp);
+
+kecamatanentity(idkecamatan:int [PK], idkabupaten:int, kodekecamatan:String, namakecamatan:String, active:String, usercreated:Integer, created:Timestamp, userupdated:Integer, update:Timestamp);
+
+desaentity(iddesa:int [PK], idkecamatan:Integer, kodedesa:String, namadesa:String, active:String, usercreated:Integer, created:Timestamp, userupdated:Integer, update:Timestamp);
+
+globalentity(idglobal:int [PK], kodeglobal:String, typemaster:String, keterangan:String, active:String, usercreated:Integer, created:Timestamp, userupdated:Integer, update:Timestamp);
+
+pendidikan(idpendidikan:String [PK], namapendidikan:String, active:String, createdby:String, createdat:Timestamp, updatedby:String, updateat:Timestamp);
+
+provinsientity(idprovinsi:int [PK], kodeprovinsi:Integer, namaprovinsi:String, active:String, usercreated:Integer, created:Timestamp, userupdated:Integer, update:Timestamp);
+
+pekerjaanentity(idpekerjaan:int [PK], namapekerjaan:String, active:String, usercreated:Integer, created:Timestamp, userupdated:Integer, update:Timestamp);
+
+user(id:int [PK], username:String, password:String, name:String, lastname:String, active:int);
+
+user_role(user_id:User [PK] #FK to User,role_id:set<role> [PK] #FK to set<role>);
+
+bahasaibu(idbahasaibu:String [PK], namabahasaibu:String, active:String, createdby:String, createdat:Timestamp, updatedby:String, updateat:Timestamp);
+
+siswaentity(idsekolah:int, idsiswa:int [PK], idkelas:int, nis:String, nisn:String, namalengkap:String, namapanggilan:String, jeniskelamin:String, agama:String, kewarganegaraan:String, tempatlahir:String, tanggallahir:Date, pendidikansebelumnya:String, alamatsiswa:String, namaayah:String, tanggallahirayah:Date, agamaayah:String, pendidikanayah:String, pekerjaanayah:Integer, namaibu:String, tanggallahiribu:Date, agamaibu:String, pendidikanibu:String, pekerjaanibu:Integer, alamatorangtua:String, teleponorangtua:String, iddesa:Integer, idkecamatan:Integer, idkabupaten:Integer, idprovinsi:Integer, kodepos:int, rt:int, rw:int, namawali:String, tanggallahirwali:Date, agamawali:String, pendidikanwali:String, pekerjaanwali:Integer, alamatwali:String, teleponwali:String, hubungandengankeluarga:String, anakke:int, saudarakandung:Integer, saudaratiri:Integer, saudaraangkat:Integer, idbahasaibu:Integer, photo:String, active:String, usercreated:Integer, created:Timestamp, userupdated:Integer, update:Timestamp);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

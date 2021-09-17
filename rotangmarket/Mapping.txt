@@ -1,0 +1,16 @@
+ClassDiagram.Class>> Category =>=>=> RelationalSchema.Table>> category;
+ClassDiagram.Class>> Product =>=>=> RelationalSchema.Table>> product;
+ClassDiagram.Class>> ProductImage =>=>=> RelationalSchema.Table>> productimage;
+ClassDiagram.Attribut>> Category.id:Long =>=>=> RelationalSchema.Column>> category.id PRIMARY KEY;
+ClassDiagram.Attribut>> Category.name:String =>=>=> RelationalSchema.Column>> category.name;
+ClassDiagram.Attribut>> Category.description:String =>=>=> RelationalSchema.Column>> category.description;
+ClassDiagram.Attribut>> Category.image:String =>=>=> RelationalSchema.Column>> category.image;
+ClassDiagram.Attribut>> Product.id:Long =>=>=> RelationalSchema.Column>> product.id PRIMARY KEY;
+ClassDiagram.Attribut>> Product.name:String =>=>=> RelationalSchema.Column>> product.name;
+ClassDiagram.Attribut>> Product.description:String =>=>=> RelationalSchema.Column>> product.description;
+ClassDiagram.Attribut>> Product.price:BigDecimal =>=>=> RelationalSchema.Column>> product.price;
+ClassDiagram.Attribut>> Product.stock:Boolean =>=>=> RelationalSchema.Column>> product.stock;
+ClassDiagram.Attribut>> ProductImage.name:String =>=>=> RelationalSchema.Column>> productimage.name PRIMARY KEY;
+ClassDiagram.Attribut>> ProductImage.productid:Long =>=>=> RelationalSchema.Column>> productimage.productid PRIMARY KEY;
+Many-To-One relationship from ClassDiagram.Class>>Product  to ClassDiagram.Class>>category represented by ClassDiagram.Atrribute>>GeneratedName;
+One-To-Many relationship from ClassDiagram.Class>>Product  to ClassDiagram.Class>>List<ProductImage>;

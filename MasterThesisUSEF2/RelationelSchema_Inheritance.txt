@@ -1,0 +1,31 @@
+
+synchronisationcongestionpoint(id:Long [PK], entityaddress:String, lastsynchronisationtime:Date, lastmodificationtime:Date);
+
+nonaggregatorforecast(power:Long, maxload:Long, creation:Date);
+
+gridsafetyanalysis(power:Long, disposition:DispositionAvailableRequested);
+
+grid_safety_analysis_to_prognosis(grid_safety_analysis_id:GridSafetyAnalysis [PK] #FK to GridSafetyAnalysis,prognosis_id:list<ptuprognosis> [PK] #FK to list<ptuprognosis>);
+
+commonreferenceoperator(id:Long [PK], domain:String);
+
+ptugridmonitor(actualpower:Long, limitedpower:Long);
+
+synchronisationconnection(id:Long [PK], entityaddress:String, congestionpoint:SynchronisationCongestionPoint #FK to(synchronisationcongestionpoint));
+
+meterdatacompany(domain:String [PK]);
+
+aggregatoronconnectiongroupstate(id:Long [PK], GeneratedName:Aggregator #FK to(aggregator), GeneratedName:CongestionPointConnectionGroup #FK to(congestionpointconnectiongroup), connectioncount:BigInteger, validfrom:Date, validuntil:Date);
+
+prognosisupdatedeviation(id:Long [PK], prognosissequence:Long, ptu:Date, ptuindex:Integer, aggregatordomain:String, orderedpower:BigInteger, previousprognosedpower:BigInteger, prognosedpower:BigInteger);
+
+aggregator(domain:String [PK]);
+
+synchronisationcongestionpointstatus(id:Long [PK], id:CommonReferenceOperator #FK to(commonreferenceoperator), id:SynchronisationCongestionPoint #FK to(synchronisationcongestionpoint), status:SynchronisationConnectionStatusType);
+
+connectionmeterevent(id:Long [PK], GeneratedName:Connection #FK to(connection), GeneratedName:EventType, time:Date, capacity:BigInteger);
+
+connectioncapacitylimitationperiod(id:Long [PK], GeneratedName:Connection #FK to(connection), starttime:Date, endtime:Date, totaloutage:Boolean, capacityreduction:BigInteger);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

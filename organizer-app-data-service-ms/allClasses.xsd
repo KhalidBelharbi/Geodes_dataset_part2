@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="organizerappdataservicemsapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="todolistid" >
+      <xs:sequence>
+        <xs:element name="//itemidid" type="xs:string" />
+        <xs:element name="//masterlist'sidlistid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="todolistitem" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="listid" type="xs:string" />
+        <xs:element name="completed" type="xs:anyType" />
+        <xs:element name="content" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="todomasterlistitem" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="//addedthelistmanuallytodolist" type="todolistitem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="todocontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="todomasterlistrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="todolistrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="todolistrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<todolistitem,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="todomasterlistrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<todomasterlistitem,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="organizerappdataservicemsapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="swaggerconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

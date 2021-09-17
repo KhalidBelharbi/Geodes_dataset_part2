@@ -1,0 +1,756 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="deliveryorder" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="/***订单发起人*/founderid" type="xs:string" />
+        <xs:element name="/***送件人姓名*/foundername" type="xs:string" />
+        <xs:element name="/***送件人手机号*/founderphonenumber" type="xs:string" />
+        <xs:element name="/***初始位置*/originaddress" type="xs:string" />
+        <xs:element name="/***出发地纬度*/olongitude" type="xs:string" />
+        <xs:element name="/***出发地经度*/odimension" type="xs:string" />
+        <xs:element name="/***目的地*/destination" type="xs:string" />
+        <xs:element name="/***目的地经度*/dlongitude" type="xs:string" />
+        <xs:element name="/***目的地维度*/ddimension" type="xs:string" />
+        <xs:element name="/***商品详细信息*/commodityid" type="xs:string" />
+        <xs:element name="/***订单创建时间*/odercreatetime" type="xs:anyType" />
+        <xs:element name="/***送出时间（立即送出或者指定时间）*/deliverytime" type="xs:anyType" />
+        <xs:element name="/***0发布1是取消2是正在进行3是完成4是已被抢单*/status" type="xs:anyType" />
+        <xs:element name="/***订单金额（起步价格6）*/amount" type="xs:anyType" />
+        <xs:element name="/***收货人名字*/receivername" type="xs:string" />
+        <xs:element name="/***收货人手机号*/receiverphonenumber" type="xs:string" />
+        <xs:element name="/***备注*/remark" type="xs:string" />
+        <xs:element name="/***创建时间*/gmtcreate" type="xs:anyType" />
+        <xs:element name="/***修改时间*/gmtmodified" type="xs:anyType" />
+        <xs:element name="/***删除标志（0逻辑删除，1未删除）*///@jsonignoreisdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="purchaseorder" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="/***目的地*/destination" type="xs:string" />
+        <xs:element name="/***经度*/dlongitude" type="xs:string" />
+        <xs:element name="/***纬度*/ddimension" type="xs:string" />
+        <xs:element name="/***商品id*/commodityid" type="xs:long" />
+        <xs:element name="/***金额*/amount" type="xs:anyType" />
+        <xs:element name="/***购买时间*/purchasetime" type="xs:anyType" />
+        <xs:element name="/***是否取消*/iscancle" type="xs:anyType" />
+        <xs:element name="/***创建时间*///@jsonignoregmtcreate" type="xs:anyType" />
+        <xs:element name="/***修改时间*/gmtmodified" type="xs:anyType" />
+        <xs:element name="/***删除标志（0逻辑删除，1未删除）*///@jsonignoreisdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="auditform" >
+      <xs:sequence>
+        <xs:element name="/***主键自增*/id" type="xs:string" />
+        <xs:element name="/***结束时间*/endtime" type="xs:anyType" />
+        <xs:element name="/***申请人*/founderid" type="xs:string" />
+        <xs:element name="/***原因*/remark" type="xs:string" />
+        <xs:element name="/***审核人*/reviewerid" type="xs:string" />
+        <xs:element name="/***状态0是通过1是未通过*/stauts" type="xs:anyType" />
+        <xs:element name="/***创建时间*///@jsonignoregmtcreate" type="xs:anyType" />
+        <xs:element name="/***修改时间*/gmtmodified" type="xs:anyType" />
+        <xs:element name="/***删除标志（0逻辑删除，1未删除）*///@jsonignoreisdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commodity" >
+      <xs:sequence>
+        <xs:element name="/***主键自增*/id" type="xs:string" />
+        <xs:element name="/***商品类型*/type" type="xs:string" />
+        <xs:element name="/***物品价格范围*/pricerang" type="xs:string" />
+        <xs:element name="/***创建时间*///@jsonignoregmtcreate" type="xs:anyType" />
+        <xs:element name="/***修改时间*/gmtmodified" type="xs:anyType" />
+        <xs:element name="/***删除标志（0逻辑删除，1未删除）*///@jsonignoreisdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="transaction" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="/***订单id*/orderid" type="xs:string" />
+        <xs:element name="/***交易创建时间+*/transactioncreate" type="xs:anyType" />
+        <xs:element name="/***跑腿人*/errandsid" type="xs:string" />
+        <xs:element name="/***完成时间根据完成后更改*/transactionend" type="xs:anyType" />
+        <xs:element name="/***状态0是抢单1是取货并且送货3是完成*/status" type="xs:anyType" />
+        <xs:element name="/***创建时间*///@jsonignoregmtcreate" type="xs:anyType" />
+        <xs:element name="/***修改时间*/gmtmodified" type="xs:anyType" />
+        <xs:element name="/***删除标志（0逻辑删除，1未删除）*///@jsonignoreisdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cancledeliveryorder" >
+      <xs:sequence>
+        <xs:element name="/***id*/id" type="xs:string" />
+        <xs:element name="/***订单编号*/oderid" type="xs:string" />
+        <xs:element name="/***取消时间*/cancletime" type="xs:anyType" />
+        <xs:element name="/***创建时间*///@jsonignoregmtcreate" type="xs:anyType" />
+        <xs:element name="/***修改时间*/gmtmodified" type="xs:anyType" />
+        <xs:element name="/***删除标志（0逻辑删除，1未删除）*///@jsonignoreisdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reviewform" >
+      <xs:sequence>
+        <xs:element name="/***主键*/id" type="xs:string" />
+        <xs:element name="/***申请人id*/requesterid" type="xs:string" />
+        <xs:element name="/***申请人正面身份证*/idcardfront" type="xs:string" />
+        <xs:element name="/***申请人背面身份证*/idcardback" type="xs:string" />
+        <xs:element name="/***申请人手机号*/requesterphonenumber" type="xs:string" />
+        <xs:element name="/***申请人手机号*/requestername" type="xs:string" />
+        <xs:element name="/***状态0是发布1是通过2是未通过*/status" type="xs:long" />
+        <xs:element name="/***申请原因*/remark" type="xs:string" />
+        <xs:element name="/***创建时间*/gmtcreate" type="xs:anyType" />
+        <xs:element name="/***修改时间*/gmtmodified" type="xs:anyType" />
+        <xs:element name="/***删除标志（0逻辑删除，1未删除）*///@jsonignoreisdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="thumb" >
+      <xs:sequence>
+        <xs:element name="/***主键，策略为自增*/pkthumbid" type="xs:string" />
+        <xs:element name="/***动态id*/dynamicid" type="xs:string" />
+        <xs:element name="/***用户id*/userid" type="xs:string" />
+        <xs:element name="/***创建时间*/gmtcreate" type="xs:anyType" />
+        <xs:element name="/***修改时间*/gmtmodified" type="xs:anyType" />
+        <xs:element name="/***删除标志（0逻辑删除，1未删除）*/isdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sysorder" >
+      <xs:sequence>
+        <xs:element name="/***主键*/pkorderid" type="xs:long" />
+        <xs:element name="/***卡号*/jobnumber" type="xs:string" />
+        <xs:element name="/***类型*/ordertype" type="xs:string" />
+        <xs:element name="/***金额*/ordermoney" type="xs:double" />
+        <xs:element name="/***订单号*/ordernumber" type="xs:string" />
+        <xs:element name="/***状态*/status" type="xs:anyType" />
+        <xs:element name="/***缴费描述*/description" type="xs:string" />
+        <xs:element name="/***支付方式*/paymethod" type="xs:string" />
+        <xs:element name="/***创建时间*/gmtcreate" type="xs:anyType" />
+        <xs:element name="/***更新时间*/gmtmodified" type="xs:anyType" />
+        <xs:element name="/***删除标志*/isdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schedule" >
+      <xs:sequence>
+        <xs:element name="/***主键，策略为自增*/pkschooltimetableid" type="xs:long" />
+        <xs:element name="/***班级id*/clazzid" type="xs:long" />
+        <xs:element name="/***学期id*/semesterid" type="xs:long" />
+        <xs:element name="/***第几周（第一周、第二周...）*/week" type="xs:anyType" />
+        <xs:element name="/***课表名称*/name" type="xs:string" />
+        <xs:element name="/***创建时间*/gmtcreate" type="xs:anyType" />
+        <xs:element name="/***修改时间*/gmtmodified" type="xs:anyType" />
+        <xs:element name="/***删除标志（0逻辑删除，1未删除）*/isdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="studentexam" >
+      <xs:sequence>
+        <xs:element name="/***主键，策略为自增*/pkstudentexamid" type="xs:long" />
+        <xs:element name="/***考务id*/examinationid" type="xs:long" />
+        <xs:element name="/***真实姓名*/userjobnumber" type="xs:string" />
+        <xs:element name="/***创建时间*/gmtcreate" type="xs:anyType" />
+        <xs:element name="/***修改时间*/gmtmodified" type="xs:anyType" />
+        <xs:element name="/***删除标志（0逻辑删除，1未删除）*/isdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="infotype" >
+      <xs:sequence>
+        <xs:element name="/***主键id*/pkinfotypeid" type="xs:long" />
+        <xs:element name="/***名称*/name" type="xs:string" />
+        <xs:element name="/***排序字段*/sort" type="xs:anyType" />
+        <xs:element name="/***创建时间*/gmtcreate" type="xs:anyType" />
+        <xs:element name="/***更新时间*/gmtmodified" type="xs:anyType" />
+        <xs:element name="/***删除标志（0未删除，1已删除）*/isdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fleatype" >
+      <xs:sequence>
+        <xs:element name="/***分类id*/pkfleatypeid" type="xs:long" />
+        <xs:element name="/***父级id*/parentid" type="xs:long" />
+        <xs:element name="/***分类名称*/typename" type="xs:string" />
+        <xs:element name="/***分类封面*/typecoverurl" type="xs:string" />
+        <xs:element name="/***路径*/typeurl" type="xs:string" />
+        <xs:element name="/***删除标志*/isdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sysborrow" >
+      <xs:sequence>
+        <xs:element name="/***主键*/pkborrowid" type="xs:long" />
+        <xs:element name="/***借阅人姓名*/borrowusername" type="xs:string" />
+        <xs:element name="/***借阅人卡号*/borrowusernumber" type="xs:string" />
+        <xs:element name="/***借阅人手机号*/borrowuserphone" type="xs:string" />
+        <xs:element name="/***借阅图书名称*/borrowbookname" type="xs:string" />
+        <xs:element name="/***借阅图书编号*/borrowbookid" type="xs:string" />
+        <xs:element name="/***创建时间*/gmtcreate" type="xs:anyType" />
+        <xs:element name="/***归还标志*/isreturned" type="xs:anyType" />
+        <xs:element name="/***还书时间*/gmtreturn" type="xs:anyType" />
+        <xs:element name="/***更新时间*/gmtmodified" type="xs:anyType" />
+        <xs:element name="/***删除标志*/isdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fleauser" >
+      <xs:sequence>
+        <xs:element name="/***用户id*/pkfleauserid" type="xs:long" />
+        <xs:element name="/***用户昵称*/nickname" type="xs:string" />
+        <xs:element name="/***用户名*/username" type="xs:string" />
+        <xs:element name="/***手机号*/phonenumber" type="xs:string" />
+        <xs:element name="/***用户头像*/avatar" type="xs:string" />
+        <xs:element name="/***性别*/sex" type="xs:string" />
+        <xs:element name="/***学号*/jobnumber" type="xs:string" />
+        <xs:element name="/***删除标志*/isdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="replycomment" >
+      <xs:sequence>
+        <xs:element name="/***主键，策略为自增*/pkreplycommentid" type="xs:string" />
+        <xs:element name="/***评论id*/commentid" type="xs:string" />
+        <xs:element name="/***用户id*/userid" type="xs:string" />
+        <xs:element name="/***评论内容*/content" type="xs:string" />
+        <xs:element name="/***创建时间*/gmtcreate" type="xs:anyType" />
+        <xs:element name="/***修改时间*/gmtmodified" type="xs:anyType" />
+        <xs:element name="/***删除标志（0逻辑删除，1未删除）*/isdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clazz" >
+      <xs:sequence>
+        <xs:element name="/***主键*/pkclazzid" type="xs:long" />
+        <xs:element name="/***名称*/name" type="xs:string" />
+        <xs:element name="/***年级*/grade" type="xs:string" />
+        <xs:element name="/***学院id*/collegeid" type="xs:long" />
+        <xs:element name="/***班主任工号*/clazzheadmaster" type="xs:string" />
+        <xs:element name="/***更新时间*/gmtmodified" type="xs:anyType" />
+        <xs:element name="/***创建时间*/gmtcreate" type="xs:anyType" />
+        <xs:element name="/***删除标志*/isdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="syssubject" >
+      <xs:sequence>
+        <xs:element name="/***主键*/pksubjectid" type="xs:long" />
+        <xs:element name="/***名称*/name" type="xs:string" />
+        <xs:element name="/***课程类型*/type" type="xs:string" />
+        <xs:element name="/***科目图片*/cover" type="xs:string" />
+        <xs:element name="/***背景颜色*/backgroundcolor" type="xs:string" />
+        <xs:element name="/***创建时间*/gmt_create" type="xs:anyType" />
+        <xs:element name="/***更新时间*/gmt_modified" type="xs:anyType" />
+        <xs:element name="/***删除标志*/isdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dynamic" >
+      <xs:sequence>
+        <xs:element name="/***主键，策略为自增*/pkdynamicid" type="xs:string" />
+        <xs:element name="/***用户id*/userid" type="xs:string" />
+        <xs:element name="/***标题*/title" type="xs:string" />
+        <xs:element name="/***内容*/content" type="xs:string" />
+        <xs:element name="/***点赞数*/thumbs" type="xs:anyType" />
+        <xs:element name="/***评论数*/comments" type="xs:anyType" />
+        <xs:element name="/***类型标签*/type" type="xs:string" />
+        <xs:element name="/***创建时间*/gmtcreate" type="xs:anyType" />
+        <xs:element name="/***修改时间*/gmtmodified" type="xs:anyType" />
+        <xs:element name="/***删除标志（0逻辑删除，1未删除）*/isdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fleacollection" >
+      <xs:sequence>
+        <xs:element name="/***id*/pkfleacollectionid" type="xs:long" />
+        <xs:element name="/***用户id*/" type="fleauser" nillable="true" minOccurs="0" />
+        <xs:element name="/***商品id*/" type="fleagoods" nillable="true" minOccurs="0" />
+        <xs:element name="/***收藏时间*/createtime" type="xs:anyType" />
+        <xs:element name="/***删除标志*/isdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="addressbook" >
+      <xs:sequence>
+        <xs:element name="/***主键，策略为自增*/pkaddressbookid" type="xs:long" />
+        <xs:element name="/***用户id*/userid" type="xs:string" />
+        <xs:element name="/***手机号*/phonenumber" type="xs:string" />
+        <xs:element name="/***头像*/avatar" type="xs:string" />
+        <xs:element name="/***备注*/remark" type="xs:string" />
+        <xs:element name="/***创建时间*///@jsonignoregmtcreate" type="xs:anyType" />
+        <xs:element name="/***修改时间*/gmtmodified" type="xs:anyType" />
+        <xs:element name="/***删除标志（0逻辑删除，1未删除）*/isdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fleareward" >
+      <xs:sequence>
+        <xs:element name="/***悬赏id*/pkrewardid" type="xs:long" />
+        <xs:element name="/***描述*/description" type="xs:string" />
+        <xs:element name="/***图片地址*/imageurl" type="xs:string" />
+        <xs:element name="/***标题*/title" type="xs:string" />
+        <xs:element name="/***发布时间*/createtime" type="xs:anyType" />
+        <xs:element name="/***发布人*/" type="fleauser" nillable="true" minOccurs="0" />
+        <xs:element name="/***删除标志*/isdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="room" >
+      <xs:sequence>
+        <xs:element name="/***主键*/id" type="xs:long" />
+        <xs:element name="/***房间名*/name" type="xs:string" />
+        <xs:element name="/***楼栋id*/towerid" type="xs:long" />
+        <xs:element name="/***寝室长学号*/roomleaderjobnumber" type="xs:string" />
+        <xs:element name="/***宿舍成员学号（逗号隔开，用户学号）*/roommemberjobnumber" type="xs:string" />
+        <xs:element name="/***创建时间*/gmtcreate" type="xs:anyType" />
+        <xs:element name="/***更新时间*/gmtmodified" type="xs:anyType" />
+        <xs:element name="/***删除标志*/isdeleted" type="xs:anyType" />
+        <xs:element name="/***电费*/electricitybalance" type="xs:double" />
+        <xs:element name="/***房间单元名*/unitid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrole" >
+      <xs:sequence>
+        <xs:element name="/***主键*/pkroleid" type="xs:long" />
+        <xs:element name="/***用户id*/sysuserid" type="xs:string" />
+        <xs:element name="/***角色id*/roleid" type="xs:long" />
+        <xs:element name="/***创建时间*/gmtcreate" type="xs:anyType" />
+        <xs:element name="/***修改时间*/gmtmodified" type="xs:anyType" />
+        <xs:element name="/***是否删除（1逻辑删除，0未删除）*/isdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="college" >
+      <xs:sequence>
+        <xs:element name="/***主键*/pkcollegeid" type="xs:long" />
+        <xs:element name="/***学院名称*/collegename" type="xs:string" />
+        <xs:element name="/***学院院长教工号*/deanjobnumber" type="xs:string" />
+        <xs:element name="/***创建时间*/gmtcreate" type="xs:anyType" />
+        <xs:element name="/***更新时间*/gmtmodified" type="xs:anyType" />
+        <xs:element name="/***删除标志*/isdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sysuser" >
+      <xs:sequence>
+        <xs:element name="//用户idpkuserid" type="xs:string" />
+        <xs:element name="//用户名字sysusername" type="xs:string" />
+        <xs:element name="//用户密码syspassword" type="xs:string" />
+        <xs:element name="//手机号sysuserphonenumber" type="xs:string" />
+        <xs:element name="//头像sysuseravatar" type="xs:string" />
+        <xs:element name="//加密盐salt" type="xs:string" />
+        <xs:element name="//账户状态：0禁用1：启用isenabled" type="xs:anyType" />
+        <xs:element name="//创建时间gmtcreate" type="xs:anyType" />
+        <xs:element name="//修改时间gmtmodified" type="xs:anyType" />
+        <xs:element name="//是否删除（1逻辑删除，0未删除）isdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="infomangetype" >
+      <xs:sequence>
+        <xs:element name="/***主键id*/pkinfomanagetypeid" type="xs:long" />
+        <xs:element name="/***分类id*/typeid" type="xs:long" />
+        <xs:element name="/***资讯类型id*/infoid" type="xs:long" />
+        <xs:element name="/***创建时间*/gmtcreate" type="xs:anyType" />
+        <xs:element name="/***更新时间*/gmtmodified" type="xs:anyType" />
+        <xs:element name="/***删除标志（0未删除，1逻辑删除）*/isdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sysbook" >
+      <xs:sequence>
+        <xs:element name="/***主键*/pkbookid" type="xs:long" />
+        <xs:element name="/***作者*/author" type="xs:string" />
+        <xs:element name="/***封面*/cover" type="xs:string" />
+        <xs:element name="/***类型*/type" type="xs:string" />
+        <xs:element name="/***简介*/description" type="xs:string" />
+        <xs:element name="/***库存总数*/booknumber" type="xs:anyType" />
+        <xs:element name="/***库存剩余*/bookresiduenumber" type="xs:anyType" />
+        <xs:element name="/***状态*/status" type="xs:anyType" />
+        <xs:element name="/***书名*/bookname" type="xs:string" />
+        <xs:element name="/***创建时间*/gmtcreate" type="xs:anyType" />
+        <xs:element name="/***更新时间*/gmtmodified" type="xs:anyType" />
+        <xs:element name="/***删除标志*/isdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reportloss" >
+      <xs:sequence>
+        <xs:element name="/***主键*/pkreportlossid" type="xs:long" />
+        <xs:element name="/***挂失备注*/remark" type="xs:string" />
+        <xs:element name="/***挂失卡密*/password" type="xs:string" />
+        <xs:element name="/***挂失状态*/lossstatus" type="xs:anyType" />
+        <xs:element name="/***手机号*/lossphone" type="xs:string" />
+        <xs:element name="/***挂失人*/lossname" type="xs:string" />
+        <xs:element name="/***挂失卡号*/lossjobnumber" type="xs:string" />
+        <xs:element name="/***创建时间*/gmtcreate" type="xs:anyType" />
+        <xs:element name="/***更新时间*/gmtmodified" type="xs:anyType" />
+        <xs:element name="/***删除标志*/isdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobtype" >
+      <xs:complexContent>
+       <xs:extension base="model<jobtype>">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="/***主键*/pkjobtypeid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="parentid" type="xs:long" />
+          <xs:element name="/***删除标志*/isdeleted" type="xs:anyType" />
+          <xs:element name="/***创建时间*/gmtcreate" type="xs:anyType" />
+          <xs:element name="/***更新时间*/gmtmodified" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="syssemester" >
+      <xs:sequence>
+        <xs:element name="/***主键*/pksemesterid" type="xs:long" />
+        <xs:element name="/***名称*/name" type="xs:string" />
+        <xs:element name="/***周次数*/weekcount" type="xs:anyType" />
+        <xs:element name="/***创建时间*/gmtcreate" type="xs:anyType" />
+        <xs:element name="/***更新时间*/gmtmodified" type="xs:anyType" />
+        <xs:element name="/***删除标志*/isdeleted" type="xs:anyType" />
+        <xs:element name="openschooltime" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="useraccount" >
+      <xs:sequence>
+        <xs:element name="/***主键，策略为自增*/pkuseraccountid" type="xs:string" />
+        <xs:element name="/***账号*nullable" type="xs:string" />
+        <xs:element name="/***真实姓名*/username" type="xs:string" />
+        <xs:element name="/***昵称*/nickname" type="xs:string" />
+        <xs:element name="/***教工号/学号*/jobnumber" type="xs:string" />
+        <xs:element name="/***密码*/password" type="xs:string" />
+        <xs:element name="/***头像*/avatar" type="xs:string" />
+        <xs:element name="/***角色*/role" type="xs:string" />
+        <xs:element name="/***手机号*/phonenumber" type="xs:string" />
+        <xs:element name="/***状态*/status" type="xs:anyType" />
+        <xs:element name="/***所属班级id*/clazzid" type="xs:long" />
+        <xs:element name="/***校园卡号*/cardnumber" type="xs:string" />
+        <xs:element name="/***创建时间*/gmtcreate" type="xs:anyType" />
+        <xs:element name="/***修改时间*/gmtmodified" type="xs:anyType" />
+        <xs:element name="/***删除标志（0逻辑删除，1未删除）*/isdeleted" type="xs:anyType" />
+        <xs:element name="/***性别*/gender" type="xs:string" />
+        <xs:element name="/***地址*/address" type="xs:string" />
+        <xs:element name="birthday" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partjob" >
+      <xs:complexContent>
+       <xs:extension base="model<partjob>">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="/***主键*/pkpartjobid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="bossid" type="xs:string" />
+          <xs:element name="bossname" type="xs:string" />
+          <xs:element name="bossphone" type="xs:string" />
+          <xs:element name="bossavatar" type="xs:string" />
+          <xs:element name="workplace" type="xs:string" />
+          <xs:element name="workingdate" type="xs:string" />
+          <xs:element name="workingtime" type="xs:string" />
+          <xs:element name="pay" type="xs:anyType" />
+          <xs:element name="paytype" type="xs:string" />
+          <xs:element name="jobtype" type="xs:string" />
+          <xs:element name="number" type="xs:anyType" />
+          <xs:element name="have" type="xs:anyType" />
+          <xs:element name="need" type="xs:anyType" />
+          <xs:element name="/***删除标志*/isdeleted" type="xs:anyType" />
+          <xs:element name="/***创建时间*/gmtcreate" type="xs:anyType" />
+          <xs:element name="/***更新时间*/gmtmodified" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="syscourse" >
+      <xs:sequence>
+        <xs:element name="/***主键，策略为自增*/pkcourseid" type="xs:long" />
+        <xs:element name="/***课表id*nullable" type="xs:long" />
+        <xs:element name="/***科目id*/subjectid" type="xs:long" />
+        <xs:element name="/***教师工号*/userjobnumber" type="xs:string" />
+        <xs:element name="/***周次（例如1-5，8-13）*/weekduration" type="xs:string" />
+        <xs:element name="/***房间id*/roomid" type="xs:long" />
+        <xs:element name="/***周几*/weekday" type="xs:anyType" />
+        <xs:element name="/***上课的时间段（**1→上午1-2节**2→上午3-4节**）*/time" type="xs:anyType" />
+        <xs:element name="/***创建时间*/gmtcreate" type="xs:anyType" />
+        <xs:element name="/***修改时间*/gmtmodified" type="xs:anyType" />
+        <xs:element name="/***删除标志（0逻辑删除，1未删除）*/isdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dynamicphoto" >
+      <xs:sequence>
+        <xs:element name="pkdynamicphotoid" type="xs:string" />
+        <xs:element name="/***动态id*/dynamicid" type="xs:string" />
+        <xs:element name="/***图片地址*/picture" type="xs:string" />
+        <xs:element name="/***创建时间*/gmtcreate" type="xs:anyType" />
+        <xs:element name="/***修改时间*/gmtmodified" type="xs:anyType" />
+        <xs:element name="/***删除标志（0逻辑删除，1未删除）*/isdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="job" >
+      <xs:complexContent>
+       <xs:extension base="model<job>">
+         <xs:sequence>
+          <xs:element name="/***主键*/pkjobid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="boss" type="xs:string" />
+          <xs:element name="bossphone" type="xs:string" />
+          <xs:element name="bossavatar" type="xs:string" />
+          <xs:element name="companyid" type="xs:long" />
+          <xs:element name="workplace" type="xs:string" />
+          <xs:element name="workingtime" type="xs:string" />
+          <xs:element name="pay" type="xs:anyType" />
+          <xs:element name="min" type="xs:anyType" />
+          <xs:element name="max" type="xs:anyType" />
+          <xs:element name="experience" type="xs:string" />
+          <xs:element name="diploma" type="xs:string" />
+          <xs:element name="jobtypeid" type="xs:long" />
+          <xs:element name="number" type="xs:anyType" />
+          <xs:element name="resumes" type="xs:string" />
+          <xs:element name="/***删除标志*/isdeleted" type="xs:anyType" />
+          <xs:element name="/***创建时间*/gmtcreate" type="xs:anyType" />
+          <xs:element name="/***更新时间*/gmtmodified" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fleacomment" >
+      <xs:sequence>
+        <xs:element name="/***评论id*/pkfleacommentid" type="xs:long" />
+        <xs:element name="/***评论人*/reviewer" type="fleauser" nillable="true" minOccurs="0" />
+        <xs:element name="/***被评论人*/commentby" type="fleauser" nillable="true" minOccurs="0" />
+        <xs:element name="/***评论内容*/comment" type="xs:string" />
+        <xs:element name="/***该评论位于哪个悬赏（帖子）下*/" type="fleareward" nillable="true" minOccurs="0" />
+        <xs:element name="/***创建时间*/createtime" type="xs:anyType" />
+        <xs:element name="/***删除标志*/isdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sysrolemenu" >
+      <xs:sequence>
+        <xs:element name="//主键pkrolemenuid" type="xs:long" />
+        <xs:element name="//角色idpkroleid" type="xs:long" />
+        <xs:element name="//权限idmenuid" type="xs:long" />
+        <xs:element name="//创建时间gmtcreate" type="xs:anyType" />
+        <xs:element name="//修改时间gmtmodified" type="xs:anyType" />
+        <xs:element name="//是否删除（1逻辑删除，0未删除）isdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fleagoods" >
+      <xs:sequence>
+        <xs:element name="/***商品id*/pkfleagoodsid" type="xs:long" />
+        <xs:element name="/***商品名称*/goodsname" type="xs:string" />
+        <xs:element name="/***商品描述*/goodsdescription" type="xs:string" />
+        <xs:element name="/***商品图片*/goodsimgurl" type="xs:string" />
+        <xs:element name="/***商品价格*/goodsprice" type="xs:double" />
+        <xs:element name="/***商品标签*/goodsmark" type="xs:string" />
+        <xs:element name="/***商品发布时间*/goodscreatetime" type="xs:anyType" />
+        <xs:element name="/***商品发布人id*/" type="fleauser" nillable="true" minOccurs="0" />
+        <xs:element name="/***商品类型id*/" type="fleatype" nillable="true" minOccurs="0" />
+        <xs:element name="/***删除标志*/isdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sysstatement" >
+      <xs:sequence>
+        <xs:element name="/***主键*/pkstatementid" type="xs:long" />
+        <xs:element name="/***类型*/statementtype" type="xs:string" />
+        <xs:element name="/***标题*/statementtitle" type="xs:string" />
+        <xs:element name="/***内容*/statementcontent" type="xs:string" />
+        <xs:element name="/***创建时间*/gmtcreate" type="xs:anyType" />
+        <xs:element name="/***更新时间*/gmtmodified" type="xs:anyType" />
+        <xs:element name="/***删除标志（0未删除，1已删除）*/isdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sysfeedback" >
+      <xs:sequence>
+        <xs:element name="/***主键*/pkfeedbackid" type="xs:long" />
+        <xs:element name="/***标题*/title" type="xs:string" />
+        <xs:element name="/***内容*/content" type="xs:string" />
+        <xs:element name="/***联系方式*/contactway" type="xs:string" />
+        <xs:element name="/***处理状态（0未处理，1已处理）*/ishandled" type="xs:anyType" />
+        <xs:element name="/***图片内容*/picinfo" type="xs:string" />
+        <xs:element name="/***创建时间*/gmtcreate" type="xs:anyType" />
+        <xs:element name="/***更新时间*/gmtmodified" type="xs:anyType" />
+        <xs:element name="/***删除标志（0未删除，1已删除）*/isdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="towerandunit" >
+      <xs:sequence>
+        <xs:element name="pkid" type="xs:long" />
+        <xs:element name="towerid" type="xs:long" />
+        <xs:element name="unitid" type="xs:long" />
+        <xs:element name="/***创建时间*/gmtcreate" type="xs:anyType" />
+        <xs:element name="/***更新时间*/gmtmodified" type="xs:anyType" />
+        <xs:element name="/***删除标志*/isdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="company" >
+      <xs:complexContent>
+       <xs:extension base="model<company>">
+         <xs:sequence>
+          <xs:element name="/***主键*/pkcompanyid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="tag" type="xs:string" />
+          <xs:element name="logo" type="xs:string" />
+          <xs:element name="workers" type="xs:anyType" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="workingtime" type="xs:string" />
+          <xs:element name="workingstatus" type="xs:string" />
+          <xs:element name="jobnumbers" type="xs:anyType" />
+          <xs:element name="vacation" type="xs:string" />
+          <xs:element name="address" type="xs:string" />
+          <xs:element name="longitude" type="xs:string" />
+          <xs:element name="latitude" type="xs:string" />
+          <xs:element name="/***删除标志*/isdeleted" type="xs:anyType" />
+          <xs:element name="/***创建时间*/gmtcreate" type="xs:anyType" />
+          <xs:element name="/***更新时间*/gmtmodified" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="comment" >
+      <xs:sequence>
+        <xs:element name="/***主键，策略为自增*/pkcommentid" type="xs:string" />
+        <xs:element name="/***动态id*/dynamicid" type="xs:string" />
+        <xs:element name="/***用户id*/userid" type="xs:string" />
+        <xs:element name="/***评论内容*/content" type="xs:string" />
+        <xs:element name="/***创建时间*/gmtcreate" type="xs:anyType" />
+        <xs:element name="/***修改时间*/gmtmodified" type="xs:anyType" />
+        <xs:element name="/***删除标志（0逻辑删除，1未删除）*///@jsonignoreisdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fleaorder" >
+      <xs:sequence>
+        <xs:element name="/***id*/pkfleaorderid" type="xs:string" />
+        <xs:element name="/***商品id*/" type="fleagoods" nillable="true" minOccurs="0" />
+        <xs:element name="/***买方id*/buyer" type="fleauser" nillable="true" minOccurs="0" />
+        <xs:element name="/***卖方id*/seller" type="fleauser" nillable="true" minOccurs="0" />
+        <xs:element name="/***创建时间*/createtime" type="xs:anyType" />
+        <xs:element name="/***删除标志*/isdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logininfo" >
+      <xs:sequence>
+        <xs:element name="/***主键*/pkloginid" type="xs:long" />
+        <xs:element name="/***标题*/info" type="xs:string" />
+        <xs:element name="/***创建时间*/gmtcreate" type="xs:anyType" />
+        <xs:element name="/***更新时间*/gmtmodified" type="xs:anyType" />
+        <xs:element name="/***删除标志（0未删除，1已删除）*/isdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="syscard" >
+      <xs:sequence>
+        <xs:element name="/***主键*/pkcardid" type="xs:long" />
+        <xs:element name="/***卡号*/cardnumber" type="xs:string" />
+        <xs:element name="/***卡密*/cardpassword" type="xs:string" />
+        <xs:element name="/***绑定账号*/jobnumber" type="xs:string" />
+        <xs:element name="/***余额*/cardbalance" type="xs:double" />
+        <xs:element name="/***状态*/status" type="xs:anyType" />
+        <xs:element name="/***创建时间*/gmtcreate" type="xs:anyType" />
+        <xs:element name="/***更新时间*/gmtmodified" type="xs:anyType" />
+        <xs:element name="/***删除标志*/isdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="appversion" >
+      <xs:sequence>
+        <xs:element name="/***主键id*/pkappversionid" type="xs:long" />
+        <xs:element name="apptype" type="xs:string" />
+        <xs:element name="/***当前的版本号*/currentversion" type="xs:string" />
+        <xs:element name="/***最高版本号*/maxversion" type="xs:string" />
+        <xs:element name="/***最低版本号*/minversion" type="xs:string" />
+        <xs:element name="/***版本描述*/versiondescription" type="xs:string" />
+        <xs:element name="/***下载地址*/downloadlink" type="xs:string" />
+        <xs:element name="/***创建时间*/gmtcreate" type="xs:anyType" />
+        <xs:element name="/***更新时间*/gmtmodified" type="xs:anyType" />
+        <xs:element name="/***删除标志（0未删除，1已删除）*/isdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="message" >
+      <xs:sequence>
+        <xs:element name="/***主键*/pkmessageid" type="xs:long" />
+        <xs:element name="/***消息内容*/content" type="xs:string" />
+        <xs:element name="/***阅读状态(0表示未读，1表示已读)*/isreaded" type="xs:anyType" />
+        <xs:element name="/***创建时间*/gmtcreate" type="xs:anyType" />
+        <xs:element name="/***修改时间*/gmtmodified" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="infomanage" >
+      <xs:sequence>
+        <xs:element name="/***主键id*/pkinfomanageid" type="xs:long" />
+        <xs:element name="/***标题*/title" type="xs:string" />
+        <xs:element name="/***封面*/cover" type="xs:string" />
+        <xs:element name="/***内容*/text" type="xs:string" />
+        <xs:element name="/***置顶标志（0不置顶，1置顶）*/istop" type="xs:anyType" />
+        <xs:element name="/***创建时间*/gmtcreate" type="xs:anyType" />
+        <xs:element name="/***更新时间*/gmtmodified" type="xs:anyType" />
+        <xs:element name="/***删除标志（0未删除，1逻辑删除）*/isdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="collections" >
+      <xs:sequence>
+        <xs:element name="/***主键，策略为自增*/pkcollectionid" type="xs:string" />
+        <xs:element name="/***动态id*/dynamicid" type="xs:string" />
+        <xs:element name="/***用户id*/userid" type="xs:string" />
+        <xs:element name="/***创建时间*/gmtcreate" type="xs:anyType" />
+        <xs:element name="/***修改时间*/gmtmodified" type="xs:anyType" />
+        <xs:element name="/***删除标志（0逻辑删除，1未删除）*/isdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sysmenu" >
+      <xs:sequence>
+        <xs:element name="//主键pkmenuid" type="xs:long" />
+        <xs:element name="//父类idparentid" type="xs:long" />
+        <xs:element name="//类型（0目录，1菜单，2按钮）type" type="xs:anyType" />
+        <xs:element name="//名称name" type="xs:string" />
+        <xs:element name="//路径//@column(length" type="xs:string" />
+        <xs:element name="//图标icon" type="xs:string" />
+        <xs:element name="//排序sort" type="xs:anyType" />
+        <xs:element name="//创建时间gmtcreate" type="xs:anyType" />
+        <xs:element name="//修改时间gmtmodified" type="xs:anyType" />
+        <xs:element name="//是否删除（1逻辑删除，0未删除）isdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="towerunit" >
+      <xs:sequence>
+        <xs:element name="/***主键id*/unitid" type="xs:long" />
+        <xs:element name="/***单元名称*/name" type="xs:string" />
+        <xs:element name="/***创建时间*/gmtcreate" type="xs:anyType" />
+        <xs:element name="/***更新时间*/gmtmodified" type="xs:anyType" />
+        <xs:element name="/***删除标志*/isdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sysrole" >
+      <xs:sequence>
+        <xs:element name="//角色idpkroleid" type="xs:long" />
+        <xs:element name="//角色名rolename" type="xs:string" />
+        <xs:element name="//角色描述roledescription" type="xs:string" />
+        <xs:element name="roledecoration" type="xs:string" />
+        <xs:element name="//排序字段sort" type="xs:anyType" />
+        <xs:element name="//创建时间gmtcreate" type="xs:anyType" />
+        <xs:element name="/***修改时间*/gmtmodified" type="xs:anyType" />
+        <xs:element name="//是否删除（1逻辑删除，0未删除）isdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="examination" >
+      <xs:sequence>
+        <xs:element name="/***主键，策略为自增*/pkexaminationid" type="xs:long" />
+        <xs:element name="/***学期*nullable" type="xs:string" />
+        <xs:element name="/***科目id*/subjectid" type="xs:long" />
+        <xs:element name="/***班级id*/clazzid" type="xs:long" />
+        <xs:element name="/***监考老师*/teachername" type="xs:string" />
+        <xs:element name="/***监考老师用户id*/teacherid" type="xs:string" />
+        <xs:element name="/***地点*/area" type="xs:string" />
+        <xs:element name="/***试卷分数*/score" type="xs:anyType" />
+        <xs:element name="/***考试类型*/type" type="xs:string" />
+        <xs:element name="/***考生学号*/jobnumber" type="xs:string" />
+        <xs:element name="/***创建时间*/gmtcreate" type="xs:anyType" />
+        <xs:element name="/***修改时间*/gmtmodified" type="xs:anyType" />
+        <xs:element name="/***删除标志（0逻辑删除，1未删除）*/isdeleted" type="xs:anyType" />
+        <xs:element name="/***是否参与（0未参与，1已参与）*/isjoin" type="xs:anyType" />
+        <xs:element name="/***考试结束时间*/finishtime" type="xs:anyType" />
+        <xs:element name="/***考试开始时间*/starttime" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="loginfo" >
+      <xs:sequence>
+        <xs:element name="/***日志id*/pkloginfoid" type="xs:long" />
+        <xs:element name="/***执行时间*/executiontime" type="xs:anyType" />
+        <xs:element name="/***执行类*/classname" type="xs:string" />
+        <xs:element name="/***内容*/content" type="xs:string" />
+        <xs:element name="/***创建时间*/gmtcreate" type="xs:anyType" />
+        <xs:element name="/***更新时间*/gmtmodified" type="xs:anyType" />
+        <xs:element name="/***删除标志*/isdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tower" >
+      <xs:sequence>
+        <xs:element name="/***主键*/pktowerid" type="xs:long" />
+        <xs:element name="/***娄冬梅*/name" type="xs:string" />
+        <xs:element name="/***经度*/longitude" type="xs:string" />
+        <xs:element name="/***纬度*/latitude" type="xs:string" />
+        <xs:element name="/***类型（0教学1宿舍楼2食堂）*/type" type="xs:anyType" />
+        <xs:element name="/***创建时间*/gmtcreate" type="xs:anyType" />
+        <xs:element name="/***更新时间*/gmtmodified" type="xs:anyType" />
+        <xs:element name="/***删除标志*/isdeleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

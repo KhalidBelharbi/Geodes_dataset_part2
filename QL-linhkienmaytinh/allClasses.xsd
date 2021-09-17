@@ -1,0 +1,1163 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="linhkien" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="ten" type="xs:string" />
+        <xs:element name="soluong" type="xs:long" />
+        <xs:element name="dongiagoc" type="xs:double" />
+        <xs:element name="dongiaban" type="xs:double" />
+        <xs:element name="mota" type="xs:string" />
+        <xs:element name="GeneratedName" type="nhacungcap" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xuatxu" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="danhmuclinhkien" nillable="true" minOccurs="0" />
+        <xs:element name="dscthd" type="ct_hoadon" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="hinhanh" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="nhacungcap" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="ten" type="xs:string" />
+        <xs:element name="diachi" type="xs:string" />
+        <xs:element name="sdt" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="dslk" type="linhkien" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="danhmuclinhkien" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="ten" type="xs:string" />
+        <xs:element name="mota" type="xs:string" />
+        <xs:element name="dslk" type="linhkien" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="nhanvien" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="ten" type="xs:string" />
+        <xs:element name="diachi" type="xs:string" />
+        <xs:element name="sdt" type="xs:string" />
+        <xs:element name="taikhoan" type="xs:string" />
+        <xs:element name="nguoiquanli" type="nhanvien" nillable="true" minOccurs="0" />
+        <xs:element name="dshd" type="hoadon" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="xuatxu" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="quocgia" type="xs:string" />
+        <xs:element name="dslk" type="linhkien" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ct_hoadon_pk" >
+      <xs:sequence>
+        <xs:element name="hoadon" type="xs:string" />
+        <xs:element name="linhkien" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ct_hoadon" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="hoadon" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="linhkien" nillable="true" minOccurs="0" />
+        <xs:element name="soluong" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hoadon" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="GeneratedName" type="khachhang" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="nhanvien" nillable="true" minOccurs="0" />
+        <xs:element name="dscthd" type="ct_hoadon" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="luuy" type="xs:string" />
+        <xs:element name="ngaylap" type="xs:anyType" />
+        <xs:element name="tienkhachhangdua" type="xs:double" />
+        <xs:element name="thue" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="khachhang" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="ten" type="xs:string" />
+        <xs:element name="diachi" type="xs:string" />
+        <xs:element name="sdt" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="dshd" type="hoadon" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="main4test" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mygenerator" >
+      <xs:sequence>
+        <xs:element name="prefix" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mygeneratorncc" >
+      <xs:sequence>
+        <xs:element name="prefix" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mygeneratolinhkien" >
+      <xs:sequence>
+        <xs:element name="prefix" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mygeneratorxuatxu" >
+      <xs:sequence>
+        <xs:element name="prefix" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mygeneratordanhmuc" >
+      <xs:sequence>
+        <xs:element name="prefix" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mygeneratorkhachhang" >
+      <xs:sequence>
+        <xs:element name="prefix" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mygeneratonhanvien" >
+      <xs:sequence>
+        <xs:element name="prefix" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tablemodelct_hoadon" >
+      <xs:complexContent>
+       <xs:extension base="abstracttablemodel">
+         <xs:sequence>
+          <xs:element name="header" type="xs:string" />
+          <xs:element name="data" type="ct_hoadon" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tablemodelnhanvien_cachoadon" >
+      <xs:complexContent>
+       <xs:extension base="abstracttablemodel">
+         <xs:sequence>
+          <xs:element name="header" type="xs:string" />
+          <xs:element name="data" type="hoadon" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tablemodelnhanvien" >
+      <xs:complexContent>
+       <xs:extension base="abstracttablemodel">
+         <xs:sequence>
+          <xs:element name="header" type="xs:string" />
+          <xs:element name="data" type="nhanvien" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tablemodelformhoadon" >
+      <xs:complexContent>
+       <xs:extension base="abstracttablemodel">
+         <xs:sequence>
+          <xs:element name="header" type="xs:string" />
+          <xs:element name="data" type="ct_hoadon" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="frame" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tablemodelhoadon" >
+      <xs:complexContent>
+       <xs:extension base="abstracttablemodel">
+         <xs:sequence>
+          <xs:element name="header" type="xs:string" />
+          <xs:element name="data" type="hoadon" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tablemodelbanhang_linhkien" >
+      <xs:complexContent>
+       <xs:extension base="abstracttablemodel">
+         <xs:sequence>
+          <xs:element name="header" type="xs:string" />
+          <xs:element name="data" type="linhkien" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tablemodelkhachhang" >
+      <xs:complexContent>
+       <xs:extension base="abstracttablemodel">
+         <xs:sequence>
+          <xs:element name="header" type="xs:string" />
+          <xs:element name="data" type="khachhang" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tablemodelthongke" >
+      <xs:complexContent>
+       <xs:extension base="abstracttablemodel">
+         <xs:sequence>
+          <xs:element name="header" type="xs:string" />
+          <xs:element name="data" type="xs:anyType" />
+          <xs:element name="f" type="frame" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tablemodellinhkien" >
+      <xs:complexContent>
+       <xs:extension base="abstracttablemodel">
+         <xs:sequence>
+          <xs:element name="header" type="xs:string" />
+          <xs:element name="data" type="linhkien" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tablemodelncc" >
+      <xs:complexContent>
+       <xs:extension base="abstracttablemodel">
+         <xs:sequence>
+          <xs:element name="header" type="xs:string" />
+          <xs:element name="data" type="nhacungcap" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tablemodelhelper" >
+      <xs:complexContent>
+       <xs:extension base="abstracttablemodel">
+         <xs:sequence>
+          <xs:element name="helper" type="xs:anyType" />
+          <xs:element name="header" type="xs:string" />
+          <xs:element name="data" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tablemodelkhachhang_banhang" >
+      <xs:complexContent>
+       <xs:extension base="abstracttablemodel">
+         <xs:sequence>
+          <xs:element name="header" type="xs:string" />
+          <xs:element name="data" type="khachhang" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tablemodelncc_cacsanpham" >
+      <xs:complexContent>
+       <xs:extension base="abstracttablemodel">
+         <xs:sequence>
+          <xs:element name="header" type="xs:string" />
+          <xs:element name="data" type="linhkien" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tablemodelkhachhang_cachoadon" >
+      <xs:complexContent>
+       <xs:extension base="abstracttablemodel">
+         <xs:sequence>
+          <xs:element name="header" type="xs:string" />
+          <xs:element name="data" type="hoadon" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tablemodelbanhang_cthoadon" >
+      <xs:complexContent>
+       <xs:extension base="abstracttablemodel">
+         <xs:sequence>
+          <xs:element name="header" type="xs:string" />
+          <xs:element name="data" type="ct_hoadon" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tablemodelxuatxu" >
+      <xs:complexContent>
+       <xs:extension base="abstracttablemodel">
+         <xs:sequence>
+          <xs:element name="header" type="xs:string" />
+          <xs:element name="data" type="xuatxu" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="test" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tablemodeldanhmuc" >
+      <xs:complexContent>
+       <xs:extension base="abstracttablemodel">
+         <xs:sequence>
+          <xs:element name="header" type="xs:string" />
+          <xs:element name="data" type="danhmuclinhkien" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="formxacnhan_xoaxuatxu" >
+      <xs:complexContent>
+       <xs:extension base="javax.swing.jframe">
+         <xs:sequence>
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="" type="frame" nillable="true" minOccurs="0" />
+          <xs:element name="xacnhan" type="xs:long" />
+          <xs:element name="//variablesdeclaration-donotmodify//gen-begin:variablesjbutton5" type="xs:anyType" />
+          <xs:element name="jbutton7" type="xs:anyType" />
+          <xs:element name="jlabel30" type="xs:anyType" />
+          <xs:element name="jpanel1" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="formxacnhan_xoaxuatxu" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="frame" >
+      <xs:complexContent>
+       <xs:extension base="javax.swing.jframe">
+         <xs:sequence>
+          <xs:element name="modelloaihang" type="tablemodeldanhmuc" nillable="true" minOccurs="0" />
+          <xs:element name="modelxuatxu" type="tablemodelxuatxu" nillable="true" minOccurs="0" />
+          <xs:element name="modelnhanvien" type="tablemodelnhanvien" nillable="true" minOccurs="0" />
+          <xs:element name="datanhanvien" type="nhanvien" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="modelgiohang" type="tablemodelbanhang_cthoadon" nillable="true" minOccurs="0" />
+          <xs:element name="modelbanhang_linhkien" type="tablemodelbanhang_linhkien" nillable="true" minOccurs="0" />
+          <xs:element name="modellinhkien" type="tablemodellinhkien" nillable="true" minOccurs="0" />
+          <xs:element name="modelhoadon" type="tablemodelhoadon" nillable="true" minOccurs="0" />
+          <xs:element name="datahoadon" type="hoadon" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="modelkhachhang" type="tablemodelkhachhang" nillable="true" minOccurs="0" />
+          <xs:element name="modelnhacungcap" type="tablemodelncc" nillable="true" minOccurs="0" />
+          <xs:element name="datancc" type="nhacungcap" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="databangtamnhacc" type="nhacungcap" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="datalinhkien" type="linhkien" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="bangtam" type="linhkien" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="datakhachhang" type="khachhang" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="khachhhang" type="khachhang" nillable="true" minOccurs="0" />
+          <xs:element name="databanhang_linhkien" type="linhkien" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="//variablesdeclaration-donotmodifytam" type="linhkien" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="themvao" type="linhkien" nillable="true" minOccurs="0" />
+          <xs:element name="" type="nhanvien" nillable="true" minOccurs="0" />
+          <xs:element name="hd" type="hoadon" nillable="true" minOccurs="0" />
+          <xs:element name="giohang" type="ct_hoadon" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="path" type="xs:string" />
+          <xs:element name="//variablesdeclaration-donotmodify//gen-begin:variablesbahang" type="xs:anyType" />
+          <xs:element name="banhang" type="xs:anyType" />
+          <xs:element name="bieudo" type="xs:anyType" />
+          <xs:element name="hoadon" type="xs:anyType" />
+          <xs:element name="jbutton10" type="xs:anyType" />
+          <xs:element name="jbutton11" type="xs:anyType" />
+          <xs:element name="jbutton12" type="xs:anyType" />
+          <xs:element name="jbutton13" type="xs:anyType" />
+          <xs:element name="jbutton14" type="xs:anyType" />
+          <xs:element name="jbutton15" type="xs:anyType" />
+          <xs:element name="jbutton16" type="xs:anyType" />
+          <xs:element name="jbutton17" type="xs:anyType" />
+          <xs:element name="jbutton18" type="xs:anyType" />
+          <xs:element name="jbutton19" type="xs:anyType" />
+          <xs:element name="jbutton20" type="xs:anyType" />
+          <xs:element name="jbutton21" type="xs:anyType" />
+          <xs:element name="jbutton22" type="xs:anyType" />
+          <xs:element name="jbutton23" type="xs:anyType" />
+          <xs:element name="jbutton24" type="xs:anyType" />
+          <xs:element name="jbutton25" type="xs:anyType" />
+          <xs:element name="jbutton26" type="xs:anyType" />
+          <xs:element name="jbutton27" type="xs:anyType" />
+          <xs:element name="jbutton28" type="xs:anyType" />
+          <xs:element name="jbutton29" type="xs:anyType" />
+          <xs:element name="jbutton31" type="xs:anyType" />
+          <xs:element name="jbutton32" type="xs:anyType" />
+          <xs:element name="jbutton33" type="xs:anyType" />
+          <xs:element name="jbutton34" type="xs:anyType" />
+          <xs:element name="jbutton35" type="xs:anyType" />
+          <xs:element name="jbutton36" type="xs:anyType" />
+          <xs:element name="jbutton37" type="xs:anyType" />
+          <xs:element name="jbutton38" type="xs:anyType" />
+          <xs:element name="jbutton39" type="xs:anyType" />
+          <xs:element name="jbutton4" type="xs:anyType" />
+          <xs:element name="jbutton40" type="xs:anyType" />
+          <xs:element name="jbutton41" type="xs:anyType" />
+          <xs:element name="jbutton42" type="xs:anyType" />
+          <xs:element name="jbutton5" type="xs:anyType" />
+          <xs:element name="jbutton6" type="xs:anyType" />
+          <xs:element name="jbutton7" type="xs:anyType" />
+          <xs:element name="jbutton9" type="xs:anyType" />
+          <xs:element name="jcheckbox1" type="xs:anyType" />
+          <xs:element name="jcombobox1" type="xs:anyType" />
+          <xs:element name="jcombobox2" type="xs:anyType" />
+          <xs:element name="jcombobox4" type="xs:anyType" />
+          <xs:element name="jcombobox5" type="xs:anyType" />
+          <xs:element name="jcombobox6" type="xs:anyType" />
+          <xs:element name="jcombobox7" type="xs:anyType" />
+          <xs:element name="jdatechooser1" type="xs:anyType" />
+          <xs:element name="jdatechooser2" type="xs:anyType" />
+          <xs:element name="jformattedtextfield1" type="xs:anyType" />
+          <xs:element name="jformattedtextfield2" type="xs:anyType" />
+          <xs:element name="jformattedtextfield3" type="xs:anyType" />
+          <xs:element name="jformattedtextfield4" type="xs:anyType" />
+          <xs:element name="jlabel1" type="xs:anyType" />
+          <xs:element name="jlabel10" type="xs:anyType" />
+          <xs:element name="jlabel100" type="xs:anyType" />
+          <xs:element name="jlabel101" type="xs:anyType" />
+          <xs:element name="jlabel102" type="xs:anyType" />
+          <xs:element name="jlabel103" type="xs:anyType" />
+          <xs:element name="jlabel104" type="xs:anyType" />
+          <xs:element name="jlabel105" type="xs:anyType" />
+          <xs:element name="jlabel106" type="xs:anyType" />
+          <xs:element name="jlabel107" type="xs:anyType" />
+          <xs:element name="jlabel108" type="xs:anyType" />
+          <xs:element name="jlabel109" type="xs:anyType" />
+          <xs:element name="jlabel11" type="xs:anyType" />
+          <xs:element name="jlabel110" type="xs:anyType" />
+          <xs:element name="jlabel111" type="xs:anyType" />
+          <xs:element name="jlabel112" type="xs:anyType" />
+          <xs:element name="jlabel113" type="xs:anyType" />
+          <xs:element name="jlabel114" type="xs:anyType" />
+          <xs:element name="jlabel116" type="xs:anyType" />
+          <xs:element name="jlabel117" type="xs:anyType" />
+          <xs:element name="jlabel118" type="xs:anyType" />
+          <xs:element name="jlabel119" type="xs:anyType" />
+          <xs:element name="jlabel12" type="xs:anyType" />
+          <xs:element name="jlabel120" type="xs:anyType" />
+          <xs:element name="jlabel121" type="xs:anyType" />
+          <xs:element name="jlabel122" type="xs:anyType" />
+          <xs:element name="jlabel123" type="xs:anyType" />
+          <xs:element name="jlabel124" type="xs:anyType" />
+          <xs:element name="jlabel125" type="xs:anyType" />
+          <xs:element name="jlabel126" type="xs:anyType" />
+          <xs:element name="jlabel127" type="xs:anyType" />
+          <xs:element name="jlabel128" type="xs:anyType" />
+          <xs:element name="jlabel129" type="xs:anyType" />
+          <xs:element name="jlabel13" type="xs:anyType" />
+          <xs:element name="jlabel130" type="xs:anyType" />
+          <xs:element name="jlabel131" type="xs:anyType" />
+          <xs:element name="jlabel132" type="xs:anyType" />
+          <xs:element name="jlabel133" type="xs:anyType" />
+          <xs:element name="jlabel134" type="xs:anyType" />
+          <xs:element name="jlabel135" type="xs:anyType" />
+          <xs:element name="jlabel136" type="xs:anyType" />
+          <xs:element name="jlabel14" type="xs:anyType" />
+          <xs:element name="jlabel15" type="xs:anyType" />
+          <xs:element name="jlabel16" type="xs:anyType" />
+          <xs:element name="jlabel17" type="xs:anyType" />
+          <xs:element name="jlabel18" type="xs:anyType" />
+          <xs:element name="jlabel19" type="xs:anyType" />
+          <xs:element name="jlabel2" type="xs:anyType" />
+          <xs:element name="jlabel20" type="xs:anyType" />
+          <xs:element name="jlabel21" type="xs:anyType" />
+          <xs:element name="jlabel22" type="xs:anyType" />
+          <xs:element name="jlabel23" type="xs:anyType" />
+          <xs:element name="jlabel24" type="xs:anyType" />
+          <xs:element name="jlabel25" type="xs:anyType" />
+          <xs:element name="jlabel26" type="xs:anyType" />
+          <xs:element name="jlabel27" type="xs:anyType" />
+          <xs:element name="jlabel28" type="xs:anyType" />
+          <xs:element name="jlabel29" type="xs:anyType" />
+          <xs:element name="jlabel3" type="xs:anyType" />
+          <xs:element name="jlabel30" type="xs:anyType" />
+          <xs:element name="jlabel31" type="xs:anyType" />
+          <xs:element name="jlabel32" type="xs:anyType" />
+          <xs:element name="jlabel33" type="xs:anyType" />
+          <xs:element name="jlabel34" type="xs:anyType" />
+          <xs:element name="jlabel35" type="xs:anyType" />
+          <xs:element name="jlabel36" type="xs:anyType" />
+          <xs:element name="jlabel37" type="xs:anyType" />
+          <xs:element name="jlabel38" type="xs:anyType" />
+          <xs:element name="jlabel39" type="xs:anyType" />
+          <xs:element name="jlabel4" type="xs:anyType" />
+          <xs:element name="jlabel40" type="xs:anyType" />
+          <xs:element name="jlabel41" type="xs:anyType" />
+          <xs:element name="jlabel42" type="xs:anyType" />
+          <xs:element name="jlabel43" type="xs:anyType" />
+          <xs:element name="jlabel44" type="xs:anyType" />
+          <xs:element name="jlabel45" type="xs:anyType" />
+          <xs:element name="jlabel46" type="xs:anyType" />
+          <xs:element name="jlabel47" type="xs:anyType" />
+          <xs:element name="jlabel48" type="xs:anyType" />
+          <xs:element name="jlabel49" type="xs:anyType" />
+          <xs:element name="jlabel5" type="xs:anyType" />
+          <xs:element name="jlabel50" type="xs:anyType" />
+          <xs:element name="jlabel51" type="xs:anyType" />
+          <xs:element name="jlabel52" type="xs:anyType" />
+          <xs:element name="jlabel53" type="xs:anyType" />
+          <xs:element name="jlabel54" type="xs:anyType" />
+          <xs:element name="jlabel55" type="xs:anyType" />
+          <xs:element name="jlabel56" type="xs:anyType" />
+          <xs:element name="jlabel57" type="xs:anyType" />
+          <xs:element name="jlabel58" type="xs:anyType" />
+          <xs:element name="jlabel59" type="xs:anyType" />
+          <xs:element name="jlabel6" type="xs:anyType" />
+          <xs:element name="jlabel61" type="xs:anyType" />
+          <xs:element name="jlabel62" type="xs:anyType" />
+          <xs:element name="jlabel63" type="xs:anyType" />
+          <xs:element name="jlabel65" type="xs:anyType" />
+          <xs:element name="jlabel66" type="xs:anyType" />
+          <xs:element name="jlabel67" type="xs:anyType" />
+          <xs:element name="jlabel68" type="xs:anyType" />
+          <xs:element name="jlabel69" type="xs:anyType" />
+          <xs:element name="jlabel7" type="xs:anyType" />
+          <xs:element name="jlabel70" type="xs:anyType" />
+          <xs:element name="jlabel71" type="xs:anyType" />
+          <xs:element name="jlabel72" type="xs:anyType" />
+          <xs:element name="jlabel73" type="xs:anyType" />
+          <xs:element name="jlabel74" type="xs:anyType" />
+          <xs:element name="jlabel75" type="xs:anyType" />
+          <xs:element name="jlabel76" type="xs:anyType" />
+          <xs:element name="jlabel77" type="xs:anyType" />
+          <xs:element name="jlabel78" type="xs:anyType" />
+          <xs:element name="jlabel79" type="xs:anyType" />
+          <xs:element name="jlabel8" type="xs:anyType" />
+          <xs:element name="jlabel80" type="xs:anyType" />
+          <xs:element name="jlabel81" type="xs:anyType" />
+          <xs:element name="jlabel82" type="xs:anyType" />
+          <xs:element name="jlabel83" type="xs:anyType" />
+          <xs:element name="jlabel84" type="xs:anyType" />
+          <xs:element name="jlabel85" type="xs:anyType" />
+          <xs:element name="jlabel86" type="xs:anyType" />
+          <xs:element name="jlabel87" type="xs:anyType" />
+          <xs:element name="jlabel88" type="xs:anyType" />
+          <xs:element name="jlabel89" type="xs:anyType" />
+          <xs:element name="jlabel9" type="xs:anyType" />
+          <xs:element name="jlabel90" type="xs:anyType" />
+          <xs:element name="jlabel91" type="xs:anyType" />
+          <xs:element name="jlabel92" type="xs:anyType" />
+          <xs:element name="jlabel93" type="xs:anyType" />
+          <xs:element name="jlabel94" type="xs:anyType" />
+          <xs:element name="jlabel95" type="xs:anyType" />
+          <xs:element name="jlabel96" type="xs:anyType" />
+          <xs:element name="jlabel97" type="xs:anyType" />
+          <xs:element name="jlabel98" type="xs:anyType" />
+          <xs:element name="jlabel99" type="xs:anyType" />
+          <xs:element name="jpanel1" type="xs:anyType" />
+          <xs:element name="jpanel10" type="xs:anyType" />
+          <xs:element name="jpanel11" type="xs:anyType" />
+          <xs:element name="jpanel12" type="xs:anyType" />
+          <xs:element name="jpanel13" type="xs:anyType" />
+          <xs:element name="jpanel15" type="xs:anyType" />
+          <xs:element name="jpanel16" type="xs:anyType" />
+          <xs:element name="jpanel17" type="xs:anyType" />
+          <xs:element name="jpanel18" type="xs:anyType" />
+          <xs:element name="jpanel19" type="xs:anyType" />
+          <xs:element name="jpanel2" type="xs:anyType" />
+          <xs:element name="jpanel20" type="xs:anyType" />
+          <xs:element name="jpanel21" type="xs:anyType" />
+          <xs:element name="jpanel23" type="xs:anyType" />
+          <xs:element name="jpanel25" type="xs:anyType" />
+          <xs:element name="jpanel26" type="xs:anyType" />
+          <xs:element name="jpanel27" type="xs:anyType" />
+          <xs:element name="jpanel28" type="xs:anyType" />
+          <xs:element name="jpanel29" type="xs:anyType" />
+          <xs:element name="jpanel3" type="xs:anyType" />
+          <xs:element name="jpanel30" type="xs:anyType" />
+          <xs:element name="jpanel31" type="xs:anyType" />
+          <xs:element name="jpanel32" type="xs:anyType" />
+          <xs:element name="jpanel33" type="xs:anyType" />
+          <xs:element name="jpanel34" type="xs:anyType" />
+          <xs:element name="jpanel35" type="xs:anyType" />
+          <xs:element name="jpanel36" type="xs:anyType" />
+          <xs:element name="jpanel37" type="xs:anyType" />
+          <xs:element name="jpanel38" type="xs:anyType" />
+          <xs:element name="jpanel39" type="xs:anyType" />
+          <xs:element name="jpanel4" type="xs:anyType" />
+          <xs:element name="jpanel40" type="xs:anyType" />
+          <xs:element name="jpanel41" type="xs:anyType" />
+          <xs:element name="jpanel42" type="xs:anyType" />
+          <xs:element name="jpanel43" type="xs:anyType" />
+          <xs:element name="jpanel44" type="xs:anyType" />
+          <xs:element name="jpanel45" type="xs:anyType" />
+          <xs:element name="jpanel46" type="xs:anyType" />
+          <xs:element name="jpanel47" type="xs:anyType" />
+          <xs:element name="jpanel48" type="xs:anyType" />
+          <xs:element name="jpanel49" type="xs:anyType" />
+          <xs:element name="jpanel5" type="xs:anyType" />
+          <xs:element name="jpanel50" type="xs:anyType" />
+          <xs:element name="jpanel51" type="xs:anyType" />
+          <xs:element name="jpanel52" type="xs:anyType" />
+          <xs:element name="jpanel53" type="xs:anyType" />
+          <xs:element name="jpanel54" type="xs:anyType" />
+          <xs:element name="jpanel55" type="xs:anyType" />
+          <xs:element name="jpanel56" type="xs:anyType" />
+          <xs:element name="jpanel57" type="xs:anyType" />
+          <xs:element name="jpanel58" type="xs:anyType" />
+          <xs:element name="jpanel59" type="xs:anyType" />
+          <xs:element name="jpanel6" type="xs:anyType" />
+          <xs:element name="jpanel60" type="xs:anyType" />
+          <xs:element name="jpanel61" type="xs:anyType" />
+          <xs:element name="jpanel62" type="xs:anyType" />
+          <xs:element name="jpanel63" type="xs:anyType" />
+          <xs:element name="jpanel64" type="xs:anyType" />
+          <xs:element name="jpanel65" type="xs:anyType" />
+          <xs:element name="jpanel66" type="xs:anyType" />
+          <xs:element name="jpanel67" type="xs:anyType" />
+          <xs:element name="jpanel68" type="xs:anyType" />
+          <xs:element name="jpanel69" type="xs:anyType" />
+          <xs:element name="jpanel7" type="xs:anyType" />
+          <xs:element name="jpanel70" type="xs:anyType" />
+          <xs:element name="jpanel71" type="xs:anyType" />
+          <xs:element name="jpanel8" type="xs:anyType" />
+          <xs:element name="jpanel9" type="xs:anyType" />
+          <xs:element name="jscrollpane1" type="xs:anyType" />
+          <xs:element name="jscrollpane10" type="xs:anyType" />
+          <xs:element name="jscrollpane11" type="xs:anyType" />
+          <xs:element name="jscrollpane12" type="xs:anyType" />
+          <xs:element name="jscrollpane13" type="xs:anyType" />
+          <xs:element name="jscrollpane14" type="xs:anyType" />
+          <xs:element name="jscrollpane15" type="xs:anyType" />
+          <xs:element name="jscrollpane16" type="xs:anyType" />
+          <xs:element name="jscrollpane2" type="xs:anyType" />
+          <xs:element name="jscrollpane3" type="xs:anyType" />
+          <xs:element name="jscrollpane4" type="xs:anyType" />
+          <xs:element name="jscrollpane5" type="xs:anyType" />
+          <xs:element name="jscrollpane6" type="xs:anyType" />
+          <xs:element name="jscrollpane7" type="xs:anyType" />
+          <xs:element name="jscrollpane8" type="xs:anyType" />
+          <xs:element name="jscrollpane9" type="xs:anyType" />
+          <xs:element name="jspinner1" type="xs:anyType" />
+          <xs:element name="jsplitpane1" type="xs:anyType" />
+          <xs:element name="jsplitpane2" type="xs:anyType" />
+          <xs:element name="jsplitpane4" type="xs:anyType" />
+          <xs:element name="jtabbedpane1" type="xs:anyType" />
+          <xs:element name="jtabbedpane2" type="xs:anyType" />
+          <xs:element name="jtable1" type="xs:anyType" />
+          <xs:element name="jtable10" type="xs:anyType" />
+          <xs:element name="jtable11" type="xs:anyType" />
+          <xs:element name="jtable12" type="xs:anyType" />
+          <xs:element name="jtable13" type="xs:anyType" />
+          <xs:element name="jtable2" type="xs:anyType" />
+          <xs:element name="jtable3" type="xs:anyType" />
+          <xs:element name="jtable4" type="xs:anyType" />
+          <xs:element name="jtable5" type="xs:anyType" />
+          <xs:element name="jtable6" type="xs:anyType" />
+          <xs:element name="jtable7" type="xs:anyType" />
+          <xs:element name="jtable8" type="xs:anyType" />
+          <xs:element name="jtable9" type="xs:anyType" />
+          <xs:element name="jtextarea1" type="xs:anyType" />
+          <xs:element name="jtextarea2" type="xs:anyType" />
+          <xs:element name="jtextarea3" type="xs:anyType" />
+          <xs:element name="jtextfield1" type="xs:anyType" />
+          <xs:element name="jtextfield10" type="xs:anyType" />
+          <xs:element name="jtextfield11" type="xs:anyType" />
+          <xs:element name="jtextfield12" type="xs:anyType" />
+          <xs:element name="jtextfield13" type="xs:anyType" />
+          <xs:element name="jtextfield14" type="xs:anyType" />
+          <xs:element name="jtextfield15" type="xs:anyType" />
+          <xs:element name="jtextfield16" type="xs:anyType" />
+          <xs:element name="jtextfield17" type="xs:anyType" />
+          <xs:element name="jtextfield18" type="xs:anyType" />
+          <xs:element name="jtextfield19" type="xs:anyType" />
+          <xs:element name="jtextfield2" type="xs:anyType" />
+          <xs:element name="jtextfield20" type="xs:anyType" />
+          <xs:element name="jtextfield21" type="xs:anyType" />
+          <xs:element name="jtextfield22" type="xs:anyType" />
+          <xs:element name="jtextfield23" type="xs:anyType" />
+          <xs:element name="jtextfield24" type="xs:anyType" />
+          <xs:element name="jtextfield25" type="xs:anyType" />
+          <xs:element name="jtextfield26" type="xs:anyType" />
+          <xs:element name="jtextfield27" type="xs:anyType" />
+          <xs:element name="jtextfield28" type="xs:anyType" />
+          <xs:element name="jtextfield29" type="xs:anyType" />
+          <xs:element name="jtextfield3" type="xs:anyType" />
+          <xs:element name="jtextfield30" type="xs:anyType" />
+          <xs:element name="jtextfield31" type="xs:anyType" />
+          <xs:element name="jtextfield32" type="xs:anyType" />
+          <xs:element name="jtextfield33" type="xs:anyType" />
+          <xs:element name="jtextfield34" type="xs:anyType" />
+          <xs:element name="jtextfield35" type="xs:anyType" />
+          <xs:element name="jtextfield36" type="xs:anyType" />
+          <xs:element name="jtextfield37" type="xs:anyType" />
+          <xs:element name="jtextfield38" type="xs:anyType" />
+          <xs:element name="jtextfield4" type="xs:anyType" />
+          <xs:element name="jtextfield40" type="xs:anyType" />
+          <xs:element name="jtextfield41" type="xs:anyType" />
+          <xs:element name="jtextfield42" type="xs:anyType" />
+          <xs:element name="jtextfield43" type="xs:anyType" />
+          <xs:element name="jtextfield44" type="xs:anyType" />
+          <xs:element name="jtextfield45" type="xs:anyType" />
+          <xs:element name="jtextfield46" type="xs:anyType" />
+          <xs:element name="jtextfield47" type="xs:anyType" />
+          <xs:element name="jtextfield5" type="xs:anyType" />
+          <xs:element name="jtextfield6" type="xs:anyType" />
+          <xs:element name="jtextfield7" type="xs:anyType" />
+          <xs:element name="jtextfield8" type="xs:anyType" />
+          <xs:element name="jtextfield9" type="xs:anyType" />
+          <xs:element name="quanlihoadon" type="xs:anyType" />
+          <xs:element name="quanlikhachhang" type="xs:anyType" />
+          <xs:element name="quanlilinhkien" type="xs:anyType" />
+          <xs:element name="quanlinhacungcap" type="xs:anyType" />
+          <xs:element name="quanlinhanvien" type="xs:anyType" />
+          <xs:element name="thongke" type="xs:anyType" />
+          <xs:element name="trangchuyen" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="formdangnhap" >
+      <xs:complexContent>
+       <xs:extension base="javax.swing.jframe">
+         <xs:sequence>
+          <xs:element name="//variablesdeclaration-donotmodify//gen-begin:variablesjbutton5" type="xs:anyType" />
+          <xs:element name="jbutton6" type="xs:anyType" />
+          <xs:element name="jlabel1" type="xs:anyType" />
+          <xs:element name="jlabel2" type="xs:anyType" />
+          <xs:element name="jlabel34" type="xs:anyType" />
+          <xs:element name="jlabel35" type="xs:anyType" />
+          <xs:element name="jpanel1" type="xs:anyType" />
+          <xs:element name="jpasswordfield1" type="xs:anyType" />
+          <xs:element name="jtextfield1" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="formxuatxu" >
+      <xs:complexContent>
+       <xs:extension base="javax.swing.jframe">
+         <xs:sequence>
+          <xs:element name="//variablesdeclaration-donotmodify//gen-begin:variablesdanhsachxuatxu" type="xs:anyType" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="jbutton12" type="xs:anyType" />
+          <xs:element name="jbutton14" type="xs:anyType" />
+          <xs:element name="jbutton16" type="xs:anyType" />
+          <xs:element name="jlabel57" type="xs:anyType" />
+          <xs:element name="jlabel59" type="xs:anyType" />
+          <xs:element name="jpanel1" type="xs:anyType" />
+          <xs:element name="jscrollpane1" type="xs:anyType" />
+          <xs:element name="ten1" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="formxuatxu" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="formdangnhap" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="frame" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="formxacnhan_xoaloaihang" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="formnhapsl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="formxacnhannhanvien" >
+      <xs:complexContent>
+       <xs:extension base="javax.swing.jframe">
+         <xs:sequence>
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="" type="frame" nillable="true" minOccurs="0" />
+          <xs:element name="xacnhan" type="xs:long" />
+          <xs:element name="ncc" type="nhacungcap" nillable="true" minOccurs="0" />
+          <xs:element name="//variablesdeclaration-donotmodify//gen-begin:variablesjbutton5" type="xs:anyType" />
+          <xs:element name="jbutton7" type="xs:anyType" />
+          <xs:element name="jlabel30" type="xs:anyType" />
+          <xs:element name="jpanel1" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="formxacnhannhacungcap" >
+      <xs:complexContent>
+       <xs:extension base="javax.swing.jframe">
+         <xs:sequence>
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="" type="frame" nillable="true" minOccurs="0" />
+          <xs:element name="xacnhan" type="xs:long" />
+          <xs:element name="ncc" type="nhacungcap" nillable="true" minOccurs="0" />
+          <xs:element name="//variablesdeclaration-donotmodify//gen-begin:variablesjbutton5" type="xs:anyType" />
+          <xs:element name="jbutton7" type="xs:anyType" />
+          <xs:element name="jlabel30" type="xs:anyType" />
+          <xs:element name="jpanel1" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="formxacnhanhuyhoadon" >
+      <xs:complexContent>
+       <xs:extension base="javax.swing.jframe">
+         <xs:sequence>
+          <xs:element name="" type="frame" nillable="true" minOccurs="0" />
+          <xs:element name="xacnhan" type="xs:long" />
+          <xs:element name="//variablesdeclaration-donotmodify//gen-begin:variablesjbutton5" type="xs:anyType" />
+          <xs:element name="jbutton7" type="xs:anyType" />
+          <xs:element name="jlabel30" type="xs:anyType" />
+          <xs:element name="jpanel1" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="formdanhmuc" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="formdanhmuc" >
+      <xs:complexContent>
+       <xs:extension base="javax.swing.jframe">
+         <xs:sequence>
+          <xs:element name="//variablesdeclaration-donotmodify//gen-begin:variablesdsdanhmuc" type="xs:anyType" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="jbutton12" type="xs:anyType" />
+          <xs:element name="jbutton14" type="xs:anyType" />
+          <xs:element name="jbutton16" type="xs:anyType" />
+          <xs:element name="jlabel57" type="xs:anyType" />
+          <xs:element name="jlabel58" type="xs:anyType" />
+          <xs:element name="jlabel59" type="xs:anyType" />
+          <xs:element name="jpanel1" type="xs:anyType" />
+          <xs:element name="jscrollpane1" type="xs:anyType" />
+          <xs:element name="jscrollpane2" type="xs:anyType" />
+          <xs:element name="jtextarea1" type="xs:anyType" />
+          <xs:element name="ten1" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="formxacnhannhacungcap" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="formxacnhanhuyhoadon" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="formnhapsl" >
+      <xs:complexContent>
+       <xs:extension base="javax.swing.jframe">
+         <xs:sequence>
+          <xs:element name="giohang" type="ct_hoadon" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="frame" nillable="true" minOccurs="0" />
+          <xs:element name="soluong" type="xs:long" />
+          <xs:element name="" type="hoadon" nillable="true" minOccurs="0" />
+          <xs:element name="" type="linhkien" nillable="true" minOccurs="0" />
+          <xs:element name="//gen-last:event_jlabel3mouseclicked/***@paramargsthecommandlinearguments*///variablesdeclaration-donotmodify//gen-begin:variablesid" type="xs:anyType" />
+          <xs:element name="jbutton12" type="xs:anyType" />
+          <xs:element name="jbutton13" type="xs:anyType" />
+          <xs:element name="jlabel1" type="xs:anyType" />
+          <xs:element name="jlabel3" type="xs:anyType" />
+          <xs:element name="jlabel58" type="xs:anyType" />
+          <xs:element name="jpanel1" type="xs:anyType" />
+          <xs:element name="lb_thongbao" type="xs:anyType" />
+          <xs:element name="txt_soluong" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="formxacnhannhanvien" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="formxacnhan_xoaloaihang" >
+      <xs:complexContent>
+       <xs:extension base="javax.swing.jframe">
+         <xs:sequence>
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="" type="frame" nillable="true" minOccurs="0" />
+          <xs:element name="xacnhan" type="xs:long" />
+          <xs:element name="//variablesdeclaration-donotmodify//gen-begin:variablesjbutton5" type="xs:anyType" />
+          <xs:element name="jbutton7" type="xs:anyType" />
+          <xs:element name="jlabel30" type="xs:anyType" />
+          <xs:element name="jpanel1" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="formluachondangxuat" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="formxacnhankhachhang" >
+      <xs:complexContent>
+       <xs:extension base="javax.swing.jframe">
+         <xs:sequence>
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="" type="frame" nillable="true" minOccurs="0" />
+          <xs:element name="xacnhan" type="xs:long" />
+          <xs:element name="ncc" type="nhacungcap" nillable="true" minOccurs="0" />
+          <xs:element name="//variablesdeclaration-donotmodify//gen-begin:variablesjbutton5" type="xs:anyType" />
+          <xs:element name="jbutton7" type="xs:anyType" />
+          <xs:element name="jlabel30" type="xs:anyType" />
+          <xs:element name="jpanel1" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fromthongtinkhachhang" >
+      <xs:complexContent>
+       <xs:extension base="javax.swing.jframe">
+         <xs:sequence>
+          <xs:element name="model" type="tablemodelkhachhang_banhang" nillable="true" minOccurs="0" />
+          <xs:element name="/***createsnewformformdanhmuc*/" type="frame" nillable="true" minOccurs="0" />
+          <xs:element name="//variablesdeclaration-donotmodify//gen-begin:variablesid1" type="xs:anyType" />
+          <xs:element name="id3" type="xs:anyType" />
+          <xs:element name="jbutton12" type="xs:anyType" />
+          <xs:element name="jbutton13" type="xs:anyType" />
+          <xs:element name="jbutton14" type="xs:anyType" />
+          <xs:element name="jbutton17" type="xs:anyType" />
+          <xs:element name="jlabel97" type="xs:anyType" />
+          <xs:element name="jlabel98" type="xs:anyType" />
+          <xs:element name="jlabel99" type="xs:anyType" />
+          <xs:element name="jpanel1" type="xs:anyType" />
+          <xs:element name="jpanel48" type="xs:anyType" />
+          <xs:element name="jpanel49" type="xs:anyType" />
+          <xs:element name="jpanel50" type="xs:anyType" />
+          <xs:element name="jpanel52" type="xs:anyType" />
+          <xs:element name="jscrollpane1" type="xs:anyType" />
+          <xs:element name="jtable1" type="xs:anyType" />
+          <xs:element name="jtextfield14" type="xs:anyType" />
+          <xs:element name="jtextfield15" type="xs:anyType" />
+          <xs:element name="jtextfield17" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="formnhaptienkhachhangdua" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="linhkien" >
+      <xs:complexContent>
+       <xs:extension base="javax.swing.jpanel">
+         <xs:sequence>
+          <xs:element name="//gen-last:event_formmouseexited//variablesdeclaration-donotmodify//gen-begin:variablesjlabel47" type="xs:anyType" />
+          <xs:element name="jlabel49" type="xs:anyType" />
+          <xs:element name="jlabel52" type="xs:anyType" />
+          <xs:element name="jlabel53" type="xs:anyType" />
+          <xs:element name="jlabel54" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="formtatchuongtrinh" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="formxacnhan" >
+      <xs:complexContent>
+       <xs:extension base="javax.swing.jframe">
+         <xs:sequence>
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="" type="frame" nillable="true" minOccurs="0" />
+          <xs:element name="xacnhan" type="xs:long" />
+          <xs:element name="//variablesdeclaration-donotmodify//gen-begin:variablesjbutton5" type="xs:anyType" />
+          <xs:element name="jbutton7" type="xs:anyType" />
+          <xs:element name="jlabel30" type="xs:anyType" />
+          <xs:element name="jpanel1" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="formshowpass" >
+      <xs:complexContent>
+       <xs:extension base="javax.swing.jframe">
+         <xs:sequence>
+          <xs:element name="//variablesdeclaration-donotmodify//gen-begin:variablesjlabel1" type="xs:anyType" />
+          <xs:element name="jpanel1" type="xs:anyType" />
+          <xs:element name="jpanel2" type="xs:anyType" />
+          <xs:element name="jpasswordfield1" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="formhoadon" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="formshowpass" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="formhoadon" >
+      <xs:complexContent>
+       <xs:extension base="javax.swing.jframe">
+         <xs:sequence>
+          <xs:element name="hd" type="hoadon" nillable="true" minOccurs="0" />
+          <xs:element name="tiendua" type="xs:double" />
+          <xs:element name="ds" type="ct_hoadon" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="frame" nillable="true" minOccurs="0" />
+          <xs:element name="//variablesdeclaration-donotmodify//gen-begin:variablesjbutton5" type="xs:anyType" />
+          <xs:element name="jlabel101" type="xs:anyType" />
+          <xs:element name="jlabel102" type="xs:anyType" />
+          <xs:element name="jlabel103" type="xs:anyType" />
+          <xs:element name="jlabel104" type="xs:anyType" />
+          <xs:element name="jlabel105" type="xs:anyType" />
+          <xs:element name="jlabel106" type="xs:anyType" />
+          <xs:element name="jlabel107" type="xs:anyType" />
+          <xs:element name="jlabel109" type="xs:anyType" />
+          <xs:element name="jlabel111" type="xs:anyType" />
+          <xs:element name="jlabel112" type="xs:anyType" />
+          <xs:element name="jlabel113" type="xs:anyType" />
+          <xs:element name="jlabel114" type="xs:anyType" />
+          <xs:element name="jlabel115" type="xs:anyType" />
+          <xs:element name="jlabel116" type="xs:anyType" />
+          <xs:element name="jlabel117" type="xs:anyType" />
+          <xs:element name="jlabel118" type="xs:anyType" />
+          <xs:element name="jlabel119" type="xs:anyType" />
+          <xs:element name="jlabel120" type="xs:anyType" />
+          <xs:element name="jlabel121" type="xs:anyType" />
+          <xs:element name="jlabel122" type="xs:anyType" />
+          <xs:element name="jpanel1" type="xs:anyType" />
+          <xs:element name="jscrollpane1" type="xs:anyType" />
+          <xs:element name="jtable1" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="formxacnhan" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="linhkien" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="formtatchuongtrinh" >
+      <xs:complexContent>
+       <xs:extension base="javax.swing.jframe">
+         <xs:sequence>
+          <xs:element name="" type="frame" nillable="true" minOccurs="0" />
+          <xs:element name="//variablesdeclaration-donotmodify//gen-begin:variablesjbutton5" type="xs:anyType" />
+          <xs:element name="jbutton7" type="xs:anyType" />
+          <xs:element name="jlabel30" type="xs:anyType" />
+          <xs:element name="jpanel1" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="formnhaptienkhachhangdua" >
+      <xs:complexContent>
+       <xs:extension base="javax.swing.jframe">
+         <xs:sequence>
+          <xs:element name="giohang" type="ct_hoadon" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="frame" nillable="true" minOccurs="0" />
+          <xs:element name="soluong" type="xs:long" />
+          <xs:element name="giamgia" type="xs:double" />
+          <xs:element name="" type="hoadon" nillable="true" minOccurs="0" />
+          <xs:element name="" type="linhkien" nillable="true" minOccurs="0" />
+          <xs:element name="tienkhachdua" type="xs:long" />
+          <xs:element name="//gen-last:event_txt_sotienkhachduakeyreleased/***@paramargsthecommandlinearguments*///variablesdeclaration-donotmodify//gen-begin:variablesjbutton12" type="xs:anyType" />
+          <xs:element name="jbutton13" type="xs:anyType" />
+          <xs:element name="jlabel2" type="xs:anyType" />
+          <xs:element name="jlabel58" type="xs:anyType" />
+          <xs:element name="jpanel1" type="xs:anyType" />
+          <xs:element name="lb_thongbao" type="xs:anyType" />
+          <xs:element name="txt_sotienkhachdua" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fromthongtinkhachhang" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="formluachondangxuat" >
+      <xs:complexContent>
+       <xs:extension base="javax.swing.jframe">
+         <xs:sequence>
+          <xs:element name="" type="frame" nillable="true" minOccurs="0" />
+          <xs:element name="//variablesdeclaration-donotmodify//gen-begin:variablesjbutton5" type="xs:anyType" />
+          <xs:element name="jbutton7" type="xs:anyType" />
+          <xs:element name="jlabel30" type="xs:anyType" />
+          <xs:element name="jpanel1" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="formxacnhankhachhang" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="connectdb" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="daohelper" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="type" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hoadondao" >
+      <xs:complexContent>
+       <xs:extension base="daohelper<hoadon>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="khanhhangdao" >
+      <xs:complexContent>
+       <xs:extension base="daohelper<khachhang>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="nhanviendao" >
+      <xs:complexContent>
+       <xs:extension base="daohelper<nhanvien>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="nhacungcapdao" >
+      <xs:complexContent>
+       <xs:extension base="daohelper<nhacungcap>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="linhkiendao" >
+      <xs:complexContent>
+       <xs:extension base="daohelper<linhkien>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ct_hoadondao" >
+      <xs:complexContent>
+       <xs:extension base="daohelper<ct_hoadon>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="danhmuclinhkiendao" >
+      <xs:complexContent>
+       <xs:extension base="daohelper<danhmuclinhkien>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="xuatxudao" >
+      <xs:complexContent>
+       <xs:extension base="daohelper<xuatxu>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

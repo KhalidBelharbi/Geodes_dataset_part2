@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="datastreamrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<datastream,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderitemrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<orderitem,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="devicerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<device,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="datapointhistoryrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<datapointhistory,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<order,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="carrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<car,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<manager,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="datastreampointrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<datastreampoint,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managerrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<manager,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="//id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="//@column(nullable" type="xs:string" />
+        <xs:element name="/***创建时间*/createtime" type="xs:dateTime" />
+        <xs:element name="///**//*创建人//*///@column(name" type="xs:dateTime" />
+        <xs:element name="///**//*修改人//*///@column(name" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="order" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="//@column(nullable" type="xs:string" />
+        <xs:element name="//@column(nullable" type="xs:string" />
+        <xs:element name="goodsnumber" type="xs:anyType" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="complete" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datastream" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="////@generatedvalue//auto_id//@generatedvalueid" type="xs:string" />
+        <xs:element name="tags" type="xs:string" />
+        <xs:element name="unit" type="xs:string" />
+        <xs:element name="unit_symbol" type="xs:string" />
+        <xs:element name="current_value" type="xs:string" />
+        <xs:element name="uuid" type="xs:string" />
+        <xs:element name="//@column(nullable" type="xs:dateTime" />
+        <xs:element name="/***修改时间*/up_at" type="xs:dateTime" />
+        <xs:element name="//@onetomany(cascade" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="car" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="//@column(nullable" type="xs:string" />
+        <xs:element name="//@column(nullable" type="xs:string" />
+        <xs:element name="carnumber" type="xs:string" />
+        <xs:element name="userid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="device" >
+      <xs:sequence>
+        <xs:element name="//@generatedvalueid" type="xs:long" />
+        <xs:element name="tags" type="xs:string" />
+        <xs:element name="online" type="xs:anyType" />
+        <xs:element name="protocol" type="xs:string" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="////////locationauthinfo" type="xs:string" />
+        <xs:element name="//@column(nullable" type="xs:dateTime" />
+        <xs:element name="/***修改时间*/lastmodifiedtime" type="xs:dateTime" />
+        <xs:element name="//@onetomany(cascade" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datastreampoint" >
+      <xs:sequence>
+        <xs:element name="device_id" type="xs:long" />
+        <xs:element name="at" type="xs:string" />
+        <xs:element name="obliquity" type="xs:string" />
+        <xs:element name="temperature" type="xs:string" />
+        <xs:element name="humidity" type="xs:string" />
+        <xs:element name="location" type="xs:string" />
+        <xs:element name="position" type="xs:string" />
+        <xs:element name="pressure" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderitem" >
+      <xs:sequence>
+        <xs:element name="//@id//@generatedvalue//longid//@column(nullable" type="xs:string" />
+        <xs:element name="//@column(nullable" type="xs:string" />
+        <xs:element name="carid" type="xs:long" />
+        <xs:element name="orderid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datastreampk" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="device_id" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderitempk" >
+      <xs:sequence>
+        <xs:element name="deviceauthinfo" type="xs:string" />
+        <xs:element name="orderid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datastreampointpk" >
+      <xs:sequence>
+        <xs:element name="device_id" type="xs:long" />
+        <xs:element name="at" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datapointhitorypk" >
+      <xs:sequence>
+        <xs:element name="at" type="xs:string" />
+        <xs:element name="datastream_id" type="xs:string" />
+        <xs:element name="datastream_device_id" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="product" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="apikey" type="xs:string" />
+        <xs:element name="/***创建时间*/createtime" type="xs:dateTime" />
+        <xs:element name="/***修改时间*/lastmodifiedtime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="manager" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="/***创建时间*/createtime" type="xs:dateTime" />
+        <xs:element name="/***修改时间*/lastmodifiedtime" type="xs:dateTime" />
+        <xs:element name="//@onetomany(cascade" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datapointhistory" >
+      <xs:sequence>
+        <xs:element name="//@generatedvalueat" type="xs:string" />
+        <xs:element name="datastream_id" type="xs:string" />
+        <xs:element name="datastream_device_id" type="xs:long" />
+        <xs:element name="value" type="xs:string" />
+        <xs:element name="/***创建时间*/createtime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sessionconfig" >
+      <xs:sequence>
+        <xs:element name="//冒号后的值为没有配置文件时，制动装载的默认值hostname" type="xs:string" />
+        <xs:element name="port" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sessioninitializer" >
+      <xs:complexContent>
+       <xs:extension base="abstracthttpsessionapplicationinitializer">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="interceptorconfig" >
+      <xs:complexContent>
+       <xs:extension base="webmvcconfigureradapter">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="swagger2config" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="corsfilter" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="updatedb" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="datastreampointrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="deviceservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="datastreamservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="datapointhistoryservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iotserviceapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datastreamcontroller" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="datastreampointrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="datastreamservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="devicecontroller" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="deviceservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="devicerepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercontroller" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="indexcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ordercontroller" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="orderrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="orderservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="orderitemrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="orderitemservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="carcontroller" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="carservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="carrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="managercontroller" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="managerrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="productrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="managerservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="addcar" >
+      <xs:sequence>
+        <xs:element name="drivername" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="carnumber" type="xs:string" />
+        <xs:element name="userid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="editcar" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="drivername" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="carnumber" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="signupmanager" >
+      <xs:sequence>
+        <xs:element name="managername" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="apikey" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="signupuser" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="addorderitem" >
+      <xs:sequence>
+        <xs:element name="goodsnumbering" type="xs:string" />
+        <xs:element name="deviceauthinfo" type="xs:string" />
+        <xs:element name="carid" type="xs:long" />
+        <xs:element name="orderid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="loginmanager" >
+      <xs:sequence>
+        <xs:element name="managername" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="addorder" >
+      <xs:sequence>
+        <xs:element name="goodsname" type="xs:string" />
+        <xs:element name="goodstype" type="xs:string" />
+        <xs:element name="goodsnumber" type="xs:anyType" />
+        <xs:element name="userid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="loginuser" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accesslogginginterceptor" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datapointhistoryservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderitemservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deviceservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datastreamservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="carservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderitemserviceimp" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="orderitemrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datapointhistoryserviceimp" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="datapointhistoryrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datastreamserviceimp" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="datastreamrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userserviceimp" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deviceserviceimp" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="devicerepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="managerserviceimp" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="managerrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="carserviceimp" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="carrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderserviceimp" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="orderrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="managerservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="onenetresponse" >
+      <xs:sequence>
+        <xs:element name="errno" type="xs:long" />
+        <xs:element name="error" type="xs:string" />
+        <xs:element name="data" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="responsebody" >
+      <xs:sequence>
+        <xs:element name="code" type="xs:long" />
+        <xs:element name="success" type="xs:anyType" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="data" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iotserviceapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

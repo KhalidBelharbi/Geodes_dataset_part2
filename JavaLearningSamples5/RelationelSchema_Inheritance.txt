@@ -1,0 +1,21 @@
+
+album(id:long [PK], album:String);
+
+book(id:int [PK], name:String, GeneratedName:BookCategory #FK to(Book));
+
+bookcategory(id:int [PK], name:String);
+
+message(id:Integer [PK], text:String, tag:String, author:User #FK to(user));
+
+rockgroups(id:long [PK], rockgroup:String);
+
+user(id:Long [PK], username:String, password:String, active:boolean, roles:Set<Role>);
+
+songplayers(id:long [PK], song:String, //укомпозицииодинкомпозиторcomposer:String, //иодинавторстиховpoet:String, //песнясодержитсявальбомеalbum:String);
+
+songplayers_list<people>(songplayersID:songplayers [PK] #FK to songplayers,list<people>ID:list<people> [PK] #FK to list<people>);
+
+people(id:long [PK], human:String, //нескольколюдейиграютводнойгруппе:RockGroups #FK to(rockgroups));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

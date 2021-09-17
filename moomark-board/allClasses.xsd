@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="boardcomment" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="board" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="comment" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="boardtag" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="board" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="tag" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="boardcategory" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="board" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="category" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="board" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="authorid" type="xs:long" />
+        <xs:element name="recommendcount" type="xs:long" />
+        <xs:element name="viewscount" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="uploadtime" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tagdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="information" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commentdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="boardid" type="xs:long" />
+        <xs:element name="parentsid" type="xs:long" />
+        <xs:element name="childidlist" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="boarddto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="authorid" type="xs:long" />
+        <xs:element name="recommendcount" type="xs:long" />
+        <xs:element name="viewscount" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="uploadtime" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="categroydto" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="category" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="board" type="boardcategory" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="categorytype" type="xs:string" />
+        <xs:element name="parent" type="category" nillable="true" minOccurs="0" />
+        <xs:element name="childlist" type="category" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tag" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="information" type="xs:string" />
+        <xs:element name="board" type="boardtag" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="comment" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="board" type="boardcomment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="parent" type="comment" nillable="true" minOccurs="0" />
+        <xs:element name="childlist" type="comment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="boardcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="boardservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="moomarkboardapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="boardservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="boardrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="categoryrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="boardcategoryrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tagservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="tagrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commentservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="categoryservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="categoryrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="boardtagrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<boardtag,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tagrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<tag,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="boardcategoryrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<boardcategory,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="commentrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<comment,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="boardcommentrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<boardcomment,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="localdatetimeattributeconverter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="categoryrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<category,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="boardrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<board,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="moomarkboardapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

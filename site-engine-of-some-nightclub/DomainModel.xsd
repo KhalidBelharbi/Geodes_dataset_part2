@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="newsentity" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="descriptionpreview" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="alias" type="xs:string" />
+          <xs:element name="image" type="xs:string" />
+          <xs:element name="owner" type="userentity" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="eventreportentity" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="startevent" type="xs:anyType" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="coveruri" type="xs:string" />
+          <xs:element name="images" type="eventreportimageentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userdatastatisticentity" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="appcodename" type="xs:string" />
+          <xs:element name="appname" type="xs:string" />
+          <xs:element name="appversion" type="xs:string" />
+          <xs:element name="cookieenabled" type="xs:anyType" />
+          <xs:element name="language" type="xs:string" />
+          <xs:element name="online" type="xs:anyType" />
+          <xs:element name="platform" type="xs:string" />
+          <xs:element name="seconds" type="xs:long" />
+          <xs:element name="useragent" type="xs:string" />
+          <xs:element name="localaddr" type="xs:string" />
+          <xs:element name="remoteaddr" type="xs:string" />
+          <xs:element name="protocol" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clubeventticketprice" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="cost" type="xs:anyType" />
+          <xs:element name="quantity" type="xs:long" />
+          <xs:element name="type" type="eventticketpricetype" nillable="true" minOccurs="0" />
+          <xs:element name="event" type="evententity" nillable="true" minOccurs="0" />
+          <xs:element name="startactivetime" type="xs:anyType" />
+          <xs:element name="endactivetime" type="xs:anyType" />
+          <xs:element name="modifiedby" type="userentity" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bepaidrequest" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="requestid" type="xs:string" />
+          <xs:element name="method" type="xs:string" />
+          <xs:element name="url" type="xs:string" />
+          <xs:element name="requestbody" type="xs:string" />
+          <xs:element name="code" type="xs:long" />
+          <xs:element name="responsebody" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="settingsentity" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="key" type="xs:string" />
+          <xs:element name="value" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="menucategory" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="categorytype" type="xs:anyType" />
+          <xs:element name="parent" type="menucategory" nillable="true" minOccurs="0" />
+          <xs:element name="children" type="menucategory" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="items" type="menuitem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="menuitemprice" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="starttime" type="xs:anyType" />
+          <xs:element name="endtime" type="xs:anyType" />
+          <xs:element name="value" type="xs:anyType" />
+          <xs:element name="item" type="menuitem" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="menuitem" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="descriptionproportions" type="xs:string" />
+          <xs:element name="category" type="menucategory" nillable="true" minOccurs="0" />
+          <xs:element name="prices" type="menuitemprice" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="menuitempriceshasorders" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="count" type="xs:long" />
+          <xs:element name="order" type="menuorder" nillable="true" minOccurs="0" />
+          <xs:element name="itemprice" type="menuitemprice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="menuorder" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="itempriceshasorders" type="menuitempriceshasorders" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="surname" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="phone" type="xs:string" />
+          <xs:element name="" type="evententity" nillable="true" minOccurs="0" />
+          <xs:element name="arrivaltime" type="xs:string" />
+          <xs:element name="people" type="xs:anyType" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="tablenumber" type="xs:anyType" />
+          <xs:element name="uuid" type="xs:string" />
+          <xs:element name="token" type="xs:string" />
+          <xs:element name="paystatus" type="gatewaystatus" nillable="true" minOccurs="0" />
+          <xs:element name="uid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="evententity" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="starteventfieldname" type="xs:string" />
+          <xs:element name="costtext" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="startevent" type="xs:anyType" />
+          <xs:element name="endevent" type="xs:anyType" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="coveruri" type="xs:string" />
+          <xs:element name="recommendation" type="xs:anyType" />
+          <xs:element name="republicpay" type="xs:anyType" />
+          <xs:element name="ticketprices" type="clubeventticketprice" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="costdance" type="xs:anyType" />
+          <xs:element name="costtableplace" type="xs:anyType" />
+          <xs:element name="accessedit" type="userentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="alias" type="xs:string" />
+          <xs:element name="cost" type="xs:anyType" />
+          <xs:element name="buyticketurl" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userentity" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="enabled" type="xs:anyType" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="surname" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="phone" type="xs:string" />
+          <xs:element name="fathername" type="xs:string" />
+          <xs:element name="birthday" type="xs:anyType" />
+          <xs:element name="accountnonexpired" type="xs:anyType" />
+          <xs:element name="accountnonlocked" type="xs:anyType" />
+          <xs:element name="credentialsnonexpired" type="xs:anyType" />
+          <xs:element name="authorities" type="authorityentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="accessedit" type="evententity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="feedbackentity" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="phone" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="eventreportimageentity" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="eventreport" type="eventreportentity" nillable="true" minOccurs="0" />
+          <xs:element name="imageurl" type="xs:string" />
+          <xs:element name="size" type="xs:string" />
+          <xs:element name="width" type="xs:long" />
+          <xs:element name="height" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fileentity" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="filepath" type="xs:string" />
+          <xs:element name="user" type="userentity" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderitementity" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="" type="orderentity" nillable="true" minOccurs="0" />
+          <xs:element name="tablenumber" type="xs:long" />
+          <xs:element name="place" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderentity" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="surname" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="phone" type="xs:string" />
+          <xs:element name="" type="evententity" nillable="true" minOccurs="0" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="uuid" type="xs:string" />
+          <xs:element name="token" type="xs:string" />
+          <xs:element name="paystatus" type="gatewaystatus" nillable="true" minOccurs="0" />
+          <xs:element name="uid" type="xs:string" />
+          <xs:element name="totalorder" type="xs:anyType" />
+          <xs:element name="//paidvaluesdance" type="xs:long" />
+          <xs:element name="tablenumbers" type="orderitementity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="itempriceshasorders" type="menuitempriceshasorders" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="entertime" type="xs:anyType" />
+          <xs:element name="acceptor" type="userentity" nillable="true" minOccurs="0" />
+          <xs:element name="bookuser" type="userentity" nillable="true" minOccurs="0" />
+          <xs:element name="" type="tickettype" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="authorityentity" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="authority" type="xs:string" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="user" type="userentity" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

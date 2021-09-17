@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="jpa02applicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userinforepository" >
+      <xs:complexContent>
+       <xs:extension base="basedao<userinfo,long>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basedao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<t,id>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userinfoservice" >
+      <xs:complexContent>
+       <xs:extension base="baseservice<userinfo,long>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userinfoserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userinforepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userinfocontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userinfoservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="swaggerconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="databaseconfig" >
+      <xs:sequence>
+        <xs:element name="//配置数据源database" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="databaseproperties" >
+      <xs:sequence>
+        <xs:element name="/***数据库连接*/url" type="xs:string" />
+        <xs:element name="/***数据库用户名*/username" type="xs:string" />
+        <xs:element name="/***数据库用户密码*/password" type="xs:string" />
+        <xs:element name="/***数据库驱动名*/driverclassname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datasourceconfig" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="databaseproperties" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resultcommon" >
+      <xs:sequence>
+        <xs:element name="success" type="xs:anyType" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="daa" type="xs:anyType" />
+        <xs:element name="stacktrace" type="xs:string" />
+        <xs:element name="currenttime" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="errorcodeenum" >
+      <xs:sequence>
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="desc" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userinfo" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="usertype" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="townid" type="xs:string" />
+        <xs:element name="villageid" type="xs:string" />
+        <xs:element name="loginname" type="xs:string" />
+        <xs:element name="createtime" type="xs:dateTime" />
+        <xs:element name="uptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookstock" >
+      <xs:sequence>
+        <xs:element name="isbn" type="xs:string" />
+        <xs:element name="stock" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resultutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accessingdatajpaapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

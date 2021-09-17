@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="person" >
+      <xs:complexContent>
+       <xs:extension base="auditentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="phone" type="xs:long" />
+          <xs:element name="emailprimary" type="xs:string" />
+          <xs:element name="emailsecondary" type="xs:string" />
+          <xs:element name="gender" type="genderenum" nillable="true" minOccurs="0" />
+          <xs:element name="age" type="xs:long" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="dob" type="xs:anyType" />
+          <xs:element name="isadult" type="xs:anyType" />
+          <xs:element name="" type="address" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="address" >
+      <xs:complexContent>
+       <xs:extension base="auditentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="street" type="xs:string" />
+          <xs:element name="suite" type="xs:string" />
+          <xs:element name="city" type="xs:string" />
+          <xs:element name="zipcode" type="xs:string" />
+          <xs:element name="" type="geo" nillable="true" minOccurs="0" />
+          <xs:element name="" type="person" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="geo" >
+      <xs:complexContent>
+       <xs:extension base="auditentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="lat" type="xs:string" />
+          <xs:element name="lng" type="xs:string" />
+          <xs:element name="" type="address" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="permission" >
+      <xs:complexContent>
+       <xs:extension base="auditentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="auditentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="isaccountnonexpired" type="xs:anyType" />
+          <xs:element name="isaccountnonlocked" type="xs:anyType" />
+          <xs:element name="iscredentialsnonexpired" type="xs:anyType" />
+          <xs:element name="isenabled" type="xs:anyType" />
+          <xs:element name="roles" type="role" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:complexContent>
+       <xs:extension base="auditentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="permissions" type="permission" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="refreshtoken" >
+      <xs:complexContent>
+       <xs:extension base="auditentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="token" type="xs:string" />
+          <xs:element name="username" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="verificationtoken" >
+      <xs:complexContent>
+       <xs:extension base="auditentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="token" type="xs:string" />
+          <xs:element name="expirydate" type="xs:anyType" />
+          <xs:element name="status" type="verificationtokenenum" nillable="true" minOccurs="0" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="applicationsetings" >
+      <xs:complexContent>
+       <xs:extension base="auditentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="appkey" type="xs:string" />
+          <xs:element name="appvalue" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="applicationlog" >
+      <xs:complexContent>
+       <xs:extension base="auditentity">
+         <xs:sequence>
+          <xs:element name="//defaultserialversionidserialversionuid" type="xs:long" />
+          <xs:element name="event" type="applicationlogenum" nillable="true" minOccurs="0" />
+          <xs:element name="details" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="builtwith" >
+      <xs:complexContent>
+       <xs:extension base="auditentity">
+         <xs:sequence>
+          <xs:element name="//defaultserialversionidserialversionuid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="version" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="link" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

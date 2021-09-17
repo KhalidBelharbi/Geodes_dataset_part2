@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="author" type="xs:string" />
+        <xs:element name="user_password" type="xs:string" />
+        <xs:element name="user_password_check" type="xs:string" />
+        <xs:element name="user_address" type="xs:string" />
+        <xs:element name="user_name" type="xs:string" />
+        <xs:element name="user_email" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rent" >
+      <xs:sequence>
+        <xs:element name="rent_id" type="xs:long" />
+        <xs:element name="author" type="xs:string" />
+        <xs:element name="rent_title" type="xs:string" />
+        <xs:element name="picture" type="xs:string" />
+        <xs:element name="rent_content" type="xs:string" />
+        <xs:element name="rent_date" type="xs:anyType" />
+        <xs:element name="rentcomment" type="rentcomment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="board" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="author" type="xs:string" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="createddate" type="xs:anyType" />
+        <xs:element name="modifieddate" type="xs:anyType" />
+        <xs:element name="communitycomment" type="communitycomment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="communitycomment" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="community_comment_content" type="xs:string" />
+        <xs:element name="author" type="xs:string" />
+        <xs:element name="GeneratedName" type="board" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rentcomment" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="rent_comment_content" type="xs:string" />
+        <xs:element name="author" type="xs:string" />
+        <xs:element name="GeneratedName" type="rent" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

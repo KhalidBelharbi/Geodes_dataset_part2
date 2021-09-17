@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="peccancy" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="carnumber" type="xs:string" />
+        <xs:element name="pcode" type="xs:string" />
+        <xs:element name="pdatetime" type="xs:string" />
+        <xs:element name="paddr" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="suser" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="role" type="xs:string" />
+        <xs:element name="pname" type="xs:string" />
+        <xs:element name="pcardid" type="xs:string" />
+        <xs:element name="psex" type="xs:string" />
+        <xs:element name="ptel" type="xs:string" />
+        <xs:element name="pregister" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="loginuser" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="userpwd" type="xs:string" />
+        <xs:element name="userrole" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sparam" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="val" type="xs:string" />
+        <xs:element name="descr" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="scarcharge" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="ccid" type="xs:long" />
+        <xs:element name="chargetime" type="xs:dateTime" />
+        <xs:element name="money" type="xs:long" />
+        <xs:element name="//bi-directionalmany-to-oneassociationto" type="scarinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sbusinfo" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="busid" type="xs:long" />
+        <xs:element name="buscapacity" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="setctralog" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="etlid" type="xs:long" />
+        <xs:element name="carid" type="xs:long" />
+        <xs:element name="intime" type="xs:dateTime" />
+        <xs:element name="money" type="xs:long" />
+        <xs:element name="outtime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="scarinfo" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="carid" type="xs:long" />
+        <xs:element name="balance" type="xs:long" />
+        <xs:element name="caraction" type="xs:string" />
+        <xs:element name="scarcharges" type="scarcharge" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="scarfees" type="scarfee" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="scarblacklist" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="cbid" type="xs:long" />
+        <xs:element name="carid" type="xs:long" />
+        <xs:element name="time" type="xs:dateTime" />
+        <xs:element name="username" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="scarfee" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="cfid" type="xs:long" />
+        <xs:element name="feetime" type="xs:dateTime" />
+        <xs:element name="money" type="xs:long" />
+        <xs:element name="GeneratedName" type="scarinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="slightsence" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="down" type="xs:string" />
+        <xs:element name="up" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sroadlight" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="roadlightid" type="xs:long" />
+        <xs:element name="controlmode" type="xs:string" />
+        <xs:element name="status" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sothersingle" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="descr" type="xs:string" />
+        <xs:element name="value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stralight" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="trafficlightid" type="xs:long" />
+        <xs:element name="greentime" type="xs:long" />
+        <xs:element name="redtime" type="xs:long" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="time" type="xs:long" />
+        <xs:element name="yellowtime" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="smonthtemperature" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="month" type="xs:long" />
+        <xs:element name="maxt" type="xs:long" />
+        <xs:element name="m" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sbusstation" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="busid" type="xs:long" />
+        <xs:element name="busstationid" type="xs:long" />
+        <xs:element name="distance" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="peccancytype" >
+      <xs:sequence>
+        <xs:element name="pcode" type="xs:string" />
+        <xs:element name="premarks" type="xs:string" />
+        <xs:element name="pmoney" type="xs:anyType" />
+        <xs:element name="pscore" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="caruser" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="pname" type="xs:string" />
+        <xs:element name="pcardid" type="xs:string" />
+        <xs:element name="psex" type="xs:string" />
+        <xs:element name="ptel" type="xs:string" />
+        <xs:element name="pregisterdate" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="peccancyx" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="carnumber" type="xs:string" />
+        <xs:element name="pcode" type="xs:string" />
+        <xs:element name="pdatetime" type="xs:string" />
+        <xs:element name="paddr" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="carinfo" >
+      <xs:sequence>
+        <xs:element name="carnumber" type="xs:string" />
+        <xs:element name="number" type="xs:anyType" />
+        <xs:element name="pcardid" type="xs:string" />
+        <xs:element name="carbrand" type="xs:string" />
+        <xs:element name="buy" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

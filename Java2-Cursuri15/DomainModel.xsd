@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="departament" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="programatori" type="programator" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="student" >
+      <xs:sequence>
+        <xs:element name="id" type="numeprenumeid" nillable="true" minOccurs="0" />
+        <xs:element name="cod" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persoana" >
+      <xs:sequence>
+        <xs:element name="nume" type="xs:string" />
+        <xs:element name="prenume" type="xs:string" />
+        <xs:element name="varsta" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="programator" >
+      <xs:complexContent>
+       <xs:extension base="angajat{">
+         <xs:sequence>
+          <xs:element name="limbaj" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="inginer" >
+      <xs:complexContent>
+       <xs:extension base="angajat">
+         <xs:sequence>
+          <xs:element name="specializare" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="animal" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nume" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pisica" >
+      <xs:complexContent>
+       <xs:extension base="animal">
+         <xs:sequence>
+          <xs:element name="vieti" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="caine" >
+      <xs:complexContent>
+       <xs:extension base="animal">
+         <xs:sequence>
+          <xs:element name="varsta" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

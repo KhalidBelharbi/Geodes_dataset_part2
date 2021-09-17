@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="studenttest" >
+      <xs:complexContent>
+       <xs:extension base="withusertest">
+         <xs:sequence>
+          <xs:element name="teacher" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="student" type="user" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usertest" >
+      <xs:complexContent>
+       <xs:extension base="withusertest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="withusertest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="schoolrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="schoolservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="usersecurityservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="schooltesthelper" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="usertesthelper" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="school" nillable="true" minOccurs="0" />
+        <xs:element name="prepared" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schooltesthelper" >
+      <xs:sequence>
+        <xs:element name="service" type="schoolservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usertesthelper" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schooltest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="schoolrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="schoolservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="schooltesthelper" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="school" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="teachertest" >
+      <xs:complexContent>
+       <xs:extension base="withusertest">
+         <xs:sequence>
+          <xs:element name="teacher" type="user" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="paperusertestapp" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="schoolrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<school,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="authority" >
+      <xs:sequence>
+        <xs:element name="role_teacher" type="xs:string" />
+        <xs:element name="role_student" type="xs:string" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="authority" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="authorities" type="authority" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="grade" type="xs:string" />
+        <xs:element name="teacher" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="school" nillable="true" minOccurs="0" />
+        <xs:element name="enabled" type="xs:anyType" />
+        <xs:element name="created" type="xs:anyType" />
+        <xs:element name="updated" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="school" >
+      <xs:sequence>
+        <xs:element name="schoolid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="created" type="xs:anyType" />
+        <xs:element name="updated" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="schoolrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usersecurityservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schoolservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="schoolrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

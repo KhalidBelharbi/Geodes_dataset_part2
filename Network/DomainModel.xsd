@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="surname" type="xs:string" />
+        <xs:element name="birthday" type="xs:dateTime" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="activestatus" type="xs:anyType" />
+        <xs:element name="sentmessages" type="message" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="receivedmessages" type="message" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="roles" type="role" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="friendrequests" type="userrelationship" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="friends" type="userrelationship" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="credentials" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="wall" nillable="true" minOccurs="0" />
+        <xs:element name="communitymessages" type="communitymessage" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="communities" type="community" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="posts" type="post" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="credentials" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="login" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="//deletebecauseemailcannotbenull//@joincolumn(name" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="message" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="receiver" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="sender" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:dateTime" />
+        <xs:element name="text" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="wall" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="//@onetoone(fetch" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="posts" type="post" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrelationship" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrelationshipkey" nillable="true" minOccurs="0" />
+        <xs:element name="id" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="friendid" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="status" type="userstatus" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="post" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="header" type="xs:string" />
+        <xs:element name="text" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="wall" nillable="true" minOccurs="0" />
+        <xs:element name="//@manytoone(fetch" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="users" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="communitymessage" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:dateTime" />
+        <xs:element name="text" type="xs:string" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="community" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="community" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="topic" type="xs:string" />
+        <xs:element name="users" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="moderator" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="communitymessages" type="communitymessage" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

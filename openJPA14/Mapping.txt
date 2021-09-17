@@ -1,0 +1,18 @@
+ClassDiagram.Class>> Creator =>=>=> RelationalSchema.Table>> creator;
+ClassDiagram.Class>> Album =>=>=> RelationalSchema.Table>> album;
+ClassDiagram.Class>> Image =>=>=> RelationalSchema.Table>> image;
+ClassDiagram.Attribut>> Creator.id:long =>=>=> RelationalSchema.Column>> creator.id PRIMARY KEY;
+ClassDiagram.Attribut>> Creator.firstname:String =>=>=> RelationalSchema.Column>> creator.firstname;
+ClassDiagram.Attribut>> Creator.lastname:String =>=>=> RelationalSchema.Column>> creator.lastname;
+ClassDiagram.Attribut>> Album.id:long =>=>=> RelationalSchema.Column>> album.id PRIMARY KEY;
+ClassDiagram.Attribut>> Album.name:String =>=>=> RelationalSchema.Column>> album.name;
+ClassDiagram.Attribut>> Image.id:long =>=>=> RelationalSchema.Column>> image.id PRIMARY KEY;
+ClassDiagram.Attribut>> Image.type:ImageType =>=>=> RelationalSchema.Column>> image.type;
+ClassDiagram.Attribut>> Image.filename:String =>=>=> RelationalSchema.Column>> image.filename;
+ClassDiagram.Attribut>> Image.data:byte =>=>=> RelationalSchema.Column>> image.data;
+ClassDiagram.Attribut>> Image.GeneratedName:Location =>=>=> RelationalSchema.Column>> image.GeneratedName;
+ClassDiagram.Attribut>> Image.GeneratedName:Creator =>=>=> RelationalSchema.Column>> image.GeneratedName;
+One-To-Many relationship from ClassDiagram.Class>>Creator  to ClassDiagram.Class>>List<Image>;
+list<album>: creator_list<album>(creatorID:creator [PK] #FK to creator,list<album>ID:list<album> [PK] #FK to list<album>);
+One-To-Many relationship from ClassDiagram.Class>>Album  to ClassDiagram.Class>>List<Image>;
+list<creator>: album_list<creator>(albumID:album [PK] #FK to album,list<creator>ID:list<creator> [PK] #FK to list<creator>);

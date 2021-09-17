@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="main" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="websecurityconfig" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="webappconfigurer" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="playlistservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="playlistsongservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="createsservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="matchservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="followsservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="createsserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="createsrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="createsdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="followserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="followsrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="followsdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="playlistrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="curatesrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="songserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="songrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="songdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="playlistsongserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="includesdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="includesrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="playlistserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="playlistrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="curatesrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="followsrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="curatesservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="followsservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="storedproceduredao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="curatesserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="curatesrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="curatesdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="matchserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="matchrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="matchdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="createsrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="songservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="curatesservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwtutils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sysinterceptor" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="systemconstant" >
+      <xs:sequence>
+        <xs:element name="//token//tokenexpiredjwt_err_expire" type="xs:long" />
+        <xs:element name="//authenticationfailedjwt_err_fail" type="xs:long" />
+        <xs:element name="//jwt//secretekeyjwt_secert" type="xs:string" />
+        <xs:element name="jwt_ttl" type="xs:long" />
+        <xs:element name="//retret_err" type="xs:long" />
+        <xs:element name="ret_suc" type="xs:long" />
+        <xs:element name="ret_err_dupsong" type="xs:long" />
+        <xs:element name="ret_err_dupmatch" type="xs:long" />
+        <xs:element name="//msgmsg_success" type="xs:string" />
+        <xs:element name="msg_fail" type="xs:string" />
+        <xs:element name="msg_user_dne" type="xs:string" />
+        <xs:element name="msg_user_dup" type="xs:string" />
+        <xs:element name="msg_unknown_err" type="xs:string" />
+        <xs:element name="msg_unauth_access" type="xs:string" />
+        <xs:element name="//matchesmsg_match_dupsong" type="xs:string" />
+        <xs:element name="msg_match_dupmatch" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="artistentity" >
+      <xs:sequence>
+        <xs:element name="aname" type="xs:string" />
+        <xs:element name="spotify_uri" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="curatesentity" >
+      <xs:sequence>
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="pid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="matchentity" >
+      <xs:sequence>
+        <xs:element name="mid" type="xs:long" />
+        <xs:element name="//mnamespotifyuri1" type="xs:string" />
+        <xs:element name="spotifyuri2" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="songentity" >
+      <xs:sequence>
+        <xs:element name="spotifyid" type="xs:string" />
+        <xs:element name="sname" type="xs:string" />
+        <xs:element name="albumname" type="xs:string" />
+        <xs:element name="artistname" type="xs:string" />
+        <xs:element name="danceability" type="xs:double" />
+        <xs:element name="energy" type="xs:double" />
+        <xs:element name="skey" type="xs:anyType" />
+        <xs:element name="loudness" type="xs:double" />
+        <xs:element name="smode" type="xs:anyType" />
+        <xs:element name="speechiness" type="xs:double" />
+        <xs:element name="acousticness" type="xs:double" />
+        <xs:element name="instrumentalness" type="xs:double" />
+        <xs:element name="liveness" type="xs:double" />
+        <xs:element name="valence" type="xs:double" />
+        <xs:element name="tempo" type="xs:double" />
+        <xs:element name="durationms" type="xs:long" />
+        <xs:element name="timesignature" type="xs:anyType" />
+        <xs:element name="popularity" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="checkresult" >
+      <xs:sequence>
+        <xs:element name="errcode" type="xs:long" />
+        <xs:element name="success" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="artistkey" >
+      <xs:sequence>
+        <xs:element name="aname" type="xs:string" />
+        <xs:element name="spotify_uri" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="followskey" >
+      <xs:sequence>
+        <xs:element name="pid" type="xs:long" />
+        <xs:element name="uid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="createskey" >
+      <xs:sequence>
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="mid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="includeskey" >
+      <xs:sequence>
+        <xs:element name="spotifyuri" type="xs:string" />
+        <xs:element name="pid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="curateskey" >
+      <xs:sequence>
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="pid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="createsentity" >
+      <xs:sequence>
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="mid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="includesentity" >
+      <xs:sequence>
+        <xs:element name="spotifyuri" type="xs:string" />
+        <xs:element name="pid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userentity" >
+      <xs:sequence>
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="uname" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="playlistentity" >
+      <xs:sequence>
+        <xs:element name="pid" type="xs:long" />
+        <xs:element name="pname" type="xs:string" />
+        <xs:element name="privacy" type="xs:long" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="followsentity" >
+      <xs:sequence>
+        <xs:element name="pid" type="xs:long" />
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="access" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usernotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<userentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="curatesdaoimpl" >
+      <xs:sequence>
+        <xs:element name="em" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="songdaoimpl" >
+      <xs:sequence>
+        <xs:element name="em" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="includesdaoimpl" >
+      <xs:sequence>
+        <xs:element name="em" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="matchdaoimpl" >
+      <xs:sequence>
+        <xs:element name="em" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="storedproceduredaoimpl" >
+      <xs:sequence>
+        <xs:element name="em" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="createsdaoimpl" >
+      <xs:sequence>
+        <xs:element name="em" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="followsdaoimpl" >
+      <xs:sequence>
+        <xs:element name="em" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="storedproceduredao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="songrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<songentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="matchdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="matchrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<matchentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="includesrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<includesentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="createsrepo" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="songdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="createsdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="followsdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="followsrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<followsentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="playlistrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<playlistentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="includesdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="curatesrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<curatesentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="curatesdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="playlistsongcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="playlistsongservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="playlistcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="playlistservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="curatesservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="followsservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="matchcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="matchservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="createsservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="songservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="searchcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="songservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="matchservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="creatematchrequest" >
+      <xs:sequence>
+        <xs:element name="mname" type="xs:string" />
+        <xs:element name="spotifyuri1" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="advancesearchrequest" >
+      <xs:sequence>
+        <xs:element name="skey" type="xs:anyType" />
+        <xs:element name="smode" type="xs:anyType" />
+        <xs:element name="danceability0" type="xs:double" />
+        <xs:element name="danceability1" type="xs:double" />
+        <xs:element name="energy0" type="xs:double" />
+        <xs:element name="energy1" type="xs:double" />
+        <xs:element name="loudness0" type="xs:double" />
+        <xs:element name="loudness1" type="xs:double" />
+        <xs:element name="speechiness0" type="xs:double" />
+        <xs:element name="speechiness1" type="xs:double" />
+        <xs:element name="acousticness0" type="xs:double" />
+        <xs:element name="acousticness1" type="xs:double" />
+        <xs:element name="instrumentalness0" type="xs:double" />
+        <xs:element name="instrumentalness1" type="xs:double" />
+        <xs:element name="liveness0" type="xs:double" />
+        <xs:element name="liveness1" type="xs:double" />
+        <xs:element name="valence0" type="xs:double" />
+        <xs:element name="valence1" type="xs:double" />
+        <xs:element name="tempo0" type="xs:double" />
+        <xs:element name="tempo1" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mixtechapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="displaymatchresponse" >
+      <xs:sequence>
+        <xs:element name="mid" type="xs:long" />
+        <xs:element name="sname1" type="xs:string" />
+        <xs:element name="sname2" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="loginresponse" >
+      <xs:sequence>
+        <xs:element name="ret" type="xs:long" />
+        <xs:element name="token" type="xs:string" />
+        <xs:element name="msg" type="xs:string" />
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="uname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="registerresponse" >
+      <xs:sequence>
+        <xs:element name="ret" type="xs:long" />
+        <xs:element name="msg" type="xs:string" />
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="uname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="standardresponse" >
+      <xs:sequence>
+        <xs:element name="ret" type="xs:long" />
+        <xs:element name="msg" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mixtechapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="test" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,13 @@
+
+singer(find_all:String, count_all:String, id:Long [PK], version:int, firstname:String, lastname:String, birth:Date);
+
+singer_instrument(singer_id:Singer [PK] #FK to Singer,instrument_id:set<instrument> [PK] #FK to set<instrument>);
+
+album(id:Long [PK], version:int, title:String, release:Date, GeneratedName:Singer #FK to(singer));
+
+instrument(instrumentid:String [PK]);
+
+singer_instrument(instrument_id:Instrument [PK] #FK to Instrument,singer_id:set<singer> [PK] #FK to set<singer>);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

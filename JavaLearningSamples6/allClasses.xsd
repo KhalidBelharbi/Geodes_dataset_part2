@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="bmapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customlocaleresolver" >
+      <xs:complexContent>
+       <xs:extension base="acceptheaderlocaleresolver">
+         <xs:sequence>
+          <xs:element name="locales" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="translator" >
+      <xs:sequence>
+        <xs:element name="messagesource" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="appconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="requestvalidationmessage" >
+      <xs:sequence>
+        <xs:element name="author_name_empty" type="xs:string" />
+        <xs:element name="author_email_empty" type="xs:string" />
+        <xs:element name="author_email_incorrect" type="xs:string" />
+        <xs:element name="author_mobile_empty" type="xs:string" />
+        <xs:element name="author_dob_wrong" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="requestandparambuilder" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bmapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookentity" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="isbn" type="xs:string" />
+          <xs:element name="overview" type="xs:string" />
+          <xs:element name="ofpublish" type="xs:dateTime" />
+          <xs:element name="ofreprint" type="xs:dateTime" />
+          <xs:element name="acknowledgement" type="xs:string" />
+          <xs:element name="copyright" type="xs:string" />
+          <xs:element name="fact" type="xs:string" />
+          <xs:element name="printedby" type="xs:string" />
+          <xs:element name="coverdesigner" type="xs:string" />
+          <xs:element name="coverphotourl" type="xs:string" />
+          <xs:element name="price" type="xs:double" />
+          <xs:element name="publishers" type="publisherentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="authors" type="authorentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="tags" type="tagentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseentity" >
+      <xs:sequence>
+        <xs:element name="createdby" type="xs:string" />
+        <xs:element name="updatedby" type="xs:string" />
+        <xs:element name="created" type="xs:dateTime" />
+        <xs:element name="upd" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="status" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authorentity" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="mobile" type="xs:string" />
+          <xs:element name="address" type="xs:string" />
+          <xs:element name="birth" type="xs:dateTime" />
+          <xs:element name="country" type="xs:string" />
+          <xs:element name="biography" type="xs:string" />
+          <xs:element name="background" type="xs:string" />
+          <xs:element name="nickname" type="xs:string" />
+          <xs:element name="photourl" type="xs:string" />
+          <xs:element name="books" type="bookentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bookshelfentity" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="category" type="xs:string" />
+          <xs:element name="capability" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="publisherentity" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="address" type="xs:string" />
+          <xs:element name="mobile" type="xs:string" />
+          <xs:element name="contactpersonname" type="xs:string" />
+          <xs:element name="contactpersonmobile" type="xs:string" />
+          <xs:element name="website" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="facebookpage" type="xs:string" />
+          <xs:element name="about" type="xs:string" />
+          <xs:element name="background" type="xs:string" />
+          <xs:element name="photourl" type="xs:string" />
+          <xs:element name="books" type="bookentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tagentity" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="category" type="xs:string" />
+          <xs:element name="books" type="bookentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bookshelfparam" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="category" type="xs:string" />
+        <xs:element name="capability" type="xs:long" />
+        <xs:element name="GeneratedName" type="status" nillable="true" minOccurs="0" />
+        <xs:element name="createdby" type="xs:string" />
+        <xs:element name="updatedby" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookparam" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="isbn" type="xs:string" />
+        <xs:element name="overview" type="xs:string" />
+        <xs:element name="ofpublish" type="xs:dateTime" />
+        <xs:element name="ofreprint" type="xs:dateTime" />
+        <xs:element name="acknowledgement" type="xs:string" />
+        <xs:element name="copyright" type="xs:string" />
+        <xs:element name="fact" type="xs:string" />
+        <xs:element name="printedby" type="xs:string" />
+        <xs:element name="coverdesigner" type="xs:string" />
+        <xs:element name="coverphotourl" type="xs:string" />
+        <xs:element name="price" type="xs:double" />
+        <xs:element name="authors" type="authorparam" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="publishers" type="publisherparam" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="tags" type="tagparam" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="createdby" type="xs:string" />
+        <xs:element name="updatedby" type="xs:string" />
+        <xs:element name="GeneratedName" type="status" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="publisherparam" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="mobile" type="xs:string" />
+        <xs:element name="contactpersonname" type="xs:string" />
+        <xs:element name="contactpersonmobile" type="xs:string" />
+        <xs:element name="website" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="facebookpage" type="xs:string" />
+        <xs:element name="about" type="xs:string" />
+        <xs:element name="background" type="xs:string" />
+        <xs:element name="createdby" type="xs:string" />
+        <xs:element name="updatedby" type="xs:string" />
+        <xs:element name="GeneratedName" type="status" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tagparam" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="category" type="xs:string" />
+        <xs:element name="GeneratedName" type="status" nillable="true" minOccurs="0" />
+        <xs:element name="createdby" type="xs:string" />
+        <xs:element name="updatedby" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authorparam" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="mobile" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="birth" type="xs:dateTime" />
+        <xs:element name="country" type="xs:string" />
+        <xs:element name="biography" type="xs:string" />
+        <xs:element name="background" type="xs:string" />
+        <xs:element name="nickname" type="xs:string" />
+        <xs:element name="createdby" type="xs:string" />
+        <xs:element name="updatedby" type="xs:string" />
+        <xs:element name="GeneratedName" type="status" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="status" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="paramandentitybuilder" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="constants" >
+      <xs:sequence>
+        <xs:element name="valid_email_address_regex" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="publisherrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<publisherentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tagrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<tagentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bookrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<bookentity,long>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bookshelfrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<bookshelfentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="authorrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<authorentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bookservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookshelfservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="publisherservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookshelfserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="paramandentitybuilder" nillable="true" minOccurs="0" />
+        <xs:element name="repository" type="bookshelfrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="translator" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tagservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tagserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="tagrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="paramandentitybuilder" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="translator" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="publisherserviceimpl" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="publisherrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="paramandentitybuilder" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="translator" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authorserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="authorrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="paramandentitybuilder" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="translator" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="bookrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="paramandentitybuilder" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="translator" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authorservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resourcenotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="feature" type="xs:string" />
+          <xs:element name="reason" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="errorresponse" >
+      <xs:sequence>
+        <xs:element name="feature" type="xs:string" />
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="message" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="databaseexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="feature" type="xs:string" />
+          <xs:element name="reason" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="errorcodes" >
+      <xs:sequence>
+        <xs:element name="reason_map" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="remoteapiexception" >
+      <xs:complexContent>
+       <xs:extension base="exception{">
+         <xs:sequence>
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="feature" type="xs:string" />
+          <xs:element name="reason" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="applicationexceptionhandler" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="translator" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authorendpoint" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="authorservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="requestandparambuilder" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="translator" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookshelfendpoint" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="bookshelfservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="requestandparambuilder" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="publisherendpoint" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="publisherservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="requestandparambuilder" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tagendpoint" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="tagservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="requestandparambuilder" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookendpoint" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="bookservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="requestandparambuilder" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tagresource" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="category" type="xs:string" />
+        <xs:element name="GeneratedName" type="status" nillable="true" minOccurs="0" />
+        <xs:element name="createdby" type="xs:string" />
+        <xs:element name="updatedby" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="publisherresource" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="mobile" type="xs:string" />
+        <xs:element name="contactpersonname" type="xs:string" />
+        <xs:element name="contactpersonmobile" type="xs:string" />
+        <xs:element name="website" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="facebookpage" type="xs:string" />
+        <xs:element name="about" type="xs:string" />
+        <xs:element name="background" type="xs:string" />
+        <xs:element name="createdby" type="xs:string" />
+        <xs:element name="updatedby" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookshelfresource" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="category" type="xs:string" />
+        <xs:element name="capability" type="xs:long" />
+        <xs:element name="GeneratedName" type="status" nillable="true" minOccurs="0" />
+        <xs:element name="createdby" type="xs:string" />
+        <xs:element name="updatedby" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookresource" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="isbn" type="xs:string" />
+        <xs:element name="overview" type="xs:string" />
+        <xs:element name="ofpublish" type="xs:dateTime" />
+        <xs:element name="ofreprint" type="xs:dateTime" />
+        <xs:element name="acknowledgement" type="xs:string" />
+        <xs:element name="copyright" type="xs:string" />
+        <xs:element name="fact" type="xs:string" />
+        <xs:element name="printedby" type="xs:string" />
+        <xs:element name="coverdesigner" type="xs:string" />
+        <xs:element name="coverphotourl" type="xs:string" />
+        <xs:element name="price" type="xs:double" />
+        <xs:element name="authors" type="authorresource" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="publishers" type="publisherresource" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="tags" type="tagresource" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="createdby" type="xs:string" />
+        <xs:element name="updatedby" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authorresource" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="mobile" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="birth" type="xs:dateTime" />
+        <xs:element name="country" type="xs:string" />
+        <xs:element name="biography" type="xs:string" />
+        <xs:element name="background" type="xs:string" />
+        <xs:element name="nickname" type="xs:string" />
+        <xs:element name="createdby" type="xs:string" />
+        <xs:element name="updatedby" type="xs:string" />
+        <xs:element name="photourl" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authorrequestvalidator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messages" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logback" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,12 @@
+ClassDiagram.Class>> BulkTask =>=>=> RelationalSchema.Table>> bulktask;
+ClassDiagram.Class>> Task =>=>=> RelationalSchema.Table>> task;
+ClassDiagram.Class>> Operation =>=>=> RelationalSchema.Table>> operation;
+ClassDiagram.Class>> UnitTask =>=>=> RelationalSchema.Table>> unittask;
+ClassDiagram.Attribut>> Task.uuid:java.util.UUID =>=>=> RelationalSchema.Column>> task.uuid PRIMARY KEY;
+ClassDiagram.Attribut>> Task.GeneratedName:Status =>=>=> RelationalSchema.Column>> task.GeneratedName;
+ClassDiagram.Attribut>> Operation.id:long =>=>=> RelationalSchema.Column>> operation.id PRIMARY KEY;
+ClassDiagram.Attribut>> Operation.goal:int =>=>=> RelationalSchema.Column>> operation.goal;
+ClassDiagram.Attribut>> Operation.step:int =>=>=> RelationalSchema.Column>> operation.step;
+ClassDiagram.Attribut>> Operation.nums:Collection<Integer> =>=>=> RelationalSchema.Column>> operation.nums;
+One-To-Many relationship from ClassDiagram.Class>>BulkTask  to ClassDiagram.Class>>List<Operation>;
+One-To-One relationship between ClassDiagram.Class>>UnitTask  to ClassDiagram.Class>>Operation represented by ClassDiagram.Atrribute>>GeneratedName;

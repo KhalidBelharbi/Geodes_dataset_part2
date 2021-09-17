@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="restapiapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application-prod" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="estoqueservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="estoquerepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="produtoservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="produtorepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lojaservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="lojarepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="restapiapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="estoqueid" >
+      <xs:sequence>
+        <xs:element name="codigoproduto" type="xs:anyType" />
+        <xs:element name="codigofilial" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="loja" >
+      <xs:sequence>
+        <xs:element name="codigo" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="inativo" type="xs:anyType" />
+        <xs:element name="estoque" type="estoque" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="estoque" >
+      <xs:sequence>
+        <xs:element name="quantidade" type="xs:anyType" />
+        <xs:element name="codigo" type="produto" nillable="true" minOccurs="0" />
+        <xs:element name="codigofilial" type="loja" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="produto" >
+      <xs:sequence>
+        <xs:element name="codigo" type="xs:anyType" />
+        <xs:element name="descricao" type="xs:string" />
+        <xs:element name="datavalidade" type="xs:anyType" />
+        <xs:element name="ean" type="xs:string" />
+        <xs:element name="inativo" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="estoquecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="estoqueservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="produtocontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="produtoservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lojacontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="lojaservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lojarepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="produtorepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="estoquerepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<estoque,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

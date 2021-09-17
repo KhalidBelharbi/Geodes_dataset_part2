@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="event" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="responses" type="response" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="invitees" type="person" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="owner" type="person" nillable="true" minOccurs="0" />
+        <xs:element name="location" type="xs:string" />
+        <xs:element name="event" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="person" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="responses" type="response" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="ownedevents" type="event" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="events" type="event" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="response" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="event" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="person" nillable="true" minOccurs="0" />
+        <xs:element name="response" type="responseenum" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

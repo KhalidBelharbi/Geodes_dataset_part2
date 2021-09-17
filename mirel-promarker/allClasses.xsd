@@ -1,0 +1,824 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="404" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="home" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="enginebinds" >
+      <xs:complexContent>
+       <xs:extension base="hashmap<string,">
+         <xs:sequence>
+          <xs:element name="/***serialversionuid*/serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="stecontext" >
+      <xs:complexContent>
+       <xs:extension base="linkedhashmap<string,">
+         <xs:sequence>
+          <xs:element name="/***serialversionuid*/serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="defaultstecontext" >
+      <xs:complexContent>
+       <xs:extension base="stecontext">
+         <xs:sequence>
+          <xs:element name="/***serialversionuid*/serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="templateengineprocessor" >
+      <xs:sequence>
+        <xs:element name="/***共通バインド*/commonbinds" type="enginebinds" nillable="true" minOccurs="0" />
+        <xs:element name="context" type="stecontext" nillable="true" minOccurs="0" />
+        <xs:element name="cfg" type="xs:anyType" />
+        <xs:element name="stencil_extension" type="xs:string" />
+        <xs:element name="regex" type="xs:string" />
+        <xs:element name="islegacy" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="steexecutor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="structurereader" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dictionarymetadata" >
+      <xs:sequence>
+        <xs:element name="/***steコンテキスト*/ctx" type="stecontext" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stencilsettingsyml" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="servletinitializer" >
+      <xs:complexContent>
+       <xs:extension base="springbootservletinitializer">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="websecurityconfig" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="downloadcontroller" >
+      <xs:sequence>
+        <xs:element name="/***{@link}*/service" type="filedownloadservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="nodetype" >
+      <xs:sequence>
+        <xs:element name="typecode" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="uploadcontroller" >
+      <xs:sequence>
+        <xs:element name="/***{@linkサービス}*/service" type="fileregisterservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stencilparameterprototypenode" >
+      <xs:complexContent>
+       <xs:extension base="node">
+         <xs:sequence>
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="valuetype" type="xs:string" />
+          <xs:element name="value" type="xs:string" />
+          <xs:element name="placeholder" type="xs:string" />
+          <xs:element name="note" type="xs:string" />
+          <xs:element name="sort" type="xs:anyType" />
+          <xs:element name="nosend" type="xs:anyType" />
+          <xs:element name="postevent" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="node" >
+      <xs:sequence>
+        <xs:element name="childs" type="node" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rootnode" >
+      <xs:complexContent>
+       <xs:extension base="node">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="itemnode" >
+      <xs:complexContent>
+       <xs:extension base="node">
+         <xs:sequence>
+          <xs:element name="/***name*/name" type="xs:string" />
+          <xs:element name="/***初期値*/defaultvalue" type="xs:string" />
+          <xs:element name="/***value*/value" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="apiifbase" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="apiresponse" >
+      <xs:sequence>
+        <xs:element name="model" type="xs:anyType" />
+        <xs:element name="infos" type="xs:anyType" />
+        <xs:element name="errs" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="apirequest" >
+      <xs:sequence>
+        <xs:element name="model" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="valuetext" >
+      <xs:sequence>
+        <xs:element name="/***値*/value" type="xs:string" />
+        <xs:element name="/***テキスト*/text" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="valuetextitems" >
+      <xs:sequence>
+        <xs:element name="/***items*/items" type="valuetext" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="/***defaultvalue*/selected" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="indexcontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="homecontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fileregisterservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filedownloadserviceimpl" >
+      <xs:sequence>
+        <xs:element name="/***{@link}*/" type="filemanagementrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filedownloadservice" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fileregisterserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="filemanagementrepository" nillable="true" minOccurs="0" />
+        <xs:element name="atch_file_name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filedownloadparameter" >
+      <xs:complexContent>
+       <xs:extension base="serviceparameter">
+         <xs:sequence>
+          <xs:element name="fileids" type="xs:anyType" />
+          <xs:element name="user" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="filedownloadresult" >
+      <xs:complexContent>
+       <xs:extension base="serviceresult">
+         <xs:sequence>
+          <xs:element name="paths" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fileuploadresult" >
+      <xs:complexContent>
+       <xs:extension base="serviceresult">
+         <xs:sequence>
+          <xs:element name="paths" type="xs:anyType" />
+          <xs:element name="uuid" type="xs:string" />
+          <xs:element name="filename" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="serviceparameter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="serviceresult" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filemanagement" >
+      <xs:sequence>
+        <xs:element name="/***ファイルid*/fileid" type="xs:string" />
+        <xs:element name="/***ファイル名*/filename" type="xs:string" />
+        <xs:element name="/***ファイルパス*/filepath" type="xs:string" />
+        <xs:element name="/***期日日*/expire" type="xs:dateTime" />
+        <xs:element name="/***バージョン*/version" type="xs:long" />
+        <xs:element name="/***削除フラグ*/deleteflag" type="xs:anyType" />
+        <xs:element name="/***作成ユーザ*/createuserid" type="xs:string" />
+        <xs:element name="/***作成日*/create" type="xs:dateTime" />
+        <xs:element name="/***更新ユーザ*/updateuserid" type="xs:string" />
+        <xs:element name="/***更新日*/up" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="code" >
+      <xs:sequence>
+        <xs:element name="/****/" type="xs:anyType" />
+        <xs:element name="/***テキスト*/text" type="xs:string" />
+        <xs:element name="/***ソート*/sort" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fileaccessauthority" >
+      <xs:sequence>
+        <xs:element name="/***ファイルid*/fileid" type="xs:string" />
+        <xs:element name="/***ロールid*/roleid" type="xs:string" />
+        <xs:element name="/***権限id*/authoryid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="codecategory" >
+      <xs:sequence>
+        <xs:element name="/***ファイル名*/" type="xs:anyType" />
+        <xs:element name="/***コード分類名*/codecategoryname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="codecategoryrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<codecategory,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="filemanagementrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<filemanagement,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fileaccessauthorityrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<fileaccessauthority,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="coderepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<code,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractservice" >
+      <xs:complexContent>
+       <xs:extension base="serviceparameter,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="runtestserviceimp" >
+      <xs:sequence>
+        <xs:element name="/***{@link}*/" type="filemanagementrepository" nillable="true" minOccurs="0" />
+        <xs:element name="ignore_files" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="runtestservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="runtestresult" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="runtestparameter" >
+      <xs:sequence>
+        <xs:element name="params" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="runtestapi" >
+      <xs:sequence>
+        <xs:element name="service" type="runtestservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="selenadeapi" >
+      <xs:complexContent>
+       <xs:extension base="apiifbase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="arurunsrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<aruruns,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="aruruns" >
+      <xs:sequence>
+        <xs:element name="/***id*/id" type="xs:string" />
+        <xs:element name="/***名前*/name" type="xs:string" />
+        <xs:element name="/***説明*/explanation" type="xs:string" />
+        <xs:element name="/***実行開始日時*/executestarttime" type="xs:dateTime" />
+        <xs:element name="/***実行終了日時*/executeendtime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="selenadeapicontroller" >
+      <xs:sequence>
+        <xs:element name="apis" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="locatorabstract" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="xpathlocator" >
+      <xs:complexContent>
+       <xs:extension base="locatorabstract">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="artestrun" >
+      <xs:sequence>
+        <xs:element name="config" type="xs:anyType" />
+        <xs:element name="data" type="xs:anyType" />
+        <xs:element name="scenarios" type="xs:anyType" />
+        <xs:element name="usecases" type="xs:anyType" />
+        <xs:element name="pages" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="querylog" >
+      <xs:sequence>
+        <xs:element name="sql" type="xs:string" />
+        <xs:element name="resultlist" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="evidence" >
+      <xs:sequence>
+        <xs:element name="headers" type="xs:anyType" />
+        <xs:element name="data" type="xs:anyType" />
+        <xs:element name="footers" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="arusecase" >
+      <xs:complexContent>
+       <xs:extension base="arselenadepage.action">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="usecasegroup" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="arconfig" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="arselenadepage" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="arscenario" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ardata" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="evidencemanager" >
+      <xs:complexContent>
+       <xs:extension base="file">
+         <xs:sequence>
+          <xs:element name="header" type="xs:string" />
+          <xs:element name="warns" type="xs:anyType" />
+          <xs:element name="exceptions" type="xs:anyType" />
+          <xs:element name="evidences" type="evidence" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="individualheader" type="xs:anyType" />
+          <xs:element name="skipdate" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="evidenceexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="/***serialversionuid*/serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="selenidesuite" >
+      <xs:complexContent>
+       <xs:extension base="abstractinsuite">
+         <xs:sequence>
+          <xs:element name="config" type="xs:anyType" />
+          <xs:element name="scenarios" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="selenideagent" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mstestencil" >
+      <xs:sequence>
+        <xs:element name="/***ステンシルコード*/stencilcd" type="xs:string" />
+        <xs:element name="/***ステンシル名*/stencilname" type="xs:string" />
+        <xs:element name="/***項目種類*//**0：ステンシル分類,1：ステンシル*/itemkind" type="xs:string" />
+        <xs:element name="/***ソート*/sort" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mstestencilrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<mstestencil,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="reloadstencilmasterapi" >
+      <xs:sequence>
+        <xs:element name="service" type="reloadstencilmasterservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="generateapi" >
+      <xs:sequence>
+        <xs:element name="service" type="generateservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="uploadstencilapi" >
+      <xs:sequence>
+        <xs:element name="service" type="uploadstencilservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="suggestapi" >
+      <xs:sequence>
+        <xs:element name="service" type="suggestservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="msteapi" >
+      <xs:complexContent>
+       <xs:extension base="apiifbase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="reloadstencilmasterserviceimp" >
+      <xs:sequence>
+        <xs:element name="/***{@linkステンシルマスタ}*/stencilrepository" type="mstestencilrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="filemanagementrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="suggestservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="uploadstencilservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="generateserviceimp" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="fileregisterservice" nillable="true" minOccurs="0" />
+        <xs:element name="/***{@link}*/" type="filemanagementrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="suggestserviceimp" >
+      <xs:sequence>
+        <xs:element name="/***{@link}*/stencilrepository" type="mstestencilrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reloadstencilmasterservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="generateservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="uploadstencilserviceimp" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="uploadstencilparameter" >
+      <xs:sequence>
+        <xs:element name="params" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="generateparameter" >
+      <xs:sequence>
+        <xs:element name="params" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reloadstencilmasterparameter" >
+      <xs:sequence>
+        <xs:element name="params" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="suggestresult" >
+      <xs:sequence>
+        <xs:element name="stencil" type="xs:anyType" />
+        <xs:element name="/***パラメーターズ*/params" type="node" nillable="true" minOccurs="0" />
+        <xs:element name="/***ステンシル種類ストア*/fltstrstencilcategory" type="valuetextitems" nillable="true" minOccurs="0" />
+        <xs:element name="/***ステンシルストア*/fltstrstencilcd" type="valuetextitems" nillable="true" minOccurs="0" />
+        <xs:element name="/***シリアルナンバーストア*/fltstrserialno" type="valuetextitems" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="generateresult" >
+      <xs:sequence>
+        <xs:element name="files" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reloadstencilmasterresult" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="suggestparameter" >
+      <xs:sequence>
+        <xs:element name="/***ステンシル種類*/stencilcategory" type="xs:string" />
+        <xs:element name="/***ステンシル*/stencilcd" type="xs:string" />
+        <xs:element name="/***シリアル*/serialno" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="uploadstencilresult" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="apicontroller" >
+      <xs:sequence>
+        <xs:element name="/***{@link}*/" type="generateservice" nillable="true" minOccurs="0" />
+        <xs:element name="apis" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="applicationconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="miplaapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mipla2configproperties" >
+      <xs:sequence>
+        <xs:element name="/***ストレージディレクトリ*/storagedir" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="storageutil" >
+      <xs:sequence>
+        <xs:element name="basedir" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dateutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="instanceutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sourceresourceutil" >
+      <xs:sequence>
+        <xs:element name="/***クラスファイルディレクトリフルパス*/dir_classes" type="xs:string" />
+        <xs:element name="/***キャラ（半角スペース）*/_half_space" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fileutil" >
+      <xs:sequence>
+        <xs:element name="buf_size_default" type="xs:long" />
+        <xs:element name="buf_size_zip" type="xs:long" />
+        <xs:element name="zip_charset_default" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resourceutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stringconvertionutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="closeableutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="modelutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jsonutil" >
+      <xs:sequence>
+        <xs:element name="/***ブランクjson**/json_blank" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hashencoder" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="defaultjavapassphraseencoder" >
+      <xs:sequence>
+        <xs:element name="/***algorithm*/algorithm" type="xs:string" />
+        <xs:element name="/***ストレッチング回数*/stretch_count" type="xs:anyType" />
+        <xs:element name="/***鍵の長さ*/hash_len" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="crypto" >
+      <xs:complexContent>
+       <xs:extension base="hashencoder>">
+         <xs:sequence>
+          <xs:element name="concreteclass" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="messagingexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="/***serialversionuid*/serialversionuid" type="xs:long" />
+          <xs:element name="/***messages.*/messages" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mirelapplicationexception" >
+      <xs:complexContent>
+       <xs:extension base="messagingexception">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="/***{@link}*/level" type="messagelevel" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mirelsystemexception" >
+      <xs:complexContent>
+       <xs:extension base="messagingexception">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="/***{@link}*/level" type="messagelevel" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="messagelevel" >
+      <xs:sequence>
+        <xs:element name="level" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="createtemplateexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="functionexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="functionresolvercondition" >
+      <xs:sequence>
+        <xs:element name="masterstatement" type="xs:string" />
+        <xs:element name="/***一次パースステートメント*/writer" type="xs:anyType" />
+        <xs:element name="binds" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="functionresolver" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="templateparser" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="api" >
+      <xs:sequence>
+        <xs:element name="/***分類*/classification" type="xs:string" />
+        <xs:element name="/***api名*/apiname" type="xs:string" />
+        <xs:element name="parameter" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="locatorxpathplugin" >
+      <xs:complexContent>
+       <xs:extension base="apipluginabstract">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dummyapiplugin" >
+      <xs:complexContent>
+       <xs:extension base="apipluginabstract">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="apiresolvercondition" >
+      <xs:sequence>
+        <xs:element name="/***input.*/input" type="xs:string" />
+        <xs:element name="extparams" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractindto" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="apiresolver" >
+      <xs:sequence>
+        <xs:element name="/***plugins.*/plugins" type="apipluginabstract" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="apipluginabstract" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="functions" >
+      <xs:complexContent>
+       <xs:extension base="arraylist<function>">
+         <xs:sequence>
+          <xs:element name="/***serialversionuid*/serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="function" >
+      <xs:sequence>
+        <xs:element name="functionstatement" type="xs:string" />
+        <xs:element name="functionname" type="xs:string" />
+        <xs:element name="args" type="xs:anyType" />
+        <xs:element name="result" type="xs:anyType" />
+        <xs:element name="/***doublequote.*/double_quote" type="xs:string" />
+        <xs:element name="*/isinvoked" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="functionresolvertest" >
+      <xs:sequence>
+        <xs:element name="sentence1" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="miplaapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="listresourcecommandtest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

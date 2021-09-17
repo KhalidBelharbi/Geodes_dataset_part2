@@ -1,0 +1,23 @@
+
+user(//id:Long [PK], name:String, password:String, //@column(nullable:String, /***创建时间*/createtime:Date, ///**//*创建人//*///@column(name:Date, ///**//*修改人//*///@column(name:Long);
+
+order(id:Long [PK], //@column(nullable:String, //@column(nullable:String, goodsnumber:Integer, userid:Long, complete:boolean);
+
+datastream(serialversionuid:long, ////@generatedvalue//auto_id//@generatedvalueid:String [PK], tags:String, unit:String, unit_symbol:String, current_value:String, uuid:String, //@column(nullable:Date, /***修改时间*/up_at:Date, //@onetomany(cascade:Long [PK]);
+
+car(id:Long [PK], //@column(nullable:String, //@column(nullable:String, carnumber:String, userid:Long);
+
+device(//@generatedvalueid:Long [PK], tags:String, online:boolean, protocol:String, title:String, description:String, ////////locationauthinfo:String, //@column(nullable:Date, /***修改时间*/lastmodifiedtime:Date, //@onetomany(cascade:Long);
+
+datastreampoint(device_id:Long [PK], at:String [PK], obliquity:String, temperature:String, humidity:String, location:String, position:String, pressure:String);
+
+orderitem(//@id//@generatedvalue//longid//@column(nullable:String, //@column(nullable:String [PK], carid:Long, orderid:Long [PK]);
+
+product(id:Long [PK], apikey:String, /***创建时间*/createtime:Date, /***修改时间*/lastmodifiedtime:Date);
+
+manager(id:Long [PK], name:String, password:String, /***创建时间*/createtime:Date, /***修改时间*/lastmodifiedtime:Date, //@onetomany(cascade:Long);
+
+datapointhistory(//@generatedvalueat:String [PK], datastream_id:String [PK], datastream_device_id:Long [PK], value:String, /***创建时间*/createtime:Date);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

@@ -1,0 +1,13 @@
+
+flight(flightid:Integer [PK], departtime:Timestamp [PK], departcityid:Integer [PK], arrivecityid:Integer [PK], seatsavailable:Integer, price:Float);
+
+booking(bookingid:Integer [PK], flightid:Integer [PK], isactive:Boolean, stripeid:String, bookerid:Integer, bookingid:Flight #FK to(Flight));
+
+tbl_bookings_has_travelers(bookings_bookingid:Booking [PK] #FK to Booking,traveler_travelerid:set<traveler> [PK] #FK to set<traveler>);
+
+traveler(travelerid:Integer [PK], name:String, address:String, phone:String, email:String, dob:Timestamp);
+
+bookingshastravelers(bookingsbookingid:Integer [PK], bookingsflightid:Integer [PK], travelertravelerid:Integer [PK]);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

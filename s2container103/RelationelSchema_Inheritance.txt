@@ -1,0 +1,33 @@
+
+department2(/***/departmentid:Integer [PK], /***/departmentno:Integer, /***/departmentname:String, /***/location:String, /***/version:Integer);
+
+address2(/***/addressid:Integer [PK], /***/street:String, /***/version:Integer, /***/employee:Employee2 #FK to(employee2));
+
+department(/***/departmentid:Integer [PK], /***/departmentno:Integer, /***/departmentname:String, /***/location:String, /***/version:Integer);
+
+address3(/***/addressid:Integer [PK], /***/street:String, /***/version:Integer, /***/employee:Employee3 #FK to(employee3));
+
+department3(/***/departmentid:Integer [PK], /***/departmentno:Integer, /***/departmentname:String, /***/location:String, /***/version:Integer);
+
+address(/***/addressid:Integer [PK], /***/street:String, /***/version:Integer, /***/:Employee #FK to(employee));
+
+employee(/***/employeeid:Integer [PK], /***/employeeno:Integer, /***/employeename:String, employee_id:Employee #FK to(employee), /***/hire:Date, /***/salary:BigDecimal, department_id:Department #FK to(department), /***/:Address #FK to(address), /***/version:Integer);
+
+employee2(/***/employeeid:Integer [PK], /***/employeeno:Integer, /***/employeename:String, employee_id:Employee2 #FK to(employee2), /***/hire:Date, /***/salary:BigDecimal, department_id:Department2 #FK to(department2), /***/address:Address2 #FK to(address2), /***/version:Integer);
+
+employee3(/***/employeeid:Integer [PK], /***/employeeno:Integer, /***/employeename:String, employee_id:Employee3 #FK to(employee3), /***/hire:Date, /***/salary:BigDecimal, department_id:Department3 #FK to(department3), /***/address:Address3 #FK to(address3), /***/version:Integer);
+
+address(/***/addressid:Integer [PK], /***/street:String, /***/version:Integer, /***/:Employee #FK to(employee));
+
+address2(/***/addressid:Integer [PK], /***/street:String, /***/version:Integer, /***/employee:Employee2 #FK to(employee2));
+
+department2(/***/departmentid:Integer [PK], /***/departmentno:Integer, /***/departmentname:String, /***/location:String, /***/version:Integer);
+
+department(/***/departmentid:Integer [PK], /***/departmentno:Integer, /***/departmentname:String, /***/location:String, /***/version:Integer);
+
+employee2(/***/employeeid:Integer [PK], /***/employeeno:Integer, /***/employeename:String, /***/managerid:Integer, employee_id:Employee2 #FK to(employee2), /***/hire:Date, /***/salary:BigDecimal, /***/departmentid:Integer, department_id:Department2 #FK to(department2), /***/addressid:Integer, /***/address:Address2 #FK to(address2), /***/version:Integer);
+
+employee(/***/employeeid:Integer [PK], /***/employeeno:Integer, /***/employeename:String, /***/managerid:Integer, employee_id:Employee #FK to(employee), /***/hire:Date, /***/salary:BigDecimal, /***/departmentid:Integer, department_id:Department #FK to(department), /***/addressid:Integer, /***/:Address #FK to(address), /***/version:Integer);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

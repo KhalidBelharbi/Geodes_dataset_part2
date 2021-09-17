@@ -1,0 +1,13 @@
+
+user(author:String [PK], user_password:String, user_password_check:String, user_address:String, user_name:String, user_email:String);
+
+rent(rent_id:Long [PK], author:String, rent_title:String, picture:String, rent_content:String, rent_date:LocalDateTime);
+
+board(id:Long [PK], author:String, title:String, content:String, createddate:LocalDateTime, modifieddate:LocalDateTime);
+
+communitycomment(id:int [PK], community_comment_content:String, author:String, GeneratedName:Board #FK to(board));
+
+rentcomment(id:int [PK], rent_comment_content:String, author:String, GeneratedName:Rent #FK to(rent));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

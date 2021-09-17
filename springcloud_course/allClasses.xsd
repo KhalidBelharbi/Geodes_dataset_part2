@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="banner" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="index" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mymetaobjecthandler" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="corsconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mybatisconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="items" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="//商品的编号id" type="xs:anyType" />
+          <xs:element name="//商品名称name" type="xs:string" />
+          <xs:element name="//商品图片pic" type="xs:string" />
+          <xs:element name="//库存number" type="xs:long" />
+          <xs:element name="//购买数量buycount" type="xs:long" />
+          <xs:element name="//价格price" type="xs:long" />
+          <xs:element name="//商品的材质property" type="xs:string" />
+          <xs:element name="//商品产地的省份province" type="xs:string" />
+          <xs:element name="//商品产地的城市city" type="xs:string" />
+          <xs:element name="//商品的状态status" type="xs:long" />
+          <xs:element name="//店铺的编号shopid" type="xs:long" />
+          <xs:element name="//店铺的名称shopname" type="xs:string" />
+          <xs:element name="//折扣discount" type="xs:double" />
+          <xs:element name="//是否免邮isfreepost" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="address" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="//地址编号aid" type="xs:anyType" />
+          <xs:element name="//用户编号uid" type="xs:long" />
+          <xs:element name="//真实姓名realname" type="xs:string" />
+          <xs:element name="//手机号码mobile" type="xs:string" />
+          <xs:element name="//收货地址所在省份，城市，区县city" type="xs:string" />
+          <xs:element name="//具体地址，街道门牌号码street" type="xs:string" />
+          <xs:element name="//是否是默认的收货地址isdefault" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderkey" >
+      <xs:sequence>
+        <xs:element name="//订单主表的编号oid" type="xs:string" />
+        <xs:element name="//商品编号id" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baseentity" >
+      <xs:sequence>
+        <xs:element name="//乐观锁version" type="xs:anyType" />
+        <xs:element name="//表示该记录的创建时间createtime" type="xs:string" />
+        <xs:element name="//表示该记录的最后一次修改时间modifytime" type="xs:string" />
+        <xs:element name="//true,表示记录没有被删除，false表示该记录已经被删除。flag" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ordermain" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="//订单编号oid" type="xs:string" />
+          <xs:element name="//用户编号uid" type="xs:anyType" />
+          <xs:element name="//用户名username" type="xs:string" />
+          <xs:element name="//真实姓名realname" type="xs:string" />
+          <xs:element name="//手机号码mobile" type="xs:string" />
+          <xs:element name="//收货人省份和城市区县city" type="xs:string" />
+          <xs:element name="//收货住址street" type="xs:string" />
+          <xs:element name="//总金额totalprice" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="users" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="//用户编号，主键uid" type="xs:anyType" />
+          <xs:element name="//用户名username" type="xs:string" />
+          <xs:element name="//@column(length" type="xs:string" />
+          <xs:element name="//生日birthday" type="xs:string" />
+          <xs:element name="//用户的状态1：用户可用0：用户被禁用status" type="xs:long" />
+          <xs:element name="//当前用户的token值。服务器来生成的。token" type="xs:string" />
+          <xs:element name="//很多东西你看不到，并不代表它不存在。randomcode" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ordersub" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="//注意，两个说明是联合主键oid+id//订单编号oid" type="xs:string" />
+          <xs:element name="//商品编号id" type="xs:anyType" />
+          <xs:element name="//商品名称name" type="xs:string" />
+          <xs:element name="//单价price" type="xs:long" />
+          <xs:element name="//购买数量buycount" type="xs:long" />
+          <xs:element name="//小计sum" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseservice" >
+      <xs:complexContent>
+       <xs:extension base="baseentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="baseentity,">
+         <xs:sequence>
+          <xs:element name="dao" type="xs:anyType" />
+          <xs:element name="apper" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jsonresult" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jsondata" >
+      <xs:sequence>
+        <xs:element name="data" type="xs:anyType" />
+        <xs:element name="code" type="xs:long" />
+        <xs:element name="msg" type="xs:string" />
+        <xs:element name="//令牌，用于会话token" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="paymentapplicatoin" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baserepository" >
+      <xs:complexContent>
+       <xs:extension base="baseentity,id>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

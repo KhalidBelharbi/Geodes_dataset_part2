@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="basetimeentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="picture" type="xs:string" />
+          <xs:element name="//기본적으로int로된숫자가저장된다//숫자로저장되면db확인때무슨코드를의미하는지알수가없어stringtype으로선언" type="role" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="posts" >
+      <xs:complexContent>
+       <xs:extension base="basetimeentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="content" type="xs:string" />
+          <xs:element name="author" type="xs:string" />
+          <xs:element name="title" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basetimeentity" >
+      <xs:sequence>
+        <xs:element name="//entity가생성되어저장될떄자동저장createdate" type="xs:anyType" />
+        <xs:element name="//조회한entity의값을변경할때시간이자동저장modifieddate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

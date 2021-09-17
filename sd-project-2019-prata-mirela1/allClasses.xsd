@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ticket" >
+      <xs:sequence>
+        <xs:element name="idticket" type="xs:anyType" />
+        <xs:element name="departuredata" type="xs:dateTime" />
+        <xs:element name="arrivaldata" type="xs:dateTime" />
+        <xs:element name="seat" type="xs:string" />
+        <xs:element name="price" type="xs:string" />
+        <xs:element name="GeneratedName" type="destination" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="pastorder" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="shoppingcart" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="destination" >
+      <xs:sequence>
+        <xs:element name="iddestination" type="xs:anyType" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="tickets" type="ticket" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="iduser" type="xs:anyType" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shoppingcart" >
+      <xs:sequence>
+        <xs:element name="iddestination" type="xs:anyType" />
+        <xs:element name="tickets" type="ticket" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pastorder" >
+      <xs:sequence>
+        <xs:element name="idpastorder" type="xs:anyType" />
+        <xs:element name="details" type="xs:string" />
+        <xs:element name="tickets" type="ticket" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="admin" >
+      <xs:sequence>
+        <xs:element name="idadmin" type="xs:anyType" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ticketrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<ticket,integer>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="destinationrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<destination,integer>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="shoppingcartrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<shoppingcart,integer>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="adminrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<admin,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,integer>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pastorderrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<pastorder,integer>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="demoapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="demoapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrepositorytest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

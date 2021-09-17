@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="lecturer" >
+      <xs:complexContent>
+       <xs:extension base="user">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="information" type="xs:string" />
+          <xs:element name="degrees" type="degree" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="disciplines" type="discipline" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="assignmentssolutionsgraded" type="assignmentsolution" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="max_information_size" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="assignmentsolution" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="assignment" nillable="true" minOccurs="0" />
+        <xs:element name="submittedby" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="gradedby" type="lecturer" nillable="true" minOccurs="0" />
+        <xs:element name="creationtime" type="xs:dateTime" />
+        <xs:element name="timesubmitted" type="xs:dateTime" />
+        <xs:element name="solutiontext" type="xs:string" />
+        <xs:element name="filename" type="xs:string" />
+        <xs:element name="mark" type="xs:double" />
+        <xs:element name="max_file_name_size" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userright" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="rightname" type="xs:string" />
+        <xs:element name="rolesallowed" type="userrole" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="discipline" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="disciplinename" type="xs:string" />
+        <xs:element name="//" type="speciality" nillable="true" minOccurs="0" />
+        <xs:element name="lecturers" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="assignments" type="assignment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="min_discipline_name_size" type="xs:long" />
+        <xs:element name="max_discipline_name_size" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="roles" type="userrole" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="personname" nillable="true" minOccurs="0" />
+        <xs:element name="isactivated" type="xs:anyType" />
+        <xs:element name="min_username_size" type="xs:long" />
+        <xs:element name="min_password_size" type="xs:long" />
+        <xs:element name="min_email_size" type="xs:long" />
+        <xs:element name="max_username_size" type="xs:long" />
+        <xs:element name="max_password_size" type="xs:long" />
+        <xs:element name="max_email_size" type="xs:long" />
+        <xs:element name="max_user_type_size" type="xs:long" />
+        <xs:element name="number_of_user_types" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="speciality" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="specialityname" type="xs:string" />
+        <xs:element name="students" type="student" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="disciplines" type="discipline" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="max_speciality_name_size" type="xs:long" />
+        <xs:element name="min_speciality_name_size" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="degree" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="degreename" type="xs:string" />
+        <xs:element name="lecturers" type="lecturer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="min_degree_name_size" type="xs:long" />
+        <xs:element name="max_degree_name_size" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrole" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="rolename" type="xs:string" />
+        <xs:element name="roletitle" type="xs:string" />
+        <xs:element name="max_user_role_name_size" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="assignment" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="attachedfile" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="creationtime" type="xs:dateTime" />
+        <xs:element name="starttime" type="xs:dateTime" />
+        <xs:element name="endtime" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="discipline" nillable="true" minOccurs="0" />
+        <xs:element name="assignmentsolution" type="assignmentsolution" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="min_title_size" type="xs:long" />
+        <xs:element name="min_file_name_size" type="xs:long" />
+        <xs:element name="max_title_size" type="xs:long" />
+        <xs:element name="max_file_name_size" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="student" >
+      <xs:complexContent>
+       <xs:extension base="user">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="facultynumber" type="xs:string" />
+          <xs:element name="specialities" type="speciality" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="assignmentssolutionssubmitted" type="assignmentsolution" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="max_faculty_number_size" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,29 @@
+
+contact(id:int [PK], nume:String, numere:Collection<String>);
+
+cardacces(id:int [PK], serie:String, GeneratedName:Persoana #FK to(persoana));
+
+articol(id:int [PK], titlu:String);
+
+persoana(id:int [PK], nume:String, GeneratedName:CardAcces #FK to(CardAcces));
+
+anagajat(id:int [PK], nume:String, GeneratedName:LocParcare #FK to(locparcare));
+
+curs(ind:int [PK], nume:String);
+
+tabela_de_legatura(joincolumna:Curs [PK] #FK to Curs,inverse_joincolumnb:collection<student> [PK] #FK to collection<student>);
+
+carte(id:int [PK], nume:String, libratie:Librarie #FK to(librarie));
+
+librarie(id:int [PK], adresa:String);
+
+autor(id:int [PK], nume:String);
+
+autor_Articol(autorID:autor [PK] #FK to autor,ArticolID:Articol [PK] #FK to Articol);
+
+locparcare(id:int [PK], numar:int);
+
+student(id:int [PK], nume:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

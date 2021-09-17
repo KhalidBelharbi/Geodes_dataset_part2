@@ -1,0 +1,23 @@
+
+buletin(id:int [PK], cod:String);
+
+magazin(id:int [PK], nume:String, numere:Collection<String>);
+
+curs(id:int [PK], nume:String);
+
+profesor(id:int [PK], nume:String, GeneratedName:Scoala #FK to(scoala));
+
+scoala(id:int [PK], nume:String);
+
+strudent(id:int [PK], serie:int);
+
+tabela_mea_de_legatura(stundet_id:Strudent [PK] #FK to Strudent,curs_id:collection<curs> [PK] #FK to collection<curs>);
+
+locparcare(id:int [PK], nr:int, GeneratedName:Angajat #FK to(angajat));
+
+persoana(id:int [PK], nume:String, GeneratedName:Buletin #FK to(Buletin));
+
+angajat(id:int [PK], nume:String, GeneratedName:LocParcare #FK to(locparcare));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

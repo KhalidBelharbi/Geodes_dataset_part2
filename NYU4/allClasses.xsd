@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="web" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookstore.taglib" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="booknotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="booksnotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cashierbean" >
+      <xs:complexContent>
+       <xs:extension base="abstractbean">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="bookrequestbean" nillable="true" minOccurs="0" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="creditcardnumber" type="xs:string" />
+          <xs:element name="ship" type="xs:dateTime" />
+          <xs:element name="shippingoption" type="xs:string" />
+          <xs:element name="specialoffertext" type="xs:anyType" />
+          <xs:element name="specialoffer" type="xs:anyType" />
+          <xs:element name="thankyou" type="xs:anyType" />
+          <xs:element name="property" type="xs:string" />
+          <xs:element name="newsletters" type="xs:string" />
+          <xs:element name="newsletteritems" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractbean" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="cart" type="shoppingcart" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="showcartbean" >
+      <xs:complexContent>
+       <xs:extension base="abstractbean">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="cartchanged" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bookstorebean" >
+      <xs:complexContent>
+       <xs:extension base="abstractbean">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="featured" type="book" nillable="true" minOccurs="0" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="" type="bookrequestbean" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="catalogbean" >
+      <xs:complexContent>
+       <xs:extension base="abstractbean">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="totalbooks" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="localebean" >
+      <xs:complexContent>
+       <xs:extension base="abstractbean">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="shoppingcartitem" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="item" type="xs:anyType" />
+        <xs:element name="quantity" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookdetailsbean" >
+      <xs:complexContent>
+       <xs:extension base="abstractbean">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="shoppingcart" >
+      <xs:complexContent>
+       <xs:extension base="abstractbean">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="items" type="xs:anyType" />
+          <xs:element name="numberofitems" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="areaselectedevent" >
+      <xs:complexContent>
+       <xs:extension base="actionevent">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="quantitychanged" >
+      <xs:complexContent>
+       <xs:extension base="object">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="namechanged" >
+      <xs:complexContent>
+       <xs:extension base="object">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mapbookchangelistener" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="books" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="linkbookchangelistener" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="books" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="areacomponent" >
+      <xs:complexContent>
+       <xs:extension base="uioutput">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mapcomponent" >
+      <xs:complexContent>
+       <xs:extension base="uicommand">
+         <xs:sequence>
+          <xs:element name="current" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="arearenderer" >
+      <xs:complexContent>
+       <xs:extension base="renderer">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="maprenderer" >
+      <xs:complexContent>
+       <xs:extension base="renderer">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="configbean" >
+      <xs:sequence>
+        <xs:element name="request" type="bookrequestbean" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookrequestbean" >
+      <xs:sequence>
+        <xs:element name="em" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="book" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="bookid" type="xs:string" />
+        <xs:element name="surname" type="xs:string" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="price" type="xs:double" />
+        <xs:element name="onsale" type="xs:anyType" />
+        <xs:element name="calendaryear" type="xs:anyType" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="inventory" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="creditcardconverter" >
+      <xs:sequence>
+        <xs:element name="*/conversion_error_message_id" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="imagearea" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="alt" type="xs:string" />
+        <xs:element name="coords" type="xs:string" />
+        <xs:element name="shape" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="persistencemanagerimpltest" >
+      <xs:complexContent>
+       <xs:extension base="testcase">
+         <xs:sequence>
+          <xs:element name="manager" type="persistencemanagerimpl" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="employeedto" >
+      <xs:complexContent>
+       <xs:extension base="employee">
+         <xs:sequence>
+          <xs:element name="departmentname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="preparedstatementpoolfactoryimpltest" >
+      <xs:complexContent>
+       <xs:extension base="s2testcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="preparedstatementlruhashmaptest" >
+      <xs:complexContent>
+       <xs:extension base="s2testcase">
+         <xs:sequence>
+          <xs:element name="sql" type="xs:string" />
+          <xs:element name="sql2" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="preparedstatementpoolimpltest" >
+      <xs:complexContent>
+       <xs:extension base="s2testcase">
+         <xs:sequence>
+          <xs:element name="sql" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="propertymetatest" >
+      <xs:complexContent>
+       <xs:extension base="testcase">
+         <xs:sequence>
+          <xs:element name="" type="propertymeta" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jobtype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="department" >
+      <xs:sequence>
+        <xs:element name="/***/id" type="xs:long" />
+        <xs:element name="/***/departmentname" type="xs:string" />
+        <xs:element name="/***/version" type="xs:anyType" />
+        <xs:element name="/***/employees" type="employee" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="employee" >
+      <xs:sequence>
+        <xs:element name="/***/id" type="xs:long" />
+        <xs:element name="/***/employeename" type="xs:string" />
+        <xs:element name="/***/job" type="jobtype" nillable="true" minOccurs="0" />
+        <xs:element name="/***/salary" type="xs:anyType" />
+        <xs:element name="/***/version" type="xs:anyType" />
+        <xs:element name="/***/manager" type="employee" nillable="true" minOccurs="0" />
+        <xs:element name="/***/assistants" type="employee" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="/***/" type="department" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="propertymetanotfoundruntimeexceptiontest" >
+      <xs:complexContent>
+       <xs:extension base="testcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="noentityruntimeexceptiontest" >
+      <xs:complexContent>
+       <xs:extension base="testcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitymetafactoryimpltest" >
+      <xs:complexContent>
+       <xs:extension base="testcase">
+         <xs:sequence>
+          <xs:element name="foo" type="xs:string" />
+          <xs:element name="aaa" type="xs:string" />
+          <xs:element name="factory" type="entitymetafactoryimpl" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tablemetafactoryimpltest" >
+      <xs:complexContent>
+       <xs:extension base="testcase">
+         <xs:sequence>
+          <xs:element name="factory" type="tablemetafactoryimpl" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="propertymetafactoryimpltest" >
+      <xs:complexContent>
+       <xs:extension base="testcase">
+         <xs:sequence>
+          <xs:element name="factory" type="propertymetafactoryimpl" nillable="true" minOccurs="0" />
+          <xs:element name="transientaaa" type="xs:string" />
+          <xs:element name="bbb" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitymetacachetest" >
+      <xs:complexContent>
+       <xs:extension base="testcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="columnmetafactoryimpltest" >
+      <xs:complexContent>
+       <xs:extension base="testcase">
+         <xs:sequence>
+          <xs:element name="factory" type="columnmetafactoryimpl" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitymetatest" >
+      <xs:complexContent>
+       <xs:extension base="testcase">
+         <xs:sequence>
+          <xs:element name="" type="entitymeta" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="keyitemstest" >
+      <xs:complexContent>
+       <xs:extension base="testcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="beanobjectmappertest" >
+      <xs:complexContent>
+       <xs:extension base="testcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="beanrowmappertest" >
+      <xs:complexContent>
+       <xs:extension base="testcase">
+         <xs:sequence>
+          <xs:element name="rowmapper" type="rowmapperimpl" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="singleassociationbeanobjectmappertest" >
+      <xs:complexContent>
+       <xs:extension base="testcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fieldcolumnmappertest" >
+      <xs:complexContent>
+       <xs:extension base="testcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="resultsetprocessorimpltest" >
+      <xs:complexContent>
+       <xs:extension base="s2testcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstprocessortest" >
+      <xs:complexContent>
+       <xs:extension base="testcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="server" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pstmessages" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pstmessages_ja" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resultsetprocessor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="preparedstatementpoolfactory" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitymeta" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="GeneratedName" type="tablemeta" nillable="true" minOccurs="0" />
+        <xs:element name="propertymetamap" type="xs:anyType" />
+        <xs:element name="additionalinfomap" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="preparedstatementpoolimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="lru" type="preparedstatementlruhashmap" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="preparedstatementlruhashmap" >
+      <xs:complexContent>
+       <xs:extension base="lruhashmap">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="preparedstatementpoolfactoryimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="poolsize" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="objectmapper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="firebirddialect" >
+      <xs:complexContent>
+       <xs:extension base="dbmsdialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="h2dialect" >
+      <xs:complexContent>
+       <xs:extension base="dbmsdialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="db2dialect" >
+      <xs:complexContent>
+       <xs:extension base="dbmsdialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="maxdbdialect" >
+      <xs:complexContent>
+       <xs:extension base="dbmsdialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mssqldialect" >
+      <xs:complexContent>
+       <xs:extension base="dbmsdialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="postgredialect" >
+      <xs:complexContent>
+       <xs:extension base="dbmsdialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="oracledialect" >
+      <xs:complexContent>
+       <xs:extension base="dbmsdialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mysqldialect" >
+      <xs:complexContent>
+       <xs:extension base="dbmsdialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="derbydialect" >
+      <xs:complexContent>
+       <xs:extension base="dbmsdialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hsqldialect" >
+      <xs:complexContent>
+       <xs:extension base="dbmsdialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="persistencemanager" >
+      <xs:complexContent>
+       <xs:extension base="t>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="propertymetafactory" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tablemetafactoryimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitymetacache" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="lastmodified" type="xs:long" />
+        <xs:element name="GeneratedName" type="entitymeta" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitymetafactoryimpl" >
+      <xs:sequence>
+        <xs:element name="entitymetacachemap" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="tablemetafactory" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="propertymetafactory" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="columnmetafactoryimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="propertymetafactoryimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="columnmetafactory" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="propertymeta" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="atransient" type="xs:anyType" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="version" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="columnmeta" nillable="true" minOccurs="0" />
+        <xs:element name="additionalinfomap" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="selectgenerator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="preparedstatementpool" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="propertymetanotfoundruntimeexception" >
+      <xs:complexContent>
+       <xs:extension base="sruntimeexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="entityname" type="xs:string" />
+          <xs:element name="propertyname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="noentityruntimeexception" >
+      <xs:complexContent>
+       <xs:extension base="sruntimeexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="targetclass" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="columnmetafactory" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistencemanagerimpl" >
+      <xs:complexContent>
+       <xs:extension base="t>">
+         <xs:sequence>
+          <xs:element name="" type="entitymetafactory" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tablemetafactory" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitymetafactory" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="columnmeta" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="unique" type="xs:anyType" />
+        <xs:element name="nullable" type="xs:anyType" />
+        <xs:element name="insertable" type="xs:anyType" />
+        <xs:element name="updatable" type="xs:anyType" />
+        <xs:element name="columndefinition" type="xs:string" />
+        <xs:element name="table" type="xs:string" />
+        <xs:element name="length" type="xs:long" />
+        <xs:element name="precision" type="xs:long" />
+        <xs:element name="scale" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dbmsdialect" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="supportscolumn" type="xs:anyType" />
+        <xs:element name="hasfullwidthtildebug" type="xs:anyType" />
+        <xs:element name="supportsresultsetscrollinsensitive" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="propertymapper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tablemeta" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="catalog" type="xs:string" />
+        <xs:element name="schema" type="xs:string" />
+        <xs:element name="s" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rowmapper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="selectprocessor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="keyitems" >
+      <xs:sequence>
+        <xs:element name="values" type="xs:anyType" />
+        <xs:element name="hashcode" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fieldpropertymapper" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="propertyindex" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="singleassociationbeanobjectmapper" >
+      <xs:complexContent>
+       <xs:extension base="beanobjectmapper">
+         <xs:sequence>
+          <xs:element name="manyside" type="objectmapper" nillable="true" minOccurs="0" />
+          <xs:element name="association" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="beanobjectmapper" >
+      <xs:sequence>
+        <xs:element name="bean" type="xs:anyType" />
+        <xs:element name="s" type="propertymapper" nillable="true" minOccurs="0" />
+        <xs:element name="idindices" type="xs:long" />
+        <xs:element name="context" type="xs:anyType" />
+        <xs:element name="target" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rowmapperimpl" >
+      <xs:sequence>
+        <xs:element name="s" type="objectmapper" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractprocessor" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="preparedstatementpool" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="daoclass" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractselectprocessor" >
+      <xs:complexContent>
+       <xs:extension base="abstractprocessor">
+         <xs:sequence>
+          <xs:element name="" type="resultsetprocessor" nillable="true" minOccurs="0" />
+          <xs:element name="" type="rowmapper" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="resultsetprocessorimpl" >
+      <xs:sequence>
+        <xs:element name="types" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="listselectprocessor" >
+      <xs:complexContent>
+       <xs:extension base="abstractselectprocessor">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="customer" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="customerid" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="productlist" type="product" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="order1list" type="order1" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderdetail" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="orderdetailid" type="xs:anyType" />
+        <xs:element name="productdescription" type="xs:string" />
+        <xs:element name="price" type="xs:double" />
+        <xs:element name="quantity" type="xs:long" />
+        <xs:element name="id" type="product" nillable="true" minOccurs="0" />
+        <xs:element name="orderid" type="order1" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="product" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="productid" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="productdescription" type="xs:string" />
+        <xs:element name="price" type="xs:double" />
+        <xs:element name="customerlist" type="customer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="orderdetaillist" type="orderdetail" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="order1" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="orderid" type="xs:anyType" />
+        <xs:element name="creation" type="xs:dateTime" />
+        <xs:element name="deliveryaddress" type="xs:string" />
+        <xs:element name="total" type="xs:double" />
+        <xs:element name="orderdetaillist" type="orderdetail" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="id" type="customer" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

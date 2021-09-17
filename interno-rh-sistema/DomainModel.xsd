@@ -1,0 +1,3333 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="dateaudit" >
+      <xs:sequence>
+        <xs:element name="createdat" type="xs:anyType" />
+        <xs:element name="updatedat" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="treinamentosugeridocomplemento" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="treinamentosugerido" nillable="true" minOccurs="0" />
+          <xs:element name="local" type="xs:string" />
+          <xs:element name="endereco" type="xs:string" />
+          <xs:element name="complemento" type="xs:string" />
+          <xs:element name="bairro" type="xs:string" />
+          <xs:element name="" type="municipio" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="contacontabilsimples" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="codigo" type="xs:string" />
+          <xs:element name="descricao" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="naturezafuncao" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="descricao" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cnae" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="codigosecao" type="xs:string" />
+          <xs:element name="nomesecao" type="xs:string" />
+          <xs:element name="codigoclasse" type="xs:long" />
+          <xs:element name="nomeclasse" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="requisicaopessoalcandidato" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="nome" type="xs:string" />
+          <xs:element name="comentario" type="xs:string" />
+          <xs:element name="comentariocurriculo" type="xs:string" />
+          <xs:element name="situacao" type="requisicaopessoalanaliseenum" nillable="true" minOccurs="0" />
+          <xs:element name="" type="anexo" nillable="true" minOccurs="0" />
+          <xs:element name="" type="requisicaopessoal" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sindicato" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="descricao" type="xs:string" />
+          <xs:element name="mesbase" type="xs:anyType" />
+          <xs:element name="pisosalarial" type="xs:anyType" />
+          <xs:element name="cnpj" type="xs:string" />
+          <xs:element name="codigoentidade" type="xs:string" />
+          <xs:element name="ddd" type="xs:anyType" />
+          <xs:element name="telefone" type="xs:string" />
+          <xs:element name="patronal" type="patronalsindicatoenum" nillable="true" minOccurs="0" />
+          <xs:element name="endereco" type="xs:string" />
+          <xs:element name="numero" type="xs:string" />
+          <xs:element name="complemento" type="xs:string" />
+          <xs:element name="bairro" type="xs:string" />
+          <xs:element name="municipio" type="xs:string" />
+          <xs:element name="" type="unidadefederativa" nillable="true" minOccurs="0" />
+          <xs:element name="cep" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="frequenciacertidaoexsegurado" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="certidaoexsegurado" nillable="true" minOccurs="0" />
+          <xs:element name="ano" type="xs:anyType" />
+          <xs:element name="tempobruto" type="xs:anyType" />
+          <xs:element name="faltas" type="xs:anyType" />
+          <xs:element name="licencas" type="xs:anyType" />
+          <xs:element name="licencassemvenc" type="xs:anyType" />
+          <xs:element name="suspensoes" type="xs:anyType" />
+          <xs:element name="disponibilidade" type="xs:anyType" />
+          <xs:element name="outros" type="xs:anyType" />
+          <xs:element name="tempoliquido" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="correcao" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="datacompetencia" type="xs:anyType" />
+          <xs:element name="" type="tipoprocessamento" nillable="true" minOccurs="0" />
+          <xs:element name="empresa" type="empresafilial" nillable="true" minOccurs="0" />
+          <xs:element name="filial" type="empresafilial" nillable="true" minOccurs="0" />
+          <xs:element name="" type="lotacao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="centrocusto" nillable="true" minOccurs="0" />
+          <xs:element name="" type="sindicato" nillable="true" minOccurs="0" />
+          <xs:element name="" type="funcao" nillable="true" minOccurs="0" />
+          <xs:element name="nivelsalarial" type="referenciasalarial" nillable="true" minOccurs="0" />
+          <xs:element name="situacao" type="situacaofuncional" nillable="true" minOccurs="0" />
+          <xs:element name="" type="tipofolha" nillable="true" minOccurs="0" />
+          <xs:element name="" type="verba" nillable="true" minOccurs="0" />
+          <xs:element name="valorfaixai" type="xs:anyType" />
+          <xs:element name="valorfaixaii" type="xs:anyType" />
+          <xs:element name="percentualproduto" type="xs:double" />
+          <xs:element name="percentualaumento" type="xs:double" />
+          <xs:element name="valorproduto" type="xs:anyType" />
+          <xs:element name="valorpiso" type="xs:anyType" />
+          <xs:element name="tipoarredondamento" type="tipoarredondamentoenum" nillable="true" minOccurs="0" />
+          <xs:element name="avos" type="xs:anyType" />
+          <xs:element name="valorarrendamento" type="xs:anyType" />
+          <xs:element name="atualizames" type="xs:anyType" />
+          <xs:element name="retroativo" type="xs:anyType" />
+          <xs:element name="abono" type="xs:anyType" />
+          <xs:element name="verbaabono" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entidadeexame" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="tomadorservico" nillable="true" minOccurs="0" />
+          <xs:element name="tipo" type="tipoentidadeexameenum" nillable="true" minOccurs="0" />
+          <xs:element name="exames" type="exame" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="logradouro" type="xs:string" />
+          <xs:element name="numero" type="xs:string" />
+          <xs:element name="complemento" type="xs:string" />
+          <xs:element name="cep" type="xs:string" />
+          <xs:element name="uf" type="unidadefederativa" nillable="true" minOccurs="0" />
+          <xs:element name="bairro" type="xs:string" />
+          <xs:element name="" type="municipio" nillable="true" minOccurs="0" />
+          <xs:element name="telefone" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="empresafilial" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="sigla" type="xs:string" />
+          <xs:element name="nomeresponsavel" type="xs:string" />
+          <xs:element name="vigenciainicial" type="xs:dateTime" />
+          <xs:element name="vigencia" type="xs:dateTime" />
+          <xs:element name="emailresponsavel" type="xs:string" />
+          <xs:element name="nomefilial" type="xs:string" />
+          <xs:element name="empresamatriz" type="xs:anyType" />
+          <xs:element name="tipofilial" type="tipofilialenum" nillable="true" minOccurs="0" />
+          <xs:element name="" type="cnae" nillable="true" minOccurs="0" />
+          <xs:element name="codigogps" type="codigopagamentogps" nillable="true" minOccurs="0" />
+          <xs:element name="situacao" type="situacaofilialenum" nillable="true" minOccurs="0" />
+          <xs:element name="esferaorgao" type="esferaorgaoenum" nillable="true" minOccurs="0" />
+          <xs:element name="qtdproprietario" type="xs:anyType" />
+          <xs:element name="tipoestabelecimento" type="tipoestabelecimentoenum" nillable="true" minOccurs="0" />
+          <xs:element name="capitalsocialanual" type="xs:double" />
+          <xs:element name="datainicialatividade" type="xs:anyType" />
+          <xs:element name="referenciacontribuicao" type="referenciacontribuicaoenum" nillable="true" minOccurs="0" />
+          <xs:element name="atividadeprimaria" type="xs:string" />
+          <xs:element name="naturezaestabelecimento" type="xs:string" />
+          <xs:element name="" type="banco" nillable="true" minOccurs="0" />
+          <xs:element name="agencia" type="xs:anyType" />
+          <xs:element name="codigoconvenio" type="xs:anyType" />
+          <xs:element name="tipooperacao" type="tipooperacaoenum" nillable="true" minOccurs="0" />
+          <xs:element name="bancaria" type="agencia" nillable="true" minOccurs="0" />
+          <xs:element name="fpas" type="xs:anyType" />
+          <xs:element name="codigogrpasacidentetrabalho" type="xs:anyType" />
+          <xs:element name="cnpj" type="xs:string" />
+          <xs:element name="cei" type="xs:string" />
+          <xs:element name="codigoempregador" type="xs:anyType" />
+          <xs:element name="rnegativa" type="xs:anyType" />
+          <xs:element name="percentualempregador" type="xs:double" />
+          <xs:element name="sat" type="xs:double" />
+          <xs:element name="salarioeducacao" type="xs:double" />
+          <xs:element name="senai" type="xs:double" />
+          <xs:element name="sesi" type="xs:double" />
+          <xs:element name="senac" type="xs:double" />
+          <xs:element name="sesc" type="xs:double" />
+          <xs:element name="sebrae" type="xs:double" />
+          <xs:element name="senar" type="xs:double" />
+          <xs:element name="senat" type="xs:double" />
+          <xs:element name="set" type="xs:double" />
+          <xs:element name="secoop" type="xs:double" />
+          <xs:element name="dpc" type="xs:double" />
+          <xs:element name="forcaaerea" type="xs:double" />
+          <xs:element name="fap" type="xs:anyType" />
+          <xs:element name="logradouro" type="xs:string" />
+          <xs:element name="numero" type="xs:string" />
+          <xs:element name="complemento" type="xs:string" />
+          <xs:element name="cep" type="xs:string" />
+          <xs:element name="uf" type="unidadefederativa" nillable="true" minOccurs="0" />
+          <xs:element name="bairro" type="xs:string" />
+          <xs:element name="" type="municipio" nillable="true" minOccurs="0" />
+          <xs:element name="telefone" type="xs:string" />
+          <xs:element name="" type="anexo" nillable="true" minOccurs="0" />
+          <xs:element name="tipoinscricao" type="tipoinscricaoenum" nillable="true" minOccurs="0" />
+          <xs:element name="lotacoes" type="lotacao" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="pais" type="nacionalidade" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="feriasprogramacao" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="funcionario" nillable="true" minOccurs="0" />
+          <xs:element name="exercicioinicio" type="xs:dateTime" />
+          <xs:element name="exerciciofim" type="xs:dateTime" />
+          <xs:element name="datalimite" type="xs:dateTime" />
+          <xs:element name="quantfaltas" type="xs:string" />
+          <xs:element name="tipoferias" type="feriasprogramacaotipoferiasenum" nillable="true" minOccurs="0" />
+          <xs:element name="quantdias" type="xs:string" />
+          <xs:element name="abonopeculiario" type="xs:anyType" />
+          <xs:element name="decimoterceiro" type="xs:anyType" />
+          <xs:element name="situacao" type="feriasprogramacaosituacaoenum" nillable="true" minOccurs="0" />
+          <xs:element name="mescompetenciaparticaoum" type="xs:string" />
+          <xs:element name="diasagozarum" type="xs:string" />
+          <xs:element name="tipoprocessamentoum" type="feriasprogramacaotipoprocessamentoenum" nillable="true" minOccurs="0" />
+          <xs:element name="datainicialum" type="xs:dateTime" />
+          <xs:element name="dataum" type="xs:dateTime" />
+          <xs:element name="situacaoum" type="feriasprogramacaosituacaoenum" nillable="true" minOccurs="0" />
+          <xs:element name="mescompetenciaparticaodois" type="xs:string" />
+          <xs:element name="diasagozardois" type="xs:string" />
+          <xs:element name="tipoprocessamentodois" type="feriasprogramacaotipoprocessamentoenum" nillable="true" minOccurs="0" />
+          <xs:element name="datainicialdois" type="xs:dateTime" />
+          <xs:element name="datadois" type="xs:dateTime" />
+          <xs:element name="situacaodois" type="feriasprogramacaosituacaoenum" nillable="true" minOccurs="0" />
+          <xs:element name="mescompetenciaparticaotres" type="xs:string" />
+          <xs:element name="diasagozartres" type="xs:string" />
+          <xs:element name="tipoprocessamentotres" type="feriasprogramacaotipoprocessamentoenum" nillable="true" minOccurs="0" />
+          <xs:element name="datainicialtres" type="xs:dateTime" />
+          <xs:element name="datatres" type="xs:dateTime" />
+          <xs:element name="situacaotres" type="feriasprogramacaosituacaoenum" nillable="true" minOccurs="0" />
+          <xs:element name="motivo" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="recadastramentodados" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="municipio" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="nacionalidade" nillable="true" minOccurs="0" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="nomemae" type="xs:string" />
+        <xs:element name="nomepai" type="xs:string" />
+        <xs:element name="genero" type="generoenum" nillable="true" minOccurs="0" />
+        <xs:element name="estadocivil" type="estadocivilenum" nillable="true" minOccurs="0" />
+        <xs:element name="racacor" type="corpeleenum" nillable="true" minOccurs="0" />
+        <xs:element name="tiposanguineo" type="xs:string" />
+        <xs:element name="grauinstrucao" type="grauinstrucaoenum" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gruposalarial" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="nome" type="xs:string" />
+          <xs:element name="listclassessalariais" type="classesalarial" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="requisicaopessoalfuncao" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="funcao" nillable="true" minOccurs="0" />
+          <xs:element name="tipocontratacao" type="tipocontratacaoenum" nillable="true" minOccurs="0" />
+          <xs:element name="qtdvagas" type="xs:anyType" />
+          <xs:element name="custoporvaga" type="xs:double" />
+          <xs:element name="" type="turno" nillable="true" minOccurs="0" />
+          <xs:element name="" type="requisicaopessoal" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="vinculo" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="descricao" type="xs:string" />
+          <xs:element name="apos" type="vinculo" nillable="true" minOccurs="0" />
+          <xs:element name="grupo" type="grupovinculoenum" nillable="true" minOccurs="0" />
+          <xs:element name="categoria" type="sefip" nillable="true" minOccurs="0" />
+          <xs:element name="ocorrencia" type="sefip" nillable="true" minOccurs="0" />
+          <xs:element name="" type="tipocontrato" nillable="true" minOccurs="0" />
+          <xs:element name="categoria" type="esocial" nillable="true" minOccurs="0" />
+          <xs:element name="situacaoinicial" type="situacaofuncional" nillable="true" minOccurs="0" />
+          <xs:element name="datainicial" type="xs:dateTime" />
+          <xs:element name="data" type="xs:dateTime" />
+          <xs:element name="verbas" type="verba" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="referenciasalarial" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="codigo" type="xs:string" />
+          <xs:element name="descricao" type="xs:string" />
+          <xs:element name="valor" type="xs:double" />
+          <xs:element name="nivelreferencia" type="xs:anyType" />
+          <xs:element name="mesanocompetencia" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="classesalarial" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="nome" type="xs:string" />
+          <xs:element name="" type="gruposalarial" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="historicosituacaofuncional" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="tipohistoricosituacaofuncional" type="tipohistoricosituacaofuncionalenum" nillable="true" minOccurs="0" />
+          <xs:element name="" type="funcionario" nillable="true" minOccurs="0" />
+          <xs:element name="" type="funcao" nillable="true" minOccurs="0" />
+          <xs:element name="nivelsalarial" type="referenciasalarial" nillable="true" minOccurs="0" />
+          <xs:element name="" type="motivo" nillable="true" minOccurs="0" />
+          <xs:element name="ato" type="xs:string" />
+          <xs:element name="dataato" type="xs:anyType" />
+          <xs:element name="datadiariooficial" type="xs:anyType" />
+          <xs:element name="datainicio" type="xs:anyType" />
+          <xs:element name="datafim" type="xs:anyType" />
+          <xs:element name="observacaocancelamento" type="xs:string" />
+          <xs:element name="filialdestino" type="empresafilial" nillable="true" minOccurs="0" />
+          <xs:element name="situacao" type="motivoafastamento" nillable="true" minOccurs="0" />
+          <xs:element name="dataretorno" type="xs:anyType" />
+          <xs:element name="tipoexoneracaodemissao" type="tipoexoneracaodemissaoenum" nillable="true" minOccurs="0" />
+          <xs:element name="" type="situacaofuncional" nillable="true" minOccurs="0" />
+          <xs:element name="anterior" type="situacaofuncional" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="parametroglobal" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="chave" type="parametroglobalchaveenum" nillable="true" minOccurs="0" />
+          <xs:element name="tipo" type="parametroglobaltipoenum" nillable="true" minOccurs="0" />
+          <xs:element name="valor" type="xs:string" />
+          <xs:element name="ativo" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pensaoalimenticia" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="//blocoinicialid" type="xs:long" />
+          <xs:element name="" type="funcionario" nillable="true" minOccurs="0" />
+          <xs:element name="//blocodoalimentandonomealimentando" type="xs:string" />
+          <xs:element name="nascimentoalimentando" type="xs:dateTime" />
+          <xs:element name="tipopensao" type="tipopensaoenum" nillable="true" minOccurs="0" />
+          <xs:element name="rg" type="xs:string" />
+          <xs:element name="orgao" type="xs:string" />
+          <xs:element name="estadodocumento" type="unidadefederativa" nillable="true" minOccurs="0" />
+          <xs:element name="cpf" type="xs:string" />
+          <xs:element name="numerotelefone" type="xs:string" />
+          <xs:element name="alimentando" type="endereco" nillable="true" minOccurs="0" />
+          <xs:element name="//blocodoresponsávellegalresponsavel" type="responsavellegal" nillable="true" minOccurs="0" />
+          <xs:element name="numeroprocessoresponsavel" type="xs:string" />
+          <xs:element name="datainicial" type="xs:dateTime" />
+          <xs:element name="data" type="xs:dateTime" />
+          <xs:element name="//blocodepagamentoparte1datainicialpagamento" type="xs:dateTime" />
+          <xs:element name="datapagamento" type="xs:dateTime" />
+          <xs:element name="" type="centrocusto" nillable="true" minOccurs="0" />
+          <xs:element name="" type="verba" nillable="true" minOccurs="0" />
+          <xs:element name="" type="dadobancario" nillable="true" minOccurs="0" />
+          <xs:element name="//blocodepagamentoparte2numeroprocessopagamento" type="xs:string" />
+          <xs:element name="vencimento" type="xs:dateTime" />
+          <xs:element name="tipovalor" type="tipovalorenum" nillable="true" minOccurs="0" />
+          <xs:element name="valor" type="xs:double" />
+          <xs:element name="salariofamilia" type="xs:long" />
+          <xs:element name="tipoincidenciaprincipalpensao" type="tipoincidenciaprincipalpensaoenum" nillable="true" minOccurs="0" />
+          <xs:element name="salario13" type="xs:anyType" />
+          <xs:element name="ferias" type="xs:anyType" />
+          <xs:element name="recisao" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tipoprocessamento" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="codigo" type="xs:string" />
+          <xs:element name="descricao" type="xs:string" />
+          <xs:element name="verbas" type="verba" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="certidaocompensacao" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="numero" type="xs:long" />
+          <xs:element name="ano" type="xs:anyType" />
+          <xs:element name="" type="funcionario" nillable="true" minOccurs="0" />
+          <xs:element name="classificacoes" type="classificacaocertidaocompensacaoenum" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="statusatual" type="statuscertidaocompensacaoenum" nillable="true" minOccurs="0" />
+          <xs:element name="fundo" type="fundocertidaocompensacaoenum" nillable="true" minOccurs="0" />
+          <xs:element name="" type="lotacao" nillable="true" minOccurs="0" />
+          <xs:element name="processo" type="xs:string" />
+          <xs:element name="anexos" type="anexo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="periodos" type="certidaocompensacaoperiodo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="assinaturas" type="certidaocompensacaoassinatura" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="numeroretificacao" type="xs:long" />
+          <xs:element name="" type="certidaocompensacao" nillable="true" minOccurs="0" />
+          <xs:element name="arquivada" type="xs:anyType" />
+          <xs:element name="tipocertidaocompensacao" type="certidaocompensacaotipoenum" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="naturezajuridica" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="codigo" type="xs:string" />
+          <xs:element name="nome" type="xs:string" />
+          <xs:element name="grupamento" type="grupamentonaturezaenum" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="recisaocontrato" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="funcionario" nillable="true" minOccurs="0" />
+          <xs:element name="feriasvencidas" type="xs:anyType" />
+          <xs:element name="avisoprevio" type="xs:anyType" />
+          <xs:element name="dataaviso" type="xs:anyType" />
+          <xs:element name="diasaviso" type="xs:anyType" />
+          <xs:element name="motivo" type="motivodesligamento" nillable="true" minOccurs="0" />
+          <xs:element name="datadesligamento" type="xs:anyType" />
+          <xs:element name="datahomologacao" type="xs:anyType" />
+          <xs:element name="datapagamento" type="xs:anyType" />
+          <xs:element name="status" type="recisaocontratoenum" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="definicaoorganicolotacaofuncao" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="empresafilialid" type="xs:long" />
+        <xs:element name="lotacaoid" type="xs:long" />
+        <xs:element name="funcaoid" type="xs:long" />
+        <xs:element name="quantpermitido" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuario" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="nome" type="xs:string" />
+          <xs:element name="cpf" type="xs:string" />
+          <xs:element name="ativo" type="xs:anyType" />
+          <xs:element name="login" type="xs:string" />
+          <xs:element name="senha" type="xs:string" />
+          <xs:element name="papeis" type="papel" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="anexo" nillable="true" minOccurs="0" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="" type="empresafilial" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="nivelsalarialhistorico" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="dataajuste" type="xs:dateTime" />
+          <xs:element name="origemajuste" type="nivelsalarialhistoricoorigemajusteenum" nillable="true" minOccurs="0" />
+          <xs:element name="valororiginal" type="xs:double" />
+          <xs:element name="valorajustado" type="xs:double" />
+          <xs:element name="valorretroativo" type="xs:double" />
+          <xs:element name="simulacao" type="simuladornivelsalarial" nillable="true" minOccurs="0" />
+          <xs:element name="nivelsalarial" type="referenciasalarial" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="simuladornivelsalarialvalores" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="valorretroativo" type="xs:double" />
+          <xs:element name="valorajustado" type="xs:double" />
+          <xs:element name="nivelsalarial" type="referenciasalarial" nillable="true" minOccurs="0" />
+          <xs:element name="simulador" type="simuladornivelsalarial" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="relacaoremuneracaocertidaoexsegurado" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="certidaoexsegurado" nillable="true" minOccurs="0" />
+          <xs:element name="ano" type="xs:anyType" />
+          <xs:element name="janeiro" type="xs:anyType" />
+          <xs:element name="fevereiro" type="xs:anyType" />
+          <xs:element name="marco" type="xs:anyType" />
+          <xs:element name="abril" type="xs:anyType" />
+          <xs:element name="maio" type="xs:anyType" />
+          <xs:element name="junho" type="xs:anyType" />
+          <xs:element name="julho" type="xs:anyType" />
+          <xs:element name="agosto" type="xs:anyType" />
+          <xs:element name="setembro" type="xs:anyType" />
+          <xs:element name="outubro" type="xs:anyType" />
+          <xs:element name="novembro" type="xs:anyType" />
+          <xs:element name="dezembro" type="xs:anyType" />
+          <xs:element name="decimoterceiro" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="arquivoremessapagamento" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="folhapagamento" nillable="true" minOccurs="0" />
+          <xs:element name="numeroremessa" type="xs:anyType" />
+          <xs:element name="datapagamento" type="xs:anyType" />
+          <xs:element name="situacao" type="arquivoremessapagamentosituacaoenum" nillable="true" minOccurs="0" />
+          <xs:element name="motivo" type="xs:string" />
+          <xs:element name="anexos" type="anexo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="nacionalidade" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="sigla" type="xs:string" />
+          <xs:element name="nacionalidadefeminina" type="xs:string" />
+          <xs:element name="nacionalidademasculina" type="xs:string" />
+          <xs:element name="codigosiprev" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pacientepericiatelefone" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="telefone" type="xs:string" />
+        <xs:element name="GeneratedName" type="pacientepericiamedica" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="motivo" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="descricao" type="xs:string" />
+          <xs:element name="tipo" type="tipomotivoenum" nillable="true" minOccurs="0" />
+          <xs:element name="evento" type="eventomotivoenum" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="exame" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="codigo" type="xs:string" />
+          <xs:element name="descricao" type="xs:string" />
+          <xs:element name="categoria" type="categoriaexameenum" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="esocial" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="descricao" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="processofuncao" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="descricao" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tipofolha" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="codigo" type="xs:string" />
+          <xs:element name="descricao" type="xs:string" />
+          <xs:element name="verbas" type="verba" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tipoaverbacao" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="codigo" type="xs:anyType" />
+          <xs:element name="descricao" type="xs:string" />
+          <xs:element name="formaaverbacao" type="formaaverbacaoenum" nillable="true" minOccurs="0" />
+          <xs:element name="deducaoaverbacao" type="deducaoaverbacaoenum" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="certidaoexservidorcargo" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="certidaoexservidor" type="certidaoexsegurado" nillable="true" minOccurs="0" />
+          <xs:element name="descricaocargo" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="declaracaoexservidordadosfuncionais" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="declaracaoexservidor" nillable="true" minOccurs="0" />
+          <xs:element name="" type="cargo" nillable="true" minOccurs="0" />
+          <xs:element name="atonomeacao" type="xs:string" />
+          <xs:element name="dataentrada" type="xs:anyType" />
+          <xs:element name="datadiariooficialentrada" type="xs:anyType" />
+          <xs:element name="dataencerramento" type="xs:anyType" />
+          <xs:element name="atoencerramento" type="xs:string" />
+          <xs:element name="datadiariooficialencerramento" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="agendamedicadata" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="agendamedica" nillable="true" minOccurs="0" />
+        <xs:element name="diasemana" type="xs:string" />
+        <xs:element name="horario" type="xs:dateTime" />
+        <xs:element name="data" type="xs:anyType" />
+        <xs:element name="hora" type="xs:string" />
+        <xs:element name="checkhorario" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="equipamentoprotecaocoletiva" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="codigo" type="xs:string" />
+          <xs:element name="tipoprotecao" type="xs:string" />
+          <xs:element name="descricao" type="xs:string" />
+          <xs:element name="validade" type="xs:anyType" />
+          <xs:element name="certificado" type="xs:string" />
+          <xs:element name="referencia" type="xs:string" />
+          <xs:element name="minimo" type="xs:anyType" />
+          <xs:element name="livre" type="xs:anyType" />
+          <xs:element name="atual" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="papel" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nome" type="papelnomeenum" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="menu" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="certidaoexservidororgaolotacao" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="certidaoexservidor" type="certidaoexsegurado" nillable="true" minOccurs="0" />
+          <xs:element name="descricaoorgaolotacao" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="declaracaoaposentadoriaassinatura" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="declaracaoaposentadoria" nillable="true" minOccurs="0" />
+          <xs:element name="" type="funcionario" nillable="true" minOccurs="0" />
+          <xs:element name="funcao" type="funcaodeclaracaoaposentadoriaenum" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="simuladornivelsalarial" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="descricao" type="xs:string" />
+          <xs:element name="datacompetencia" type="xs:anyType" />
+          <xs:element name="situacao" type="situacaosimuladornivelsalarialenum" nillable="true" minOccurs="0" />
+          <xs:element name="programarajuste" type="xs:anyType" />
+          <xs:element name="motivoajuste" type="motivoajustesalarialenum" nillable="true" minOccurs="0" />
+          <xs:element name="tipoajuste" type="tipoajustesalarialenum" nillable="true" minOccurs="0" />
+          <xs:element name="valorajuste" type="xs:double" />
+          <xs:element name="dataajuste" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="licencamedica" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="funcionario" nillable="true" minOccurs="0" />
+          <xs:element name="crm" type="crmcrea" nillable="true" minOccurs="0" />
+          <xs:element name="" type="situacaofuncional" nillable="true" minOccurs="0" />
+          <xs:element name="" type="motivoafastamento" nillable="true" minOccurs="0" />
+          <xs:element name="periodoinicial" type="xs:anyType" />
+          <xs:element name="periodo" type="xs:anyType" />
+          <xs:element name="datainspecao" type="xs:anyType" />
+          <xs:element name="cid" type="classificacaointernacionaldoenca" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="arrecadacaoaliquotaencargo" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="arrecadacaoaliquotaperiodo" nillable="true" minOccurs="0" />
+          <xs:element name="aliquotaencargo" type="arrecadacaoaliquotaencargoenum" nillable="true" minOccurs="0" />
+          <xs:element name="aliquota" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="avaliacaodesempenhoitem" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="avaliacaodesempenho" nillable="true" minOccurs="0" />
+          <xs:element name="coditemavaliacao" type="xs:string" />
+          <xs:element name="nome" type="xs:string" />
+          <xs:element name="seqavaliacao" type="xs:string" />
+          <xs:element name="descricao" type="xs:string" />
+          <xs:element name="tipoquestao" type="avaliacaodesempenhoitemtipoquestaoenum" nillable="true" minOccurs="0" />
+          <xs:element name="formaavaliacao" type="avaliacaodesempenhoitemformaavaliacaoenum" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="arrecadacaoindice" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="indice" type="xs:string" />
+          <xs:element name="anos" type="arrecadacaoindiceanoperiodicidade" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="curso" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="nomecurso" type="xs:string" />
+          <xs:element name="codigomec" type="xs:string" />
+          <xs:element name="cargahoraria" type="xs:long" />
+          <xs:element name="" type="grauacademico" nillable="true" minOccurs="0" />
+          <xs:element name="" type="areaformacao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="periodocertidaoexsegurado" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="certidaoexsegurado" nillable="true" minOccurs="0" />
+          <xs:element name="periodoinicio" type="xs:anyType" />
+          <xs:element name="periodo" type="xs:anyType" />
+          <xs:element name="aproveitamento" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="crmcrea" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="nomeconveniado" type="xs:string" />
+          <xs:element name="numerocrmcrea" type="xs:string" />
+          <xs:element name="coordenadorpcmso" type="xs:anyType" />
+          <xs:element name="responsavelltcat" type="xs:anyType" />
+          <xs:element name="tipo" type="crmcreaenum" nillable="true" minOccurs="0" />
+          <xs:element name="convenios" type="convenio" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dirf" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="anobase" type="xs:anyType" />
+          <xs:element name="tipodeclaracao" type="dirftipodeclaracaoenum" nillable="true" minOccurs="0" />
+          <xs:element name="numerodeclaracao" type="xs:anyType" />
+          <xs:element name="filial" type="empresafilial" nillable="true" minOccurs="0" />
+          <xs:element name="responsavelreceita" type="dirfresponsavelreceita" nillable="true" minOccurs="0" />
+          <xs:element name="naturezadeclarante" type="xs:anyType" />
+          <xs:element name="situacao" type="dirfsituacao" nillable="true" minOccurs="0" />
+          <xs:element name="anexos" type="anexo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="declaracaoaposentadoriaaverbacao" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="declaracaoaposentadoria" nillable="true" minOccurs="0" />
+          <xs:element name="empregador" type="xs:string" />
+          <xs:element name="periodoinicio" type="xs:anyType" />
+          <xs:element name="periodofim" type="xs:anyType" />
+          <xs:element name="fonteinf" type="xs:string" />
+          <xs:element name="observacao" type="xs:string" />
+          <xs:element name="averbado" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="recadastramentoendereco" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="municipio" nillable="true" minOccurs="0" />
+        <xs:element name="cep" type="xs:string" />
+        <xs:element name="bairro" type="xs:string" />
+        <xs:element name="logradouro" type="xs:string" />
+        <xs:element name="complemento" type="xs:string" />
+        <xs:element name="numero" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="observacao" type="xs:string" />
+        <xs:element name="telefones" type="telefone" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pensionista" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="funcionario" nillable="true" minOccurs="0" />
+          <xs:element name="pensaopagamento" type="pensaoprevidenciariapagamento" nillable="true" minOccurs="0" />
+          <xs:element name="matricula" type="xs:anyType" />
+          <xs:element name="nome" type="xs:string" />
+          <xs:element name="datanascimento" type="xs:anyType" />
+          <xs:element name="genero" type="generoenum" nillable="true" minOccurs="0" />
+          <xs:element name="estadocivil" type="estadocivilenum" nillable="true" minOccurs="0" />
+          <xs:element name="status" type="xs:anyType" />
+          <xs:element name="grauinstrucao" type="grauinstrucaoenum" nillable="true" minOccurs="0" />
+          <xs:element name="naturalidade" type="municipio" nillable="true" minOccurs="0" />
+          <xs:element name="tituloeleitor" type="xs:string" />
+          <xs:element name="nomemae" type="xs:string" />
+          <xs:element name="nomepai" type="xs:string" />
+          <xs:element name="cep" type="xs:anyType" />
+          <xs:element name="logradouro" type="xs:string" />
+          <xs:element name="numerologradouro" type="xs:string" />
+          <xs:element name="complementologradouro" type="xs:string" />
+          <xs:element name="bairro" type="xs:string" />
+          <xs:element name="" type="municipio" nillable="true" minOccurs="0" />
+          <xs:element name="tipofamilia" type="tipofamiliaenum" nillable="true" minOccurs="0" />
+          <xs:element name="grauparentesco" type="grauparentescoenum" nillable="true" minOccurs="0" />
+          <xs:element name="motivo" type="motivopensionistaenum" nillable="true" minOccurs="0" />
+          <xs:element name="" type="responsavellegal" nillable="true" minOccurs="0" />
+          <xs:element name="datainicioresponsavel" type="xs:anyType" />
+          <xs:element name="datavencimentoresponsavel" type="xs:anyType" />
+          <xs:element name="numeroprocessoresponsavel" type="xs:anyType" />
+          <xs:element name="" type="anexo" nillable="true" minOccurs="0" />
+          <xs:element name="cpf" type="xs:string" />
+          <xs:element name="identidade" type="xs:string" />
+          <xs:element name="dataexpedicaorg" type="xs:anyType" />
+          <xs:element name="tiposanguineo" type="xs:string" />
+          <xs:element name="corpele" type="corpeleenum" nillable="true" minOccurs="0" />
+          <xs:element name="" type="nacionalidade" nillable="true" minOccurs="0" />
+          <xs:element name="emailpessoal" type="xs:string" />
+          <xs:element name="telefonefixo" type="xs:string" />
+          <xs:element name="celular" type="xs:string" />
+          <xs:element name="observacao" type="xs:string" />
+          <xs:element name="verbas" type="pensionistaverba" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="databaserecadastramento" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="arrecadacaoaliquotaperiodo" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="iniciovigencia" type="xs:anyType" />
+          <xs:element name="fimvigencia" type="xs:anyType" />
+          <xs:element name="encargos" type="arrecadacaoaliquotaencargo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="prestadorservico" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="//dadospessoaisid" type="xs:long" />
+          <xs:element name="nomecivil" type="xs:string" />
+          <xs:element name="nomesocial" type="xs:string" />
+          <xs:element name="cpf" type="xs:string" />
+          <xs:element name="datanascimento" type="xs:anyType" />
+          <xs:element name="estadocivil" type="estadocivilenum" nillable="true" minOccurs="0" />
+          <xs:element name="sexo" type="sexoprestadorenum" nillable="true" minOccurs="0" />
+          <xs:element name="cor" type="corprestadorenum" nillable="true" minOccurs="0" />
+          <xs:element name="" type="nacionalidade" nillable="true" minOccurs="0" />
+          <xs:element name="nomemae" type="xs:string" />
+          <xs:element name="nomepai" type="xs:string" />
+          <xs:element name="logradouro" type="xs:string" />
+          <xs:element name="numero" type="xs:string" />
+          <xs:element name="complemento" type="xs:string" />
+          <xs:element name="bairro" type="xs:string" />
+          <xs:element name="ufendereco" type="unidadefederativa" nillable="true" minOccurs="0" />
+          <xs:element name="" type="municipio" nillable="true" minOccurs="0" />
+          <xs:element name="cep" type="xs:string" />
+          <xs:element name="dddcelular" type="xs:anyType" />
+          <xs:element name="numerocelular" type="xs:string" />
+          <xs:element name="dddtelefone" type="xs:anyType" />
+          <xs:element name="telefone" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="//dadostrabalhistaslocacao" type="locacaoprestadorenum" nillable="true" minOccurs="0" />
+          <xs:element name="" type="empresafilial" nillable="true" minOccurs="0" />
+          <xs:element name="" type="categoriaprofissional" nillable="true" minOccurs="0" />
+          <xs:element name="" type="cbo" nillable="true" minOccurs="0" />
+          <xs:element name="datainicial" type="xs:anyType" />
+          <xs:element name="data" type="xs:anyType" />
+          <xs:element name="unidadepagamento" type="unidadepagamentoenum" nillable="true" minOccurs="0" />
+          <xs:element name="naturezaatividade" type="naturezaatividadeenum" nillable="true" minOccurs="0" />
+          <xs:element name="agentenocivo" type="xs:anyType" />
+          <xs:element name="exposicaopassado" type="xs:anyType" />
+          <xs:element name="tempocontribuicao" type="tempocontribuicaoenum" nillable="true" minOccurs="0" />
+          <xs:element name="//dadosfiscaisrecolheinss" type="xs:anyType" />
+          <xs:element name="modopagamento" type="modopagamentoenum" nillable="true" minOccurs="0" />
+          <xs:element name="valorpago" type="xs:double" />
+          <xs:element name="descontoinss" type="xs:double" />
+          <xs:element name="basecalculo" type="xs:double" />
+          <xs:element name="descontoir" type="xs:double" />
+          <xs:element name="registrofgts" type="xs:string" />
+          <xs:element name="cnpj" type="xs:string" />
+          <xs:element name="irretido" type="xs:double" />
+          <xs:element name="insspago" type="xs:double" />
+          <xs:element name="cnpjempresapagadora" type="xs:string" />
+          <xs:element name="//@digits(" type="xs:anyType" />
+          <xs:element name="" type="verba" nillable="true" minOccurs="0" />
+          <xs:element name="" type="convenio" nillable="true" minOccurs="0" />
+          <xs:element name="numeroempenho" type="xs:anyType" />
+          <xs:element name="dataempenho" type="xs:anyType" />
+          <xs:element name="numeronotafiscal" type="xs:anyType" />
+          <xs:element name="dataemissaonf" type="xs:anyType" />
+          <xs:element name="//documentospessoaispispasep" type="xs:string" />
+          <xs:element name="numeroctps" type="xs:anyType" />
+          <xs:element name="seriectps" type="xs:anyType" />
+          <xs:element name="ufctps" type="unidadefederativa" nillable="true" minOccurs="0" />
+          <xs:element name="numeroidentcivilnac" type="xs:anyType" />
+          <xs:element name="orgemissoridentcivilnac" type="xs:string" />
+          <xs:element name="dataemissaoidentcivilnac" type="xs:anyType" />
+          <xs:element name="numerorg" type="xs:anyType" />
+          <xs:element name="orgaoemissorrg" type="xs:string" />
+          <xs:element name="dataemissaorg" type="xs:anyType" />
+          <xs:element name="numeroregnacestrangeiro" type="xs:anyType" />
+          <xs:element name="orgaoemissorregnacestrangeiro" type="xs:string" />
+          <xs:element name="dataemissaoregnacestrangeiro" type="xs:anyType" />
+          <xs:element name="registroprofissional" type="xs:anyType" />
+          <xs:element name="dataemissaoregprofissional" type="xs:anyType" />
+          <xs:element name="datavalidaderegprofissional" type="xs:anyType" />
+          <xs:element name="numerocnh" type="xs:anyType" />
+          <xs:element name="datavalidadecnh" type="xs:anyType" />
+          <xs:element name="dataprimeiracnh" type="xs:anyType" />
+          <xs:element name="dataemissaocnh" type="xs:anyType" />
+          <xs:element name="categoriacnh" type="categoriacnhenum" nillable="true" minOccurs="0" />
+          <xs:element name="ufcnh" type="unidadefederativa" nillable="true" minOccurs="0" />
+          <xs:element name="//seçãodependentestipodependente" type="tipodependenteenum" nillable="true" minOccurs="0" />
+          <xs:element name="nomedependente" type="xs:string" />
+          <xs:element name="cpfdependente" type="xs:string" />
+          <xs:element name="impostoretidofonte" type="xs:anyType" />
+          <xs:element name="planosaudeprivado" type="xs:anyType" />
+          <xs:element name="recebebeneficio" type="xs:anyType" />
+          <xs:element name="capacitacaoprofissional" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="arrecadacaoindiceanoperiodicidade" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="ano" type="xs:long" />
+        <xs:element name="periodicidademes" type="periodicidademesenum" nillable="true" minOccurs="0" />
+        <xs:element name="arrecadacaoindicemes" type="arrecadacaoindicemes" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="arrecadacaoindice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="funcionarioverba" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="funcionario" nillable="true" minOccurs="0" />
+          <xs:element name="" type="verba" nillable="true" minOccurs="0" />
+          <xs:element name="ativo" type="xs:anyType" />
+          <xs:element name="valor" type="xs:double" />
+          <xs:element name="tipovalor" type="tipovalorenum" nillable="true" minOccurs="0" />
+          <xs:element name="recorrencia" type="recorrenciaenum" nillable="true" minOccurs="0" />
+          <xs:element name="parcelas" type="xs:anyType" />
+          <xs:element name="parcelaspagas" type="xs:anyType" />
+          <xs:element name="//todoanaliasrverbamanual" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="treinamentosugeridovalores" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="treinamentosugerido" nillable="true" minOccurs="0" />
+          <xs:element name="valordocencia" type="xs:double" />
+          <xs:element name="valorconducao" type="xs:double" />
+          <xs:element name="valordiarias" type="xs:double" />
+          <xs:element name="valormaterial" type="xs:double" />
+          <xs:element name="valorhospedagem" type="xs:double" />
+          <xs:element name="valorindividual" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="faixasalarial" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="gruposalarial" nillable="true" minOccurs="0" />
+          <xs:element name="" type="classesalarial" nillable="true" minOccurs="0" />
+          <xs:element name="niveissalariais" type="referenciasalarial" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cargo" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="//abaprincipalnome" type="xs:string" />
+          <xs:element name="codigo" type="xs:string" />
+          <xs:element name="descricao" type="xs:string" />
+          <xs:element name="extintoem" type="xs:anyType" />
+          <xs:element name="dedicacaoexclusiva" type="xs:anyType" />
+          <xs:element name="" type="cbo" nillable="true" minOccurs="0" />
+          <xs:element name="" type="naturezafuncao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="processofuncao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="categoriaprofissional" nillable="true" minOccurs="0" />
+          <xs:element name="" type="sindicato" nillable="true" minOccurs="0" />
+          <xs:element name="contagemtempoespecial" type="contagemtempoespecialenum" nillable="true" minOccurs="0" />
+          <xs:element name="motivolei" type="motivoleienum" nillable="true" minOccurs="0" />
+          <xs:element name="leirespaldo" type="xs:string" />
+          <xs:element name="vinculos" type="vinculo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="verbas" type="verba" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="//abaatividadesatividades" type="atividade" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="//abahabilidadeshabilidades" type="habilidade" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="//abacursoscursos" type="curso" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="gruposalarial" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="atividade" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="codigo" type="xs:string" />
+          <xs:element name="descricao" type="xs:string" />
+          <xs:element name="observacao" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="definicaoorganico" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="empresafilial" nillable="true" minOccurs="0" />
+          <xs:element name="primeirosubstitutonome" type="xs:string" />
+          <xs:element name="primeirosubstitutoemail" type="xs:string" />
+          <xs:element name="segundosubstitutonome" type="xs:string" />
+          <xs:element name="segundosubstitutoemail" type="xs:string" />
+          <xs:element name="previsaofuncionarios" type="xs:long" />
+          <xs:element name="funcionariosatuais" type="xs:long" />
+          <xs:element name="totalfuncionarios" type="xs:long" />
+          <xs:element name="previsaocustos" type="xs:anyType" />
+          <xs:element name="custosatuais" type="xs:anyType" />
+          <xs:element name="custototal" type="xs:anyType" />
+          <xs:element name="confcriticaavisar" type="xs:anyType" />
+          <xs:element name="confcriticacriticar" type="xs:anyType" />
+          <xs:element name="confcriticanenhum" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="municipio" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="regiaofiscal" type="xs:string" />
+          <xs:element name="descricao" type="xs:string" />
+          <xs:element name="uf" type="unidadefederativa" nillable="true" minOccurs="0" />
+          <xs:element name="cep" type="xs:string" />
+          <xs:element name="naturalidade" type="xs:string" />
+          <xs:element name="codigoibge" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="importadorlancamentomanual" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="folhapagamento" nillable="true" minOccurs="0" />
+          <xs:element name="arquivoimportacao" type="anexo" nillable="true" minOccurs="0" />
+          <xs:element name="excluido" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="categoriadoenca" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="codigo" type="xs:string" />
+          <xs:element name="descricao" type="xs:string" />
+          <xs:element name="ativo" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="codigopagamentogps" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="codigo" type="xs:string" />
+          <xs:element name="descricao" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="funcionario" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="//inícioabadedadosdocontratonome" type="xs:string" />
+          <xs:element name="matricula" type="xs:anyType" />
+          <xs:element name="empresa" type="empresafilial" nillable="true" minOccurs="0" />
+          <xs:element name="filial" type="empresafilial" nillable="true" minOccurs="0" />
+          <xs:element name="datanascimento" type="xs:anyType" />
+          <xs:element name="sexo" type="xs:anyType" />
+          <xs:element name="estadocivil" type="estadocivilenum" nillable="true" minOccurs="0" />
+          <xs:element name="grauinstrucao" type="grauinstrucaoenum" nillable="true" minOccurs="0" />
+          <xs:element name="" type="nacionalidade" nillable="true" minOccurs="0" />
+          <xs:element name="naturalidade" type="municipio" nillable="true" minOccurs="0" />
+          <xs:element name="" type="municipio" nillable="true" minOccurs="0" />
+          <xs:element name="conhecidocomo" type="xs:string" />
+          <xs:element name="tiposanguineo" type="xs:string" />
+          <xs:element name="corpele" type="corpeleenum" nillable="true" minOccurs="0" />
+          <xs:element name="nomemae" type="xs:string" />
+          <xs:element name="nomepai" type="xs:string" />
+          <xs:element name="//fimabadadosdocontrato//inícioabacontato&endereçoestrangeiro" type="xs:anyType" />
+          <xs:element name="naturalizado" type="xs:anyType" />
+          <xs:element name="registroestrangeirouf" type="unidadefederativa" nillable="true" minOccurs="0" />
+          <xs:element name="uf" type="unidadefederativa" nillable="true" minOccurs="0" />
+          <xs:element name="registroestrangeiro" type="municipio" nillable="true" minOccurs="0" />
+          <xs:element name="casamentobrasileiro" type="xs:anyType" />
+          <xs:element name="filhobrasileiro" type="xs:anyType" />
+          <xs:element name="logradouro" type="xs:string" />
+          <xs:element name="numero" type="xs:string" />
+          <xs:element name="complemento" type="xs:string" />
+          <xs:element name="bairro" type="xs:string" />
+          <xs:element name="cep" type="xs:string" />
+          <xs:element name="emailpessoal" type="xs:string" />
+          <xs:element name="emailcorporativo" type="xs:string" />
+          <xs:element name="telefoneprincipal" type="xs:string" />
+          <xs:element name="telefoneopcional" type="xs:string" />
+          <xs:element name="datanomeacao" type="xs:anyType" />
+          <xs:element name="telefonecomercial" type="xs:string" />
+          <xs:element name="//fimabacontato&endereço//inícioabadocumentaçãoidentidade" type="xs:string" />
+          <xs:element name="orgaoexpeditor" type="xs:string" />
+          <xs:element name="uforgaoexpeditor" type="unidadefederativa" nillable="true" minOccurs="0" />
+          <xs:element name="dataexpedicaorg" type="xs:anyType" />
+          <xs:element name="numeroctps" type="xs:string" />
+          <xs:element name="seriectps" type="xs:string" />
+          <xs:element name="ufctps" type="unidadefederativa" nillable="true" minOccurs="0" />
+          <xs:element name="cpf" type="xs:string" />
+          <xs:element name="pispasep" type="xs:string" />
+          <xs:element name="dataemissaopispasep" type="xs:anyType" />
+          <xs:element name="agenciapispasep" type="xs:anyType" />
+          <xs:element name="tituloeleitor" type="xs:string" />
+          <xs:element name="zona" type="xs:anyType" />
+          <xs:element name="secao" type="xs:anyType" />
+          <xs:element name="uftituloeleitor" type="unidadefederativa" nillable="true" minOccurs="0" />
+          <xs:element name="cnh" type="xs:string" />
+          <xs:element name="datavalidadecnh" type="xs:anyType" />
+          <xs:element name="categoriacnh" type="categoriacnhenum" nillable="true" minOccurs="0" />
+          <xs:element name="registroalistamento" type="xs:anyType" />
+          <xs:element name="categoriaalistamento" type="xs:string" />
+          <xs:element name="" type="classificacaoato" nillable="true" minOccurs="0" />
+          <xs:element name="numeroprocesso" type="xs:anyType" />
+          <xs:element name="numeroato" type="xs:anyType" />
+          <xs:element name="numerodiariooficial" type="xs:anyType" />
+          <xs:element name="datapublicacaodiariooficial" type="xs:anyType" />
+          <xs:element name="numerosus" type="xs:string" />
+          <xs:element name="//fimabadocumentaçao//inícioabadedadosdopagamento" type="vinculo" nillable="true" minOccurs="0" />
+          <xs:element name="dataadmissao" type="xs:anyType" />
+          <xs:element name="numerodependentesimpostorenda" type="xs:anyType" />
+          <xs:element name="numerodependentessalariofamilia" type="xs:anyType" />
+          <xs:element name="" type="funcao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="cargo" nillable="true" minOccurs="0" />
+          <xs:element name="cargo" type="faixasalarial" nillable="true" minOccurs="0" />
+          <xs:element name="cargo" type="referenciasalarial" nillable="true" minOccurs="0" />
+          <xs:element name="funcao" type="faixasalarial" nillable="true" minOccurs="0" />
+          <xs:element name="funcao" type="referenciasalarial" nillable="true" minOccurs="0" />
+          <xs:element name="opcaofgts" type="xs:anyType" />
+          <xs:element name="dataopcaofgts" type="xs:anyType" />
+          <xs:element name="agenciafgts" type="xs:anyType" />
+          <xs:element name="contafgts" type="xs:anyType" />
+          <xs:element name="dataexercicioadmissaoats" type="xs:anyType" />
+          <xs:element name="tipoadicionaltemposervico" type="tipoadicionaltemposervicoenum" nillable="true" minOccurs="0" />
+          <xs:element name="tipoestabilidade" type="tipoestabilidadeenum" nillable="true" minOccurs="0" />
+          <xs:element name="estabilidade" type="xs:anyType" />
+          <xs:element name="trabalho" type="municipio" nillable="true" minOccurs="0" />
+          <xs:element name="uftrabalho" type="unidadefederativa" nillable="true" minOccurs="0" />
+          <xs:element name="" type="lotacao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="banco" nillable="true" minOccurs="0" />
+          <xs:element name="agencia" type="xs:string" />
+          <xs:element name="bancaria" type="agencia" nillable="true" minOccurs="0" />
+          <xs:element name="tipoconta" type="tipocontaresponsavelenum" nillable="true" minOccurs="0" />
+          <xs:element name="numeroconta" type="xs:string" />
+          <xs:element name="digitoconta" type="xs:string" />
+          <xs:element name="operacao" type="xs:string" />
+          <xs:element name="probatorio" type="xs:anyType" />
+          <xs:element name="jornadatrabalho" type="turno" nillable="true" minOccurs="0" />
+          <xs:element name="cargahoraria" type="cargahorariasemanalenum" nillable="true" minOccurs="0" />
+          <xs:element name="" type="sindicato" nillable="true" minOccurs="0" />
+          <xs:element name="tipofrequencia" type="tipofrequenciaenum" nillable="true" minOccurs="0" />
+          <xs:element name="tipo" type="situacaofuncional" nillable="true" minOccurs="0" />
+          <xs:element name="" type="motivoafastamento" nillable="true" minOccurs="0" />
+          <xs:element name="datainiciosituacaofuncional" type="xs:anyType" />
+          <xs:element name="datafimsituacaofuncional" type="xs:anyType" />
+          <xs:element name="iniciocontratotemporario" type="xs:anyType" />
+          <xs:element name="fimcontratotemporario" type="xs:anyType" />
+          <xs:element name="diasafastado" type="xs:anyType" />
+          <xs:element name="matriculadestino" type="xs:anyType" />
+          <xs:element name="cessaoempresadestino" type="xs:string" />
+          <xs:element name="matriculavinculo" type="xs:string" />
+          <xs:element name="descricaovinculo" type="xs:string" />
+          <xs:element name="valorvinculo" type="xs:double" />
+          <xs:element name="valestransportes" type="funcionariovaletransporte" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="//fimabadadosdopagamentoanexos" type="anexo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="//dadocadastralcomplementardadocadastral" type="dadocadastralcomplementar" nillable="true" minOccurs="0" />
+          <xs:element name="//outrosrelacionamentosprocessos" type="processo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="pensoes" type="pensaoalimenticia" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="experienciaprofissionais" type="experienciaprofissional" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="acidentesdetrabalho" type="acidentetrabalho" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="funcionarioverbas" type="funcionarioverba" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="centrocusto" nillable="true" minOccurs="0" />
+          <xs:element name="recisoescontrato" type="recisaocontrato" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="databaserecadastramento" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="itemformula" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="verba" nillable="true" minOccurs="0" />
+        <xs:element name="ordem" type="xs:anyType" />
+        <xs:element name="valor" type="xs:string" />
+        <xs:element name="rotina" type="verba" nillable="true" minOccurs="0" />
+        <xs:element name="tipo" type="itemformulatipoenum" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="certidaoexsegurado" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="funcionario" nillable="true" minOccurs="0" />
+          <xs:element name="numerocertidao" type="xs:anyType" />
+          <xs:element name="anocertidao" type="xs:anyType" />
+          <xs:element name="numeroretificacao" type="xs:long" />
+          <xs:element name="statussituacaocertidao" type="statussituacaocertidaoexseguradoenum" nillable="true" minOccurs="0" />
+          <xs:element name="" type="lotacao" nillable="true" minOccurs="0" />
+          <xs:element name="dataexoneracao" type="xs:anyType" />
+          <xs:element name="fonteinformacao" type="xs:string" />
+          <xs:element name="anexos" type="anexo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="assinaturas" type="assinaturacertidaoexsegurado" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="frequencias" type="frequenciacertidaoexsegurado" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="periodos" type="periodocertidaoexsegurado" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="relacaoremuneracoes" type="relacaoremuneracaocertidaoexsegurado" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="tempoespecial" type="tempoespecialcertidaoexsegurado" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="cargos" type="certidaoexservidorcargo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="orgaoslotacao" type="certidaoexservidororgaolotacao" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="detalhamentosfrequencia" type="frequenciacertidaoexservidordetalhamento" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="certidaoexsegurado" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="recadastramentohistoricoligacao" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="funcionario" nillable="true" minOccurs="0" />
+          <xs:element name="observacao" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="funcionariovaletransporte" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="funcionario" nillable="true" minOccurs="0" />
+          <xs:element name="quantidade" type="xs:anyType" />
+          <xs:element name="" type="valetransporte" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="relatoriofinanceirofolhapagamentohistorico" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit{">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="relatoriofinanceirofolhapagamento" nillable="true" minOccurs="0" />
+          <xs:element name="status" type="statusrelatoriofinanceiroenum" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="soladiantamento" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="solicitante" type="funcionario" nillable="true" minOccurs="0" />
+          <xs:element name="porcentagemadiantamento" type="porcentagemadiantamentoenum" nillable="true" minOccurs="0" />
+          <xs:element name="mesadiantamento" type="mesadiantamentoenum" nillable="true" minOccurs="0" />
+          <xs:element name="situacao" type="situacaosoladiantamentoenum" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dependentebeneficio" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="consignado" nillable="true" minOccurs="0" />
+          <xs:element name="" type="dependente" nillable="true" minOccurs="0" />
+          <xs:element name="valor" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="frequenciacertidaoexservidordetalhamento" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="certidaoexsegurado" nillable="true" minOccurs="0" />
+          <xs:element name="periodoinicio" type="xs:anyType" />
+          <xs:element name="periodo" type="xs:anyType" />
+          <xs:element name="tempo" type="xs:anyType" />
+          <xs:element name="descricao" type="xs:string" />
+          <xs:element name="tipo" type="tipodetalhamentofrequenciaenum" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tipoaposentadoria" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="codigo" type="xs:anyType" />
+          <xs:element name="descricao" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sefip" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="codigo" type="xs:string" />
+          <xs:element name="descricao" type="xs:string" />
+          <xs:element name="tipo" type="tiposefipenum" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="classificacaointernacionaldoenca" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="codigo" type="xs:string" />
+          <xs:element name="descricao" type="xs:string" />
+          <xs:element name="" type="categoriadoenca" nillable="true" minOccurs="0" />
+          <xs:element name="" type="subcategoriadoenca" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="centrocusto" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="codigo" type="xs:string" />
+          <xs:element name="descricao" type="xs:string" />
+          <xs:element name="efetivo" type="xs:anyType" />
+          <xs:element name="nivel" type="xs:anyType" />
+          <xs:element name="tipodebito" type="xs:string" />
+          <xs:element name="tipocredito" type="xs:string" />
+          <xs:element name="contacredito" type="xs:anyType" />
+          <xs:element name="contadebito" type="xs:anyType" />
+          <xs:element name="tipocentrocusto" type="tipocentrocustoenum" nillable="true" minOccurs="0" />
+          <xs:element name="cnpj" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="transferenciaprevidenciafuncionario" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="funcionario" nillable="true" minOccurs="0" />
+          <xs:element name="" type="transferenciafuncionario" nillable="true" minOccurs="0" />
+          <xs:element name="" type="tipoaposentadoria" nillable="true" minOccurs="0" />
+          <xs:element name="" type="historicosituacaofuncional" nillable="true" minOccurs="0" />
+          <xs:element name="datasolicitacao" type="xs:anyType" />
+          <xs:element name="dataaposentadoria" type="xs:anyType" />
+          <xs:element name="tipoproporcao" type="tipoproporcaoenum" nillable="true" minOccurs="0" />
+          <xs:element name="proporcao" type="xs:anyType" />
+          <xs:element name="processo" type="xs:string" />
+          <xs:element name="observacao" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="certidaocompensacaohistorico" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="certidaocompensacao" nillable="true" minOccurs="0" />
+          <xs:element name="classificacoes" type="classificacaocertidaocompensacaoenum" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="statusatual" type="statuscertidaocompensacaoenum" nillable="true" minOccurs="0" />
+          <xs:element name="fundo" type="fundocertidaocompensacaoenum" nillable="true" minOccurs="0" />
+          <xs:element name="tipocertidaocompensacao" type="certidaocompensacaotipoenum" nillable="true" minOccurs="0" />
+          <xs:element name="observacao" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="declaracaoexservidor" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="funcionario" nillable="true" minOccurs="0" />
+          <xs:element name="responsavel" type="funcionario" nillable="true" minOccurs="0" />
+          <xs:element name="dirigente" type="funcionario" nillable="true" minOccurs="0" />
+          <xs:element name="status" type="statusdeclaracaoexservidorenum" nillable="true" minOccurs="0" />
+          <xs:element name="dadosfuncionais" type="declaracaoexservidordadosfuncionais" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tipocontrato" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="nome" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="especialidademedica" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="codigo" type="xs:string" />
+          <xs:element name="nome" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="situacaofuncional" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="codigo" type="xs:string" />
+          <xs:element name="descricao" type="xs:string" />
+          <xs:element name="raissituacao" type="xs:anyType" />
+          <xs:element name="rais" type="xs:anyType" />
+          <xs:element name="tipo" type="tipoafastamentoenum" nillable="true" minOccurs="0" />
+          <xs:element name="modalidade" type="modalidadeafastamentoenum" nillable="true" minOccurs="0" />
+          <xs:element name="qtddias" type="xs:anyType" />
+          <xs:element name="" type="motivoafastamento" nillable="true" minOccurs="0" />
+          <xs:element name="" type="motivodesligamento" nillable="true" minOccurs="0" />
+          <xs:element name="" type="causaafastamento" nillable="true" minOccurs="0" />
+          <xs:element name="entrafolha" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="valetransporte" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="codigo" type="xs:string" />
+          <xs:element name="valor" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="medico" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="matricula" type="xs:anyType" />
+          <xs:element name="empresa" type="empresafilial" nillable="true" minOccurs="0" />
+          <xs:element name="filial" type="empresafilial" nillable="true" minOccurs="0" />
+          <xs:element name="nome" type="xs:string" />
+          <xs:element name="status" type="xs:anyType" />
+          <xs:element name="naturalidade" type="municipio" nillable="true" minOccurs="0" />
+          <xs:element name="" type="nacionalidade" nillable="true" minOccurs="0" />
+          <xs:element name="estadocivil" type="estadocivilenum" nillable="true" minOccurs="0" />
+          <xs:element name="sexo" type="generoenum" nillable="true" minOccurs="0" />
+          <xs:element name="datanascimento" type="xs:anyType" />
+          <xs:element name="nomemae" type="xs:string" />
+          <xs:element name="nomepai" type="xs:string" />
+          <xs:element name="coordenadormedico" type="xs:anyType" />
+          <xs:element name="clinicogeral" type="xs:anyType" />
+          <xs:element name="especialista" type="xs:anyType" />
+          <xs:element name="identidade" type="xs:string" />
+          <xs:element name="orgaoexpeditor" type="xs:string" />
+          <xs:element name="rguf" type="unidadefederativa" nillable="true" minOccurs="0" />
+          <xs:element name="dataexpedicaorg" type="xs:anyType" />
+          <xs:element name="cpf" type="xs:string" />
+          <xs:element name="crm" type="xs:anyType" />
+          <xs:element name="dataexpedicaocrm" type="xs:anyType" />
+          <xs:element name="crmuf" type="unidadefederativa" nillable="true" minOccurs="0" />
+          <xs:element name="logradouro" type="xs:string" />
+          <xs:element name="numero" type="xs:string" />
+          <xs:element name="complemento" type="xs:string" />
+          <xs:element name="bairro" type="xs:string" />
+          <xs:element name="enderecouf" type="unidadefederativa" nillable="true" minOccurs="0" />
+          <xs:element name="" type="municipio" nillable="true" minOccurs="0" />
+          <xs:element name="cep" type="xs:string" />
+          <xs:element name="" type="usuario" nillable="true" minOccurs="0" />
+          <xs:element name="emails" type="xs:anyType" />
+          <xs:element name="telefones" type="telefone" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="especialidadesmedicas" type="especialidademedica" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tempoespecialcertidaoexsegurado" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="certidaoexsegurado" nillable="true" minOccurs="0" />
+          <xs:element name="periodoinicial" type="xs:anyType" />
+          <xs:element name="periodo" type="xs:anyType" />
+          <xs:element name="tempo" type="xs:anyType" />
+          <xs:element name="tipotempo" type="tipotempoespecialenum" nillable="true" minOccurs="0" />
+          <xs:element name="graudeficiencia" type="graudeficienciaenum" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="agendamedica" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="medico" nillable="true" minOccurs="0" />
+          <xs:element name="datainicio" type="xs:anyType" />
+          <xs:element name="datafim" type="xs:anyType" />
+          <xs:element name="horainicial" type="xs:dateTime" />
+          <xs:element name="hora" type="xs:dateTime" />
+          <xs:element name="intervalo" type="xs:anyType" />
+          <xs:element name="semanal" type="xs:anyType" />
+          <xs:element name="agendamedicadata" type="agendamedicadata" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="especialidadesmedicas" type="especialidademedica" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="legislacao" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="entefederado" nillable="true" minOccurs="0" />
+          <xs:element name="" type="norma" nillable="true" minOccurs="0" />
+          <xs:element name="" type="detalhamentonorma" nillable="true" minOccurs="0" />
+          <xs:element name="numeronorma" type="xs:anyType" />
+          <xs:element name="anonorma" type="xs:anyType" />
+          <xs:element name="ementanorma" type="xs:string" />
+          <xs:element name="inicioefeitofinanceiro" type="xs:anyType" />
+          <xs:element name="publicacao" type="xs:anyType" />
+          <xs:element name="iniciovigencia" type="xs:anyType" />
+          <xs:element name="fimvigencia" type="xs:anyType" />
+          <xs:element name="" type="assuntonorma" nillable="true" minOccurs="0" />
+          <xs:element name="" type="unidadegestora" nillable="true" minOccurs="0" />
+          <xs:element name="pessoal" type="legislacao" nillable="true" minOccurs="0" />
+          <xs:element name="anexos" type="legislacaoanexo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="textodocumento" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="codigo" type="xs:anyType" />
+        <xs:element name="descricao" type="xs:string" />
+        <xs:element name="vigencia" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="unidadegestora" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="codigo" type="xs:anyType" />
+        <xs:element name="descricao" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="assuntonorma" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="codigo" type="xs:anyType" />
+        <xs:element name="descricao" type="xs:string" />
+        <xs:element name="vigencia" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="norma" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="codigo" type="xs:anyType" />
+        <xs:element name="descricao" type="xs:string" />
+        <xs:element name="vigencia" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="legislacaoanexo" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="textodocumento" nillable="true" minOccurs="0" />
+          <xs:element name="" type="anexo" nillable="true" minOccurs="0" />
+          <xs:element name="" type="legislacao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="detalhamentonorma" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="codigo" type="xs:anyType" />
+        <xs:element name="descricao" type="xs:string" />
+        <xs:element name="vigencia" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entefederado" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="codigo" type="xs:anyType" />
+        <xs:element name="descricao" type="xs:string" />
+        <xs:element name="vigencia" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="classificacaoagentenocivo" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="codigo" type="xs:string" />
+          <xs:element name="descricao" type="xs:string" />
+          <xs:element name="tempoexposicao" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="turno" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="codigo" type="xs:string" />
+          <xs:element name="datainicio" type="xs:dateTime" />
+          <xs:element name="datafim" type="xs:dateTime" />
+          <xs:element name="horarioflexivel" type="xs:anyType" />
+          <xs:element name="horarioflexivelinicio" type="xs:dateTime" />
+          <xs:element name="horarioflexivelfim" type="xs:dateTime" />
+          <xs:element name="jornada" type="xs:dateTime" />
+          <xs:element name="intervaloflexivel" type="xs:anyType" />
+          <xs:element name="intervalo" type="xs:dateTime" />
+          <xs:element name="intervaloflexivelinicio" type="xs:dateTime" />
+          <xs:element name="intervaloflexivelfim" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="falta" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="funcionario" nillable="true" minOccurs="0" />
+          <xs:element name="datainicio" type="xs:anyType" />
+          <xs:element name="dataretorno" type="xs:anyType" />
+          <xs:element name="" type="motivoafastamento" nillable="true" minOccurs="0" />
+          <xs:element name="" type="situacaofuncional" nillable="true" minOccurs="0" />
+          <xs:element name="diagnosticomedico" type="xs:string" />
+          <xs:element name="observacaodocumento" type="xs:string" />
+          <xs:element name="" type="anexo" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="processo" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="funcionario" nillable="true" minOccurs="0" />
+          <xs:element name="numeroprocesso" type="xs:string" />
+          <xs:element name="assunto" type="xs:string" />
+          <xs:element name="datainicio" type="xs:anyType" />
+          <xs:element name="datafim" type="xs:anyType" />
+          <xs:element name="requerente" type="xs:string" />
+          <xs:element name="atoportaria" type="xs:long" />
+          <xs:element name="dataato" type="xs:anyType" />
+          <xs:element name="doe" type="xs:string" />
+          <xs:element name="datadoe" type="xs:anyType" />
+          <xs:element name="impactofinanceiro" type="xs:anyType" />
+          <xs:element name="tiporeflexo" type="tiporeflexoenum" nillable="true" minOccurs="0" />
+          <xs:element name="inicioimpactofinanco" type="xs:anyType" />
+          <xs:element name="fimimpactofinanco" type="xs:anyType" />
+          <xs:element name="situacao" type="situacaoprocessoenum" nillable="true" minOccurs="0" />
+          <xs:element name="anexos" type="anexo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="etapa" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="codigo" type="xs:anyType" />
+          <xs:element name="descricao" type="xs:string" />
+          <xs:element name="processo" type="processoetapaenum" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="codigorecolhimento" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="codigo" type="xs:anyType" />
+          <xs:element name="descricao" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="agencia" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="numero" type="xs:anyType" />
+          <xs:element name="digito" type="xs:anyType" />
+          <xs:element name="nome" type="xs:string" />
+          <xs:element name="uf" type="unidadefederativa" nillable="true" minOccurs="0" />
+          <xs:element name="bloqueado" type="xs:anyType" />
+          <xs:element name="" type="banco" nillable="true" minOccurs="0" />
+          <xs:element name="" type="municipio" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="contacontabil" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="empresa" type="empresafilial" nillable="true" minOccurs="0" />
+          <xs:element name="" type="verba" nillable="true" minOccurs="0" />
+          <xs:element name="filial" type="empresafilial" nillable="true" minOccurs="0" />
+          <xs:element name="" type="centrocusto" nillable="true" minOccurs="0" />
+          <xs:element name="tipoconta" type="tipocontalotacaoenum" nillable="true" minOccurs="0" />
+          <xs:element name="lotacoes" type="lotacao" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="conta" type="xs:anyType" />
+          <xs:element name="rateio" type="xs:double" />
+          <xs:element name="rateiototal" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="menu" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="ativo" type="xs:anyType" />
+        <xs:element name="categoria" type="menucategoriaenum" nillable="true" minOccurs="0" />
+        <xs:element name="url" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="prontuariopericiamedica" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit{">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="pacientepericiamedica" nillable="true" minOccurs="0" />
+          <xs:element name="" type="consultapericiamedica" nillable="true" minOccurs="0" />
+          <xs:element name="" type="especialidademedica" nillable="true" minOccurs="0" />
+          <xs:element name="" type="medico" nillable="true" minOccurs="0" />
+          <xs:element name="numeropericia" type="xs:anyType" />
+          <xs:element name="anopericia" type="xs:anyType" />
+          <xs:element name="motivopericia" type="xs:string" />
+          <xs:element name="cid" type="xs:string" />
+          <xs:element name="hda" type="xs:string" />
+          <xs:element name="examefisico" type="xs:string" />
+          <xs:element name="diagnostico" type="xs:string" />
+          <xs:element name="acao" type="tipoacaopericiamedicaenum" nillable="true" minOccurs="0" />
+          <xs:element name="dataproximapericia" type="xs:anyType" />
+          <xs:element name="diasproximaconsulta" type="xs:anyType" />
+          <xs:element name="observacaomedico" type="xs:string" />
+          <xs:element name="laudo" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="relatoriofinanceirofolhapagamento" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="descricao" type="xs:string" />
+          <xs:element name="" type="anexo" nillable="true" minOccurs="0" />
+          <xs:element name="" type="folhacompetencia" nillable="true" minOccurs="0" />
+          <xs:element name="historicoatual" type="relatoriofinanceirofolhapagamentohistorico" nillable="true" minOccurs="0" />
+          <xs:element name="historicos" type="relatoriofinanceirofolhapagamentohistorico" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="filiais" type="empresafilial" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="situacoesfuncionais" type="situacaofuncional" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="lotacoes" type="lotacao" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="auditoria" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="descricao" type="xs:string" />
+          <xs:element name="entidade" type="xs:string" />
+          <xs:element name="acao" type="acaoauditoriaenum" nillable="true" minOccurs="0" />
+          <xs:element name="idobjectauditado" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="recadastramentocontato" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="observacao" type="xs:string" />
+        <xs:element name="telefones" type="telefone" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="requisito" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="descricao" type="xs:string" />
+          <xs:element name="dadocomparativo" type="dadocomparativoenum" nillable="true" minOccurs="0" />
+          <xs:element name="comparacao" type="tipocomparacaoenum" nillable="true" minOccurs="0" />
+          <xs:element name="valor" type="xs:string" />
+          <xs:element name="iniciointervalo" type="xs:string" />
+          <xs:element name="fimintervalo" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="avaliacaodesempenho" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="empresafilial" nillable="true" minOccurs="0" />
+          <xs:element name="codavaliacao" type="xs:string" />
+          <xs:element name="nome" type="xs:string" />
+          <xs:element name="modelo" type="avaliacaodesempenhomodeloenum" nillable="true" minOccurs="0" />
+          <xs:element name="lotacoes" type="lotacao" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="cargos" type="cargo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="funcoes" type="funcao" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="itens" type="avaliacaodesempenhoitem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="motivoafastamento" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="codigo" type="xs:string" />
+          <xs:element name="descricao" type="xs:string" />
+          <xs:element name="disponivelparapericia" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="categoriaeconomica" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="codigo" type="xs:string" />
+          <xs:element name="descricao" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="importadorverbasfuncionario" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="arquivoimportacao" type="anexo" nillable="true" minOccurs="0" />
+          <xs:element name="excluido" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="equipamentoprotecaoindividual" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="codigo" type="xs:string" />
+          <xs:element name="tipoprotecao" type="xs:string" />
+          <xs:element name="descricao" type="xs:string" />
+          <xs:element name="validade" type="xs:anyType" />
+          <xs:element name="certificado" type="xs:string" />
+          <xs:element name="minimo" type="xs:anyType" />
+          <xs:element name="livre" type="xs:anyType" />
+          <xs:element name="atual" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="turnofolga" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="turno" nillable="true" minOccurs="0" />
+          <xs:element name="dia" type="turnofolgadiaenum" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="lancamento" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="contracheque" nillable="true" minOccurs="0" />
+          <xs:element name="" type="verba" nillable="true" minOccurs="0" />
+          <xs:element name="valorreferencia" type="xs:double" />
+          <xs:element name="valor" type="xs:double" />
+          <xs:element name="//todoanaliasradicionadomanualmente" type="xs:anyType" />
+          <xs:element name="//todoanaliasrverbaespecifica" type="xs:anyType" />
+          <xs:element name="" type="pensaoalimenticia" nillable="true" minOccurs="0" />
+          <xs:element name="" type="funcionarioverba" nillable="true" minOccurs="0" />
+          <xs:element name="" type="pensionistaverba" nillable="true" minOccurs="0" />
+          <xs:element name="numeroparcela" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="consultapericiamedica" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="pacientepericiamedica" nillable="true" minOccurs="0" />
+          <xs:element name="" type="agendamedicadata" nillable="true" minOccurs="0" />
+          <xs:element name="" type="especialidademedica" nillable="true" minOccurs="0" />
+          <xs:element name="compareceu" type="xs:anyType" />
+          <xs:element name="observacaomedica" type="xs:string" />
+          <xs:element name="observacaoassitente" type="xs:string" />
+          <xs:element name="tipopericia" type="xs:string" />
+          <xs:element name="tipoproximapericia" type="xs:string" />
+          <xs:element name="proximaconsulta" type="especialidademedica" nillable="true" minOccurs="0" />
+          <xs:element name="dataproximoagendamento" type="xs:anyType" />
+          <xs:element name="" type="medico" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="simuladornivelsalarialacordo" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="simulador" type="simuladornivelsalarial" nillable="true" minOccurs="0" />
+          <xs:element name="tipo" type="tipoacordoajustesalarialenum" nillable="true" minOccurs="0" />
+          <xs:element name="dataacordo" type="xs:anyType" />
+          <xs:element name="dataincial" type="xs:anyType" />
+          <xs:element name="data" type="xs:anyType" />
+          <xs:element name="descricao" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="compensacao" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="tomadorservico" nillable="true" minOccurs="0" />
+          <xs:element name="competencia" type="xs:anyType" />
+          <xs:element name="valorcompensacao" type="xs:double" />
+          <xs:element name="datacompensacaoinicial" type="xs:anyType" />
+          <xs:element name="datacompensacao" type="xs:anyType" />
+          <xs:element name="camposeisgpsanterior" type="xs:anyType" />
+          <xs:element name="camponovegpsanterior" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="aliquota" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="valorinicial" type="xs:double" />
+          <xs:element name="valor" type="xs:double" />
+          <xs:element name="deducao" type="xs:double" />
+          <xs:element name="aliquota" type="xs:double" />
+          <xs:element name="ano" type="xs:anyType" />
+          <xs:element name="faixa" type="faixaenum" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="convenio" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="descricao" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dadocadastralcomplementar" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="funcionario" nillable="true" minOccurs="0" />
+          <xs:element name="//inícioabadadospessoaisfardamento" type="fardamentoenum" nillable="true" minOccurs="0" />
+          <xs:element name="altura" type="xs:double" />
+          <xs:element name="peso" type="xs:double" />
+          <xs:element name="calcado" type="xs:string" />
+          <xs:element name="//fimabadadospessoais//inícioabacondiçõesdesaúdecondicaoretornotrabalho" type="condicaoretornotrabalhoenum" nillable="true" minOccurs="0" />
+          <xs:element name="datainiciodeficiencia" type="xs:anyType" />
+          <xs:element name="datafimdeficiencia" type="xs:anyType" />
+          <xs:element name="reabilitado" type="xs:anyType" />
+          <xs:element name="cotista" type="xs:anyType" />
+          <xs:element name="descricaodeficiencia" type="xs:string" />
+          <xs:element name="//fimabadeficiência//inícioabaaponsentadoriadataaposentadoria" type="xs:anyType" />
+          <xs:element name="tipoaposentadoria" type="tipoaposentadoriaenum" nillable="true" minOccurs="0" />
+          <xs:element name="proporcionalidade" type="xs:anyType" />
+          <xs:element name="tipoproporcao" type="tipoproporcaoenum" nillable="true" minOccurs="0" />
+          <xs:element name="////@column(name" type="xs:anyType" />
+          <xs:element name="//@notnull//@column(name" type="xs:long" />
+          <xs:element name="localredistribuicao" type="xs:string" />
+          <xs:element name="datadistribuicaocedencia" type="xs:anyType" />
+          <xs:element name="//@column(name" type="xs:anyType" />
+          <xs:element name="temposervidorprofessor" type="xs:anyType" />
+          <xs:element name="//implementaçãodeisençõesdatainicialisencaoir" type="xs:anyType" />
+          <xs:element name="dataisencaoir" type="xs:anyType" />
+          <xs:element name="datainicialisencaoprevidencia" type="xs:anyType" />
+          <xs:element name="dataisencaoprevidencia" type="xs:anyType" />
+          <xs:element name="previdenciaespecial" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dirfresponsavelreceita" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="cpf" type="xs:string" />
+          <xs:element name="nome" type="xs:string" />
+          <xs:element name="ddd" type="xs:string" />
+          <xs:element name="numerotelefone" type="xs:string" />
+          <xs:element name="ramal" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="certidaocompensacaoperiodo" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="certidaocompensacao" nillable="true" minOccurs="0" />
+          <xs:element name="periodoinicio" type="xs:anyType" />
+          <xs:element name="periodofim" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="assinaturacertidaoexsegurado" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="funcionario" nillable="true" minOccurs="0" />
+          <xs:element name="" type="certidaoexsegurado" nillable="true" minOccurs="0" />
+          <xs:element name="funcaoassinaturacertidao" type="funcaodeclaracaoaposentadoriaenum" nillable="true" minOccurs="0" />
+          <xs:element name="" type="abaassinaturacertidao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="diautil" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/id" type="xs:long" />
+          <xs:element name="ano" type="xs:string" />
+          <xs:element name="mes" type="xs:string" />
+          <xs:element name="dia" type="xs:string" />
+          <xs:element name="diadasemana" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pensaoprevidenciariapagamento" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="dataprimeiropagamento" type="xs:anyType" />
+          <xs:element name="tiporateio" type="tiporateioenum" nillable="true" minOccurs="0" />
+          <xs:element name="valorrateio" type="xs:double" />
+          <xs:element name="tipopensao" type="tipopensaoenum" nillable="true" minOccurs="0" />
+          <xs:element name="comparidade" type="xs:anyType" />
+          <xs:element name="numeroprocessopensao" type="xs:string" />
+          <xs:element name="datafimbeneficio" type="xs:anyType" />
+          <xs:element name="datalimiteretroativo" type="xs:anyType" />
+          <xs:element name="tipocota" type="tipocotaenum" nillable="true" minOccurs="0" />
+          <xs:element name="numeroreserva" type="xs:anyType" />
+          <xs:element name="" type="agencia" nillable="true" minOccurs="0" />
+          <xs:element name="tipoconta" type="dadobancariotipocontaenum" nillable="true" minOccurs="0" />
+          <xs:element name="numeroconta" type="xs:string" />
+          <xs:element name="//@enumerated(enumtype.string)//@column(name" type="xs:anyType" />
+          <xs:element name="dataisencaoir" type="xs:anyType" />
+          <xs:element name="datainicialisencaoprevidencia" type="xs:anyType" />
+          <xs:element name="dataisencaoprevidencia" type="xs:anyType" />
+          <xs:element name="digito" type="xs:string" />
+          <xs:element name="operacao" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="contracheque" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="folhapagamento" nillable="true" minOccurs="0" />
+          <xs:element name="" type="funcionario" nillable="true" minOccurs="0" />
+          <xs:element name="" type="pensionista" nillable="true" minOccurs="0" />
+          <xs:element name="valorbruto" type="xs:double" />
+          <xs:element name="valorliquido" type="xs:double" />
+          <xs:element name="valordesconto" type="xs:double" />
+          <xs:element name="situacao" type="situacaoprocessamentoenum" nillable="true" minOccurs="0" />
+          <xs:element name="lancamentos" type="lancamento" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="nome" type="xs:string" />
+          <xs:element name="matricula" type="xs:anyType" />
+          <xs:element name="lotacao" type="xs:string" />
+          <xs:element name="municipio" type="xs:string" />
+          <xs:element name="dataadmissao" type="xs:anyType" />
+          <xs:element name="cargoefetivo" type="xs:string" />
+          <xs:element name="datanascimento" type="xs:anyType" />
+          <xs:element name="nivel" type="xs:string" />
+          <xs:element name="cargofuncao" type="xs:string" />
+          <xs:element name="referencia" type="xs:string" />
+          <xs:element name="vinculo" type="xs:string" />
+          <xs:element name="tiposituacaofuncional" type="xs:string" />
+          <xs:element name="identidade" type="xs:string" />
+          <xs:element name="cpf" type="xs:string" />
+          <xs:element name="orgaopagador" type="xs:string" />
+          <xs:element name="depsf" type="xs:anyType" />
+          <xs:element name="depir" type="xs:anyType" />
+          <xs:element name="cargahoraria" type="xs:string" />
+          <xs:element name="feedback" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="funcao" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="nome" type="xs:string" />
+          <xs:element name="descricao" type="xs:string" />
+          <xs:element name="codigo" type="xs:string" />
+          <xs:element name="" type="cbo" nillable="true" minOccurs="0" />
+          <xs:element name="datacriacao" type="xs:anyType" />
+          <xs:element name="dataextincao" type="xs:anyType" />
+          <xs:element name="funcaoextinta" type="xs:anyType" />
+          <xs:element name="" type="naturezafuncao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="processofuncao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="categoriaprofissional" nillable="true" minOccurs="0" />
+          <xs:element name="vinculos" type="vinculo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="cursos" type="curso" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="habilidades" type="habilidade" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="atividades" type="atividade" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="requisitos" type="requisito" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="verbas" type="verba" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="dedicacaoexclusiva" type="xs:anyType" />
+          <xs:element name="numerolei" type="xs:anyType" />
+          <xs:element name="datalei" type="xs:anyType" />
+          <xs:element name="funcaoacumulavel" type="funcaoacumulavelenum" nillable="true" minOccurs="0" />
+          <xs:element name="contagemtempoespecial" type="contagemtempoespecialenum" nillable="true" minOccurs="0" />
+          <xs:element name="motivolei" type="motivoleienum" nillable="true" minOccurs="0" />
+          <xs:element name="" type="gruposalarial" nillable="true" minOccurs="0" />
+          <xs:element name="" type="centrocusto" nillable="true" minOccurs="0" />
+          <xs:element name="historicoleis" type="funcaohistoricolei" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="modelodocumento" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="descricao" type="xs:string" />
+          <xs:element name="conteudo" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pensionistaverba" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="pensionista" nillable="true" minOccurs="0" />
+          <xs:element name="" type="verba" nillable="true" minOccurs="0" />
+          <xs:element name="valor" type="xs:double" />
+          <xs:element name="ativo" type="xs:anyType" />
+          <xs:element name="tipovalor" type="tipovalorenum" nillable="true" minOccurs="0" />
+          <xs:element name="recorrencia" type="recorrenciaenum" nillable="true" minOccurs="0" />
+          <xs:element name="parcelas" type="xs:anyType" />
+          <xs:element name="parcelaspagas" type="xs:anyType" />
+          <xs:element name="//todoanalisarverbamanual" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="acidentetrabalho" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="aviso" type="xs:string" />
+          <xs:element name="" type="funcionario" nillable="true" minOccurs="0" />
+          <xs:element name="setorlocal" type="xs:string" />
+          <xs:element name="causa" type="xs:string" />
+          <xs:element name="entidade" type="tomadorservico" nillable="true" minOccurs="0" />
+          <xs:element name="" type="tomadorservico" nillable="true" minOccurs="0" />
+          <xs:element name="datahoraacidente" type="xs:dateTime" />
+          <xs:element name="diasafastado" type="xs:anyType" />
+          <xs:element name="dataprevistavolta" type="xs:dateTime" />
+          <xs:element name="resultado" type="xs:string" />
+          <xs:element name="numerocat" type="xs:anyType" />
+          <xs:element name="documentoemitido" type="xs:anyType" />
+          <xs:element name="dataemissaodocumento" type="xs:dateTime" />
+          <xs:element name="" type="anexo" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="requisicaopessoal" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="status_tempo_na_data_limite" type="xs:string" />
+          <xs:element name="status_tempo_apos_a_data_limite" type="xs:string" />
+          <xs:element name="status_tempo_antes_da_data_limite" type="xs:string" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="solicitante" type="funcionario" nillable="true" minOccurs="0" />
+          <xs:element name="justificativa" type="xs:string" />
+          <xs:element name="situacao" type="situacaorequisicaopessoalenum" nillable="true" minOccurs="0" />
+          <xs:element name="dataentrada" type="xs:anyType" />
+          <xs:element name="datalimite" type="xs:anyType" />
+          <xs:element name="dataconclusao" type="xs:anyType" />
+          <xs:element name="dataprevistaadimissao" type="xs:anyType" />
+          <xs:element name="motivosolicitacao" type="xs:string" />
+          <xs:element name="substituido" type="funcionario" nillable="true" minOccurs="0" />
+          <xs:element name="candidatos" type="requisicaopessoalcandidato" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="subcategoriadoenca" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="codigo" type="xs:string" />
+          <xs:element name="descricao" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="anexo" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="filename" type="xs:string" />
+          <xs:element name="filedownloaduri" type="xs:string" />
+          <xs:element name="filetype" type="xs:string" />
+          <xs:element name="size" type="xs:long" />
+          <xs:element name="description" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="folhacompetencia" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="mescompetencia" type="xs:anyType" />
+          <xs:element name="anocompetencia" type="xs:anyType" />
+          <xs:element name="iniciocompetencia" type="xs:dateTime" />
+          <xs:element name="fimcompetencia" type="xs:dateTime" />
+          <xs:element name="programacaofechamento" type="xs:anyType" />
+          <xs:element name="checarrecad" type="xs:anyType" />
+          <xs:element name="checarrecadamplegal" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="transferenciafuncionario" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="funcionario" nillable="true" minOccurs="0" />
+          <xs:element name="empresa" type="empresafilial" nillable="true" minOccurs="0" />
+          <xs:element name="" type="lotacao" nillable="true" minOccurs="0" />
+          <xs:element name="empresaanterior" type="empresafilial" nillable="true" minOccurs="0" />
+          <xs:element name="anterior" type="lotacao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="causaafastamento" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="codigo" type="xs:string" />
+          <xs:element name="descricao" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="habilidade" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="codigo" type="xs:string" />
+          <xs:element name="descricao" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="frequencia" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="funcionario" nillable="true" minOccurs="0" />
+          <xs:element name="data" type="xs:anyType" />
+          <xs:element name="horastrabalhadas" type="xs:anyType" />
+          <xs:element name="horaextra" type="xs:anyType" />
+          <xs:element name="entradaum" type="xs:anyType" />
+          <xs:element name="saidaum" type="xs:anyType" />
+          <xs:element name="entradadois" type="xs:anyType" />
+          <xs:element name="saidadois" type="xs:anyType" />
+          <xs:element name="" type="falta" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="adiantamentopagamento" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="funcionario" nillable="true" minOccurs="0" />
+          <xs:element name="" type="empresafilial" nillable="true" minOccurs="0" />
+          <xs:element name="" type="lotacao" nillable="true" minOccurs="0" />
+          <xs:element name="tipoadiantamento" type="tipopagamentoenum" nillable="true" minOccurs="0" />
+          <xs:element name="recebimento" type="recebimentoenum" nillable="true" minOccurs="0" />
+          <xs:element name="percentualadiantamento" type="xs:double" />
+          <xs:element name="valoradiantamento" type="xs:anyType" />
+          <xs:element name="datainicio" type="xs:anyType" />
+          <xs:element name="datafim" type="xs:anyType" />
+          <xs:element name="status" type="statusadiantamentoenum" nillable="true" minOccurs="0" />
+          <xs:element name="competencia" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="certidaocompensacaoassinatura" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="certidaocompensacao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="funcionario" nillable="true" minOccurs="0" />
+          <xs:element name="funcao" type="funcaocertidaocompensacaoenum" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="declaracaoaposentadoria" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="numero" type="xs:long" />
+          <xs:element name="ano" type="xs:anyType" />
+          <xs:element name="excluida" type="xs:anyType" />
+          <xs:element name="" type="funcionario" nillable="true" minOccurs="0" />
+          <xs:element name="anexos" type="anexo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="averbacoes" type="declaracaoaposentadoriaaverbacao" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="assinaturas" type="declaracaoaposentadoriaassinatura" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="numeroretificacao" type="xs:long" />
+          <xs:element name="" type="declaracaoaposentadoria" nillable="true" minOccurs="0" />
+          <xs:element name="arquivada" type="xs:anyType" />
+          <xs:element name="tipodeclaracao" type="declaracaoaposentadoriatipoenum" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="areaformacao" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="areaformacao" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="recadastramento" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="funcionario" nillable="true" minOccurs="0" />
+          <xs:element name="pensao" type="pensionista" nillable="true" minOccurs="0" />
+          <xs:element name="dados" type="recadastramentodados" nillable="true" minOccurs="0" />
+          <xs:element name="endereco" type="recadastramentoendereco" nillable="true" minOccurs="0" />
+          <xs:element name="contato" type="recadastramentocontato" nillable="true" minOccurs="0" />
+          <xs:element name="data" type="xs:anyType" />
+          <xs:element name="status" type="xs:anyType" />
+          <xs:element name="anexos" type="anexo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="funcaohistoricolei" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="numerolei" type="xs:anyType" />
+        <xs:element name="datalei" type="xs:anyType" />
+        <xs:element name="motivolei" type="motivoleienum" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="funcao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="evento" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="descricao" type="xs:string" />
+          <xs:element name="situacao" type="situacaoeventoenum" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="lotacao" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="descricao" type="xs:string" />
+          <xs:element name="descricaocompleta" type="xs:string" />
+          <xs:element name="nivel" type="xs:anyType" />
+          <xs:element name="efetivo" type="xs:anyType" />
+          <xs:element name="" type="centrocusto" nillable="true" minOccurs="0" />
+          <xs:element name="tipoconta" type="tipocontalotacaoenum" nillable="true" minOccurs="0" />
+          <xs:element name="numeroconta" type="xs:anyType" />
+          <xs:element name="tipo" type="tipolotacaoenum" nillable="true" minOccurs="0" />
+          <xs:element name="vigenciainicial" type="xs:anyType" />
+          <xs:element name="vigencia" type="xs:anyType" />
+          <xs:element name="excluida" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="grauacademico" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="nome" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="historicocertidaoexsegurado" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="certidaoexsegurado" nillable="true" minOccurs="0" />
+          <xs:element name="status" type="statussituacaocertidaoexseguradoenum" nillable="true" minOccurs="0" />
+          <xs:element name="observacao" type="xs:string" />
+          <xs:element name="" type="funcionario" nillable="true" minOccurs="0" />
+          <xs:element name="numerocertidao" type="xs:long" />
+          <xs:element name="anocertidao" type="xs:anyType" />
+          <xs:element name="numeroretificacao" type="xs:long" />
+          <xs:element name="" type="lotacao" nillable="true" minOccurs="0" />
+          <xs:element name="dataexoneracao" type="xs:anyType" />
+          <xs:element name="fonteinformacao" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="responsavellegal" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="codigoresponsavel" type="xs:string" />
+          <xs:element name="nome" type="xs:string" />
+          <xs:element name="" type="banco" nillable="true" minOccurs="0" />
+          <xs:element name="agencia" type="xs:anyType" />
+          <xs:element name="bancaria" type="agencia" nillable="true" minOccurs="0" />
+          <xs:element name="contacorrente" type="xs:anyType" />
+          <xs:element name="digitoconta" type="xs:string" />
+          <xs:element name="tiporesponsavel" type="tiporesponsavelenum" nillable="true" minOccurs="0" />
+          <xs:element name="cpf" type="xs:string" />
+          <xs:element name="identidade" type="xs:anyType" />
+          <xs:element name="tipoconta" type="tipocontaresponsavelenum" nillable="true" minOccurs="0" />
+          <xs:element name="logradouro" type="xs:string" />
+          <xs:element name="numero" type="xs:string" />
+          <xs:element name="complemento" type="xs:string" />
+          <xs:element name="bairro" type="xs:string" />
+          <xs:element name="" type="municipio" nillable="true" minOccurs="0" />
+          <xs:element name="cep" type="xs:string" />
+          <xs:element name="" type="unidadefederativa" nillable="true" minOccurs="0" />
+          <xs:element name="telefone" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="definicaoorganicolotacaocargo" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="empresafilialid" type="xs:long" />
+        <xs:element name="lotacaoid" type="xs:long" />
+        <xs:element name="cargoid" type="xs:long" />
+        <xs:element name="quantpermitido" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="verba" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="codigo" type="xs:string" />
+          <xs:element name="descricaoverba" type="xs:string" />
+          <xs:element name="descricaoresumida" type="xs:string" />
+          <xs:element name="" type="tipoverba" nillable="true" minOccurs="0" />
+          <xs:element name="" type="destinacaoexterna" nillable="true" minOccurs="0" />
+          <xs:element name="valormaximo" type="xs:double" />
+          <xs:element name="tipovalor" type="tipovalorenum" nillable="true" minOccurs="0" />
+          <xs:element name="comentario" type="xs:string" />
+          <xs:element name="contadebito" type="xs:anyType" />
+          <xs:element name="associada" type="verba" nillable="true" minOccurs="0" />
+          <xs:element name="identificadorverba" type="identificacaoverbaenum" nillable="true" minOccurs="0" />
+          <xs:element name="contacredito" type="xs:anyType" />
+          <xs:element name="contaauxiliarprimaria" type="xs:anyType" />
+          <xs:element name="contaauxiliarsecundaria" type="xs:anyType" />
+          <xs:element name="vigenciainicial" type="xs:anyType" />
+          <xs:element name="vigencia" type="xs:anyType" />
+          <xs:element name="recorrencia" type="recorrenciaenum" nillable="true" minOccurs="0" />
+          <xs:element name="" type="centrocusto" nillable="true" minOccurs="0" />
+          <xs:element name="referencia" type="xs:double" />
+          <xs:element name="formulas" type="itemformula" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="faixaaliquota" type="faixaenum" nillable="true" minOccurs="0" />
+          <xs:element name="categoriaprofissionais" type="categoriaprofissional" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="incidencias" type="verba" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="//todoanaliasr/***usadoapenasparainserçãodeverbasmanuaisquepossuemvalordefinido.*/valor" type="xs:double" />
+          <xs:element name="//todoanaliasrverbamanual" type="xs:anyType" />
+          <xs:element name="totalproventosincidentes" type="xs:double" />
+          <xs:element name="totaldescontosincidentes" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="motivodesligamento" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="codigo" type="xs:string" />
+          <xs:element name="descricao" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cbo" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="codigo" type="xs:string" />
+          <xs:element name="nome" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pacientepericiamedica" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="funcionario" nillable="true" minOccurs="0" />
+        <xs:element name="numeroprocesso" type="xs:long" />
+        <xs:element name="cid" type="xs:string" />
+        <xs:element name="cpf" type="xs:string" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="contadorcomparecimento" type="xs:anyType" />
+        <xs:element name="tipoanalise" type="tipoanaliseenum" nillable="true" minOccurs="0" />
+        <xs:element name="status" type="statusagendamentopericiaenum" nillable="true" minOccurs="0" />
+        <xs:element name="consultaspericiasmedicas" type="consultapericiamedica" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="pacientepericiatelefone" type="pacientepericiatelefone" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="licencapremio" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="funcionarioexercicio" nillable="true" minOccurs="0" />
+          <xs:element name="observacao" type="xs:string" />
+          <xs:element name="datainicio" type="xs:anyType" />
+          <xs:element name="dataretorno" type="xs:anyType" />
+          <xs:element name="dias" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="treinamentosugerido" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="curso" nillable="true" minOccurs="0" />
+          <xs:element name="tipo" type="tipotreinamentosugerido" nillable="true" minOccurs="0" />
+          <xs:element name="instrutor" type="xs:string" />
+          <xs:element name="motivo" type="xs:string" />
+          <xs:element name="local" type="xs:string" />
+          <xs:element name="funcionarios" type="funcionario" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="datainicio" type="xs:anyType" />
+          <xs:element name="data" type="xs:anyType" />
+          <xs:element name="situacao" type="situacaotreinamentosugeridoenum" nillable="true" minOccurs="0" />
+          <xs:element name="informacoesadicionais" type="xs:string" />
+          <xs:element name="turma" type="xs:string" />
+          <xs:element name="justificativa" type="xs:string" />
+          <xs:element name="resultado" type="xs:string" />
+          <xs:element name="horario" type="xs:dateTime" />
+          <xs:element name="quantidadevagas" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="arquivoremessahistoricosituacao" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="arquivoremessa" type="arquivoremessapagamento" nillable="true" minOccurs="0" />
+          <xs:element name="situacao" type="arquivoremessapagamentosituacaoenum" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="telefone" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="numero" type="xs:string" />
+          <xs:element name="tipo" type="tipotelefoneenum" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="funcionarioexercicio" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="funcionario" nillable="true" minOccurs="0" />
+          <xs:element name="" type="classificacaoato" nillable="true" minOccurs="0" />
+          <xs:element name="exercicio" type="xs:string" />
+          <xs:element name="datainicio" type="xs:anyType" />
+          <xs:element name="datafim" type="xs:anyType" />
+          <xs:element name="processo" type="xs:string" />
+          <xs:element name="numdiariooficial" type="xs:string" />
+          <xs:element name="datadiariooficial" type="xs:anyType" />
+          <xs:element name="numeroato" type="xs:string" />
+          <xs:element name="anoato" type="xs:string" />
+          <xs:element name="dataato" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="historicocontabil" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="descricao" type="xs:string" />
+          <xs:element name="codigo" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="unidadefederativa" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="sigla" type="xs:string" />
+          <xs:element name="estado" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="consignado" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="descricao" type="xs:string" />
+          <xs:element name="" type="endereco" nillable="true" minOccurs="0" />
+          <xs:element name="telefone" type="xs:string" />
+          <xs:element name="" type="centrocusto" nillable="true" minOccurs="0" />
+          <xs:element name="cnpj" type="xs:string" />
+          <xs:element name="rg" type="xs:string" />
+          <xs:element name="orgaoexpedidor" type="xs:string" />
+          <xs:element name="margemconsignavel" type="xs:double" />
+          <xs:element name="" type="banco" nillable="true" minOccurs="0" />
+          <xs:element name="agencia" type="xs:anyType" />
+          <xs:element name="bancaria" type="agencia" nillable="true" minOccurs="0" />
+          <xs:element name="contacorrente" type="xs:string" />
+          <xs:element name="digitoconta" type="xs:string" />
+          <xs:element name="tipoconta" type="tipocontabancariaenum" nillable="true" minOccurs="0" />
+          <xs:element name="contrato" type="xs:string" />
+          <xs:element name="tipocalculo" type="xs:double" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="taxaoperacional" type="xs:double" />
+          <xs:element name="tac" type="xs:double" />
+          <xs:element name="taxacadastrosiglaconsignado" type="xs:anyType" />
+          <xs:element name="siglaconsignado" type="xs:string" />
+          <xs:element name="registroans" type="xs:anyType" />
+          <xs:element name="codigoconvergencia" type="xs:anyType" />
+          <xs:element name="digitoconvergencia" type="xs:anyType" />
+          <xs:element name="extratoconvenente" type="xs:anyType" />
+          <xs:element name="digitoconvenente" type="xs:anyType" />
+          <xs:element name="nomeconvenente" type="xs:string" />
+          <xs:element name="pvresponsavel" type="xs:string" />
+          <xs:element name="datacompetenciaprocessamento" type="xs:anyType" />
+          <xs:element name="verbadesconto" type="xs:anyType" />
+          <xs:element name="modalidade" type="modalidadeconsignadoenum" nillable="true" minOccurs="0" />
+          <xs:element name="" type="unidadefederativa" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="notificacao" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="tiponotificacao" nillable="true" minOccurs="0" />
+          <xs:element name="descricao" type="xs:string" />
+          <xs:element name="destinatario" type="usuario" nillable="true" minOccurs="0" />
+          <xs:element name="visualizada" type="xs:anyType" />
+          <xs:element name="identidade" type="xs:long" />
+          <xs:element name="enviaemail" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="temposervico" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="//inícioabadadosdofuncionário" type="funcionario" nillable="true" minOccurs="0" />
+          <xs:element name="protocoloctccts" type="xs:string" />
+          <xs:element name="salario" type="xs:double" />
+          <xs:element name="indicecontribuicao" type="indicecontribuicaoprevidenciaenum" nillable="true" minOccurs="0" />
+          <xs:element name="ultimocargo" type="xs:string" />
+          <xs:element name="categoria" type="sefip" nillable="true" minOccurs="0" />
+          <xs:element name="descricaocertidao" type="xs:string" />
+          <xs:element name="//fimabadadosdofuncionário//inícioabadadosdaaverbaçãodescricaoempresa" type="xs:string" />
+          <xs:element name="efeitoaverbacao" type="tipoaverbacao" nillable="true" minOccurs="0" />
+          <xs:element name="tipoaverbacao" type="tipoaverbacaoenum" nillable="true" minOccurs="0" />
+          <xs:element name="averbado" type="xs:anyType" />
+          <xs:element name="datainicio" type="xs:anyType" />
+          <xs:element name="datatermino" type="xs:anyType" />
+          <xs:element name="qtddias" type="xs:anyType" />
+          <xs:element name="//fimabadadosdaaverbação//inícioabadadosdapublicaçãonumeroprocesso" type="xs:string" />
+          <xs:element name="" type="classificacaoato" nillable="true" minOccurs="0" />
+          <xs:element name="numerodiariooficial" type="xs:string" />
+          <xs:element name="anopublicacao" type="xs:anyType" />
+          <xs:element name="datadiariooficial" type="xs:anyType" />
+          <xs:element name="numeroato" type="xs:string" />
+          <xs:element name="data" type="xs:anyType" />
+          <xs:element name="//fimabadadosdapublicação//inícioabadadosdainstituiçãoendereco" type="xs:string" />
+          <xs:element name="cidade" type="xs:string" />
+          <xs:element name="numero" type="xs:string" />
+          <xs:element name="complemento" type="xs:string" />
+          <xs:element name="bairro" type="xs:string" />
+          <xs:element name="uf" type="unidadefederativa" nillable="true" minOccurs="0" />
+          <xs:element name="cep" type="xs:string" />
+          <xs:element name="telefone" type="xs:string" />
+          <xs:element name="cnpj" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tomadorservico" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="tipoinscricao" type="tipoinscricaoenum" nillable="true" minOccurs="0" />
+          <xs:element name="razaosocial" type="xs:string" />
+          <xs:element name="" type="endereco" nillable="true" minOccurs="0" />
+          <xs:element name="" type="codigorecolhimento" nillable="true" minOccurs="0" />
+          <xs:element name="cnpj" type="xs:string" />
+          <xs:element name="" type="codigopagamentogps" nillable="true" minOccurs="0" />
+          <xs:element name="" type="compensacao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="contribuicaosindical" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="funcionario" nillable="true" minOccurs="0" />
+          <xs:element name="ano" type="xs:anyType" />
+          <xs:element name="" type="sindicato" nillable="true" minOccurs="0" />
+          <xs:element name="permitedesconto" type="xs:anyType" />
+          <xs:element name="" type="anexo" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="perfil" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="nome" type="xs:string" />
+          <xs:element name="ativo" type="xs:anyType" />
+          <xs:element name="papeis" type="papel" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="usuarios" type="usuario" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="historicodeclaracaoaposentadoria" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="declaracaoaposentadoria" nillable="true" minOccurs="0" />
+          <xs:element name="tipodeclaracao" type="declaracaoaposentadoriatipoenum" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="categoriaprofissional" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="codigo" type="xs:string" />
+          <xs:element name="descricao" type="xs:string" />
+          <xs:element name="verbas" type="verba" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="ativo" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tipoferias" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="descricao" type="xs:string" />
+          <xs:element name="abono" type="xs:anyType" />
+          <xs:element name="dias" type="xs:anyType" />
+          <xs:element name="saldo" type="xs:anyType" />
+          <xs:element name="decimoterceiro" type="decimoterceiroenum" nillable="true" minOccurs="0" />
+          <xs:element name="coletivo" type="coletivoenum" nillable="true" minOccurs="0" />
+          <xs:element name="licencapremio" type="licencapremioenum" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dependente" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="funcionario" nillable="true" minOccurs="0" />
+          <xs:element name="tipo" type="dependentetipodependenteenum" nillable="true" minOccurs="0" />
+          <xs:element name="nome" type="xs:string" />
+          <xs:element name="naturalidade" type="xs:string" />
+          <xs:element name="iniciomotivo" type="xs:anyType" />
+          <xs:element name="fimmotivo" type="xs:anyType" />
+          <xs:element name="sexo" type="xs:string" />
+          <xs:element name="datanascimento" type="xs:anyType" />
+          <xs:element name="numerocpf" type="xs:string" />
+          <xs:element name="numeroidentidade" type="xs:string" />
+          <xs:element name="logradouro" type="xs:string" />
+          <xs:element name="numero" type="xs:string" />
+          <xs:element name="" type="municipio" nillable="true" minOccurs="0" />
+          <xs:element name="" type="unidadefederativa" nillable="true" minOccurs="0" />
+          <xs:element name="cep" type="xs:string" />
+          <xs:element name="numdocumentocomprobatorio" type="xs:string" />
+          <xs:element name="datadocumentocomprobatorio" type="xs:anyType" />
+          <xs:element name="dependenciair" type="xs:anyType" />
+          <xs:element name="dependenciasf" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="arrecadacaoindicemes" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="mes" type="mesenum" nillable="true" minOccurs="0" />
+        <xs:element name="aliquota" type="xs:double" />
+        <xs:element name="GeneratedName" type="arrecadacaoindiceanoperiodicidade" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="experienciaprofissional" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="funcao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="funcionario" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="regraaposentadoria" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="//modalidadedeaposentadoriamodalidadeaposentadoria" type="modalidadeaposentadoriaenum" nillable="true" minOccurs="0" />
+          <xs:element name="//nomedamodalidade(casoamodalidadesejadotipo'especifica')modalidadeaposentadorianome" type="xs:string" />
+          <xs:element name="//tipodeaposentadoriatipoaposentadoria" type="tipoaposentadoriaenum" nillable="true" minOccurs="0" />
+          <xs:element name="//tipoderegratiporegra" type="tiporegraenum" nillable="true" minOccurs="0" />
+          <xs:element name="//leidebaseleibase" type="xs:string" />
+          <xs:element name="//datadevigênciavigencia" type="xs:dateTime" />
+          <xs:element name="//temposerviçopúblicotemposervicopublico" type="xs:anyType" />
+          <xs:element name="//tempodecargoefetivotempocargoefetivo" type="xs:anyType" />
+          <xs:element name="//tempocarreiratempocarreira" type="xs:anyType" />
+          <xs:element name="//tempodecontribuiçãotempocontribuicaomulher" type="xs:anyType" />
+          <xs:element name="tempocontribuicaohomem" type="xs:anyType" />
+          <xs:element name="tempocontribuicaomulherformula" type="xs:string" />
+          <xs:element name="tempocontribuicaohomemformula" type="xs:string" />
+          <xs:element name="//pedágiopedagio" type="xs:anyType" />
+          <xs:element name="//idadeidadehomem" type="xs:anyType" />
+          <xs:element name="idademulher" type="xs:anyType" />
+          <xs:element name="idadehomemformula" type="xs:string" />
+          <xs:element name="idademulherformula" type="xs:string" />
+          <xs:element name="//licençaprêmiolicencapremio" type="xs:anyType" />
+          <xs:element name="//abonopermanênciaabonopermanencia" type="xs:anyType" />
+          <xs:element name="//artigoartigo" type="xs:string" />
+          <xs:element name="//proventosproventos" type="xs:string" />
+          <xs:element name="//reajustereajuste" type="xs:string" />
+          <xs:element name="//tipodevigenciatipovigencia" type="tipovigenciaenum" nillable="true" minOccurs="0" />
+          <xs:element name="//tempodeserviçoemplenoexerciciodafunçãotemposervicoemplenoexercicio" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="folhapagamento" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="tipoprocessamento" nillable="true" minOccurs="0" />
+          <xs:element name="" type="folhacompetencia" nillable="true" minOccurs="0" />
+          <xs:element name="periodoprocessamentoinicio" type="xs:dateTime" />
+          <xs:element name="periodoprocessamentofim" type="xs:dateTime" />
+          <xs:element name="status" type="statusfolhaenum" nillable="true" minOccurs="0" />
+          <xs:element name="situacao" type="situacaoprocessamentoenum" nillable="true" minOccurs="0" />
+          <xs:element name="processamentos" type="xs:long" />
+          <xs:element name="filial" type="empresafilial" nillable="true" minOccurs="0" />
+          <xs:element name="lotacoes" type="lotacao" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="classificacaoato" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="descricao" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="banco" >
+      <xs:complexContent>
+       <xs:extension base="userdateaudit">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="codigo" type="xs:string" />
+          <xs:element name="nome" type="xs:string" />
+          <xs:element name="bloqueado" type="xs:anyType" />
+          <xs:element name="principal" type="xs:anyType" />
+          <xs:element name="agencias" type="agencia" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

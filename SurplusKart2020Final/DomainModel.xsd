@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="statutoryinfo" >
+      <xs:sequence>
+        <xs:element name="statutoryinfoid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="pan" type="xs:string" />
+        <xs:element name="tingst" type="xs:string" />
+        <xs:element name="cin" type="xs:string" />
+        <xs:element name="range" type="xs:string" />
+        <xs:element name="division" type="xs:string" />
+        <xs:element name="druglicno" type="xs:string" />
+        <xs:element name="fssaino" type="xs:string" />
+        <xs:element name="premises" type="xs:string" />
+        <xs:element name="employeenos" type="xs:long" />
+        <xs:element name="prodmanufactured" type="xs:string" />
+        <xs:element name="//@mapsid,whichdefinesthatsecundusidentifierwillbedeterminedby//primusidentifier,//and@joincolumn,specifyingwhichcolumninsecundustablewillbeused//forjoining./*@onetoone	@mapsid	@joincolumn(name" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="task" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="duedate" type="xs:anyType" />
+        <xs:element name="completed" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="product" >
+      <xs:sequence>
+        <xs:element name="prid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="category" type="xs:string" />
+        <xs:element name="identity" type="xs:string" />
+        <xs:element name="state" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="brand" type="xs:string" />
+        <xs:element name="qtyexpressed" type="xs:string" />
+        <xs:element name="sellerid" type="xs:long" />
+        <xs:element name="buyerid" type="xs:long" />
+        <xs:element name="availablepackets" type="xs:double" />
+        <xs:element name="unitprice" type="xs:double" />
+        <xs:element name="packsize" type="xs:double" />
+        <xs:element name="remainpacket" type="xs:double" />
+        <xs:element name="toblob	*//*@lob//@column(name" type="xs:dateTime" />
+        <xs:element name="expire" type="xs:dateTime" />
+        <xs:element name="//@temporal(javax.persistence.temporaltype.)upon" type="xs:dateTime" />
+        <xs:element name="loadedby" type="xs:long" />
+        <xs:element name="approved" type="xs:anyType" />
+        <xs:element name="approvedby" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="parcel" >
+      <xs:sequence>
+        <xs:element name="parcelid" type="xs:long" />
+        <xs:element name="transid" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="//buyer,seller,adminrole" type="xs:string" />
+        <xs:element name="docketno" type="xs:string" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="updt" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authorities" >
+      <xs:sequence>
+        <xs:element name="authorityid" type="xs:long" />
+        <xs:element name="role" type="enumeration" nillable="true" minOccurs="0" />
+        <xs:element name="//@javax.persistence.onetoone//@mapsid//@joincolumn(name" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="imagemodel" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="productid" type="xs:anyType" />
+        <xs:element name="imagename" type="xs:string" />
+        <xs:element name="pictype" type="xs:string" />
+        <xs:element name="imagetype" type="xs:string" />
+        <xs:element name="pic" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="negotiate" >
+      <xs:sequence>
+        <xs:element name="negotiateid" type="xs:long" />
+        <xs:element name="productid" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="buyerorseller" type="xs:string" />
+        <xs:element name="price" type="xs:double" />
+        <xs:element name="quantity" type="xs:double" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="updon" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sellerdoc" >
+      <xs:sequence>
+        <xs:element name="documentid" type="xs:long" />
+        <xs:element name="transid" type="xs:long" />
+        <xs:element name="updon" type="xs:dateTime" />
+        <xs:element name="invoice" type="xs:anyType" />
+        <xs:element name="lrreceipt" type="xs:anyType" />
+        <xs:element name="performainvoice" type="xs:anyType" />
+        <xs:element name="doc1" type="xs:anyType" />
+        <xs:element name="doc2" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cartitem" >
+      <xs:sequence>
+        <xs:element name="itemid" type="xs:long" />
+        <xs:element name="buyerid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="prid" type="xs:long" />
+        <xs:element name="sellerid" type="xs:long" />
+        <xs:element name="buypacketqty" type="xs:long" />
+        <xs:element name="estimatedprice" type="xs:double" />
+        <xs:element name="updatedon" type="xs:anyType" />
+        <xs:element name="startdate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="role" type="enumuserroles" nillable="true" minOccurs="0" />
+        <xs:element name="//@onetoone(fetch" type="userdtls" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="transaction" >
+      <xs:sequence>
+        <xs:element name="transid" type="xs:long" />
+        <xs:element name="prid" type="xs:long" />
+        <xs:element name="sellerid" type="xs:long" />
+        <xs:element name="buyerid" type="xs:long" />
+        <xs:element name="buypacketqty" type="xs:long" />
+        <xs:element name="estimatedprice" type="xs:double" />
+        <xs:element name="updatedon" type="xs:anyType" />
+        <xs:element name="updatedby" type="xs:string" />
+        <xs:element name="startdate" type="xs:anyType" />
+        <xs:element name="//(columndefinition" type="xs:anyType" />
+        <xs:element name="//(columndefinition" type="xs:anyType" />
+        <xs:element name="//(columndefinition" type="xs:anyType" />
+        <xs:element name="//(columndefinition" type="xs:anyType" />
+        <xs:element name="productapprovedbybuyer" type="xs:anyType" />
+        <xs:element name="dtproductapprovedbybuyer" type="xs:anyType" />
+        <xs:element name="//(columndefinition" type="xs:anyType" />
+        <xs:element name="//(columndefinition" type="xs:anyType" />
+        <xs:element name="dttransactioncompleted" type="xs:anyType" />
+        <xs:element name="transactionstatus" type="enumtransactionstatus" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productrequest" >
+      <xs:sequence>
+        <xs:element name="prid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="category" type="xs:string" />
+        <xs:element name="identity" type="xs:string" />
+        <xs:element name="state" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="brand" type="xs:string" />
+        <xs:element name="qtyexpressed" type="xs:string" />
+        <xs:element name="sellerid" type="xs:long" />
+        <xs:element name="buyerid" type="xs:long" />
+        <xs:element name="availableqty" type="xs:double" />
+        <xs:element name="unitprice" type="xs:double" />
+        <xs:element name="packsize" type="xs:double" />
+        <xs:element name="remainqty" type="xs:double" />
+        <xs:element name="toblob	*///@column(name" type="xs:anyType" />
+        <xs:element name="pic2" type="xs:anyType" />
+        <xs:element name="pic3" type="xs:anyType" />
+        <xs:element name="coa" type="xs:anyType" />
+        <xs:element name="manufacture" type="xs:dateTime" />
+        <xs:element name="expire" type="xs:dateTime" />
+        <xs:element name="//@temporal(javax.persistence.temporaltype.)upon" type="xs:dateTime" />
+        <xs:element name="loadedby" type="xs:long" />
+        <xs:element name="approved" type="xs:anyType" />
+        <xs:element name="approvedby" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

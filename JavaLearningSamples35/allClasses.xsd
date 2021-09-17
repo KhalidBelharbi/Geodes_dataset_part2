@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="springjpawebsampleapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userprofilerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<userprofile,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="noterepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<note,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tagrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<tag,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="postrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<post,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="note" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="//notnullorempty.title" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="updat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="post" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="postedat" type="xs:dateTime" />
+        <xs:element name="lastupdat" type="xs:dateTime" />
+        <xs:element name="tags" type="tag" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="comment" >
+      <xs:complexContent>
+       <xs:extension base="auditmodel">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="text" type="xs:string" />
+          <xs:element name="" type="post" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="auditmodel" >
+      <xs:sequence>
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="updat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="GeneratedName" type="userprofile" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userprofile" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="phonenumber" type="xs:string" />
+        <xs:element name="GeneratedName" type="gender" nillable="true" minOccurs="0" />
+        <xs:element name="ofbirth" type="xs:dateTime" />
+        <xs:element name="address1" type="xs:string" />
+        <xs:element name="address2" type="xs:string" />
+        <xs:element name="street" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="state" type="xs:string" />
+        <xs:element name="country" type="xs:string" />
+        <xs:element name="zipcode" type="xs:string" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gender" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tag" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="posts" type="post" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="swaggerconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="springjpawebsampleapplication" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="tagrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="postrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resourcenotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="resourcename" type="xs:string" />
+          <xs:element name="fieldname" type="xs:string" />
+          <xs:element name="fieldvalue" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="playerstatus" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="player" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="fname" type="xs:string" />
+        <xs:element name="birth" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="footballposition" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="footballposition" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="positionname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="indexcontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="noterepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="log4j2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

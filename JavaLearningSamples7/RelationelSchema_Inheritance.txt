@@ -1,0 +1,17 @@
+
+post(id:Long [PK], title:String, description:String, content:String, postedat:Date, lastupdat:Date);
+
+post_tags(post_id:Post [PK] #FK to Post,tag_id:Tag [PK] #FK to Tag);
+
+tag(id:Long [PK], name:String);
+
+outcomes(ship:String [PK], battle:String, result:String, GeneratedName:Battles #FK to(battles));
+
+ships(name:String [PK], launched:String, GeneratedName:Classes #FK to(classes));
+
+classes(classes:String [PK], type:Rating, priorityvalue:int, country:String, numguns:int, bore:int, desplacement:int, //этополесохранитсякакvarchar:Category);
+
+battles(name:String [PK], GeneratedName:Date);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

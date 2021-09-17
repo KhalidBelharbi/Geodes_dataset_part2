@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="jpaonetomanydemoapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="nodeaddressrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<nodeaddress,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mineraddressrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<mineraddress,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="auditmodel" >
+      <xs:sequence>
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="updat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mineraddress" >
+      <xs:complexContent>
+       <xs:extension base="auditmodel">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="address" type="xs:string" />
+          <xs:element name="vrs" type="xs:string" />
+          <xs:element name="" type="nodeaddress" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="nodeaddress" >
+      <xs:complexContent>
+       <xs:extension base="auditmodel">
+         <xs:sequence>
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="content" type="xs:string" />
+          <xs:element name="nodeaddress" type="mineraddress" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpaonetomanydemoapplication" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="mineraddressrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="nodeaddressrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resourcenotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mineraddresscontroller" >
+      <xs:sequence>
+        <xs:element name="commentrepository" type="mineraddressrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="nodeaddressrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="postcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="nodeaddressrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

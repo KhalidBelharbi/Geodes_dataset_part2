@@ -1,0 +1,25 @@
+
+authrole(id:int [PK], label:String, description:String);
+
+authuser(id:int [PK], form:GameForm #FK to(gameform), username:String, password:String, GeneratedName:Preference #FK to(preference));
+
+auth_user_role(user_id:AuthUser [PK] #FK to AuthUser,role_id:set<authrole> [PK] #FK to set<authrole>);
+
+gameform(id:int [PK], user:AuthUser #FK to(authuser), rollcount:int, id:BoxType #FK to(boxtype));
+
+boxtype(id:int [PK], label:String);
+
+columntype(id:int [PK], label:String);
+
+gamedice(id:GameForm [PK] #FK to(gameform), ordinalnumber:int [PK], value:int);
+
+gamescore(id:int [PK], user:AuthUser #FK to(authuser), value:int, date:LocalDateTime);
+
+preference(id:int [PK], user:AuthUser #FK to(authuser), volume:int);
+
+gamebox(form_id:GameColumn [PK] #FK to(gamecolumn), id:BoxType [PK] #FK to(boxtype), value:int, filled:boolean, available:boolean);
+
+gamecolumn(id:GameForm [PK] #FK to(gameform), id:ColumnType [PK] #FK to(columntype));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

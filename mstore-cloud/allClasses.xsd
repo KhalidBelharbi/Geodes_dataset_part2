@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="cart" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="owner" type="xs:string" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="details" type="detailcartitem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cartitemrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<cartitem,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="catalogservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cartitem" >
+      <xs:sequence>
+        <xs:element name="cartid" type="xs:string" />
+        <xs:element name="itemid" type="xs:string" />
+        <xs:element name="quantity" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="detailcartitem" >
+      <xs:complexContent>
+       <xs:extension base="cartitem">
+         <xs:sequence>
+          <xs:element name="price" type="xs:long" />
+          <xs:element name="quantityinstock" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cartrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<cart,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fallbackablecatalogservice" >
+      <xs:sequence>
+        <xs:element name="delegate" type="catalogservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cartrest" >
+      <xs:sequence>
+        <xs:element name="cartitemrepo" type="cartitemrepository" nillable="true" minOccurs="0" />
+        <xs:element name="cartrepo" type="cartrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="catalogservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="oauth2ssoconfig" >
+      <xs:complexContent>
+       <xs:extension base="oauth2ssoconfigureradapter">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cartinitializer" >
+      <xs:sequence>
+        <xs:element name="cartrepo" type="cartrepository" nillable="true" minOccurs="0" />
+        <xs:element name="cartitemrepo" type="cartitemrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cartservice" >
+      <xs:complexContent>
+       <xs:extension base="baseservice">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="v1__init_schema" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="init-cart-item-data" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="init-cart-data" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

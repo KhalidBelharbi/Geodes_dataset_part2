@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="testutil" >
+      <xs:sequence>
+        <xs:element name="application_json_utf8" type="xs:anyType" />
+        <xs:element name="character" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testservices" >
+      <xs:complexContent>
+       <xs:extension base="abstractjunit4springcontexttests">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testsrest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="log4j" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="drop-tables" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tables" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="delete-data" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commentdao" >
+      <xs:complexContent>
+       <xs:extension base="genericdao<comment,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="articledao" >
+      <xs:complexContent>
+       <xs:extension base="genericdao<article,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sectiondao" >
+      <xs:complexContent>
+       <xs:extension base="genericdao<section,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userdao" >
+      <xs:complexContent>
+       <xs:extension base="genericdao<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userdaoimpl" >
+      <xs:complexContent>
+       <xs:extension base="abstracthibernatedao<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="commentdaoimpl" >
+      <xs:complexContent>
+       <xs:extension base="abstracthibernatedao<comment,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="articledaoimpl" >
+      <xs:complexContent>
+       <xs:extension base="abstracthibernatedao<article,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sectiondaoimpl" >
+      <xs:complexContent>
+       <xs:extension base="abstracthibernatedao<section,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstracthibernatedao" >
+      <xs:complexContent>
+       <xs:extension base="serializable>">
+         <xs:sequence>
+          <xs:element name="clazz" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="genericdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sectionservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commentservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="articleserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="articledao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="sectiondao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="commentdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sectionserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="sectiondao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commentserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="commentdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="articleservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="comment" >
+      <xs:sequence>
+        <xs:element name="commentid" type="xs:long" />
+        <xs:element name="datecomment" type="xs:anyType" />
+        <xs:element name="commentarticle" type="xs:string" />
+        <xs:element name="articleid" type="xs:long" />
+        <xs:element name="author" type="xs:long" />
+        <xs:element name="auhtorname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="profile" >
+      <xs:sequence>
+        <xs:element name="value" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="profile" type="xs:string" />
+        <xs:element name="profileid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="article" >
+      <xs:sequence>
+        <xs:element name="articleid" type="xs:long" />
+        <xs:element name="datearticle" type="xs:anyType" />
+        <xs:element name="subject" type="xs:string" />
+        <xs:element name="article" type="xs:string" />
+        <xs:element name="author" type="xs:string" />
+        <xs:element name="sectionid" type="xs:long" />
+        <xs:element name="sectionname" type="xs:string" />
+        <xs:element name="comments" type="comment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="commentscount" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="section" >
+      <xs:sequence>
+        <xs:element name="sectionid" type="xs:long" />
+        <xs:element name="sectionarticle" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="articleservicecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="articleservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="restmessage" >
+      <xs:sequence>
+        <xs:element name="message" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resterrorhandler" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resterrormessage" >
+      <xs:complexContent>
+       <xs:extension base="restmessage">
+         <xs:sequence>
+          <xs:element name="fielderrors" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sectionservicecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="sectionservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userservicecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commentservicecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="commentservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="homecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="home" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="root-context" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

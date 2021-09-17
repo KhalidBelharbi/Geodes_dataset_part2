@@ -1,0 +1,17 @@
+
+instructorentity(id:Integer [PK], firstname:String, lastname:String, email:String, @column(name:InstructorDetailEntity #FK to(Instructor));
+
+studententity(id:Integer [PK], firstname:String, lastname:String, email:String);
+
+course_student(student_id:StudentEntity [PK] #FK to StudentEntity,course_id:course [PK] #FK to course);
+
+instructordetailentity(id:Integer [PK], youtubechannel:String, hobby:String, //exceptdeleteremaining./*	*@onetoone(mappedby:InstructorEntity #FK to(Instructor));
+
+courseentity(id:Integer [PK], title:String, instrentity:InstructorEntity #FK to(Instructor));
+
+course_student(course_id:CourseEntity [PK] #FK to CourseEntity,student_id:list<studententity> [PK] #FK to list<studententity>);
+
+reviewentity(id:Integer [PK], comment:String, courseid:Integer);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

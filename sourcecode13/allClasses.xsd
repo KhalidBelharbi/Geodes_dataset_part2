@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="dockerfile" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="organizationrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<organization,string>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="organizationservicecontroller" >
+      <xs:sequence>
+        <xs:element name="orgservice" type="organizationservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="threadlocalawarestrategy" >
+      <xs:complexContent>
+       <xs:extension base="hystrixconcurrencystrategy{">
+         <xs:sequence>
+          <xs:element name="existingconcurrencystrategy" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="threadlocalconfiguration" >
+      <xs:sequence>
+        <xs:element name="existingconcurrencystrategy" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="delegatingusercontextcallable" >
+      <xs:sequence>
+        <xs:element name="delegate" type="xs:anyType" />
+        <xs:element name="original" type="usercontext" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resourceserverconfiguration" >
+      <xs:complexContent>
+       <xs:extension base="resourceserverconfigureradapter">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="organization" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="contactname" type="xs:string" />
+        <xs:element name="contactemail" type="xs:string" />
+        <xs:element name="contactphone" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="organizationservice" >
+      <xs:sequence>
+        <xs:element name="orgrepository" type="organizationrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercontextholder" >
+      <xs:sequence>
+        <xs:element name="usercontext" type="usercontext" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercontextinterceptor" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercontextfilter" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercontext" >
+      <xs:sequence>
+        <xs:element name="correlation_id" type="xs:string" />
+        <xs:element name="auth_token" type="xs:string" />
+        <xs:element name="user_id" type="xs:string" />
+        <xs:element name="org_id" type="xs:string" />
+        <xs:element name="correlationid" type="xs:string" />
+        <xs:element name="authtoken" type="xs:string" />
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="orgid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="serviceconfig" >
+      <xs:sequence>
+        <xs:element name="jwtsigningkey" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="constants" >
+      <xs:sequence>
+        <xs:element name="user_id_header" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="appuserrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<appuser,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="messagerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<message,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="useridfilter" >
+      <xs:complexContent>
+       <xs:extension base="onceperrequestfilter">
+         <xs:sequence>
+          <xs:element name="" type="currentuserdetails" nillable="true" minOccurs="0" />
+          <xs:element name="" type="appuserservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="globalcontrolleradvice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sqsconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filterconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="swaggerconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="appuser" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nickname" type="xs:string" />
+        <xs:element name="created" type="xs:dateTime" />
+        <xs:element name="upd" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="message" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="text" type="xs:string" />
+        <xs:element name="sender" type="appuser" nillable="true" minOccurs="0" />
+        <xs:element name="recipient" type="appuser" nillable="true" minOccurs="0" />
+        <xs:element name="created" type="xs:dateTime" />
+        <xs:element name="upd" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="samesenderandrecipientexception" >
+      <xs:complexContent>
+       <xs:extension base="appexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="duplicatenicknameexception" >
+      <xs:complexContent>
+       <xs:extension base="appexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="appexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usernotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="appexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="appuserservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="globalcontrolleradvice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messagecontroller" >
+      <xs:sequence>
+        <xs:element name="messages_base_path" type="xs:string" />
+        <xs:element name="GeneratedName" type="messageservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="currentuserdetails" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messageservice" >
+      <xs:sequence>
+        <xs:element name="messagesender" type="imessagesender" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="appuserservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="messagerepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="imessagesender" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="appuserservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="appuserrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqssender" >
+      <xs:sequence>
+        <xs:element name="sqs_queue_name" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messengerapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="currentuserdetails" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="appuser" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="createuserresponsedto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sendmessagerequestdto" >
+      <xs:sequence>
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="recipientid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inboxdto" >
+      <xs:sequence>
+        <xs:element name="from" type="xs:string" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sendmessageresponsedto" >
+      <xs:sequence>
+        <xs:element name="messageid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="errordto" >
+      <xs:sequence>
+        <xs:element name="message" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="outboxdto" >
+      <xs:sequence>
+        <xs:element name="to" type="xs:string" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="queuemessagedto" >
+      <xs:sequence>
+        <xs:element name="messageid" type="xs:long" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="senderid" type="xs:long" />
+        <xs:element name="recipientid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="createuserrequestdto" >
+      <xs:sequence>
+        <xs:element name="nickname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application-test" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="integrationtest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messagecontrollertest" >
+      <xs:complexContent>
+       <xs:extension base="integrationtest">
+         <xs:sequence>
+          <xs:element name="" type="appuserservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="messageservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="appuserrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="messagerepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usercontrollertest" >
+      <xs:complexContent>
+       <xs:extension base="integrationtest">
+         <xs:sequence>
+          <xs:element name="" type="appuserrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="appuserservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="appuserservicetest" >
+      <xs:sequence>
+        <xs:element name="undertest" type="appuserservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="appuserrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

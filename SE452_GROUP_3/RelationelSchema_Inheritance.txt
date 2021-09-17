@@ -1,0 +1,31 @@
+
+order(id:long [PK], orderdate:LocalDateTime, orderstatus:int, //todo:addrelationtopaymenttablepaymentid:int, //todo:addrelationtodeliverytabledeliveryid:int, GeneratedName:Customer #FK to(customer), totalcost:BigDecimal);
+
+payment(id:long [PK], payment_type:String, amount:float, card_num:int, payment_:Date, cust_name:String, cust_id:long);
+
+inventory(id:long [PK], quantity:long, brand:String, count:String);
+
+department(id:long [PK], name:String, GeneratedName:Store #FK to(store));
+
+product(id:long [PK], product_brand:String, product_name:String, product_description:String, price:BigDecimal, dept:Department #FK to(department), GeneratedName:Store #FK to(store));
+
+accountprofiles(id:long [PK], firstname:String, lastname:String, email:String, address:String, payment:String, phone:long);
+
+admin(id:long [PK], user_name:String, name:String, password:String);
+
+orderproducts(id:long [PK], GeneratedName:Order #FK to(order), GeneratedName:Product #FK to(product), count:int);
+
+store(id:long [PK], store_name:String, street_address:String, city:String, state:String, zip:String);
+
+customer(id:long [PK], username:String, firstname:String, middlename:String, lastname:String, dob:LocalDateTime, //usermaynotwanttoregisterpassword:String, telno:String, email:String, address1:String, address2:String);
+
+cartproducts(id:long [PK], cart:ShoppingCart #FK to(shoppingcart), GeneratedName:Product #FK to(product), count:int);
+
+runner(id:long [PK], name:String, phone:String, password:String);
+
+productimg(id:long [PK], prod:Product #FK to(product), imgpath:String, desc:String);
+
+shoppingcart(id:long [PK], GeneratedName:Customer #FK to(customer), totalcost:BigDecimal);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

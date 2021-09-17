@@ -1,0 +1,21 @@
+
+log(id:int [PK], content:String, type:String, GeneratedName:Date);
+
+authority(id:int [PK], name:String, url:String, sort:int, parent:Authority #FK to(authority), display:int);
+
+role_auth(GeneratedName:Authority, GeneratedName:Role);
+
+role(id:int [PK], name:String, sort:int, parent:Role #FK to(role), defaultset:int);
+
+user(id:int [PK], name:String, account:String, password:String, dpm:Department #FK to(department), //注册时间:Date, //头像himage:String, //状态status:int, //cas服务端状态casstatus:int, //在此时间后才能登陆allowlogintime:Date);
+
+department(id:int [PK], name:String, sort:int, parent:Department #FK to(department));
+
+user_login(GeneratedName:User, GeneratedName:Date);
+
+persistentlogin(username:String, series:String [PK], token:String, last_used:Date);
+
+user_role(GeneratedName:User, GeneratedName:Role);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

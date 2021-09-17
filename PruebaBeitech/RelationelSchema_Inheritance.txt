@@ -1,0 +1,13 @@
+
+customer(serialversionuid:long, customerid:Integer [PK], name:String, email:String);
+
+customer_product(customer_id:Customer [PK] #FK to Customer,product_id:list<product> [PK] #FK to list<product>);
+
+orderdetail(serialversionuid:long, orderdetailid:Integer [PK], productdescription:String, price:double, quantity:int, product_id:Product #FK to(product), order_id:Order1 #FK to(order1));
+
+product(serialversionuid:long, productid:Integer [PK], name:String, productdescription:String, price:double);
+
+order1(serialversionuid:long, orderid:Integer [PK], creation:Date, deliveryaddress:String, total:double, customer_id:Customer #FK to(customer));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

@@ -1,0 +1,17 @@
+
+car(id:Integer [PK], model:String);
+
+city(id:int [PK], name:String, foundationdate:LocalDateTime, type:CityType, happinessindex:Double);
+
+discipline(id:Long [PK], code:Integer, description:String);
+
+group(id:Long [PK], name:String, direction:String);
+
+contactinfo(id:Long [PK], email:String, telephonenumber:String);
+
+student(id:Long [PK], name:String, GeneratedName:Group #FK to(group), contact:ContactInfo #FK to(contactinfo));
+
+student_discipline(student:Student [PK] #FK to Student,discipline:set<discipline> [PK] #FK to set<discipline>);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

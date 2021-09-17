@@ -1,0 +1,925 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="httpbackoffunsuccessfulresponsehandler" >
+      <xs:sequence>
+        <xs:element name="status_code_mod" type="xs:long" />
+        <xs:element name="divide_by_100" type="xs:long" />
+        <xs:element name="/***back-offpolicy.*/" type="xs:anyType" />
+        <xs:element name="retryhttperrorcodes" type="xs:anyType" />
+        <xs:element name="/***definesifback-offisrequiredbasedonanabnormalhttpresponse.*/" type="xs:anyType" />
+        <xs:element name="/***.*/" type="xs:anyType" />
+        <xs:element name="/***back-offrequiredimplementationwhichreturns{@codetrue}toevery{@link#isrequired(httpresponse)}call.*/always" type="xs:anyType" />
+        <xs:element name="/***back-offrequiredimplementationwhichits{@link#isrequired(httpresponse)}returns{@codetrue}ifaservererroroccurred*(5xx).*/on_server_error" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="senderservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="_confidential" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="messageservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="messageencryptionservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="participantdiscoveryservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="notificationhelperservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sendererror" >
+      <xs:sequence>
+        <xs:element name="error" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notificationinfo" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="conversationid" type="xs:string" />
+        <xs:element name="GeneratedName" type="messagetype" nillable="true" minOccurs="0" />
+        <xs:element name="xml" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notificationhelperserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="millis_per_minute" type="xs:double" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="ingoing" type="messageservice" nillable="true" minOccurs="0" />
+        <xs:element name="jmsservice" type="jmshelperservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="incomingqueuemdb" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="_confidential" type="xs:anyType" />
+        <xs:element name="dispatcherservice" type="dispatcherhelperservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="outgoingqueuemdb" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="_confidential" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="senderservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notsentqueuemdb" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="_confidential" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="outgoingerrormessagedispatcherhelperservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="keystorehelperservice" >
+      <xs:sequence>
+        <xs:element name="public_key_size" type="xs:long" />
+        <xs:element name="_key_size" type="xs:long" />
+        <xs:element name="jceks" type="xs:string" />
+        <xs:element name="algorithm" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="keystore_file_name" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="workitemexecution" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schedulerhelperservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="scheduler" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messagemetadatabuilder" >
+      <xs:sequence>
+        <xs:element name="senderdomain" type="xs:string" />
+        <xs:element name="senderrole" type="xs:anyType" />
+        <xs:element name="recipientdomain" type="xs:string" />
+        <xs:element name="recipientrole" type="xs:anyType" />
+        <xs:element name="timestamp" type="xs:anyType" />
+        <xs:element name="messageid" type="xs:string" />
+        <xs:element name="conversationid" type="xs:string" />
+        <xs:element name="precedence" type="xs:anyType" />
+        <xs:element name="validuntil" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="outgoingerrormessagedispatcherhelperservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="workitem" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="workitemexecution" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jmshelperservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="_confidential" type="xs:anyType" />
+        <xs:element name="out" type="xs:anyType" />
+        <xs:element name="in" type="xs:anyType" />
+        <xs:element name="notsent" type="xs:anyType" />
+        <xs:element name="context" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notificationhelperservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstracttriggerregisterhelperservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="schedulerhelperservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dispatcherhelperservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="defaultincomingmessagecontroller" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messageencryptionservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="keystorehelperservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="signedmessagehashservice" >
+      <xs:sequence>
+        <xs:element name="repository" type="signedmessagehashrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="participantdiscoveryservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="_confidential" type="xs:anyType" />
+        <xs:element name="public_key_prefix" type="xs:string" />
+        <xs:element name="participants_yaml" type="xs:string" />
+        <xs:element name="supported_usef_version" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="participantlistbuilder" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="transporthousekeepingbusinessservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="messageerrorrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="messagerepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="signedmessagehashrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messagefiltererror" >
+      <xs:sequence>
+        <xs:element name="errormessage" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messageencryptionerror" >
+      <xs:sequence>
+        <xs:element name="error" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messagecontrollererror" >
+      <xs:sequence>
+        <xs:element name="error" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="participantdiscoveryerror" >
+      <xs:sequence>
+        <xs:element name="error" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="incomingmessageerror" >
+      <xs:sequence>
+        <xs:element name="error" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="participantlistbuilder" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="participants" type="xs:string" />
+        <xs:element name="domain_name" type="xs:string" />
+        <xs:element name="spec_version" type="xs:string" />
+        <xs:element name="public_keys" type="xs:string" />
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="dso_role" type="xs:string" />
+        <xs:element name="agr_role" type="xs:string" />
+        <xs:element name="brp_role" type="xs:string" />
+        <xs:element name="cro_role" type="xs:string" />
+        <xs:element name="mdc_role" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messagefilterservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="allow_list_file_name" type="xs:string" />
+        <xs:element name="deny_list_file_name" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="incomingmessageverificationservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="participantdiscoveryservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="messageservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="signedmessagehashservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messageservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="messagerepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="messageerrorrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sequencegeneratorservice" >
+      <xs:sequence>
+        <xs:element name="time_sequence_format" type="xs:string" />
+        <xs:element name="sequenceholder" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="signedmessagehash" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="creationtime" type="xs:dateTime" />
+        <xs:element name="hashedcontent" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messageerror" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="errorcode" type="xs:anyType" />
+        <xs:element name="errormessage" type="xs:string" />
+        <xs:element name="GeneratedName" type="message" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messagedirection" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="message" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="creationtime" type="xs:dateTime" />
+        <xs:element name="direction" type="messagedirection" nillable="true" minOccurs="0" />
+        <xs:element name="sender" type="xs:string" />
+        <xs:element name="receiver" type="xs:string" />
+        <xs:element name="xml" type="xs:string" />
+        <xs:element name="messageid" type="xs:string" />
+        <xs:element name="conversationid" type="xs:string" />
+        <xs:element name="GeneratedName" type="messagetype" nillable="true" minOccurs="0" />
+        <xs:element name="contenthash" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messagetype" >
+      <xs:sequence>
+        <xs:element name="value" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testmessageresponsecontroller" >
+      <xs:complexContent>
+       <xs:extension base="baseincomingresponsemessagecontroller<testmessageresponse>">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseincomingresponsemessagecontroller" >
+      <xs:complexContent>
+       <xs:extension base="message>">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseoutgoingerrormessagecontroller" >
+      <xs:complexContent>
+       <xs:extension base="message>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="outgoingerrormessagecontroller" >
+      <xs:complexContent>
+       <xs:extension base="message>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="incomingcontrollerclassfactory" >
+      <xs:complexContent>
+       <xs:extension base="message>,">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="xml_class_controller_class_map" type="xs:anyType" />
+          <xs:element name="base_controller_" type="xs:anyType" />
+          <xs:element name="factory" type="incomingcontrollerclassfactory" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseincomingmessagecontroller" >
+      <xs:complexContent>
+       <xs:extension base="message>">
+         <xs:sequence>
+          <xs:element name="" type="messageservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="incomingmessagecontroller" >
+      <xs:complexContent>
+       <xs:extension base="message>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="defaultincomingmessagecontroller" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testmessagecontroller" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="jmsservice" type="jmshelperservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="receiverendpoint" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="_confidential" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="jmsservice" type="jmshelperservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="incomingmessageverificationservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="messageencryptionservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="messagefilterservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="participantdiscoveryservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testqueueendpoint" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="jmshelperservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="encryptionkeyendpoint" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="keystorehelperservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messageendpoint" >
+      <xs:sequence>
+        <xs:element name="_confidential" type="xs:anyType" />
+        <xs:element name="jmsservice" type="jmshelperservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="nacl" >
+      <xs:sequence>
+        <xs:element name="library_name" type="xs:string" />
+        <xs:element name="version" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="controllerclassfactory" >
+      <xs:complexContent>
+       <xs:extension base="message>,">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="xmlclasscontrollerclassmap" type="xs:anyType" />
+          <xs:element name="basecontrollerclass" type="xs:anyType" />
+          <xs:element name="basepackage" type="xs:string" />
+          <xs:element name="controllerclasspattern" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="controllerclassfactorybuilder" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="builder" type="controllerclassfactorybuilder" nillable="true" minOccurs="0" />
+        <xs:element name="outgoingerrormessagecontrollerfactory" type="xs:anyType" />
+        <xs:element name="incomingmessagecontrollerfactory" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="signedmessagehashrepository" >
+      <xs:complexContent>
+       <xs:extension base="baserepository<signedmessagehash>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="messageerrorrepository" >
+      <xs:complexContent>
+       <xs:extension base="baserepository<messageerror>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="messagerepository" >
+      <xs:complexContent>
+       <xs:extension base="baserepository<message>">
+         <xs:sequence>
+          <xs:element name="common_reference_query" type="xs:string" />
+          <xs:element name="common_reference_query_response" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="empty_participants_dns_info_test" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="signedmessagehashtest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messageerrortest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messagedirectiontest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messagetest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messagetypetest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="controllerclassfactorybuildertest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="signedmessagehashrepositorytest" >
+      <xs:sequence>
+        <xs:element name="hello_usef_content" type="xs:string" />
+        <xs:element name="/***thefactorythatproducesentitymanager.*/" type="xs:anyType" />
+        <xs:element name="/***theentitymanagerthatpersistsandqueriesthedb.*/" type="xs:anyType" />
+        <xs:element name="repository" type="signedmessagehashrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messageerrorrepositorytest" >
+      <xs:sequence>
+        <xs:element name="/***thefactorythatproducesentitymanager.*/" type="xs:anyType" />
+        <xs:element name="/***theentitymanagerthatpersistsandqueriesthedb.*/" type="xs:anyType" />
+        <xs:element name="repository" type="messageerrorrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messagerepositorytest" >
+      <xs:sequence>
+        <xs:element name="/***thefactorythatproducesentitymanager.*/" type="xs:anyType" />
+        <xs:element name="/***theentitymanagerthatpersistsandqueriesthedb.*/" type="xs:anyType" />
+        <xs:element name="repository" type="messagerepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sequencegeneratorservicetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="sequencegeneratorservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messageservicetest" >
+      <xs:sequence>
+        <xs:element name="message_id" type="xs:string" />
+        <xs:element name="conversation_id" type="xs:string" />
+        <xs:element name="xml" type="xs:string" />
+        <xs:element name="GeneratedName" type="messagerepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="messageerrorrepository" nillable="true" minOccurs="0" />
+        <xs:element name="service" type="messageservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="participantdiscoveryservicetest" >
+      <xs:sequence>
+        <xs:element name="missing_domain" type="xs:string" />
+        <xs:element name="sender_domain" type="xs:string" />
+        <xs:element name="unsealing_key" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="usef_example_com_endpoint" type="xs:string" />
+        <xs:element name="listbuilder" type="participantlistbuilder" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="participantdiscoveryservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="incomingmessageverificationservicetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="incomingmessageverificationservice" nillable="true" minOccurs="0" />
+        <xs:element name="incoming" type="message" nillable="true" minOccurs="0" />
+        <xs:element name="sender_domain" type="xs:string" />
+        <xs:element name="recipient_domain" type="xs:string" />
+        <xs:element name="message_id" type="xs:string" />
+        <xs:element name="GeneratedName" type="messagefilterservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="participantdiscoveryservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="messageservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messageencryptionserviceintegrationtest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="seed" type="xs:string" />
+        <xs:element name="public_key_size" type="xs:long" />
+        <xs:element name="_key_size" type="xs:long" />
+        <xs:element name="jceks" type="xs:string" />
+        <xs:element name="algorithm" type="xs:string" />
+        <xs:element name="jl_" type="xs:string" />
+        <xs:element name="jl_public" type="xs:string" />
+        <xs:element name="publickey" type="xs:anyType" />
+        <xs:element name="privatekey" type="xs:anyType" />
+        <xs:element name="hello_message" type="xs:string" />
+        <xs:element name="service" type="messageencryptionservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="keystorehelperservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="name" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="participantdiscoveryserviceintegrationtest" >
+      <xs:sequence>
+        <xs:element name="listbuilder" type="participantlistbuilder" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="participantdiscoveryservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messageencryptionservicetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="publickey" type="xs:anyType" />
+        <xs:element name="secretkey" type="xs:anyType" />
+        <xs:element name="predictedsealedmessageb64" type="xs:anyType" />
+        <xs:element name="signedmessage" type="xs:anyType" />
+        <xs:element name="prognosismessage" type="xs:anyType" />
+        <xs:element name="hello_message" type="xs:string" />
+        <xs:element name="signed_hello_message" type="xs:string" />
+        <xs:element name="b64_sealed_hello_message" type="xs:anyType" />
+        <xs:element name="tg_message" type="xs:string" />
+        <xs:element name="signed_tg_message" type="xs:string" />
+        <xs:element name="b64_sealed_tg_message" type="xs:anyType" />
+        <xs:element name="tg_public_key" type="xs:anyType" />
+        <xs:element name="seed" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="messageencryptionservice" nillable="true" minOccurs="0" />
+        <xs:element name="sodium" type="sodiumstub" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="keystorehelperservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="name" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="signedmessagehashservicetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="signedmessagehashservice" nillable="true" minOccurs="0" />
+        <xs:element name="repository" type="signedmessagehashrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messagefilterservicetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="allowlisted_domain" type="xs:string" />
+        <xs:element name="denylisted_ip" type="xs:string" />
+        <xs:element name="denylisted_domain" type="xs:string" />
+        <xs:element name="non_denylisted_ip" type="xs:string" />
+        <xs:element name="non_denylisted_domain" type="xs:string" />
+        <xs:element name="allow_list_filename" type="xs:string" />
+        <xs:element name="deny_list_filename" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="messagefilterservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="participantlistbuildertest" >
+      <xs:sequence>
+        <xs:element name="participants_dns_info_test_yaml" type="xs:string" />
+        <xs:element name="builder" type="participantlistbuilder" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sendererrortest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="senderservicetest" >
+      <xs:sequence>
+        <xs:element name="message_id" type="xs:string" />
+        <xs:element name="conversation_id" type="xs:string" />
+        <xs:element name="msg" type="xs:string" />
+        <xs:element name="invalid_xml" type="xs:string" />
+        <xs:element name="sender_domain" type="xs:string" />
+        <xs:element name="tls_verification_disabled_message" type="xs:string" />
+        <xs:element name="GeneratedName" type="messageservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="messageencryptionservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="notificationhelperservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="participantdiscoveryservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="senderservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="httpbackoffunsuccessfulresponsehandlertest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messageservicetest" >
+      <xs:complexContent>
+       <xs:extension base="baseresourcetest">
+         <xs:sequence>
+          <xs:element name="url" type="xs:string" />
+          <xs:element name="bad_url" type="xs:string" />
+          <xs:element name="bad_client_str" type="xs:string" />
+          <xs:element name="client_str" type="xs:string" />
+          <xs:element name="messageservice" type="messageendpoint" nillable="true" minOccurs="0" />
+          <xs:element name="jmsservice" type="jmshelperservice" nillable="true" minOccurs="0" />
+          <xs:element name="context" type="xs:anyType" />
+          <xs:element name="producer" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="encryptionkeyendpointtest" >
+      <xs:sequence>
+        <xs:element name="seed" type="xs:string" />
+        <xs:element name="b64_public_key" type="xs:string" />
+        <xs:element name="GeneratedName" type="keystorehelperservice" nillable="true" minOccurs="0" />
+        <xs:element name="encryptionkeyservice" type="encryptionkeyendpoint" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="incomingqueuemdbtest" >
+      <xs:sequence>
+        <xs:element name="recipient" type="xs:string" />
+        <xs:element name="test_msg_xml" type="xs:string" />
+        <xs:element name="dispatcherservice" type="dispatcherhelperservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="objmessage" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="incomingqueuemdb" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notsentqueuemdbtest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="outgoingerrormessagedispatcherhelperservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="notsentqueuemdb" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="objmessage" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="outgoingqueuemdbtest" >
+      <xs:sequence>
+        <xs:element name="recipient" type="xs:string" />
+        <xs:element name="test_msg_xml" type="xs:string" />
+        <xs:element name="GeneratedName" type="outgoingqueuemdb" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="objmessage" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="senderservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notificationhelperserviceimpltest" >
+      <xs:sequence>
+        <xs:element name="critical_message_is_not_sent" type="xs:string" />
+        <xs:element name="transactional_message_is_not_sent" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="jmsservice" type="jmshelperservice" nillable="true" minOccurs="0" />
+        <xs:element name="service" type="notificationhelperserviceimpl" nillable="true" minOccurs="0" />
+        <xs:element name="ingoing" type="messageservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notificationinfotest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="keystorehelperservicetest" >
+      <xs:sequence>
+        <xs:element name="existing_keystore" type="xs:string" />
+        <xs:element name="new_keystore" type="xs:string" />
+        <xs:element name="keystore__key_alias" type="xs:string" />
+        <xs:element name="keystore__key" type="xs:string" />
+        <xs:element name="keystore_password" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="mock" type="xs:anyType" />
+        <xs:element name="sodium" type="sodiumstub" nillable="true" minOccurs="0" />
+        <xs:element name="mock" type="xs:anyType" />
+        <xs:element name="mock" type="xs:anyType" />
+        <xs:element name="mock" type="xs:anyType" />
+        <xs:element name="mock" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="keystorehelperservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="outgoingerrormessagedispatcherhelperservicetest" >
+      <xs:sequence>
+        <xs:element name="service" type="outgoingerrormessagedispatcherhelperservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="controller" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messagemetadatabuildertest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jmsservicehelpertest" >
+      <xs:sequence>
+        <xs:element name="test_msg" type="xs:string" />
+        <xs:element name="out" type="xs:anyType" />
+        <xs:element name="in" type="xs:anyType" />
+        <xs:element name="context" type="xs:anyType" />
+        <xs:element name="producer" type="xs:anyType" />
+        <xs:element name="jmsservice" type="jmshelperservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="workitemtest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="runnable" type="workitemexecution" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="workitem" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dispatcherhelperservicetest" >
+      <xs:sequence>
+        <xs:element name="xml" type="xs:string" />
+        <xs:element name="GeneratedName" type="testmessagecontroller" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="dispatcherhelperservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schedulerhelperservicetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="schedulerhelperservice" nillable="true" minOccurs="0" />
+        <xs:element name="time_factor" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testqueueendpointtest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="jmshelperservice" nillable="true" minOccurs="0" />
+        <xs:element name="endpoint" type="testqueueendpoint" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messageendpointtest" >
+      <xs:complexContent>
+       <xs:extension base="testcase">
+         <xs:sequence>
+          <xs:element name="endpoint" type="messageendpoint" nillable="true" minOccurs="0" />
+          <xs:element name="jmsservice" type="jmshelperservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="receiverendpointtest" >
+      <xs:complexContent>
+       <xs:extension base="baseresourcetest">
+         <xs:sequence>
+          <xs:element name="url" type="xs:string" />
+          <xs:element name="bad_url" type="xs:string" />
+          <xs:element name="test_xml" type="xs:string" />
+          <xs:element name="receiverservice" type="receiverendpoint" nillable="true" minOccurs="0" />
+          <xs:element name="jmsservice" type="jmshelperservice" nillable="true" minOccurs="0" />
+          <xs:element name="request" type="xs:anyType" />
+          <xs:element name="context" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="producer" type="xs:anyType" />
+          <xs:element name="" type="incomingmessageverificationservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="participantdiscoveryservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="messagefilterservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="messageencryptionservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sodiumstub" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="seed" type="xs:anyType" />
+        <xs:element name="publickey" type="xs:anyType" />
+        <xs:element name="secretkey" type="xs:anyType" />
+        <xs:element name="signedmessage" type="xs:anyType" />
+        <xs:element name="unsignedmessage" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="nacltest" >
+      <xs:complexContent>
+       <xs:extension base="testcase">
+         <xs:sequence>
+          <xs:element name="version" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="reflectionutiltest" >
+      <xs:complexContent>
+       <xs:extension base="testcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="reflectionutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testmessageresponsecontrollertest" >
+      <xs:sequence>
+        <xs:element name="test_message_response_received" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="controller" type="testmessageresponsecontroller" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="incomingcontrollerclassfactorytest" >
+      <xs:sequence>
+        <xs:element name="xml" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testmessagecontrollertest" >
+      <xs:sequence>
+        <xs:element name="message_id" type="xs:string" />
+        <xs:element name="sender_domain" type="xs:string" />
+        <xs:element name="xml" type="xs:string" />
+        <xs:element name="jmsservice" type="jmshelperservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="messageservice" nillable="true" minOccurs="0" />
+        <xs:element name="controller" type="testmessagecontroller" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

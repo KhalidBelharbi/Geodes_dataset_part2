@@ -1,0 +1,16 @@
+ClassDiagram.Class>> Employee =>=>=> RelationalSchema.Table>> employee;
+ClassDiagram.Class>> ContractEmployee =>=>=> RelationalSchema.Table>> contractemployee;
+ClassDiagram.Class>> PartTimeEmployee =>=>=> RelationalSchema.Table>> companyemployee;
+ClassDiagram.Class>> FullTimeEmployee =>=>=> RelationalSchema.Table>> companyemployee;
+ClassDiagram.Class>> CompanyEmployee =>=>=> RelationalSchema.Table>> companyemployee;
+ClassDiagram.Attribut>> Employee.id:int =>=>=> RelationalSchema.Column>> employee.id PRIMARY KEY;
+ClassDiagram.Attribut>> Employee.name:String =>=>=> RelationalSchema.Column>> employee.name;
+ClassDiagram.Attribut>> Employee.start:Date =>=>=> RelationalSchema.Column>> employee.start;
+ClassDiagram.Attribut>> ContractEmployee.dailyrate:int =>=>=> RelationalSchema.Column>> contractemployee.dailyrate;
+ClassDiagram.Attribut>> ContractEmployee.term:int =>=>=> RelationalSchema.Column>> contractemployee.term;
+ClassDiagram.Attribut>> PartTimeEmployee.hourlyrate:float =>=>=> RelationalSchema.Column>> companyemployee.hourlyrate;
+ClassDiagram.Attribut>> FullTimeEmployee.salary:long =>=>=> RelationalSchema.Column>> companyemployee.salary;
+ClassDiagram.Attribut>> FullTimeEmployee.pensioncontribution:long =>=>=> RelationalSchema.Column>> companyemployee.pensioncontribution;
+ClassDiagram.Attribut>> CompanyEmployee.vacation:int =>=>=> RelationalSchema.Column>> companyemployee.vacation;
+Inheritance based on JOINED strategy (DISTINCTION): ROOT>>Employee  SubClass>>contractemployee SubClass>>companyemployee SubClass>>parttimeemployee SubClass>>fulltimeemployee ;
+Inheritance based on SINGLE-TABLE strategy (PUSH-UP): ROOT>>CompanyEmployee  SubClass>>PartTimeEmployee SubClass>>FullTimeEmployee ;

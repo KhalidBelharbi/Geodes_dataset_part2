@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="signdoc" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="//序号seqno" type="xs:string" />
+          <xs:element name="//订单号码orderno" type="xs:string" />
+          <xs:element name="//订单日期order" type="xs:dateTime" />
+          <xs:element name="" type="workorder" nillable="true" minOccurs="0" />
+          <xs:element name="//单证类型，采购单、订购单、托工单" type="xs:anyType" />
+          <xs:element name="wostatus" type="xs:anyType" />
+          <xs:element name="techstr" type="xs:string" />
+          <xs:element name="//@filterfield(fname" type="xs:string" />
+          <xs:element name="//生产商联系电话producetele" type="xs:string" />
+          <xs:element name="//传真producefax" type="xs:string" />
+          <xs:element name="//地址proaddr" type="xs:string" />
+          <xs:element name="" type="supplier" nillable="true" minOccurs="0" />
+          <xs:element name="//联系人supcontactor" type="xs:string" />
+          <xs:element name="//供货商联系电话suptele" type="xs:string" />
+          <xs:element name="supfax" type="xs:string" />
+          <xs:element name="oper" type="xs:string" />
+          <xs:element name="//要goodslistgoodslist" type="goods" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="goods" >
+      <xs:complexContent>
+       <xs:extension base="entityobject">
+         <xs:sequence>
+          <xs:element name="//序号seqno" type="xs:string" />
+          <xs:element name="//货品名称,理论上是不应该为null的，但为了判断在非销售合同中，是否为来自库存货品的新建记录，来拿null排除，所以不设定默认的值""goodsname" type="xs:string" />
+          <xs:element name="//若是图面明细带过来的，则直接取图面明细的图号；若是在后来追加记录则为用户手动填写的图号。drawingcode" type="xs:string" />
+          <xs:element name="//非销售合同中有工艺重合的图面，用在非销售合同" type="surfacedetail" nillable="true" minOccurs="0" />
+          <xs:element name="//若是原材料" type="inventory" nillable="true" minOccurs="0" />
+          <xs:element name="//数量amount" type="xs:double" />
+          <xs:element name="//材料material" type="xs:string" />
+          <xs:element name="size" type="xs:string" />
+          <xs:element name="unitweight" type="xs:double" />
+          <xs:element name="totalweight" type="xs:double" />
+          <xs:element name="weight" type="xs:double" />
+          <xs:element name="unitprice" type="xs:double" />
+          <xs:element name="processcost" type="xs:double" />
+          <xs:element name="totalprice" type="xs:double" />
+          <xs:element name="deliver" type="xs:dateTime" />
+          <xs:element name="//备注remark" type="xs:string" />
+          <xs:element name="oper" type="xs:string" />
+          <xs:element name="//小计subtotal" type="xs:double" />
+          <xs:element name="//非销售合同和销售合同都有货品明细//对应的单证,销售单除外" type="signdoc" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="surfacedetail" >
+      <xs:complexContent>
+       <xs:extension base="entityobject">
+         <xs:sequence>
+          <xs:element name="//序号seqno" type="xs:string" />
+          <xs:element name="//件号itemno" type="xs:string" />
+          <xs:element name="/*@displayfield(cname" type="generalelement" nillable="true" minOccurs="0" />
+          <xs:element name="//数量amount" type="xs:double" />
+          <xs:element name="/*@displayfield(cname" type="xs:string" />
+          <xs:element name="/*@displayfield(cname" type="xs:string" />
+          <xs:element name="oper" type="xs:string" />
+          <xs:element name="//图面" type="surface" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="surface" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="//序号seqno" type="xs:string" />
+          <xs:element name="//公司名称companyname" type="xs:string" />
+          <xs:element name="//名称name" type="xs:string" />
+          <xs:element name="//制表lister" type="xs:string" />
+          <xs:element name="//检查checker" type="xs:string" />
+          <xs:element name="//核准approver" type="xs:string" />
+          <xs:element name="/*@displayfield(cname" type="xs:string" />
+          <xs:element name="oper" type="xs:string" />
+          <xs:element name="//复制的图面copy" type="surface" nillable="true" minOccurs="0" />
+          <xs:element name="sdlist" type="surfacedetail" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="accountpermission" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="//序号seqno" type="xs:string" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="/*@displayfield(cname" type="staff" nillable="true" minOccurs="0" />
+          <xs:element name="//@displayfield(cname" type="xs:string" />
+          <xs:element name="datacodea" type="xs:string" />
+          <xs:element name="//格式如下：menu1:per1,per2,per3,per4menu2:per1,per2menu3:per1,per3...menupermission" type="xs:string" />
+          <xs:element name="//hash后的加密密码passwordhash" type="xs:string" />
+          <xs:element name="//bcryptpasswordmethod" type="xs:string" />
+          <xs:element name="passwordsalt" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="costconf" >
+      <xs:complexContent>
+       <xs:extension base="entityobject">
+         <xs:sequence>
+          <xs:element name="seqno" type="xs:string" />
+          <xs:element name="xccost" type="xs:double" />
+          <xs:element name="mccost" type="xs:double" />
+          <xs:element name="fdcost" type="xs:double" />
+          <xs:element name="cnccost" type="xs:double" />
+          <xs:element name="start" type="xs:dateTime" />
+          <xs:element name="end" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="wocostdetail" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="seqno" type="xs:string" />
+          <xs:element name="goodname" type="xs:string" />
+          <xs:element name="/*@displayfield(cname" type="xs:double" />
+          <xs:element name="xccb" type="xs:double" />
+          <xs:element name="mcwh" type="xs:double" />
+          <xs:element name="mccb" type="xs:double" />
+          <xs:element name="fdwh" type="xs:double" />
+          <xs:element name="fdcb" type="xs:double" />
+          <xs:element name="cncwh" type="xs:double" />
+          <xs:element name="cnccb" type="xs:double" />
+          <xs:element name="totalwh" type="xs:double" />
+          <xs:element name="totalwhcb" type="xs:double" />
+          <xs:element name="acost" type="xs:double" />
+          <xs:element name="pcost" type="xs:double" />
+          <xs:element name="bcost" type="xs:double" />
+          <xs:element name="outcost" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="wocostgather" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="workorderno" type="xs:string" />
+          <xs:element name="xcwh" type="xs:double" />
+          <xs:element name="xccb" type="xs:double" />
+          <xs:element name="mcwh" type="xs:double" />
+          <xs:element name="mccb" type="xs:double" />
+          <xs:element name="fdwh" type="xs:double" />
+          <xs:element name="fdcb" type="xs:double" />
+          <xs:element name="cncwh" type="xs:double" />
+          <xs:element name="cnccb" type="xs:double" />
+          <xs:element name="whcbtotal" type="xs:double" />
+          <xs:element name="//成品零件/*@displayfield(cname" type="xs:double" />
+          <xs:element name="dgcost" type="xs:double" />
+          <xs:element name="tgcost" type="xs:double" />
+          <xs:element name="cbtotal" type="xs:double" />
+          <xs:element name="oper" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="workorderwhsum" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="//铣床预计工时xcyj" type="xs:double" />
+          <xs:element name="//磨床预计工时mcyj" type="xs:double" />
+          <xs:element name="//cnc预计工时cncyj" type="xs:double" />
+          <xs:element name="//放电预计工时fdyj" type="xs:double" />
+          <xs:element name="//预计总工时tyj" type="xs:double" />
+          <xs:element name="//铣床实际工时xcsj" type="xs:double" />
+          <xs:element name="//磨床实际工时mcsj" type="xs:double" />
+          <xs:element name="//cnc实际工时cncsj" type="xs:double" />
+          <xs:element name="//放电实际工时fdsj" type="xs:double" />
+          <xs:element name="//实际总工时tsj" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="workordertrace" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="workordertracedetail" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="//工单表" type="workorder" nillable="true" minOccurs="0" />
+          <xs:element name="//wotraceflowflow//工单跟踪流程//图面明细" type="surfacedetail" nillable="true" minOccurs="0" />
+          <xs:element name="//第一行字段seqno" type="xs:string" />
+          <xs:element name="//@filterfield(fname" type="xs:string" />
+          <xs:element name="drawingno" type="xs:string" />
+          <xs:element name="quantity" type="xs:long" />
+          <xs:element name="wx" type="xs:string" />
+          <xs:element name="xl" type="xs:string" />
+          <xs:element name="xc" type="xs:string" />
+          <xs:element name="ht" type="xs:string" />
+          <xs:element name="mc" type="xs:string" />
+          <xs:element name="cnc" type="xs:string" />
+          <xs:element name="fd" type="xs:string" />
+          <xs:element name="wc" type="xs:string" />
+          <xs:element name="bmcl" type="xs:string" />
+          <xs:element name="qc" type="xs:string" />
+          <xs:element name="//@displayfield(cname" type="xs:string" />
+          <xs:element name="//备注remark" type="xs:string" />
+          <xs:element name="//@displayfield(cname" type="xs:anyType" />
+          <xs:element name="//@displayfield(cname" type="xs:anyType" />
+          <xs:element name="//显示标志showflag" type="xs:anyType" />
+          <xs:element name="//开启第二行字段//外协wxyjinfo" type="xs:string" />
+          <xs:element name="wxsjinfo" type="xs:string" />
+          <xs:element name="//下料xlyjinfo" type="xs:string" />
+          <xs:element name="xlsjinfo" type="xs:string" />
+          <xs:element name="//铣床xcyjinfo" type="xs:string" />
+          <xs:element name="xcyjwh" type="xs:double" />
+          <xs:element name="xcsjinfo" type="xs:string" />
+          <xs:element name="xcsjwh" type="xs:double" />
+          <xs:element name="//hthtyjinfo" type="xs:string" />
+          <xs:element name="htsjinfo" type="xs:string" />
+          <xs:element name="//磨床mcyjinfo" type="xs:string" />
+          <xs:element name="mcyjwh" type="xs:double" />
+          <xs:element name="mcsjinfo" type="xs:string" />
+          <xs:element name="mcsjwh" type="xs:double" />
+          <xs:element name="//cnccncyjinfo" type="xs:string" />
+          <xs:element name="cncyjwh" type="xs:double" />
+          <xs:element name="cncsjinfo" type="xs:string" />
+          <xs:element name="cncsjwh" type="xs:double" />
+          <xs:element name="//放电fdyjinfo" type="xs:string" />
+          <xs:element name="fdyjwh" type="xs:double" />
+          <xs:element name="fdsjinfo" type="xs:string" />
+          <xs:element name="fdsjwh" type="xs:double" />
+          <xs:element name="//wcwcyjinfo" type="xs:string" />
+          <xs:element name="wcsjinfo" type="xs:string" />
+          <xs:element name="//表面处理bmyjinfo" type="xs:string" />
+          <xs:element name="bmsjinfo" type="xs:string" />
+          <xs:element name="//qcqcyjinfo" type="xs:string" />
+          <xs:element name="qcsjinfo" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="workorder" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="//序号seqno" type="xs:string" />
+          <xs:element name="//工单号orderno" type="xs:string" />
+          <xs:element name="//品名name" type="xs:string" />
+          <xs:element name="//stringcompanyname" type="client" nillable="true" minOccurs="0" />
+          <xs:element name="//数量amount" type="xs:double" />
+          <xs:element name="//@filterfield(fname" type="xs:dateTime" />
+          <xs:element name="//@filterfield(fname" type="xs:dateTime" />
+          <xs:element name="//预计交期predict" type="xs:dateTime" />
+          <xs:element name="//实际交期real" type="xs:dateTime" />
+          <xs:element name="//出货日期ship" type="xs:dateTime" />
+          <xs:element name="//图面" type="surface" nillable="true" minOccurs="0" />
+          <xs:element name="wostatus" type="xs:anyType" />
+          <xs:element name="assemble" type="xs:dateTime" />
+          <xs:element name="//备注remark" type="xs:string" />
+          <xs:element name="viewdetail" type="xs:string" />
+          <xs:element name="oper" type="xs:string" />
+          <xs:element name="//工单跟踪明细wotracelist" type="workordertracedetail" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="//成本核算处要访问该list，故选双向链表sdlist" type="signdoc" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="authidentity" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="authinfo" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractuser" >
+      <xs:complexContent>
+       <xs:extension base="entityobject">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="authtoken" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="client" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="seqno" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="linkman" type="xs:string" />
+          <xs:element name="linktel" type="xs:string" />
+          <xs:element name="linkphone" type="xs:string" />
+          <xs:element name="linkfax" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="siteaddr" type="xs:string" />
+          <xs:element name="address" type="xs:string" />
+          <xs:element name="addrcode" type="xs:string" />
+          <xs:element name="linkbank" type="xs:string" />
+          <xs:element name="lbankno" type="xs:string" />
+          <xs:element name="//描述description" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="staff" >
+      <xs:complexContent>
+       <xs:extension base="entityobject">
+         <xs:sequence>
+          <xs:element name="seqno" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="//身份证号码nationid" type="xs:string" />
+          <xs:element name="//" type="xs:anyType" />
+          <xs:element name="birth" type="xs:dateTime" />
+          <xs:element name="//籍贯nativeplace" type="xs:string" />
+          <xs:element name="//学历education" type="xs:string" />
+          <xs:element name="" type="dept" nillable="true" minOccurs="0" />
+          <xs:element name="//进场时间join" type="xs:dateTime" />
+          <xs:element name="linktel" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="remark" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="supplier" >
+      <xs:complexContent>
+       <xs:extension base="entityobject">
+         <xs:sequence>
+          <xs:element name="seqno" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="linkman" type="xs:string" />
+          <xs:element name="linktel" type="xs:string" />
+          <xs:element name="linkfax" type="xs:string" />
+          <xs:element name="linkemail" type="xs:string" />
+          <xs:element name="//描述description" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dept" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="seqno" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="parent" type="dept" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="generalelement" >
+      <xs:complexContent>
+       <xs:extension base="entityobject">
+         <xs:sequence>
+          <xs:element name="seqno" type="xs:string" />
+          <xs:element name="//零件名称name" type="xs:string" />
+          <xs:element name="//零件编码code" type="xs:string" />
+          <xs:element name="//加工周期period" type="xs:long" />
+          <xs:element name="technologylist" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="notice" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="//序号seqno" type="xs:string" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="//公告类型：内部，外部type" type="xs:anyType" />
+          <xs:element name="//发布时间publish" type="xs:dateTime" />
+          <xs:element name="content" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="device" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="//序号seqno" type="xs:string" />
+          <xs:element name="//设备名称dname" type="xs:string" />
+          <xs:element name="//设备简介dintro" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="product" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="//序号seqno" type="xs:string" />
+          <xs:element name="//产品名称pname" type="xs:string" />
+          <xs:element name="//产品简介pintro" type="xs:string" />
+          <xs:element name="//是否是快速报价，默认：不是" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="contact" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="address" type="xs:string" />
+          <xs:element name="tele" type="xs:string" />
+          <xs:element name="fax" type="xs:string" />
+          <xs:element name="cname" type="xs:string" />
+          <xs:element name="cqq" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="siteaddr" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="consult" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="//序号seqno" type="xs:string" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="csname" type="xs:string" />
+          <xs:element name="csaddr" type="xs:string" />
+          <xs:element name="cscompany" type="xs:string" />
+          <xs:element name="csemail" type="xs:string" />
+          <xs:element name="cstele" type="xs:string" />
+          <xs:element name="csfax" type="xs:string" />
+          <xs:element name="content" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="quotation" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="//序号seqno" type="xs:string" />
+          <xs:element name="//报价类型：传统报价，mgp报价type" type="xs:anyType" />
+          <xs:element name="//模块数量modnum" type="xs:anyType" />
+          <xs:element name="//模座数量mobnum" type="xs:anyType" />
+          <xs:element name="//模窝镶条数量mxtnum" type="xs:anyType" />
+          <xs:element name="//模窝带球数量mdqnum" type="xs:anyType" />
+          <xs:element name="//总耗时totalday" type="xs:double" />
+          <xs:element name="//总费用totalcost" type="xs:double" />
+          <xs:element name="//客户名称cname" type="xs:string" />
+          <xs:element name="//联系方式ctele" type="xs:string" />
+          <xs:element name="//联系人clink" type="xs:string" />
+          <xs:element name="//邮箱cmail" type="xs:string" />
+          <xs:element name="//联系地址caddr" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="quotlibrary" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="//生产周期modpcycle" type="xs:double" />
+          <xs:element name="//单位价格modunitprice" type="xs:double" />
+          <xs:element name="//生产周期mxtpcycle" type="xs:double" />
+          <xs:element name="//单位价格mxtunitprice" type="xs:double" />
+          <xs:element name="//生产周期mdqpcycle" type="xs:double" />
+          <xs:element name="//单位价格mdqunitprice" type="xs:double" />
+          <xs:element name="//模块mobpcycle" type="xs:double" />
+          <xs:element name="mobunitprice" type="xs:double" />
+          <xs:element name="//报价类型：传统报价，mgp报价type" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="company" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="//信息内容content" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="repair" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="//序号seqno" type="xs:string" />
+          <xs:element name="//产品名称proname" type="xs:string" />
+          <xs:element name="//产品编号proid" type="xs:string" />
+          <xs:element name="//生产原料名称：matername" type="xs:string" />
+          <xs:element name="//模具名称modname" type="xs:string" />
+          <xs:element name="//模具编号modid" type="xs:string" />
+          <xs:element name="//需求完成日complete" type="xs:dateTime" />
+          <xs:element name="//修理原因repaircause" type="xs:string" />
+          <xs:element name="//其他要求otherrequest" type="xs:string" />
+          <xs:element name="//申请人applicant" type="xs:string" />
+          <xs:element name="//申请日期apply" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="drawing" >
+      <xs:complexContent>
+       <xs:extension base="entityobject">
+         <xs:sequence>
+          <xs:element name="/*implementscloneable*///序号seqno" type="xs:string" />
+          <xs:element name="//@displayfield(cname" type="xs:string" />
+          <xs:element name="//作者author" type="xs:string" />
+          <xs:element name="" type="surface" nillable="true" minOccurs="0" />
+          <xs:element name="" type="generalelement" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="inventorybook" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="//序号seqno" type="xs:string" />
+          <xs:element name="" type="inventory" nillable="true" minOccurs="0" />
+          <xs:element name="invname" type="xs:string" />
+          <xs:element name="invno" type="xs:string" />
+          <xs:element name="//规格spec" type="xs:string" />
+          <xs:element name="//对应的工单,出库单" type="workorder" nillable="true" minOccurs="0" />
+          <xs:element name="//非销售合同，入库单sd" type="signdoc" nillable="true" minOccurs="0" />
+          <xs:element name="//入库，【工单管理】-执行“完结”操作，则该工单下所有跟踪明细记录被当做入库记录tracedetail" type="workordertracedetail" nillable="true" minOccurs="0" />
+          <xs:element name="//来往数量bookamt" type="xs:double" />
+          <xs:element name="//来往日期book" type="xs:dateTime" />
+          <xs:element name="//记录员recorder" type="xs:string" />
+          <xs:element name="ibtype" type="xs:anyType" />
+          <xs:element name="sc" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="inventorywarn" >
+      <xs:complexContent>
+       <xs:extension base="entityobject">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="spec" type="xs:string" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="amt" type="xs:double" />
+          <xs:element name="threshold" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="inventorysum" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="spec" type="xs:string" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="amt" type="xs:double" />
+          <xs:element name="latestdate" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="inventory" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="//序号seqno" type="xs:string" />
+          <xs:element name="//产品名称name" type="xs:string" />
+          <xs:element name="//盘点日期check" type="xs:dateTime" />
+          <xs:element name="//产品数量amount" type="xs:double" />
+          <xs:element name="//规格spec" type="xs:string" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="threshold" type="xs:double" />
+          <xs:element name="//产品计量单位unit" type="xs:string" />
+          <xs:element name="//厂商supplier" type="xs:string" />
+          <xs:element name="//publicstorecategoryallocation" type="xs:string" />
+          <xs:element name="/*@displayfield(cname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

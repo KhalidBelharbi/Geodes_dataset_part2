@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="view" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="edit" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="list" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="create" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contactcontroller" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="current" type="contact" nillable="true" minOccurs="0" />
+        <xs:element name="items" type="xs:anyType" />
+        <xs:element name="ejbfacade" type="contactfacade" nillable="true" minOccurs="0" />
+        <xs:element name="pagination" type="paginationhelper" nillable="true" minOccurs="0" />
+        <xs:element name="selecteditemindex" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jsfutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="paginationhelper" >
+      <xs:sequence>
+        <xs:element name="pagesize" type="xs:long" />
+        <xs:element name="page" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contact" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="mobilephone" type="xs:string" />
+        <xs:element name="homephone" type="xs:string" />
+        <xs:element name="birthday" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractfacade" >
+      <xs:sequence>
+        <xs:element name="entityclass" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contactfacade" >
+      <xs:complexContent>
+       <xs:extension base="abstractfacade<contact>">
+         <xs:sequence>
+          <xs:element name="em" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

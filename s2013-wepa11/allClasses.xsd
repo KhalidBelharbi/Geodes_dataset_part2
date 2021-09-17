@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="imagecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="imageservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="albumcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="imageservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="imagerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<image,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="imageservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpaimageservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="imagerepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="image" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="timestamp" type="xs:dateTime" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="filename" type="xs:string" />
+        <xs:element name="contenttype" type="xs:string" />
+        <xs:element name="data" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="temp" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="context" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="album" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="index" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testhelper" >
+      <xs:sequence>
+        <xs:element name="jpa_snippet_class_name" type="xs:string" />
+        <xs:element name="jpa_snippet_repository_class_name" type="xs:string" />
+        <xs:element name="jpa_snippet_service_class_name" type="xs:string" />
+        <xs:element name="jpa_user_class_name" type="xs:string" />
+        <xs:element name="jpa_user_repository_class_name" type="xs:string" />
+        <xs:element name="jpa_user_service_class_name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="familyalbumcontrollertest" >
+      <xs:sequence>
+        <xs:element name="waco" type="xs:anyType" />
+        <xs:element name="controllermock" type="xs:anyType" />
+        <xs:element name="mapper" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

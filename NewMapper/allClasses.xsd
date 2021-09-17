@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="jquery.ztree.exedit-3.5.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jquery.ztree.excheck-3.5" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jquery.ztree.exhide-3.5.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jquery.ztree.excheck-3.5.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jquery.ztree.exhide-3.5" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="main" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="login" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="wecome" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basemapper" >
+      <xs:complexContent>
+       <xs:extension base="mapper<t>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="treeprovider" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="joinprovider" >
+      <xs:complexContent>
+       <xs:extension base="baseentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="joinmapper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="treemapper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rolemapper" >
+      <xs:complexContent>
+       <xs:extension base="basemapper<sysrole>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usermapper" >
+      <xs:complexContent>
+       <xs:extension base="basemapper<sysuser>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="permissionmapper" >
+      <xs:complexContent>
+       <xs:extension base="basemapper<syspermission>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="departmentmapper" >
+      <xs:complexContent>
+       <xs:extension base="basemapper<sysdepartment>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pagetreeview" >
+      <xs:sequence>
+        <xs:element name="nodeid" type="xs:long" />
+        <xs:element name="//名称text" type="xs:string" />
+        <xs:element name="//code" type="xs:string" />
+        <xs:element name="//菜单路径url" type="xs:string" />
+        <xs:element name="//图标iconcls" type="xs:string" />
+        <xs:element name="//资源类型,0菜单1功能type" type="xs:anyType" />
+        <xs:element name="state" type="xs:string" />
+        <xs:element name="checked" type="xs:anyType" />
+        <xs:element name="//排序号sort" type="xs:anyType" />
+        <xs:element name="//父级pid" type="xs:long" />
+        <xs:element name="//父级parentname" type="xs:string" />
+        <xs:element name="//1有效，0删除available" type="xs:string" />
+        <xs:element name="createdate" type="xs:string" />
+        <xs:element name="modifydate" type="xs:string" />
+        <xs:element name="//描述description" type="xs:string" />
+        <xs:element name="nodes" type="pagetreeview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="queryinfo" >
+      <xs:sequence>
+        <xs:element name="page" type="xs:anyType" />
+        <xs:element name="rows" type="xs:anyType" />
+        <xs:element name="start" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="easyuiresult" >
+      <xs:sequence>
+        <xs:element name="total" type="xs:long" />
+        <xs:element name="rows" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pagetree" >
+      <xs:complexContent>
+       <xs:extension base="baseentity>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="//名称title" type="xs:string" />
+          <xs:element name="//code" type="xs:string" />
+          <xs:element name="//菜单路径url" type="xs:string" />
+          <xs:element name="//图标iconcls" type="xs:string" />
+          <xs:element name="//资源类型,0菜单1功能type" type="xs:anyType" />
+          <xs:element name="state" type="xs:string" />
+          <xs:element name="checked" type="xs:anyType" />
+          <xs:element name="//排序号sort" type="xs:anyType" />
+          <xs:element name="//父级parentid" type="xs:long" />
+          <xs:element name="//父级parentname" type="xs:string" />
+          <xs:element name="/*stringavailable//1有效，0删除	stringcreatedate	stringmodifydate	stringdescription//描述*/children" type="pagetree" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="messageinfo" >
+      <xs:sequence>
+        <xs:element name="result" type="xs:anyType" />
+        <xs:element name="//提示信息msg" type="xs:string" />
+        <xs:element name="obj" type="xs:anyType" />
+        <xs:element name="//异常信息exceptionmsg" type="xs:string" />
+        <xs:element name="s" type="messageinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="formutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deletefileutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bigdecimalutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlutils" >
+      <xs:complexContent>
+       <xs:extension base="baseentity,e">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mybatisresultmaputil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tkexampleutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="formsearchcondition" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="uploadimageutil" >
+      <xs:sequence>
+        <xs:element name="local" type="xs:string" />
+        <xs:element name="incpath" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="md5utils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dateutils" >
+      <xs:sequence>
+        <xs:element name="sf1" type="xs:anyType" />
+        <xs:element name="sf2" type="xs:anyType" />
+        <xs:element name="yyyymmdd" type="xs:string" />
+        <xs:element name="yyyymmddhhmm" type="xs:string" />
+        <xs:element name="yyyymmddhhmmss" type="xs:string" />
+        <xs:element name="yyyymmddhhmmsssss" type="xs:string" />
+        <xs:element name="_yyyymmdd" type="xs:string" />
+        <xs:element name="_yyyymmddhhmm" type="xs:string" />
+        <xs:element name="_yyyymmddhhmmss" type="xs:string" />
+        <xs:element name="_yyyymmddhhmmsssss" type="xs:string" />
+        <xs:element name="__yyyymmdd" type="xs:string" />
+        <xs:element name="__yyyymmddhhmm" type="xs:string" />
+        <xs:element name="__yyyymmddhhmmss" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="excelutils" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reflectionutil" >
+      <xs:complexContent>
+       <xs:extension base="hibernatedao<user>">
+         <xs:sequence>
+          <xs:element name="setter_prefix" type="xs:string" />
+          <xs:element name="getter_prefix" type="xs:string" />
+          <xs:element name="cglib_class_separator" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pagetreeattrbute" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shiroconfiguration" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="credentialsmatcher" >
+      <xs:complexContent>
+       <xs:extension base="simplecredentialsmatcher">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="authrealm" >
+      <xs:complexContent>
+       <xs:extension base="authorizingrealm">
+         <xs:sequence>
+          <xs:element name="" type="userservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="permissionservice" >
+      <xs:complexContent>
+       <xs:extension base="baseservice<syspermission>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="permissionserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="baseserviceimpl<syspermission>">
+         <xs:sequence>
+          <xs:element name="mapper" type="permissionmapper" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="roleserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="baseserviceimpl<sysrole>">
+         <xs:sequence>
+          <xs:element name="mapper" type="rolemapper" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="departmentserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="baseserviceimpl<sysdepartment>">
+         <xs:sequence>
+          <xs:element name="mapper" type="departmentmapper" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="baseentity>">
+         <xs:sequence>
+          <xs:element name="basemapper" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="baseserviceimpl<sysuser>">
+         <xs:sequence>
+          <xs:element name="mapper" type="usermapper" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="departmentservice" >
+      <xs:complexContent>
+       <xs:extension base="baseservice<sysdepartment>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:complexContent>
+       <xs:extension base="baseservice<sysuser>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="roleservice" >
+      <xs:complexContent>
+       <xs:extension base="baseservice<sysrole>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sysuser" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="//登录用户名,所属表字段为water_user.usernameusername" type="xs:string" />
+          <xs:element name="//登录密码,所属表字段为water_user.passwordpassword" type="xs:string" />
+          <xs:element name="//姓名,所属表字段为water_user.namename" type="xs:string" />
+          <xs:element name="//性别：1男0女,所属表字段为water_user.gendergender" type="xs:anyType" />
+          <xs:element name="//是否管理员：1是0否,所属表字段为water_user.is_adminisadmin" type="xs:anyType" />
+          <xs:element name="//外键，所属部门id,所属表字段为water_user.department_iddepartmentid" type="xs:long" />
+          <xs:element name="//是否锁定：1是0否,所属表字段为water_user.is_lockislock" type="xs:anyType" />
+          <xs:element name="//是否删除：1是0否,所属表字段为water_user.delete_flagdeleteflag" type="xs:anyType" />
+          <xs:element name="roles" type="sysrole" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="/***start以下为自己编写的代码区域一般是多表之间的联合查询start**/departmentname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sysdepartment" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="//图标iconcls" type="xs:string" />
+          <xs:element name="//排序号sort" type="xs:anyType" />
+          <xs:element name="/*@manytoone(cascade" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="//available" type="xs:string" />
+        <xs:element name="createtime" type="xs:dateTime" />
+        <xs:element name="updateperson" type="xs:string" />
+        <xs:element name="uptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="syspermission" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="//名称name" type="xs:string" />
+          <xs:element name="//code" type="xs:string" />
+          <xs:element name="//菜单路径url" type="xs:string" />
+          <xs:element name="//图标iconcls" type="xs:string" />
+          <xs:element name="//资源类型,0菜单1功能type" type="xs:anyType" />
+          <xs:element name="//排序号sort" type="xs:anyType" />
+          <xs:element name="/*@manytoone(cascade" type="xs:long" />
+          <xs:element name="roles" type="sysrole" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basetree" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sysrole" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="users" type="sysuser" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="permissions" type="syspermission" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="newmapper180831application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rolecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="roleservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="permissionservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="departmentservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="departmentservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="departmentcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="departmentservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logincontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="permissioncontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="permissionservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="excelattribute" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spring-devtools" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="newmapper180831applicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

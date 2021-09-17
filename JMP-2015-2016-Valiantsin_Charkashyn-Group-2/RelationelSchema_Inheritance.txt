@@ -1,0 +1,13 @@
+
+unit(unitid:int [PK], descr:String);
+
+project(projectid:int [PK], desc:String);
+
+employee(employeeid:int [PK], name:String, surname:String, info:Personal #FK to(personal), status:EmployeeStatus, GeneratedName:Address, GeneratedName:Unit);
+
+employee_projects(employeeid:Employee [PK] #FK to Employee,projectid:Project [PK] #FK to Project);
+
+personal(id:int [PK], passnumber:String, age:int, GeneratedName:Employee);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

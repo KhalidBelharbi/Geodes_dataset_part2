@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="stockapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="data" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stock" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="price" type="xs:anyType" />
+        <xs:element name="currencycode" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stockresponse" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="stockdetails" type="stock" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stockrangequeryparams" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="companycode" type="xs:string" />
+        <xs:element name="start" type="xs:anyType" />
+        <xs:element name="end" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="querydatamapper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kafkaconsumerconfig" >
+      <xs:sequence>
+        <xs:element name="bootstrapaddress" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stockentity" >
+      <xs:sequence>
+        <xs:element name="primarykey" type="stockprimarykey" nillable="true" minOccurs="0" />
+        <xs:element name="price" type="xs:anyType" />
+        <xs:element name="currencycode" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stockdetails" >
+      <xs:sequence>
+        <xs:element name="stocks" type="stockentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stockprimarykey" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="comcode" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stockquerycontroller" >
+      <xs:sequence>
+        <xs:element name="stockservice" type="stockqueryservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stockqueryservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kafkalistener" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="stockqueryrepoimpl" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stockqueryserviceimpl" >
+      <xs:sequence>
+        <xs:element name="datamapper" type="querydatamapper" nillable="true" minOccurs="0" />
+        <xs:element name="stockrepoimpl" type="stockqueryrepoimpl" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stockqueryrepoimpl" >
+      <xs:sequence>
+        <xs:element name="stockqueryrepo" type="stockqueryrepository" nillable="true" minOccurs="0" />
+        <xs:element name="template" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stockqueryrepository" >
+      <xs:complexContent>
+       <xs:extension base="cassandrarepository<stockentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="stockcommandcontroller" >
+      <xs:sequence>
+        <xs:element name="stockservice" type="stockcommandservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stockrequest" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="price" type="xs:anyType" />
+        <xs:element name="currencycode" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stockresponse" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="stockdetails" type="stock" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stock" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="price" type="xs:anyType" />
+        <xs:element name="currencycode" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stockcommandrepoimpl" >
+      <xs:sequence>
+        <xs:element name="stockcommandrepo" type="stockcommandrepository" nillable="true" minOccurs="0" />
+        <xs:element name="kafkatemplate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stockcommandrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<stockentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="stockcommandservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stockcommandserviceimpl" >
+      <xs:sequence>
+        <xs:element name="datamapper" type="commanddatamapper" nillable="true" minOccurs="0" />
+        <xs:element name="stockrepoimpl" type="stockcommandrepoimpl" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stockentity" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="price" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="comcode" type="xs:string" />
+        <xs:element name="currencycode" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stockprimarykey" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="price" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commanddatamapper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kafkaproducerconfig" >
+      <xs:sequence>
+        <xs:element name="bootstrapaddress" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stockapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="swaggerconfiguration" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commonconstants" >
+      <xs:sequence>
+        <xs:element name="kafka_topic" type="xs:string" />
+        <xs:element name="kafka_listener_group_id" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

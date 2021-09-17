@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="log4j" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="web" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="servletcontextconfig" >
+      <xs:complexContent>
+       <xs:extension base="webmvcconfigureradapter">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="webappinitializer" >
+      <xs:complexContent>
+       <xs:extension base="abstractannotationconfigdispatcherservletinitializer">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rootcontextconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vehicledao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="chargingdao" >
+      <xs:complexContent>
+       <xs:extension base="genericdao<charges>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="parkingslipdao" >
+      <xs:complexContent>
+       <xs:extension base="genericdao<parkingslip>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="vehicledaoimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="chargingdaoimpl" >
+      <xs:complexContent>
+       <xs:extension base="commondao<charges>implements">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="parkingslipdaoimpl" >
+      <xs:complexContent>
+       <xs:extension base="commondao<parkingslip>implements">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="genericdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commondao" >
+      <xs:sequence>
+        <xs:element name="sf" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="chargingservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="parkingservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="chargingserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="chargingdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pakringserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="parkingslipdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="chargingdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fixedtype" >
+      <xs:complexContent>
+       <xs:extension base="chargingtype">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="vehicletype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vehichleparkingstate" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="parkingslip" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="vehicle" nillable="true" minOccurs="0" />
+        <xs:element name="checkin" type="xs:dateTime" />
+        <xs:element name="checkout" type="xs:dateTime" />
+        <xs:element name="billamt" type="xs:double" />
+        <xs:element name="state" type="vehichleparkingstate" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="variabletype" >
+      <xs:complexContent>
+       <xs:extension base="chargingtype">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="charges" >
+      <xs:sequence>
+        <xs:element name="mapper" type="xs:anyType" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="chargingscheme" type="xs:string" />
+        <xs:element name="vtype" type="vehicletype" nillable="true" minOccurs="0" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="modifiedat" type="xs:dateTime" />
+        <xs:element name="active" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="chargingtype" >
+      <xs:sequence>
+        <xs:element name="ctype" type="xs:string" />
+        <xs:element name="hours" type="xs:long" />
+        <xs:element name="price" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vehicle" >
+      <xs:sequence>
+        <xs:element name="vnumber" type="xs:string" />
+        <xs:element name="vtype" type="vehicletype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="errordto" >
+      <xs:sequence>
+        <xs:element name="msg" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercontroller" >
+      <xs:sequence>
+        <xs:element name="date_format" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="parkingservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="exceptionhandleradvice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="admincontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="chargingservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vehicaldto" >
+      <xs:sequence>
+        <xs:element name="vnumber" type="xs:string" />
+        <xs:element name="vtype" type="vehicletype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="parkingslipdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="vehicle" type="vehicaldto" nillable="true" minOccurs="0" />
+        <xs:element name="checkin" type="xs:dateTime" />
+        <xs:element name="checkout" type="xs:dateTime" />
+        <xs:element name="billamt" type="xs:double" />
+        <xs:element name="state" type="vehichleparkingstate" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dtoconverter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="charingschemedto" >
+      <xs:sequence>
+        <xs:element name="vtype" type="xs:string" />
+        <xs:element name="ctype" type="chargingtype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pricedto" >
+      <xs:sequence>
+        <xs:element name="hrs" type="xs:long" />
+        <xs:element name="price" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

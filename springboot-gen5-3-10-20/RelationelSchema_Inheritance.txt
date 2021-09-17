@@ -1,0 +1,31 @@
+
+rol(idrol:Integer [PK], nombre:String, descripcion:String);
+
+detalleconsulta(iddetalle:int [PK], GeneratedName:Consulta #FK to(), diagnostico:String, tratamiento:String);
+
+paciente(idpaciente:Integer [PK], nombres:String, apellidos:String, dni:String, direccion:String, telefono:String, email:String);
+
+examen(idexamen:Integer [PK], nombre:String, descripcion:String);
+
+menu(idmenu:Integer [PK], icono:String, nombre:String, url:String);
+
+menu_rol(id_menu:Menu [PK] #FK to Menu,id_rol: [PK] #FK to );
+
+medico(idmedico:Integer [PK], nombres:String, apellidos:String, cmp:String, fotourl:String);
+
+consulta(idconsulta:Integer [PK], GeneratedName:Paciente #FK to(), GeneratedName:Medico #FK to(), GeneratedName:Especialidad #FK to(), numconsultorio:String, fecha:LocalDateTime);
+
+consultaexamen(GeneratedName:Examen [PK], GeneratedName:Consulta [PK]);
+
+archivo(idarchivo:Integer [PK], filename:String, filetype:String, value:byte);
+
+usuario(idusuario:Integer [PK], username:String, password:String, enabled:boolean);
+
+usuario_rol(id_usuario:Usuario [PK] #FK to Usuario,id_rol: [PK] #FK to );
+
+resettoken(id:Integer [PK], token:String, user:Usuario #FK to(), expiracion:LocalDateTime);
+
+especialidad(idespecialidad:Integer [PK], nombre:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

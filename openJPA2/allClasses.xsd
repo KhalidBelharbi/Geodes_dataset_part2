@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="fetchstatisticsauxenhancer" >
+      <xs:sequence>
+        <xs:element name="ignore_methods_regex" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fetchstatscollector" >
+      <xs:complexContent>
+       <xs:extension base="thread">
+         <xs:sequence>
+          <xs:element name="_used" type="xs:anyType" />
+          <xs:element name="_entities" type="xs:anyType" />
+          <xs:element name="_" type="xs:anyType" />
+          <xs:element name="_loc" type="localizer" nillable="true" minOccurs="0" />
+          <xs:element name="//defaultto10mindefault_erval" type="xs:long" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="readme" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="eentity" >
+      <xs:sequence>
+        <xs:element name="extradesc" type="xs:string" />
+        <xs:element name="code" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="bool" type="xs:anyType" />
+        <xs:element name="desc" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testfetchstatistics" >
+      <xs:complexContent>
+       <xs:extension base="testcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="aentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="desc" type="xs:string" />
+        <xs:element name="checked" type="xs:anyType" />
+        <xs:element name="extrainfo" type="eentity" nillable="true" minOccurs="0" />
+        <xs:element name="referred" type="bentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="childentity" >
+      <xs:complexContent>
+       <xs:extension base="bentity">
+         <xs:sequence>
+          <xs:element name="childid" type="xs:long" />
+          <xs:element name="childname" type="xs:string" />
+          <xs:element name="childdesc" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

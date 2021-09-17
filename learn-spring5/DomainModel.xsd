@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="base">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="phones" type="phone" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="confirms" type="confirmuser" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="roles" type="role" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="confirmuser" >
+      <xs:complexContent>
+       <xs:extension base="base">
+         <xs:sequence>
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="expireddate" type="xs:anyType" />
+          <xs:element name="confirmeddate" type="xs:anyType" />
+          <xs:element name="confirm" type="user" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:complexContent>
+       <xs:extension base="base">
+         <xs:sequence>
+          <xs:element name="name" type="erole" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="phone" >
+      <xs:complexContent>
+       <xs:extension base="base">
+         <xs:sequence>
+          <xs:element name="number" type="xs:string" />
+          <xs:element name="region" type="xs:string" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="base" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="createddate" type="xs:anyType" />
+        <xs:element name="createdby" type="xs:string" />
+        <xs:element name="lastmodifiedby" type="xs:string" />
+        <xs:element name="lastmodifieddate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

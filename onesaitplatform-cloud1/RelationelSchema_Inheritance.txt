@@ -1,0 +1,327 @@
+rollback(serialversionuid:long, entityid:String, type:EntityType, serialization:String);
+
+approlechildexport(/***/serialversionuid:long, app:AppChildExport #FK to(appchildexport));
+
+app_associated_roles(parent_role:AppRoleChildExport [PK] #FK to AppRoleChildExport,child_role:set<approlechildexport> [PK] #FK to set<approlechildexport>);
+
+ontologyuseraccess(serialversionuid:long, id:OntologyUserAccessType #FK to(ontologyuseraccesstype), id:Ontology #FK to(ontology), user_id:User #FK to(user));
+
+i18nresources(serialversionuid:long, id:Internationalization #FK to(internationalization), id:OPResource #FK to(opresource));
+
+viewer(serialversionuid:long, description:String, ispublic:boolean, id:BaseLayer #FK to(baselayer), js:String, latitude:String, longitude:String, height:String);
+
+ontologykpi(/***/serialversionuid:long, cron:String, from:Date, to:Date, query:String, jobname:String, active:boolean, GeneratedName:Ontology #FK to(ontology), user_id:User #FK to(user), postprocess:String);
+
+approlelistoauth(/***/serialversionuid:long, app:AppListOauth #FK to(applistoauth));
+
+app_associated_roles(parent_role:AppRoleListOauth [PK] #FK to AppRoleListOauth,child_role:set<approlelistoauth> [PK] #FK to set<approlelistoauth>);
+
+appuserlist(/***/serialversionuid:long, id:AppRoleList #FK to(approlelist), user_id:User #FK to(user));
+
+ontologyrestsecurity(/***/serialversionuid:long, config:String);
+
+datasetresource(id:String, query:String, id:Ontology #FK to(ontology));
+
+ontologyvirtualdatasource(/***/serialversionuid:long, user_id:User #FK to(user), datasourcename:String, datasourcedomain:String, sgdb:VirtualDatasourceType, connection:String, user:String, credentials:String, querylimit:int, poolsize:String, ispublic:boolean, validationquerytimeout:Integer, testonborrow:Boolean, testwhileidle:Boolean);
+
+ksqlrelation(serialversionuid:long, id:KsqlFlow #FK to(ksqlflow), id:KsqlResource #FK to(ksqlresource));
+
+ksql_predecesor_relation(ksql_predecessor_id:KsqlRelation [PK] #FK to KsqlRelation,ksql_sucessor_id:set<ksqlrelation> [PK] #FK to set<ksqlrelation>);
+
+ontologyvirtual(/***/serialversionuid:long, id:Ontology #FK to(ontology), id:OntologyVirtualDatasource #FK to(ontologyvirtualdatasource), datasourcetablename:String, objectid:String, objectgeometry:String);
+
+approlechild(/***/serialversionuid:long, GeneratedName:App #FK to(app));
+
+app_associated_roles(parent_role:AppRoleChild [PK] #FK to AppRoleChild,child_role:set<approlechild> [PK] #FK to set<approlechild>);
+
+internationalization(serialversionuid:long, jsoni18n:String, ispublic:boolean, description:String, language:String);
+
+ontologycategory(serialversionuid:long, identification:String, description:String);
+
+subscription(serialversionuid:long, description:String, id:Ontology #FK to(ontology), queryfield:String, queryoperator:String, projection:String);
+
+ontology(serialversionuid:long, jsonschema:String, xmldiagram:String, ontologyclass:String, id:DataModel #FK to(datamodel), active:boolean, rtdbclean:boolean, GeneratedName:RtdbCleanLapse, rtdbtohdb:boolean, GeneratedName:RtdbToHdbStorage, ispublic:boolean, description:String, metainf:String, datamodelversion:String, GeneratedName:OntologyKPI #FK to(ontologykpi), GeneratedName:OntologyTimeSeries #FK to(ontologytimeseries), GeneratedName:RtdbDatasource, allowscypherfields:boolean, allowscreatetopic:boolean, //@column(name:boolean, //@column(name:String);
+
+categorizationuser(serialversionuid:long, id:String [PK], id:Categorization #FK to(categorization), user_id:User #FK to(user), active:boolean, authorizationtype:String);
+
+binaryfileaccess(serialversionuid:long, id:BinaryFile #FK to(binaryfile), user_id:User #FK to(user), access:Type);
+
+videocapture(serialversionuid:long, GeneratedName:Protocol, GeneratedName:Processor, ip:String, port:String, path:String, username:String, password:String, url:String, id:Ontology #FK to(ontology), GeneratedName:State, samplinginterval:long);
+
+projectresourceaccessexport(serialversionuid:long, id:OPResource #FK to(opresource), id:ProjectExport #FK to(projectexport), id:AppRoleExport #FK to(approleexport), user_id:UserExport #FK to(userexport));
+
+migrationdata(serialversionuid:long, description:String, type:DataType, GeneratedName:Status, filename:String, file:byte);
+
+restplanner(serialversionuid:long, identification:String, description:String, user_id:User #FK to(user), cron:String, from:Date, to:Date, url:String, method:String, jobname:String, active:boolean, body:String, headers:String);
+
+report(serialversionuid:long, description:String, ispublic:Boolean, active:Boolean, file:byte, datasourceurl:String, extension:ReportExtension);
+
+report_resources(report_id:Report [PK] #FK to Report,resources_id:set<binaryfile> [PK] #FK to set<binaryfile>);
+
+appuserexport(/***/serialversionuid:long, id:AppRoleExport #FK to(approleexport), user_id:UserExport #FK to(userexport));
+
+apioperation(serialversionuid:long, id:Api #FK to(api), identification:String, description:String, operation:Type, endpoint:String, basepath:String, path:String, postprocess:String);
+
+clientconnection(serialversionuid:long, id:ClientPlatform #FK to(clientplatform), identification:String, lastip:String, ipstrict:boolean, lastconnection:Calendar, ip:boolean);
+
+ontologytimeseries(/***/serialversionuid:long, GeneratedName:Ontology #FK to(ontology));
+
+opresource(serialversionuid:long, id:String [PK], identification:String, user_id:User #FK to(user));
+
+auditableentitywithuuid(serialversionuid:long, id:String [PK]);
+
+auditableentity(serialversionuid:long, createdat:Date, updat:Date);
+
+userexport(serialversionuid:long);
+
+user_project(user_id:UserExport [PK] #FK to UserExport,project_id:set<projectexport> [PK] #FK to set<projectexport>);
+
+themes(serialversionuid:long, id:String [PK], identification:String, json:String, active:boolean);
+
+ontologytimeserieswindow(/***/serialversionuid:long, id:OntologyTimeSeries #FK to(ontologytimeseries), GeneratedName:WindowType, frecuency:Integer, GeneratedName:FrecuencyUnit, GeneratedName:AggregationFunction, retentionbefore:Integer, GeneratedName:RetentionUnit, bdh:boolean);
+
+gadgettemplate(serialversionuid:long, description:String, type:String, ispublic:boolean, template:String, templatejs:String, headerlibs:String);
+
+digitaltwintype(serialversionuid:long, type:String, description:String, json:String, logic:String);
+
+cache(serialversionuid:long, GeneratedName:Type, GeneratedName:MaxSizePolicy, size:int, GeneratedName:EvictionPolicy);
+
+usertoken(serialversionuid:long, token:String, user_id:User #FK to(user));
+
+ontologyuseraccesstype(serialversionuid:long, name:String, description:String);
+
+clientplatformontology(serialversionuid:long, access:AccessType, id:ClientPlatform #FK to(clientplatform), id:Ontology #FK to(ontology));
+
+odtypology(serialversionuid:long, description:String);
+
+flownode(serialversionuid:long, identification:String, id:Flow #FK to(flow), flownode:Type, noderednodeid:String, partialurl:String, GeneratedName:MessageType, id:Ontology #FK to(ontology), retryonfailure:Boolean, discardafterelapsedtime:Boolean, maxretryelapsedtime:Integer);
+
+flowdomain(serialversionuid:long, state:String, port:Integer, serviceport:Integer, home:String, active:Boolean, accesstoken:String, autorecover:Boolean, thresholds:String);
+
+dashboard(serialversionuid:long, description:String, jsoni18n:String, customcss:String, customjs:String, ispublic:boolean, model:String, image:byte, headerlibs:String, type:DashboardType);
+
+projectresourceaccesslist(/***/serialversionuid:long, id:OPResource #FK to(opresource), id:Project #FK to(project), id:AppRoleList #FK to(approlelist), user_id:User #FK to(user));
+
+approlelist(/***/serialversionuid:long, app:AppList #FK to(applist));
+
+datamodel(serialversionuid:long, jsonschema:String, type:String, description:String, labels:String);
+
+notebookuseraccesstype(serialversionuid:long, id:String [PK], name:String, description:String);
+
+eventsdigitaltwintype(serialversionuid:long, id:DigitalTwinType #FK to(digitaltwintype), name:String, description:String, status:boolean, type:String);
+
+project(serialversionuid:long, type:ProjectType, GeneratedName:App #FK to(app));
+
+projectresourceaccess(serialversionuid:long, id:OPResource #FK to(opresource), id:Project #FK to(project), id:AppRole #FK to(approle), user_id:User #FK to(user));
+
+binaryfile(serialversionuid:long, filename:String, fileextension:String, metadata:String, path:String, mime:String, ispublic:boolean, repository:RepositoryType);
+
+appchildexport(/***/serialversionuid:long, project:ProjectExport #FK to(projectexport), user_id:UserExport #FK to(userexport));
+
+app_associated(parent_app:AppChildExport [PK] #FK to AppChildExport,child_app:set<appchildexport> [PK] #FK to set<appchildexport>);
+
+microservice(serialversionuid:long, port:Integer, contextpath:String, GeneratedName:JenkinsConfiguration, jenkinsxml:String, jobname:String, joburl:String, GeneratedName:GitlabConfiguration, gitlabrepository:String, GeneratedName:CaaS, GeneratedName:RancherConfiguration, openshiftconfiguration:CaasOpenshiftConfiguration, rancherenv:String, rancherstack:String, openshiftnamespace:String, openshiftdeploymenturl:String, jenkinsqueueid:Integer, dockerimage:String, GeneratedName:TemplateType, active:boolean);
+
+gadgettemplatetype(serialversionuid:long, id:String [PK], identification:String, template:String, templatejs:String, headerlibs:String);
+
+marketasset(serialversionuid:long, ispublic:boolean, state:MarketAssetState, GeneratedName:MarketAssetType, paymentmode:MarketAssetPaymentMode, image:byte, imagetype:String, content:byte, contentid:String, jsondesc:String, rejectionreason:String, deletedat:Date);
+
+projectexport(serialversionuid:long, type:ProjectType, app:AppExport #FK to(appexport));
+
+approleexport(/***/serialversionuid:long, app:AppExport #FK to(appexport));
+
+app_associated_roles(parent_role:AppRoleExport [PK] #FK to AppRoleExport,child_role:set<approlechildexport> [PK] #FK to set<approlechildexport>);
+
+gadgetmeasure(serialversionuid:long, id:Gadget #FK to(gadget), id:GadgetDatasource #FK to(gadgetdatasource), config:String);
+
+app(/***/serialversionuid:long, GeneratedName:Project #FK to(project), user_id:User #FK to(user));
+
+app_associated(parent_app:App [PK] #FK to App,child_app:set<appchild> [PK] #FK to set<appchild>);
+
+configuration(serialversionuid:long, user_id:User #FK to(user), ymlconfig:String, environment:String, GeneratedName:Type, suffix:String, description:String);
+
+appuserchildexport(/***/serialversionuid:long, id:AppRoleChildExport #FK to(approlechildexport), user_id:UserExport #FK to(userexport));
+
+dashboarduseraccesstype(serialversionuid:long, name:String, description:String);
+
+category(serialversionuid:long, identification:String, description:String);
+
+api(serialversionuid:long, id:Ontology #FK to(ontology), image:byte, ssl_certificate:boolean, numversion:Integer, description:String, category:ApiCategories, endpointext:String, state:ApiStates, metainf:String, imagetype:String, ispublic:boolean, apicachetimeout:Integer, apilimit:Integer, GeneratedName:ApiType, assessment:Double, swaggerjson:String);
+
+model(serialversionuid:long, description:String, id:Notebook #FK to(notebook), id:Dashboard #FK to(dashboard), outputparagraphid:String, inputparagraphid:String);
+
+dataflowinstance(serialversionuid:long, id:String [PK], identification:String, GeneratedName:User #FK to(user), url:String, admincredentials:String, usercredentials:String, guestcredentials:String, defaultinstance:boolean);
+
+pipelineuseraccess(serialversionuid:long, id:PipelineUserAccessType #FK to(pipelineuseraccesstype), id:Pipeline #FK to(pipeline), user_id:User #FK to(user));
+
+flow(serialversionuid:long, id:FlowDomain #FK to(flowdomain), identification:String, noderedflowid:String, active:Boolean);
+
+appuser(/***/serialversionuid:long, id:AppRole #FK to(approle), user_id:User #FK to(user));
+
+role(serialversionuid:long, id:String [PK], parent:Role #FK to(role), name:String, description:String);
+
+notebook(serialversionuid:long, idzep:String, ispublic:boolean);
+
+ontologyrestoperation(/***/serialversionuid:long, id:OntologyRest #FK to(ontologyrest), name:String, path:String, description:String, origin:String, type:OperationType, GeneratedName:DefaultOperationType);
+
+droolsruledomain(serialversionuid:long, active:boolean);
+
+applist(/***/serialversionuid:long, project:ProjectList #FK to(projectlist), user_id:User #FK to(user));
+
+app_associated(parent_app:AppList [PK] #FK to AppList,child_app:set<applist> [PK] #FK to set<applist>);
+
+supportrequest(serialversionuid:long, user_id:User #FK to(user), type:String, status:String, json:String);
+
+consolemenu(serialversionuid:long, id:String [PK], json:String, id:Role #FK to(role));
+
+dashboarduseraccess(serialversionuid:long, id:DashboardUserAccessType #FK to(dashboarduseraccesstype), id:Dashboard #FK to(dashboard), user_id:User #FK to(user));
+
+apiqueryparameter(serialversionuid:long, id:ApiOperation #FK to(apioperation), name:String, GeneratedName:DataType, description:String, value:String, condition:String, GeneratedName:HeaderType);
+
+gadgetdatasource(serialversionuid:long, mode:String, query:String, dbtype:String, id:Ontology #FK to(ontology), refresh:Integer, maxvalues:Integer, description:String, config:String);
+
+gadgetfavorite(serialversionuid:long, type:String, id:Gadget #FK to(gadget), id:GadgetTemplate #FK to(gadgettemplate), id:GadgetDatasource #FK to(gadgetdatasource), config:String);
+
+ksqlresource(serialversionuid:long, identification:String, description:String, ksqltype:KsqlResourceType, resourcetype:FlowResourceType, id:Ontology #FK to(ontology), statementtext:String, kafkatopic:String, iscreatedas:boolean);
+
+odtypologydataset(id:String [PK], typologyid:String, datasetid:String);
+
+dashboardconf(serialversionuid:long, identification:String, description:String, model:String, headerlibs:String);
+
+projectlist(serialversionuid:long, type:ProjectType, app:AppList #FK to(applist));
+
+appuserlistoauth(/***/serialversionuid:long, id:AppRoleListOauth #FK to(approlelistoauth), user_id:User #FK to(user));
+
+gadget(serialversionuid:long, type:String, description:String, ispublic:boolean, config:String);
+
+pipelineuseraccesstype(serialversionuid:long, id:String [PK], name:String, description:String);
+
+digitaltwindevice(serialversionuid:long, id:DigitalTwinType #FK to(digitaltwintype), url:String, urlschema:String, digitalkey:String, intrface:String, ip:String, ipv6:Boolean, port:Integer, contextpath:String, latitude:String, longitude:String);
+
+ontologyrestheaders(/***/serialversionuid:long, config:String);
+
+token(serialversionuid:long, id:ClientPlatform #FK to(clientplatform), tokenname:String, lastconnection:Calendar, active:boolean);
+
+webproject(serialversionuid:long, description:String, mainfile:String);
+
+ontologykafkatopic(serialversionuid:long, id:Ontology #FK to(ontology), GeneratedName:TopicType, identification:String);
+
+appchild(/***/serialversionuid:long, GeneratedName:Project #FK to(project), user_id:User #FK to(user));
+
+app_associated(parent_app:AppChild [PK] #FK to AppChild,child_app:set<appchild> [PK] #FK to set<appchild>);
+
+ontologytimeseriesproperty(/***/serialversionuid:long, id:OntologyTimeSeries #FK to(ontologytimeseries), GeneratedName:PropertyType, propertyname:String, GeneratedName:PropertyDataType);
+
+notebookuseraccess(serialversionuid:long, id:NotebookUserAccessType #FK to(notebookuseraccesstype), id:Notebook #FK to(notebook), user_id:User #FK to(user));
+
+applistoauth(/***/serialversionuid:long, project:ProjectList #FK to(projectlist), user_id:User #FK to(user));
+
+app_associated(parent_app:AppListOauth [PK] #FK to AppListOauth,child_app:set<applistoauth> [PK] #FK to set<applistoauth>);
+
+ontologyrestoperationparam(/***/serialversionuid:long, id:OntologyRestOperation #FK to(ontologyrestoperation), indexparam:Integer, name:String, field:String, type:ParamOperationType);
+
+odbinaryfilesdataset(id:String [PK], filesid:String, datasetid:String);
+
+categorization(serialversionuid:long, json:String);
+
+ontologydataaccess(serialversionuid:long, id:Ontology #FK to(ontology), user_id:User #FK to(user), id:AppRole #FK to(approle), rule:String);
+
+appexport(/***/serialversionuid:long, project:ProjectExport #FK to(projectexport), user_id:UserExport #FK to(userexport));
+
+app_associated(parent_app:AppExport [PK] #FK to AppExport,child_app:set<appchildexport> [PK] #FK to set<appchildexport>);
+
+usercomment(serialversionuid:long, id:MarketAsset #FK to(marketasset), user_id:User #FK to(user), title:String, comment:String);
+
+subscriptor(serialversionuid:long, id:Subscription #FK to(subscription), subscriptionid:String, subscriptiongw:String, callbackendpoint:String, queryvalue:String, clientid:String);
+
+droolsrule(serialversionuid:long, drl:String, GeneratedName:Type, id:Ontology #FK to(ontology), id:Ontology #FK to(ontology), active:boolean);
+
+querytemplate(serialversionuid:long, name:String, description:String, queryselector:String, querygenerator:String, id:Ontology #FK to(ontology), type:QueryType);
+
+parametermodel(serialversionuid:long, identification:String, GeneratedName:Type, rangefrom:Integer, rangeto:Integer, enumerators:String, id:Model #FK to(model));
+
+subcategory(serialversionuid:long, id:Category #FK to(category), identification:String, description:String);
+
+userapi(serialversionuid:long, id:Api #FK to(api), user_id:User #FK to(user));
+
+clientplatforminstance(serialversionuid:long, id:ClientPlatform #FK to(clientplatform), identification:String, connected:boolean, status:String, jsonactions:String, protocol:String, disabled:boolean, tags:String, location:double);
+
+ontologyrest(/***/serialversionuid:long, id:Ontology #FK to(ontology), baseurl:String, //@column(name:String, GeneratedName:SecurityType, jsonschema:String, securityid:OntologyRestSecurity #FK to(ontologyrestsecurity), headerid:OntologyRestHeaders #FK to(ontologyrestheaders));
+
+ksqlflow(serialversionuid:long, description:String, jsonflow:String);
+
+layer(serialversionuid:long, description:String, id:Ontology #FK to(ontology), geometrytype:String, geometryfield:String, symbol:String, innercolor:String, outercolor:String, size:String, outerthin:String, url:String, externaltype:String, layertypewms:String, infobox:String, filters:String, queryparams:String, query:String, ispublic:boolean, isvirtual:boolean, isheatmap:boolean, isfilter:boolean, weightfield:String, heatmapmin:Integer, refreshtime:Integer, heatmapmax:Integer, heatmapradius:Integer, east:Double, west:Double, north:Double, south:Double);
+
+layer_viewer(layer_id:Layer [PK] #FK to Layer,viewer_id:set<viewer> [PK] #FK to set<viewer>);
+
+userratings(serialversionuid:long, id:MarketAsset #FK to(marketasset), user_id:User #FK to(user), value:Double);
+
+twitterlistening(serialversionuid:long, id:Ontology #FK to(ontology), id:Configuration #FK to(configuration), id:Token #FK to(token), from:Date, to:Date, topics:String, cron:String, jobname:String);
+
+approle(/***/serialversionuid:long, GeneratedName:App #FK to(app));
+
+app_associated_roles(parent_role:AppRole [PK] #FK to AppRole,child_role:set<approlechild> [PK] #FK to set<approlechild>);
+
+modelexecution(serialversionuid:long, ideject:String, parameters:String, idzeppelin:String, description:String, id:Model #FK to(model));
+
+appuserchild(/***/serialversionuid:long, id:AppRoleChild #FK to(approlechild), user_id:User #FK to(user));
+
+user(serialversionuid:long);
+
+user_project(user_id:User [PK] #FK to User,project_id:set<project> [PK] #FK to set<project>);
+
+clientplatforminstancesimulation(serialversionuid:long, id:Ontology #FK to(ontology), id:ClientPlatform #FK to(clientplatform), id:Token #FK to(token), json:String, from:Date, to:Date, cron:String, erval:int, active:boolean, jobname:String);
+
+categoryrelation(serialversionuid:long, typeid:String, GeneratedName:Type, category:String, subcategory:String);
+
+actionsdigitaltwintype(serialversionuid:long, id:DigitalTwinType #FK to(digitaltwintype), name:String, description:String);
+
+propertydigitaltwintype(serialversionuid:long, id:DigitalTwinType #FK to(digitaltwintype), name:String, type:String, description:String, unit:String, direction:String, href:String);
+
+clientplatform(serialversionuid:long, encryptionkey:String, metadata:String, description:String);
+
+pipeline(serialversionuid:long, idstreamsets:String, ispublic:boolean, id:DataflowInstance #FK to(dataflowinstance));
+
+baselayer(serialversionuid:long, identification:String, name:String, technology:String, url:String);
+
+tenantlazy(/***/serialversionuid:long);
+
+verticallazy(/***/serialversionuid:long);
+
+vertical_tenant(vertical_id:VerticalLazy [PK] #FK to VerticalLazy,tenant_id:set<tenantlazy> [PK] #FK to set<tenantlazy>);
+
+masteruserlazy(/***/serialversionuid:long, id:TenantLazy #FK to(tenantlazy));
+
+iotsession(serialversionuid:long, sessionkey:String, clientplatform:String, clientplatformid:String, device:String, token:MasterDeviceToken #FK to(masterdevicetoken), userid:String, username:String, expiration:long, lastaccess:ZonedDateTime);
+
+oauthrefreshtoken(tokenid:String [PK], token:Blob, authentication:Blob);
+
+tenant(/***/serialversionuid:long);
+
+masterconfiguration(serialversionuid:long, ymlconfig:String, GeneratedName:Type, description:String);
+
+masterdevicetoken(/***/serialversionuid:long, tokenname:String, tenant:String, verticalschema:String);
+
+masterdigitaltwindevicetoken(/***/serialversionuid:long, tokenname:String, tenant:String, verticalschema:String);
+
+oauthaccesstoken(serialversionuid:long, tokenid:String [PK], token:Blob, authenticationid:String, username:String, clientid:String, authentication:Blob, refreshtoken:String);
+
+oauthclienttoken(tokenid:String [PK], token:Blob, authenticationid:String, username:String, clientid:String);
+
+vertical(/***/serialversionuid:long);
+
+vertical_tenant(vertical_id:Vertical [PK] #FK to Vertical,tenant_id:set<tenant> [PK] #FK to set<tenant>);
+
+oauthclientdetails(serialversionuid:long, clientid:String [PK], clientsecret:String, resourceids:String, scope:String, authorities:String, authorizedgranttypes:String, registeredredirecturi:String, accesstokenvalidityseconds:Integer, refreshtokenvalidityseconds:Integer, additionalinformation:String);
+
+masterusertoken(serialversionuid:long, token:String, GeneratedName:MasterUser #FK to(masteruser), GeneratedName:Tenant #FK to(tenant), GeneratedName:Vertical #FK to(vertical));
+
+masteruser(/***/serialversionuid:long, id:Tenant #FK to(tenant));
+
+masteruserhistoric(/***/serialversionuid:long, user_id:MasterUser #FK to(masteruser), password:String);
+
+oauthcode(code:String [PK], authentication:Blob);
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

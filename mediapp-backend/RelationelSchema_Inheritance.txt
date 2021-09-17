@@ -1,0 +1,27 @@
+
+detalleconsulta(iddetalle:Integer [PK], GeneratedName:Consulta #FK to(consulta), diagnostico:String, tratamiento:String);
+
+usuario(idusuario:Integer [PK], username:String, password:String, enabled:boolean);
+
+usuario_rol(id_usuario:Usuario [PK] #FK to Usuario,id_rol:list<rol> [PK] #FK to list<rol>);
+
+paciente(sql//select*frompacienteetpidpaciente:Integer [PK], nombres:String, apellidos:String, dni:String, direccion:String, telefono:String, email:String);
+
+especialidad(idespecialidad:Integer [PK], nombre:String, descripcion:String);
+
+menu(idmenu:Integer [PK], icono:String, nombre:String, url:String);
+
+menu_rol(id_menu:Menu [PK] #FK to Menu,id_rol:list<rol> [PK] #FK to list<rol>);
+
+consultaexamen(id:Consulta [PK], id:Examen [PK]);
+
+medico(idmedico:Integer [PK], nombres:String, apellidos:String, cmp:String, //enspringdatacuandoseusaunavariableescritaencamelcase,cadavezqueencuentreunamayusculacolocaraguionbajofotourl:String);
+
+examen(idexamen:Integer [PK], nombre:String, descripcion:String);
+
+rol(idrol:Integer [PK], //eltamañopordefectoes250yaceptanulosnombre:String, descripcion:String);
+
+consulta(idconsulta:Integer [PK], //integerid:Paciente #FK to(Paciente), GeneratedName:Medico #FK to(medico), especialidad:Paciente #FK to(Paciente), numconsultorio:String, fecha:LocalDateTime);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

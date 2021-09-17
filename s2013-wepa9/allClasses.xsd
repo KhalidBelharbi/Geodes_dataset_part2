@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="a_domaintest" >
+      <xs:sequence>
+        <xs:element name="date_format" type="xs:string" />
+        <xs:element name="sleep_classname" type="xs:string" />
+        <xs:element name="sleepattributesandtypes" type="xs:anyType" />
+        <xs:element name="sleepattributeannotations" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="c_servicetest" >
+      <xs:complexContent>
+       <xs:extension base="testhelper">
+         <xs:sequence>
+          <xs:element name="sleep_service_classname" type="xs:string" />
+          <xs:element name="sleep_repository_classname" type="xs:string" />
+          <xs:element name="" type="sleepservice" nillable="true" minOccurs="0" />
+          <xs:element name="sleeprepository" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitytester" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testhelper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="b_repositorytest" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository,">
+         <xs:sequence>
+          <xs:element name="sleep_classname" type="xs:string" />
+          <xs:element name="sleep_repository_classname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="d_controllertest" >
+      <xs:complexContent>
+       <xs:extension base="testhelper">
+         <xs:sequence>
+          <xs:element name="sleep_controller_classname" type="xs:string" />
+          <xs:element name="sleep_repository_classname" type="xs:string" />
+          <xs:element name="" type="sleepcontroller" nillable="true" minOccurs="0" />
+          <xs:element name="sleeprepository" type="xs:anyType" />
+          <xs:element name="" type="sleep" nillable="true" minOccurs="0" />
+          <xs:element name="port" type="xs:string" />
+          <xs:element name="driver" type="xs:anyType" />
+          <xs:element name="baseurl" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="context" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sleep" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="index" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sleeps" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="index" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basecontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="restsleepcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="sleepservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sleepcontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpasleepservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="sleeprepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sleepservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sleeprepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<sleep,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sleep" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="start" type="xs:dateTime" />
+        <xs:element name="end" type="xs:dateTime" />
+        <xs:element name="feeling" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

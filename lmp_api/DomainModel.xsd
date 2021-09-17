@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="passwordresettoken" >
+      <xs:sequence>
+        <xs:element name="//1dayexpiration" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="token" type="xs:string" />
+        <xs:element name="GeneratedName" type="person" nillable="true" minOccurs="0" />
+        <xs:element name="exipration" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="attribute" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="subcategory" type="attributesubcategory" nillable="true" minOccurs="0" />
+        <xs:element name="subcategoryname" type="xs:string" />
+        <xs:element name="categoryname" type="xs:string" />
+        <xs:element name="providername" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="reputation" type="xs:long" />
+        <xs:element name="isenabled" type="xs:anyType" />
+        <xs:element name="isdeleted" type="xs:anyType" />
+        <xs:element name="isupdateable" type="xs:anyType" />
+        <xs:element name="attributemaps" type="attributemap" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="consumer" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="identifier" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="isenabled" type="xs:anyType" />
+        <xs:element name="isdeleted" type="xs:anyType" />
+        <xs:element name="people" type="person" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="spheres" type="sphere" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="organizations" type="organization" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="attributemap" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="providerattributename" type="xs:string" />
+        <xs:element name="lmpattributename" type="xs:string" />
+        <xs:element name="attributenameinresponse" type="xs:string" />
+        <xs:element name="GeneratedName" type="provider" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="attribute" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="organization" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="identifier" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="//relationsconsumers" type="consumer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="providers" type="provider" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="spheres" type="sphere" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="associations" type="personentityrelationship" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="person" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="surname" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="identifier" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="postalcode" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="country" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="company" type="xs:string" />
+        <xs:element name="jobposition" type="xs:string" />
+        <xs:element name="legal" type="xs:anyType" />
+        <xs:element name="clientrole" type="xs:anyType" />
+        <xs:element name="providerrole" type="xs:anyType" />
+        <xs:element name="activated" type="xs:anyType" />
+        <xs:element name="consumers" type="consumer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="providers" type="provider" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="spheres" type="sphere" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//uniones//)associations" type="personentityrelationship" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sphere" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="identifier" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="isenabled" type="xs:anyType" />
+        <xs:element name="isdeleted" type="xs:anyType" />
+        <xs:element name="isdataextracted" type="xs:anyType" />
+        <xs:element name="consumers" type="consumer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="attributes" type="attribute" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="person" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="provider" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="identifier" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="isoauth" type="xs:anyType" />
+        <xs:element name="oauthurl" type="xs:string" />
+        <xs:element name="isenabled" type="xs:anyType" />
+        <xs:element name="isdeleted" type="xs:anyType" />
+        <xs:element name="people" type="person" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="organizations" type="organization" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//tokensprovidertokens" type="token" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//attributemappingattributemaps" type="attributemap" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="personentityrelationship" >
+      <xs:sequence>
+        <xs:element name="//state:administrator,associated,requested_from_user,requested_from_entityid" type="xs:long" />
+        <xs:element name="GeneratedName" type="person" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="organization" nillable="true" minOccurs="0" />
+        <xs:element name="state" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="attributecategory" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="subcategories" type="attributesubcategory" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="attributesubcategory" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="category" type="attributecategory" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="token" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="person" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="provider" nillable="true" minOccurs="0" />
+        <xs:element name="token" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

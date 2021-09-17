@@ -1,0 +1,13 @@
+
+historique(id:Long [PK], rechercheid:Long, date:LocalDateTime, modification:String);
+
+recherche(id:Long [PK], contact:Date, poste:String, client:String, statut:String, GeneratedName:Entreprise #FK to(entreprise), GeneratedName:Personne #FK to(personne));
+
+personne(id:Long [PK], nom:String, prenom:String, telephone:String, email:String, GeneratedName:Recherche #FK to(recherche));
+
+entreprise(id:Long [PK], nom:String, telephone:String, GeneratedName:Adresse #FK to(adresse), GeneratedName:Recherche #FK to(recherche));
+
+adresse(id:Long [PK], rue:String, ville:String, cp:String, GeneratedName:Entreprise #FK to(entreprise));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

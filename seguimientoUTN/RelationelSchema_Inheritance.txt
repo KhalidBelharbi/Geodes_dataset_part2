@@ -1,0 +1,19 @@
+
+reserva(GeneratedName:Cancha [PK] #FK to(Cancha), GeneratedName:Jugador #FK to(jugador), fechainicio:Date, fechafin:Date);
+
+cancha(id:int [PK], nombre:String, GeneratedName:Color #FK to(Color), tieneiluminacion:boolean, telefono:String);
+
+color(codigo:String [PK], descripcion:String);
+
+constructor(codigo:int [PK], nombre:String, domicilio:String);
+
+paleta(codigo:int [PK], nombre:String, grosor:double, GeneratedName:Color #FK to(Color), GeneratedName:Constructor #FK to(Constructor));
+
+partidos_jugador(GeneratedName:Partido #FK to(partido), GeneratedName:Jugador #FK to(jugador), utilizada:Paleta #FK to(Paleta), paleta:Color #FK to(Color));
+
+partido(codigo:int [PK], GeneratedName:Cancha #FK to(Cancha), GeneratedName:Color #FK to(Color), fechainicio:Date, fechafin:Date);
+
+jugador(id:int [PK], nombre:String, apellido:String, domicilio:String, fechanacimiento:Date, GeneratedName:Paleta #FK to(Paleta));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

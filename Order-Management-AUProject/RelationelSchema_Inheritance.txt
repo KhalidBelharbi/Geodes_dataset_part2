@@ -1,0 +1,15 @@
+
+customerorder(//@manytoone(targetentity:Customer #FK to(customer), customerid:int, orderid:int [PK], orderstatus:String);
+
+customer(customerid:int [PK], customername:String, customerphone:String, customeremail:String, customeraddress:String, customerpincode:String);
+
+product(productid:int [PK], productname:String, productonhand:String, productavailable:String, productoutgoing:String, productincoming:String, productcostprice:String, productsellingprice:String);
+
+purchaseorder_product(productid:Product [PK] #FK to Product,purchaseid:list<purchaseorder> [PK] #FK to list<purchaseorder>);customerorder_product(productid:Product [PK] #FK to Product,customerid:list<customerorder> [PK] #FK to list<customerorder>);
+
+purchaseorder(purchaseid:int [PK], supplierid:Supplier #FK to(supplier), purchasestatus:String);
+
+supplier(supplierid:int [PK], suppliername:String, supplierphone:String, supplieremail:String, supplieraddress:String, supplierpincode:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

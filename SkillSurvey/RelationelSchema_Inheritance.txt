@@ -1,0 +1,65 @@
+
+department(serialversionuid:long, iddepartment:long [PK], code:String, description:String, name:String);
+
+individual(serialversionuid:long, idindividual:long [PK], gender:String, login:String, name:String, password:String, //longsupervisorid//longsupervisedid//bi-directionalmany-to-oneassociationto:Department #FK to(department), GeneratedName:Function #FK to(function), GeneratedName:Occupation #FK to(occupation), GeneratedName:Level #FK to(level));
+
+supervisons(supervisorid:Individual [PK] #FK to Individual,supervisedid:list<individual> [PK] #FK to list<individual>);
+
+role(serialversionuid:long, idrole:long [PK], name:String, description:String);
+
+claimassignment(roleid:Role [PK] #FK to Role,claimid:list<claim> [PK] #FK to list<claim>);roleassignment(roleid:Role [PK] #FK to Role,individualid:list<individual> [PK] #FK to list<individual>);
+
+pathway(serialversionuid:long, idpathway:long [PK], description:String, name:String, selectable:boolean);
+
+uocquestion(serialversionuid:long, iduocquestion:long [PK], //bi-directionalmany-to-oneassociationto:Question #FK to(question), //bi-directionalmany-to-oneassociationto:Uoc #FK to(uoc));
+
+surveryanswer(surveyid:long [PK], uocquestionid:long [PK], serialversionuid:long, answeredat:String, value:String);
+
+occupation(serialversionuid:long, idoccupation:long [PK], description:String, name:String);
+
+level(serialversionuid:long, idlevel:long [PK], code:String, description:String);
+
+dapsscolevel(levelid:Level [PK] #FK to Level,dapsscoid:list<dapssco> [PK] #FK to list<dapssco>);
+
+claimassignments(claimid:long [PK], roleid:long [PK], /***/serialversionuid:long);
+
+need(serialversionuid:long, idneed:long [PK], description:String, name:String);
+
+claim(serialversionuid:long, idclaim:long [PK], code:String);
+
+dapsscoskills(uocgroupid:long [PK], dapsscoid:long [PK]);
+
+survey(serialversionuid:long, idsurvey:long [PK], completedat:Date, startedat:Date, ////bi-directionalmany-to-oneassociationtosurveryanswer//@onetomany(mappedby:Individual #FK to(individual), GeneratedName:Dapssco #FK to(dapssco), //bi-directionalmany-to-oneassociationto:Pathway #FK to(pathway));
+
+surveryanswer(surveyid:Survey [PK] #FK to Survey,uocquestionid:list<uocquestion> [PK] #FK to list<uocquestion>);
+
+function(serialversionuid:long, idfunction:long [PK], description:String, name:String);
+
+functionoccupations(functionid:Function [PK] #FK to Function,occupationid:list<occupation> [PK] #FK to list<occupation>);
+
+uoc(serialversionuid:long, ////@generatedvalue(strategy:String [PK], description:String, name:String, type:String);
+
+uocgroupmembers(uocid:Uoc [PK] #FK to Uoc,uocgroupid:list<uocgroup> [PK] #FK to list<uocgroup>);
+
+dapssco(serialversionuid:long, iddepssco:long [PK], id:Level #FK to(level), //bi-directionalmany-to-oneassociationto:Occupation #FK to(occupation));
+
+dapsscolevel(dapsscoid:Dapssco [PK] #FK to Dapssco,levelid:list<level> [PK] #FK to list<level>);
+
+supervisons(/***/serialversionuid:long, supervisorid:long [PK], supervisedid:long [PK]);
+
+dapsscolevel(dapsscoid:long [PK], levelid:long [PK], /***/serialversionuid:long);
+
+functionoccupations(occupationid:long [PK], functionid:long [PK]);
+
+uocgroupmembers(serialversionuid:long, //longuoc_iduoc_id:String [PK], uoc_groupid:long [PK]);
+
+uocgroup(serialversionuid:long, iduocgroup:long [PK], notes:String, //bi-directionalmany-to-oneassociationto:Need #FK to(need), //bi-directionalmany-to-oneassociationto:Pathway #FK to(pathway));
+
+dapsscoskills(uocgroupid:UocGroup [PK] #FK to UocGroup,dapsscoid:list<dapssco> [PK] #FK to list<dapssco>);
+
+question(serialversionuid:long, idquestion:long [PK], style:String, text:String);
+
+roleassignment(serialversionuid:long, //@embeddedid//roleassignmentpkidpkroleid:long [PK], individualid:long [PK]);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

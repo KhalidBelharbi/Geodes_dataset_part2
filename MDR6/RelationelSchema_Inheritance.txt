@@ -1,0 +1,265 @@
+imagereader(id:long [PK], image:Blob, text:Clob);
+
+simpleentity(id:Long [PK], name:String);
+
+nocacheableannotationentity(id:Long [PK], name:String);
+
+explicitlynoncacheableentity(id:Long [PK], name:String);
+
+explicitlycacheableentity(id:Long [PK], name:String);
+
+author(id:Integer [PK]);
+
+sickness(begintime:Date, type:String [PK], classification:String [PK]);
+
+umbrella(id:PK, size:int);
+
+book(id:Long [PK], name:String);
+
+music(id:Integer [PK], version:Integer, name:String);
+
+musician(id:Integer [PK], name:String, favourite:Music);
+
+instrument(id:int [PK], name:String, GeneratedName:Type);
+
+book(id:Integer [PK], name:String, version:Integer);
+
+fruit(id:Long [PK]);
+
+strawberry(size:Long);
+
+cupholder(//(strategy:Integer [PK], radius:BigDecimal);
+
+mail(id:Long [PK], from:String);
+
+race(id:Integer [PK], name:String);
+
+colony(id:Long [PK]);
+
+dress(name:String [PK]);
+
+empire(id:Long [PK]);
+
+dog(numbones:int);
+
+competitor(id:Integer [PK], name:String);
+
+cat(lives:int);
+
+music(id:Integer [PK], name:String, version:Integer);
+
+pet(id:int [PK], name:String, weight:double);
+
+c1(id:int [PK], GeneratedName:B1 #FK to(B1));
+
+b1(id:int [PK], GeneratedName:A #FK to(A));
+
+b4(id:int [PK], GeneratedName:A #FK to(A));
+
+a(id:int [PK], name:String);
+
+b2(id:int [PK], GeneratedName:A #FK to(A));
+
+c2(id:int [PK], GeneratedName:B2 #FK to(B2));
+
+b3(id:int [PK], GeneratedName:A #FK to(A));
+
+competition(id:Integer [PK]);
+
+competition_competitor(Competition_ID:Competition [PK] #FK to Competition,Competitor_ID:Competitor [PK] #FK to Competitor);
+
+decorate(id:int [PK], name:String, GeneratedName:Pet);
+
+cat(log:Logger, //usedforassertionsids:List, //usedforassertionspostversion:int, id:Integer [PK], name:String, ofbirth:Date, length:long, lastup:Date, manualversion:int);
+
+extractiondocument(id:Long [PK], body:byte, documentinfo:ExtractionDocumentInfo #FK to(A));
+
+song(id:Long [PK], GeneratedName:Author #FK to(Author));
+
+troop2(/*fails:*/id:Integer [PK], name:String);
+
+troop(id:Integer [PK], name:String);
+
+grandson(id:Integer [PK], parent:Son #FK to(Son));
+
+student(id:Long [PK], name:String, primary:Teacher #FK to(A), favorite:Teacher #FK to(A));
+
+soldier(id:Integer [PK], name:String, GeneratedName:Troop);
+
+author(id:Long [PK]);
+
+extractiondocumentinfo(id:Long [PK], lastmodified:Date, GeneratedName:Conference);
+
+parent(id:Integer [PK]);
+
+conference(id:Long [PK], GeneratedName:Date, extractiondocument:ExtractionDocumentInfo #FK to(A));
+
+son(id:Integer [PK], GeneratedName:Parent #FK to(A));
+
+teacher(id:Long [PK], name:String, favorite:Student #FK to(Student));
+
+soldier2(id:Integer [PK], name:String, troop:Troop2 #FK to(Troop2));
+
+detachandcontainstest();
+
+distributor(id:Integer [PK], name:String);
+
+kitten(id:Integer [PK], name:String);
+
+countrychecker();
+
+rythm(id:Integer [PK]);
+
+employee(title:String, salary:BigDecimal, manager:Employee #FK to(Employee));
+
+videosystem(transientcounter:int);
+
+plant(id:String [PK], name:String);
+
+television(id:Integer [PK], control:RemoteControl #FK to(RemoteControl), name:String);
+
+customer(salesperson:Employee #FK to(Employee), comments:String);
+
+person(id:long [PK], name:String, address:String, zip:String, country:String, sex:char);
+
+communicationsystem(communication:int, isfirst:boolean, islast:boolean);
+
+remotecontrol(id:Integer [PK], creation:Date);
+
+translation(id:Integer [PK], into:String);
+
+item(name:String [PK], descr:String);
+
+workload(id:Integer [PK], name:String, load:Integer);
+
+mammal(mamalnbr:int);
+
+reptile(temperature:float);
+
+animal(name:String, id:Long [PK]);
+
+oven(id:Long [PK], GeneratedName:Kitchen #FK to(kitchen));
+
+incidentstatus(id:String [PK], GeneratedName:Incident #FK to(incident));
+
+incident(id:String [PK], GeneratedName:IncidentStatus #FK to(A));
+
+kitchen(id:Long [PK], GeneratedName:Oven #FK to(oven));
+
+house(GeneratedName:Key, GeneratedName:Address, rooms:Set<Room>, roomsbyname:Map<String,Room>, roomsbysize:List<Room>);
+
+person(firstname:String [PK], lastname:String [PK], age:Short);
+
+fooditem(id:Long [PK], name:String, version:Long);
+
+fridge(id:Long [PK], brand:String, temperature:int);
+
+simpleperson(ssn:String [PK]);
+
+flower(id:Long [PK], name:String);
+
+joinedmanytooneowner(id:Long [PK], GeneratedName:House);
+
+garden(id:Long [PK], name:String);
+
+child(id:Integer [PK], name:String);
+
+dog(name:String);
+
+parent(id:Integer [PK], name:String, siblings:Relatives<Child>);
+
+cat(nickname:String);
+
+withgenericcollection(id:String [PK], d:double, parent:WithGenericCollection<? extends Object> #FK to(withgenericcollection<? extends object>));
+
+simplemedicalhistory(lastup:Date, patient:SimplePerson [PK] #FK to(Son));
+
+deskwithrawtype(id:String [PK], name:String);
+
+desk_empl(desk_fk:DeskWithRawType [PK] #FK to DeskWithRawType,empl_fk:collection [PK] #FK to collection);
+
+feline(color:String);
+
+employeewithrawtype(id:String [PK], name:String);
+
+unversionedlock(id:Integer [PK], name:String);
+
+lockable(id:Integer [PK], version:Integer, name:String);
+
+lock(id:Integer [PK], version:Integer, name:String);
+
+pasta(id:Integer [PK], type:String);
+
+wallet(serial:String [PK], model:String, marketentrance:Date, brand:String);
+
+phone(id:Integer [PK], brandname:String, price:float);
+
+bell(id:Integer [PK]);
+
+cable(id:Integer [PK], name:String);
+
+applicationserver1(id:Integer [PK], name:String, version:Version1);
+
+money1(id:Integer [PK]);
+
+scooter(model:String [PK], speed:Long);
+
+washer();
+
+applicationserver(id:Integer [PK], name:String, GeneratedName:Version);
+
+money(id:Integer [PK]);
+
+bug(id:Long [PK], subject:String, comment:String);
+
+morito(id:Integer [PK], power:String);
+
+carpet(id:Integer [PK], country:String);
+
+bug(id:Long [PK], subject:String, comment:String);
+
+caipirinha(id:Integer [PK], name:String);
+
+applicationserver(id:Integer [PK], name:String, version:org.hibernate.ejb.test.pack.defaultpar.Version);
+
+money(id:Integer [PK]);
+
+article(id:Integer [PK], name:String, next:Article);
+
+employee(id:Long [PK], name:String, /*@embedded@attributeoverrides({@attributeoverride(name:Address, /*@embedded@attributeoverrides({@attributeoverride(name:Address);
+
+employee(id:Long [PK], name:String, /*@embedded@attributeoverrides({@attributeoverride(name:Address, /*@embedded@attributeoverrides({@attributeoverride(name:Address);
+
+article(id:Integer [PK], name:String, next:Article);
+
+info(id:String [PK], street:String, city:String, state:String, zip:String, GeneratedName:Spouse);
+
+creditcard(id:String [PK], number:String, type:String, expires:String, approved:boolean, balance:double, GeneratedName:Order, GeneratedName:Customer);
+
+customer(id:String [PK], name:String, age:Integer, home:Address #FK to(Dress), work:Address #FK to(Dress), GeneratedName:Country, GeneratedName:Spouse);
+
+order(id:String [PK], totalprice:double, GeneratedName:Customer, GeneratedName:CreditCard, sample:LineItem, domen:char, number:byte);
+
+alias(id:String [PK], alias:String, noop:Customer);
+
+fks_anoop_cnoop(fk2_for_alias_table:Alias [PK] #FK to Alias,fk8_for_customer_table:Customer [PK] #FK to Customer);fks_alias_customer(fk_for_alias_table:Alias [PK] #FK to Alias,fk_for_customer_table:Customer [PK] #FK to Customer);
+
+versionedentity(id:String [PK], name:String, version:int);
+
+address(id:String [PK], street:String, city:String, state:String, zip:String);
+
+phone(id:String [PK], area:String, number:String, GeneratedName:Address, types:Set<Type>);
+
+spouse(id:String [PK], first:String, maiden:String, last:String, snumber:String, GeneratedName:Info, GeneratedName:Customer);
+
+lineitem(id:String [PK], quantity:int, GeneratedName:Order, GeneratedName:Product);
+
+product(id:String [PK], name:String, price:double, rating:float, quantity:int, partnumber:long, some:BigInteger, some:BigDecimal, warehouse:String, GeneratedName:ShelfLife);
+
+client(id:int [PK], GeneratedName:Name);
+
+wall(id:Long [PK], width:long, height:long, color:String, left:Wall #FK to(A), right:Wall #FK to(A));
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

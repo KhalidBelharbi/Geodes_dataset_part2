@@ -1,0 +1,15 @@
+
+bookentity(id:long [PK], name:String, isbn:String, overview:String, ofpublish:Date, ofreprint:Date, acknowledgement:String, copyright:String, fact:String, printedby:String, coverdesigner:String, coverphotourl:String, price:double);
+
+book_publisher(book_id:BookEntity [PK] #FK to BookEntity,publisher_id:list<publisherentity> [PK] #FK to list<publisherentity>);book_author(book_id:BookEntity [PK] #FK to BookEntity,author_id:list<authorentity> [PK] #FK to list<authorentity>);book_tag(book_id:BookEntity [PK] #FK to BookEntity,tag_id:list<tagentity> [PK] #FK to list<tagentity>);
+
+authorentity(id:long [PK], name:String, email:String, mobile:String, address:String, birth:Date, country:String, biography:String, background:String, nickname:String, photourl:String);
+
+bookshelfentity(id:long [PK], name:String, category:String, capability:long);
+
+publisherentity(id:long [PK], name:String, address:String, mobile:String, contactpersonname:String, contactpersonmobile:String, website:String, email:String, facebookpage:String, about:String, background:String, photourl:String);
+
+tagentity(id:long [PK], name:String, category:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

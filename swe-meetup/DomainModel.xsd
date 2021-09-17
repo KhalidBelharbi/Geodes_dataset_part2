@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="useravailability" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="day" type="xs:string" />
+        <xs:element name="start_" type="xs:dateTime" />
+        <xs:element name="end_" type="xs:dateTime" />
+        <xs:element name="user" type="applicationuser" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="meeting" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="meeting_day" type="xs:string" />
+        <xs:element name="meeting_start_" type="xs:dateTime" />
+        <xs:element name="meeting_end_" type="xs:dateTime" />
+        <xs:element name="//formeetingcalculationmeeting_duration" type="xs:double" />
+        <xs:element name="group" type="meetupgroup" nillable="true" minOccurs="0" />
+        <xs:element name="user" type="applicationuser" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="meetingpossibility" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="day" type="xs:string" />
+        <xs:element name="start_" type="xs:dateTime" />
+        <xs:element name="end_" type="xs:dateTime" />
+        <xs:element name="vote_count" type="xs:long" />
+        <xs:element name="group" type="meetupgroup" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="groupmembership" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="group" type="meetupgroup" nillable="true" minOccurs="0" />
+        <xs:element name="user" type="applicationuser" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="applicationuser" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="fullname" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="memberships" type="groupmembership" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="groups" type="meetupgroup" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="meetupgroup" >
+      <xs:sequence>
+        <xs:element name="group_id" type="xs:long" />
+        <xs:element name="group_name" type="xs:string" />
+        <xs:element name="user" type="applicationuser" nillable="true" minOccurs="0" />
+        <xs:element name="memberships" type="groupmembership" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,11 @@
+
+address(id:Long [PK], GeneratedName:User #FK to(user));
+
+user(id:Long [PK], emailid:String, firstname:String, lastname:String, password:String, age:Integer, sex:String, GeneratedName:Address #FK to(address), birth:Date);
+
+users_roles(user_id:User [PK] #FK to User,role_id:collection<role> [PK] #FK to collection<role>);
+
+role(id:Long [PK], rolename:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

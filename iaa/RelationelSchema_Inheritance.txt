@@ -1,0 +1,21 @@
+
+dozent(id:Long, GeneratedName:Person);
+
+pruefungsfach(id:Long, titel:String, beschreibung:String, GeneratedName:Manipel);
+
+user(id:Long, GeneratedName:Person);
+
+person(id:Long, name:String, vorname:String);
+
+pruefungsleistung(id:Long, versuch:int, GeneratedName:Note, mdl_moeglich:boolean, gueltig:boolean, erfassungsdatum:Date, GeneratedName:Pruefung, GeneratedName:Student, studentmatrikelnummer:int, erfasser:User, GeneratedName:Ergaenzungspruefung, aenderungseintrag:boolean);
+
+student(matrikelnummer:int, GeneratedName:Person, GeneratedName:Manipel, pruefungsleistungen:List<Pruefungsleistung>);
+
+ergaenzungspruefung(id:Long, GeneratedName:Note, datum:Date, erfassungsdatum:Date, pruefungsleistungid:Long);
+
+pruefung(id:Long, datum:Date, GeneratedName:Pruefungsfach, GeneratedName:Dozent);
+
+manipel(pk:ManipelPK [PK]);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

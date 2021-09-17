@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="personaservicioimpl" >
+      <xs:complexContent>
+       <xs:extension base="serviciobaseimpl<long,">
+         <xs:sequence>
+          <xs:element name="" type="personarepositorio" nillable="true" minOccurs="0" />
+          <xs:element name="" type="personamodelotopersonaentidadconvertidor" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="personaservicio" >
+      <xs:complexContent>
+       <xs:extension base="serviciobase<long,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="personarepositorio" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<personaentidad,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="generalconfiguracion" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpaconfiguracion" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="swaggerconfiguracion" >
+      <xs:sequence>
+        <xs:element name="ruta_principal" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwttokenautorizacion" >
+      <xs:complexContent>
+       <xs:extension base="onceperrequestfilter">
+         <xs:sequence>
+          <xs:element name="" type="jwtpropiedades" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="seguridaddeshabilitarconfiguracion" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jwtpropiedades" >
+      <xs:sequence>
+        <xs:element name="secretkey" type="xs:string" />
+        <xs:element name="prefix" type="xs:string" />
+        <xs:element name="expiraindays" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="seguridaddevconfiguracion" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+          <xs:element name="" type="jwtpropiedades" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usuarioentidad" >
+      <xs:sequence>
+        <xs:element name="usuario" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="permisos" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="personamodelotopersonaentidadconvertidor" >
+      <xs:complexContent>
+       <xs:extension base="convertidorbase<personamodelo,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usuariosesion" >
+      <xs:sequence>
+        <xs:element name="usuario_sesion" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tipoerror" >
+      <xs:sequence>
+        <xs:element name="nombreclase" type="xs:string" />
+        <xs:element name="procesar" type="xs:anyType" />
+        <xs:element name="estado" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="manejadorerror" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="personacontrolador" >
+      <xs:complexContent>
+       <xs:extension base="controladorbaseimpl<long,">
+         <xs:sequence>
+          <xs:element name="" type="personaservicio" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="personaentidad" >
+      <xs:complexContent>
+       <xs:extension base="auditoriaentidad<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="nombre" type="xs:string" />
+          <xs:element name="fechanacimiento" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="personaapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

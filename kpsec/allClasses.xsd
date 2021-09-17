@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="관리점정보" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="계좌정보" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="거래내역" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customerrorhandler" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="swaggerconfig" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="initdata" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="accountrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="branchrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="statementrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="branchservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="branchrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="statementservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="statementrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accountservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="accountrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accountcontroller" >
+      <xs:complexContent>
+       <xs:extension base="nullpointerexception">
+         <xs:sequence>
+          <xs:element name="" type="accountservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="branchrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="statementrepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="statementrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<statement,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="branchrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<branch,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="accountrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<account,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="statement" >
+      <xs:sequence>
+        <xs:element name="//거래일자statementdate" type="xs:long" />
+        <xs:element name="//계좌번호accountno" type="xs:string" />
+        <xs:element name="//거래번호statementno" type="xs:string" />
+        <xs:element name="//금액price" type="xs:long" />
+        <xs:element name="//수수료charge" type="xs:long" />
+        <xs:element name="//취소여부cancelat" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="statementcompositekey" >
+      <xs:sequence>
+        <xs:element name="statementdate" type="xs:long" />
+        <xs:element name="statementno" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="account" >
+      <xs:sequence>
+        <xs:element name="//계좌번호accountno" type="xs:string" />
+        <xs:element name="//계좌명accountname" type="xs:string" />
+        <xs:element name="//관리점코드branchcode" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="branch" >
+      <xs:sequence>
+        <xs:element name="//관리점코드branchcode" type="xs:string" />
+        <xs:element name="//관리점명branchname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accountresult" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="custommap" >
+      <xs:complexContent>
+       <xs:extension base="hashmap<string,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="branchservicetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="branchservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accountservicetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="accountservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="statementservicetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="statementservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

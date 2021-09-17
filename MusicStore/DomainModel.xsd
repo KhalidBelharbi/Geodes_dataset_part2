@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="synthesizer" >
+      <xs:complexContent>
+       <xs:extension base="product">
+         <xs:sequence>
+          <xs:element name="number_of_keys" type="xs:long" />
+          <xs:element name="type_of_keyboard" type="xs:string" />
+          <xs:element name="number_of_timbres" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderuserdrum" >
+      <xs:complexContent>
+       <xs:extension base="orderuser">
+         <xs:sequence>
+          <xs:element name="/***thelistofproductsthisuserisassociatedwithinthetablewithdrumorders.*@seejavax.persistence.onetomany*/list" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderusersynthesizer" >
+      <xs:complexContent>
+       <xs:extension base="orderuser{">
+         <xs:sequence>
+          <xs:element name="/***thelistofproductsthisuserisassociatedwithinthetablewithsynthesizerorders.*@seejavax.persistence.onetomany*/list" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderguitar" >
+      <xs:complexContent>
+       <xs:extension base="order">
+         <xs:sequence>
+          <xs:element name="/***thefieldthatreferstotheusertowhichthisguitarisassociated.*@seejavax.persistence.id*@seejavax.persistence.manytoone*@seejavax.persistence.joincolumn*/order" type="orderguitar" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***inorder*@seejavax.persistence.id*@seejavax.persistence.manytoone*@seejavax.persistence.joincolumn*/" type="guitar" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="guitar" >
+      <xs:complexContent>
+       <xs:extension base="product">
+         <xs:sequence>
+          <xs:element name="/***numberofstrings*/number_of_strings" type="xs:long" />
+          <xs:element name="/***material*/material" type="xs:string" />
+          <xs:element name="/***type*/type" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="type" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="surname" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="login" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="/***theattributereferstotheobjectinwhichtheuserisstored.*/" type="type" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderuserguitar" >
+      <xs:complexContent>
+       <xs:extension base="orderuser{">
+         <xs:sequence>
+          <xs:element name="/***thelistofproductsthisuserisassociatedwithinthetablewithguitarorders.*@seejavax.persistence.onetomany*/list" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderdrum" >
+      <xs:complexContent>
+       <xs:extension base="order">
+         <xs:sequence>
+          <xs:element name="/***thefieldthatreferstotheusertowhichthisdrumisassociated.*@seejavax.persistence.id*@seejavax.persistence.manytoone*@seejavax.persistence.joincolumn*/order" type="orderdrum" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***inorder*@seejavax.persistence.id*@seejavax.persistence.manytoone*@seejavax.persistence.joincolumn*/" type="drum" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="drum" >
+      <xs:complexContent>
+       <xs:extension base="product">
+         <xs:sequence>
+          <xs:element name="/***numberofdrums*@seejavax.persistence.column*/numberofdrum" type="xs:long" />
+          <xs:element name="/***color*/color" type="xs:string" />
+          <xs:element name="/***size*/size" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ordersynthesizer" >
+      <xs:complexContent>
+       <xs:extension base="order{">
+         <xs:sequence>
+          <xs:element name="/***thefieldthatreferstotheusertowhichthissynthesizerisassociated.*@seejavax.persistence.id*@seejavax.persistence.manytoone*@seejavax.persistence.joincolumn*/order" type="ordersynthesizer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***inorder*@seejavax.persistence.id*@seejavax.persistence.manytoone*@seejavax.persistence.joincolumn*/" type="synthesizer" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

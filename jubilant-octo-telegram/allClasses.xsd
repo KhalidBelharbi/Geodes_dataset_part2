@@ -1,0 +1,2413 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="bus" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="objectdelivery" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filterfield" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="displayfield" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="signdoc" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="//序号seqno" type="xs:string" />
+          <xs:element name="//订单号码orderno" type="xs:string" />
+          <xs:element name="//订单日期order" type="xs:dateTime" />
+          <xs:element name="" type="workorder" nillable="true" minOccurs="0" />
+          <xs:element name="//单证类型，采购单、订购单、托工单" type="xs:anyType" />
+          <xs:element name="wostatus" type="xs:anyType" />
+          <xs:element name="techstr" type="xs:string" />
+          <xs:element name="//@filterfield(fname" type="xs:string" />
+          <xs:element name="//生产商联系电话producetele" type="xs:string" />
+          <xs:element name="//传真producefax" type="xs:string" />
+          <xs:element name="//地址proaddr" type="xs:string" />
+          <xs:element name="" type="supplier" nillable="true" minOccurs="0" />
+          <xs:element name="//联系人supcontactor" type="xs:string" />
+          <xs:element name="//供货商联系电话suptele" type="xs:string" />
+          <xs:element name="supfax" type="xs:string" />
+          <xs:element name="oper" type="xs:string" />
+          <xs:element name="//要goodslistgoodslist" type="goods" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="goods" >
+      <xs:complexContent>
+       <xs:extension base="entityobject">
+         <xs:sequence>
+          <xs:element name="//序号seqno" type="xs:string" />
+          <xs:element name="//货品名称,理论上是不应该为null的，但为了判断在非销售合同中，是否为来自库存货品的新建记录，来拿null排除，所以不设定默认的值""goodsname" type="xs:string" />
+          <xs:element name="//若是图面明细带过来的，则直接取图面明细的图号；若是在后来追加记录则为用户手动填写的图号。drawingcode" type="xs:string" />
+          <xs:element name="//非销售合同中有工艺重合的图面，用在非销售合同" type="surfacedetail" nillable="true" minOccurs="0" />
+          <xs:element name="//若是原材料" type="inventory" nillable="true" minOccurs="0" />
+          <xs:element name="//数量amount" type="xs:double" />
+          <xs:element name="//材料material" type="xs:string" />
+          <xs:element name="size" type="xs:string" />
+          <xs:element name="unitweight" type="xs:double" />
+          <xs:element name="totalweight" type="xs:double" />
+          <xs:element name="weight" type="xs:double" />
+          <xs:element name="unitprice" type="xs:double" />
+          <xs:element name="processcost" type="xs:double" />
+          <xs:element name="totalprice" type="xs:double" />
+          <xs:element name="deliver" type="xs:dateTime" />
+          <xs:element name="//备注remark" type="xs:string" />
+          <xs:element name="oper" type="xs:string" />
+          <xs:element name="//小计subtotal" type="xs:double" />
+          <xs:element name="//非销售合同和销售合同都有货品明细//对应的单证,销售单除外" type="signdoc" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="signdocmodel" >
+      <xs:complexContent>
+       <xs:extension base="formmodel{">
+         <xs:sequence>
+          <xs:element name="//地址address" type="xs:string" />
+          <xs:element name="//订单号码orderno" type="xs:string" />
+          <xs:element name="//工单号码worderno" type="xs:string" />
+          <xs:element name="//联系人mylinkman" type="xs:string" />
+          <xs:element name="//订单日期orderdate" type="xs:string" />
+          <xs:element name="//电话mytel" type="xs:string" />
+          <xs:element name="//传真myfax" type="xs:string" />
+          <xs:element name="//供方名称,供货商名称supplier" type="xs:string" />
+          <xs:element name="//供方联系人slinkman" type="xs:string" />
+          <xs:element name="//供方电话stel" type="xs:string" />
+          <xs:element name="//供方传真sfax" type="xs:string" />
+          <xs:element name="/*//条款	terms" type="xs:string" />
+          <xs:element name="//工艺techarr" type="xs:string" />
+          <xs:element name="rcid" type="xs:string" />
+          <xs:element name="typestatus" type="xs:string" />
+          <xs:element name="sdf" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="signdocform" >
+      <xs:complexContent>
+       <xs:extension base="formview">
+         <xs:sequence>
+          <xs:element name="sd" type="signdoc" nillable="true" minOccurs="0" />
+          <xs:element name="pb" type="popbox" nillable="true" minOccurs="0" />
+          <xs:element name="bdmgr" type="buydocmgr" nillable="true" minOccurs="0" />
+          <xs:element name="sdmodel" type="signdocmodel" nillable="true" minOccurs="0" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="wf" type="xs:anyType" />
+          <xs:element name="filemap" type="xs:anyType" />
+          <xs:element name="workordersel" type="xs:anyType" />
+          <xs:element name="typesel" type="xs:anyType" />
+          <xs:element name="suppliersel" type="xs:anyType" />
+          <xs:element name="typestatussel" type="xs:anyType" />
+          <xs:element name="t" type="xs:anyType" />
+          <xs:element name="le" type="xs:anyType" />
+          <xs:element name="techstr" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="saledocform" >
+      <xs:complexContent>
+       <xs:extension base="formview">
+         <xs:sequence>
+          <xs:element name="womodel" type="workordermodel" nillable="true" minOccurs="0" />
+          <xs:element name="pb" type="popbox" nillable="true" minOccurs="0" />
+          <xs:element name="sdmgr" type="saledocmgr" nillable="true" minOccurs="0" />
+          <xs:element name="" type="workorder" nillable="true" minOccurs="0" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="surfacesel,clientsel" type="xs:anyType" />
+          <xs:element name="amtle" type="xs:anyType" />
+          <xs:element name="le" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="signdocentity" >
+      <xs:complexContent>
+       <xs:extension base="entity">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="surfacedetail" >
+      <xs:complexContent>
+       <xs:extension base="entityobject">
+         <xs:sequence>
+          <xs:element name="//序号seqno" type="xs:string" />
+          <xs:element name="//件号itemno" type="xs:string" />
+          <xs:element name="/*@displayfield(cname" type="generalelement" nillable="true" minOccurs="0" />
+          <xs:element name="//数量amount" type="xs:double" />
+          <xs:element name="/*@displayfield(cname" type="xs:string" />
+          <xs:element name="/*@displayfield(cname" type="xs:string" />
+          <xs:element name="oper" type="xs:string" />
+          <xs:element name="//图面" type="surface" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="surface" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="//序号seqno" type="xs:string" />
+          <xs:element name="//公司名称companyname" type="xs:string" />
+          <xs:element name="//名称name" type="xs:string" />
+          <xs:element name="//制表lister" type="xs:string" />
+          <xs:element name="//检查checker" type="xs:string" />
+          <xs:element name="//核准approver" type="xs:string" />
+          <xs:element name="/*@displayfield(cname" type="xs:string" />
+          <xs:element name="oper" type="xs:string" />
+          <xs:element name="//复制的图面copy" type="surface" nillable="true" minOccurs="0" />
+          <xs:element name="sdlist" type="surfacedetail" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="surfaceform" >
+      <xs:complexContent>
+       <xs:extension base="formview">
+         <xs:sequence>
+          <xs:element name="pb" type="popbox" nillable="true" minOccurs="0" />
+          <xs:element name="smgr" type="surfacemgr" nillable="true" minOccurs="0" />
+          <xs:element name="smodel" type="surfacemodel" nillable="true" minOccurs="0" />
+          <xs:element name="" type="surface" nillable="true" minOccurs="0" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="copysel,workordersel" type="xs:anyType" />
+          <xs:element name="compname" type="xs:anyType" />
+          <xs:element name="db" type="entity" nillable="true" minOccurs="0" />
+          <xs:element name="wo" type="workorder" nillable="true" minOccurs="0" />
+          <xs:element name="listersel" type="xs:anyType" />
+          <xs:element name="checkersel" type="xs:anyType" />
+          <xs:element name="approversel" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="surfacemodel" >
+      <xs:complexContent>
+       <xs:extension base="formmodel">
+         <xs:sequence>
+          <xs:element name="eid" type="xs:string" />
+          <xs:element name="companyname" type="xs:string" />
+          <xs:element name="//drawing" type="xs:string" />
+          <xs:element name="check" type="xs:string" />
+          <xs:element name="approval" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="copyface" type="xs:string" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="workorder" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="accountpform" >
+      <xs:complexContent>
+       <xs:extension base="formview{">
+         <xs:sequence>
+          <xs:element name="menupermissionlist" type="xs:anyType" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="apmgr" type="accountpmgr" nillable="true" minOccurs="0" />
+          <xs:element name="pb" type="popbox" nillable="true" minOccurs="0" />
+          <xs:element name="apmodel" type="accountpmodel" nillable="true" minOccurs="0" />
+          <xs:element name="ap" type="accountpermission" nillable="true" minOccurs="0" />
+          <xs:element name="staffsel" type="xs:anyType" />
+          <xs:element name="staffmodel" type="xs:anyType" />
+          <xs:element name="/*,menumodel" type="xs:anyType" />
+          <xs:element name="permissionstr" type="xs:string" />
+          <xs:element name="menupermap" type="xs:anyType" />
+          <xs:element name="_" type="session" nillable="true" minOccurs="0" />
+          <xs:element name="editflag" type="xs:anyType" />
+          <xs:element name="availusername" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="loginform" >
+      <xs:complexContent>
+       <xs:extension base="formview{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="accountpmodel" >
+      <xs:complexContent>
+       <xs:extension base="formmodel{">
+         <xs:sequence>
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="//password" type="xs:string" />
+          <xs:element name="//菜单的权限menupermission" type="xs:string" />
+          <xs:element name="eid" type="xs:string" />
+          <xs:element name="staff" type="xs:string" />
+          <xs:element name="datacode" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="modifypwdview" >
+      <xs:complexContent>
+       <xs:extension base="htmltemplate{">
+         <xs:sequence>
+          <xs:element name="previousp,newp,repeatp" type="xs:anyType" />
+          <xs:element name="previouspwdtxt,newpwdtxt,repeatpwdtxt" type="xs:string" />
+          <xs:element name="" type="entity" nillable="true" minOccurs="0" />
+          <xs:element name="//" type="session" nillable="true" minOccurs="0" />
+          <xs:element name="ap" type="accountpermission" nillable="true" minOccurs="0" />
+          <xs:element name="hp" type="passwordhash" nillable="true" minOccurs="0" />
+          <xs:element name="flag" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="accountpermission" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="//序号seqno" type="xs:string" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="/*@displayfield(cname" type="staff" nillable="true" minOccurs="0" />
+          <xs:element name="//@displayfield(cname" type="xs:string" />
+          <xs:element name="datacodea" type="xs:string" />
+          <xs:element name="//格式如下：menu1:per1,per2,per3,per4menu2:per1,per2menu3:per1,per3...menupermission" type="xs:string" />
+          <xs:element name="//hash后的加密密码passwordhash" type="xs:string" />
+          <xs:element name="//bcryptpasswordmethod" type="xs:string" />
+          <xs:element name="passwordsalt" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="costconfmodel" >
+      <xs:complexContent>
+       <xs:extension base="formmodel">
+         <xs:sequence>
+          <xs:element name="cnccost" type="xs:string" />
+          <xs:element name="fdcost" type="xs:string" />
+          <xs:element name="mccost" type="xs:string" />
+          <xs:element name="xccost" type="xs:string" />
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="startdate" type="xs:string" />
+          <xs:element name="enddate" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="costconfform" >
+      <xs:complexContent>
+       <xs:extension base="formview{">
+         <xs:sequence>
+          <xs:element name="ccmgr" type="costconfmgr" nillable="true" minOccurs="0" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="cc" type="costconf" nillable="true" minOccurs="0" />
+          <xs:element name="ccpb" type="popbox" nillable="true" minOccurs="0" />
+          <xs:element name="ccmodel" type="costconfmodel" nillable="true" minOccurs="0" />
+          <xs:element name="availableperiod" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="costconf" >
+      <xs:complexContent>
+       <xs:extension base="entityobject">
+         <xs:sequence>
+          <xs:element name="seqno" type="xs:string" />
+          <xs:element name="xccost" type="xs:double" />
+          <xs:element name="mccost" type="xs:double" />
+          <xs:element name="fdcost" type="xs:double" />
+          <xs:element name="cnccost" type="xs:double" />
+          <xs:element name="start" type="xs:dateTime" />
+          <xs:element name="end" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="wocostdetail" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="seqno" type="xs:string" />
+          <xs:element name="goodname" type="xs:string" />
+          <xs:element name="/*@displayfield(cname" type="xs:double" />
+          <xs:element name="xccb" type="xs:double" />
+          <xs:element name="mcwh" type="xs:double" />
+          <xs:element name="mccb" type="xs:double" />
+          <xs:element name="fdwh" type="xs:double" />
+          <xs:element name="fdcb" type="xs:double" />
+          <xs:element name="cncwh" type="xs:double" />
+          <xs:element name="cnccb" type="xs:double" />
+          <xs:element name="totalwh" type="xs:double" />
+          <xs:element name="totalwhcb" type="xs:double" />
+          <xs:element name="acost" type="xs:double" />
+          <xs:element name="pcost" type="xs:double" />
+          <xs:element name="bcost" type="xs:double" />
+          <xs:element name="outcost" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="wocostdetailmodel" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="//序号seqno" type="xs:string" />
+          <xs:element name="//零件或原材料名称goodname" type="xs:string" />
+          <xs:element name="drawingcode" type="xs:string" />
+          <xs:element name="//铣床工时(h)xcwh" type="xs:double" />
+          <xs:element name="xccb" type="xs:double" />
+          <xs:element name="mcwh" type="xs:double" />
+          <xs:element name="mccb" type="xs:double" />
+          <xs:element name="fdwh" type="xs:double" />
+          <xs:element name="fdcb" type="xs:double" />
+          <xs:element name="cncwh" type="xs:double" />
+          <xs:element name="cnccb" type="xs:double" />
+          <xs:element name="totalwh" type="xs:double" />
+          <xs:element name="totalwhcb" type="xs:double" />
+          <xs:element name="acost" type="xs:double" />
+          <xs:element name="pcost" type="xs:double" />
+          <xs:element name="bcost" type="xs:double" />
+          <xs:element name="outcost" type="xs:double" />
+          <xs:element name="totalcb" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="wocostgather" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="workorderno" type="xs:string" />
+          <xs:element name="xcwh" type="xs:double" />
+          <xs:element name="xccb" type="xs:double" />
+          <xs:element name="mcwh" type="xs:double" />
+          <xs:element name="mccb" type="xs:double" />
+          <xs:element name="fdwh" type="xs:double" />
+          <xs:element name="fdcb" type="xs:double" />
+          <xs:element name="cncwh" type="xs:double" />
+          <xs:element name="cnccb" type="xs:double" />
+          <xs:element name="whcbtotal" type="xs:double" />
+          <xs:element name="//成品零件/*@displayfield(cname" type="xs:double" />
+          <xs:element name="dgcost" type="xs:double" />
+          <xs:element name="tgcost" type="xs:double" />
+          <xs:element name="cbtotal" type="xs:double" />
+          <xs:element name="oper" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="workordermodel" >
+      <xs:complexContent>
+       <xs:extension base="formmodel">
+         <xs:sequence>
+          <xs:element name="orderno" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="corpname" type="xs:string" />
+          <xs:element name="amount" type="xs:string" />
+          <xs:element name="eid" type="xs:string" />
+          <xs:element name="deliverydate" type="xs:string" />
+          <xs:element name="orderdate" type="xs:string" />
+          <xs:element name="realdate" type="xs:string" />
+          <xs:element name="shipdate" type="xs:string" />
+          <xs:element name="predictdate" type="xs:string" />
+          <xs:element name="remark" type="xs:string" />
+          <xs:element name="surface" type="xs:string" />
+          <xs:element name="//wostatus" type="xs:string" />
+          <xs:element name="additiont" type="xs:string" />
+          <xs:element name="sdf" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="workorderwhsum" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="//铣床预计工时xcyj" type="xs:double" />
+          <xs:element name="//磨床预计工时mcyj" type="xs:double" />
+          <xs:element name="//cnc预计工时cncyj" type="xs:double" />
+          <xs:element name="//放电预计工时fdyj" type="xs:double" />
+          <xs:element name="//预计总工时tyj" type="xs:double" />
+          <xs:element name="//铣床实际工时xcsj" type="xs:double" />
+          <xs:element name="//磨床实际工时mcsj" type="xs:double" />
+          <xs:element name="//cnc实际工时cncsj" type="xs:double" />
+          <xs:element name="//放电实际工时fdsj" type="xs:double" />
+          <xs:element name="//实际总工时tsj" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="workordertrace" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="workordertracedetail" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="//工单表" type="workorder" nillable="true" minOccurs="0" />
+          <xs:element name="//wotraceflowflow//工单跟踪流程//图面明细" type="surfacedetail" nillable="true" minOccurs="0" />
+          <xs:element name="//第一行字段seqno" type="xs:string" />
+          <xs:element name="//@filterfield(fname" type="xs:string" />
+          <xs:element name="drawingno" type="xs:string" />
+          <xs:element name="quantity" type="xs:long" />
+          <xs:element name="wx" type="xs:string" />
+          <xs:element name="xl" type="xs:string" />
+          <xs:element name="xc" type="xs:string" />
+          <xs:element name="ht" type="xs:string" />
+          <xs:element name="mc" type="xs:string" />
+          <xs:element name="cnc" type="xs:string" />
+          <xs:element name="fd" type="xs:string" />
+          <xs:element name="wc" type="xs:string" />
+          <xs:element name="bmcl" type="xs:string" />
+          <xs:element name="qc" type="xs:string" />
+          <xs:element name="//@displayfield(cname" type="xs:string" />
+          <xs:element name="//备注remark" type="xs:string" />
+          <xs:element name="//@displayfield(cname" type="xs:anyType" />
+          <xs:element name="//@displayfield(cname" type="xs:anyType" />
+          <xs:element name="//显示标志showflag" type="xs:anyType" />
+          <xs:element name="//开启第二行字段//外协wxyjinfo" type="xs:string" />
+          <xs:element name="wxsjinfo" type="xs:string" />
+          <xs:element name="//下料xlyjinfo" type="xs:string" />
+          <xs:element name="xlsjinfo" type="xs:string" />
+          <xs:element name="//铣床xcyjinfo" type="xs:string" />
+          <xs:element name="xcyjwh" type="xs:double" />
+          <xs:element name="xcsjinfo" type="xs:string" />
+          <xs:element name="xcsjwh" type="xs:double" />
+          <xs:element name="//hthtyjinfo" type="xs:string" />
+          <xs:element name="htsjinfo" type="xs:string" />
+          <xs:element name="//磨床mcyjinfo" type="xs:string" />
+          <xs:element name="mcyjwh" type="xs:double" />
+          <xs:element name="mcsjinfo" type="xs:string" />
+          <xs:element name="mcsjwh" type="xs:double" />
+          <xs:element name="//cnccncyjinfo" type="xs:string" />
+          <xs:element name="cncyjwh" type="xs:double" />
+          <xs:element name="cncsjinfo" type="xs:string" />
+          <xs:element name="cncsjwh" type="xs:double" />
+          <xs:element name="//放电fdyjinfo" type="xs:string" />
+          <xs:element name="fdyjwh" type="xs:double" />
+          <xs:element name="fdsjinfo" type="xs:string" />
+          <xs:element name="fdsjwh" type="xs:double" />
+          <xs:element name="//wcwcyjinfo" type="xs:string" />
+          <xs:element name="wcsjinfo" type="xs:string" />
+          <xs:element name="//表面处理bmyjinfo" type="xs:string" />
+          <xs:element name="bmsjinfo" type="xs:string" />
+          <xs:element name="//qcqcyjinfo" type="xs:string" />
+          <xs:element name="qcsjinfo" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="workorderwhmodel" >
+      <xs:sequence>
+        <xs:element name="//铣床预计工时xcyj" type="xs:double" />
+        <xs:element name="//磨床预计工时mcyj" type="xs:double" />
+        <xs:element name="//cnc预计工时cncyj" type="xs:double" />
+        <xs:element name="//放电预计工时fdyj" type="xs:double" />
+        <xs:element name="//预计总工时tyj" type="xs:double" />
+        <xs:element name="//铣床实际工时xcsj" type="xs:double" />
+        <xs:element name="//磨床实际工时mcsj" type="xs:double" />
+        <xs:element name="//cnc实际工时cncsj" type="xs:double" />
+        <xs:element name="//放电实际工时fdsj" type="xs:double" />
+        <xs:element name="//实际总工时tsj" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="workorder" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="//序号seqno" type="xs:string" />
+          <xs:element name="//工单号orderno" type="xs:string" />
+          <xs:element name="//品名name" type="xs:string" />
+          <xs:element name="//stringcompanyname" type="client" nillable="true" minOccurs="0" />
+          <xs:element name="//数量amount" type="xs:double" />
+          <xs:element name="//@filterfield(fname" type="xs:dateTime" />
+          <xs:element name="//@filterfield(fname" type="xs:dateTime" />
+          <xs:element name="//预计交期predict" type="xs:dateTime" />
+          <xs:element name="//实际交期real" type="xs:dateTime" />
+          <xs:element name="//出货日期ship" type="xs:dateTime" />
+          <xs:element name="//图面" type="surface" nillable="true" minOccurs="0" />
+          <xs:element name="wostatus" type="xs:anyType" />
+          <xs:element name="assemble" type="xs:dateTime" />
+          <xs:element name="//备注remark" type="xs:string" />
+          <xs:element name="viewdetail" type="xs:string" />
+          <xs:element name="oper" type="xs:string" />
+          <xs:element name="//工单跟踪明细wotracelist" type="workordertracedetail" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="//成本核算处要访问该list，故选双向链表sdlist" type="signdoc" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dbfactory" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entity" >
+      <xs:complexContent>
+       <xs:extension base="entityobject>">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id_" type="xs:string" />
+          <xs:element name="db_" type="abstractdatabase" nillable="true" minOccurs="0" />
+          <xs:element name="sdf" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="database" >
+      <xs:complexContent>
+       <xs:extension base="abstractdatabase{">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="opentransactions" type="xs:long" />
+          <xs:element name="committransaction" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractdatabase" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="_" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="identitypolicy" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authtokenresult" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hashfunction" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="passwordhash" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="function_" type="xs:string" />
+        <xs:element name="salt_" type="xs:string" />
+        <xs:element name="value_" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="identity" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="*thisisanthatisnot{@link#isvalid()isvalid()}.*/invalid" type="identity" nillable="true" minOccurs="0" />
+        <xs:element name="*thisisaprovidernameforthe(usuallyuser-controlled)identity,used*forexampleforpassword-basedauthentication.*/loginname" type="xs:string" />
+        <xs:element name="provider_" type="xs:string" />
+        <xs:element name="id_" type="xs:string" />
+        <xs:element name="email_" type="xs:string" />
+        <xs:element name="name_" type="xs:string" />
+        <xs:element name="emailverified_" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="loginstate" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="login" >
+      <xs:complexContent>
+       <xs:extension base="wobject">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="passwordresult" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="passwordstrengthvalidator" >
+      <xs:complexContent>
+       <xs:extension base="abstractpasswordservice.abstractstrengthvalidator">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="emailtokenresult" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="require" >
+      <xs:complexContent>
+       <xs:extension base="wexception">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="authwidget" >
+      <xs:complexContent>
+       <xs:extension base="formview">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bcrypthashfunction" >
+      <xs:complexContent>
+       <xs:extension base="hashfunction">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="httpmessage" >
+      <xs:sequence>
+        <xs:element name="status_" type="xs:long" />
+        <xs:element name="headers_" type="xs:anyType" />
+        <xs:element name="body_" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authutils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="passwordverifier" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="hashfunctions_" type="hashfunction" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="saltlength_" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="md5hashfunction" >
+      <xs:complexContent>
+       <xs:extension base="hashfunction">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="session" >
+      <xs:sequence>
+        <xs:element name="my" type="authservice" nillable="true" minOccurs="0" />
+        <xs:element name="my" type="passwordservice" nillable="true" minOccurs="0" />
+        <xs:element name="myoauthservices_" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authidentity" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="authinfo" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractuser" >
+      <xs:complexContent>
+       <xs:extension base="entityobject">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="authtoken" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="loginview" >
+      <xs:complexContent>
+       <xs:extension base="formview">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="_" type="session" nillable="true" minOccurs="0" />
+          <xs:element name="//authmodelmodel_model_" type="loginmodel" nillable="true" minOccurs="0" />
+          <xs:element name="//booleanregistrationenabled_//stringform" type="xs:anyType" />
+          <xs:element name="changed_" type="xs:anyType" />
+          <xs:element name="ap" type="accountpermission" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="formbasemodel" >
+      <xs:complexContent>
+       <xs:extension base="formmodel">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="findpswd" >
+      <xs:complexContent>
+       <xs:extension base="formview">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="authmodel" >
+      <xs:complexContent>
+       <xs:extension base="formbasemodel">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="authcode" >
+      <xs:complexContent>
+       <xs:extension base="resource">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="registrationmodel" >
+      <xs:complexContent>
+       <xs:extension base="formbasemodel">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="loginmodel" >
+      <xs:complexContent>
+       <xs:extension base="formmodel{">
+         <xs:sequence>
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="passwd" type="xs:string" />
+          <xs:element name="loginid" type="xs:string" />
+          <xs:element name="//publicstringauth_" type="abstractpasswordservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="registerview" >
+      <xs:complexContent>
+       <xs:extension base="formview">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractpasswordservice" >
+      <xs:complexContent>
+       <xs:extension base="validator">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="passwordservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="//passwordservice(passwordserviceanon1)baseauth_" type="authservice" nillable="true" minOccurs="0" />
+        <xs:element name="verifier_" type="xs:anyType" />
+        <xs:element name="validator_" type="xs:anyType" />
+        <xs:element name="attemptthrottling_" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="//authservice(authserviceanon1)_" type="identitypolicy" nillable="true" minOccurs="0" />
+        <xs:element name="minimumloginnamelength_" type="xs:long" />
+        <xs:element name="token_" type="hashfunction" nillable="true" minOccurs="0" />
+        <xs:element name="tokenlength_" type="xs:long" />
+        <xs:element name="emailverification_" type="xs:anyType" />
+        <xs:element name="emailtokenvalidity_" type="xs:long" />
+        <xs:element name="redirectinternalpath_" type="xs:string" />
+        <xs:element name="authtokens_" type="xs:anyType" />
+        <xs:element name="authtokenvalidity_" type="xs:long" />
+        <xs:element name="authtokencookiename_" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bcrypt" >
+      <xs:sequence>
+        <xs:element name="//bcryptparametersgensalt_default_log2_rounds" type="xs:long" />
+        <xs:element name="bcrypt_salt_len" type="xs:long" />
+        <xs:element name="//blowfishparametersblowfish_num_rounds" type="xs:long" />
+        <xs:element name="p_orig" type="xs:long" />
+        <xs:element name="s_orig" type="xs:long" />
+        <xs:element name="bf_crypt_ciphertext" type="xs:long" />
+        <xs:element name="base64_code" type="xs:anyType" />
+        <xs:element name="index_64" type="xs:anyType" />
+        <xs:element name="p" type="xs:long" />
+        <xs:element name="s" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="token" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdatabase" >
+      <xs:complexContent>
+       <xs:extension base="abstractuserdatabase">
+         <xs:sequence>
+          <xs:element name="opentransactions" type="xs:long" />
+          <xs:element name="committransaction" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="//publicuserdatabase(entitymanagerentitymanager){//entitymanager_" type="xs:long" />
+          <xs:element name="tel_verification" type="xs:string" />
+          <xs:element name="company_verification" type="xs:string" />
+          <xs:element name="birth_verification" type="xs:string" />
+          <xs:element name="gender_verification" type="xs:string" />
+          <xs:element name="name_verification" type="xs:string" />
+          <xs:element name="email_verification" type="xs:string" />
+          <xs:element name="auth_token" type="xs:string" />
+          <xs:element name="passwords" type="xs:string" />
+          <xs:element name="throttling" type="xs:string" />
+          <xs:element name="registration" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractuserdatabase" >
+      <xs:complexContent>
+       <xs:extension base="database{">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="**@seeabstractuserdatabase#setlastloginattempt(useruser,wdatet)*//*	publicwdategetlastloginattempt(useruser){		logger.error(newwriter().append(				newrequire("lastloginattempt()",throttling).to())				.to())		returnnewwdate(1970,1,1)	}*///protectedabstractuserdatabase(){//}//abstractuserdatabase(abstractuserdatabaseanon1)tel_verification" type="xs:string" />
+          <xs:element name="company_verification" type="xs:string" />
+          <xs:element name="birth_verification" type="xs:string" />
+          <xs:element name="gender_verification" type="xs:string" />
+          <xs:element name="name_verification" type="xs:string" />
+          <xs:element name="email_verification" type="xs:string" />
+          <xs:element name="auth_token" type="xs:string" />
+          <xs:element name="passwords" type="xs:string" />
+          <xs:element name="throttling" type="xs:string" />
+          <xs:element name="registration" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="appservlet" >
+      <xs:complexContent>
+       <xs:extension base="wtservlet">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="usedcmap" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="generalelementmodel" >
+      <xs:complexContent>
+       <xs:extension base="formmodel{">
+         <xs:sequence>
+          <xs:element name="//零件名称ename" type="xs:string" />
+          <xs:element name="//零件编码ecode" type="xs:string" />
+          <xs:element name="//零件加工周期eperiod" type="xs:string" />
+          <xs:element name="//零件加工工艺etech" type="xs:string" />
+          <xs:element name="eid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="deptmodel" >
+      <xs:complexContent>
+       <xs:extension base="formmodel{">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="pdept" type="xs:string" />
+          <xs:element name="eid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="staffform" >
+      <xs:complexContent>
+       <xs:extension base="formview{">
+         <xs:sequence>
+          <xs:element name="smodel" type="staffmodel" nillable="true" minOccurs="0" />
+          <xs:element name="" type="staff" nillable="true" minOccurs="0" />
+          <xs:element name="" type="popbox" nillable="true" minOccurs="0" />
+          <xs:element name="smgr" type="staffmgr" nillable="true" minOccurs="0" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="deptcb" type="xs:anyType" />
+          <xs:element name="deptdropmodel" type="xs:anyType" />
+          <xs:element name="gender" type="xs:anyType" />
+          <xs:element name="sb" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clientform" >
+      <xs:complexContent>
+       <xs:extension base="formview{">
+         <xs:sequence>
+          <xs:element name="cmodel" type="clientmodel" nillable="true" minOccurs="0" />
+          <xs:element name="" type="client" nillable="true" minOccurs="0" />
+          <xs:element name="" type="popbox" nillable="true" minOccurs="0" />
+          <xs:element name="cmgr" type="clientmgr" nillable="true" minOccurs="0" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="wf" type="xs:anyType" />
+          <xs:element name="filemap" type="xs:anyType" />
+          <xs:element name="le" type="xs:anyType" />
+          <xs:element name="t" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="suppliermodel" >
+      <xs:complexContent>
+       <xs:extension base="formmodel">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="linkman" type="xs:string" />
+          <xs:element name="linktel" type="xs:string" />
+          <xs:element name="eid" type="xs:string" />
+          <xs:element name="fax" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="addition" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="staffmodel" >
+      <xs:complexContent>
+       <xs:extension base="formmodel{">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="nationid" type="xs:string" />
+          <xs:element name="gender" type="xs:string" />
+          <xs:element name="birthdate" type="xs:string" />
+          <xs:element name="nativeplace" type="xs:string" />
+          <xs:element name="education" type="xs:string" />
+          <xs:element name="joindate" type="xs:string" />
+          <xs:element name="linktel" type="xs:string" />
+          <xs:element name="idfield" type="xs:string" />
+          <xs:element name="deptfield" type="xs:string" />
+          <xs:element name="remark" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="//entityentitysdf" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="generalelementform" >
+      <xs:complexContent>
+       <xs:extension base="formview{">
+         <xs:sequence>
+          <xs:element name="gemodel" type="generalelementmodel" nillable="true" minOccurs="0" />
+          <xs:element name="ge" type="generalelement" nillable="true" minOccurs="0" />
+          <xs:element name="" type="popbox" nillable="true" minOccurs="0" />
+          <xs:element name="gemgr" type="generalelementmgr" nillable="true" minOccurs="0" />
+          <xs:element name="" type="entity" nillable="true" minOccurs="0" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="techbox" type="xs:anyType" />
+          <xs:element name="//listmodeltechmodel" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="supplierform" >
+      <xs:complexContent>
+       <xs:extension base="formview">
+         <xs:sequence>
+          <xs:element name="" type="supplier" nillable="true" minOccurs="0" />
+          <xs:element name="supmgr" type="suppliermgr" nillable="true" minOccurs="0" />
+          <xs:element name="" type="popbox" nillable="true" minOccurs="0" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="supmodel" type="suppliermodel" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clientmodel" >
+      <xs:complexContent>
+       <xs:extension base="formmodel{">
+         <xs:sequence>
+          <xs:element name="ename" type="xs:string" />
+          <xs:element name="linkman" type="xs:string" />
+          <xs:element name="linktel" type="xs:string" />
+          <xs:element name="linkphone" type="xs:string" />
+          <xs:element name="linkfax" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="siteaddr" type="xs:string" />
+          <xs:element name="address" type="xs:string" />
+          <xs:element name="addrcode" type="xs:string" />
+          <xs:element name="linkbank" type="xs:string" />
+          <xs:element name="lbankno" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="addition" type="xs:string" />
+          <xs:element name="eid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="deptform" >
+      <xs:complexContent>
+       <xs:extension base="formview{">
+         <xs:sequence>
+          <xs:element name="dmodel" type="deptmodel" nillable="true" minOccurs="0" />
+          <xs:element name="" type="dept" nillable="true" minOccurs="0" />
+          <xs:element name="" type="popbox" nillable="true" minOccurs="0" />
+          <xs:element name="dmgr" type="deptmgr" nillable="true" minOccurs="0" />
+          <xs:element name="deptcb" type="xs:anyType" />
+          <xs:element name="title" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="client" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="seqno" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="linkman" type="xs:string" />
+          <xs:element name="linktel" type="xs:string" />
+          <xs:element name="linkphone" type="xs:string" />
+          <xs:element name="linkfax" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="siteaddr" type="xs:string" />
+          <xs:element name="address" type="xs:string" />
+          <xs:element name="addrcode" type="xs:string" />
+          <xs:element name="linkbank" type="xs:string" />
+          <xs:element name="lbankno" type="xs:string" />
+          <xs:element name="//描述description" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="staff" >
+      <xs:complexContent>
+       <xs:extension base="entityobject">
+         <xs:sequence>
+          <xs:element name="seqno" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="//身份证号码nationid" type="xs:string" />
+          <xs:element name="//" type="xs:anyType" />
+          <xs:element name="birth" type="xs:dateTime" />
+          <xs:element name="//籍贯nativeplace" type="xs:string" />
+          <xs:element name="//学历education" type="xs:string" />
+          <xs:element name="" type="dept" nillable="true" minOccurs="0" />
+          <xs:element name="//进场时间join" type="xs:dateTime" />
+          <xs:element name="linktel" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="remark" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="supplier" >
+      <xs:complexContent>
+       <xs:extension base="entityobject">
+         <xs:sequence>
+          <xs:element name="seqno" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="linkman" type="xs:string" />
+          <xs:element name="linktel" type="xs:string" />
+          <xs:element name="linkfax" type="xs:string" />
+          <xs:element name="linkemail" type="xs:string" />
+          <xs:element name="//描述description" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dept" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="seqno" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="parent" type="dept" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="generalelement" >
+      <xs:complexContent>
+       <xs:extension base="entityobject">
+         <xs:sequence>
+          <xs:element name="seqno" type="xs:string" />
+          <xs:element name="//零件名称name" type="xs:string" />
+          <xs:element name="//零件编码code" type="xs:string" />
+          <xs:element name="//加工周期period" type="xs:long" />
+          <xs:element name="technologylist" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sitemgentity" >
+      <xs:complexContent>
+       <xs:extension base="entity{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productmodel" >
+      <xs:complexContent>
+       <xs:extension base="formmodel{">
+         <xs:sequence>
+          <xs:element name="namefield" type="xs:string" />
+          <xs:element name="introfield" type="xs:string" />
+          <xs:element name="imguploadfield" type="xs:string" />
+          <xs:element name="rapidfield" type="xs:string" />
+          <xs:element name="smg" type="sitemgentity" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="contactmodel" >
+      <xs:complexContent>
+       <xs:extension base="formmodel{">
+         <xs:sequence>
+          <xs:element name="addrfield" type="xs:string" />
+          <xs:element name="telefield" type="xs:string" />
+          <xs:element name="faxfield" type="xs:string" />
+          <xs:element name="manfield" type="xs:string" />
+          <xs:element name="qqfield" type="xs:string" />
+          <xs:element name="emailfield" type="xs:string" />
+          <xs:element name="sitefield" type="xs:string" />
+          <xs:element name="//sitemgsmg" type="entity" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="noticemodel" >
+      <xs:complexContent>
+       <xs:extension base="formmodel{">
+         <xs:sequence>
+          <xs:element name="notitlefield" type="xs:string" />
+          <xs:element name="notypefield" type="xs:string" />
+          <xs:element name="nodatefield" type="xs:string" />
+          <xs:element name="nocontentfield" type="xs:string" />
+          <xs:element name="//sitemgentitysmg" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="consultmodel" >
+      <xs:complexContent>
+       <xs:extension base="formmodel{">
+         <xs:sequence>
+          <xs:element name="titlefield" type="xs:string" />
+          <xs:element name="namefield" type="xs:string" />
+          <xs:element name="addrfield" type="xs:string" />
+          <xs:element name="companyfield" type="xs:string" />
+          <xs:element name="emailfield" type="xs:string" />
+          <xs:element name="telefield" type="xs:string" />
+          <xs:element name="faxfield" type="xs:string" />
+          <xs:element name="contentfield" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="consultview" >
+      <xs:complexContent>
+       <xs:extension base="formview{">
+         <xs:sequence>
+          <xs:element name="c" type="consult" nillable="true" minOccurs="0" />
+          <xs:element name="cmodel" type="consultmodel" nillable="true" minOccurs="0" />
+          <xs:element name="pb" type="popbox" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="noticeview" >
+      <xs:complexContent>
+       <xs:extension base="formview{">
+         <xs:sequence>
+          <xs:element name="nt" type="notice" nillable="true" minOccurs="0" />
+          <xs:element name="smgentity" type="sitemgentity" nillable="true" minOccurs="0" />
+          <xs:element name="ntmodel" type="noticemodel" nillable="true" minOccurs="0" />
+          <xs:element name="pb" type="popbox" nillable="true" minOccurs="0" />
+          <xs:element name="cominfo" type="commentinfo" nillable="true" minOccurs="0" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="ntypeselect" type="xs:anyType" />
+          <xs:element name="//privatestringlistmodelntypemodel" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productview" >
+      <xs:complexContent>
+       <xs:extension base="formview{">
+         <xs:sequence>
+          <xs:element name="p" type="product" nillable="true" minOccurs="0" />
+          <xs:element name="smgentity" type="sitemgentity" nillable="true" minOccurs="0" />
+          <xs:element name="pmodel" type="productmodel" nillable="true" minOccurs="0" />
+          <xs:element name="pb" type="popbox" nillable="true" minOccurs="0" />
+          <xs:element name="img" type="xs:anyType" />
+          <xs:element name="sdmgr" type="productinfo" nillable="true" minOccurs="0" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="rapidornot" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="deviceview" >
+      <xs:complexContent>
+       <xs:extension base="formview{">
+         <xs:sequence>
+          <xs:element name="p" type="device" nillable="true" minOccurs="0" />
+          <xs:element name="smgentity" type="sitemgentity" nillable="true" minOccurs="0" />
+          <xs:element name="pmodel" type="devicemodel" nillable="true" minOccurs="0" />
+          <xs:element name="pb" type="popbox" nillable="true" minOccurs="0" />
+          <xs:element name="img" type="xs:anyType" />
+          <xs:element name="sdmgr" type="deviceinfo" nillable="true" minOccurs="0" />
+          <xs:element name="title" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="quolibmodelm" >
+      <xs:complexContent>
+       <xs:extension base="formmodel{">
+         <xs:sequence>
+          <xs:element name="modcycfield" type="xs:string" />
+          <xs:element name="modpricefield" type="xs:string" />
+          <xs:element name="mobcycfield" type="xs:string" />
+          <xs:element name="mobpricefield" type="xs:string" />
+          <xs:element name="mxtcycfield" type="xs:string" />
+          <xs:element name="mxtpricefield" type="xs:string" />
+          <xs:element name="mdqcycfield" type="xs:string" />
+          <xs:element name="mdqpricefield" type="xs:string" />
+          <xs:element name="smgentity" type="sitemgentity" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="quotationview" >
+      <xs:complexContent>
+       <xs:extension base="formview{">
+         <xs:sequence>
+          <xs:element name="q" type="quotation" nillable="true" minOccurs="0" />
+          <xs:element name="smgentity" type="sitemgentity" nillable="true" minOccurs="0" />
+          <xs:element name="qmodel" type="quotationmodel" nillable="true" minOccurs="0" />
+          <xs:element name="pb" type="popbox" nillable="true" minOccurs="0" />
+          <xs:element name="gt" type="askpriceinfo" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="repairview" >
+      <xs:complexContent>
+       <xs:extension base="formview{">
+         <xs:sequence>
+          <xs:element name="r" type="repair" nillable="true" minOccurs="0" />
+          <xs:element name="smgentity" type="sitemgentity" nillable="true" minOccurs="0" />
+          <xs:element name="rmodel" type="repairmodel" nillable="true" minOccurs="0" />
+          <xs:element name="pb" type="popbox" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="quolibmodel" >
+      <xs:complexContent>
+       <xs:extension base="formmodel{">
+         <xs:sequence>
+          <xs:element name="modcycfield" type="xs:string" />
+          <xs:element name="modpricefield" type="xs:string" />
+          <xs:element name="mobcycfield" type="xs:string" />
+          <xs:element name="mobpricefield" type="xs:string" />
+          <xs:element name="mxtcycfield" type="xs:string" />
+          <xs:element name="mxtpricefield" type="xs:string" />
+          <xs:element name="mdqcycfield" type="xs:string" />
+          <xs:element name="mdqpricefield" type="xs:string" />
+          <xs:element name="//sitemgsmg" type="entity" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="contactview" >
+      <xs:complexContent>
+       <xs:extension base="formview{">
+         <xs:sequence>
+          <xs:element name="c" type="contact" nillable="true" minOccurs="0" />
+          <xs:element name="smgentity" type="sitemgentity" nillable="true" minOccurs="0" />
+          <xs:element name="cmodel" type="contactmodel" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="quolibview" >
+      <xs:complexContent>
+       <xs:extension base="htmltemplate{">
+         <xs:sequence>
+          <xs:element name="qtra" type="quotlibrary" nillable="true" minOccurs="0" />
+          <xs:element name="qmgp" type="quotlibrary" nillable="true" minOccurs="0" />
+          <xs:element name="smgentity" type="sitemgentity" nillable="true" minOccurs="0" />
+          <xs:element name="qlmodel" type="quolibmodel" nillable="true" minOccurs="0" />
+          <xs:element name="qlmodelm" type="quolibmodelm" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="quotationmodel" >
+      <xs:complexContent>
+       <xs:extension base="formmodel{">
+         <xs:sequence>
+          <xs:element name="modtypefield" type="xs:string" />
+          <xs:element name="modnumfield" type="xs:string" />
+          <xs:element name="mobnumfield" type="xs:string" />
+          <xs:element name="mxtnumfield" type="xs:string" />
+          <xs:element name="mdqnumfield" type="xs:string" />
+          <xs:element name="cnamefield" type="xs:string" />
+          <xs:element name="ctelefield" type="xs:string" />
+          <xs:element name="clinkfield" type="xs:string" />
+          <xs:element name="emailfield" type="xs:string" />
+          <xs:element name="caddrfield" type="xs:string" />
+          <xs:element name="timeestfield" type="xs:string" />
+          <xs:element name="costestfield" type="xs:string" />
+          <xs:element name="smgentity" type="sitemgentity" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="devicemodel" >
+      <xs:complexContent>
+       <xs:extension base="formmodel{">
+         <xs:sequence>
+          <xs:element name="namefield" type="xs:string" />
+          <xs:element name="introfield" type="xs:string" />
+          <xs:element name="imguploadfield" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="repairmodel" >
+      <xs:complexContent>
+       <xs:extension base="formmodel{">
+         <xs:sequence>
+          <xs:element name="pronamefield" type="xs:string" />
+          <xs:element name="pronumfield" type="xs:string" />
+          <xs:element name="maternamefield" type="xs:string" />
+          <xs:element name="modnamefield" type="xs:string" />
+          <xs:element name="modnumfield" type="xs:string" />
+          <xs:element name="cdatefield" type="xs:string" />
+          <xs:element name="rcausefield" type="xs:string" />
+          <xs:element name="orequestfield" type="xs:string" />
+          <xs:element name="applicantfield" type="xs:string" />
+          <xs:element name="adatefield" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="notice" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="//序号seqno" type="xs:string" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="//公告类型：内部，外部type" type="xs:anyType" />
+          <xs:element name="//发布时间publish" type="xs:dateTime" />
+          <xs:element name="content" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="device" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="//序号seqno" type="xs:string" />
+          <xs:element name="//设备名称dname" type="xs:string" />
+          <xs:element name="//设备简介dintro" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="product" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="//序号seqno" type="xs:string" />
+          <xs:element name="//产品名称pname" type="xs:string" />
+          <xs:element name="//产品简介pintro" type="xs:string" />
+          <xs:element name="//是否是快速报价，默认：不是" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="contact" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="address" type="xs:string" />
+          <xs:element name="tele" type="xs:string" />
+          <xs:element name="fax" type="xs:string" />
+          <xs:element name="cname" type="xs:string" />
+          <xs:element name="cqq" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="siteaddr" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="consult" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="//序号seqno" type="xs:string" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="csname" type="xs:string" />
+          <xs:element name="csaddr" type="xs:string" />
+          <xs:element name="cscompany" type="xs:string" />
+          <xs:element name="csemail" type="xs:string" />
+          <xs:element name="cstele" type="xs:string" />
+          <xs:element name="csfax" type="xs:string" />
+          <xs:element name="content" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="quotation" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="//序号seqno" type="xs:string" />
+          <xs:element name="//报价类型：传统报价，mgp报价type" type="xs:anyType" />
+          <xs:element name="//模块数量modnum" type="xs:anyType" />
+          <xs:element name="//模座数量mobnum" type="xs:anyType" />
+          <xs:element name="//模窝镶条数量mxtnum" type="xs:anyType" />
+          <xs:element name="//模窝带球数量mdqnum" type="xs:anyType" />
+          <xs:element name="//总耗时totalday" type="xs:double" />
+          <xs:element name="//总费用totalcost" type="xs:double" />
+          <xs:element name="//客户名称cname" type="xs:string" />
+          <xs:element name="//联系方式ctele" type="xs:string" />
+          <xs:element name="//联系人clink" type="xs:string" />
+          <xs:element name="//邮箱cmail" type="xs:string" />
+          <xs:element name="//联系地址caddr" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="quotlibrary" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="//生产周期modpcycle" type="xs:double" />
+          <xs:element name="//单位价格modunitprice" type="xs:double" />
+          <xs:element name="//生产周期mxtpcycle" type="xs:double" />
+          <xs:element name="//单位价格mxtunitprice" type="xs:double" />
+          <xs:element name="//生产周期mdqpcycle" type="xs:double" />
+          <xs:element name="//单位价格mdqunitprice" type="xs:double" />
+          <xs:element name="//模块mobpcycle" type="xs:double" />
+          <xs:element name="mobunitprice" type="xs:double" />
+          <xs:element name="//报价类型：传统报价，mgp报价type" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="company" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="//信息内容content" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="repair" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="//序号seqno" type="xs:string" />
+          <xs:element name="//产品名称proname" type="xs:string" />
+          <xs:element name="//产品编号proid" type="xs:string" />
+          <xs:element name="//生产原料名称：matername" type="xs:string" />
+          <xs:element name="//模具名称modname" type="xs:string" />
+          <xs:element name="//模具编号modid" type="xs:string" />
+          <xs:element name="//需求完成日complete" type="xs:dateTime" />
+          <xs:element name="//修理原因repaircause" type="xs:string" />
+          <xs:element name="//其他要求otherrequest" type="xs:string" />
+          <xs:element name="//申请人applicant" type="xs:string" />
+          <xs:element name="//申请日期apply" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="paginationwidget" >
+      <xs:complexContent>
+       <xs:extension base="containerwidget">
+         <xs:sequence>
+          <xs:element name="items_per_page" type="xs:anyType" />
+          <xs:element name="current_page" type="xs:anyType" />
+          <xs:element name="//num_display_entries" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="simpleeditor" >
+      <xs:complexContent>
+       <xs:extension base="textarea">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="onchange_" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="paginationnew" >
+      <xs:complexContent>
+       <xs:extension base="containerwidget">
+         <xs:sequence>
+          <xs:element name="items_per_page" type="xs:anyType" />
+          <xs:element name="current_page" type="xs:anyType" />
+          <xs:element name="num_display_entries" type="xs:anyType" />
+          <xs:element name="num_edge_entries" type="xs:anyType" />
+          <xs:element name="//直接跳到首页和末页,不是上一页和下一页prev_text" type="xs:string" />
+          <xs:element name="next_text" type="xs:string" />
+          <xs:element name="ellipse_text" type="xs:string" />
+          <xs:element name="maxentries" type="xs:anyType" />
+          <xs:element name="prev_show_always" type="xs:anyType" />
+          <xs:element name="next_show_always" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="htmltemplate" >
+      <xs:complexContent>
+       <xs:extension base="template">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="id_" type="xs:string" />
+          <xs:element name="modules_" type="xs:anyType" />
+          <xs:element name="args_" type="xs:anyType" />
+          <xs:element name="parametertypes" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tabhead" >
+      <xs:complexContent>
+       <xs:extension base="htmltemplate">
+         <xs:sequence>
+          <xs:element name="tabids" type="xs:string" />
+          <xs:element name="selid" type="xs:string" />
+          <xs:element name="nextid" type="xs:string" />
+          <xs:element name="paramstri" type="xs:string" />
+          <xs:element name="list" type="xs:anyType" />
+          <xs:element name="usedcmap" type="xs:anyType" />
+          <xs:element name="" type="entity" nillable="true" minOccurs="0" />
+          <xs:element name="invwstr" type="xs:string" />
+          <xs:element name="workorderstr" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="navgationbox" >
+      <xs:complexContent>
+       <xs:extension base="htmltemplate">
+         <xs:sequence>
+          <xs:element name="container" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="slidedown" >
+      <xs:complexContent>
+       <xs:extension base="htmltemplate{">
+         <xs:sequence>
+          <xs:element name="tabids" type="xs:string" />
+          <xs:element name="selid" type="xs:string" />
+          <xs:element name="nextid" type="xs:string" />
+          <xs:element name="messagebox" type="xs:anyType" />
+          <xs:element name="list" type="xs:anyType" />
+          <xs:element name="usedcmap" type="xs:anyType" />
+          <xs:element name="//获取该父级菜单下授权的二级菜单集合" type="entity" nillable="true" minOccurs="0" />
+          <xs:element name="ap" type="accountpermission" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="poptable" >
+      <xs:complexContent>
+       <xs:extension base="htmltemplate">
+         <xs:sequence>
+          <xs:element name="//privatetemplatethis" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="widgetbox" >
+      <xs:complexContent>
+       <xs:extension base="htmltemplate">
+         <xs:sequence>
+          <xs:element name="wbcontent" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="formview" >
+      <xs:complexContent>
+       <xs:extension base="htmltemplate">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="fields_" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="navibox" >
+      <xs:complexContent>
+       <xs:extension base="htmltemplate">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="imagemgrlist" >
+      <xs:complexContent>
+       <xs:extension base="htmltemplate">
+         <xs:sequence>
+          <xs:element name="upload" type="xs:anyType" />
+          <xs:element name="filelist" type="xs:anyType" />
+          <xs:element name="count" type="xs:string" />
+          <xs:element name="fn" type="xs:string" />
+          <xs:element name="div" type="xs:anyType" />
+          <xs:element name="group" type="xs:anyType" />
+          <xs:element name="cur_page" type="xs:long" />
+          <xs:element name="rec_num" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="middletpl" >
+      <xs:complexContent>
+       <xs:extension base="htmltemplate">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="bcbutton" type="headbutton" nillable="true" minOccurs="0" />
+          <xs:element name="btnstr" type="xs:string" />
+          <xs:element name="//fieldlist字段集合，detaillist明细字段集合，filterlist用作过滤的集合，hiddenlist主表隐藏的字段集合，detailhiddenlist明细表字段集合fieldlist,detailfieldlist" type="xs:anyType" />
+          <xs:element name="//qryparamlist为主页面的查询过滤条件qryparamlist" type="xs:anyType" />
+          <xs:element name="//fieldhiddenfield//销售合同和工单管理用的是一个实体，但是显示的字段不完全一样，所以在调用的mgr处另外设置下display_count" type="xs:long" />
+          <xs:element name="//plist查询出的记录plist" type="entityobject" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="db" type="entity" nillable="true" minOccurs="0" />
+          <xs:element name="curcls,decls" type="xs:anyType" />
+          <xs:element name="//选中某一行后，那一行的对象deliveryobj" type="xs:anyType" />
+          <xs:element name="//为区分四类合同，做了前置查询条件，数组中有两个值：属性名-属性值；没有条件限定的其他类为1" type="xs:anyType" />
+          <xs:element name="start_,detailstart,max_,detailmax" type="xs:long" />
+          <xs:element name="sdf" type="xs:anyType" />
+          <xs:element name="decimalf" type="xs:anyType" />
+          <xs:element name="//筛选filtertpl" type="xs:anyType" />
+          <xs:element name="//combobox/*comboboxfieldsel" type="xs:anyType" />
+          <xs:element name="//hqlorsqlnavsqlflag" type="xs:anyType" />
+          <xs:element name="parent,winouter,pagiouter" type="xs:anyType" />
+          <xs:element name="trlisteners" type="xs:anyType" />
+          <xs:element name="sel_tr" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="imagemgr" >
+      <xs:complexContent>
+       <xs:extension base="htmltemplate">
+         <xs:sequence>
+          <xs:element name="fn" type="xs:string" />
+          <xs:element name="/*style" type="xs:string" />
+          <xs:element name="upload" type="xs:anyType" />
+          <xs:element name="div" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="addressselect" >
+      <xs:complexContent>
+       <xs:extension base="htmltemplate">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="prov" type="xs:string" />
+          <xs:element name="linea,lineb,linec" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="detailtbl" >
+      <xs:complexContent>
+       <xs:extension base="middletpl">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="inventorybookmgr" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="body" >
+      <xs:complexContent>
+       <xs:extension base="htmltemplate{">
+         <xs:sequence>
+          <xs:element name="xml" type="xs:string" />
+          <xs:element name="tpl" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="popbox" >
+      <xs:complexContent>
+       <xs:extension base="htmltemplate">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tabcontent" >
+      <xs:complexContent>
+       <xs:extension base="htmltemplate">
+         <xs:sequence>
+          <xs:element name="parametertypes" type="xs:anyType" />
+          <xs:element name="args_" type="xs:anyType" />
+          <xs:element name="selid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="headbutton" >
+      <xs:complexContent>
+       <xs:extension base="htmltemplate">
+         <xs:sequence>
+          <xs:element name="window" type="xs:anyType" />
+          <xs:element name="purid" type="xs:string" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="obj" type="xs:anyType" />
+          <xs:element name="resp" type="xs:anyType" />
+          <xs:element name="//simpledateformatsdf" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="filemgrlist" >
+      <xs:complexContent>
+       <xs:extension base="htmltemplate">
+         <xs:sequence>
+          <xs:element name="upload" type="xs:anyType" />
+          <xs:element name="filelist" type="xs:anyType" />
+          <xs:element name="count" type="xs:string" />
+          <xs:element name="fn" type="xs:string" />
+          <xs:element name="div" type="xs:anyType" />
+          <xs:element name="group" type="xs:anyType" />
+          <xs:element name="cur_page" type="xs:long" />
+          <xs:element name="rec_num" type="xs:long" />
+          <xs:element name="fid" type="xs:string" />
+          <xs:element name="//控制上传按钮是否显示flag" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="inittemplate" >
+      <xs:complexContent>
+       <xs:extension base="htmltemplate">
+         <xs:sequence>
+          <xs:element name="uiarr" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="repairapply" >
+      <xs:complexContent>
+       <xs:extension base="middletpl{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="buydocmgr" >
+      <xs:complexContent>
+       <xs:extension base="middletpl">
+         <xs:sequence>
+          <xs:element name="/*doublecountval	doubleunitpriceval,unitweight*/subtotal" type="xs:anyType" />
+          <xs:element name="db" type="entity" nillable="true" minOccurs="0" />
+          <xs:element name="sdfslash" type="xs:anyType" />
+          <xs:element name="sdfdot" type="xs:anyType" />
+          <xs:element name="sd" type="signdoc" nillable="true" minOccurs="0" />
+          <xs:element name="filtertpl,qrytpl,detailfiltertpl" type="xs:anyType" />
+          <xs:element name="filterparamlist" type="xs:anyType" />
+          <xs:element name="qrywbx" type="popbox" nillable="true" minOccurs="0" />
+          <xs:element name="qrytitle,qrydename" type="xs:string" />
+          <xs:element name="qryeo" type="entityobject" nillable="true" minOccurs="0" />
+          <xs:element name="summation" type="xs:double" />
+          <xs:element name="df" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="deptmgr" >
+      <xs:complexContent>
+       <xs:extension base="middletpl">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="delegatedocmgr" >
+      <xs:complexContent>
+       <xs:extension base="middletpl">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clientmgr" >
+      <xs:complexContent>
+       <xs:extension base="middletpl">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="inventorywarnmgr" >
+      <xs:complexContent>
+       <xs:extension base="middletpl">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="wocostmgr" >
+      <xs:complexContent>
+       <xs:extension base="middletpl{">
+         <xs:sequence>
+          <xs:element name="db" type="entity" nillable="true" minOccurs="0" />
+          <xs:element name="totalmap" type="xs:anyType" />
+          <xs:element name="smap" type="xs:anyType" />
+          <xs:element name="wocdmap" type="xs:anyType" />
+          <xs:element name="df" type="xs:anyType" />
+          <xs:element name="docfieldlist" type="xs:anyType" />
+          <xs:element name="wocdmap" type="workorder" nillable="true" minOccurs="0" />
+          <xs:element name="//templatetplwbx" type="popbox" nillable="true" minOccurs="0" />
+          <xs:element name="eo" type="entityobject" nillable="true" minOccurs="0" />
+          <xs:element name="costdetailhead,costdetailbody,closebtn" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="surfacemgr" >
+      <xs:complexContent>
+       <xs:extension base="middletpl">
+         <xs:sequence>
+          <xs:element name="db" type="entity" nillable="true" minOccurs="0" />
+          <xs:element name="gecode" type="xs:string" />
+          <xs:element name="detailcodemap" type="xs:anyType" />
+          <xs:element name="hb" type="headbutton" nillable="true" minOccurs="0" />
+          <xs:element name="sel" type="surface" nillable="true" minOccurs="0" />
+          <xs:element name="//选中某一零件后，该零件下的所有图纸select_drawing" type="xs:anyType" />
+          <xs:element name="//零件下拉框select_widget" type="xs:anyType" />
+          <xs:element name="select_widget_input" type="xs:anyType" />
+          <xs:element name="select_drawing_input" type="xs:anyType" />
+          <xs:element name="generalelementmap" type="xs:anyType" />
+          <xs:element name="elements" type="entityobject" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="costconfmgr" >
+      <xs:complexContent>
+       <xs:extension base="middletpl{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="inqueryinfo" >
+      <xs:complexContent>
+       <xs:extension base="middletpl{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="inventorybookmgr" >
+      <xs:complexContent>
+       <xs:extension base="middletpl">
+         <xs:sequence>
+          <xs:element name="iim" type="inventoryinitialmgr" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="inventorysummgr" >
+      <xs:complexContent>
+       <xs:extension base="middletpl">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="workordermgr" >
+      <xs:complexContent>
+       <xs:extension base="middletpl">
+         <xs:sequence>
+          <xs:element name="parent" type="xs:anyType" />
+          <xs:element name="args" type="xs:string" />
+          <xs:element name="db" type="entity" nillable="true" minOccurs="0" />
+          <xs:element name="traceworder" type="workorder" nillable="true" minOccurs="0" />
+          <xs:element name="wotm" type="workordertracemgr" nillable="true" minOccurs="0" />
+          <xs:element name="//防止不按照流程走，只是建了销售单，无图面数据后即来跟踪工单，所以先初始化下surfacedetaillist" type="entityobject" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="dbdetaillist" type="entityobject" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="overlaplist" type="entityobject" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="arraycolumnconfiglist" type="xs:anyType" />
+          <xs:element name="detailhb" type="headbutton" nillable="true" minOccurs="0" />
+          <xs:element name="drawallflag" type="xs:anyType" />
+          <xs:element name="//display_field_count显示字段用,detaildb_display_count显示明细的条数（隐藏的不显示）display_field_count,detaildb_display_count" type="xs:long" />
+          <xs:element name="//保存入库的数据记录筛选tracefitlerfieldlist，图面明细带过来的记录筛选surfacefilterfieldlist/*fieldlist" type="xs:anyType" />
+          <xs:element name="tracefitlerfieldlist" type="xs:anyType" />
+          <xs:element name="ap" type="accountpermission" nillable="true" minOccurs="0" />
+          <xs:element name="disabledw" type="xs:anyType" />
+          <xs:element name="winouter,/*" type="xs:anyType" />
+          <xs:element name="detailtracehead,detailtracebody" type="xs:anyType" />
+          <xs:element name="df" type="xs:anyType" />
+          <xs:element name="sdf" type="xs:anyType" />
+          <xs:element name="datacode" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productinfo" >
+      <xs:complexContent>
+       <xs:extension base="middletpl{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="workordertracemgr" >
+      <xs:complexContent>
+       <xs:extension base="middletpl">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="staffmgr" >
+      <xs:complexContent>
+       <xs:extension base="middletpl">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="deviceinfo" >
+      <xs:complexContent>
+       <xs:extension base="middletpl{">
+         <xs:sequence>
+          <xs:element name="pview" type="deviceview" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="generalelementmgr" >
+      <xs:complexContent>
+       <xs:extension base="middletpl">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="wodetailmgr" >
+      <xs:complexContent>
+       <xs:extension base="middletpl{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="askpriceinfo" >
+      <xs:complexContent>
+       <xs:extension base="middletpl{">
+         <xs:sequence>
+          <xs:element name="args" type="xs:string" />
+          <xs:element name="parent" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="contactinfo" >
+      <xs:complexContent>
+       <xs:extension base="htmltemplate{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="infopublish" >
+      <xs:complexContent>
+       <xs:extension base="htmltemplate">
+         <xs:sequence>
+          <xs:element name="editor" type="xs:anyType" />
+          <xs:element name="smgentity" type="sitemgentity" nillable="true" minOccurs="0" />
+          <xs:element name="" type="entity" nillable="true" minOccurs="0" />
+          <xs:element name="c" type="company" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="drawingmgr" >
+      <xs:complexContent>
+       <xs:extension base="middletpl{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="saledocmgr" >
+      <xs:complexContent>
+       <xs:extension base="middletpl">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="gridtable" >
+      <xs:complexContent>
+       <xs:extension base="htmltemplate{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="flowmgr" >
+      <xs:complexContent>
+       <xs:extension base="middletpl">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="accountpmgr" >
+      <xs:complexContent>
+       <xs:extension base="middletpl{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="reservedocmgr" >
+      <xs:complexContent>
+       <xs:extension base="middletpl{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="inventoryinitialmgr" >
+      <xs:complexContent>
+       <xs:extension base="middletpl">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="commentinfo" >
+      <xs:complexContent>
+       <xs:extension base="middletpl{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="modifypwdmgr" >
+      <xs:complexContent>
+       <xs:extension base="htmltemplate{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="suppliermgr" >
+      <xs:complexContent>
+       <xs:extension base="middletpl{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="util" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="widgetutil" >
+      <xs:complexContent>
+       <xs:extension base="enum>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hibernateutil" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="factory" type="xs:anyType" />
+        <xs:element name="database" type="userdatabase" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entityobject" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="/***generateauuidforrecord.*/id" type="xs:string" />
+        <xs:element name="/***timeofgeneraterecord.*/generate" type="xs:dateTime" />
+        <xs:element name="/*	*codefordifferentlogin	**/datacode" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="drawingmodel" >
+      <xs:complexContent>
+       <xs:extension base="formmodel">
+         <xs:sequence>
+          <xs:element name="eid" type="xs:string" />
+          <xs:element name="//零件名称-零件编号name" type="xs:string" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="author" type="xs:string" />
+          <xs:element name="drawing" type="xs:string" />
+          <xs:element name="surface" type="xs:string" />
+          <xs:element name="element" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="drawingform" >
+      <xs:complexContent>
+       <xs:extension base="formview">
+         <xs:sequence>
+          <xs:element name="dmodel" type="drawingmodel" nillable="true" minOccurs="0" />
+          <xs:element name="pb" type="popbox" nillable="true" minOccurs="0" />
+          <xs:element name="dmgr" type="drawingmgr" nillable="true" minOccurs="0" />
+          <xs:element name="" type="drawing" nillable="true" minOccurs="0" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="surfacesel" type="xs:anyType" />
+          <xs:element name="authorsel" type="xs:anyType" />
+          <xs:element name="//stringlistmodelauthordropmodel" type="xs:anyType" />
+          <xs:element name="filemap" type="xs:anyType" />
+          <xs:element name="t" type="xs:anyType" />
+          <xs:element name="le" type="xs:anyType" />
+          <xs:element name="elementcode" type="xs:string" />
+          <xs:element name="elements" type="entityobject" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="select_widget" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="drawing" >
+      <xs:complexContent>
+       <xs:extension base="entityobject">
+         <xs:sequence>
+          <xs:element name="/*implementscloneable*///序号seqno" type="xs:string" />
+          <xs:element name="//@displayfield(cname" type="xs:string" />
+          <xs:element name="//作者author" type="xs:string" />
+          <xs:element name="" type="surface" nillable="true" minOccurs="0" />
+          <xs:element name="" type="generalelement" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="inventoryinitialmodel" >
+      <xs:complexContent>
+       <xs:extension base="formmodel{">
+         <xs:sequence>
+          <xs:element name="eid" type="xs:string" />
+          <xs:element name="//品名itemname" type="xs:string" />
+          <xs:element name="//初始数量itemnum" type="xs:string" />
+          <xs:element name="//规格specification" type="xs:string" />
+          <xs:element name="//供货商supplier" type="xs:string" />
+          <xs:element name="//计量单位itemunit" type="xs:string" />
+          <xs:element name="//货位--仓别//allocation" type="xs:string" />
+          <xs:element name="//盘点日期checkdate" type="xs:string" />
+          <xs:element name="//货号itemcode" type="xs:string" />
+          <xs:element name="//预警值threshold" type="xs:string" />
+          <xs:element name="sdf" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="inventorybookmodel" >
+      <xs:complexContent>
+       <xs:extension base="formmodel{">
+         <xs:sequence>
+          <xs:element name="//货品名称itemname" type="xs:string" />
+          <xs:element name="//货品规格itemspec" type="xs:string" />
+          <xs:element name="//数量itemcount" type="xs:string" />
+          <xs:element name="//记录日期bookdate" type="xs:string" />
+          <xs:element name="eid" type="xs:string" />
+          <xs:element name="//货品编码itemcode" type="xs:string" />
+          <xs:element name="//货品inventory" type="xs:string" />
+          <xs:element name="//recorder" type="xs:string" />
+          <xs:element name="//非销售合同signdoc" type="xs:string" />
+          <xs:element name="itype" type="xs:string" />
+          <xs:element name="sc" type="xs:string" />
+          <xs:element name="tracedetail" type="xs:string" />
+          <xs:element name="sdf" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="inventorybookform" >
+      <xs:complexContent>
+       <xs:extension base="formview{">
+         <xs:sequence>
+          <xs:element name="pb" type="popbox" nillable="true" minOccurs="0" />
+          <xs:element name="ibmgr" type="inventorybookmgr" nillable="true" minOccurs="0" />
+          <xs:element name="ib" type="inventorybook" nillable="true" minOccurs="0" />
+          <xs:element name="ibmodel" type="inventorybookmodel" nillable="true" minOccurs="0" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="max_" type="xs:long" />
+          <xs:element name="current_page" type="xs:long" />
+          <xs:element name="invnum" type="xs:long" />
+          <xs:element name="tcontent" type="xs:anyType" />
+          <xs:element name="storesel" type="xs:anyType" />
+          <xs:element name="iim" type="inventoryinitialmgr" nillable="true" minOccurs="0" />
+          <xs:element name="parent" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="inventoryinitialform" >
+      <xs:complexContent>
+       <xs:extension base="formview{">
+         <xs:sequence>
+          <xs:element name="pb" type="popbox" nillable="true" minOccurs="0" />
+          <xs:element name="iimgr" type="inventoryinitialmgr" nillable="true" minOccurs="0" />
+          <xs:element name="" type="inventory" nillable="true" minOccurs="0" />
+          <xs:element name="iimodel" type="inventoryinitialmodel" nillable="true" minOccurs="0" />
+          <xs:element name="title" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="inventorybook" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="//序号seqno" type="xs:string" />
+          <xs:element name="" type="inventory" nillable="true" minOccurs="0" />
+          <xs:element name="invname" type="xs:string" />
+          <xs:element name="invno" type="xs:string" />
+          <xs:element name="//规格spec" type="xs:string" />
+          <xs:element name="//对应的工单,出库单" type="workorder" nillable="true" minOccurs="0" />
+          <xs:element name="//非销售合同，入库单sd" type="signdoc" nillable="true" minOccurs="0" />
+          <xs:element name="//入库，【工单管理】-执行“完结”操作，则该工单下所有跟踪明细记录被当做入库记录tracedetail" type="workordertracedetail" nillable="true" minOccurs="0" />
+          <xs:element name="//来往数量bookamt" type="xs:double" />
+          <xs:element name="//来往日期book" type="xs:dateTime" />
+          <xs:element name="//记录员recorder" type="xs:string" />
+          <xs:element name="ibtype" type="xs:anyType" />
+          <xs:element name="sc" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="inventorywarn" >
+      <xs:complexContent>
+       <xs:extension base="entityobject">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="spec" type="xs:string" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="amt" type="xs:double" />
+          <xs:element name="threshold" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="inventorysum" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="spec" type="xs:string" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="amt" type="xs:double" />
+          <xs:element name="latestdate" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="inventory" >
+      <xs:complexContent>
+       <xs:extension base="entityobject{">
+         <xs:sequence>
+          <xs:element name="//序号seqno" type="xs:string" />
+          <xs:element name="//产品名称name" type="xs:string" />
+          <xs:element name="//盘点日期check" type="xs:dateTime" />
+          <xs:element name="//产品数量amount" type="xs:double" />
+          <xs:element name="//规格spec" type="xs:string" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="threshold" type="xs:double" />
+          <xs:element name="//产品计量单位unit" type="xs:string" />
+          <xs:element name="//厂商supplier" type="xs:string" />
+          <xs:element name="//publicstorecategoryallocation" type="xs:string" />
+          <xs:element name="/*@displayfield(cname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="test" >
+      <xs:sequence>
+        <xs:element name="//半角!dbc__start" type="xs:anyType" />
+        <xs:element name="//半角~dbc__end" type="xs:anyType" />
+        <xs:element name="//全角！sbc__start" type="xs:anyType" />
+        <xs:element name="//全角～sbc__end" type="xs:anyType" />
+        <xs:element name="//全角半角转换间隔convert_step" type="xs:long" />
+        <xs:element name="//全角空格12288sbc_space" type="xs:anyType" />
+        <xs:element name="//半角空格dbc_space" type="xs:anyType" />
+        <xs:element name="testint" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="wf" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jquery.window" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jquery.cityselect" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jquery.draggable" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jquery.tooltip" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jquery.pagination" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jquery.spinner" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jquery.parser" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jquery.textbox" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jquery.linkbutton" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

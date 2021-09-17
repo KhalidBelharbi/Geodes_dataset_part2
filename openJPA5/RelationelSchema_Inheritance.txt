@@ -1,0 +1,3011 @@
+cacheableentity(id:int [PK], name:String);
+
+story(id:int [PK], version:int, GeneratedName:Task #FK to(Task));
+
+m21unidepartment(deptid:String [PK], name:String, version:int, costcode:String);
+
+entityf(id:int [PK]);
+
+optselectentity(id:int [PK], version:int, eageronetoone:OptSelectEntity #FK to(OptSelectEntity), eageronetooneowner:OptSelectEntity #FK to(OptSelectEntity), lazyonetoone:OptSelectEntity #FK to(OptSelectEntity), lazyonetooneowner:OptSelectEntity #FK to(OptSelectEntity));
+
+entityc(id:Integer [PK], name:String, GeneratedName:EntityD #FK to(EntityD), optlock:Integer);
+
+entityg(id:int [PK], GeneratedName:EntityF #FK to(EntityF));
+
+m2mbiemployee_M2MBiDepartment(m2mbiemployeeID:m2mbiemployee [PK] #FK to m2mbiemployee,M2MBiDepartmentID:M2MBiDepartment [PK] #FK to M2MBiDepartment);
+
+m2mbidepartment(deptid:String [PK], name:String, version:int, costcode:String);
+
+task(id:int [PK], version:int, GeneratedName:Employee #FK to(Employee));
+
+entitye(id:Integer [PK], name:String, GeneratedName:EntityB #FK to(EntityB), optlock:Integer);
+
+a(id:int [PK], name:String, age:int, map:Map<String,String>);
+
+entityd(id:Integer [PK], name:String, GeneratedName:EntityA #FK to(EntityA), GeneratedName:EntityB #FK to(EntityB), optlock:Integer);
+
+testsnakecaseddl();
+
+testdelimitidentifiers();
+
+entitybool(id:int [PK], dummy:boolean);
+
+entityboolchar(id:int [PK], dummy:boolean);
+
+inputstreamlobentity(id:int [PK], stream:InputStream);
+
+readerlobentity(id:int [PK], stream:Reader);
+
+entitywithstoredprocedure(id:long [PK], name:String);
+
+xmlcolentity(id:int [PK], version:int, xmlcolumn:String);
+
+movie(serialversionuid:long, duration:Integer, GeneratedName:Artist #FK to(A));
+
+book(serialversionuid:long, pagecount:int, 1:Artist #FK to(A));
+
+artist(name:String [PK]);
+
+testbadversionfield();
+
+unenhancedpobject();
+
+unenhancedpropertyaccesssubclass(serialversionuid:long, related:UnenhancedPropertyAccess #FK to(A), field:int);
+
+unenhancedmany(serialversionuid:long, id:int [PK], one:UnenhancedOne #FK to(A));
+
+unenhancedunlistedreferer(id:int [PK], other:UnenhancedUnlistedClass #FK to(A));
+
+unenhancedfieldaccessprimitivewrappersubclass(serialversionuid:long, related:UnenhancedFieldAccessPrimitiveWrapper #FK to(A), field:int);
+
+enhancedsubclass(serialversionuid:long, valueinsubclass:String);
+
+unenhancedbootstrapinstance2(id:int [PK]);
+
+unenhancedbootstrapinstance(id:int [PK]);
+
+software(id:Integer [PK], id:int [PK], id:String [PK]);
+
+hardware(serial:String [PK], model:String [PK], description:String);
+
+device(id:int [PK], type:int [PK], description:String);
+
+unenhancedone(serialversionuid:long, id:int [PK]);
+
+unenhancedcompoundpkfieldaccess(id0:int [PK], id1:int [PK]);
+
+unenhancedcompoundpkpropertyaccess(id0:int [PK], id1:int [PK]);
+
+unenhancedcompoundpkfieldaccesssubclass();
+
+unenhancedidentityidpropertyaccess(id:int [PK], field:String);
+
+unenhancedunlistedclass(id:int [PK]);
+
+unenhancedfieldaccesssubclass(serialversionuid:long, related:UnenhancedFieldAccess #FK to(A), field:int);
+
+enhancedsuperclass( id:Long [PK] #FK to Superclass, serialversionuid:long, id:Long [PK], valueinsuperclass:String);
+
+auditedentry(id:long [PK], audited:Object #FK to(object), operation:AuditableOperation, ts:Timestamp, updatedfields:List<String>);
+
+x(id:long [PK], name:String, price:int, id_generator:AtomicLong);
+
+entitye(id:long [PK], name:String);
+
+integerversionentity(id:int [PK], name:String, version:Integer);
+
+entity9(id:long [PK], name:String);
+
+entitya(id:long [PK], name:String, description:String, GeneratedName:EntityB #FK to(EntityB), GeneratedName:EntityC #FK to(EntityC), GeneratedName:EntityD #FK to(EntityD), GeneratedName:EntityE #FK to(EntityE));
+
+entity5(id:long [PK], name:String, e6:Entity6 #FK to(Entity6));
+
+entity14(id:long [PK], name:String);
+
+entity1(id:long [PK], name:String, e14:Entity14 #FK to(Entity14));
+
+entity10(id:long [PK], name:String, intcollection:Collection<Integer>, stringcollection:Collection<String>);
+
+intversionentity(serialversionuid:long, id:int [PK], name:String, version:int, e2:TimestampVersionEntity #FK to(A));
+
+timestampversionentity(id:int [PK], name:String, version:Timestamp);
+
+entity4(id:long [PK], name:String, e5:Entity5 #FK to(Entity5));
+
+entity11(id:long [PK], name:String);
+
+entity20(serialversionuid:long, id:Integer [PK], sql:Date, sql:Time, sql:Timestamp, name:String);
+
+entityd(id:long [PK], name:String);
+
+entity8(id:long [PK], name:String, e9:Entity9 #FK to(Entity9));
+
+noversionentity(id:int [PK], name:String);
+
+entity6(id:long [PK], name:String, e7:Entity7 #FK to(Entity7));
+
+entity13(id:long [PK], name:String);
+
+entityb(id:long [PK], name:String);
+
+entityc(id:long [PK], name:String);
+
+entity7(id:long [PK], name:String);
+
+serializabledetachedstatemanager(serialversionuid:long, id:int [PK], version:int, z:Date);
+
+passenger(id:long, name:String, //manytomany(mappedby:Collection<Automobile>);
+
+owner(id:long, name:String, //one-2-manyautos:List<Automobile>);
+
+driver(id:long, name:String, //onetooneauto:Automobile);
+
+entity12(id:long [PK], name:String);
+
+entity3(id:long [PK], name:String, e4:Entity4 #FK to(Entity4));
+
+globallistenerentity(id:long [PK], value:int);
+
+listenerinentity(id:long [PK], value:int, transientprepersistcount:int, transientpostpersistcount:int, transientpreupdatecount:int, transientpostupdatecount:int, transientpreremovecount:int, transientpostremovecount:int, transientpostloadcount:int);
+
+duplicatelistenerentity(id:long [PK], value:int);
+
+postpersistentity(id:long [PK], name:String, transientpostpersistcallbackcount:int, transientidoncallback:long);
+
+postloadlistenerentity(id:long [PK], value:String, //thosefieldsareimportantforthetestsince//openjpawillloadthefulltableatonceifyouremovethemvalue2:String);
+
+message(id:long [PK], message:String, created:Date, upd:Date, version:Integer);
+
+msclistenerentity(id:long [PK], value:int);
+
+exceptionsfromcallbacksentity(id:long [PK], version:int, throwonpostload:boolean, field:String);
+
+entitylistenermappedsuperclass();
+
+entitylistenerentity(id:long [PK], value:int);
+
+addlistenerentity(id:long [PK], value:int);
+
+assignment(serialversionuid:long, assignid:Long [PK], GeneratedName:Topic #FK to(Topic), assigntext:String);
+
+classperiod(serialversionuid:long, clpid:Long [PK], clptext:String, GeneratedName:Course #FK to(Course));
+
+subtopic(serialversionuid:long, subtopicid:Long [PK], GeneratedName:Topic #FK to(Topic), subtopictext:String);
+
+topic(serialversionuid:long, topicid:Long [PK], clp:ClassPeriod #FK to(A), topictext:String);
+
+security(id:long [PK], symbol:Embed, GeneratedName:Country #FK to(country), eager:Country #FK to(country));
+
+accessmodsentity(id:int [PK], pub:String, prot:String, priv:String);
+
+privaccessmodsentity(id:int [PK], pub:String, prot:String, priv:String);
+
+entitycontact(id:String [PK], email:String, phone:String, type:String, theaddress:EmbeddableAddress);
+
+pessimisticlockentity(id:int [PK], name:String);
+
+testejbnopersistentfields(holder:Nholder);
+
+bytearray(ids:int [PK], GeneratedName:String, s:byte);
+
+mapelementpcchild(elementdatachild:String);
+
+dependentfieldspc(pk:long [PK], relation:DependentFieldsPC #FK to(DependentFieldsPC), owner:DependentFieldsPC #FK to(DependentFieldsPC), map:Map<String,DependentFieldsPC>, dependentrelation:DependentFieldsPC #FK to(DependentFieldsPC), dependentmap:Map<String,DependentFieldsPC>);
+
+dependentfieldspc_DependentFieldsPC(dependentfieldspcID:dependentfieldspc [PK] #FK to dependentfieldspc,DependentFieldsPCID:DependentFieldsPC [PK] #FK to DependentFieldsPC);dependentfieldspc_DependentFieldsPC(dependentfieldspcID:dependentfieldspc [PK] #FK to dependentfieldspc,DependentFieldsPCID:DependentFieldsPC [PK] #FK to DependentFieldsPC);
+
+dateversion(GeneratedName:String, id:int [PK]);
+
+entity1(serialversionuid:long, pk:long [PK], field:String, field:int, field:Entity2 #FK to(Entity2), versionfield:int);
+
+sequenceassigned3(pk:Long [PK]);
+
+singleidlong(pk:long, str:String);
+
+fetchb();
+
+instancecallbackstest(predeleteinvocations:long, postloadinvocations:long, prestoreinvocations:long, preclearinvocations:long, transientpostloadcalled:boolean, transientprestorecalled:boolean, transientpredeletecalled:boolean, transientpreclearcalled:boolean, transientpredeletecycle:int, transientflushinprestore:boolean, //thisshouldneverbenullinjdopostloadnonnull:String, field:String, field:int, nondfgfield:int, oneone:RuntimeTest1 #FK to(RuntimeTest1), rel:InstanceCallbacksTest #FK to(A), transientrelid:Object);
+
+detachsmpc(serialversionuid:long, field:int, rel:Set, stringint:Map);
+
+appidsubd(pkd:double, fieldd:String);
+
+modinstancecallbacktests(predeleteinvocations:long, postloadinvocations:long, prestoreinvocations:long, preclearinvocations:long, transientpostloadcalled:boolean, transientprestorecalled:boolean, transientpredeletecalled:boolean, transientpreclearcalled:boolean, transientpredeletecycle:int, transientflushinprestore:boolean, //thisshouldneverbenullinjdopostloadnonnull:String, field:String, field:int, nondfgfield:int, oneone:ModRuntimeTest1 #FK to(ModRuntimeTest1), rel:ModInstanceCallbackTests #FK to(A), transientrelid:Object);
+
+runtimetest2(serialversionuid:long, //@idfield2:int);
+
+objectcollectionholder(id:int [PK], GeneratedName:HashSet);
+
+attachc(serialversionuid:long, cstr:String, c:int, cdbl:double);
+
+attachc_A(attachcID:attachc [PK] #FK to attachc,AID:A [PK] #FK to A);
+
+pcperson_PCPerson(pcpersonID:pcperson [PK] #FK to pcperson,PCPersonID:PCPerson [PK] #FK to PCPerson);
+
+appidclassstring(pk:int [PK]);
+
+embeddedpc(field:int, field1:int, field:String);
+
+appidholder(id:int, somefield:String, //one-to-onerelations:AppIdSuper, GeneratedName:AppIdSubA, GeneratedName:AppIdSubB, GeneratedName:AppIdSubC, GeneratedName:AppIdSubD, GeneratedName:AppIdSubE, GeneratedName:AppIdSubF, //one-to-manyrelationsappidsupers:Set, appidsubas:Collection, appidsubbs:List, appidsubcs:Set, appidsubds:LinkedList, appidsubes:HashSet, appidsubfs:ArrayList);
+
+modruntimetest2(serialversionuid:long, field2:int);
+
+attachversionb(field2:String);
+
+interfaceholder(serialversionuid:long, intfs:Set, field:String, intf:InterfaceTest #FK to(A), id:int [PK]);
+
+allfieldstypetest(id:int [PK], test:int, test:long, test:short, test:float, test:double, test:byte, test:boolean, test:char, test:String, testbig:String, test:Date, test:Calendar, test:Object, test:BigInteger, test:BigDecimal);
+
+secondarytab(id:int [PK], field:String);
+
+interfacetestimpl4(field:String, field:int);
+
+singleidstring(pk:String, str:String);
+
+valuestrategypc(id:int [PK], uuid:String, uuidhex:String, name:String, ignoreupdate:int, restrictupdate:int, version:int, sequence:int);
+
+persistenceaware();
+
+interfacetestimpl1(serialversionuid:long, field:String);
+
+attachversionc(field:int, pc:AttachVersionA);
+
+lockgrouppcknownsubclass(serialversionuid:long, knownsubclassfield:String);
+
+blobtest(id:int [PK], blob:Object #FK to(object));
+
+pcdirectory(id:int [PK], _name:String, _parent:PCDirectory #FK to(PCDirectory));
+
+pcdirectory_PCDirectory(pcdirectoryID:pcdirectory [PK] #FK to pcdirectory,PCDirectoryID:PCDirectory [PK] #FK to PCDirectory);pcdirectory_PCFile(pcdirectoryID:pcdirectory [PK] #FK to pcdirectory,PCFileID:PCFile [PK] #FK to PCFile);
+
+singleidchar(pk:char, str:String);
+
+outerjoinvaluepc(field:String, value1:int, value2:int, id:int [PK]);
+
+pcclasspc(serialversionuid:long, specificpc:Object, genericpc:Object, generic:Object, specificinterface:PCClassInterface, defaultinterface:PCClassInterface, interface:Serializable, genericinterface:PCClassInterface);
+
+proxiespc(id:int [PK], name:String, stringset:Set<String>, stringmap:Map<String,String>, list:List<String>, comp:Collection<String>, GeneratedName:Date, //sqltypessqldate:java.sql.Date, timestamp:java.sql.Timestamp);
+
+embeddedownerpc(id1:int [PK], id2:int [PK], field:String, mapping(nullindicatorattributename:EmbeddedPC, complexembedded:ComplexEmbeddedPC);
+
+sequenceassigned2(foo:int);
+
+attachf(serialversionuid:long, id1:int [PK], id2:String [PK], fstr:String, f:int, fdbl:double, e:AttachE #FK to(A), strings:List<String>, embeddedc:AttachC);
+
+singleidwrapper(pk:Integer, str:String);
+
+fetchgrouptestobject(id:int [PK], a:int, b:String, c:BigInteger, d:Date, e:String, f:String, g:FetchGroupTestObject #FK to(FetchGroupTestObject), h:FetchGroupTestObject #FK to(FetchGroupTestObject));
+
+singleidint(pk:int, str:String);
+
+concretemappedappidsub(name:String);
+
+inversea(field:String, field:int [PK], oneone:InverseA, oneoneowner:InverseA, onemany:InverseA, manyone:Set, manymany:Set, manymanyowner:Set, null:Set, nullowner:InverseA);
+
+appidsube(fielde:String);
+
+pcaddress(street:String, city:String, country:PCCountry #FK to(PCCountry));
+
+runtimetest3(serialversionuid:long, //@idfield3:int);
+
+attachb(serialversionuid:long, bstr:String, b:int, bdbl:double, stringintmap:Map<String,Integer>);
+
+attachb_A(attachbID:attachb [PK] #FK to attachb,AID:A [PK] #FK to A);
+
+complexembeddedpc(field:String, ownerfield:EmbeddedOwnerPC #FK to(Owner), stringset:Set<String>);
+
+managedinterfaceowner(field:int, iface:ManagedInterfaceSup, embed:ManagedInterfaceEmbed);
+
+nonmappedinterfaceimpl(mismatch:int);
+
+inner(none:Integer, exception:Integer, id:int [PK]);
+
+attachversiona(pk:int, version:int, field:String, fetcha:String, fetchb:String, pc:AttachVersionA, embedded:AttachVersionC, many:Set);
+
+persistentmapholder(testpckeystringvalue:Map<MapElementPC,String>, teststringkeypcvalue:Map<String,MapElementPC>, testpckeypcvalue:Map<MapElementPC,MapElementPC>, testpcsubkeystringvalue:Map<MapElementPCChild,String>, teststringkeypcsubvalue:Map<String,MapElementPCChild>, testpcsubkeypcvalue:Map<MapElementPCChild,MapElementPC>, testpcsubkeypcsubvalue:Map<MapElementPCChild,MapElementPCChild>, testpckeypcsubvalue:Map<MapElementPC,MapElementPCChild>, testpcintfkeystringvalue:Map<MapElementIntf,String>, teststringkeypcintfvalue:Map<String,MapElementIntf>, testpcintfkeypcvalue:Map<MapElementIntf,MapElementPC>);
+
+interfacetestimpl3(serialversionuid:long, field:int);
+
+pcfile(_name:String, _dir:PCDirectory #FK to(PCDirectory));
+
+singleidbyte(pk:byte, str:String);
+
+lobs(serialversionuid:long, lobnullable:String, lobnotnullable:String, id:int [PK]);
+
+entity2(serialversionuid:long, pk:long [PK], field:String, field:int);
+
+fetchgrouptestobjectchild(childa:int, childb:int, childc:int, childd:int);
+
+attachd(serialversionuid:long, id:int [PK], version:Object, dstr:String, d:int, ddbl:double, a:AttachA #FK to(A), pcstringmap:Map<AttachA,String>, bigintegerpcmap:TreeMap<BigInteger,AttachF>, embeddede:AttachE, embeddeda:AttachA);
+
+runtimetest5(name:String, GeneratedName:RuntimeTest4);
+
+appidsubc(pk1c:long, pk2c:String, fieldc:String);
+
+lockgrouppc2(name:String, GeneratedName:List);
+
+fetcha(b:FetchB #FK to(FetchB));
+
+arraystest(counter:long, id:int [PK], a:String, a:Date, aint:Integer, a:Long, a:Float, a:Byte, a:Double, a:Boolean, a:Short, a:Character, ap:int, ap:long, ap:float, ap:byte, ap:double, ap:boolean, ap:short, aacterp:char, aacterpclob:char, a:ArraysTest);
+
+scotest(id:int [PK], strintmap:Map<String,Integer>, intlongmap:Map<Integer,Long>, longfloatmap:Map<Long,Float>, floatbytemap:Map<Float,Byte>, bytedoublemap:Map<Byte,Double>, doublecharmap:Map<Double,Character>, charbooleanmap:Map<Character,Boolean>, datestrmap:Map<Date,String>, bigdecimalbigintegermap:Map<BigDecimal,BigInteger>, cstring:Collection<String>, cinteger:Collection<Integer>, clong:Collection<Long>, cfloat:Collection<Float>, cbyte:Collection<Byte>, cdouble:Collection<Double>, cboolean:Collection<Boolean>, cshort:Collection<Short>, cdate:Collection<Date>, ccharacter:Collection<Character>, cbiginteger:Collection<BigInteger>, cbigdecimal:Collection<BigDecimal>);
+
+singleidshort(pk:short, str:String);
+
+pcdepartment(name:String, company:PCCompany #FK to(A));
+
+pcdepartment_Employee(pcdepartmentID:pcdepartment [PK] #FK to pcdepartment,EmployeeID:Employee [PK] #FK to Employee);
+
+pcemployee(department:PCDepartment #FK to(A));
+
+pccompany(id:int [PK], name:String, address:PCAddress #FK to(A));
+
+pccompany_A(pccompanyID:pccompany [PK] #FK to pccompany,AID:A [PK] #FK to A);
+
+mixedinterfaceimpl(field:int);
+
+attache(serialversionuid:long, id:int [PK], version:Object, estr:String, e:int, edbl:double, b:AttachB #FK to(A), f:AttachF #FK to(A), field:Date);
+
+runtimetest4(name:String);
+
+blobs(serialversionuid:long, lobnullable:byte, lobnotnullable:byte, id:int [PK]);
+
+appidsubb(pkb:String, fieldb:String);
+
+aimplb(name:String, pk1:int [PK], pk2:String [PK]);
+
+externalvalues(toshort:boolean, todouble:byte, tofloat:int, tochar:long, tostring:short, toboolean:float, tobyte:double, toint:char, tolong:String, id:int [PK]);
+
+transition(serialversionuid:long, id:Long [PK], name:String, id:State #FK to(A), id:State #FK to(A));
+
+pccountry(code:String, name:String);
+
+appidsubf(fieldf:String);
+
+inverseb(field:String, oneone:InverseB, manymany:Set);
+
+attacha(serialversionuid:long, id:int [PK], version:int, astr:String, a:int, adbl:double, array:String, array:AttachE);
+
+managedinterfaceownerappid(field:int, iface:ManagedInterfaceSupAppId);
+
+lockgrouppc(serialversionuid:long, defaultlockgroupfield:String, explicitdefaultlockgroupfield:int, lockgroup0field:int, lockgroup0field:String, transientlockgroup1relationfield:RuntimeTest1, lockgroup1field:int, unlockedfield:String);
+
+state(serialversionuid:long, id:Long [PK], name:String);
+
+mapelementpc(elementdata:String);
+
+interfacetestimpl2(serialversionuid:long, field:String);
+
+columniopc(name:String, ignoreinsert:int, ignoreupdate:int, ident:int, id:int [PK], rel:ColumnIOPC #FK to(ColumnIOPC));
+
+calendarfields(id:int [PK], unassigned:Calendar, gmt:Calendar, pacific:Calendar, newyork:Calendar, berlin:Calendar, singapore:Calendar);
+
+allfieldtypestest(id:int [PK], test:int, test:long, test:short, test:float, test:double, test:byte, test:boolean, test:char, test:String, testbig:String, test:Date, test:Calendar, testtstscale0:Timestamp, testtstscale3:Timestamp, testtstscale6:Timestamp, testtstmaxscale:Timestamp, testscale0:Date, testscale3:Date, testmaxscale:Date, test:Object, test:BigInteger, test:BigDecimal);
+
+teststaticinnerclasses(_oid:Object);
+
+testejblobs(_pm:EntityManager, _:Inner);
+
+item(serialversionuid:long, itemid:int [PK], itemname:String, itemprice:java.math.BigDecimal, itemdata:String);
+
+namedentity(id:long [PK], name:String, optlock:Integer);
+
+place(location:String [PK]);
+
+entitywithtimestamppk(idtsp:Timestamp [PK], description:String);
+
+temporalfieldtypes(//mapping-defaulttotimestampdefaultfield:Date, field:Date, timefield:Date, timestampfield:Date, //mapping-defaulttotimestampdefaultfield:Calendar, datefield:Calendar, timefield:Calendar, timestampfield:Calendar, timezonefield:Calendar);
+
+allfieldtypes(//@basictypesfield:short, field:int, field:boolean, field:long, field:float, field:char, field:double, field:byte, wfield:Short, wfield:Integer, wfield:Boolean, wfield:Long, wfield:Float, wfield:Character, wfield:Double, wfield:Byte, field:BigInteger, field:BigDecimal, field:String, field:Date, field:Calendar, sqldatefield:java.sql.Date, sqltimefield:java.sql.Time, sqltimestampfield:java.sql.Timestamp, lob:byte, wlob:Byte, lob:char, wlob:Character, enumfield:EnumType, field:Serializable, //additionaltypessetofstrings:Set<String>, arrayofs:String, arrayofs:int, //one-to-oneandone-to-manyrelationstoselfselfoneone:AllFieldTypes #FK to(A), //java8datetimetypeswhicharerequiredbythejpa-2.2specfield:LocalDate, field:LocalTime, field:LocalDateTime, field:OffsetTime, field:OffsetDateTime);
+
+java8timetypes(id:int [PK], olddatefield:java.util.Date, field:LocalTime, field:LocalDate, field:LocalDateTime, field:OffsetTime, field:OffsetDateTime);
+
+versiontsentity(serialversionuid:long, id:Long [PK], update:Timestamp, someint:Integer);
+
+resultclsannotation(id:String [PK], description:String);
+
+generatedidobject(id:long [PK]);
+
+entityemployee(serialversionuid:long, id:int [PK], firstname:String, lastname:String, salary:float);
+
+sequencedentity(id:int [PK], gval1:int, gval2:int, gval3:int);
+
+hsqlemployee(id:int [PK], firstname:String, lastname:String);
+
+hsqlemployee2(id:int [PK], firstname:String, lastname:String);
+
+propertysub2();
+
+mixednestedembedentity(name:String, eip:EmbedInnerProp);
+
+fieldsub2(crt:Date);
+
+propembedentity(id:int [PK], name:String, efa:EmbedFieldAccess);
+
+propertysub3(crt:Date);
+
+fieldsub3(crt:Date);
+
+defpropmixedfieldaccess(id:int [PK], version:int, strfield:String);
+
+propertyaccesscapitalizationoldbehavior(id:long [PK], word:int, aword:int, aaword:int, aaaword:int, capital:int, acapital:int, another:int, a1:int, b1:int, a:int, b:int, a:boolean, b:boolean, GeneratedName:boolean, bool:boolean);
+
+propentity(id:int [PK], name:String);
+
+menuitem(id:String [PK], name:String, ingredients:Map<String,Ingredient>);
+
+fieldsub(crt:Date);
+
+propertyaccesscapitalization(id:long [PK], word:int, aword:int, aaword:int, aaaword:int, capital:int, acapital:int, another:int, a1:int, b1:int, a:int, b:int, a:boolean, b:boolean, GeneratedName:boolean, bool:boolean);
+
+propaccessfieldstratsentity(m2one:PropAccess #FK to(A), one2one:PropAccess #FK to(A), ecoll:Collection<EmbedPropAccess>, embed:EmbedFieldAccess, ver:int);
+
+propaccessfieldstratsentity_A(propaccessfieldstratsentityID:propaccessfieldstratsentity [PK] #FK to propaccessfieldstratsentity,AID:A [PK] #FK to A);
+
+propaccess(id:int [PK], version:int, strfield:String);
+
+propertysub(crt:Date);
+
+fieldembedentity(id:int [PK], name:String, epa:EmbedPropAccess);
+
+deffieldmixedpropaccess(id:int [PK], version:int);
+
+propmixedentity(idval:int [PK], myname:String, ema:EmbedMixedAccess);
+
+mixedmultembedentity(mid:int [PK], name:String, epa:EmbedPropAccess, efa:EmbedFieldAccess);
+
+fieldaccesspropstratsentity(eid:EmbedId);
+
+mixedfieldsub(myfield:String);
+
+fieldaccess(id:int [PK], version:int, strfield:String);
+
+grandchild(serialversionuid:long, key_1:Child [PK] #FK to(Child), grandchildkey:Integer [PK]);
+
+child(serialversionuid:long, key_1:Parent [PK] #FK to(A), childkey:Integer [PK]);
+
+order(id:Long [PK], orderentry:Date);
+
+lineitem(orderid:Long [PK], itemid:Long [PK], productname:String, quantity:int, price:float);
+
+parent(serialversionuid:long, key1:String [PK], key2:Integer [PK]);
+
+outer(id:Long [PK], name:String);
+
+outer_Inner(outerID:outer [PK] #FK to outer,InnerID:Inner [PK] #FK to Inner);
+
+model(id:long [PK], GeneratedName:Make #FK to(A), GeneratedName:Car #FK to(A), version:int);
+
+shippackage(id:long [PK], GeneratedName:Label #FK to(A), version:int);
+
+label(id:long [PK], pkg:ShipPackage #FK to(package), version:int, state:Object);
+
+make(id:long [PK], version:int, state:Object);
+
+toy(id:int [PK], toyname:String, GeneratedName:ToyBox #FK to(X), version:long);
+
+shippackage2(id:long [PK], label:Label2 #FK to(A), version:int);
+
+toybox(id:int [PK], ownername:String, version:long);
+
+label2(id:long [PK], pkg:ShipPackage2 #FK to(package), version:int, state:Object);
+
+inner(id:Long [PK], name:String);
+
+puschemainsequenceannotationentity(serialversionuid:long, id:long [PK]);
+
+puschemainsequencemappingentity(serialversionuid:long, id:long [PK]);
+
+pudefaultschemaentity(serialversionuid:long, id:long [PK]);
+
+puschemaintablemappingentity(serialversionuid:long, id:long [PK]);
+
+puschemaintableannotationentity(serialversionuid:long, id:long [PK]);
+
+esqldateid(id:Date [PK], name:String);
+
+edbigintegerid(rid:EBigIntegerID [PK] #FK to(EBigIntegerID), name:String);
+
+ebigdecimalid(id:BigDecimal [PK], name:String);
+
+ebigintegerid(id:BigInteger [PK], name:String);
+
+edbigdecimalid(rid:EBigDecimalID [PK] #FK to(A), name:String);
+
+edateid(id:Date [PK], name:String);
+
+edsqldateid(rid:ESQLDateID [PK] #FK to(A), name:String);
+
+eddateid(rid:EDateID [PK] #FK to(A), name:String);
+
+charrootentity();
+
+stringleafentity(sub:int);
+
+stringrootentity();
+
+charleafentity(sub:int);
+
+integerleafentity(sub:int);
+
+manager();
+
+employee(GeneratedName:Manager #FK to(A));
+
+person(id:int [PK]);
+
+integerrootentity();
+
+embeddedownerpc(id1:int [PK], id2:int [PK], field:String, embedded:EmbeddedPC #FK to(EmbeddedPC), complexembedded:ComplexEmbeddedPC #FK to(X));
+
+maleuser();
+
+artcourse(serialversionuid:long, relcourse:String);
+
+student(name:String [PK]);
+
+stud_course(stud_id:Student [PK] #FK to Student,crse_id:Course [PK] #FK to Course);stud_dep(stud_id:Student [PK] #FK to Student,dep_id:A [PK] #FK to A);
+
+embeddedpc(field:int [PK], field:String);
+
+entity1(serialversionuid:long, pk:long [PK], field:String, field:int, field:Entity2 #FK to(Entity2), versionfield:int);
+
+runtimetest2(serialversionuid:long, field2:int);
+
+complexembeddedpc(field:String, ownerfield:EmbeddedOwnerPC #FK to(Owner), string:Set);
+
+femaleuser();
+
+sciencecourse(serialversionuid:long, relcourse:String);
+
+trousers(serialversionuid:long, lnhnumber:Integer);
+
+textile(serialversionuid:long, textileid:Integer [PK], txename:String);
+
+shirt(serialversionuid:long, szeid:String);
+
+address(streetad:String, city:String, country:String, zipcode:String, user:CompUser #FK to(CompUser), id:int [PK]);
+
+course(name:String, units:int, courseid:int [PK]);
+
+department(id:int [PK], name:String);
+
+entity2(serialversionuid:long, pk:long [PK], field:String, field:int);
+
+runtimetest1(serialversionuid:long, field:Locale, field:int [PK], field:String, //transactionalonlytrans:String, //relations//@transientselfoneone:RuntimeTest1 #FK to(RuntimeTest1));
+
+temporalentity(id:Integer [PK], test:Date);
+
+implicitvaluestrategyentity(id:String [PK], /***thisfieldgetsautomaticallyconvertedbyopenjpabecauseweregistered*the{@linkprincipalvaluestrategyhandler}inpersistence.xml.*currentlythisneedseithertobeserializable,sowecannotstoreprincipalbutonlytheimpl:(*/user:PrincipalValueStrategyHandler.TestPrincipal);
+
+valuestrategyentity(id:String [PK], name:String, /***thisfieldgetsautomaticallyconvertedbyopenjpabecauseweregistered*the{@linkprincipalvaluestrategyhandler}inpersistence.xml.*currentlythisneedseithertobeserializable,sowecannotstoreprincipalbutonlytheimpl:(*/user:PrincipalValueStrategyHandler.TestPrincipal);
+
+qcentity(pk:String [PK], description:String, amount:Long);
+
+unidirectionalone2oneowner(id:long [PK], name:String, owned:UnidirectionalOne2OneOwned #FK to(A), version:int);
+
+entity2(serialversionuid:long, pk:long [PK], field:String, field:int);
+
+bidirectionalone2oneowner(id:long [PK], name:String, owned:BidirectionalOne2OneOwned #FK to(A), version:int);
+
+unidirectionalone2oneowned(id:long [PK], name:String, version:int);
+
+entity1(serialversionuid:long, pk:long [PK], field:String, field:int, field:Entity2 #FK to(Entity2), versionfield:int);
+
+bidirectionalone2oneowned(id:long [PK], name:String, owner:BidirectionalOne2OneOwner #FK to(A), version:int);
+
+qcentitym2o(pk:String [PK], qc:QCEntity #FK to(QCEntity));
+
+mapvalentity(id:int [PK], val:int, GeneratedName:MapEntity #FK to(A));
+
+onetoentity(id:int [PK]);
+
+tomanylazy(id:int [PK], name:String);
+
+relentity(id:int [PK], name:String);
+
+mapentity(id:int [PK], GeneratedName:MapValEntity #FK to(A));
+
+eagerentity(id:int [PK], name:String, GeneratedName:EagerEmbed, GeneratedName:EagerEmbedRel, eagerembedcoll:List<EagerEmbed>);
+
+lazyentity(id:int [PK], name:String, GeneratedName:LazyEmbed, lazyembedcoll:List<LazyEmbed>, GeneratedName:RelEntity #FK to(RelEntity));
+
+tomanyeager(id:int [PK], name:String);
+
+floatidentity(id:float [PK], data:int);
+
+sqlbigdecimalidentity(id:BigDecimal [PK], data:int);
+
+doubleobjidentity(id:Double [PK], data:int);
+
+stringidentity(id:String [PK], data:int);
+
+complexcompoundidtestentity(id:Long [PK], type:TypeEntity [PK] #FK to(TypeEntity));
+
+booleanidentity(id:boolean [PK], name:String, other:boolean);
+
+account(accountid:Integer [PK], groupid:Integer [PK], accountholder:Person [PK] #FK to(Person), balanceindollars:long, balanceincents:int, accountlocked:boolean);
+
+accountgroup(id:Integer [PK]);
+
+person(id:Integer [PK], firstname:String, lastname:String);
+
+typeentity(id:Long [PK], code:String);
+
+simplecompoundidtestentity(firstid:Long [PK], secondid:Long [PK]);
+
+sqldateidentity(id:Date [PK], data:int);
+
+sqlbigintegeridentity(id:BigInteger [PK], data:int);
+
+person(id:int [PK]);
+
+course(id:int [PK]);
+
+student(GeneratedName:Person [PK] #FK to(Person));
+
+attendance(GeneratedName:Student [PK] #FK to(Student), GeneratedName:Course [PK] #FK to(Course));
+
+compoundbooleanidentity(id:String [PK], id:boolean [PK]);
+
+identitygenerationtype(orderid:Long [PK], somedata:String);
+
+timestampversion(id:int [PK], version:Timestamp);
+
+shortversion(id:int [PK], version:short);
+
+intversion(id:int [PK], version:int);
+
+pobject(id:long [PK], name:String);
+
+pobjectnative(id:long [PK], name:String);
+
+numericversionedentity(id:long [PK], name:String, version:int);
+
+parent(id:long [PK], name:String);
+
+child(id:String [PK], name:String, GeneratedName:Parent #FK to(A));
+
+timestampedentity();
+
+autoincremententity(id:Integer [PK], version:int, somethingelse:String);
+
+horizl(serialversionuid:long, l:String, l:int);
+
+horizappinterverticald(d:String, d:int);
+
+constantjoinpc3(pc3field:int);
+
+horizh(serialversionuid:long, h:String, h:int);
+
+lrscompoundpc(idgen:int, id1:int, id2:int, field:String, string:Set, rel:Set, string:Collection, rel:Collection, string:Map, rel:Map);
+
+runtimetest2(serialversionuid:long, field2:int);
+
+base(basefield:int);
+
+oporderpcsub(sub:String [PK]);
+
+horizappsinglea(//initializepkvaluestorandomvalues//fixme/*pk1:String, pk2:int, a:String, a:int, relations:List);
+
+horizinterflatb(b:String, b:int);
+
+horizd(serialversionuid:long, d:String, d:int);
+
+pagingpc(field:int, rel:PagingHelperPC, rels:List);
+
+helperpc(serialversionuid:long, field:String, helper:HelperPC, eager:EagerPC #FK to(A), id:int [PK]);
+
+horizappmultib(b:String, b:int);
+
+lrspc(field:String, string:Set, rel:Set, string:Collection, rel:Collection, string:Map, rel:Map);
+
+attachc(serialversionuid:long, cstr:String, c:int, cdbl:double, //non-dfges:List);
+
+mappingtest2(pk1:int, pk2:int, oneoneowner:MappingTest1, onemanyowner:MappingTest1, manymanyowner:Set);
+
+horizinterverticala(a:String, a:int);
+
+attachf(serialversionuid:long, id1:int, id2:String, fstr:String, f:int, fdbl:double, e:AttachE, strings:List, embeddedc:AttachC);
+
+horizinterflatc(c:String, c:int);
+
+basesub2(basesub2field:int);
+
+dfgtest(dfgfield:int, nondfgfield:int);
+
+horizinterverticald(d:String, d:int);
+
+bytearraypkpc2(subfield:String);
+
+horize(serialversionuid:long, e:String, e:int);
+
+helperpc4(field:int);
+
+horizappmultic(c:String, c:int);
+
+attachb(serialversionuid:long, bstr:String, b:int, bdbl:double, ds:Set, stringint:Map);
+
+horizappsingled(d:String, d:int);
+
+eagerpcsub(field:int);
+
+mappingtest3(verticalvalue:int);
+
+horiza(serialversionuid:long, a:String, a:int, relations:Set);
+
+joinsubclassbasesubvert(basesubvertfield:int);
+
+unidirectionalonetooneowned(id:long [PK], marker:String, version:int);
+
+horizm(serialversionuid:long, m:String, m:int);
+
+eagerouterjoinpc2(name:String, ref:EagerOuterJoinPC, helper:HelperPC, string:Collection);
+
+rawsql(field:String [PK], field:int);
+
+constantjoinpc2(pc2field:int);
+
+invertb(serialversionuid:long, id:int [PK], GeneratedName:InvertA #FK to(A), test:String);
+
+horizappinterverticala(pk:int, a:String, a:int);
+
+horizi(serialversionuid:long, i:String, i:int);
+
+basesub1sub1(basesub1sub1field:int);
+
+runtimetest3(serialversionuid:long, field3:int);
+
+inversekeymappc(name:String, helpers:Map);
+
+eagerpc(id:int [PK], field:String, eager:HelperPC #FK to(HelperPC), eagersub:HelperPC4 #FK to(HelperPC), recurse:HelperPC2 #FK to(HelperPC), helper:HelperPC #FK to(HelperPC));
+
+horizinterflata(a:String, a:int);
+
+horizappsingleb(b:String, b:int);
+
+attachd(serialversionuid:long, version:Object, dstr:String, d:int, ddbl:double, a:AttachA, //dfgbs:Set, pcstring:Map, bigintegerpcmap:TreeMap, embeddede:AttachE, embeddeda:AttachA);
+
+entitywithfailedexternalizer(serialversionuid:long, iref:int [PK], name:String, data:String, ext:TestExternal);
+
+autoincrementoporderpcsub(sub:String [PK]);
+
+horizg(serialversionuid:long, g:String, g:int);
+
+mappingtest5(vertvalue:int, vertrel:MappingTest5);
+
+horizappmultia(//initializepkvaluestorandomvalues//fixme/*pk1:String, pk2:int, a:String, a:int, relations:List);
+
+recursivelyembeddedpc(embedded:EmbeddedPC);
+
+autoincrementpc2(field:int);
+
+helperpc2(field:String, id:int [PK], helper:HelperPC3 #FK to(HelperPC), helpercollection:List);
+
+horizc(serialversionuid:long, c:String, c:int);
+
+jointablemappc(name:String, helpers:Map);
+
+mappingtest1(value:int, othertablevalue:int, blob:Object, oneone:MappingTest2, selfoneone:MappingTest1, othertableoneone:MappingTest2, inverseowneroneone:MappingTest2, inverseoneone:MappingTest2, collection:Set, inverseowneronemany:Set, onemany:Set, manymany:List, inverseownermanymany:Set, GeneratedName:Map, nmany:Map, manymany:Map, transactionalvalue:int);
+
+horizinterverticalb(b:String, b:int);
+
+horizrelation(/////////////////////////onetoonemappings///////////////////////serialversionuid:long, ob:HorizA, ob:HorizB, ob:HorizC, ob:HorizD, ob:HorizE, ob:HorizF, ob:HorizG, ob:HorizH, ob:HorizI, ob:HorizJ, ob:HorizK, ob:HorizL, ob:HorizM, ob:HorizN, ob:HorizO, ob:HorizAppSingleA, ob:HorizAppSingleB, ob:HorizAppSingleC, ob:HorizAppSingleD, ob:HorizAppMultiA, ob:HorizAppMultiB, ob:HorizAppMultiC, ob:HorizAppMultiD, ob:HorizInterFlatA, ob:HorizInterFlatB, ob:HorizInterFlatC, ob:HorizInterFlatD, ob:HorizInterVerticalA, ob:HorizInterVerticalB, ob:HorizInterVerticalC, ob:HorizInterVerticalD, //////////////////////////onetomanymappings////////////////////////choriza:HashSet, chorizb:LinkedList, chorizc:ArrayList, chorizd:Vector, chorize:HashSet, chorizf:LinkedList, chorizg:ArrayList, chorizh:Vector, chorizi:HashSet, chorizj:LinkedList, chorizk:ArrayList, chorizl:Vector, chorizm:HashSet, chorizn:LinkedList, chorizo:ArrayList, chorizappsinglea:Vector, chorizappsingleb:HashSet, chorizappsinglec:LinkedList, chorizappsingled:ArrayList, chorizappmultia:Vector, chorizappmultib:HashSet, chorizappmultic:LinkedList, chorizappmultid:ArrayList, chorizinterflata:Vector, chorizinterflatb:HashSet, chorizinterflatc:LinkedList, chorizinterflatd:ArrayList, chorizinterverticala:Vector, chorizinterverticalb:HashSet, chorizinterverticalc:LinkedList, chorizinterverticald:ArrayList);
+
+autoincrementoporderpc(id:long [PK], rel:AutoIncrementOpOrderPC, owner:AutoIncrementOpOrderPC, secondary:String, rel:List, mappedrel:List, inversekeyrel:List);
+
+locatortestobject(s:byte, clob:String);
+
+eagerouterjoinpc(name:String, string:Collection, string:List, onemany:Collection, manymany:Collection, manymany:List, helper:HelperPC);
+
+horizo(serialversionuid:long, o:String, o:int);
+
+oporderpc(id:long [PK], rel:OpOrderPC, owner:OpOrderPC, secondary:String, rel:List, mappedrel:List, inversekeyrel:List);
+
+paginghelperpc(field:int);
+
+embeddedownerpc(id1:int, id2:int, field:String, embedded:EmbeddedPC, complexembedded:ComplexEmbeddedPC);
+
+constantjoinpc(pk1:int, pk2:int, nonpk:NonPKJoinPC, nonpk2:NonPKJoinPC, nonpks:Collection);
+
+horizk(serialversionuid:long, k:String, k:int);
+
+horizappinterverticalc(c:String, c:int);
+
+buildschemapc(field:String, field:int);
+
+transactionalclasspc(field:int [PK]);
+
+custommappingpc(female:boolean, name:String, id:int [PK]);
+
+lockgroupsubclass(serialversionuid:long, nondefaultlockgroupfield:String, defaultlockgroupfield:String);
+
+datastoretripspc(field:int, field:String);
+
+runtimetest1(serialversionuid:long, field:Locale, field:int [PK], field:String, //transactionalonlytrans:String, //relations//@transientselfoneone:RuntimeTest1 #FK to(RuntimeTest1));
+
+constantjoinpc4(name:String, id:int [PK], onetoone1:ConstantJoinPC5 #FK to(A));
+
+constantjoinpc4_set(constantjoinpc4ID:constantjoinpc4 [PK] #FK to constantjoinpc4,setID:set [PK] #FK to set);
+
+recursiveentitywithcompositeid(//thismustmatchthefieldincompositeidid:Integer, //thismustmatchthefieldincompositeidname:String, //anon-primarykeyfieldvalue:int, //self-relatedrelation:RecursiveEntityWithCompositeId);
+
+sqlmapitem(serialversionuid:long, id:int [PK], name:String, price:float);
+
+entity1(serialversionuid:long, pk:long [PK], field:String, field:int, field:Entity2 #FK to(Entity2), versionfield:int);
+
+sqlmapperson(serialversionuid:long, name:String [PK], address:SQLMapAddress #FK to(A), partner:SQLMapPerson #FK to(A));
+
+ownerofentitywithcompositeid(name:String [PK], relation:EntityWithCompositeId #FK to(CompositeId));
+
+sqlmaporder(serialversionuid:long, id:int [PK], quantity:int, item:SQLMapItem #FK to(A));
+
+sqlmapaddress(serialversionuid:long, id:int [PK], street:String, state:String, zip:int);
+
+entitywithcompositeid(//thismustmatchthefieldincompositeidid:Integer, //thismustmatchthefieldincompositeidname:String, value:String);
+
+entity2(serialversionuid:long, pk:long [PK], field:String, field:int);
+
+complexembeddedpc(field:String, ownerfield:EmbeddedOwnerPC, string:Set);
+
+horizn(serialversionuid:long, n:String, n:int);
+
+embeddedpc(field:int, field:String);
+
+inverta(serialversionuid:long, id:int [PK], test:String, GeneratedName:InvertB #FK to(InvertB));
+
+horizappinterverticalb(b:String, b:int);
+
+basesub1sub2(basesub1sub2field:int);
+
+horizj(serialversionuid:long, j:String, j:int);
+
+circularfkpc2(field:String [PK], fkfield:CircularFKPC);
+
+constantjoinpc5(id:int [PK], name:String);
+
+unidirectionalonetooneowner(id:long [PK], marker:String, version:int, owned:UnidirectionalOneToOneOwned #FK to(A));
+
+joinsubclassbase(basefield:int);
+
+horizappsinglec(c:String, c:int);
+
+attache(serialversionuid:long, version:Object, estr:String, e:int, edbl:double, b:AttachB, f:AttachF, GeneratedName:Date);
+
+basesub1(basesub1field:int);
+
+horizappmultid(d:String, d:int);
+
+bytearraypkpc(pk:byte, field:String, rels:List, parent:ByteArrayPKPC);
+
+horizf(serialversionuid:long, f:String, f:int);
+
+joinsubclassbasesubflat(basesubflatfield:int);
+
+mappingtest4(flatvalue:int);
+
+circularfkpc(field:String [PK], fkfield:CircularFKPC2);
+
+horizinterflatd(d:String, d:int);
+
+autoincrementpc3(id:long [PK], field:Set, field:String, oneone:AutoIncrementPC3 #FK to(A));
+
+attacha(serialversionuid:long, //transientmethodfortestingcallbackstransientdetachsource:Object, transientattachsource:Object, transientpreattachcalls:int, transientpostattachcalls:int, transientpredetachcalls:int, transientpostdetachcalls:int, astr:String, a:int, adbl:double, array:String, array:AttachE);
+
+horizb(serialversionuid:long, b:String, b:int);
+
+pagingappidpc(field:int, field:long, rel:PagingHelperPC, rels:List);
+
+horizinterverticalc(c:String, c:int);
+
+address(idaddress:long [PK], city:String);
+
+mapperentity();
+
+person(idperson:long [PK], name:String, age:int, GeneratedName:Address);
+
+mappedentity(id:int [PK], value:long);
+
+testfkcolumnnames();
+
+nameduniqueb(bid:int [PK], //samenamedfieldinuniqueaalsoisdefinedasuniquef1:int, f2:int, f3:Set<String>);
+
+uniquea(aid:int [PK], //samenamedfieldinuniquebalsoisdefinedasuniquef1:int, f2:int, f3:int, f4:int, f5:int, f6:int, sf1:short, sf2:short);
+
+unique_jointable(fk_a:UniqueA [PK] #FK to UniqueA,fk_b:Unique [PK] #FK to Unique);
+
+nameduniquea(aid:int [PK], //samenamedfieldinuniquebalsoisdefinedasuniquef1:int, f2:int, f3:int, f4:int, f5:int, f6:int, sf1:short, sf2:short);
+
+n_unique_jointable(fk_a:NamedUniqueA [PK] #FK to NamedUniqueA,fk_b:Unique [PK] #FK to Unique);
+
+uniqueb(bid:int [PK], //samenamedfieldinuniqueaalsoisdefinedasuniquef1:int, f2:int);
+
+mydbcsentity(serialversionuid:long);
+
+cd(label:String, status:int, GeneratedName:Singer #FK to(Singer));
+
+extvalue1(serialversionuid:long);
+
+abstractextvalue(serialversionuid:long, code:String [PK]);
+
+userdata(serialversionuid:long, pk:ComposedPK, extvalue:ExtValue1 #FK to(A));
+
+orderjpa(orderid:long [PK], customerid:int, districtid:int, warehouseid:int);
+
+company(id:long [PK], name:String, startyear:int);
+
+combinedpktestentity(pk:CombinedPKEmbeddedEntity, data1:String, data2:String);
+
+child(id:String [PK], name:String, GeneratedName:Parent #FK to(A));
+
+parent(id:long [PK], name:String [PK], addrid:Address [PK] #FK to(A));
+
+singer();
+
+author(name:String);
+
+author_Book(authorID:author [PK] #FK to author,BookID:Book [PK] #FK to Book);
+
+book(title:String, token:String);
+
+book_A(bookID:book [PK] #FK to book,AID:A [PK] #FK to A);
+
+department(id:long [PK], name:String, GeneratedName:Company #FK to(A));
+
+person(id:long [PK], firstname:String, lastname:String, age:short, yob:int, GeneratedName:Address #FK to(A), idcounter:AtomicLong);
+
+employee(id:long [PK], name:String, GeneratedName:Department #FK to(A), GeneratedName:Address #FK to(A), ismanager:boolean, status:Category, hirestatus:Category, start:Date, end:Date);
+
+address(id:long [PK], street:String, city:String, state:String, zip:int);
+
+combinedpklistentity(id:int [PK], keya:CombinedPKTestEntity #FK to(CombinedPKTestEntity), keya:int, keyb:int, keyc:int);
+
+trainer();
+
+trainer_A(trainerID:trainer [PK] #FK to trainer,AID:A [PK] #FK to A);
+
+battingorder(id:int [PK], titles:List<String>);
+
+obocentity(id:int [PK], intlist:List<Integer>);
+
+home(id:int [PK], buildyear:int);
+
+coldeftestentity(id:int [PK], collcoldef:Set<ColDefTestElement>);
+
+coldeftestentity_ColDefTestElement(coldeftestentityID:coldeftestentity [PK] #FK to coldeftestentity,ColDefTestElementID:ColDefTestElement [PK] #FK to ColDefTestElement);
+
+course(id:int [PK], name:String);
+
+course_enrollment(Course_ID:Course [PK] #FK to Course,Student_ID:Student [PK] #FK to Student);wait_list(Course_ID:Course [PK] #FK to Course,Student_ID:Student [PK] #FK to Student);
+
+game_A(gameID:game [PK] #FK to game,AID:A [PK] #FK to A);
+
+biorderentity(serialversionuid:long, id:int [PK], name:String, bo2mbentity:BiOrderMappedByEntity #FK to(A));
+
+biordermappedbyentity(id:int [PK]);
+
+owner(//elementcollectionbikecoll:Collection<Bicycle>);
+
+widget_m2m_table(Owner_ID:Owner [PK] #FK to Owner,Widget_ID:Widget [PK] #FK to Widget);
+
+widget(id:String [PK], name:String);
+
+student(id:int [PK], name:String);
+
+coldeftestelement(id:int [PK], name:String);
+
+car(id:int [PK], GeneratedName:Owner #FK to(Owner), modelyear:int, make:String, model:String);
+
+player(playernumber:int);
+
+department(id:int [PK], name:String);
+
+phonenumber(number:int [PK]);
+
+employee(empid:int [PK]);
+
+employee_A(employeeID:employee [PK] #FK to employee,AID:A [PK] #FK to A);
+
+employee(empid:int [PK]);
+
+employee_A(employeeID:employee [PK] #FK to employee,AID:A [PK] #FK to A);
+
+phonenumber(number:int [PK]);
+
+division(id:int [PK], name:String, branches:Set<String>);
+
+company(id:int [PK]);
+
+vicepresident(id:int [PK], name:String);
+
+employee(emppk:EmployeePK, GeneratedName:Department);
+
+department(deptid:int [PK]);
+
+office(id:int [PK], name:String, GeneratedName:Address, GeneratedName:Division #FK to(Division));
+
+phonenumber(number:int [PK]);
+
+employee(empid:int [PK]);
+
+employee_A(employeeID:employee [PK] #FK to employee,AID:A [PK] #FK to A);
+
+division(id:int [PK], name:String);
+
+division(id:int [PK], name:String);
+
+vicepresident(id:int [PK], name:String, co:Company #FK to(A), div:Division #FK to(Division));
+
+company(id:int [PK]);
+
+division(id:int [PK], name:String);
+
+employee(empid:int [PK]);
+
+employee_A(employeeID:employee [PK] #FK to employee,AID:A [PK] #FK to A);
+
+phonenumber(number:int [PK]);
+
+vicepresident(id:int [PK], name:String, co:Company #FK to(A));
+
+company(id:int [PK]);
+
+department(deptid:int [PK]);
+
+employee(empid:int [PK], dept:Department #FK to(A));
+
+company(id:int [PK]);
+
+division(id:int [PK], name:String);
+
+vicepresident(id:int [PK], name:String, co:Company #FK to(A));
+
+phonenumber(number:int [PK]);
+
+division(id:int [PK], name:String);
+
+employee(empid:int [PK]);
+
+employee_A(employeeID:employee [PK] #FK to employee,AID:A [PK] #FK to A);
+
+company(id:int [PK]);
+
+vicepresident(id:int [PK], name:String, co:Company #FK to(A), div:Division #FK to(Division));
+
+division(id:int [PK], name:String, vp:VicePresident #FK to(VicePresident));
+
+employee(empid:int [PK]);
+
+employee_A(employeeID:employee [PK] #FK to employee,AID:A [PK] #FK to A);
+
+phonenumber(number:int [PK]);
+
+employee(id:int [PK], GeneratedName:PersonalInfo);
+
+division(id:int [PK], employees:Map<Employee,String>);
+
+phone(home:String, office:String, mobile:String, id:int [PK], type:String, number:int);
+
+employee(empid:int [PK], GeneratedName:Department #FK to(A), name:EmployeeName);
+
+department(deptid:int [PK]);
+
+item1(id:int [PK], images:Map);
+
+compny2(id:int [PK]);
+
+division(id:int [PK], name:String);
+
+vicepresident(id:int [PK], name:String, co:Compny1 #FK to(Compny1));
+
+item2(id:int [PK], images:Map<String,String>);
+
+compny1(id:int [PK]);
+
+phonenumber(number:int [PK]);
+
+employee(empid:int [PK]);
+
+employee_A(employeeID:employee [PK] #FK to employee,AID:A [PK] #FK to A);
+
+phonenumber(number:int [PK]);
+
+employee(empid:int [PK]);
+
+employee_A(employeeID:employee [PK] #FK to employee,AID:A [PK] #FK to A);
+
+department(id:int [PK], name:String);
+
+phonenumber(number:int [PK]);
+
+employee(empid:int [PK]);
+
+employee_A(employeeID:employee [PK] #FK to employee,AID:A [PK] #FK to A);
+
+vicepresident(id:int [PK], name:String, co:Company #FK to(A));
+
+division(id:int [PK], name:String);
+
+company(id:int [PK]);
+
+employee3(empid:int [PK], department:Department3 #FK to(A), name:EmployeeName3);
+
+department2(deptid:int [PK]);
+
+employee2(emppk:EmployeePK2, department:Department2 #FK to(A));
+
+department3(deptid:int [PK]);
+
+department1(//@iddeptid:int, //@onetomany(mappedby:Map<Integer,Employee1>);
+
+employee1(empid:int [PK], department:Department1 #FK to(A));
+
+phonenumber(GeneratedName:PhonePK, room:int);
+
+employee(emppk:EmployeePK, salary:int);
+
+employee_A(employeeID:employee [PK] #FK to employee,AID:A [PK] #FK to A);
+
+department(id:int [PK], name:String);
+
+phonenumber(number:int [PK], GeneratedName:Division #FK to(Division));
+
+employee(empid:int [PK]);
+
+employee_A(employeeID:employee [PK] #FK to employee,AID:A [PK] #FK to A);
+
+division(id:int [PK], name:String, phone:PhoneNumber #FK to(PhoneNumber));
+
+company(id:int [PK]);
+
+division(id:int [PK], name:String);
+
+vicepresident(id:int [PK], name:String, co:Company #FK to(A));
+
+multilingualstring(serialversionuid:long, id:long [PK], map:Map<String,LocalizedString>);
+
+student(id:int [PK], name:String);
+
+cenrolls(student:Student [PK] #FK to Student,semester:A [PK] #FK to A);
+
+course(id:int [PK], name:String);
+
+semester(id:int [PK], name:String);
+
+timekeeper(id:long [PK], GeneratedName:Date, GeneratedName:Time, tstamp:Timestamp);
+
+timeentity(id:long [PK], name:String, value:int, cal2timestamp:java.util.Calendar, cal2time:java.util.Calendar, cal2date:java.util.Calendar, udate2timestamp:java.util.Date, udate2time:java.util.Date, udate2sdate:java.util.Date);
+
+game(id:long [PK], name:String);
+
+application(id:long [PK], user:Applicant #FK to(A));
+
+chess(npiece:int);
+
+applicant(id:long [PK], name:String);
+
+magazine(id:long [PK], name:String, GeneratedName:Publisher #FK to(Publisher), published:Date, tspublished:Timestamp);
+
+dtasrc(serialversionuid:long, id:String [PK], name:String);
+
+indoorgame(nplayer:int);
+
+binder(id:long [PK], p1:int, p2:String, p3:double);
+
+scrabble(ntile:int);
+
+customer(id:long [PK], name:String);
+
+publisher(id:long [PK], name:String);
+
+order(id:long [PK], amount:int, GeneratedName:Customer #FK to(Customer));
+
+dtasrcfield(serialversionuid:long, id:String [PK], id:DtaSrc #FK to(A), name:String);
+
+parttimeemployee(hourlywage:double);
+
+supplier(sid:int [PK], name:String, version:long);
+
+supplier_A(supplierID:supplier [PK] #FK to supplier,AID:A [PK] #FK to A);
+
+partcomposite(assemblycost:double, assemblytime:double, massincrement:double);
+
+lineitem(id:String [PK], quantity:int, GeneratedName:Invoice #FK to(Invoice));
+
+invoice(id:int [PK], brandname:String [PK], price:double);
+
+department(name:String [PK]);
+
+usage(id:int [PK], quantity:int, child:Part #FK to(A), parent:PartComposite #FK to(A), version:long);
+
+fulltimeemployee(salary:double);
+
+part(partno:int [PK], name:String, inventory:int, version:long);
+
+employee(ssn:String [PK], dept:Department #FK to(A));
+
+partbase(cost:double, mass:double, backorder:int);
+
+maxquerymapentity(id:int [PK], revision:int, refentity:MaxQueryEntity #FK to(A), selectcriteria:String);
+
+maxqueryentity(id:int [PK], domainid:int, revision:int);
+
+tablenameinxmlentity(serialversionuid:long, myid:int [PK], a,b,c:String);
+
+precisiontestentity(id:int [PK], version:int, primdbl:double, dbl:Double, GeneratedName:BigDecimal, primdblprecis:double, dblprecis:Double, precis:BigDecimal, primdblscale:double, dblscale:Double, scale:BigDecimal, primdblprecisscale:double, dblprecisscale:Double, precisscale:BigDecimal);
+
+authority(id:Integer [PK], authorityname:AuthorityValues);
+
+child(id:long [PK], name:String, seqparentid:long, autoparentid:long, appparentid:long);
+
+address(phone:String [PK], city:String, zip:int, ssn:Person #FK to(Person));
+
+parentwithappidentity(id:long [PK], name:String);
+
+parentwithautoidentity(id:long [PK], name:String);
+
+person(ssn:long [PK], name:String);
+
+parentwithsequenceidentity(id:long [PK], name:String);
+
+embeddedidentity(id:EmbeddedIdClass, value:String, relation:EmbeddedIdEntity #FK to(EmbeddedIdEntity), epk1:EmbeddedIdEntity #FK to(EmbeddedIdEntity));
+
+flat2(basic2:String);
+
+tableperclass1(pk:int [PK], basic:int, embed:EmbedValue);
+
+annotest1(pk:Long [PK], version:Integer, basic:int, othertablebasic:int, selfoneone:AnnoTest1 #FK to(A), pkjoinselfoneone:AnnoTest1 #FK to(A), oneone:AnnoTest2 #FK to(A), othertableoneone:AnnoTest2 #FK to(A), inverseowneroneone:AnnoTest2 #FK to(A), blob:byte, serial:Object, clob:String, //un-annotatedenumshouldbepersistedbydefaultenumeration:InheritanceType, ordinalenumeration:InheritanceType, stringenumeration:InheritanceType);
+
+annotest1_manymany(many_pk:AnnoTest1 [PK] #FK to AnnoTest1,many_pk1:A [PK] #FK to A);
+
+multicolumnsecondaryversionpc(id:long [PK], name:String, s1:String, s2:String);
+
+multicolumnversionpc(id:long [PK], name:String);
+
+embedowner(embed:EmbedValue, embedcollection:Set<EmbedValue>, basic:String, pk:int [PK]);
+
+nonstandardmappingentity4(id:long [PK], name:String);
+
+generator(pk:int [PK], pk2:Integer [PK], pk3:long [PK], field:String);
+
+unenhancedmixedaccess(id:int [PK]);
+
+nativesequenceentity(seq_name:String, schema_name:String, id:int [PK], name:String);
+
+unenhancedinappropriatetransient(id:int [PK]);
+
+annotest2(pk1:long [PK], pk2:String [PK], version:Date, basic:String, inverseoneone:AnnoTest1 #FK to(A), pk:AnnoTest1 #FK to(A));
+
+annotest2_manymany(many_pk1:AnnoTest2 [PK] #FK to AnnoTest2,manye_pk:A [PK] #FK to A);
+
+entitywithindices(pk:Long [PK], index1:String, longname:String, name:String, col2:String, col3:String);
+
+embeddablesupersub(sub:EmbeddableSuperSub #FK to(A), //#####sup:EmbeddableSuper #FK to(A));
+
+nonstandardmappingentity(custom:Point, stringcollection:List, joincollection:List<NonstandardMappingEntity>, string:Map, joinmap:Map<NonstandardMappingEntity,NonstandardMappingEntity>, mapping(nullindicatorattributename:ExtensionsEntity, embedcollection:List<EmbedValue2>);
+
+tableperclass2(basic2:String);
+
+extensionsentity(uuid:String, uuid:String, uuidt4hex:String, uuidt4:String, seq:int, id:ExtensionsEntity #FK to(X), id:ExtensionsEntity #FK to(X), externalvalues:char, externalizer:Class);
+
+extensionsentity_X(extensionsentityID:extensionsentity [PK] #FK to extensionsentity,XID:X [PK] #FK to X);extensionsentity_X(extensionsentityID:extensionsentity [PK] #FK to extensionsentity,XID:X [PK] #FK to X);
+
+annotest3(basic2:int, suboneone:AnnoTest2 #FK to(A));
+
+nonstandardmappingentity3(id:long [PK], embedval3s:List<EmbedValue3>, embedval3:EmbedValue3);
+
+propertyaccess1(id:int [PK], name:String, //thisentionallydoesnotmatchthegetternameval:int);
+
+department3(deptid:int [PK]);
+
+entitya_coll_embed_embed(serialversionuid:long, id:Integer [PK], name:String, age:int, embeds:List<Embed_Embed>);
+
+employee(empid:int [PK], GeneratedName:ContactInfo, GeneratedName:JobInfo, location:LocationDetails, nicknames:Set<String>);
+
+entitya_embed_complex(serialversionuid:long, id:Integer [PK], name:String, age:int, nicknames:Set<String>, cr:List<CreditRating>, ts:List<Timestamp>, lobs:List<String>, embed:Embed_Embed, embeds:List<Embed_Embed>, embed1s:Set<Embed_ToOne>, transienttransientjavavalue:Integer);
+
+employee3(empid:int [PK], department:Department3 #FK to(A), name:EmployeeName3);
+
+company2(id:int [PK]);
+
+seller(id:int [PK], name:String);
+
+division(id:int [PK], name:String);
+
+item3(id:int [PK], images:Map<String,String>);
+
+entitya_embed_toone(serialversionuid:long, id:Integer [PK], name:String, age:int, embed:Embed_ToOne);
+
+entitya_embed_embed_tomany(serialversionuid:long, id:Integer [PK], name:String, age:int, embed:Embed_Embed_ToMany);
+
+phonenumber(number:int [PK]);
+
+entitya_embed_coll_integer(serialversionuid:long, id:Integer [PK], name:String, age:int, embed:Embed_Coll_Integer);
+
+item2(id:int [PK], images:Map<String,String>);
+
+department2(deptid:int [PK]);
+
+topic(id:Integer [PK], //@joincolumn(table:Subject #FK to(subject));
+
+subjectwithidclass(serialversionuid:long, subjectnummer:Integer [PK], subjecttypecode:String [PK]);
+
+subject(serialversionuid:long, key:SubjectKey);
+
+entitya_embed_mappedtoone(serialversionuid:long, id:Integer [PK], name:String, age:int, embed:Embed_MappedToOne);
+
+entitya_embed(serialversionuid:long, id:Integer [PK], name:String, age:int, GeneratedName:Embed);
+
+employee2(emppk:EmployeePK2, department:Department2 #FK to(A));
+
+entityb1(serialversionuid:long, id:int [PK], name:String, entitya:EntityA_Embed_MappedToOne #FK to(EntityA));
+
+recliner(id:ReclinerId, GeneratedName:Style, GeneratedName:Guy, holder:BeverageHolder);
+
+entitya_embed_mappedtoonecascadedelete(serialversionuid:long, id:Integer [PK], name:String, age:int, embed:Embed_MappedToOneCascadeDelete);
+
+entitya_embed_single_coll(serialversionuid:long, embed:Embed_Single_Coll, name:String);
+
+entitya_coll_embed_toone(serialversionuid:long, //containsacollectionofembed1toone//embed1toonedoesnothaveanelementcollectionorto-manyrelationshipsid:Integer [PK], name:String, age:int, //@persistentcollection(elementembedded:Set<Embed_ToOne>);
+
+address(id:int [PK], street:String, city:String, state:String, GeneratedName:Zipcode);
+
+programmanager(id:int [PK]);
+
+employee(empid:int [PK], GeneratedName:ContactInfo, jobinfos:Map<String,JobInfo>);
+
+phonenumber(phnumber:int [PK]);
+
+person(ssn:String [PK], name:String, residences:List<Address>, nicknames:List<String>);
+
+customer(id:Integer [PK], name:String, GeneratedName:Address);
+
+project(id:int [PK], description:String);
+
+parttimeemployee(wage:Float);
+
+propertyrecord(owner:PropertyOwner, parcels:Map<Address,PropertyInfo>, description:String);
+
+entitya_embed_coll_embed(serialversionuid:long, id:Integer [PK], name:String, age:int, embed:Embed_Coll_Embed);
+
+item4(id:int [PK], images:Map<Catagory,FileName4>);
+
+vicepresident(id:int [PK], name:String, co:Company1 #FK to(A));
+
+entitya_embed_embed(serialversionuid:long, id:Integer [PK], name:String, age:int, embed:Embed_Embed);
+
+company1(id:int [PK]);
+
+eparent(idparent:Integer [PK], childto:EChild);
+
+egeneric(id:Integer [PK], val:Long, strval:String);
+
+department1(deptid:int [PK]);
+
+entitya_embed_coll_map(serialversionuid:long, id:Integer [PK], name:String, age:int, embed:Embed_Coll_Map);
+
+address(streetaddress,city,state:String, GeneratedName:Geocode, zip:Integer);
+
+a(serialversionuid:long, id:String [PK], name:String, value:int, embeds:Set<Embed>, collectiondate:Collection<Date>);
+
+entitya_embed_tomany(serialversionuid:long, id:Integer [PK], name:String, age:int, embed:Embed_ToMany);
+
+parkingspot(id:int [PK], garage:String, assignedto:Employee #FK to(Employee));
+
+employee1(empid:int [PK], department:Department1 #FK to(A));
+
+book(id:int [PK], isbn:long, listings:Set<Listing>);
+
+echild(idchild:Long [PK], missing:String);
+
+programmanager(id:int [PK]);
+
+entityb2(serialversionuid:long, id:int [PK], name:String, entitya:EntityA_Embed_MappedToOneCascadeDelete #FK to(EntityA));
+
+item1(id:int [PK], images:Map);
+
+item5(id:int [PK], images:Map<Timestamp,FileName4>);
+
+entitya_coll_string(serialversionuid:long, id:Integer [PK], name:String, age:int, nicknames:Set<String>, cr:List<CreditRating>, ts:List<Timestamp>, lobs:List<String>);
+
+dependent4(serialversionuid:long, id:long [PK], id:Employee4 [PK] #FK to(Employee));
+
+medicalhistory1(name:String, id:PersonId1, patient:Person1 #FK to(Person));
+
+employee5(serialversionuid:long, empid:EmployeeId5);
+
+book1(serialversionuid:long, bid:BookId1, library_name:Library1 #FK to(A), author:String);
+
+employee1(empid:int [PK], name:String);
+
+line1(serialversionuid:long, lid:LineId1, library_name:Page1 #FK to(A));
+
+library1(serialversionuid:long, name:String [PK], location:String);
+
+book(serialversionuid:long, name:String [PK], GeneratedName:Library [PK] #FK to(A), author:String);
+
+person2(ssn:long [PK], medical:MedicalHistory2 #FK to(Story), name:String);
+
+parent3(pid:int [PK], name:String, dependent:Dependent3 #FK to(dependent3));
+
+person3(firstname:String [PK], lastname:String [PK], medical:MedicalHistory3 #FK to(Story));
+
+dependent5(serialversionuid:long, name:String [PK], firstname:Employee5 [PK] #FK to(Employee));
+
+employee4(id:long [PK], age:int);
+
+page(serialversionuid:long, number:int [PK], library_library_name:Book [PK] #FK to(Book));
+
+medicalhistory4(name:String, patient:Person4 [PK] #FK to(Person));
+
+dependent1(id:DependentId1, emp:Employee1 #FK to(Employee));
+
+beneficiary(serialversionuid:long, annuityholderid:String, firstname:String, lastname:String, relationship:String, id:String);
+
+person1(id:PersonId1, medical:MedicalHistory1 #FK to(Story));
+
+library(serialversionuid:long, name:String [PK], location:String);
+
+dependent5a(serialversionuid:long, name:String [PK], xfirstname:Employee5 [PK] #FK to(Employee));
+
+medicalhistory2(id:long [PK], name:String, patient:Person2 #FK to(Person));
+
+employee2(empid:EmployeeId2);
+
+benecontact(serialversionuid:long, id:BeneContactId, GeneratedName:Beneficiary, email:String, phone:String, lastup:Date, version:int);
+
+dependent3(id:DependentId3, emp:Employee3 #FK to(Employee), parent:Parent3 #FK to(A));
+
+medicalhistory3(name:String, patient:Person3 [PK] #FK to(Person));
+
+employee3(empid:int [PK], name:String);
+
+dependent2(id:DependentId2, emp:Employee2 #FK to(Employee));
+
+employee(empid:int [PK], GeneratedName:EmpType [PK], GeneratedName:PhoneNumber #FK to(PhoneNumber));
+
+phonenumber(phnumber:int [PK], emp:Employee #FK to(Employee));
+
+page1(serialversionuid:long, pid:PageId1, library_name:Book1 #FK to(Book));
+
+person4(id:PersonId4, medical:MedicalHistory4 #FK to(Story));
+
+entitywithenum(myenum:SampleEnum);
+
+nonoargs(name:String);
+
+managedinversetestinstance(id:long [PK], version:int, field:String, managed2:ManagedInverseTestInstance2 #FK to(A));
+
+basicsubclassinstance(id:long [PK], version:int, field:String);
+
+detachablepc(serialversionuid:long, id:long, val:String);
+
+entity1(serialversionuid:long, pk:long [PK], field:String, field:int, field:Entity2 #FK to(Entity2), versionfield:int);
+
+no2noargs(name:String);
+
+idowningclasstestentity(pk:EmbeddableEntityWithIDAnnotation, name:String);
+
+subclassclone(GeneratedName:String);
+
+pcclone(GeneratedName:String);
+
+no3noargs(name:String);
+
+backingfieldnamemismatchinstance(//sincewedon'thaveasetter_id:long, _version:int, _s:String);
+
+derivedentity(_i:int, _basic:BasicSubclassInstance);
+
+detachableversionedpc(serialversionuid:long, id:long, val:String, version:int);
+
+noclone(GeneratedName:String);
+
+nonpcclone();
+
+managedinversetestinstance2(id:long [PK], version:int, field:String, managed:ManagedInverseTestInstance #FK to(A));
+
+entity2(serialversionuid:long, pk:long [PK], field:String, field:int);
+
+invoice(id:int [PK], brandname:String [PK], price:double);
+
+entityc_b1m_map_jt(id:long [PK], name:String, id:Bi_1ToM_Map_JT #FK to(A));
+
+entitya(name:String);
+
+bi_1tom_jt(bid:long [PK], name:String);
+
+embeddablesupersub(sub:EmbeddableSuperSub #FK to(A), //#####sup:EmbeddableSuper #FK to(A));
+
+entityc_u1m_map_fk(id:long [PK], name:String);
+
+entityc_b11jt(id:long [PK], name:String, bi11jt:Bi_1To1_JT #FK to(bi_1to1_jt));
+
+entityc_u1mfk(id:long [PK], name:String);
+
+entityc_u1m_map_relkey_fk(id:long [PK], name:String);
+
+uni_1tom_map_fk(id:long [PK], name:String);
+
+bi_1to1_jt(id:long [PK], name:String, //ajointableannotationisspecifiedontheowningsideoftheassociationentityc:EntityC_B11JT #FK to(EntityC));
+
+simpleentity(serialversionuid:long, named_query_with_positional_params:String, named_query_with_named_params:String, id:long [PK], name:String, value:String);
+
+fulltimeemployee(salary:double);
+
+uni_1tom_map_relkey_fk(id:long [PK], name:String);
+
+entityc_b1mfk(id:long [PK], name:String, bi1mfk:Bi_1ToM_FK #FK to(bi_1tom_fk));
+
+entityc_u11jt(id:long [PK], name:String);
+
+lineitem(id:String [PK], quantity:int, GeneratedName:Invoice #FK to(Invoice));
+
+uni_1tom_fk(id:long [PK], name:String);
+
+uni_1to1_jt(id:long [PK], name:String, entityc:EntityC_U11JT #FK to(EntityC));
+
+bi_1tom_map_relkey_jt(id:long [PK], name:String);
+
+entityc_b1mjt(cid:long [PK], name:String, cid:Bi_1ToM_JT #FK to(bi_1tom_jt));
+
+entityc_b1m_map_relkey_jt(id:long [PK], name:String, id:Bi_1ToM_Map_RelKey_JT #FK to(A));
+
+entityb(id:int [PK], name:String, GeneratedName:EntityA #FK to(EntityA));
+
+uni_1tom_jt(id:long [PK], name:String);
+
+parttimeemployee(hourlywage:double);
+
+uni_mto1_jt(id:long [PK], name:String, id:EntityC #FK to(EntityC));
+
+entityc(id:long [PK], name:String);
+
+bi_1tom_fk(id:long [PK], name:String);
+
+employee(ssn:String [PK], dept:Department #FK to(A));
+
+department(name:String [PK]);
+
+bi_1tom_map_jt(id:long [PK], name:String);
+
+simpleentity2(id:long [PK], name:String, value:String);
+
+timestampedentity(id:int [PK], version:int, noninsertablenonnullable:Date, nonupdatablenonnullable:Date);
+
+nullvalues(id:long [PK], nullable:Integer, notnullable:Integer, optional:Integer, notoptional:Integer, nullableblob:BlobValue, notnullableblob:BlobValue, optionalblob:BlobValue, notoptionalblob:BlobValue, uniquenullable:String, version:int);
+
+dimday(key:Long [PK], GeneratedName:Date, dayfullname:String, qtrfullname:String, monthfullname:String, monthname:String, year:String, quarterinyearnumber:int, yearcode:String, quartercode:String, monthcode:String, monthinyearnumber:Long, currentmonthind:Long, currentqtrind:Long, currentyearind:Long, prevmonthind:Long, prevqtrind:Long, prevyearind:Long, currentmonthvsprevyearind:Long, currentqtrvsprevyearind:Long, weekinyear:Long, weekinyearfullnm:String, dayinweek:Long, dayinmonth:Long, dayinquarter:Long, dayinyear:Long, eomind:Long, eoqind:Long, eoyind:Long, roll13monthind:Long, roll4yearsind:Long, roll5quartersind:Long, monthstrtdate:Long, monthenddate:Long, quarterstrtdate:Long, quarterenddate:Long, yearstrtdate:Long, yearenddate:Long);
+
+factworkassignment(orgoid:String [PK], effstartdt:Date, effenddt:Date, effectivestartdate:Long, effectiveenddate:Long, personkey:Long, personobjid:String, primary:int, employeecount:int, statuscode:String, statusdesc:String, workassgnmntnbr:String, worklocationkey:Long, hrorgkey:Long, payrollorgkey:Long, jobkey:Long, personprofilekey:Long, managerkey:Long, paygroupkey:Long, salplankey:Long, compart:Double, clocknumber:String, datacntrlnumber:String, secclrcd:String, currentrecord:boolean);
+
+photo(id:int [PK], label:String);
+
+address(id:long [PK], street:String, city:String, state:String, county:String, country:String, zipcode:String, user:CompUser #FK to(CompUser));
+
+product(pid:int [PK], producttype:String, version:long);
+
+manager(id:int [PK], name:String, salary:BigDecimal, GeneratedName:Department #FK to(A));
+
+femaleuser();
+
+videostore(id:int [PK], name:String, location:Address, videoinventory:Map<Movie,Integer>);
+
+a(id:long [PK], name:String, GeneratedName:B #FK to(b));
+
+bloguser(id:int [PK], version:int, username:String, pic:byte, s:Character, s:char);
+
+publisher(id:int [PK], name:String, serialversionuid:long);
+
+d(id:long [PK], name:String, GeneratedName:C #FK to(c));
+
+order(id:int [PK], quantity:int, totalcost:double, count:int, name:String, GeneratedName:Customer #FK to(Customer), delivered:boolean, orderts:Timestamp);
+
+lineitem(id:int [PK], price:double, GeneratedName:Order #FK to(Order), quantity:int, cost:double, GeneratedName:Product #FK to(product));
+
+maleuser();
+
+exempt(hire:Date);
+
+dependent(id:DependentId, emp:Employee #FK to(Employee), end:Date, curstatusid:int);
+
+magazine(id:int [PK], name:String, published:Date, id:Publisher #FK to(Publisher), serialversionuid:long);
+
+creditcard(id:long [PK], GeneratedName:Customer #FK to(Customer));
+
+customer(id:long [PK], firstname:String, lastname:String, name:String, status:int, balanceowed:int, GeneratedName:Address #FK to(A), filledordercount:int, accountnum:long, GeneratedName:CreditRating);
+
+request(id:int [PK], status:short, GeneratedName:Account #FK to(A), requesttime:Date);
+
+frequentflierplan(id:String [PK], name:String, annualmiles:int);
+
+b(id:long [PK], age:int);
+
+transactionhistory(id:int [PK], transdate:Timestamp, details:String);
+
+item(id:int [PK], GeneratedName:Order #FK to(Order), GeneratedName:Producer #FK to(producer));
+
+order(id:long [PK], filled:boolean, GeneratedName:Date, GeneratedName:Shop #FK to(shop));
+
+shiprate(shiprateid:long [PK], billedasweight:BigDecimal);
+
+shop(id:long [PK], name:String);
+
+bar(bid:long [PK], b:short, b:String, b:int);
+
+foo(fid:long [PK], f:String, f:long, f:int, GeneratedName:Bar #FK to(A));
+
+producer(id:int [PK], GeneratedName:Item #FK to(Item), name:String);
+
+department(deptno:int [PK], name:String);
+
+myuserentity(id:Long [PK], username:String);
+
+addressentity(serialversionuid:long, id:AddressPk, user:MyUserEntity #FK to(myuserentity));
+
+contractor();
+
+semester(id:int [PK], name:String);
+
+phone(id:int [PK], vendor:String);
+
+phone_Employee(phoneID:phone [PK] #FK to phone,EmployeeID:Employee [PK] #FK to Employee);
+
+person(id:int [PK], name:String, nicknames:Set<String>);
+
+item(id:int [PK], name:String);
+
+entitywithidclass(name:String [PK], ssn:long [PK]);
+
+employee(empid:int [PK], name:String, info:Contact, GeneratedName:Department #FK to(A), spouse:Employee #FK to(Employee), GeneratedName:Manager #FK to(A), GeneratedName:FrequentFlierPlan #FK to(A), salary:long, rating:int);
+
+account(id:long [PK], balance:int, loan:Integer, owner:Person #FK to(Person), GeneratedName:Customer #FK to(Customer), GeneratedName:Product #FK to(product), name:String);
+
+course(id:long [PK], name:String);
+
+movie(id:int [PK], title:String);
+
+student(id:int [PK], name:String);
+
+tenrollmnts(student:Student [PK] #FK to Student,semester:A [PK] #FK to A);
+
+c(id:long [PK], name:String);
+
+c_A(cID:c [PK] #FK to c,AID:A [PK] #FK to A);
+
+transaction();
+
+scheduledassignment(id:Integer [PK], parent:ScheduledAssignment #FK to(A), GeneratedName:ScheduleDay #FK to(A), caze:Case #FK to(A), GeneratedName:Role #FK to(role), brokenrule:Lookup #FK to(lookup), //somehow,removingthishasaneffectbrokencustomruleexplanation:String);
+
+lookup(id:Integer [PK], name:String);
+
+simpleentity2(id:long [PK], name:String, value:String);
+
+order(oid:int [PK], amount:double, delivered:boolean, GeneratedName:Customer #FK to(Customer), version:long, orderts:Timestamp);
+
+magazine(id:int [PK], name:String, published:Date, id:Publisher #FK to(Publisher), serialversionuid:long);
+
+simpleentity(serialversionuid:long, named_query_with_positional_params:String, named_query_with_named_params:String, id:long [PK], name:String, value:String);
+
+scheduleday(id:Integer [PK], GeneratedName:Date);
+
+manyoneentitysub(serialversionuid:long, sub:int);
+
+hardware(serialversionuid:long, id:int [PK], empno:String, techowner:Person #FK to(Person));
+
+customer(cid:CustomerKey, name:String, GeneratedName:CreditRating, version:long);
+
+publisher(id:int [PK], name:String, serialversionuid:long);
+
+case(id:Integer [PK], GeneratedName:ScheduleDay #FK to(A));
+
+account(aid:long [PK], balance:int, loan:Integer, cust:Customer #FK to(Customer), name:String);
+
+complexf(f:String, f:int, f:Date, gs:Collection, e:ComplexE #FK to(X));
+
+complexb(b:String, b:int, b:Date, cs:Collection, a:ComplexA #FK to(A));
+
+osoba(id:long [PK], name:String, age:int);
+
+osoba_list<projekt>(osobaID:osoba [PK] #FK to osoba,list<projekt>ID:list<projekt> [PK] #FK to list<projekt>);
+
+runtimetest3(serialversionuid:long, field3:int);
+
+modruntimetest2(serialversionuid:long, field2:int);
+
+querytest3(num2:int);
+
+circularfkpc2(field:String, fkfield:CircularFKPC);
+
+qtimeout(serialversionuid:long, id:int [PK], field:String, versionfield:int);
+
+querytest2(onetoone:QueryTest2 #FK to(querytest2), stringcollection:List<String>, stringmap:Map<String,String>);
+
+entity2(serialversionuid:long, pk:long [PK], field:String, field:int);
+
+complexg(g:String, g:int, g:Date, f:ComplexF #FK to(X));
+
+complexc(c:String, c:int, c:Date, ds:Set, b:ComplexB #FK to(X));
+
+simpleappidpc(pk:String [PK], field:int);
+
+runtimetest2(serialversionuid:long, field2:int);
+
+circularfkpc(field:String, fkfield:CircularFKPC2);
+
+querytest4(num3:int, onetoone2:QueryTest2 #FK to(querytest2), onetoone3:QueryTest2 #FK to(querytest2));
+
+querytest4_collection<querytest2>(querytest4ID:querytest4 [PK] #FK to querytest4,collection<querytest2>ID:collection<querytest2> [PK] #FK to collection<querytest2>);
+
+projekt(name:String [PK]);
+
+projekt_A(projektID:projekt [PK] #FK to projekt,AID:A [PK] #FK to A);
+
+transactionalclasspc(field:int);
+
+complexe(e:String, e:int, e:Date, fs:Collection, d:ComplexD #FK to(X));
+
+runtimetest4(name:String, runtimetest5s:Collection);
+
+complexa(a:String, a:int, a:Date, bs:Collection);
+
+entity1(serialversionuid:long, pk:long [PK], field:String, field:int, field:Entity2 #FK to(Entity2), versionfield:int);
+
+complexd(d:String, d:int, d:Date, es:Set, c:ComplexC #FK to(X));
+
+runtimetest5(name:String, GeneratedName:RuntimeTest4 #FK to(RuntimeTest4));
+
+compoundappidpc(pk1:String [PK], pk2:int [PK], field:int);
+
+runtimetest1(serialversionuid:long, somefield:String, field:byte, field:boolean, field:char, field:double, field:float, field:int, field:long, field:short, field:String, field:BigInteger, field:BigDecimal, field:Date, field:Locale, objfield:Byte, objfield:Boolean, charobjfield:Character, objfield:Double, objfield:Float, intobjfield:Integer, objfield:Long, objfield:Short, //transactionalonlytransfield:TransactionalClassPC, trans:String, //relationsselfoneone:RuntimeTest1 #FK to(RuntimeTest1), selfonemany:Set);
+
+querytest1(/**changedvariablenames:afamokeke*reason:theoldvarnamesarereservedmysomedb'snamelymysql.*/id:int [PK], five:long, numb:long, strong:String, cfield:String, boolt:boolean, decar:float, t:char, datum:Date);
+
+crtrequisicaoentity(id:long [PK]);
+
+crtrequisicaochequepersentity(id:CrtOperacaoEntity #FK to(A), id:CrtOperacaoEntity #FK to(A));
+
+crtoperacaoentity(serialversionuid:long, id:long [PK], datahora:Timestamp);
+
+role(id:Integer [PK], GeneratedName:Lookup #FK to(lookup));
+
+dependent(id:DependentId, emp:Employee #FK to(Employee), end:Date, curstatusid:int);
+
+person(serialversionuid:long, empno:String [PK], name:String);
+
+employee(empid:long [PK], name:String, some:long, statusid:int, hire:Date, hiretime:Date, hiretimestamp:Date);
+
+namedqueryentity(id:Integer [PK], field:String);
+
+orderitem(lid:int [PK], quantity:int, cost:double, GeneratedName:Order #FK to(Order), version:long);
+
+hungariannotationfieldduplicates(strfoobar:String, intfoobar:Integer);
+
+hungariannotationfields(mfoobar7:Long [PK], mfoobar1:String, strfoobar2:String, intfoobar3:Integer, lgfoobar4:Long, m_foobar5:int, m_clzfoobar6:OtherClass #FK to(A), m_foobar7:int);
+
+otherclass(m_intbarfoo1:Integer [PK]);
+
+country(id:long [PK], name:String);
+
+people(serialversionuid:long, ssn:long [PK], name:String);
+
+persistentrelation(serialversionuid:long, /***relationisafirstclassobjectwithitsownidentifier.*/id:long [PK], /***arelationmusthaveanon-nullvertexassource.*/source:V1 #FK to(v1), /***arelationmayhaveanon-nullvertexastarget.*/target:V2 #FK to(v2));
+
+persistentrelation_properties(persistentrelationID:persistentrelation [PK] #FK to persistentrelation,propertiesID:properties [PK] #FK to properties);
+
+city(serialversionuid:long, name:String [PK]);
+
+relationgraph(serialversionuid:long);
+
+unidirectionalmanytoone(id:int [PK], related:BasicEntity #FK to(A));
+
+childclass(name:String);
+
+chainentitya(aid:long [PK], optlock:Integer, name:String);
+
+chainentitya_EntityB(chainentityaID:chainentitya [PK] #FK to chainentitya,EntityBID:EntityB [PK] #FK to EntityB);
+
+entitybinverseeager(id:int [PK], name:String, entitya:EntityAInverseEager #FK to(EntityA));
+
+targetedifacerelationparent(id:long [PK], name:String, GeneratedName:IFace #FK to(A), optlock:Integer);
+
+entitycinverseeager(id:int [PK], name:String, age:int, balance:int, entityd:EntityDInverseEager #FK to(A));
+
+lrsentity(id:long [PK], name:String);
+
+lrsentity_A(lrsentityID:lrsentity [PK] #FK to lrsentity,AID:A [PK] #FK to A);
+
+customer(cid:CustomerKey, name:String, GeneratedName:CreditRating, version:long);
+
+onemanyeagerchild(id:long [PK], name:String, parent:OneManyEagerParent #FK to(A), optlock:Integer);
+
+concurrententityleft(id:int [PK], strdata:String, id:ConcurrentEntityRight #FK to(concurrententityright));
+
+cascadingonemanyparent(id:long [PK], name:String, optlock:Integer);
+
+grandchild(serialversionuid:long, id:int [PK], GeneratedName:Child #FK to(Child));
+
+pphone(id:int [PK], number:String);
+
+pphone_Person(pphoneID:pphone [PK] #FK to pphone,PersonID:Person [PK] #FK to Person);
+
+basicentity(id:long [PK], name:String, rel:BasicEntity #FK to(A), optlock:Integer);
+
+vcs(vcsid:String [PK], GeneratedName:E [PK] #FK to(e), name:String);
+
+mapkeyparent(serialversionuid:long, id:long [PK]);
+
+c(cid:String [PK], GeneratedName:CM [PK] #FK to(cm));
+
+handlertohandlermapinstance(id:int [PK], map:Map<String,String>);
+
+idorderedonemanyparent(id:long [PK], name:String, optlock:int);
+
+bidiparent(serialversionuid:long, id:long [PK], name:String, onetoonechild:BidiChild #FK to(Child));
+
+cascadingonemanychild(id:long [PK], name:String, parent:CascadingOneManyParent #FK to(A), optlock:Integer);
+
+tblchild(childid:Integer [PK], vrsnbr:Integer, parent_id:TblParent #FK to(A));
+
+atext(id:int [PK], name:String, GeneratedName:ACase, acaseid:int);
+
+oneonechild(id:long [PK], name:String, parent:OneOneParent #FK to(A), optlock:Integer);
+
+vc(vcid:String [PK], //////ii:VCS [PK] #FK to(vcs));
+
+aevident(id:int [PK], name:String, GeneratedName:AText);
+
+acase(id:int [PK], name:String, GeneratedName:AText);
+
+mapkeychild(serialversionuid:long, id:long [PK], mapkey:String, parent:MapKeyParent #FK to(A));
+
+order(oid:int [PK], amount:double, delivered:boolean, GeneratedName:Customer #FK to(Customer), version:long);
+
+entitydinverseeager(id:int [PK], name:String, logincount:int, logoutcount:int, email:String, entityc:EntityCInverseEager #FK to(EntityC));
+
+child(serialversionuid:long, id:int [PK], GeneratedName:Parent #FK to(A), name:String);
+
+idorderedonemanychild(id:long [PK], name:String, explicitparent:IdOrderedOneManyParent #FK to(A), implicitparent:IdOrderedOneManyParent #FK to(A), optlock:int);
+
+relationtohandlermapinstance(id:int [PK], aftmap:Map<AllFieldTypes,String>);
+
+inheritancehierarchyconcrete(serialversionuid:long, value:int);
+
+onemanylazychild(id:long [PK], name:String, parent:OneManyEagerParent #FK to(A), optlock:Integer);
+
+entitya2inverseeager(name2:String);
+
+handlertorelationmapinstance(id:int [PK], map:Map<String,AllFieldTypes>);
+
+cm(cmid:String [PK], GeneratedName:E [PK] #FK to(e));
+
+d(GeneratedName:C #FK to(c), id:String [PK], a:String, GeneratedName:VC [PK] #FK to(vc));
+
+entitya1inverseeager(name1:String);
+
+util1xmrt(id:int [PK], version:int, lastname:String);
+
+bidichild(serialversionuid:long, id:long [PK], name:String, onetomanyparent:BidiParent #FK to(A), onetooneparent:BidiParent #FK to(A));
+
+childchildclass(name2:String);
+
+onemanyeagerparent(id:long [PK], name:String, optlock:Integer);
+
+chainentityb(bid:long [PK], optlock:Integer, name:String);
+
+grandchildclass(someunloadedfield:String);
+
+concurrententityright(id:int [PK], strdata:String);
+
+pperson(id:int [PK], name:String);
+
+oneoneparent(id:long [PK], name:String, child:OneOneChild #FK to(Child), optlock:Integer);
+
+handlercollectioninstance(id:int [PK], collection:Collection<String>);
+
+datastoremanyoneidowner(id:DataStoreBasicEntity [PK] #FK to(A), name:String, selfrel:DataStoreManyOneIdOwner #FK to(A), optlock:Integer);
+
+relationtorelationmapinstance(id:int [PK], map:Map<AllFieldTypes,AllFieldTypes>);
+
+tblgrandchild(grandchildid:Integer [PK], vrsnbr:Integer, child_id:TblChild #FK to(Child));
+
+parent(serialversionuid:long, id:int [PK]);
+
+parentclass(items:Set<String>);
+
+tblparent(parentid:Integer [PK]);
+
+chainentityc(cid:long [PK], optlock:Integer, GeneratedName:ChainEntityB #FK to(EntityB), chainentitybid:long, name:String);
+
+multiplesametypedembedded(id:long [PK], name:String, embed1:EmbeddableWithRelation, embed2:EmbeddableWithRelation, optlock:Integer);
+
+manyonecompoundidowner(id:long [PK], entityid:BasicEntity [PK] #FK to(A), name:String, selfrel:ManyOneCompoundIdOwner #FK to(A), optlock:Integer);
+
+inheritancehierarchyabstract(serialversionuid:long, id:long [PK], parent:InheritanceHierarchyAbstract #FK to(A));
+
+manyoneidowner(id:BasicEntity [PK] #FK to(A), name:String, selfrel:ManyOneIdOwner #FK to(A), optlock:Integer);
+
+util1xmlf(id:int [PK], version:int, firstname:String);
+
+datastorebasicentity(name:String, rel:BasicEntity #FK to(A), optlock:Integer);
+
+incompleterelationshipsubclass(serialversionuid:long);
+
+lrsentityb(serialversionuid:long, id:Integer [PK], name:String, entitya:LrsEntityA #FK to(EntityA));
+
+incompleterelationshipparententity(serialversionuid:long, pk:IncompleteRelationshipParentEntityPk, discount:IncompleteRelationshipChildEntity #FK to(A));
+
+incompleterelationshipchildentity(serialversionuid:long, pk:IncompleteRelationshipChildEntityPk);
+
+lrsentitya(serialversionuid:long, id:Integer [PK], name:String, age:int);
+
+e(eid:String [PK], name:String);
+
+order(oid:int [PK], amount:double, delivered:boolean, GeneratedName:Customer #FK to(Customer), ship:Address, version:long);
+
+customer(cid:CustomerKey, name:String, GeneratedName:CreditRating, address:EAddress, version:long);
+
+lecturer(serialversionuid:long, id:Long [PK], GeneratedName:Course #FK to(Course), optlock:Integer, name:String);
+
+course(serialversionuid:long, id:Long [PK], optlock:Integer, coursenumber:String, normalattribute:String, objective:LocalizedText, title:LocalizedText, lobcolumn:String);
+
+entityb(serialversionuid:long, id:long [PK], name:String, center:EntityA #FK to(EntityA));
+
+mixedmappinglocation(id:MixedMappingLocationEmbeddedId, basic1:String, basic2:String);
+
+entityc(id:long [PK], version:int, service:EntityB #FK to(EntityB));
+
+entitya(serialversionuid:long, id:long [PK], name:String);
+
+accountinghierarchyrate(serialversionuid:long, id:String [PK], GeneratedName:AccountingHierarchy, currentrate:BigDecimal, budgetrate:BigDecimal);
+
+accountinghierarchy(serialversionuid:long, code:String [PK], shortdesc:String);
+
+employee(serialversionuid:long, empno:int [PK], name:String, version:int, dept:Department #FK to(A));
+
+department(serialversionuid:long, deptno:int [PK], version:int, name:String);
+
+persontest(primarykey:String [PK], GeneratedName:DepartmentTest #FK to(A), name:String);
+
+departmenttest(primarykey:String [PK], name:String);
+
+orderednameentity(serialversionuid:long, id:int [PK], name:String);
+
+orderednameentity_Order(orderednameentityID:orderednameentity [PK] #FK to orderednameentity,OrderID:Order [PK] #FK to Order);
+
+orderedonetomanyentity(serialversionuid:long, id:int [PK]);
+
+orderedelemententity(serialversionuid:long, id:int [PK], elements:List<String>);
+
+unorderednameentity(serialversionuid:long, id:int [PK], name:String);
+
+orderedmanytomanyentity(serialversionuid:long, id:int [PK]);
+
+orderedmanytomanyentity_A(orderedmanytomanyentityID:orderedmanytomanyentity [PK] #FK to orderedmanytomanyentity,AID:A [PK] #FK to A);
+
+longversionentity(serialversionuid:long, id:int [PK], version:Long);
+
+shortversionentity(serialversionuid:long, id:int [PK], version:Short);
+
+primativeshortversionentity(serialversionuid:long, id:int [PK], version:short);
+
+timestampversionentity(serialversionuid:long, id:int [PK], version:Timestamp);
+
+primativelongversionentity(serialversionuid:long, id:int [PK], version:long);
+
+childversionentity(id:int [PK]);
+
+document(id:int [PK], GeneratedName:Author #FK to(A));
+
+author(id:int [PK], version:int);
+
+entitya(serialversionuid:long, id:int [PK], s1:String, s2:String, /*	*bydefault,openjpastorescharsasints,sotoforcetheuseof	*achar(1)field,youwouldneedtooverridethisprocessingvia	*adbdictionaryproperty:	*-dopenjpa.jdbc.dbdictionary:boolean);
+
+ent1(//primarykey:pk:int [PK], name:String);
+
+entityd3(id:int [PK], name:String);
+
+entityi(id:int [PK], name:String);
+
+entitye(id:int [PK], name:String);
+
+entityi3(id:int [PK], name:String);
+
+dog2();
+
+entitya(id:int [PK], name:String, secname:String, collectionset:Set<String>, collectiondelimset:Set<String>, collectionmap:Map<String,String>, delimcollectionmap:Map<String,String>);
+
+entityd(id:int [PK], name:String);
+
+entityi2(id:int [PK], name:String, GeneratedName:EntityI3 #FK to(entityi3));
+
+chevrolet();
+
+entityd2(id:int [PK], name:String, GeneratedName:EntityD3 #FK to(EntityD));
+
+dog();
+
+entityh(id:int [PK], name:String, secname:String, GeneratedName:EntityI2 #FK to(entityi2));
+
+ha i(EntityH_ID:EntityH [PK] #FK to EntityH,collection<entityi>_ID:collection<entityi> [PK] #FK to collection<entityi>);map3a join table(EntityH_ID:EntityH [PK] #FK to EntityH,A_ID:A [PK] #FK to A);map4 join table(EntityH_ID:EntityH [PK] #FK to EntityH,A_ID:A [PK] #FK to A);
+
+cat();
+
+entityf(id:int [PK], //note:delimitedcolumndefinitionisnotsupportedonsomedbs//todo:copyintoaseparateentityandconditionallyrunadifferenttestname:String, nondelimname:String, secname:String, cset:Set<String>, collectiondelimset:Set<String>, cmap:Map<String,String>, dcmap:Map<String,String>);
+
+cat2();
+
+entityi4(id:int [PK], name:String);
+
+entityb(id:int [PK], name:String);
+
+entityd(id:int [PK], name:String);
+
+entityd4(id:int [PK], name:String);
+
+entitye(id:int [PK], name:String);
+
+entityg(id:int [PK], name:String);
+
+entityc(id:int [PK], name:String, secname:String, GeneratedName:EntityD2 #FK to(EntityD));
+
+\(EntityC_ID:EntityC [PK] #FK to EntityC,EntityD_ID:EntityD [PK] #FK to EntityD);\(EntityC_ID:EntityC [PK] #FK to EntityC,A_ID:A [PK] #FK to A);\(EntityC_ID:EntityC [PK] #FK to EntityC,A_ID:A [PK] #FK to A);
+
+entityd3(id:int [PK], name:String);
+
+entityf(id:int [PK], //note:delimitedcolumndefinitionisnotsupportedonsomedbs//todo:copyintoaseparateentityandconditionallyrunadifferenttestname:String, nondelimname:String, secname:String, nscs:Set<String>, nscds:Set<String>, nscollmap:Map<String,String>, delimcollectionmap:Map<String,String>);
+
+entityd2(id:int [PK], name:String, GeneratedName:EntityD3 #FK to(EntityD));
+
+car(id:int [PK], model:String, color:String, modelyear:String);
+
+entityd4(id:int [PK], name:String);
+
+pontiac();
+
+chevrolet2();
+
+entityg(id:int [PK], name:String);
+
+pontiac2();
+
+entityc(id:int [PK], name:String, secname:String, GeneratedName:EntityD2 #FK to(EntityD));
+
+\(EntityC_ID:EntityC [PK] #FK to EntityC,EntityD_ID:EntityD [PK] #FK to EntityD);\(EntityC_ID:EntityC [PK] #FK to EntityC,A_ID:A [PK] #FK to A);\(EntityC_ID:EntityC [PK] #FK to EntityC,A_ID:A [PK] #FK to A);
+
+bytearrayholder(taskid:int [PK], //@lob//type1004size-1shouldbe1003tkiid:byte, serialversionuid:long);
+
+enumsetowner(id:int [PK], version:int, GeneratedName:EnumSetHolder);
+
+enumfieldtype(field:int [PK], enumfield:SampleEnum, enumlist:List<SampleEnum>);
+
+person(id:int [PK], version:int, name:String);
+
+fgaddress(id:int [PK], street:String, city:String, state:String, zip:int);
+
+fgdepartment(id:int [PK], name:String);
+
+fgmanager(mdata:String);
+
+xmluncacheableentity(id:int [PK], version:int, name:String);
+
+uncacheableentity(id:int [PK], version:int, name:String);
+
+cacheableentity(id:int [PK], version:int, name:String);
+
+xmlcacheableentity(id:int [PK], version:int, name:String);
+
+negatedcachableentity(id:int [PK], version:int, name:String);
+
+childuncacheable(child:String);
+
+parentunspecifiedentity(id:int [PK], version:int, name:String);
+
+unspecifiedentity(id:int [PK], version:int, name:String);
+
+negateduncacheableentity(id:int [PK], version:int, name:String);
+
+explicitfieldaccess(f1:long, f2:int, f4:ImplicitFieldAccessBase #FK to(A), f5:ImplicitFieldAccessBase #FK to(A), transientf6:ImplicitFieldAccessBase);
+
+explicitfieldaccessmixed(f1:long, f2:int, f4:ImplicitFieldAccessBase, f5:ImplicitFieldAccessBase #FK to(A), transientf6:ImplicitFieldAccessBase);
+
+explicitpropertyaccess(f1:String, f3:String, f4:String, f5:ImplicitFieldAccessBase #FK to(A), f6:ImplicitFieldAccessBase #FK to(A));
+
+mdrtestentity(id:int [PK], manytoone:MdrTestEntity #FK to(mdrtestentity));
+
+arraymember(array:Byte, array:byte);
+
+implicitfieldaccesssubclass(base:ImplicitFieldAccessBase #FK to(A));
+
+implicitfieldaccesssubclass_A(implicitfieldaccesssubclassID:implicitfieldaccesssubclass [PK] #FK to implicitfieldaccesssubclass,AID:A [PK] #FK to A);
+
+implicitfieldaccessbase(f0:String, primitive:int, boxedint:Integer, one2onerelation:ExplicitFieldAccess #FK to(A));
+
+implicitfieldaccessbase_A(implicitfieldaccessbaseID:implicitfieldaccessbase [PK] #FK to implicitfieldaccessbase,AID:A [PK] #FK to A);implicitfieldaccessbase_A(implicitfieldaccessbaseID:implicitfieldaccessbase [PK] #FK to implicitfieldaccessbase,AID:A [PK] #FK to A);
+
+explicitpropertyaccessmixed(f1:String, f3:ImplicitFieldAccessBase #FK to(A), f4:int, f5:short, f6:ImplicitFieldAccessBase #FK to(A));
+
+runtimetest1(serialversionuid:long, somefield:String, field:byte, field:boolean, field:char, field:double, field:float, field:int, field:long, field:short, field:String, field:BigInteger, field:BigDecimal, field:Date, field:Locale, objfield:Byte, objfield:Boolean, charobjfield:Character, objfield:Double, objfield:Float, intobjfield:Integer, objfield:Long, objfield:Short, //transactionalonlytransfield:TransactionalClassPC, trans:String, //relationsselfoneone:RuntimeTest1, selfonemany:Set);
+
+metatest3(pcfield:Object, externalfield:Object, metafield:Object);
+
+metatest7(id:long, status:MetaTest7Status, intlongstatus:MetaTest7IntLongStatus, intintegerstatus:MetaTest7IntIntegerStatus, integerintegerstatus:MetaTest7IntegerIntegerStatus, integerintstatus:MetaTest7IntegerIntStatus, integerlongstatus:MetaTest7IntegerLongStatus);
+
+orderbypcrel(id:long, GeneratedName:String, toone:OrderByPC);
+
+valuestrategypc(uuid:String, uuidhex:String, name:String, ignoreupdate:int, restrictupdate:int, version:int, sequence:int);
+
+externalvalues(toshort:boolean, todouble:byte, tofloat:int, tochar:long, tostring:short, toboolean:float, tobyte:double, toint:char, tolong:String, GeneratedName:UUID);
+
+metatest2(field1:Collection, field2:Collection, field1:Map, field2:Map, field:MetaTest2 #FK to(A));
+
+fieldorderpcsubclass(transientsub1:String, sub2:int, sub3:Double, unmanagedsubfield:int, undeclaredsubfield:int);
+
+orderbypcrelsub(sub:int);
+
+metatest6(name:String);
+
+orderbypc(id:long, stringasc:List, arraydesc:int, orderbypkasc:List, orderbystringdesc:List, orderbystringandpkdesc:List, onetomanyasc:List);
+
+sequenceassigned3(pk:Long);
+
+fieldorderpc(transientfirstfield:String, field:char, field:int, thirdfield:int, unmanagedfield:int, field:Long, secondfield:Double, onetoonefield:FieldOrderPC);
+
+runtimetest2(serialversionuid:long, field2:int);
+
+transactionalclasspc(field:int);
+
+metatest4();
+
+runtimetest3(serialversionuid:long, field3:int);
+
+sequenceassigned(pk:long, other:SequenceAssigned);
+
+metatest1(//theseshouldnotbepersistentfield:int, field:String, transienttransientfield:char, field:MetaTest4, //@onetomany(mappedby:java.util.Set<MetaTest4>, metatest4arrayfieldfield:Object, wrapperfield:Long, field:double, //persistentfields--seemetadatafield:String, intwrapperfield:Integer, field:int, field:MetaTest2, //@onetomany(mappedby:java.util.Set<MetaTest2>, metatest2arrayfieldarrayfield:int);
+
+metatest5(id:long);
+
+sequenceassigned2(foo:int);
+
+nonpersistentfieldspc(persistentfield:String, nonpersistentfield:String, field:Object, interfacefield:Serializable, userobjectfield:ClassMetaData, userinterfacefield:ClassMetaData, explicitfield:Object, explicitinterfacefield:Serializable, explicituserobjectfield:ClassMetaData, explicituserinterfacefield:ClassMetaData, persistentfield:Object, persistentinterfacefield:Serializable, persistentuserobjectfield:ClassMetaData, persistentuserinterfacefield:ClassMetaData);
+
+testmetamodelwithenum();
+
+pobject(id:long [PK], name:String, version:int);
+
+detachmentonemanyparent(id:long [PK], name:String, optlock:Integer);
+
+record(content:String, id:int [PK]);
+
+detachmentonemanychild(id:long [PK], name:String, parent:DetachmentOneManyParent #FK to(A), optlock:Integer);
+
+dmcustomerinventory(idcounter:long, id:long [PK], item:DMItem #FK to(Item), quantity:int, customer:DMCustomer #FK to(Customer), version:int);
+
+simplec(c_id:int [PK], name:String, b_id:SimpleB #FK to(simpleb));
+
+simpleb(b_id:int [PK], name:String, a_id:SimpleA #FK to(A));
+
+dmcustomer(idcounter:long, id:long [PK], firstname:String, lastname:String, version:int, cal:Calendar);
+
+simpleref(id:int [PK], name:String);
+
+nodetachedstateentityfieldaccess(id:int [PK], version:int, GeneratedName:String, relationship:NoDetachedStateEntityPropertyAccess #FK to(A));
+
+nodetachedstateentitypropertyaccess(id:int [PK], version:int, GeneratedName:String);
+
+dmitem(idcounter:long, id:long [PK], version:int, name:String, price:double);
+
+simplea(a_id:int [PK], name:String, ref:SimpleRef #FK to(simpleref));
+
+reswordentity(id:int [PK], alias:String, boolean:int, type:Integer);
+
+entityverylongnames(serialversionuid:long, id:int [PK], firstname:String, lastname:String);
+
+entityreservedwords(serialversionuid:long, id:int [PK], add:Integer, application:int, begin:BigDecimal, bigint:BigInteger, GeneratedName:Calendar, character:String, conditional:Integer, GeneratedName:Date, decimal:BigDecimal, distinct:Time, exception:String, each:int, from:String, file:Integer, grant:String, global:BigDecimal, hour:String, holdlock:String, integer:BigInteger, index:int, join:BigInteger, jar:String, key:Calendar, kill:Timestamp, like:Integer, loop:BigDecimal, minute:int, merge:Date, number:String, not:Integer, outer:Date, on:String, primary:BigInteger, purge:int, quiesce:Integer, quit:String, restrict:BigDecimal, rename:Time, select:String, savepoint:Integer, GeneratedName:Time, GeneratedName:Timestamp, trigger:Calendar, update:int, until:String, varchar:String, variable:Integer, wait:Timestamp, where:BigDecimal, xml:BigInteger, year:int, years:Integer, zerofill:Date, zone:String, type:Integer, alias:String, boolean:int);
+
+embeddablesupersub(sub:EmbeddableSuperSub #FK to(A), sup:EmbeddableSuper #FK to(A));
+
+annotest2(pk1:long [PK], pk2:String [PK], version:Date, basic:String, inverseoneone:AnnoTest1 #FK to(A), pk:AnnoTest1 #FK to(A));
+
+annotest2_manymany(many_pk1:AnnoTest2 [PK] #FK to AnnoTest2,manye_pk:A [PK] #FK to A);
+
+propertyaccess1(id:int [PK], name:String, //thisentionallydoesnotmatchthegetternameval:int);
+
+store1(serialversionuid:long, storename:String, storedescription:String, site:Site1 #FK to(site1));
+
+schedule(id:int [PK], dob:Calendar, start:Date, end:Date, name:String);
+
+site(serialversionuid:long, sitename:String, sitedescription:String);
+
+flightschedule(flightnum:int, planename:String);
+
+flat2(basic2:String);
+
+entity2(serialversionuid:long, pk:long [PK], field:String, field:int);
+
+tableperclass2(basic2:String);
+
+annotest3(basic2:int, suboneone:AnnoTest2 #FK to(A));
+
+embedowner(embed:EmbedValue, basic:String, pk:int [PK]);
+
+employee(id:int [PK], name:String, lifecheck:int);
+
+store(serialversionuid:long, storename:String, storedescription:String, site.partyid:Site #FK to(site), siteid:Long);
+
+contractemployee(dailyrate:int, term:int);
+
+annotest1(pk:Long [PK], version:int, basic:int, othertablebasic:int, selfoneone:AnnoTest1 #FK to(A), pkjoinselfoneone:AnnoTest1 #FK to(A), oneone:AnnoTest2 #FK to(A), othertableoneone:AnnoTest2 #FK to(A), inverseowneroneone:AnnoTest2 #FK to(A), blob:byte, serial:Object, clob:String, //un-annotatedenumshouldbepersistedbydefaultenumeration:InheritanceType, ordinalenumeration:InheritanceType, stringenumeration:InheritanceType);
+
+annotest1_manymany(many_pk:AnnoTest1 [PK] #FK to AnnoTest1,many_pk1:A [PK] #FK to A);
+
+embeddedidentity(id:EmbeddedIdClass, value:String, relation:EmbeddedIdEntity #FK to(EmbeddedIdEntity), epk1:EmbeddedIdEntity #FK to(EmbeddedIdEntity));
+
+txrollbackentity(id:int [PK], name:String);
+
+tableperclass1(pk:int [PK], basic:int, embed:EmbedValue);
+
+site1(serialversionuid:long, sitename:String, sitedescription:String);
+
+orderbyentity(id:long [PK], GeneratedName:String, strings:List<String>);
+
+orderby_pkrels(rel_id:OrderByEntity [PK] #FK to OrderByEntity,rel_id:Order [PK] #FK to Order);orderby_stringrels(rel_id:OrderByEntity [PK] #FK to OrderByEntity,rel_id:Order [PK] #FK to Order);
+
+generator(pk:int [PK], pk2:Integer [PK], pk3:long [PK], field:String);
+
+entity1(serialversionuid:long, pk:long [PK], field:String, field:int, field:Entity2 #FK to(Entity2), versionfield:int);
+
+lifecycleddentitysub();
+
+flightschedule(flightnum:int, planename:String);
+
+lifecycleddentity2(id:int [PK], name:String, surname:String);
+
+employee(id:int [PK], name:String, lifecheck:int);
+
+entity1(serialversionuid:long, pk:long [PK], field:String, field:int, field:Entity2 #FK to(Entity2), versionfield:int);
+
+txrollbackentity(id:int [PK], name:String);
+
+contractemployee(dailyrate:int, term:int);
+
+schedule(id:int [PK], dob:Calendar, start:Date, end:Date, name:String);
+
+entity2(serialversionuid:long, pk:long [PK], field:String, field:int);
+
+lifecycleddentity(id:int [PK], name:String, surname:String);
+
+pcoll_entitystringeager(id:int [PK], collectionofstrings:Set<String>);
+
+pcoll_entitya(id:int [PK], embedcollection:Set<PColl_EmbedB>, version:int);
+
+pcoll_entitya1(id:int [PK], embedcollection:Set<PColl_EntityB>, version:int);
+
+pcoll_entitystringlazy(id:int [PK], collectionofstrings:Set<String>);
+
+pcoll_entityc(id:int [PK], version:int);
+
+entitya(id:long [PK], name:String);
+
+deriveda();
+
+entityb(id:long [PK], name:String);
+
+derivedb(data:String);
+
+pcoll_entityb(name:String, m2oc:PColl_EntityC #FK to(EntityC));
+
+toplevel(serialversionuid:long, id:long [PK], contmultsecoll:Collection<ContainsMultSimpleEntity>);
+
+simpleentity(serialversionuid:long, id:long [PK], name:String);
+
+orderedonemanychild(id:long [PK], name:String, parent:OrderedOneManyParent #FK to(A));
+
+purchase(id:int [PK], version:int);
+
+mapholder(id:int [PK], version:int, embeddablemap:Map<MapEmbeddable,MapEmbeddable>);
+
+cachedmanager();
+
+cachedperson(id:int [PK], version:int, firstname,lastname:String);
+
+cachedemployee(manager:CachedManager #FK to(A));
+
+cascadechild(id:long [PK], name:String);
+
+identityidclass(id:int [PK], field:String);
+
+order(id:int [PK], version:int, quantity:int, GeneratedName:Item #FK to(Item), GeneratedName:Purchase #FK to(A));
+
+orderedonemanyparent(id:long [PK], name:String);
+
+cachedentitystatistics(id:int [PK], version:int, firstname,lastname:String);
+
+optimisticlockinstance(pk:int [PK], oplock:int, str:String, field:int);
+
+phone(id:int [PK], version:int, somethingelse:String, number:String, owner:Person #FK to(Person));
+
+person(id:int [PK], version:int, first,middle,last:String, ci:ContactInfo);
+
+cacheobjectf();
+
+selfreferencingcachetestobject(str:String, o:SelfReferencingCacheTestObject #FK to(A), embedded:CacheObjectAChild1);
+
+attachf(serialversionuid:long, id1:int, id2:String, fstr:String, f:int, fdbl:double, e:AttachE, strings:List, embeddedc:AttachC);
+
+cacheobjectj(str:String, e:CacheObjectE #FK to(A));
+
+attachb(serialversionuid:long, bstr:String, b:int, bdbl:double, ds:Set, stringint:Map);
+
+cacheobjectachild1(str1:String);
+
+embeddingownerentity(id:long [PK], members:List<EmbeddedEntity>);
+
+attachc(serialversionuid:long, cstr:String, c:int, cdbl:double, //non-dfges:List);
+
+runtimetest1(serialversionuid:long, somefield:String, field:byte, field:boolean, field:char, field:double, field:float, field:int, field:long, field:short, field:String, field:BigInteger, field:BigDecimal, field:Date, field:Locale, objfield:Byte, objfield:Boolean, charobjfield:Character, objfield:Double, objfield:Float, intobjfield:Integer, objfield:Long, objfield:Short, //transactionalonlytransfield:TransactionalClassPC #FK to(A), trans:String, //relationsselfoneone:RuntimeTest1 #FK to(RuntimeTest1));
+
+cacheobjectc(str:String);
+
+cacheobjectg();
+
+pobject(id:long [PK], name:String, version:int);
+
+m2mentitye(id:int [PK], name:String);
+
+m2mentitye_EntityF(m2mentityeID:m2mentitye [PK] #FK to m2mentitye,EntityFID:EntityF [PK] #FK to EntityF);
+
+attache(serialversionuid:long, version:Object, estr:String, e:int, edbl:double, b:AttachB, f:AttachF, GeneratedName:Date);
+
+cacheobjectbchild1(str1:String);
+
+attacha(serialversionuid:long, astr:String, a:int, adbl:double, array:String, array:AttachE);
+
+cacheobjectachild2(str2:String);
+
+cacheobjecta(name:String, age:long, relatedobj:CacheObjectA #FK to(A), /**@manytomany@jointable(name:Collection<String>, /**@manytomany@jointable(name:Collection<CacheObjectA>, /**@manytomany@jointable(name:String, /**@manytomany@jointable(name:float, /**@manytomany@jointable(name:Date, GeneratedName:Date, GeneratedName:Locale, relatedb:CacheObjectB #FK to(A), relatedinterface:CacheObjectInterface #FK to(A));
+
+cache_as(id:CacheObjectA [PK] #FK to CacheObjectA,element:A [PK] #FK to A);
+
+appidcacheobject(id:int);
+
+flushdatacacheobject(GeneratedName:String);
+
+cacheobjectwithexternalizedfields(cls:Class);
+
+cacheobjectd(str:String);
+
+transactionalclasspc(field:int);
+
+m2mentityf(id:int [PK]);
+
+embeddedentity(marker:String);
+
+attachd(serialversionuid:long, version:Object, dstr:String, d:int, ddbl:double, a:AttachA, //dfgbs:Set, pcstring:Map, bigintegerpcmap:TreeMap, embeddede:AttachE, embeddeda:AttachA);
+
+cacheobjecth();
+
+runtimetest2(serialversionuid:long, field2:int);
+
+cascadeparent(id:long [PK], name:String, child:CascadeChild #FK to(A));
+
+item(id:int [PK], version:int, name:String, type:String);
+
+simplemanagedinterface();
+
+mixedinterface();
+
+managedinterfacesup();
+
+managediface();
+
+mixedinterfaceimpl(id:int [PK], field:int);
+
+managedinterfaceowner(id:int [PK], field:int, iface:ManagedInterfaceSup #FK to(A), embed:ManagedInterfaceEmbed);
+
+nonmappedinterfaceimpl(mismatch:int);
+
+cascadesentity(id:long [PK], name:String, none:CascadesEntity #FK to(A), all:CascadesEntity #FK to(A), dependent:CascadesEntity #FK to(A));
+
+cascades_none_coll(owner:CascadesEntity [PK] #FK to CascadesEntity,A_ID:A [PK] #FK to A);cascades_all_coll(owner:CascadesEntity [PK] #FK to CascadesEntity,A_ID:A [PK] #FK to A);
+
+annoexceptionentity(id:int [PK], exceptions:ArrayList<Exception>, //elementcollectiondoesnotworkwithexceptions.elemcollexceptions:Collection<String>, perscollexceptions:Collection<Exception>);
+
+node(id:int [PK], version:int);
+
+xmloverridetooneentity(id:int [PK], othero2o:XmlOverrideToOneEntity #FK to(X), otherm2o:XmlOverrideToOneEntity #FK to(X), version:int);
+
+xmloverrideentity(id:int [PK], name:String, description:String, picture:Byte);
+
+cascadepersistentity(id:long [PK], other:CascadePersistEntity #FK to(A), field:String);
+
+edge(oid:long [PK], source:Vertex #FK to(X), target:Vertex #FK to(X));
+
+pudentityb(id:int [PK], strdata:String);
+
+pudentitya02(id:int [PK], strdata:String, emb:EmbeddableWithRelationships);
+
+pudentityae01(id:int [PK], strdata:String, m2o:PUDEntityB #FK to(EntityB), o2o:PUDEntityB #FK to(EntityB), ane:AnEmbeddable);
+
+pudentityae01_EntityB(pudentityae01ID:pudentityae01 [PK] #FK to pudentityae01,EntityBID:EntityB [PK] #FK to EntityB);
+
+pudentitya01(id:int [PK], strdata:String, m2o:PUDEntityB #FK to(EntityB), o2o:PUDEntityB #FK to(EntityB));
+
+pudentitya01_EntityB(pudentitya01ID:pudentitya01 [PK] #FK to pudentitya01,EntityBID:EntityB [PK] #FK to EntityB);
+
+vertex(oid:long [PK], type:VertexType #FK to(X));
+
+vertextype(oid:long [PK], name:String);
+
+idclassentity(id:int [PK], somedata:String);
+
+derivedentityfrommappedsuperwithoutid(id:long [PK], name:String, version:int);
+
+situationda(cashboxperiodserial:String [PK], type:short [PK]);
+
+valuableitemda(code:short [PK]);
+
+pidjtsdmscleafc(leafcdata:String);
+
+pidjtsdmscleafd2(leafd2data:String);
+
+pidjtsdmscleafb1(leafb1data:String);
+
+pidjtsdmscentityd(entityddata:String);
+
+pidjtsdmscleafd1(leafd1data:String);
+
+pidjtsdmscentityb(entitybdata:String);
+
+pidjtsdmscrootentity(rootentitydata:String);
+
+pidjtsdmscleafa(leafadata:String);
+
+pidjtsdmscleafb2(leafb2data:String);
+
+pidjtcdmscentityd(entityddata:String);
+
+pidjtcdmscleafd1(leafd1data:String);
+
+pidjtcdmscrootentity(rootentitydata:String);
+
+pidjtcdmscleafb2(leafb2data:String);
+
+pidjtcdmscleafc(leafcdata:String);
+
+pidjtcdmscleafd2(leafd2data:String);
+
+pidjtcdmscleafa(leafadata:String);
+
+pidjtcdmscentityb(entitybdata:String);
+
+pidjtcdmscleafb1(leafb1data:String);
+
+pidjtidmscleafd1(leafd1data:String);
+
+pidjtidmscleafc(leafcdata:String);
+
+pidjtidmscentityb(entitybdata:String);
+
+pidjtidmscleafb2(leafb2data:String);
+
+pidjtidmscleafa(leafadata:String);
+
+pidjtidmscrootentity(rootentitydata:String);
+
+pidjtidmscleafd2(leafd2data:String);
+
+pidjtidmscentityd(entityddata:String);
+
+pidjtidmscleafb1(leafb1data:String);
+
+pidstcdmscleafd2(leafd2data:String);
+
+pidstcdmscleafc(leafcdata:String);
+
+pidstcdmscleafb1(leafb1data:String);
+
+pidstcdmscentityb(entitybdata:String);
+
+pidstcdmscleafd1(leafd1data:String);
+
+pidstcdmscentityd(entityddata:String);
+
+pidstcdmscleafb2(leafb2data:String);
+
+pidstcdmscleafa(leafadata:String);
+
+pidstidmscleafd2(leafd2data:String);
+
+pidstidmscentityd(entityddata:String);
+
+pidstidmscleafc(leafcdata:String);
+
+pidstidmscentityb(entitybdata:String);
+
+pidstidmscleafd1(leafd1data:String);
+
+pidstidmscleafa(leafadata:String);
+
+pidstidmscleafb2(leafb2data:String);
+
+pidstsdmscleafd2(leafd2data:String);
+
+pidstsdmscleafc(leafcdata:String);
+
+pidstsdmscleafd1(leafd1data:String);
+
+pidstsdmscleafa(leafadata:String);
+
+pidstsdmscentityb(entitybdata:String);
+
+pidstsdmscleafb2(leafb2data:String);
+
+baseclass6(id:int [PK], name:String);
+
+subclassf(classfname:String, fieldsup:int);
+
+baseclass2(id:int [PK], version:int, name:String);
+
+ptemployee(hourlywage:float);
+
+subclassb(classbname:String);
+
+sharedname2(id:long [PK]);
+
+managediface2();
+
+subclassj(classjname:String, version:int);
+
+basecallback(transientpostpersistcount:int);
+
+ftemployee(salary:double);
+
+subclassk(classkname:String);
+
+subclassg(classgname:String, fieldsup:int);
+
+baseclass3(id:int [PK], version:int, name:String);
+
+subclassc(classcname:String);
+
+sharedname1(id:long [PK]);
+
+subclassi(classiname:String, version:int);
+
+baseclass(id:int [PK], version:int, name:String);
+
+baseclass5(id:int [PK], version:int, name:String, GeneratedName:SubclassH #FK to(A));
+
+manager();
+
+subclasse(classename:String);
+
+managediface();
+
+implclassa(implclassaname:String, id:int [PK], fieldsup:int);
+
+subclassa(classaname:String);
+
+employee(id:int [PK], lastname:String, firstname:String, vacationdays:int, GeneratedName:Manager #FK to(A), GeneratedName:Department #FK to(A), version:long, transientstr:String);
+
+baseclass4(id:int [PK], version:int, name:String);
+
+subclassd(classdname:String);
+
+midclass(midclassname:String);
+
+department(id:int [PK], departmentname:String, department:Manager #FK to(A));
+
+regularuser(GeneratedName:Admin #FK to(A));
+
+abstractclass(id:int [PK], name:String);
+
+admin();
+
+subclassh(classhname:String, fieldsup:int, GeneratedName:BaseClass5 #FK to(A));
+
+midclass2(midclass2name:String);
+
+superclass(id:Integer [PK], attr1:String);
+
+relationowner(id:Integer [PK]);
+
+subclass(attr2:String);
+
+nogenentityl3sibling(siblingl3data:int);
+
+englishparagraph(content:String);
+
+germanparagraph(content:String);
+
+translation(GeneratedName:Translatable #FK to(A));
+
+frenchparagraph(content:String);
+
+translatable();
+
+nogenentityl3(l3data:int);
+
+concretesubclass(subclassdata:int);
+
+entityl3sibling(siblingl3data:int);
+
+contractor(ctrprop1:String, oid:Department #FK to(A));
+
+department(oid:long [PK], description:String, deptprop1:String);
+
+person(oid:long [PK], name:String);
+
+employee(description:String);
+
+parttimeemployee(ptempprop1:String, oid:Department #FK to(A));
+
+fulltimeemployee(ftempprop1:String, oid:Department #FK to(A));
+
+umlclass(serialversionuid:long);
+
+umltype(serialversionuid:long, ownerpackage:UMLPackage #FK to(package));
+
+umlpackage(serialversionuid:long, id:String [PK], name:String);
+
+umlprimitivetype(serialversionuid:long);
+
+umlnamed(serialversionuid:long, id:String [PK], name:String);
+
+abstractbase(id:String [PK]);
+
+entityl3(l3data:int);
+
+employee(serialversionuid:long, salary:float);
+
+person(serialversionuid:long, id:int [PK], firstname:String, lastname:String, version:int);
+
+issue428entity(field:double);
+
+subject(oid:int [PK], //persistentfieldsname:String);
+
+subject_Book(subjectID:subject [PK] #FK to subject,BookID:Book [PK] #FK to Book);
+
+book(weeks_time_ms:int, oid:int [PK], //persistentfieldstitle:String, due:Date, GeneratedName:Borrower #FK to(borrower));
+
+volunteer(oid:int [PK], hours_per_week:int, GeneratedName:Borrower #FK to(borrower));
+
+borrower(oid:int [PK], //persistentfieldsname:String, GeneratedName:Volunteer #FK to(volunteer));
+
+fulltimeemployee(salary:float);
+
+employee(manager:FullTimeEmployee #FK to(Employee), GeneratedName:Company #FK to(A), title:String, hire:Date);
+
+company(idcounter:long, id:long [PK], name:String, GeneratedName:Address #FK to(A));
+
+person(idcounter:long, id:long [PK], firstname:String, lastname:String, home:Address #FK to(A));
+
+customer(shipping:Address #FK to(A), billing:Address #FK to(A));
+
+address(idcounter:long, id:long [PK], streetaddress:String, city:String, state:String, postalcode:String, phonenumber:String);
+
+product(idcounter:long, id:long [PK], name:String, image:byte, price:float);
+
+product_A(productID:product [PK] #FK to product,AID:A [PK] #FK to A);
+
+lineitem(idcounter:long, id:long [PK], quantity:int, GeneratedName:Product #FK to(product));
+
+productorder(idcounter:long, id:long [PK], order:Date, shipped:Date, GeneratedName:Customer #FK to(Customer));
+
+parttimeemployee(wage:float, weeklyhours:int);
+
+customer(shipping:Address #FK to(A), billing:Address #FK to(A));
+
+company(idcounter:long, id:long [PK], name:String, GeneratedName:Address #FK to(A));
+
+fulltimeemployee(salary:float);
+
+employee(manager:FullTimeEmployee #FK to(Employee), GeneratedName:Company #FK to(A), title:String, hire:Date);
+
+product(idcounter:long, id:long [PK], name:String, image:byte, price:float);
+
+product_A(productID:product [PK] #FK to product,AID:A [PK] #FK to A);
+
+address(idcounter:long, id:long [PK], streetaddress:String, city:String, state:String, postalcode:String, phonenumber:String);
+
+person(idcounter:long, id:long [PK], firstname:String, lastname:String, home:Address #FK to(A));
+
+lineitem(idcounter:long, id:long [PK], quantity:int, GeneratedName:Product #FK to(product));
+
+parttimeemployee(wage:float, weeklyhours:int);
+
+productorder(idcounter:long, id:long [PK], order:Date, shipped:Date, GeneratedName:Customer #FK to(Customer));
+
+lineitem(ids:int, id:int [PK], quantity:int, GeneratedName:Product #FK to(product));
+
+fulltimeemployee(salary:float);
+
+company(ids:int, id:int [PK], name:String, GeneratedName:Address #FK to(A));
+
+employee(manager:FullTimeEmployee #FK to(Employee), GeneratedName:Company #FK to(A), title:String, hire:Date);
+
+parttimeemployee(wage:float, weeklyhours:int);
+
+customer(shipping:Address #FK to(A), billing:Address #FK to(A));
+
+person(ids:int, id:int [PK], firstname:String, lastname:String, home:Address #FK to(A));
+
+address(ids:int, id:int [PK], streetaddress:String, city:String, state:String, postalcode:String, phonenumber:String);
+
+productorder(ids:int, id:int [PK], order:Date, shipped:Date, GeneratedName:Customer #FK to(Customer));
+
+product(ids:int, id:int [PK], name:String, image:byte, price:float);
+
+product_A(productID:product [PK] #FK to product,AID:A [PK] #FK to A);
+
+customer(shipping:Address #FK to(A), billing:Address #FK to(A));
+
+address(idcounter:long, id:long [PK], streetaddress:String, city:String, state:String, postalcode:String, phonenumber:String);
+
+fulltimeemployee(salary:float);
+
+product(idcounter:long, id:long [PK], name:String, image:byte, price:float);
+
+product_A(productID:product [PK] #FK to product,AID:A [PK] #FK to A);
+
+employee(manager:FullTimeEmployee #FK to(Employee), GeneratedName:Company #FK to(A), title:String, hire:Date);
+
+person(idcounter:long, id:long [PK], firstname:String, lastname:String, home:Address #FK to(A));
+
+parttimeemployee(wage:float, weeklyhours:int);
+
+productorder(idcounter:long, id:long [PK], order:Date, shipped:Date, GeneratedName:Customer #FK to(Customer));
+
+lineitem(idcounter:long, id:long [PK], quantity:int, GeneratedName:Product #FK to(product));
+
+company(idcounter:long, id:long [PK], name:String, GeneratedName:Address #FK to(A));
+
+dogtable2(serialversionuid:long, id2:int [PK], name:String, price:float, domestic:boolean);
+
+dog4(id:int [PK], name:String);
+
+entitye2(id:int [PK], name:String);
+
+dog(id:int [PK], name:String);
+
+dog1(serialversionuid:long, id2:int [PK], name:String, price:float, domestic:boolean);
+
+dogtable(serialversionuid:long, id2:int [PK], name:String, price:float, domestic:boolean);
+
+dogtable3(serialversionuid:long, id2:int [PK], name:String, price:float, domestic:boolean);
+
+generatedvalues(id:int [PK], field:long, //@generatedvalue(strategy:int, uuidhex:String, uuid:String, uuidt4hex:String, uuidt4:String);
+
+dog3(id:int [PK], name:String);
+
+dogtable4(serialversionuid:long, id2:int [PK], name:String, price:float, domestic:boolean);
+
+entitywithgeneratedvalueandpostpersist(id:long [PK], bingo:int, name:String);
+
+dog2(serialversionuid:long, id2:int [PK], name:String, price:float, domestic:boolean);
+
+anentity(id:int [PK], version:int, name:String);
+
+runtimetest4(name:String, runtimetest5s:Collection);
+
+transactionalclasspc(field:int);
+
+runtimetest1(serialversionuid:long, somefield:String, field:byte, field:boolean, field:char, field:double, field:float, field:int, field:long, field:short, field:String, field:BigInteger, field:BigDecimal, field:Date, field:Locale, objfield:Byte, objfield:Boolean, charobjfield:Character, objfield:Double, objfield:Float, intobjfield:Integer, objfield:Long, objfield:Short, //transactionalonlytransfield:TransactionalClassPC, trans:String, //relationsselfoneone:RuntimeTest1 #FK to(RuntimeTest1), selfonemany:Set);
+
+duration(_name:String, _started:boolean, _running:boolean, //millis_starttime:long, //millis_stoptime:long);
+
+runtimetest2(serialversionuid:long, field2:int);
+
+postremovecallbackentity(id:long [PK], name:String, transientpostremovetime:long);
+
+blobentity(id:int [PK], version:int, lobfield:String, blobfield:byte);
+
+blobcolumnentity(id:int [PK], smalllob:byte, oldlob:byte, medlob:byte, longlob:byte, defaultlob:byte, definedlob:byte);
+
+clobcolumnentity(id:int [PK], smalllob:String, medlob:String, longlob:String, defaultlob:String);
+
+product(serialversionuid:long, id:int [PK], name:String);
+
+account(id:int [PK], userident:UserIdentity #FK to(useridentity), name:String);
+
+useridentity(id:int [PK], GeneratedName:Member);
+
+department(serialversionuid:long, id:int [PK], certifications:Queue<Certification>, awards:LinkedList<Award>);
+
+employee(serialversionuid:long, id:int [PK], empname:String, dept:IDepartment #FK to(A));
+
+department(serialversionuid:long, id:int [PK], certifications:Set<Certification>, awards:Set<Award>);
+
+useridentity(id:int [PK], GeneratedName:Member);
+
+employee(serialversionuid:long, id:int [PK], empname:String, dept:IDepartment #FK to(A));
+
+account(id:int [PK], userident:UserIdentity #FK to(useridentity), name:String);
+
+account(id:int [PK], userident:UserIdentity #FK to(useridentity), name:String);
+
+department(serialversionuid:long, id:int [PK], certifications:PriorityQueue<Certification>, awards:PriorityQueue<Award>);
+
+useridentity(id:int [PK], GeneratedName:Member);
+
+employee(serialversionuid:long, id:int [PK], empname:String, dept:IDepartment #FK to(A));
+
+useridentity(id:int [PK], GeneratedName:Member);
+
+account(id:int [PK], userident:UserIdentity #FK to(useridentity), name:String);
+
+employee(serialversionuid:long, id:int [PK], empname:String, dept:IDepartment #FK to(A));
+
+department(serialversionuid:long, id:int [PK], certifications:TreeSet<Certification>, awards:SortedSet<Award>);
+
+location(serialversionuid:long, id:int [PK], address:String, city:String, zip:String);
+
+useridentity(id:int [PK], GeneratedName:Member);
+
+account(id:int [PK], userident:UserIdentity #FK to(useridentity), name:String);
+
+employee(serialversionuid:long, id:int [PK], empname:String, dept:IDepartment #FK to(A));
+
+department(serialversionuid:long, id:int [PK], certifications:List<Certification>, awards:List<Award>);
+
+department(serialversionuid:long, id:int [PK], certifications:Vector<Certification>, awards:Vector<Award>);
+
+account(id:int [PK], userident:UserIdentity #FK to(useridentity), name:String);
+
+employee(serialversionuid:long, id:int [PK], empname:String, dept:IDepartment #FK to(A));
+
+useridentity(id:int [PK], GeneratedName:Member);
+
+department(serialversionuid:long, id:int [PK], certifications:LinkedHashSet<Certification>, awards:LinkedHashSet<Award>);
+
+employee(serialversionuid:long, id:int [PK], empname:String, dept:IDepartment #FK to(A));
+
+useridentity(id:int [PK], GeneratedName:Member);
+
+account(id:int [PK], userident:UserIdentity #FK to(useridentity), name:String);
+
+person(serialversionuid:long, firstname:String, lastname:String, governmentid:String, ofbirth:Date, timeofbirth:Date, picture:Byte, contact:IContact #FK to(A));
+
+payor(serialversionuid:long, name:String);
+
+annuity(serialversionuid:long, lastpaidamt:Double, accountnumber:String, amount:Double, annuityholderid:String, comments:List<String>, approvedat:Date, previous:Annuity);
+
+annuity_payor(fk_annuity_id:Annuity [PK] #FK to Annuity,fk_payor_id:A [PK] #FK to A);
+
+equityannuity(serialversionuid:long, fundnames:String, indexrate:Double);
+
+contact(serialversionuid:long, the:Address, email:String, phone:String, GeneratedName:ContactType);
+
+payout(serialversionuid:long, taxableamount:BigDecimal, startdate:Calendar, enddate:Calendar, annuity:IAnnuity #FK to(A));
+
+address(serialversionuid:long, line1:String, line2:String, city:String, state:String, zipcode:String, country:String);
+
+annuityholder(serialversionuid:long, category:AnnuityHolderCategory);
+
+rider(serialversionuid:long, rule:String, effective:Date, type:RiderType);
+
+concreteentity(field:int);
+
+treenode(serialversionuid:long, id:long [PK], name:String, version:int);
+
+aggentity(id:int [PK], pval:short, val:Short, pval:int, intval:Integer, pval:long, val:Long, pval:float, val:Float, pdblval:double, dblval:Double, val:String, utildate:java.util.Date, sqldate:java.sql.Date);
+
+item(serialversionuid:long, id:int [PK], title:String, GeneratedName:Artist #FK to(A));
+
+parent(idparent:int [PK], child_ref:String, child:PChild #FK to(Child), childbi:PChildBi #FK to(Child), idchild:PChild #FK to(Child));
+
+pchild(idchild:int [PK], version:int, basic:String);
+
+a();
+
+b();
+
+painter(serialversionuid:long);
+
+person(serialversionuid:long, name:String [PK]);
+
+artist(serialversionuid:long);
+
+pchildbi(idchild:int [PK], version:int, basic:String, GeneratedName:Parent #FK to(A));
+
+c(GeneratedName:A, GeneratedName:B, num:long [PK]);
+
+user2018(id:Long [PK]);
+
+item(serialversionuid:long, id:int [PK], title:String, ITEM_TYPE: String);
+
+unenhancedpropertyaccess(serialversionuid:long, id:int [PK], version:int, sf:String, lazyfield:String);
+
+unenhancedfieldaccess(serialversionuid:long, id:int [PK], version:int, field:String, lazyfield:String);
+
+unenhancedfieldaccessprimitivewrapper(serialversionuid:long, id:Integer [PK], version:int, field:String, lazyfield:String);
+
+recursivelyembeddedpc(embedded:EmbeddedPC #FK to(EmbeddedPC));
+
+sequenceassigned(pk:long [PK], other:SequenceAssigned #FK to(A));
+
+modruntimetest1(serialversionuid:long, id:int [PK], field:Locale, field:int, field:String, trans:String, selfoneone:ModRuntimeTest1 #FK to(ModRuntimeTest1));
+
+runtimetest1(serialversionuid:long, field:Date, field:Locale, field:int [PK], field1:int, field:String, //transactionalonlytrans:String, //relations//@transientselfoneone:RuntimeTest1 #FK to(RuntimeTest1), version:int);
+
+superpropertyentity(id:int [PK], name:String);
+
+superfieldentity(id:int [PK], name:String);
+
+charabstractentity(id:long [PK], name:String, DISC_COL: String);
+
+stringabstractentity(id:long [PK], name:String, DISC_COL: String);
+
+integerabstractentity(id:long [PK], name:String, DISC_COL: String);
+
+compuser(name:String, age:int, computername:String, nameaslob:String, nicknames:String, GeneratedName:Address #FK to(A), userid:int [PK], GeneratedName:CreditRating);
+
+course(serialversionuid:long, courseid:Long [PK], coursetext:String);
+
+autoincrementpc1(field:Set, id:int [PK], field:String, oneone:AutoIncrementPC1 #FK to(A));
+
+helperpc3(field:String, id:int [PK]);
+
+merchandise(id:long [PK], id:String [PK], raindates:List<java.sql.Date>, innings:Collection<Inning>);
+
+person(name:String, address:PCAddress #FK to(A), parent:PCPerson #FK to(PCPerson));
+
+part(serialversionuid:long, partname:String, id:PartPK, GeneratedName:Shirt #FK to(Shirt), PARTTYPE: String);
+
+employee(empid:String [PK], version:int, department:M21UniDepartment #FK to(M21UniDepartment), name:String, salary:float, TYPE: String);
+
+flat1(pk:int [PK], version:int, basic:int, EJB_CLS: String);
+
+baseentity(_id:long, _version:int, _s:String, _:short);
+
+employee(empid:String [PK], version:int, name:String, salary:float, TYPE: String);
+
+compuser(name:String, age:int, computername:String, nicknames:String, GeneratedName:Address #FK to(A), userid:int [PK], GeneratedName:CreditRating);
+
+employee(id:int [PK], version:int, firstname:String, lastname:String, EMP_TYPE: String);
+
+manyoneentity(serialversionuid:long, id:long [PK], name:String, rel:ManyOneEntity #FK to(A), optlock:Integer);
+
+modruntimetest1(serialversionuid:long, field:Locale, field:int [PK], field:String, trans:String, selfoneone:ModRuntimeTest1 #FK to(ModRuntimeTest1));
+
+entityainverseeager(id:int [PK], name:String, TYPE: String);
+
+car2(id:int [PK], model:String, color:String, discrcol: String);
+
+animal(id:int [PK], type:String, name:String, age:int, \: String);
+
+car(id:long [PK], GeneratedName:Model #FK to(Model), version:int, discrcol: String);
+
+animal2(id:int [PK], type:String, name:String, \: String);
+
+fgemployee(id:int [PK], lastname:String, firstname:String, description:String, dept:FGDepartment #FK to(A), address:FGAddress #FK to(A), manager:FGManager #FK to(A), rating:String, EMP_TYPE: String);
+
+flat1(pk:int [PK], version:int, basic:int, EJB_CLS: String);
+
+entitya(id:Integer [PK], name:String, GeneratedName:EntityB #FK to(EntityB), optlock:Integer);
+
+entityb(id:Integer [PK], name:String, GeneratedName:EntityC #FK to(EntityC), optlock:Integer);
+
+cacheobjectb(str:String, TYP: String);
+
+cacheobjecte(str:String, TYP: String);
+
+pidstcdmscrootentity(rootentitydata:String, TYPE: String);
+
+pidstidmscrootentity(rootentitydata:String, entityddata:String, leafb1data:String, leafb1data:String, TYPE: String);
+
+pidstsdmscrootentity(rootentitydata:String, TYPE: String);
+
+computeruser(oid:Integer [PK]);
+
+person(id:int [PK] #FK to Person #FK to Person, id:int [PK] #FK to Person, id:int [PK], forename:String, surname:String);
+
+person(id:int [PK], forename:String, surname:String);
+
+person(serialversionuid:long, id:int [PK], firstname:String, lastname:String);
+
+annuity(serialversionuid:long, rate:Double, DTYPE: String);
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

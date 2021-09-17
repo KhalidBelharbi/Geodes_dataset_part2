@@ -1,0 +1,21 @@
+
+syswork(/***/serialversionuid:long, id:String [PK], projectname:String, userid:String, starttime:Date, endtime:Date, moditime:Date, jobdescription:String, type:String, like:Integer, grade:BigDecimal);
+
+sysporject(/***/serialversionuid:long, id:String [PK]);
+
+approvalinfo(/***/serialversionuid:long, id:String [PK], /***更新时间*/moditime:Date, user:String, organization:String, status:String, auditor:String);
+
+sysrole(/***/serialversionuid:long, id:String [PK], /***角色名称*/name:String, /***角色描述*/comments:String, /***更新时间*/moditime:Date);
+
+sys_user_role_r(user_id:SysRole [PK] #FK to SysRole,role_id:list<sysuser> [PK] #FK to list<sysuser>);
+
+sysorganization(/***/serialversionuid:long, id:String [PK], /***机构代码(行政区划码)*/code:String, /***机构名称*/name:String, /***机构类型*/type:String, /***机构等级*/level:String, /***上级节点id*/pid:String, /***电话*/phone:String, /***地址*/addr:String, /***负责人*/principal:String, /***更新时间*/moditime:Date);
+
+sysstation(/***/serialversionuid:long, id:String [PK], /***个人电脑编号*/pccode:String, /***pcip个人电脑ip*/pcip:String, GeneratedName:SysUser #FK to(sysuser));
+
+sysuser(/***/serialversionuid:long, id:String [PK], /***用户状态*/status:String, /***邮箱*/email:String, /***登录用户名*/loginname:String, /***用户名名称*/username:String, /***密码策略*/password:String, /***电话*/phone:String, /***更新时间*/moditime:Date, GeneratedName:SysOrganization #FK to(sysorganization), portrait:String, description:String, address:String);
+
+userinfo(id:Long [PK], name:String, age:int, sex:String, address:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

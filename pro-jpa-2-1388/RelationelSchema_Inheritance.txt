@@ -1,0 +1,19 @@
+address(id:int [PK], street:String, city:String, state:String, zip:String);
+
+project(id:int [PK], name:String);
+
+project_collection<employee>(projectID:project [PK] #FK to project,collection<employee>ID:collection<employee> [PK] #FK to collection<employee>);
+
+department(id:int [PK], name:String);
+
+phone(id:long [PK], number:String, type:String, GeneratedName:Employee #FK to(employee));
+
+qualityproject(qa_rating:int);
+
+employee(id:int [PK], name:EmployeeName, salary:long, start:Date, GeneratedName:Address #FK to(Address), GeneratedName:Department #FK to(Department), manager:Employee #FK to(employee));
+
+project();
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

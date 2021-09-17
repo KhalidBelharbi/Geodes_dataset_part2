@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="test" >
+      <xs:complexContent>
+       <xs:extension base="base<string>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mybatisconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="base" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="aop" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mock" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basedao" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="entity" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="topichibernatedao" >
+      <xs:complexContent>
+       <xs:extension base="basedao">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="forumhibernatedao" >
+      <xs:complexContent>
+       <xs:extension base="basedao">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="posthibernatedao" >
+      <xs:complexContent>
+       <xs:extension base="basedao">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basedao" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="posthibernatedao" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="topichibernatedao" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="forumhibernatedao" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="forumdao" >
+      <xs:complexContent>
+       <xs:extension base="basedao<forum>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="forummybatistemplatedao" >
+      <xs:sequence>
+        <xs:element name="sessiontemplate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="topicmybatisdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="postmybatisdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="forummybatisdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="forum.hbm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="forum" >
+      <xs:sequence>
+        <xs:element name="forumid" type="xs:long" />
+        <xs:element name="forumname" type="xs:string" />
+        <xs:element name="forumdesc" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="post" >
+      <xs:sequence>
+        <xs:element name="postid" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="GeneratedName" type="topic" nillable="true" minOccurs="0" />
+        <xs:element name="posttext" type="xs:string" />
+        <xs:element name="postattach" type="xs:anyType" />
+        <xs:element name="posttime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="topic.hbm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="topic" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="topicid" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="topictitle" type="xs:string" />
+        <xs:element name="topictime" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="forum" nillable="true" minOccurs="0" />
+        <xs:element name="topicviews" type="xs:long" />
+        <xs:element name="posts" type="post" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="topicreplies" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="post.hbm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bbtforumserive" >
+      <xs:sequence>
+        <xs:element name="forumdao" type="forumhibernatedao" nillable="true" minOccurs="0" />
+        <xs:element name="topicdao" type="topichibernatedao" nillable="true" minOccurs="0" />
+        <xs:element name="postdao" type="posthibernatedao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bbtforumserive" >
+      <xs:sequence>
+        <xs:element name="forumdao" type="forummybatisdao" nillable="true" minOccurs="0" />
+        <xs:element name="topicdao" type="topicmybatisdao" nillable="true" minOccurs="0" />
+        <xs:element name="postdao" type="postmybatisdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

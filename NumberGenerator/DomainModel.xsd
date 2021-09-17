@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="bulktask" >
+      <xs:complexContent>
+       <xs:extension base="task{">
+         <xs:sequence>
+          <xs:element name="operations" type="operation" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="task" >
+      <xs:sequence>
+        <xs:element name="uuid" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="status" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="operation" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="goal" type="xs:long" />
+        <xs:element name="step" type="xs:long" />
+        <xs:element name="nums" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="unittask" >
+      <xs:complexContent>
+       <xs:extension base="task{">
+         <xs:sequence>
+          <xs:element name="" type="operation" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="masina" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="license" nillable="true" minOccurs="0" />
+        <xs:element name="marca" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="avocat" >
+      <xs:complexContent>
+       <xs:extension base="anagajat{">
+         <xs:sequence>
+          <xs:element name="specializare" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="anagajat" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nume" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="programator" >
+      <xs:complexContent>
+       <xs:extension base="anagajat{">
+         <xs:sequence>
+          <xs:element name="limbaj" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="student" >
+      <xs:sequence>
+        <xs:element name="nume" type="xs:string" />
+        <xs:element name="prenume" type="xs:string" />
+        <xs:element name="varsta" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="produs" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nume" type="xs:string" />
+        <xs:element name="pret" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bere" >
+      <xs:complexContent>
+       <xs:extension base="produs{">
+         <xs:sequence>
+          <xs:element name="procentalcool" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ciocolata" >
+      <xs:complexContent>
+       <xs:extension base="produs">
+         <xs:sequence>
+          <xs:element name="kcal" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="publicatie" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="titlu" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="carte" >
+      <xs:complexContent>
+       <xs:extension base="publicatie">
+         <xs:sequence>
+          <xs:element name="isbn" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="articol" >
+      <xs:complexContent>
+       <xs:extension base="publicatie">
+         <xs:sequence>
+          <xs:element name="revista" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cisco" >
+      <xs:complexContent>
+       <xs:extension base="curs{">
+         <xs:sequence>
+          <xs:element name="nrechipamente" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="java" >
+      <xs:complexContent>
+       <xs:extension base="curs">
+         <xs:sequence>
+          <xs:element name="durata" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="liniefactura" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="produs" type="xs:string" />
+        <xs:element name="cantaitate" type="xs:long" />
+        <xs:element name="pret" type="xs:double" />
+        <xs:element name="GeneratedName" type="factura" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="factura" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="serie" type="xs:string" />
+        <xs:element name="numar" type="xs:long" />
+        <xs:element name="linii" type="liniefactura" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

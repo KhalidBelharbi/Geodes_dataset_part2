@@ -1,0 +1,889 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="whitelist" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="imei" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baseheroequip" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="pk" type="baseheroequippk" nillable="true" minOccurs="0" />
+        <xs:element name="equip1" type="baseitem" nillable="true" minOccurs="0" />
+        <xs:element name="equip2" type="baseitem" nillable="true" minOccurs="0" />
+        <xs:element name="equip3" type="baseitem" nillable="true" minOccurs="0" />
+        <xs:element name="equip4" type="baseitem" nillable="true" minOccurs="0" />
+        <xs:element name="equip5" type="baseitem" nillable="true" minOccurs="0" />
+        <xs:element name="equip6" type="baseitem" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baseshopdiscount" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="type" type="xs:anyType" />
+        <xs:element name="discount" type="xs:anyType" />
+        <xs:element name="begintime" type="xs:anyType" />
+        <xs:element name="endtime" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basespecialcopy" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="week" type="xs:anyType" />
+        <xs:element name="type" type="xs:anyType" />
+        <xs:element name="begintime" type="xs:anyType" />
+        <xs:element name="endtime" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baseitem" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="baseid" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="type" type="xs:anyType" />
+        <xs:element name="sellcoin" type="xs:anyType" />
+        <xs:element name="makecoin" type="xs:anyType" />
+        <xs:element name="color" type="xs:anyType" />
+        <xs:element name="exp" type="xs:anyType" />
+        <xs:element name="level" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baseitemshop" >
+      <xs:sequence>
+        <xs:element name="money_type_coin" type="xs:long" />
+        <xs:element name="money_type_gold" type="xs:long" />
+        <xs:element name="//竞技场币money_type_3" type="xs:long" />
+        <xs:element name="//远征币money_type_4" type="xs:long" />
+        <xs:element name="//远征币money_type_5" type="xs:long" />
+        <xs:element name="//普通商店shop_type_1" type="xs:long" />
+        <xs:element name="//竞技场商店shop_type_3" type="xs:long" />
+        <xs:element name="//远征商店shop_type_4" type="xs:long" />
+        <xs:element name="//boss商店shop_type_5" type="xs:long" />
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="itemid" type="xs:anyType" />
+        <xs:element name="type" type="xs:anyType" />
+        <xs:element name="moneytype" type="xs:anyType" />
+        <xs:element name="price" type="xs:anyType" />
+        <xs:element name="num" type="xs:anyType" />
+        <xs:element name="sold" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basestory" >
+      <xs:sequence>
+        <xs:element name="copy_type" type="xs:long" />
+        <xs:element name="hero_copy_type" type="xs:long" />
+        <xs:element name="special_copy_type" type="xs:long" />
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="type" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="teamexp" type="xs:anyType" />
+        <xs:element name="exp" type="xs:anyType" />
+        <xs:element name="coin" type="xs:anyType" />
+        <xs:element name="//等级限制unlocklevel" type="xs:anyType" />
+        <xs:element name="//掉落道具items" type="xs:string" />
+        <xs:element name="//扫荡掉落wipeoutitems" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baseheroshop" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="quality" type="xs:anyType" />
+        <xs:element name="itemid" type="xs:anyType" />
+        <xs:element name="minnum" type="xs:anyType" />
+        <xs:element name="maxnum" type="xs:anyType" />
+        <xs:element name="weight" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basemakeitem" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="pk" type="basemakeitempk" nillable="true" minOccurs="0" />
+        <xs:element name="num" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baseskill" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="maxlevel" type="xs:long" />
+        <xs:element name="basecoin" type="xs:long" />
+        <xs:element name="levelupcoin" type="xs:long" />
+        <xs:element name="combo" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baseachievement" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="type_crusade" type="xs:string" />
+        <xs:element name="type_hero_class" type="xs:string" />
+        <xs:element name="type_hero_id" type="xs:string" />
+        <xs:element name="type_kill_num" type="xs:string" />
+        <xs:element name="type_pk" type="xs:string" />
+        <xs:element name="type_vip" type="xs:string" />
+        <xs:element name="type_star" type="xs:string" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="parentid" type="xs:long" />
+        <xs:element name="goal" type="xs:long" />
+        <xs:element name="money" type="xs:long" />
+        <xs:element name="target" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="reward" type="xs:string" />
+        <xs:element name="desc" type="xs:string" />
+        <xs:element name="other" type="xs:string" />
+        <xs:element name="num" type="xs:long" />
+        <xs:element name="moneytype" type="xs:long" />
+        <xs:element name="complete" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basedailytask" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="goal" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="reward" type="xs:string" />
+        <xs:element name="desc" type="xs:string" />
+        <xs:element name="num" type="xs:long" />
+        <xs:element name="complete" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baseboss" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="level" type="xs:long" />
+        <xs:element name="hp" type="xs:long" />
+        <xs:element name="skill1level" type="xs:long" />
+        <xs:element name="skill2level" type="xs:long" />
+        <xs:element name="skill3level" type="xs:long" />
+        <xs:element name="skill4level" type="xs:long" />
+        <xs:element name="atk" type="xs:long" />
+        <xs:element name="def" type="xs:long" />
+        <xs:element name="magic" type="xs:long" />
+        <xs:element name="//魔抗mr" type="xs:long" />
+        <xs:element name="crtical" type="xs:long" />
+        <xs:element name="dex" type="xs:long" />
+        <xs:element name="vampire" type="xs:long" />
+        <xs:element name="other" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basehero" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="star" type="xs:anyType" />
+        <xs:element name="skill1" type="baseskill" nillable="true" minOccurs="0" />
+        <xs:element name="skill2" type="baseskill" nillable="true" minOccurs="0" />
+        <xs:element name="skill3" type="baseskill" nillable="true" minOccurs="0" />
+        <xs:element name="skill4" type="baseskill" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basemission" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="//longserialversionuid" type="xs:anyType" />
+        <xs:element name="parentid" type="xs:anyType" />
+        <xs:element name="goal" type="xs:anyType" />
+        <xs:element name="level" type="xs:anyType" />
+        <xs:element name="target" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="reward" type="xs:string" />
+        <xs:element name="desc" type="xs:string" />
+        <xs:element name="num" type="xs:long" />
+        <xs:element name="complete" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mail" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="//privatelongserialversionuid" type="xs:long" />
+        <xs:element name="deleted" type="xs:long" />
+        <xs:element name="//publicintsystem" type="xs:anyType" />
+        <xs:element name="fromname" type="xs:string" />
+        <xs:element name="roleid" type="xs:anyType" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="attachment" type="xs:string" />
+        <xs:element name="status" type="xs:anyType" />
+        <xs:element name="sendtime" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="friend" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="roleid" type="xs:anyType" />
+        <xs:element name="roleid2" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bosskiller" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="roleid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="serverid" type="xs:long" />
+        <xs:element name="date" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="friendap" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="roleid" type="xs:anyType" />
+        <xs:element name="roleid2" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="avatar" type="xs:long" />
+        <xs:element name="level" type="xs:long" />
+        <xs:element name="date" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basespecialcopy" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="week" type="xs:anyType" />
+        <xs:element name="type" type="xs:anyType" />
+        <xs:element name="begintime" type="xs:anyType" />
+        <xs:element name="endtime" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="order" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="status_create" type="xs:long" />
+        <xs:element name="status_pay" type="xs:long" />
+        <xs:element name="status_success" type="xs:long" />
+        <xs:element name="moon_card" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="roleid" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="serverid" type="xs:long" />
+        <xs:element name="type" type="xs:long" />
+        <xs:element name="gold" type="xs:long" />
+        <xs:element name="addgold" type="xs:long" />
+        <xs:element name="money" type="xs:long" />
+        <xs:element name="status" type="xs:long" />
+        <xs:element name="platformid" type="xs:long" />
+        <xs:element name="time" type="xs:anyType" />
+        <xs:element name="desc" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="killrank" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="roleid" type="xs:anyType" />
+        <xs:element name="serverid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="avatar" type="xs:long" />
+        <xs:element name="level" type="xs:long" />
+        <xs:element name="num" type="xs:long" />
+        <xs:element name="time" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="normal_reg" type="xs:long" />
+        <xs:element name="quick_reg" type="xs:long" />
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="imei" type="xs:string" />
+        <xs:element name="//@column(name" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="registertype" type="xs:long" />
+        <xs:element name="time" type="xs:anyType" />
+        <xs:element name="signintime" type="xs:anyType" />
+        <xs:element name="token" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baseheroequip" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="pk" type="baseheroequippk" nillable="true" minOccurs="0" />
+        <xs:element name="equip1" type="baseitem" nillable="true" minOccurs="0" />
+        <xs:element name="equip2" type="baseitem" nillable="true" minOccurs="0" />
+        <xs:element name="equip3" type="baseitem" nillable="true" minOccurs="0" />
+        <xs:element name="equip4" type="baseitem" nillable="true" minOccurs="0" />
+        <xs:element name="equip5" type="baseitem" nillable="true" minOccurs="0" />
+        <xs:element name="equip6" type="baseitem" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="onlinelog" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="num" type="xs:long" />
+        <xs:element name="time" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basecheckin" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="month" type="xs:anyType" />
+        <xs:element name="reward" type="xs:string" />
+        <xs:element name="//累计签到奖励lj" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notice" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="begintime" type="xs:string" />
+        <xs:element name="endtime" type="xs:string" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basehero" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="star" type="xs:anyType" />
+        <xs:element name="skill1" type="baseskill" nillable="true" minOccurs="0" />
+        <xs:element name="skill2" type="baseskill" nillable="true" minOccurs="0" />
+        <xs:element name="skill3" type="baseskill" nillable="true" minOccurs="0" />
+        <xs:element name="skill4" type="baseskill" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baseskill" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="//name" type="xs:string" />
+        <xs:element name="//maxlevel" type="xs:anyType" />
+        <xs:element name="//basecoin" type="xs:anyType" />
+        <xs:element name="//levelupcoin" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="item" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="itemid" type="xs:anyType" />
+        <xs:element name="level" type="xs:anyType" />
+        <xs:element name="num" type="xs:anyType" />
+        <xs:element name="roleid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ljcheckin" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="roleid" type="xs:long" />
+        <xs:element name="month" type="xs:long" />
+        <xs:element name="num" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="friendmsg" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="roleid" type="xs:anyType" />
+        <xs:element name="roleid2" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="avatar" type="xs:long" />
+        <xs:element name="level" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="server" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="state" type="xs:anyType" />
+        <xs:element name="enable" type="xs:anyType" />
+        <xs:element name="haveplayer" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="power" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="roleid" type="xs:anyType" />
+        <xs:element name="power" type="xs:anyType" />
+        <xs:element name="level" type="xs:anyType" />
+        <xs:element name="avatar" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="serverid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="giftcode" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="status" type="xs:anyType" />
+        <xs:element name="giftid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baseitemshop" >
+      <xs:sequence>
+        <xs:element name="money_type_coin" type="xs:long" />
+        <xs:element name="money_type_gold" type="xs:long" />
+        <xs:element name="//竞技场币money_type_3" type="xs:long" />
+        <xs:element name="//远征币money_type_4" type="xs:long" />
+        <xs:element name="//普通商店shop_type_1" type="xs:long" />
+        <xs:element name="//竞技场商店shop_type_3" type="xs:long" />
+        <xs:element name="//远征商店shop_type_4" type="xs:long" />
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="itemid" type="xs:anyType" />
+        <xs:element name="type" type="xs:anyType" />
+        <xs:element name="moneytype" type="xs:anyType" />
+        <xs:element name="price" type="xs:anyType" />
+        <xs:element name="num" type="xs:anyType" />
+        <xs:element name="sold" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basepayshop" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="m_card" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="type" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="addgold" type="xs:anyType" />
+        <xs:element name="gold" type="xs:anyType" />
+        <xs:element name="money" type="xs:anyType" />
+        <xs:element name="order" type="xs:anyType" />
+        <xs:element name="desc" type="xs:string" />
+        <xs:element name="recommend" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="copystar" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="type" type="xs:long" />
+        <xs:element name="chapter" type="xs:long" />
+        <xs:element name="star" type="xs:long" />
+        <xs:element name="roleid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basestory" >
+      <xs:sequence>
+        <xs:element name="copy_type" type="xs:long" />
+        <xs:element name="hero_copy_type" type="xs:long" />
+        <xs:element name="special_copy_type" type="xs:long" />
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="type" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="teamexp" type="xs:anyType" />
+        <xs:element name="exp" type="xs:anyType" />
+        <xs:element name="coin" type="xs:anyType" />
+        <xs:element name="//等级限制unlocklevel" type="xs:anyType" />
+        <xs:element name="//掉落道具items" type="xs:string" />
+        <xs:element name="//扫荡掉落wipeoutitems" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mission" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="aroleid" type="xs:long" />
+        <xs:element name="missionid" type="xs:long" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="num" type="xs:long" />
+        <xs:element name="complete" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="battlelog" >
+      <xs:sequence>
+        <xs:element name="//新战斗battle_log_init" type="xs:long" />
+        <xs:element name="//胜利battle_log_win" type="xs:long" />
+        <xs:element name="//失败battle_log_lost" type="xs:long" />
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="roleid" type="xs:anyType" />
+        <xs:element name="storyid" type="xs:anyType" />
+        <xs:element name="storytype" type="xs:anyType" />
+        <xs:element name="//0无发送结果1胜利2失败battleresult" type="xs:anyType" />
+        <xs:element name="begintime" type="xs:anyType" />
+        <xs:element name="endtime" type="xs:anyType" />
+        <xs:element name="heroid1" type="xs:anyType" />
+        <xs:element name="heroid2" type="xs:anyType" />
+        <xs:element name="heroid3" type="xs:anyType" />
+        <xs:element name="heroid4" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="roleid2" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="activity" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="roleid" type="xs:anyType" />
+        <xs:element name="actid" type="xs:anyType" />
+        <xs:element name="key" type="xs:long" />
+        <xs:element name="time" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basemakeitem" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="pk" type="basemakeitempk" nillable="true" minOccurs="0" />
+        <xs:element name="num" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baseshopdiscount" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="type" type="xs:anyType" />
+        <xs:element name="discount" type="xs:anyType" />
+        <xs:element name="begintime" type="xs:anyType" />
+        <xs:element name="endtime" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bossdamage" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="roleid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="avatar" type="xs:long" />
+        <xs:element name="serverid" type="xs:long" />
+        <xs:element name="damage" type="xs:long" />
+        <xs:element name="date" type="xs:long" />
+        <xs:element name="heros" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="arena" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="roleid" type="xs:anyType" />
+        <xs:element name="rank" type="xs:anyType" />
+        <xs:element name="battlenum" type="xs:anyType" />
+        <xs:element name="date" type="xs:anyType" />
+        <xs:element name="battletime" type="xs:long" />
+        <xs:element name="winnum" type="xs:anyType" />
+        <xs:element name="generalid1" type="xs:anyType" />
+        <xs:element name="generalid2" type="xs:anyType" />
+        <xs:element name="generalid3" type="xs:anyType" />
+        <xs:element name="generalid4" type="xs:anyType" />
+        <xs:element name="//购买挑战次数buynum" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baseheroshop" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="quality" type="xs:anyType" />
+        <xs:element name="itemid" type="xs:anyType" />
+        <xs:element name="minnum" type="xs:anyType" />
+        <xs:element name="maxnum" type="xs:anyType" />
+        <xs:element name="weight" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="actioncooltime" type="xs:long" />
+        <xs:element name="//体力最大值-等级anum" type="xs:long" />
+        <xs:element name="exp" type="xs:long" />
+        <xs:element name="vip_gold" type="xs:long" />
+        <xs:element name="roleid" type="xs:anyType" />
+        <xs:element name="coin" type="xs:long" />
+        <xs:element name="gold" type="xs:long" />
+        <xs:element name="exp" type="xs:long" />
+        <xs:element name="ap" type="xs:long" />
+        <xs:element name="aptime" type="xs:long" />
+        <xs:element name="vip" type="xs:long" />
+        <xs:element name="bargoldtime" type="xs:long" />
+        <xs:element name="//@column(name" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="avatar" type="xs:long" />
+        <xs:element name="serverid" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="money3" type="xs:long" />
+        <xs:element name="money4" type="xs:long" />
+        <xs:element name="money5" type="xs:long" />
+        <xs:element name="level" type="xs:long" />
+        <xs:element name="createtime" type="xs:anyType" />
+        <xs:element name="enable" type="xs:anyType" />
+        <xs:element name="str" type="xs:string" />
+        <xs:element name="countgold" type="xs:long" />
+        <xs:element name="pillagetime" type="xs:long" />
+        <xs:element name="pillagenum" type="xs:long" />
+        <xs:element name="rank" type="xs:long" />
+        <xs:element name="winnum" type="xs:long" />
+        <xs:element name="cardtime" type="xs:long" />
+        <xs:element name="killnum" type="xs:long" />
+        <xs:element name="disablemsg" type="xs:anyType" />
+        <xs:element name="crusadenum" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="version" >
+      <xs:sequence>
+        <xs:element name="type_zip" type="xs:long" />
+        <xs:element name="type_apk" type="xs:long" />
+        <xs:element name="enable" type="xs:long" />
+        <xs:element name="versioncode" type="xs:anyType" />
+        <xs:element name="versiontype" type="xs:anyType" />
+        <xs:element name="versionname" type="xs:string" />
+        <xs:element name="versionurl" type="xs:string" />
+        <xs:element name="versionenable" type="xs:anyType" />
+        <xs:element name="channel" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gifttemplate" >
+      <xs:sequence>
+        <xs:element name="//可重复type_0" type="xs:long" />
+        <xs:element name="type_1" type="xs:long" />
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="type" type="xs:long" />
+        <xs:element name="reward" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ranklog" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="date" type="xs:long" />
+        <xs:element name="serverid" type="xs:long" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="rank" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="itemtable" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="itemid" type="xs:anyType" />
+        <xs:element name="level" type="xs:anyType" />
+        <xs:element name="num" type="xs:anyType" />
+        <xs:element name="roleid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="skill" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="aroleid" type="xs:long" />
+        <xs:element name="skillid" type="xs:long" />
+        <xs:element name="level" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baseactivity" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="icon" type="xs:string" />
+        <xs:element name="begintime" type="xs:anyType" />
+        <xs:element name="endtime" type="xs:anyType" />
+        <xs:element name="reward" type="xs:string" />
+        <xs:element name="serverid" type="xs:long" />
+        <xs:element name="enable" type="xs:anyType" />
+        <xs:element name="order" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="achievement" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="aroleid" type="xs:long" />
+        <xs:element name="achievementid" type="xs:long" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="complete" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="checkin" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="roleid" type="xs:anyType" />
+        <xs:element name="month" type="xs:anyType" />
+        <xs:element name="day" type="xs:anyType" />
+        <xs:element name="num" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="financelog" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="status_gen_skill_levelup" type="xs:long" />
+        <xs:element name="status_gen_star_up" type="xs:long" />
+        <xs:element name="status_random_gen_one_times_coin" type="xs:long" />
+        <xs:element name="status_random_gen_one_times_gold" type="xs:long" />
+        <xs:element name="status_random_gen_ten_times_coin" type="xs:long" />
+        <xs:element name="status_random_gen_ten_times_gold" type="xs:long" />
+        <xs:element name="status_reset_skill" type="xs:long" />
+        <xs:element name="status_reset_po" type="xs:long" />
+        <xs:element name="status_random_soul" type="xs:long" />
+        <xs:element name="status_equip_make" type="xs:long" />
+        <xs:element name="status_item_sell" type="xs:long" />
+        <xs:element name="//status_mail_get_coin" type="xs:long" />
+        <xs:element name="status_sign_get_gold" type="xs:long" />
+        <xs:element name="status_pay_get_gold" type="xs:long" />
+        <xs:element name="status_shop_refresh" type="xs:long" />
+        <xs:element name="status_shop_buy_coin" type="xs:long" />
+        <xs:element name="status_shop_buy_gold" type="xs:long" />
+        <xs:element name="status_story_get_coin" type="xs:long" />
+        <xs:element name="status_wipe_out_get" type="xs:long" />
+        <xs:element name="status_buy_physical_strengthp" type="xs:long" />
+        <xs:element name="//status_task_get_coin" type="xs:long" />
+        <xs:element name="//status_activity_pay_coin" type="xs:long" />
+        <xs:element name="status_activity_pay" type="xs:long" />
+        <xs:element name="status_daily_task_get" type="xs:long" />
+        <xs:element name="status_buy_wipe_out" type="xs:long" />
+        <xs:element name="status_code_get" type="xs:long" />
+        <xs:element name="status_task_get" type="xs:long" />
+        <xs:element name="status_arena_buy" type="xs:long" />
+        <xs:element name="status_update_name" type="xs:long" />
+        <xs:element name="status_battle_in_world" type="xs:long" />
+        <xs:element name="//扫荡status_gold_wipe_out" type="xs:long" />
+        <xs:element name="status_shop_buy_money3" type="xs:long" />
+        <xs:element name="status_shop_buy_money4" type="xs:long" />
+        <xs:element name="status_coin_equip_exp" type="xs:long" />
+        <xs:element name="status_chat" type="xs:long" />
+        <xs:element name="//投资计划status_touzijihua" type="xs:long" />
+        <xs:element name="//成就获得status_ach_get" type="xs:long" />
+        <xs:element name="//成就消费status_buy_ach" type="xs:long" />
+        <xs:element name="status_shop_buy_money5" type="xs:long" />
+        <xs:element name="status_reset_boss" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="//1coin2goldmoneytype" type="xs:anyType" />
+        <xs:element name="oldmoney" type="xs:anyType" />
+        <xs:element name="newmoney" type="xs:anyType" />
+        <xs:element name="status" type="xs:anyType" />
+        <xs:element name="time" type="xs:anyType" />
+        <xs:element name="roleid" type="xs:anyType" />
+        <xs:element name="desc" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basedailytask" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="goal" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="reward" type="xs:string" />
+        <xs:element name="desc" type="xs:string" />
+        <xs:element name="num" type="xs:long" />
+        <xs:element name="complete" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="arenalog" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="begintime" type="xs:long" />
+        <xs:element name="endtime" type="xs:long" />
+        <xs:element name="roleid1" type="xs:anyType" />
+        <xs:element name="roleid2" type="xs:anyType" />
+        <xs:element name="battleresult" type="xs:anyType" />
+        <xs:element name="rank1" type="xs:anyType" />
+        <xs:element name="rank2" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="name1" type="xs:string" />
+        <xs:element name="name2" type="xs:string" />
+        <xs:element name="avatar1" type="xs:anyType" />
+        <xs:element name="avatar2" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="giftlog" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="giftid" type="xs:anyType" />
+        <xs:element name="roleid" type="xs:anyType" />
+        <xs:element name="rolename" type="xs:string" />
+        <xs:element name="time" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basemission" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="//longserialversionuid" type="xs:anyType" />
+        <xs:element name="parentid" type="xs:anyType" />
+        <xs:element name="goal" type="xs:anyType" />
+        <xs:element name="level" type="xs:anyType" />
+        <xs:element name="target" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="reward" type="xs:string" />
+        <xs:element name="desc" type="xs:string" />
+        <xs:element name="num" type="xs:long" />
+        <xs:element name="complete" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baseitem" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="baseid" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="type" type="xs:anyType" />
+        <xs:element name="sellcoin" type="xs:anyType" />
+        <xs:element name="makecoin" type="xs:anyType" />
+        <xs:element name="color" type="xs:anyType" />
+        <xs:element name="exp" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hero" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="exp" type="xs:long" />
+        <xs:element name="aroleid" type="xs:long" />
+        <xs:element name="heroid" type="xs:long" />
+        <xs:element name="exp" type="xs:long" />
+        <xs:element name="str" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:long" />
+        <xs:element name="dex" type="xs:long" />
+        <xs:element name="class" type="xs:long" />
+        <xs:element name="star" type="xs:long" />
+        <xs:element name="isbattle" type="xs:anyType" />
+        <xs:element name="position" type="xs:long" />
+        <xs:element name="skill1level" type="xs:long" />
+        <xs:element name="skill2level" type="xs:long" />
+        <xs:element name="skill3level" type="xs:long" />
+        <xs:element name="skill4level" type="xs:long" />
+        <xs:element name="equip1" type="xs:anyType" />
+        <xs:element name="equip2" type="xs:anyType" />
+        <xs:element name="equip3" type="xs:anyType" />
+        <xs:element name="equip4" type="xs:anyType" />
+        <xs:element name="equip5" type="xs:anyType" />
+        <xs:element name="equip6" type="xs:anyType" />
+        <xs:element name="//这个是专属神器//@jsonserialize(include" type="xs:long" />
+        <xs:element name="equip1exp" type="xs:long" />
+        <xs:element name="equip2exp" type="xs:long" />
+        <xs:element name="equip3exp" type="xs:long" />
+        <xs:element name="equip4exp" type="xs:long" />
+        <xs:element name="equip5exp" type="xs:long" />
+        <xs:element name="equip6exp" type="xs:long" />
+        <xs:element name="equip7exp" type="xs:long" />
+        <xs:element name="level" type="xs:long" />
+        <xs:element name="hp" type="xs:anyType" />
+        <xs:element name="cd" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="story" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="copy_type" type="xs:long" />
+        <xs:element name="hero_copy_type" type="xs:long" />
+        <xs:element name="aroleid" type="xs:anyType" />
+        <xs:element name="storyid" type="xs:anyType" />
+        <xs:element name="type" type="xs:anyType" />
+        <xs:element name="star" type="xs:anyType" />
+        <xs:element name="num" type="xs:anyType" />
+        <xs:element name="buynum" type="xs:anyType" />
+        <xs:element name="date" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

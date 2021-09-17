@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="tag" >
+      <xs:complexContent>
+       <xs:extension base="com.epam.esm.entity.entity<long>">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="certificates" type="certificate" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="certificate" >
+      <xs:complexContent>
+       <xs:extension base="com.epam.esm.entity.entity<long>">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="price" type="xs:anyType" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="duration" type="xs:anyType" />
+          <xs:element name="createdate" type="xs:anyType" />
+          <xs:element name="updatelastdate" type="xs:anyType" />
+          <xs:element name="tags" type="tag" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="com.epam.esm.entity.entity<long>">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="surname" type="xs:string" />
+          <xs:element name="createdate" type="xs:anyType" />
+          <xs:element name="lastupdatedate" type="xs:anyType" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="" type="role" nillable="true" minOccurs="0" />
+          <xs:element name="" type="status" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="order" >
+      <xs:complexContent>
+       <xs:extension base="com.epam.esm.entity.entity<long>">
+         <xs:sequence>
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="totalsum" type="xs:anyType" />
+          <xs:element name="count" type="xs:anyType" />
+          <xs:element name="createdate" type="xs:anyType" />
+          <xs:element name="orderitems" type="orderitem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderitem" >
+      <xs:complexContent>
+       <xs:extension base="com.epam.esm.entity.entity<long>">
+         <xs:sequence>
+          <xs:element name="" type="certificate" nillable="true" minOccurs="0" />
+          <xs:element name="count" type="xs:long" />
+          <xs:element name="" type="order" nillable="true" minOccurs="0" />
+          <xs:element name="priceofcertificate" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

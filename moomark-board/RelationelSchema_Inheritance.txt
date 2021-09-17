@@ -1,0 +1,17 @@
+
+boardcomment(id:Long [PK], GeneratedName:Board #FK to(Board), GeneratedName:Comment #FK to(comment));
+
+boardtag(id:Long [PK], GeneratedName:Board #FK to(Board), GeneratedName:Tag #FK to(tag));
+
+boardcategory(id:Long [PK], GeneratedName:Board #FK to(Board), GeneratedName:Category #FK to(category));
+
+board(id:Long [PK], authorid:Long, recommendcount:Long, viewscount:Long, title:String, content:String, uploadtime:LocalDateTime);
+
+category(id:Long [PK], categorytype:String, parent:Category #FK to(category));
+
+tag(id:Long [PK], information:String);
+
+comment(id:Long [PK], userid:Long, content:String, parent:Comment #FK to(comment));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

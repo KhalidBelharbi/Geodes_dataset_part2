@@ -1,0 +1,21 @@
+attendance(GeneratedName:Date, GeneratedName:Employee #FK to(employee));
+
+base(/***/serialversionuid:long, id:String [PK], createdon:Date, modifiedon:Date, isdeleted:boolean);
+
+role(serialversionuid:long, rolename:String);
+
+parkingslot(slottype:String, slotposition:int, isavailable:boolean);
+
+file(/***/serialversionuid:long, parent:Base #FK to(base), filename:String, fileimagefile:MultipartFile);
+
+user(username:String, password:String, isactive:boolean);
+
+user_roles(user_id:User [PK] #FK to User,role_id:set<role> [PK] #FK to set<role>);
+
+parkingrequest(GeneratedName:Employee #FK to(employee), GeneratedName:ParkingSlot #FK to(parkingslot), parking:Date);
+
+employee(employeename:String, employeeid:String, email:String, image:File #FK to(file), GeneratedName:User #FK to(user));
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

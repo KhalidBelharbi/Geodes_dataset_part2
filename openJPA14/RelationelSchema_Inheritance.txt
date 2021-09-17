@@ -1,0 +1,13 @@
+
+creator(id:long [PK], firstname:String, lastname:String);
+
+creator_list<album>(creatorID:creator [PK] #FK to creator,list<album>ID:list<album> [PK] #FK to list<album>);
+
+album(id:long [PK], name:String);
+
+album_list<creator>(albumID:album [PK] #FK to album,list<creator>ID:list<creator> [PK] #FK to list<creator>);
+
+image(id:long [PK], type:ImageType, filename:String, data:byte, GeneratedName:Location, GeneratedName:Creator);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

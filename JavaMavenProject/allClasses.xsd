@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="simplerestserviceapplication" >
+      <xs:complexContent>
+       <xs:extension base="application">
+         <xs:sequence>
+          <xs:element name="singletons" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="simplerestservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="em" >
+      <xs:sequence>
+        <xs:element name="em" type="xs:anyType" />
+        <xs:element name="tx" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="utils" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="config" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="connection" >
+      <xs:complexContent>
+       <xs:extension base="ioable>">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+          <xs:element name="factory" type="xs:anyType" />
+          <xs:element name="conn" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="lsoperationstatus" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="operationstatusid" type="xs:long" />
+        <xs:element name="//uni-directionalmany-to-oneassociationto" type="lsstatustype" nillable="true" minOccurs="0" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lsclientstatus" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="clientstatusid" type="xs:long" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lsstatustype" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="statustypeid" type="xs:long" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lsmessage" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="messageid" type="xs:long" />
+        <xs:element name="//uni-directionalmany-to-oneassociationto" type="lsmessagetype" nillable="true" minOccurs="0" />
+        <xs:element name="//uni-directionalmany-to-oneassociationtolsclientoperation" type="lsoperation" nillable="true" minOccurs="0" />
+        <xs:element name="phonenumber" type="xs:long" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="issent" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lsagent" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="agentid" type="xs:long" />
+        <xs:element name="//uni-directionalmany-to-oneassociationtolsclientstatus" type="lsagentstatus" nillable="true" minOccurs="0" />
+        <xs:element name="managementbalance" type="xs:double" />
+        <xs:element name="creationtimestamp" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="nif" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lsclient" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="clientid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="nif" type="xs:long" />
+        <xs:element name="isprovider" type="xs:anyType" />
+        <xs:element name="address" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lsmessagetype" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="messagetypeid" type="xs:long" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lscontestationstatus" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="contestationstatusid" type="xs:long" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lsclientconfiguration" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="clientconfigurationid" type="xs:long" />
+        <xs:element name="phonenumber" type="xs:long" />
+        <xs:element name="//uni-directionalmany-to-oneassociationto" type="lsclient" nillable="true" minOccurs="0" />
+        <xs:element name="//uni-directionalmany-to-oneassociationto" type="lsclientstatus" nillable="true" minOccurs="0" />
+        <xs:element name="balance" type="xs:double" />
+        <xs:element name="creationtimestamp" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lsagentstatus" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="agentstatusid" type="xs:long" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lstransactiontype" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="transactiontypeid" type="xs:long" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="responsabilitycenter" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="descricao" type="xs:string" />
+        <xs:element name="siglas" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lscontestation" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="contestationid" type="xs:long" />
+        <xs:element name="//uni-directionalmany-to-oneassociationtolsagentoperation" type="lsoperation" nillable="true" minOccurs="0" />
+        <xs:element name="//uni-directionalmany-to-oneassociationto" type="lscontestationstatus" nillable="true" minOccurs="0" />
+        <xs:element name="disputemessage" type="xs:string" />
+        <xs:element name="resolvedmessage" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="colaboradores" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="datanascimento" type="xs:dateTime" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="vencimento" type="xs:long" />
+        <xs:element name="//bi-directionalmany-to-oneassociationtorc" type="responsabilitycenter" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lsoperation" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="operationid" type="xs:long" />
+        <xs:element name="//uni-directionalmany-to-oneassociationto" type="lsclientconfiguration" nillable="true" minOccurs="0" />
+        <xs:element name="//uni-directionalmany-to-oneassociationtolsreceiverclientconfiguration" type="lsclientconfiguration" nillable="true" minOccurs="0" />
+        <xs:element name="//uni-directionalmany-to-oneassociationto" type="lstransactiontype" nillable="true" minOccurs="0" />
+        <xs:element name="//uni-directionalmany-to-oneassociationto" type="lsoperationstatus" nillable="true" minOccurs="0" />
+        <xs:element name="//uni-directionalmany-to-oneassociationtooperation" type="lsagent" nillable="true" minOccurs="0" />
+        <xs:element name="value" type="xs:double" />
+        <xs:element name="cost" type="xs:double" />
+        <xs:element name="timestamp" type="xs:anyType" />
+        <xs:element name="receiverphonenumber" type="xs:long" />
+        <xs:element name="pickupcode" type="xs:string" />
+        <xs:element name="fee" type="xs:double" />
+        <xs:element name="isfeepayed" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clientconfigurationbean" >
+      <xs:sequence>
+        <xs:element name="clientconfiguration" type="lsclientconfiguration" nillable="true" minOccurs="0" />
+        <xs:element name="listclient" type="lsclient" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="listclientstatus" type="lsclientstatus" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="operationbean" >
+      <xs:sequence>
+        <xs:element name="operation" type="lsoperation" nillable="true" minOccurs="0" />
+        <xs:element name="listclient" type="lsclient" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="listagent" type="lsagent" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="listtransactiontype" type="lstransactiontype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="em" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clientbean" >
+      <xs:sequence>
+        <xs:element name="client" type="lsclient" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="colaboradoresbean" >
+      <xs:sequence>
+        <xs:element name="colaboradoreslist" type="colaboradores" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="em" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clientconfigurationlistbean" >
+      <xs:sequence>
+        <xs:element name="list" type="lsclientconfiguration" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="em" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clientlistbean" >
+      <xs:sequence>
+        <xs:element name="list" type="lsclient" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="em" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

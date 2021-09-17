@@ -1,0 +1,17 @@
+
+orderitem(id:Long [PK], GeneratedName:Item #FK to(Item), GeneratedName:Order #FK to(order), //주문가격orderprice:int, //주문수량count:int);
+
+item(id:Long [PK], //이름name:String, //가격price:int, //재고수량stockquantity:int);
+
+delivery(id:Long [PK], GeneratedName:Order #FK to(order), city:String, street:String, zipcode:String, status:DeliveryStatus);
+
+category(id:Long [PK], name:String, //카테고리계층구조를위한필드들parent:Category #FK to(Category));
+
+category_item(category_id:Category [PK] #FK to Category,item_id:Item [PK] #FK to Item);
+
+member(id:Long [PK], name:String, city:String, street:String, zipcode:String);
+
+order(id:Long [PK], //주문회원:Member #FK to(member), //배송정보:Delivery #FK to(Delivery), //주문시간order:Date, //주문상태status:OrderStatus);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

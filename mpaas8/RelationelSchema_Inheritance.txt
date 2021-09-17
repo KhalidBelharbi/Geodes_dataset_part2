@@ -1,0 +1,19 @@
+
+aliyunossentity(serialversionuid:long, /***主键id*/id:String [PK], /***资源授权键id*/accesskeyid:String, /***资源授权键秘密*/accesskeysecret:String, /***资源存储通桶*/bucket:String);
+
+hdfsentity(serialversionuid:long, /***主键id*/id:String [PK], username:String);
+
+minioentity(serialversionuid:long, /***主键id*/id:String [PK], /***资源授权键id*/accesskeyid:String, /***资源授权键秘密*/accesskeysecret:String, /***资源存储通桶*/bucket:String);
+
+attributesentity();
+
+cephentity(serialversionuid:long, /***主键id*/id:String [PK], sotimeout:long, connecttimeout:long);
+
+fastdfsentity(serialversionuid:long, /***主键id*/id:String [PK], sotimeout:long, connecttimeout:long);
+
+tencentcloudcosentity(serialversionuid:long, /***主键id*/id:String [PK], /***区域*这个参数只有腾讯云使用*阿里云无需此参数*/region:String, /***限流单位*这个参数只有腾讯云使用*阿里云无需此参数*/trafficlimit:int, /***资源授权键id*/accesskeyid:String, /***资源授权键秘密*/accesskeysecret:String, /***资源存储通桶*/bucket:String);
+
+resourcecontainerentity(serialversionuid:long, /***主键id*/id:String [PK], /***资源名称*/name:String, /***创建时间*/createtime:Date, /***资源状态*/status:short, /***资源服务域名终结点url地址*endpoint:String, /***存储类型*1为图片*2为视频*4为文档*8为压缩文件*16为数据库*32为其它文件*参数值可以做组合值*/type:int, /***提供者*0为阿里云*1为腾讯云*2为fastdfs*3为hadoophdfs*4为minio*/provider:short, ossentity:AliyunOssEntity #FK to(AliyunOssEntity), cloudcosentity:TencentCloudCosEntity #FK to(tencentcloudcosentity), dfsentity:FastDFSEntity #FK to(fastdfsentity), GeneratedName:HdfsEntity #FK to(HdfsEntity), GeneratedName:MinioEntity #FK to(MinioEntity));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

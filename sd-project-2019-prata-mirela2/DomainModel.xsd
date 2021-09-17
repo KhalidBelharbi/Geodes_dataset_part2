@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="cartticket" >
+      <xs:sequence>
+        <xs:element name="idcarttickets" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="shoppingcart" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="ticket" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="admin" >
+      <xs:sequence>
+        <xs:element name="idadmin" type="xs:anyType" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="iduser" type="xs:anyType" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ticket" >
+      <xs:sequence>
+        <xs:element name="idticket" type="xs:anyType" />
+        <xs:element name="departuredata" type="xs:dateTime" />
+        <xs:element name="arrivaldata" type="xs:dateTime" />
+        <xs:element name="seat" type="xs:string" />
+        <xs:element name="price" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="destination" nillable="true" minOccurs="0" />
+        <xs:element name="carttickets" type="cartticket" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="destination" >
+      <xs:sequence>
+        <xs:element name="iddestination" type="xs:anyType" />
+        <xs:element name="country" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="tickets" type="ticket" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shoppingcart" >
+      <xs:sequence>
+        <xs:element name="idshoppingcart" type="xs:anyType" />
+        <xs:element name="carttickets" type="cartticket" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="totalprice" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

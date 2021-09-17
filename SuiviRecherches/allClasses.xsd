@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="personnerepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<personne,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="historiquerepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<historique,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rechercherepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<recherche,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="adresserepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<adresse,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entrepriserepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<entreprise,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="suivirecherchesapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="historique" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="rechercheid" type="xs:long" />
+        <xs:element name="date" type="xs:anyType" />
+        <xs:element name="modification" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="telenum" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="recherche" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="contact" type="xs:dateTime" />
+        <xs:element name="poste" type="xs:string" />
+        <xs:element name="client" type="xs:string" />
+        <xs:element name="statut" type="xs:string" />
+        <xs:element name="GeneratedName" type="entreprise" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="personne" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="statutrecherche" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="personne" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nom" type="xs:string" />
+        <xs:element name="prenom" type="xs:string" />
+        <xs:element name="telephone" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="GeneratedName" type="recherche" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entreprise" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nom" type="xs:string" />
+        <xs:element name="telephone" type="xs:string" />
+        <xs:element name="GeneratedName" type="adresse" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="recherche" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adresse" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="rue" type="xs:string" />
+        <xs:element name="ville" type="xs:string" />
+        <xs:element name="cp" type="xs:string" />
+        <xs:element name="GeneratedName" type="entreprise" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sometests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="personnecontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="personnemvccontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="personnerepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entreprisecontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="recherchemvccontroller" >
+      <xs:sequence>
+        <xs:element name="statut_recherche" type="xs:string" />
+        <xs:element name="sdf" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="rechercherepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="historiquerepo" nillable="true" minOccurs="0" />
+        <xs:element name="statutrecherche" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adressecontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="home" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="showhistory" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testhybernateapplicationtests" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="adresserepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="entrepriserepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="recherchemvccontrollertest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

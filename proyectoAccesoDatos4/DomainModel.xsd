@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="informe" >
+      <xs:sequence>
+        <xs:element name="numexpedicion" type="xs:long" />
+        <xs:element name="tareas" type="xs:string" />
+        <xs:element name="dnitrabajadorinforme" type="xs:string" />
+        <xs:element name="GeneratedName" type="factura" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="trabajador" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="trabajador" >
+      <xs:sequence>
+        <xs:element name="dni" type="xs:string" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="apellido1" type="xs:string" />
+        <xs:element name="apellido2" type="xs:string" />
+        <xs:element name="funcion" type="xs:string" />
+        <xs:element name="vehiculo" type="vehiculo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="informe" type="informe" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="repuestos" type="repuestos" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="obd" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="rpm_inst" type="xs:long" />
+        <xs:element name="temp_aceite" type="xs:double" />
+        <xs:element name="temp_agua" type="xs:double" />
+        <xs:element name="cod_salida" type="xs:string" />
+        <xs:element name="sensores" type="xs:string" />
+        <xs:element name="bastidorvehiculoobd" type="xs:string" />
+        <xs:element name="GeneratedName" type="vehiculo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="factura" >
+      <xs:sequence>
+        <xs:element name="numfactura" type="xs:long" />
+        <xs:element name="precio" type="xs:double" />
+        <xs:element name="lineafactura" type="xs:string" />
+        <xs:element name="numexpedicioninforme" type="xs:string" />
+        <xs:element name="GeneratedName" type="informe" nillable="true" minOccurs="0" />
+        <xs:element name="repuestos" type="repuestos" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vehiculo" >
+      <xs:sequence>
+        <xs:element name="bastidor" type="xs:string" />
+        <xs:element name="matricula" type="xs:string" />
+        <xs:element name="marca" type="xs:string" />
+        <xs:element name="modelo" type="xs:string" />
+        <xs:element name="motor" type="xs:string" />
+        <xs:element name="potenciacv" type="xs:string" />
+        <xs:element name="carburante" type="xs:string" />
+        <xs:element name="aceite" type="xs:string" />
+        <xs:element name="consumo" type="xs:string" />
+        <xs:element name="fechaentrada" type="xs:dateTime" />
+        <xs:element name="tiempodedicado" type="xs:string" />
+        <xs:element name="dnitrabajador" type="xs:string" />
+        <xs:element name="GeneratedName" type="trabajador" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="obd" nillable="true" minOccurs="0" />
+        <xs:element name="repuestos" type="repuestos" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="repuestos" >
+      <xs:sequence>
+        <xs:element name="numserie" type="xs:string" />
+        <xs:element name="referencia" type="xs:string" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="marca" type="xs:string" />
+        <xs:element name="uso" type="xs:string" />
+        <xs:element name="tienda" type="xs:string" />
+        <xs:element name="fechacompra" type="xs:dateTime" />
+        <xs:element name="bastidorvehiculorepuestos" type="xs:string" />
+        <xs:element name="numfacturarepuestos" type="xs:string" />
+        <xs:element name="GeneratedName" type="vehiculo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="factura" nillable="true" minOccurs="0" />
+        <xs:element name="trabajador" type="trabajador" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

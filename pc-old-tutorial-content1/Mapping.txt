@@ -1,0 +1,8 @@
+ClassDiagram.Class>> Item =>=>=> RelationalSchema.Table>> item;
+ClassDiagram.Class>> Cart =>=>=> RelationalSchema.Table>> cart;
+ClassDiagram.Attribut>> Item.id:long =>=>=> RelationalSchema.Column>> item.id PRIMARY KEY;
+ClassDiagram.Attribut>> Item.price:double =>=>=> RelationalSchema.Column>> item.price;
+ClassDiagram.Attribut>> Item.description:String =>=>=> RelationalSchema.Column>> item.description;
+ClassDiagram.Attribut>> Cart.id:long =>=>=> RelationalSchema.Column>> cart.id PRIMARY KEY;
+ClassDiagram.Attribut>> Cart.total:double =>=>=> RelationalSchema.Column>> cart.total;
+Many-To-Many relationship between ClassDiagram.Class>>Cart  and ClassDiagram.Class>>set<item>: cart_items(cart_id:Cart [PK] #FK to Cart,item_id:set<item> [PK] #FK to set<item>);

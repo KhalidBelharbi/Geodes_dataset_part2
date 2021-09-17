@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="userconnection" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="providerid" type="xs:string" />
+        <xs:element name="provideruserid" type="xs:string" />
+        <xs:element name="rank" type="xs:long" />
+        <xs:element name="displayname" type="xs:string" />
+        <xs:element name="profileurl" type="xs:string" />
+        <xs:element name="imageurl" type="xs:string" />
+        <xs:element name="accesstoken" type="xs:string" />
+        <xs:element name="secret" type="xs:string" />
+        <xs:element name="refreshtoken" type="xs:string" />
+        <xs:element name="expiretime" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="appuser" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="encryptedpassword" type="xs:string" />
+        <xs:element name="enabled" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrole" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="appuser" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="approle" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="approle" >
+      <xs:sequence>
+        <xs:element name="role_user" type="xs:string" />
+        <xs:element name="role_admin" type="xs:string" />
+        <xs:element name="roleid" type="xs:long" />
+        <xs:element name="rolename" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persitentlogin" >
+      <xs:sequence>
+        <xs:element name="series" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="token" type="xs:string" />
+        <xs:element name="lastused" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,15 @@
+ClassDiagram.Class>> User =>=>=> RelationalSchema.Table>> user;
+ClassDiagram.Class>> Permission =>=>=> RelationalSchema.Table>> permission;
+ClassDiagram.Class>> Role =>=>=> RelationalSchema.Table>> role;
+ClassDiagram.Attribut>> User.serialversionuid:long =>=>=> RelationalSchema.Column>> user.serialversionuid;
+ClassDiagram.Attribut>> User.email:String =>=>=> RelationalSchema.Column>> user.email;
+ClassDiagram.Attribut>> User.username:String =>=>=> RelationalSchema.Column>> user.username;
+ClassDiagram.Attribut>> User.password:String =>=>=> RelationalSchema.Column>> user.password;
+ClassDiagram.Attribut>> User.enabled:boolean =>=>=> RelationalSchema.Column>> user.enabled;
+ClassDiagram.Attribut>> User.accountnonlocked:boolean =>=>=> RelationalSchema.Column>> user.accountnonlocked;
+ClassDiagram.Attribut>> User.accountnonexpired:boolean =>=>=> RelationalSchema.Column>> user.accountnonexpired;
+ClassDiagram.Attribut>> User.credentialsnonexpired:boolean =>=>=> RelationalSchema.Column>> user.credentialsnonexpired;
+ClassDiagram.Attribut>> Permission.name:String =>=>=> RelationalSchema.Column>> permission.name;
+ClassDiagram.Attribut>> Role.name:String =>=>=> RelationalSchema.Column>> role.name;
+Many-To-Many relationship between ClassDiagram.Class>>User  and ClassDiagram.Class>>list<role>: role_user(user_id:User [PK] #FK to User,role_id:list<role> [PK] #FK to list<role>);
+Many-To-Many relationship between ClassDiagram.Class>>Role  and ClassDiagram.Class>>list<permission>: permission_role(role_id:Role [PK] #FK to Role,permission_id:list<permission> [PK] #FK to list<permission>);

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="abtestingrouterepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<abtestingroute,string>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abtestingrouteservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="abtestingrouterepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="noroutefound" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="specialroutesservicecontroller" >
+      <xs:sequence>
+        <xs:element name="routeservice" type="abtestingrouteservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="delegatingusercontextcallable" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="delegate" type="xs:anyType" />
+        <xs:element name="original" type="usercontext" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="threadlocalawarestrategy" >
+      <xs:complexContent>
+       <xs:extension base="hystrixconcurrencystrategy{">
+         <xs:sequence>
+          <xs:element name="existingconcurrencystrategy" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="threadlocalconfiguration" >
+      <xs:sequence>
+        <xs:element name="existingconcurrencystrategy" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercontextinterceptor" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercontextholder" >
+      <xs:sequence>
+        <xs:element name="usercontext" type="usercontext" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercontextfilter" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercontext" >
+      <xs:sequence>
+        <xs:element name="correlation_id" type="xs:string" />
+        <xs:element name="auth_token" type="xs:string" />
+        <xs:element name="user_id" type="xs:string" />
+        <xs:element name="org_id" type="xs:string" />
+        <xs:element name="correlationid" type="xs:string" />
+        <xs:element name="authtoken" type="xs:string" />
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="orgid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abtestingroute" >
+      <xs:sequence>
+        <xs:element name="servicename" type="xs:string" />
+        <xs:element name="active" type="xs:string" />
+        <xs:element name="endpoint" type="xs:string" />
+        <xs:element name="weight" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dockerfile" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

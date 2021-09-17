@@ -1,0 +1,13 @@
+
+role(id:Long [PK], name:String);
+
+userref(GeneratedName:Role [PK] #FK to(Role), userid:Long [PK]);
+
+permission(id:Long [PK], name:String, GeneratedName:Role #FK to(Role));
+
+user(id:Long [PK], name:String);
+
+roleref(GeneratedName:User [PK] #FK to(user), roleid:Long [PK]);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

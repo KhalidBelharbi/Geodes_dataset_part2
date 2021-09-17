@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="orderserviceapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderserviceapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderentity" >
+      <xs:sequence>
+        <xs:element name="//객체다른네트워크로전송db로보관하기위해id" type="xs:long" />
+        <xs:element name="productid" type="xs:string" />
+        <xs:element name="quantity" type="xs:anyType" />
+        <xs:element name="totalprice" type="xs:anyType" />
+        <xs:element name="unitprice" type="xs:anyType" />
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="orderid" type="xs:string" />
+        <xs:element name="createdat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<orderentity,long>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="requestorder" >
+      <xs:sequence>
+        <xs:element name="unitprice" type="xs:anyType" />
+        <xs:element name="productid" type="xs:string" />
+        <xs:element name="quantity" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="responseorder" >
+      <xs:sequence>
+        <xs:element name="orderid" type="xs:string" />
+        <xs:element name="productid" type="xs:string" />
+        <xs:element name="unitprice" type="xs:anyType" />
+        <xs:element name="totalprice" type="xs:anyType" />
+        <xs:element name="quantity" type="xs:anyType" />
+        <xs:element name="stock" type="xs:anyType" />
+        <xs:element name="createdat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderdto" >
+      <xs:sequence>
+        <xs:element name="productid" type="xs:string" />
+        <xs:element name="quantity" type="xs:anyType" />
+        <xs:element name="unitprice" type="xs:anyType" />
+        <xs:element name="totalprice" type="xs:anyType" />
+        <xs:element name="orderid" type="xs:string" />
+        <xs:element name="userid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="orderrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="appconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ordercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="orderservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

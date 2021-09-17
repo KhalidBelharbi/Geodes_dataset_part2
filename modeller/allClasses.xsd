@@ -1,0 +1,978 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="swagger2config" >
+      <xs:sequence>
+        <xs:element name="authorization_header" type="xs:string" />
+        <xs:element name="default_include_pattern" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="projectpermission" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwtauthenticationentrypoint" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwttoken" >
+      <xs:sequence>
+        <xs:element name="jwt_token_validity" type="xs:long" />
+        <xs:element name="secret" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="corsconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwtrequestfilter" >
+      <xs:complexContent>
+       <xs:extension base="basicauthenticationfilter">
+         <xs:sequence>
+          <xs:element name="util" type="jwttoken" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="securityconfig" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+          <xs:element name="" type="enomanageruserdetailsservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="jwtauthenticationentrypoint" nillable="true" minOccurs="0" />
+          <xs:element name="auth_whitelist" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="methodsecurityconfiguration" >
+      <xs:complexContent>
+       <xs:extension base="globalmethodsecurityconfiguration">
+         <xs:sequence>
+          <xs:element name="context" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="createreleaseexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="defaultreleasecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="releasemanager" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="graphservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="defaultentitycontroller" >
+      <xs:sequence>
+        <xs:element name="html_type" type="xs:string" />
+        <xs:element name="json_type" type="xs:string" />
+        <xs:element name="GeneratedName" type="entityservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="roleentityservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xmlreader" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="defaultgraphcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="graphservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="releasemanager" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="defaultprojectcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="projectservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="defaultgitrepositorycontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="gitservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercontroller" >
+      <xs:sequence>
+        <xs:element name="userservice" type="defaultuserservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tagscontroller" >
+      <xs:sequence>
+        <xs:element name="tagservice" type="defaulttagservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="defaultexceptionhandler" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="defaultauthcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="jwttoken" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="enomanageruserdetailsservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="releasemapper" >
+      <xs:sequence>
+        <xs:element name="release_mapper" type="releasemapper" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gitrepositorymapper" >
+      <xs:sequence>
+        <xs:element name="git_repository_mapper_mapper" type="gitrepositorymapper" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="projectmapper" >
+      <xs:sequence>
+        <xs:element name="project_mapper" type="projectmapper" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gitrepositorydto" >
+      <xs:sequence>
+        <xs:element name="repositoryid" type="xs:long" />
+        <xs:element name="uri" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="releasedto" >
+      <xs:sequence>
+        <xs:element name="releaseid" type="xs:long" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="releasename" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="projectdto" >
+      <xs:sequence>
+        <xs:element name="projectid" type="xs:long" />
+        <xs:element name="projectname" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="releases" type="releasedto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="gitpath" type="xs:string" />
+        <xs:element name="gitconnectionid" type="xs:long" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="git" type="gitrepositorydto" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwtrequestdto" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwtresponsedto" >
+      <xs:sequence>
+        <xs:element name="jwttoken" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gitdto" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="webinitializer" >
+      <xs:complexContent>
+       <xs:extension base="springbootservletinitializer">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="enomanagerapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="defaultreleasemanager" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="releaserepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="gitmanager" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="entityservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="projectservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="defaultgitservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="gitmanager" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="gitrepositoryrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="graphservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="defaultdatamodelfactory" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xmlreader" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="defaultgraphservice" >
+      <xs:sequence>
+        <xs:element name="releases" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="graphbuilder" >
+      <xs:sequence>
+        <xs:element name="vertexdtolist" type="graphvertexdto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="edgedtolist" type="graphedgedto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datamodelfactory" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="roleentityservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="defaultentityservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="entityrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xmlreader" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="gitmanager" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="graphservice" nillable="true" minOccurs="0" />
+        <xs:element name="releasescache" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="enomanageruserdetailsservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="defaulttagservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="tagsrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="tagtyperepository" nillable="true" minOccurs="0" />
+        <xs:element name="path_none_tag_type" type="xs:string" />
+        <xs:element name="hex_pattern" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dtdentityresolver" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="xmlreader" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="defaultxmlreader" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="gitmanager" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="xmlreader" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gitservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="defaultfileservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="defaultprojectservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="projectrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="gitmanager" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="releasemanager" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tagservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="releasemanager" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="javaparser" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fileservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="defaultuserservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="rolerepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="projectrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gitclientgitmanager" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="projectrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="gitrepositoryrepository" nillable="true" minOccurs="0" />
+        <xs:element name="gitclientmap" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="repositoryeventlistener" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gitmanager" >
+      <xs:complexContent>
+       <xs:extension base="repositoryeventemmiter">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="defaultgitmanager" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="git_path" type="xs:string" />
+        <xs:element name="GeneratedName" type="repository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="fileservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="repositoryeventlistener" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="status" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="simplegitclient" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="repository" nillable="true" minOccurs="0" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="uri" type="xs:string" />
+        <xs:element name="path" type="xs:string" />
+        <xs:element name="cloneprogress" type="xs:long" />
+        <xs:element name="cloneisdone" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="repositoryeventlistener" nillable="true" minOccurs="0" />
+        <xs:element name="gitrepositoryid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gitrepositoryevent" >
+      <xs:sequence>
+        <xs:element name="sourceid" type="xs:long" />
+        <xs:element name="GeneratedName" type="status" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gitclient" >
+      <xs:complexContent>
+       <xs:extension base="repositoryeventemmiter">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="repositoryeventemmiter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entityservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="defaultroleentityservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="defaultentityservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="project" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="projectname" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="releases" type="release" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="gitrepository" nillable="true" minOccurs="0" />
+        <xs:element name="status" type="projectstatus" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="graphentity" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="datamodel" nillable="true" minOccurs="0" />
+        <xs:element name="sourcelist" type="graphentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="targetlist" type="graphentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="graphedgedto" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="sourcename" type="xs:string" />
+        <xs:element name="targetname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="edge" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="source" type="datamodel" nillable="true" minOccurs="0" />
+        <xs:element name="target" type="datamodel" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="graphvertexdto" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vertex" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitygraph" >
+      <xs:sequence>
+        <xs:element name="nodes" type="graphvertexdto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="edges" type="graphedgedto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userims" >
+      <xs:complexContent>
+       <xs:extension base="org.springframework.security.core.userdetails.user">
+         <xs:sequence>
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="projectstatus" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="release" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="branchname" type="xs:string" />
+        <xs:element name="extreleaseid" type="xs:string" />
+        <xs:element name="releasename" type="xs:string" />
+        <xs:element name="GeneratedName" type="project" nillable="true" minOccurs="0" />
+        <xs:element name="enoviaentities" type="enoviaentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tagtype" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="color" type="xs:string" />
+        <xs:element name="tags" type="tag" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="GeneratedName" type="role" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="project" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="enoviarelationship" >
+      <xs:complexContent>
+       <xs:extension base="ematrix">
+         <xs:sequence>
+          <xs:element name="object_type" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="enoviaattribute" >
+      <xs:complexContent>
+       <xs:extension base="ematrix">
+         <xs:sequence>
+          <xs:element name="object_type" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="enoviarole" >
+      <xs:complexContent>
+       <xs:extension base="ematrix">
+         <xs:sequence>
+          <xs:element name="object_type" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="enoviaprogram" >
+      <xs:complexContent>
+       <xs:extension base="ematrix">
+         <xs:sequence>
+          <xs:element name="object_type" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="datamodel" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="enoviainterface" >
+      <xs:complexContent>
+       <xs:extension base="ematrix">
+         <xs:sequence>
+          <xs:element name="object_type" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="enoviapolicy" >
+      <xs:complexContent>
+       <xs:extension base="ematrix">
+         <xs:sequence>
+          <xs:element name="object_type" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="attributedef" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="adminproperties" nillable="true" minOccurs="0" />
+        <xs:element name="primitivetype" type="xs:string" />
+        <xs:element name="maxlength" type="xs:string" />
+        <xs:element name="attrvaluetype" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="derivedfrom" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="typereflist" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="propertylist" >
+      <xs:sequence>
+        <xs:element name="count" type="xs:string" />
+        <xs:element name="propertylist" type="property" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="attributelist" >
+      <xs:sequence>
+        <xs:element name="attributes" type="xs:anyType" />
+        <xs:element name="size" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="side" >
+      <xs:sequence>
+        <xs:element name="cardinality" type="xs:string" />
+        <xs:element name="revisionaction" type="xs:string" />
+        <xs:element name="cloneaction" type="xs:string" />
+        <xs:element name="GeneratedName" type="typereflist" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="triggerlist" >
+      <xs:sequence>
+        <xs:element name="count" type="xs:string" />
+        <xs:element name="triggerlist" type="trigger" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="interfacetypereflist" >
+      <xs:sequence>
+        <xs:element name="interfaces" type="xs:anyType" />
+        <xs:element name="size" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="typereflist" >
+      <xs:sequence>
+        <xs:element name="typeref" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="type" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="GeneratedName" type="adminproperties" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="derivedfrom" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="attributelist" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="triggerlist" nillable="true" minOccurs="0" />
+        <xs:element name="typekind" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="property" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="value" type="xs:string" />
+        <xs:element name="flags" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="policy" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="GeneratedName" type="adminproperties" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="typereflist" nillable="true" minOccurs="0" />
+        <xs:element name="sequence" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="historylist" >
+      <xs:sequence>
+        <xs:element name="count" type="xs:string" />
+        <xs:element name="historylist" type="history" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="derivedfrominterface" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="interfacetypereflist" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="history" >
+      <xs:sequence>
+        <xs:element name="datetime" type="xs:string" />
+        <xs:element name="agent" type="xs:string" />
+        <xs:element name="event" type="xs:string" />
+        <xs:element name="order" type="xs:string" />
+        <xs:element name="value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="interfacetype" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="GeneratedName" type="adminproperties" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="derivedfrominterface" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="trigger" >
+      <xs:sequence>
+        <xs:element name="triggername" type="xs:string" />
+        <xs:element name="programref" type="xs:string" />
+        <xs:element name="inputarguments" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="creationproperties" >
+      <xs:sequence>
+        <xs:element name="release" type="xs:string" />
+        <xs:element name="datetime" type="xs:string" />
+        <xs:element name="event" type="xs:string" />
+        <xs:element name="dtdinfo" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="adminproperties" nillable="true" minOccurs="0" />
+        <xs:element name="roletype" type="xs:string" />
+        <xs:element name="maturity" type="xs:string" />
+        <xs:element name="category" type="xs:string" />
+        <xs:element name="GeneratedName" type="parentrole" nillable="true" minOccurs="0" />
+        <xs:element name="id" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dateinfo" >
+      <xs:sequence>
+        <xs:element name="datetime" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adminproperties" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="creationinfo" type="dateinfo" nillable="true" minOccurs="0" />
+        <xs:element name="modificationinfo" type="dateinfo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="propertylist" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="historylist" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ematrix" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="creationproperties" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="type" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="program" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="interfacetype" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="attributedef" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="relationshipdef" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="role" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="policy" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="relationshipdef" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="adminproperties" nillable="true" minOccurs="0" />
+        <xs:element name="from" type="side" nillable="true" minOccurs="0" />
+        <xs:element name="to" type="side" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="parentrole" >
+      <xs:sequence>
+        <xs:element name="roleref" type="xs:anyType" />
+        <xs:element name="size" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="program" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="GeneratedName" type="adminproperties" nillable="true" minOccurs="0" />
+        <xs:element name="code" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="enoviatype" >
+      <xs:complexContent>
+       <xs:extension base="ematrix">
+         <xs:sequence>
+          <xs:element name="object_type" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cachestatus" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="permission" >
+      <xs:sequence>
+        <xs:element name="mnemonic" type="xs:string" />
+        <xs:element name="permission" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gitrepository" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="uri" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="GeneratedName" type="project" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tag" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="enoviaentities" type="enoviaentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="type" type="tagtype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="enoviaentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="entityname" type="xs:string" />
+        <xs:element name="GeneratedName" type="release" nillable="true" minOccurs="0" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="GeneratedName" type="ematrix" nillable="true" minOccurs="0" />
+        <xs:element name="ematrixhtml" type="xs:string" />
+        <xs:element name="filename" type="xs:string" />
+        <xs:element name="tags" type="tag" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="child" type="enoviaentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="mnemonic" type="xs:string" />
+        <xs:element name="rolename" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="permissions" type="permission" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entityrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<enoviaentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="releaserepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<release,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tagsrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<tag,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tagtyperepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<tagtype,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rolerepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<role,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="projectrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<project,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="gitrepositoryrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<ru.ase.ims.enomanager.model.git.gitrepository,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tags" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="security" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tags" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="db.changelog-20191002-122655734" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="releases" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="security" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application-dev" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application-test" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spring-logback" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="releasesbuilder" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tagsbuilder" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="enoviaentitybuilder" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="defaultprojectcontrollertest" >
+      <xs:complexContent>
+       <xs:extension base="abstractspringcontrollertest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="repository" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="entityrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="releaserepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="rolerepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="projectrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="tagsrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="tagtyperepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="defaultgraphcontrollertest" >
+      <xs:complexContent>
+       <xs:extension base="abstractspringcontrollertest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usercontrollertest" >
+      <xs:complexContent>
+       <xs:extension base="abstractspringcontrollertest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="defaultreleasecontrollertest" >
+      <xs:complexContent>
+       <xs:extension base="abstractspringcontrollertest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="controller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="defaultentitycontroller" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="defaultgraphcontroller" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="defaultreleasecontroller" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="usercontroller" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="tagscontroller" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="defaultprojectcontroller" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tagscontrollertest" >
+      <xs:complexContent>
+       <xs:extension base="abstractspringcontrollertest">
+         <xs:sequence>
+          <xs:element name="" type="tag" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractspringcontrollertest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="controller" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="repository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tagsrepositoryunit" >
+      <xs:complexContent>
+       <xs:extension base="unitcrudrepository<tag,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="unitcrudrepository" >
+      <xs:complexContent>
+       <xs:extension base="t>">
+         <xs:sequence>
+          <xs:element name="content" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tagunittest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gitrepositorymappertest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="project" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="projectdto" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

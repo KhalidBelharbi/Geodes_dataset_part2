@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="testinit" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="outclass" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="apptest" >
+      <xs:complexContent>
+       <xs:extension base="testcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="e" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="encryptclassfile" >
+      <xs:sequence>
+        <xs:element name="origfile" type="xs:string" />
+        <xs:element name="destfile" type="xs:string" />
+        <xs:element name="ss" type="xs:string" />
+        <xs:element name="skey" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="md5util" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="irilleclassloader" >
+      <xs:complexContent>
+       <xs:extension base="classloader">
+         <xs:sequence>
+          <xs:element name="key" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sysuser2" >
+      <xs:complexContent>
+       <xs:extension base="bean{">
+         <xs:sequence>
+          <xs:element name="pkey" type="xs:anyType" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="table" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="primarykey" type="column" nillable="true" minOccurs="0" />
+        <xs:element name="s" type="index" nillable="true" minOccurs="0" />
+        <xs:element name="s" type="column" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlbuilder" >
+      <xs:complexContent>
+       <xs:extension base="bean>">
+         <xs:sequence>
+          <xs:element name="_mysqlhm" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="beanresolver" >
+      <xs:complexContent>
+       <xs:extension base="bean>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="column" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="dbtype" type="xs:string" />
+        <xs:element name="javatype" type="xs:anyType" />
+        <xs:element name="length" type="xs:long" />
+        <xs:element name="scale" type="xs:long" />
+        <xs:element name="notnull" type="xs:anyType" />
+        <xs:element name="remark" type="xs:string" />
+        <xs:element name="defaultvalue" type="xs:string" />
+        <xs:element name="isid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="index" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="columns" type="column" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="isunique" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="icn" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="beanpool" >
+      <xs:sequence>
+        <xs:element name="bufmap" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="beanbuilder" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="bean" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bean" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dbtype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="query" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="log" nillable="true" minOccurs="0" />
+        <xs:element name="//检索的最大记录数fetch_size" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dbexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dbpool" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="log" nillable="true" minOccurs="0" />
+        <xs:element name="/***数据库类型，如mysql，db2，oracle*/" type="dbtype" nillable="true" minOccurs="0" />
+        <xs:element name="poolmanager" type="xs:anyType" />
+        <xs:element name="poolname" type="xs:string" />
+        <xs:element name="instance" type="dbpool" nillable="true" minOccurs="0" />
+        <xs:element name="currentconnection" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sessionfactory" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="sqlsession" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cn" >
+      <xs:sequence>
+        <xs:element name="_code" type="xs:string" />
+        <xs:element name="_name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="exp" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="" type="log" nillable="true" minOccurs="0" />
+          <xs:element name="//已执行过的程序抛出的非exp类异常，如果是直接产生的其值为nulltransient_exception" type="xs:anyType" />
+          <xs:element name="//本类异常的抛出矢量//出错信息_tracks" type="xs:anyType" />
+          <xs:element name="_exceptionstacktrace" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pubinfs" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="log" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="log" nillable="true" minOccurs="0" />
+        <xs:element name="//@formatter:on_log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ipubvars" >
+      <xs:sequence>
+        <xs:element name="str0" type="xs:string" />
+        <xs:element name="ln" type="xs:string" />
+        <xs:element name="tab" type="xs:string" />
+        <xs:element name="line" type="xs:string" />
+        <xs:element name="one" type="xs:string" />
+        <xs:element name="two" type="xs:string" />
+        <xs:element name="zero" type="xs:anyType" />
+        <xs:element name="hundred" type="xs:anyType" />
+        <xs:element name="max_decimal" type="xs:anyType" />
+        <xs:element name="true" type="xs:anyType" />
+        <xs:element name="false" type="xs:anyType" />
+        <xs:element name="0" type="xs:long" />
+        <xs:element name="int0" type="xs:anyType" />
+        <xs:element name="times_of_day" type="xs:long" />
+        <xs:element name="round" type="xs:long" />
+        <xs:element name="file_separator" type="xs:string" />
+        <xs:element name="format_time" type="xs:anyType" />
+        <xs:element name="format_date" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="db" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mybatis-config" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

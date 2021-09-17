@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="grantedrole" >
+      <xs:sequence>
+        <xs:element name="pk" type="xs:long" />
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="GeneratedName" type="accessconfiguration" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="preset" >
+      <xs:sequence>
+        <xs:element name="pk" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="preset" type="xs:string" />
+        <xs:element name="guild" type="xs:string" />
+        <xs:element name="guildid" type="xs:string" />
+        <xs:element name="user" type="xs:string" />
+        <xs:element name="userid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="playlist" >
+      <xs:sequence>
+        <xs:element name="pk" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="createduser" type="xs:string" />
+        <xs:element name="createduserid" type="xs:string" />
+        <xs:element name="guild" type="xs:string" />
+        <xs:element name="guildid" type="xs:string" />
+        <xs:element name="songs" type="song" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="videos" type="video" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="urltracks" type="urltrack" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spotifyredirectindexmodificationlock" >
+      <xs:sequence>
+        <xs:element name="pk" type="xs:long" />
+        <xs:element name="creationtimestamp" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userplaybackhistory" >
+      <xs:sequence>
+        <xs:element name="pk" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="GeneratedName" type="playbackhistory" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="song" >
+      <xs:complexContent>
+       <xs:extension base="playlistitem">
+         <xs:sequence>
+          <xs:element name="pk" type="xs:long" />
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="artists" type="artist" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="urltrack" >
+      <xs:complexContent>
+       <xs:extension base="playlistitem">
+         <xs:sequence>
+          <xs:element name="pk" type="xs:long" />
+          <xs:element name="url" type="xs:string" />
+          <xs:element name="title" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="video" >
+      <xs:complexContent>
+       <xs:extension base="playlistitem">
+         <xs:sequence>
+          <xs:element name="pk" type="xs:long" />
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="redirectedspotifyid" type="xs:string" />
+          <xs:element name="spotifytrackname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="playbackhistory" >
+      <xs:sequence>
+        <xs:element name="pk" type="xs:long" />
+        <xs:element name="timestamp" type="xs:anyType" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="source" type="xs:string" />
+        <xs:element name="trackid" type="xs:string" />
+        <xs:element name="guild" type="xs:string" />
+        <xs:element name="guildid" type="xs:string" />
+        <xs:element name="artists" type="artist" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="userplaybackhistories" type="userplaybackhistory" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="guildspecification" >
+      <xs:sequence>
+        <xs:element name="accessconfigurations" type="accessconfiguration" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="pk" type="xs:long" />
+        <xs:element name="guildname" type="xs:string" />
+        <xs:element name="guildid" type="xs:string" />
+        <xs:element name="botname" type="xs:string" />
+        <xs:element name="prefix" type="xs:string" />
+        <xs:element name="sendplaybacknotification" type="xs:anyType" />
+        <xs:element name="color" type="xs:string" />
+        <xs:element name="enableautopause" type="xs:anyType" />
+        <xs:element name="defaultsource" type="xs:string" />
+        <xs:element name="defaultlistsource" type="xs:string" />
+        <xs:element name="argumentprefix" type="xs:anyType" />
+        <xs:element name="tempmessagetimeout" type="xs:anyType" />
+        <xs:element name="defaulttextchannelid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="artist" >
+      <xs:sequence>
+        <xs:element name="artist_sync" type="xs:anyType" />
+        <xs:element name="pk" type="xs:long" />
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accessconfiguration" >
+      <xs:sequence>
+        <xs:element name="roles" type="grantedrole" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="pk" type="xs:long" />
+        <xs:element name="commandidentifier" type="xs:string" />
+        <xs:element name="GeneratedName" type="guildspecification" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commandhistory" >
+      <xs:sequence>
+        <xs:element name="pk" type="xs:long" />
+        <xs:element name="timestamp" type="xs:anyType" />
+        <xs:element name="startmillis" type="xs:long" />
+        <xs:element name="commandidentifier" type="xs:string" />
+        <xs:element name="iswidget" type="xs:anyType" />
+        <xs:element name="commandcontextid" type="xs:string" />
+        <xs:element name="commandbody" type="xs:string" />
+        <xs:element name="input" type="xs:string" />
+        <xs:element name="guild" type="xs:string" />
+        <xs:element name="guildid" type="xs:string" />
+        <xs:element name="user" type="xs:string" />
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="completedsuccessfully" type="xs:anyType" />
+        <xs:element name="//ifthecommandhasfailedbyexplicitlycallingsetfailed()failedmanually" type="xs:anyType" />
+        <xs:element name="durationms" type="xs:long" />
+        <xs:element name="unexpectedexception" type="xs:anyType" />
+        <xs:element name="errormessage" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spotifyredirectindex" >
+      <xs:sequence>
+        <xs:element name="pk" type="xs:long" />
+        <xs:element name="spotifyid" type="xs:string" />
+        <xs:element name="youtubeid" type="xs:string" />
+        <xs:element name="lastupdated" type="xs:anyType" />
+        <xs:element name="lastused" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="currentyoutubequotausage" >
+      <xs:sequence>
+        <xs:element name="pk" type="xs:long" />
+        <xs:element name="quota" type="xs:long" />
+        <xs:element name="lastupdated" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

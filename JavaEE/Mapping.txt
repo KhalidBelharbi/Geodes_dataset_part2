@@ -1,0 +1,15 @@
+ClassDiagram.Class>> Stock =>=>=> RelationalSchema.Table>> stock;
+ClassDiagram.Class>> StockDailyRecord =>=>=> RelationalSchema.Table>> stockdailyrecord;
+ClassDiagram.Class>> Student =>=>=> RelationalSchema.Table>> student;
+ClassDiagram.Attribut>> Stock.stockid:int =>=>=> RelationalSchema.Column>> stock.stockid PRIMARY KEY;
+ClassDiagram.Attribut>> Stock.stockcode:String =>=>=> RelationalSchema.Column>> stock.stockcode;
+ClassDiagram.Attribut>> Stock.stockname:String =>=>=> RelationalSchema.Column>> stock.stockname;
+ClassDiagram.Attribut>> StockDailyRecord.recordid:int =>=>=> RelationalSchema.Column>> stockdailyrecord.recordid PRIMARY KEY;
+ClassDiagram.Attribut>> StockDailyRecord.priceopen:Float =>=>=> RelationalSchema.Column>> stockdailyrecord.priceopen;
+ClassDiagram.Attribut>> StockDailyRecord.priceclose:Float =>=>=> RelationalSchema.Column>> stockdailyrecord.priceclose;
+ClassDiagram.Attribut>> StockDailyRecord.GeneratedName:Date =>=>=> RelationalSchema.Column>> stockdailyrecord.GeneratedName;
+ClassDiagram.Attribut>> Student.id:int =>=>=> RelationalSchema.Column>> student.id PRIMARY KEY;
+ClassDiagram.Attribut>> Student.firstname:String =>=>=> RelationalSchema.Column>> student.firstname;
+ClassDiagram.Attribut>> Student.lastname:String =>=>=> RelationalSchema.Column>> student.lastname;
+One-To-Many relationship from ClassDiagram.Class>>Stock  to ClassDiagram.Class>>Set<StockDailyRecord>;
+Many-To-One relationship from ClassDiagram.Class>>StockDailyRecord  to ClassDiagram.Class>>Stock represented by ClassDiagram.Atrribute>>GeneratedName;

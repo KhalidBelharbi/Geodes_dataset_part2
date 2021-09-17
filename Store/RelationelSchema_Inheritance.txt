@@ -1,0 +1,21 @@
+product(name:String, code:long, description:String, author:String, date:String, photo:String);
+
+role(id:Long [PK], name:String, description:String);
+
+client(GeneratedName:Discount #FK to(discount));
+
+branch(address:String, startwork:Long, endwork:Long, contactnumber:String);
+
+discount(numberdiscount:String, active:boolean, bonuses:int);
+
+user_set<role>(userID:user [PK] #FK to user,set<role>ID:set<role> [PK] #FK to set<role>);
+
+employee();
+
+employee_list<branch>(employeeID:employee [PK] #FK to employee,list<branch>ID:list<branch> [PK] #FK to list<branch>);
+
+user(login:String, password:String, birth:Date, name:String, surname:String, middlename:String, phonenumber:String, email:String, overwritepassword:Boolean);
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

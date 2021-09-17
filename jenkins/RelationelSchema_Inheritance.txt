@@ -1,0 +1,17 @@
+
+tag(name:String);
+
+certificates_tags(tags_id:Tag [PK] #FK to Tag,certificates_id:set<certificate> [PK] #FK to set<certificate>);
+
+certificate(name:String, price:BigDecimal, description:String, duration:Integer, createdate:Instant, updatelastdate:Instant);
+
+certificates_tags(certificates_id:Certificate [PK] #FK to Certificate,tags_id:set<tag> [PK] #FK to set<tag>);
+
+user(name:String, surname:String, createdate:Instant, lastupdatedate:Instant, email:String, password:String, GeneratedName:Role, GeneratedName:Status);
+
+order(GeneratedName:User #FK to(user), totalsum:BigDecimal, count:Integer, createdate:Instant);
+
+orderitem(GeneratedName:Certificate #FK to(certificate), count:int, GeneratedName:Order #FK to(order), priceofcertificate:BigDecimal);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

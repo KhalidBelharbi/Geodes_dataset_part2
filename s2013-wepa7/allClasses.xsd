@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="stratotest" >
+      <xs:sequence>
+        <xs:element name="port" type="xs:string" />
+        <xs:element name="driver" type="xs:anyType" />
+        <xs:element name="baseurl" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="observations" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="points" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="index" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="context" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="observationservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpaobservationpointservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="observationpointrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="observationpointservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpaobservationservice" >
+      <xs:sequence>
+        <xs:element name="observationrepository" type="observationreposiory" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="observationcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="observationpointservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="observationservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="observationformobject" >
+      <xs:sequence>
+        <xs:element name="observationpointid" type="xs:long" />
+        <xs:element name="celsius" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="observationpointcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="observationpointservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="observationpoint" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="latitude" type="xs:long" />
+        <xs:element name="itude" type="xs:long" />
+        <xs:element name="observations" type="observation" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="observation" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="timestamp" type="xs:dateTime" />
+        <xs:element name="celsius" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="observationpoint" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="observationpointrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<observationpoint,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="observationreposiory" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<observation,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="foodrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<meal,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="promorepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<promo,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="locationrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<location,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="busrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<bus,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="triprepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<trip,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="vexereapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="meal" >
+      <xs:sequence>
+        <xs:element name="mealid" type="xs:long" />
+        <xs:element name="mealname" type="xs:string" />
+        <xs:element name="mealprice" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="location" >
+      <xs:sequence>
+        <xs:element name="locaid" type="xs:long" />
+        <xs:element name="locacode" type="xs:string" />
+        <xs:element name="locaname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="seat" >
+      <xs:sequence>
+        <xs:element name="seatnumber" type="xs:long" />
+        <xs:element name="busid" type="xs:long" />
+        <xs:element name="tripid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bus" >
+      <xs:sequence>
+        <xs:element name="busid" type="xs:long" />
+        <xs:element name="brand" type="busbrand" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="driver" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="driver" >
+      <xs:sequence>
+        <xs:element name="fullname" type="xs:string" />
+        <xs:element name="employeeid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="trip" >
+      <xs:sequence>
+        <xs:element name="tripid" type="xs:long" />
+        <xs:element name="tripname" type="xs:string" />
+        <xs:element name="departloca" type="xs:string" />
+        <xs:element name="desloca" type="xs:string" />
+        <xs:element name="departstation" type="xs:string" />
+        <xs:element name="busid" type="xs:long" />
+        <xs:element name="busbrand" type="xs:string" />
+        <xs:element name="seatavailable" type="xs:long" />
+        <xs:element name="price" type="xs:long" />
+        <xs:element name="startdatetime" type="xs:long" />
+        <xs:element name="arrivaldatetime" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="busbrand" >
+      <xs:sequence>
+        <xs:element name="brandid" type="xs:long" />
+        <xs:element name="brandname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="station" >
+      <xs:sequence>
+        <xs:element name="stationid" type="xs:long" />
+        <xs:element name="stationname" type="xs:string" />
+        <xs:element name="GeneratedName" type="location" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="promo" >
+      <xs:sequence>
+        <xs:element name="promoid" type="xs:long" />
+        <xs:element name="promocontent" type="xs:string" />
+        <xs:element name="busbrand" type="xs:long" />
+        <xs:element name="promoamount" type="xs:long" />
+        <xs:element name="promostart" type="xs:long" />
+        <xs:element name="promoend" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tripcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="triprepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mealcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="foodrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="buscontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="busrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="locationcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="locationrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="promocontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vexereapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

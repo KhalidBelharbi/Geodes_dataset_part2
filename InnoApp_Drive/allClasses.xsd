@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="nbdde" >
+      <xs:sequence>
+        <xs:element name="//proprietesnom" type="xs:string" />
+        <xs:element name="nbdde" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hibernateutil" >
+      <xs:sequence>
+        <xs:element name="session_factory" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testhibernate" >
+      <xs:sequence>
+        <xs:element name="/***constante.*//*-----formatdedate-----*/df" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="client" >
+      <xs:sequence>
+        <xs:element name="idcli" type="xs:long" />
+        <xs:element name="nomcli" type="xs:string" />
+        <xs:element name="prenomcli" type="xs:string" />
+        <xs:element name="emailcli" type="xs:string" />
+        <xs:element name="telcli" type="xs:string" />
+        <xs:element name="pointcli" type="xs:string" />
+        <xs:element name="commandes" type="commande" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lignecommandeid" >
+      <xs:sequence>
+        <xs:element name="idp" type="xs:long" />
+        <xs:element name="idcmd" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fournisseur" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nom" type="xs:string" />
+        <xs:element name="tel" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="magasin" >
+      <xs:sequence>
+        <xs:element name="idmag" type="xs:long" />
+        <xs:element name="nommag" type="xs:string" />
+        <xs:element name="adressemag" type="xs:string" />
+        <xs:element name="villemag" type="xs:string" />
+        <xs:element name="cpmagasin" type="xs:string" />
+        <xs:element name="telmag" type="xs:string" />
+        <xs:element name="commandes" type="commande" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="stockages" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="categorie" >
+      <xs:sequence>
+        <xs:element name="//proprietesidcat" type="xs:long" />
+        <xs:element name="libellecat" type="xs:string" />
+        <xs:element name="cat" type="rayon" nillable="true" minOccurs="0" />
+        <xs:element name="produits" type="produit" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="produit" >
+      <xs:sequence>
+        <xs:element name="idp" type="xs:long" />
+        <xs:element name="libellep" type="xs:string" />
+        <xs:element name="prixunitairep" type="xs:double" />
+        <xs:element name="prixkgp" type="xs:double" />
+        <xs:element name="nutriscorep" type="xs:string" />
+        <xs:element name="photop" type="xs:anyType" />
+        <xs:element name="labelp" type="xs:string" />
+        <xs:element name="formatp" type="xs:string" />
+        <xs:element name="conditionnementp" type="xs:string" />
+        <xs:element name="p" type="categorie" nillable="true" minOccurs="0" />
+        <xs:element name="lignecommandes" type="xs:anyType" />
+        <xs:element name="stockages" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commande" >
+      <xs:sequence>
+        <xs:element name="idcmd" type="xs:long" />
+        <xs:element name="cmd" type="xs:dateTime" />
+        <xs:element name="lignecommandes" type="xs:anyType" />
+        <xs:element name="cmd" type="client" nillable="true" minOccurs="0" />
+        <xs:element name="cmd" type="magasin" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rayon" >
+      <xs:sequence>
+        <xs:element name="//proprietesidray" type="xs:long" />
+        <xs:element name="libelleray" type="xs:string" />
+        <xs:element name="categories" type="categorie" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="panierid" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fournir" >
+      <xs:sequence>
+        <xs:element name="codef" type="fournirid" nillable="true" minOccurs="0" />
+        <xs:element name="qtefp" type="xs:long" />
+        <xs:element name="f" type="xs:dateTime" />
+        <xs:element name="s" type="produit" nillable="true" minOccurs="0" />
+        <xs:element name="s" type="magasin" nillable="true" minOccurs="0" />
+        <xs:element name="s" type="fournisseur" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fournirid" >
+      <xs:sequence>
+        <xs:element name="idp" type="xs:long" />
+        <xs:element name="idf" type="xs:long" />
+        <xs:element name="idmag" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stocker" >
+      <xs:sequence>
+        <xs:element name="//proprietes" type="stockerid" nillable="true" minOccurs="0" />
+        <xs:element name="qtesp" type="xs:long" />
+        <xs:element name="s" type="produit" nillable="true" minOccurs="0" />
+        <xs:element name="s" type="magasin" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stockerid" >
+      <xs:sequence>
+        <xs:element name="//proprietesidp" type="xs:long" />
+        <xs:element name="idmag" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lignecommande" >
+      <xs:sequence>
+        <xs:element name="ligneid" type="lignecommandeid" nillable="true" minOccurs="0" />
+        <xs:element name="qtecp" type="xs:long" />
+        <xs:element name="//relations" type="commande" nillable="true" minOccurs="0" />
+        <xs:element name="s" type="produit" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="servletdetailprod" >
+      <xs:complexContent>
+       <xs:extension base="httpservlet">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hibernate.cfg" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fctxml" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="web" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="context" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accueil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="connexion" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="index" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

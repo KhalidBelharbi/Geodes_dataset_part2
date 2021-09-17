@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="userjsontest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="overviewapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userinforepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<userinfo,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userdtorepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pagingandsortinguserrepository" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="redbookrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<redbook,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userextendrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<userextend,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userinfo2repository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<userinfo2,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bookcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="redbookrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="pagingandsortinguserrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userdtorepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userextendrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userinforepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userinfo2repository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userinfo" >
+      <xs:sequence>
+        <xs:element name="age" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="telephone" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bluebook" >
+      <xs:complexContent>
+       <xs:extension base="book">
+         <xs:sequence>
+          <xs:element name="bluemark" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userinfoid2" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="telephone" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="book" >
+      <xs:sequence>
+        <xs:element name="/***createtablebook(*colorvarchar(31)notnull,*idbigintgeneratedbydefaultasidentity,*titlevarchar(255),*blue_markvarchar(255),*red_markvarchar(255),*primarykey(id)*)*/id" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdto" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="idcard" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usersimpledto" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="redbook" >
+      <xs:complexContent>
+       <xs:extension base="book">
+         <xs:sequence>
+          <xs:element name="redmark" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userextend" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="idcard" type="xs:string" />
+        <xs:element name="age" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userinfoid" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="telephone" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userinfo2" >
+      <xs:sequence>
+        <xs:element name="age" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="userinfoid2" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="createdate" type="xs:anyType" />
+        <xs:element name="up" type="xs:dateTime" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="sex" type="xs:string" />
+        <xs:element name="other" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jacksonapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="useraddressrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<useraddress,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="sex" type="xs:string" />
+        <xs:element name="/***targetentity:对方对象的字节码对象（使用泛型时，可空）*/address" type="useraddress" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="useraddress" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="/***配置多对一关系*/" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="overviewapplication" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="useraddressrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="overviewapplication" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userinforepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userinfo" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="/***维护的外键关联关系，配置为一对一**altertable_info*addconstraintfkn8pl63y4abe7n0ls6topbqjh2*foreignkey(_id)*references*/" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="sex" type="xs:string" />
+        <xs:element name="/***配置双向关联关系，维护关联关系是拥有外键的一方（）,*只需在本实体类配置mappedby即可。*/" type="userinfo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userinforepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<userinfo,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

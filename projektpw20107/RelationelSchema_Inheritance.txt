@@ -1,0 +1,17 @@
+
+area(serialversionuid:long, idarea:long [PK], idareapoint:long, idchild:long, GeneratedName:AreaPoint);
+
+family(serialversionuid:long, idfamily:long [PK], idparent:long, idchild:long, child:Children #FK to(children), GeneratedName:Parent);
+
+parentsettings(serialversionuid:long, idparentsettings:long [PK], idparent:long, idchild:long, steptime:float);
+
+parent(serialversionuid:long, idparent:long [PK], shortedpassword:String, email:String, name:String, GeneratedName:ParentSettings);
+
+children(serialversionuid:long, idchild:long [PK], idarea:long, imei:String, name:String, ofbirth:Date, key:String, GeneratedName:Area);
+
+marker(serialversionuid:long, idmarker:long [PK], x:float, y:float, time:Date, child:Children #FK to(children));
+
+areapoint(serialversionuid:long, idareapoint:long [PK], idarea:long, x:float, y:float);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

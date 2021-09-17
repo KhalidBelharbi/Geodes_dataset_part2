@@ -1,0 +1,43 @@
+
+newsentity(title:String, descriptionpreview:String, description:String, alias:String, image:String, owner:UserEntity #FK to(userentity));
+
+eventreportentity(startevent:LocalDateTime, name:String, coveruri:String);
+
+userdatastatisticentity(appcodename:String, appname:String, appversion:String, cookieenabled:boolean, language:String, online:boolean, platform:String, seconds:int, useragent:String, localaddr:String, remoteaddr:String, protocol:String);
+
+clubeventticketprice(cost:BigDecimal, quantity:Long, type:EventTicketPriceType, event:EventEntity #FK to(evententity), startactivetime:LocalDateTime, endactivetime:LocalDateTime, modifiedby:UserEntity #FK to(userentity));
+
+bepaidrequest(requestid:String, method:String, url:String, requestbody:String, code:int, responsebody:String);
+
+settingsentity(key:String, value:String);
+
+menucategory(name:String, description:String, categorytype:Integer, parent:MenuCategory #FK to(menucategory));
+
+menuitemprice(starttime:LocalDateTime, endtime:LocalDateTime, value:BigDecimal, item:MenuItem #FK to(menuitem));
+
+menuitem(name:String, description:String, descriptionproportions:String, category:MenuCategory #FK to(menucategory));
+
+menuitempriceshasorders(count:int, order:MenuOrder #FK to(menuorder), itemprice:MenuItemPrice #FK to(menuitemprice));
+
+menuorder(name:String, surname:String, email:String, phone:String, GeneratedName:EventEntity #FK to(evententity), arrivaltime:String, people:Integer, description:String, tablenumber:Integer, uuid:String, token:String, paystatus:GatewayStatus, uid:String);
+
+evententity(starteventfieldname:String, costtext:String, description:String, startevent:LocalDateTime, endevent:LocalDateTime, name:String, coveruri:String, recommendation:Boolean, republicpay:Boolean, costdance:BigDecimal, costtableplace:BigDecimal, alias:String, cost:BigDecimal, buyticketurl:String);
+
+event_concert_access(event_id:EventEntity [PK] #FK to EventEntity,user_id:list<userentity> [PK] #FK to list<userentity>);
+
+userentity(username:String, password:String, enabled:Boolean, name:String, surname:String, email:String, phone:String, fathername:String, birthday:OffsetDateTime, accountnonexpired:Boolean, accountnonlocked:Boolean, credentialsnonexpired:Boolean);
+
+feedbackentity(name:String, email:String, phone:String, description:String);
+
+eventreportimageentity(eventreport:EventReportEntity #FK to(eventreportentity), imageurl:String, size:String, width:Long, height:Long);
+
+fileentity(filepath:String, user:UserEntity #FK to(userentity));
+
+orderitementity(GeneratedName:OrderEntity #FK to(orderentity), tablenumber:int, place:int);
+
+orderentity(name:String, surname:String, email:String, phone:String, GeneratedName:EventEntity #FK to(evententity), description:String, uuid:String, token:String, paystatus:GatewayStatus, uid:String, totalorder:BigDecimal, //paidvaluesdance:Long, entertime:LocalDateTime, acceptor:UserEntity #FK to(userentity), bookuser:UserEntity #FK to(userentity), GeneratedName:TicketType);
+
+authorityentity(serialversionuid:long, authority:String, username:String, user:UserEntity #FK to(userentity));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

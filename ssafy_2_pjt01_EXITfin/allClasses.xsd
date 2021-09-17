@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwtservice" >
+      <xs:sequence>
+        <xs:element name="salt" type="xs:string" />
+        <xs:element name="expiremin" type="xs:long" />
+        <xs:element name="GeneratedName" type="userdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mailsendservice" >
+      <xs:sequence>
+        <xs:element name="lowercheck" type="xs:anyType" />
+        <xs:element name="size" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basicresponse" >
+      <xs:sequence>
+        <xs:element name="status" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="heartpk" >
+      <xs:sequence>
+        <xs:element name="bid" type="xs:string" />
+        <xs:element name="uid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="uid" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="createdate" type="xs:anyType" />
+        <xs:element name="userkey" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="heart" >
+      <xs:sequence>
+        <xs:element name="bid" type="xs:string" />
+        <xs:element name="uid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authenticationrequest" >
+      <xs:sequence>
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="comment" >
+      <xs:sequence>
+        <xs:element name="idx" type="xs:long" />
+        <xs:element name="board_idx" type="xs:long" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="writer" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="board" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="subject" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="created" type="xs:dateTime" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="uid" type="xs:string" />
+        <xs:element name="tag" type="xs:string" />
+        <xs:element name="hit" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="post" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="subject" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="created" type="xs:dateTime" />
+        <xs:element name="uid" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="tag" type="xs:string" />
+        <xs:element name="hit" type="xs:long" />
+        <xs:element name="lnt" type="xs:long" />
+        <xs:element name="cnt" type="xs:long" />
+        <xs:element name="ilike" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="signuprequest" >
+      <xs:sequence>
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="nickname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="boarddao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<board,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="heartdao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<heart,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userdao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="commentdao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<comment,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="webmvcconfig" >
+      <xs:sequence>
+        <xs:element name="max_age_secs" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="swaggerconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="webblogapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="heartcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="heartdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="searchcontroller" >
+      <xs:sequence>
+        <xs:element name="dao" type="boarddao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accountcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="jwtservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="mailsendservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="boardcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="boarddao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="heartdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

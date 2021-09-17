@@ -1,0 +1,19 @@
+
+vet();
+
+vet_specialties(vet_id:Vet [PK] #FK to Vet,specialty_id:set<specialty> [PK] #FK to set<specialty>);
+
+owner(address:String, city:String, telephone:String);
+
+user(id:Long [PK], name:String, age:int);
+
+pet(birth:Date, type:PetType #FK to(pettype), GeneratedName:Owner #FK to(owner));
+
+pettype();
+
+visit(/***holdsvalueofproperty.*/:Date, /***holdsvalueofpropertydescription.*/description:String, /***holdsvalueofproperty.*/:Pet #FK to(pet));
+
+specialty();
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

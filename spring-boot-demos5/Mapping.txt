@@ -1,0 +1,12 @@
+ClassDiagram.Class>> Role =>=>=> RelationalSchema.Table>> role;
+ClassDiagram.Class>> Hello =>=>=> RelationalSchema.Table>> hello;
+ClassDiagram.Class>> User =>=>=> RelationalSchema.Table>> user;
+ClassDiagram.Attribut>> Role.id:Long =>=>=> RelationalSchema.Column>> role.id PRIMARY KEY;
+ClassDiagram.Attribut>> Role.name:String =>=>=> RelationalSchema.Column>> role.name;
+ClassDiagram.Attribut>> Hello.id:Long =>=>=> RelationalSchema.Column>> hello.id PRIMARY KEY;
+ClassDiagram.Attribut>> Hello.greeting:String =>=>=> RelationalSchema.Column>> hello.greeting;
+ClassDiagram.Attribut>> User.id:Long =>=>=> RelationalSchema.Column>> user.id PRIMARY KEY;
+ClassDiagram.Attribut>> User.username:String =>=>=> RelationalSchema.Column>> user.username;
+ClassDiagram.Attribut>> User.name:String =>=>=> RelationalSchema.Column>> user.name;
+Many-To-Many relationship between ClassDiagram.Class>>Role  and ClassDiagram.Class>>set<user>: user_roles(role_id:Role [PK] #FK to Role,user_id:set<user> [PK] #FK to set<user>);
+Many-To-Many relationship between ClassDiagram.Class>>User  and ClassDiagram.Class>>set<role>: user_roles(user_id:User [PK] #FK to User,role_id:set<role> [PK] #FK to set<role>);

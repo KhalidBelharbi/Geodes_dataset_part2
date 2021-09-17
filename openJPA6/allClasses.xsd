@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="xmlconfiguration" >
+      <xs:complexContent>
+       <xs:extension base="openjpaconfigurationimpl">
+         <xs:sequence>
+          <xs:element name="//sharedresources_store" type="xmlstore" nillable="true" minOccurs="0" />
+          <xs:element name="_handler" type="xmlfilehandler" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="xmlfilehandler" >
+      <xs:complexContent>
+       <xs:extension base="defaulthandler">
+         <xs:sequence>
+          <xs:element name="_conf" type="xmlconfiguration" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="xmlstore" >
+      <xs:sequence>
+        <xs:element name="_conf" type="xmlconfiguration" nillable="true" minOccurs="0" />
+        <xs:element name="//eachkeyintheisaleast-derivedclassmetadataobject,andeach//valueisaofoidstoobjectdatasrepresentingtheinstancesof//thatclass,includingsubclasses_metaoids" type="xs:anyType" />
+        <xs:element name="//storegetslockedduringtransactions_locked" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="objectdata" >
+      <xs:sequence>
+        <xs:element name="_oid" type="xs:anyType" />
+        <xs:element name="_data" type="xs:anyType" />
+        <xs:element name="_version" type="xs:long" />
+        <xs:element name="_meta" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="xmlstoremanager" >
+      <xs:complexContent>
+       <xs:extension base="abstractstoremanager">
+         <xs:sequence>
+          <xs:element name="_conf" type="xmlconfiguration" nillable="true" minOccurs="0" />
+          <xs:element name="_store" type="xmlstore" nillable="true" minOccurs="0" />
+          <xs:element name="//changeddatawithinthecurrenttransaction_updates" type="objectdata" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="_deletes" type="objectdata" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="place" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="location" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="allfieldtypes" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="//@basictypesfield" type="xs:long" />
+        <xs:element name="field" type="xs:long" />
+        <xs:element name="field" type="xs:anyType" />
+        <xs:element name="field" type="xs:long" />
+        <xs:element name="field" type="xs:double" />
+        <xs:element name="field" type="xs:anyType" />
+        <xs:element name="field" type="xs:double" />
+        <xs:element name="field" type="xs:anyType" />
+        <xs:element name="wfield" type="xs:long" />
+        <xs:element name="wfield" type="xs:anyType" />
+        <xs:element name="wfield" type="xs:anyType" />
+        <xs:element name="wfield" type="xs:long" />
+        <xs:element name="wfield" type="xs:double" />
+        <xs:element name="wfield" type="xs:anyType" />
+        <xs:element name="wfield" type="xs:double" />
+        <xs:element name="wfield" type="xs:anyType" />
+        <xs:element name="field" type="xs:anyType" />
+        <xs:element name="field" type="xs:anyType" />
+        <xs:element name="field" type="xs:string" />
+        <xs:element name="field" type="xs:dateTime" />
+        <xs:element name="field" type="xs:anyType" />
+        <xs:element name="sqldatefield" type="xs:anyType" />
+        <xs:element name="sqltimefield" type="xs:anyType" />
+        <xs:element name="sqltimestampfield" type="xs:anyType" />
+        <xs:element name="lob" type="xs:anyType" />
+        <xs:element name="wlob" type="xs:anyType" />
+        <xs:element name="lob" type="xs:anyType" />
+        <xs:element name="wlob" type="xs:anyType" />
+        <xs:element name="enumfield" type="xs:anyType" />
+        <xs:element name="field" type="xs:anyType" />
+        <xs:element name="//additionaltypessetofstrings" type="xs:anyType" />
+        <xs:element name="arrayofs" type="xs:string" />
+        <xs:element name="arrayofs" type="xs:long" />
+        <xs:element name="//one-to-oneandone-to-manyrelationstoselfselfoneone" type="allfieldtypes" nillable="true" minOccurs="0" />
+        <xs:element name="selfonemany" type="allfieldtypes" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testpersistence" >
+      <xs:complexContent>
+       <xs:extension base="abstractpersistencetestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

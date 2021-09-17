@@ -1,0 +1,19 @@
+
+companysize(id:long [PK], value:String);
+
+role(id:Long [PK], name:String);
+
+company(id:long [PK], companyname:String, website:String, about:String, city:String, location:int, industryid:int, numbere:int, transient:Industry, GeneratedName:Countries #FK to(countries), GeneratedName:CompanySize #FK to(companysize), GeneratedName:User #FK to(user));
+
+user(id:Long [PK], username:String, password:String);
+
+user_role(user_id:User [PK] #FK to User,role_id:set<role> [PK] #FK to set<role>);
+
+countries(id:long, name:String, company:Set<Company>);
+
+industry(id:long [PK], industryname:String);
+
+job(id:long, position:String, description:String, minimumexperienceyears:int, category:String, minimumdegree:String, slots:int, companyid:int, title:String, contrat:String, city:String, country:String, published:Date, GeneratedName:Company);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

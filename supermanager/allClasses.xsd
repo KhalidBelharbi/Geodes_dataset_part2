@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="privateleaguerepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<playerleaguestateentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="playerleaguestateentity" >
+      <xs:sequence>
+        <xs:element name="matchnumber" type="xs:long" />
+        <xs:element name="team" type="xs:string" />
+        <xs:element name="stat" type="xs:string" />
+        <xs:element name="points" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="privateleaguestatsservice" >
+      <xs:sequence>
+        <xs:element name="matchservice" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="leaguerepositoryleaguerepository" type="privateleaguerepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="playerleaguestateid" >
+      <xs:sequence>
+        <xs:element name="matchnumber" type="xs:long" />
+        <xs:element name="team" type="xs:string" />
+        <xs:element name="stat" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rdmsmteamservice" >
+      <xs:sequence>
+        <xs:element name="next_matches" type="xs:long" />
+        <xs:element name="team_rdm" type="xs:string" />
+        <xs:element name="matchservice" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="viewermatch" >
+      <xs:sequence>
+        <xs:element name="againstteam" type="xs:anyType" />
+        <xs:element name="local" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="viewerplayer" >
+      <xs:sequence>
+        <xs:element name="player" type="xs:anyType" />
+        <xs:element name="matches" type="viewermatch" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userteamviewdata" >
+      <xs:sequence>
+        <xs:element name="playerlist" type="viewerplayer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="score" type="xs:double" />
+        <xs:element name="computedscore" type="xs:double" />
+        <xs:element name="usedplayers" type="xs:long" />
+        <xs:element name="meanscoreperplayer" type="xs:double" />
+        <xs:element name="scoreprediction" type="xs:double" />
+        <xs:element name="cash" type="xs:string" />
+        <xs:element name="teambroker" type="xs:string" />
+        <xs:element name="totalbroker" type="xs:string" />
+        <xs:element name="teamurl" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="teamcontroller" >
+      <xs:sequence>
+        <xs:element name="matchservice" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="privateleaguecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="leaguestatsserviceleaguestatsservice" type="privateleaguestatsservice" nillable="true" minOccurs="0" />
+        <xs:element name="matchservice" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="usercredentialsholder" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="playercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cachecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="smuserteamservice" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="usercredentialsholder" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="rdmsmteamservice" nillable="true" minOccurs="0" />
+        <xs:element name="matchservice" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="globalexceptionhandler" >
+      <xs:sequence>
+        <xs:element name="default_error_view" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="velocityautoconfiguration" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dbconfig" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="applicationconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="smconstants" >
+      <xs:sequence>
+        <xs:element name="max_games" type="xs:long" />
+        <xs:element name="//todo:createenumsvisitor" type="xs:string" />
+        <xs:element name="local" type="xs:string" />
+        <xs:element name="teamids" type="xs:string" />
+        <xs:element name="not_playing_match" type="xs:string" />
+        <xs:element name="not_playing_match_text" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercredentialsholder" >
+      <xs:sequence>
+        <xs:element name="credentialsmap" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="smuser" >
+      <xs:sequence>
+        <xs:element name="login" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="teamtable" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-theme.min.css" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap.min.css" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap.css" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-theme.css" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="glyphicons-halflings-regular" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="urlslocal" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logback" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="privateleaguestatsservicetest" >
+      <xs:sequence>
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="user" type="xs:string" />
+        <xs:element name="leaguestatsserviceleaguestatsservice" type="privateleaguestatsservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="h2testjpaconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datautilstest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="aliyunossentity" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="/***主键id*/id" type="xs:string" />
+        <xs:element name="/***资源授权键id*/accesskeyid" type="xs:string" />
+        <xs:element name="/***资源授权键秘密*/accesskeysecret" type="xs:string" />
+        <xs:element name="/***资源存储通桶*/bucket" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hdfsentity" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="/***主键id*/id" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="minioentity" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="/***主键id*/id" type="xs:string" />
+        <xs:element name="/***资源授权键id*/accesskeyid" type="xs:string" />
+        <xs:element name="/***资源授权键秘密*/accesskeysecret" type="xs:string" />
+        <xs:element name="/***资源存储通桶*/bucket" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="attributesentity" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cephentity" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="/***主键id*/id" type="xs:string" />
+        <xs:element name="sotimeout" type="xs:long" />
+        <xs:element name="connecttimeout" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fastdfsentity" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="/***主键id*/id" type="xs:string" />
+        <xs:element name="sotimeout" type="xs:long" />
+        <xs:element name="connecttimeout" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tencentcloudcosentity" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="/***主键id*/id" type="xs:string" />
+        <xs:element name="/***区域*这个参数只有腾讯云使用*阿里云无需此参数*/region" type="xs:string" />
+        <xs:element name="/***限流单位*这个参数只有腾讯云使用*阿里云无需此参数*/trafficlimit" type="xs:long" />
+        <xs:element name="/***资源授权键id*/accesskeyid" type="xs:string" />
+        <xs:element name="/***资源授权键秘密*/accesskeysecret" type="xs:string" />
+        <xs:element name="/***资源存储通桶*/bucket" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resourcecontainerentity" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="/***主键id*/id" type="xs:string" />
+        <xs:element name="/***资源名称*/name" type="xs:string" />
+        <xs:element name="/***创建时间*/createtime" type="xs:dateTime" />
+        <xs:element name="/***资源状态*/status" type="xs:long" />
+        <xs:element name="/***资源服务域名终结点url地址*endpoint" type="xs:string" />
+        <xs:element name="/***存储类型*1为图片*2为视频*4为文档*8为压缩文件*16为数据库*32为其它文件*参数值可以做组合值*/type" type="xs:long" />
+        <xs:element name="/***提供者*0为阿里云*1为腾讯云*2为fastdfs*3为hadoophdfs*4为minio*/provider" type="xs:long" />
+        <xs:element name="ossentity" type="aliyunossentity" nillable="true" minOccurs="0" />
+        <xs:element name="cloudcosentity" type="tencentcloudcosentity" nillable="true" minOccurs="0" />
+        <xs:element name="dfsentity" type="fastdfsentity" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hdfsentity" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="minioentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

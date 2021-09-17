@@ -1,0 +1,19 @@
+
+pobject(id:long [PK], value:int, idcounter:AtomicLong);
+
+country(name:String [PK], population:long, version:int);
+
+car(vin:String [PK], model:String, maker:Manufacturer #FK to(manufacturer));
+
+person(id:long [PK], name:String, version:long, GeneratedName:Address #FK to(address));
+
+replicatedchild(name:String [PK], parent:ReplicatedParent #FK to(replicatedparent));
+
+manufacturer(name:String [PK]);
+
+replicatedparent(name:String [PK]);
+
+address(id:long [PK], city:String, zip:int, GeneratedName:Country #FK to(Country), owner:Person #FK to(person), version:long);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

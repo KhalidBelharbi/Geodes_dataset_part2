@@ -1,0 +1,9 @@
+ClassDiagram.Class>> Meeting =>=>=> RelationalSchema.Table>> meeting;
+ClassDiagram.Class>> Participant =>=>=> RelationalSchema.Table>> participant;
+ClassDiagram.Attribut>> Meeting.id:long =>=>=> RelationalSchema.Column>> meeting.id PRIMARY KEY;
+ClassDiagram.Attribut>> Meeting.title:String =>=>=> RelationalSchema.Column>> meeting.title;
+ClassDiagram.Attribut>> Meeting.description:String =>=>=> RelationalSchema.Column>> meeting.description;
+ClassDiagram.Attribut>> Meeting.date:String =>=>=> RelationalSchema.Column>> meeting.date;
+ClassDiagram.Attribut>> Participant.login:String =>=>=> RelationalSchema.Column>> participant.login PRIMARY KEY;
+ClassDiagram.Attribut>> Participant.password:String =>=>=> RelationalSchema.Column>> participant.password;
+Many-To-Many relationship between ClassDiagram.Class>>Meeting  and ClassDiagram.Class>>set<participant>: meeting_participant(meeting_id:Meeting [PK] #FK to Meeting,participant_login:set<participant> [PK] #FK to set<participant>);
